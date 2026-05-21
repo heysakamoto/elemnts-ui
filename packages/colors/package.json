@@ -1,56 +1,56 @@
 {
-  "name": "@moto-ui/colors",
-  "version": "0.0.2",
-  "sideEffects": false,
-  "keywords": [
-    "colors",
-    "moto",
-    "moto-ui",
-    "tailwindcss",
-    "design-system",
-    "ui"
-  ],
-  "description": "A comprehensive color library inspired by TailwindCSS v4, offering a wide range of colors and extended shades for modern web development.",
-  "author": {
-    "name": "heysakamoto"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heysakamoto/moto-ui.git",
-    "directory": "packages/colors"
-  },
-  "license": "MIT",
-  "files": [
-    "dist",
-    "package.json",
-    "readme.md"
-  ],
-  "type": "module",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/types/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
-    },
-    "./*": {
-      "types": "./dist/types/variants/*.d.ts",
-      "import": "./dist/esm/variants/*.js",
-      "require": "./dist/cjs/variants/*.js"
-    }
-  },
-  "devDependencies": {
-    "tsup": "^8.5.1"
-  },
-  "scripts": {
-    "compile": "tsc",
-    "lint": "biome lint .",
-    "prepublishOnly": "pnpm run build",
-    "build": "tsup && pnpm run compile"
-  }
+	"name": "@moto-ui/colors",
+	"version": "0.0.2",
+	"sideEffects": false,
+	"keywords": [
+		"colors",
+		"moto",
+		"moto-ui",
+		"tailwindcss",
+		"design-system",
+		"ui"
+	],
+	"description": "A comprehensive color library inspired by TailwindCSS v4, offering a wide range of colors and extended shades for modern web development.",
+	"author": {
+		"name": "heysakamoto"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/heysakamoto/moto-ui.git",
+		"directory": "packages/colors"
+	},
+	"license": "MIT",
+	"files": [
+		"dist",
+		"package.json",
+		"readme.md"
+	],
+	"type": "module",
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm/index.js",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/esm/index.js",
+			"require": "./dist/cjs/index.js"
+		},
+		"./*": {
+			"types": "./dist/types/variants/*.d.ts",
+			"import": "./dist/esm/variants/*.js",
+			"require": "./dist/cjs/variants/*.js"
+		}
+	},
+	"devDependencies": {
+		"tsup": "^8.5.1"
+	},
+	"scripts": {
+		"compile": "tsc",
+		"lint": "biome lint .",
+		"prepublishOnly": "pnpm run build",
+		"build": "tsup && pnpm run compile"
+	}
 }

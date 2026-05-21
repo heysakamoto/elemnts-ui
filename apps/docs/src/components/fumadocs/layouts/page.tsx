@@ -8,7 +8,7 @@ import {
 	Stack,
 	Text,
 } from "@moto-ui/react";
-import { ClientOnly, Link } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { type PropsWithChildren, useEffect } from "react";
 import { AICopyButton } from "@/components/fumadocs/layouts/ai-copy-button";
 import { AIMenu } from "@/components/fumadocs/layouts/ai-menu";
@@ -112,10 +112,8 @@ export function Title(props: TitleProps) {
 				variant="surface"
 				colorPalette="neutral"
 			>
-				<ClientOnly>
-					<AICopyButton />
-					<AIMenu />
-				</ClientOnly>
+				<AICopyButton />
+				<AIMenu />
 			</ButtonGroup>
 		</Stack>
 	);
