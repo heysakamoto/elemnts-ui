@@ -1,5 +1,10 @@
+import preview from "@.storybook/preview";
 import { ButtonGroup } from "@moto-ui/react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Basic",
+	component: ButtonGroup,
+});
 
 export const Basic = meta.story({
 	render: () => (

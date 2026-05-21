@@ -28,6 +28,9 @@ const meta = preview.meta({
 });
 
 export const Disabled = meta.story({
+	args: {
+		defaultValue: "overview",
+	},
 	parameters: {
 		docs: {
 			description: {

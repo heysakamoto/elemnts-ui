@@ -17,6 +17,9 @@ const meta = preview.meta({
 });
 
 export const Sizes = meta.story({
+	args: {
+		orientation: "horizontal",
+	},
 	parameters: {
 		docs: {
 			description: {

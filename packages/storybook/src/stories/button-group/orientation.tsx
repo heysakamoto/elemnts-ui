@@ -1,5 +1,10 @@
+import preview from "@.storybook/preview";
 import { ButtonGroup, Container, Icon, Stack } from "@moto-ui/react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Orientation",
+	component: ButtonGroup,
+});
 
 export const Orientation = meta.story({
 	parameters: {

@@ -15,17 +15,16 @@ export const PseudoProps = meta.story({
 			},
 		},
 	},
-	args: {
-		p: "4",
-		boxSize: "48",
-		rounded: "24",
-		bgColor: "bg.secondary",
-		_hover: {
-			bgColor: "gray.30",
-		},
-		_active: {
-			shadow: "0 0 0 2px {colors.accent.primary}",
-		},
-	},
-	render: (args) => <Box {...args} />,
+	args: {},
+	render: (args) => (
+		<Box
+			{...args}
+			p="4"
+			boxSize="48px"
+			rounded="24"
+			bgColor="bg.secondary"
+			_hover={{ bgColor: "gray.30" }}
+			_active={{ shadow: "0 0 0 2px {colors.accent.primary}" }}
+		/>
+	),
 });
