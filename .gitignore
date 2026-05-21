@@ -1,7 +1,6 @@
 # --- Node.js & Package Managers ---
 node_modules/
 .npm/
-pnpm-lock.yaml
 .pnpm-debug.log*
 
 # --- pnpm Specific ---
