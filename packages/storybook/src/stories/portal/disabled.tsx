@@ -1,5 +1,5 @@
+import preview from "@.storybook/preview";
 import { Container, Portal, Surface } from "@moto-ui/react";
-import { preview } from "../../../.storybook/preview";
 
 const meta = preview.meta({
 	title: "Disabled",
