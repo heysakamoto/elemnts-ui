@@ -19,7 +19,7 @@ export * from "./red";
 export * from "./rose";
 export * from "./sky";
 export * from "./slate";
-export * from "./spalette";
+export * from "./stone";
 export * from "./taupe";
 export * from "./teal";
 export * from "./violet";
