@@ -1,4 +1,6 @@
 // import { devtools } from "@tanstack/devtools-vite";
+
+import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import mdx from "fumadocs-mdx/vite";
@@ -19,6 +21,7 @@ const config = defineConfig({
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
+		cloudflare({ viteEnvironment: { name: "ssr" } }),
 	],
 });
 
