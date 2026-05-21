@@ -6,7 +6,7 @@
     "biome:check": "biome check",
     "biome:fix": "biome check --write",
     "build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/storybook\" --filter \"!@moto-ui/docs\" build",
-    "version-packages": "changeset version && pnpm install --no-frozen-lockfile",
+    "version-packages": "changeset version",
     "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
