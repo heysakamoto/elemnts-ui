@@ -25,6 +25,9 @@ const meta = preview.meta({
 });
 
 export const Vertical = meta.story({
+	args: {
+		defaultValue: "overview",
+	},
 	parameters: {
 		docs: {
 			description: {

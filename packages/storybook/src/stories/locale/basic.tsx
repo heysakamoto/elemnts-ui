@@ -7,6 +7,9 @@ const meta = preview.meta({
 });
 
 export const Basic = meta.story({
+	args: {
+		locale: "en-US",
+	},
 	parameters: {
 		docs: {
 			description: {
@@ -28,7 +31,3 @@ export const Basic = meta.story({
 		</Stack>
 	),
 });
-
-Basic.args = {
-	locale: "ja-JP",
-};

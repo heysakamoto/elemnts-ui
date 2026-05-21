@@ -1,5 +1,10 @@
+import preview from "@.storybook/preview";
 import { Icon, Item, ToggleGroup } from "@moto-ui/react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Attached",
+	component: ToggleGroup,
+});
 
 export const Attached = meta.story({
 	parameters: {

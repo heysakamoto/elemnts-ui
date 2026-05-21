@@ -1,5 +1,10 @@
+import preview from "@.storybook/preview";
 import { ButtonGroup, Container, Stack } from "@moto-ui/react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Palettes",
+	component: ButtonGroup,
+});
 
 export const Palettes = meta.story({
 	parameters: {

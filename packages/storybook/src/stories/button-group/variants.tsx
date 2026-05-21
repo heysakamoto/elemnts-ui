@@ -1,6 +1,11 @@
+import preview from "@.storybook/preview";
 import { ButtonGroup, Container, SegmentGroup, Stack } from "@moto-ui/react";
 import { useState } from "react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Variants",
+	component: ButtonGroup,
+});
 
 const variants = ["secondary", "tertiary"];
 type Variant = ButtonGroup["RootProps"]["variant"];

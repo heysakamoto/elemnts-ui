@@ -19,6 +19,9 @@ function Data() {
 }
 
 export const RTL = meta.story({
+	args: {
+		locale: "ar-EG",
+	},
 	parameters: {
 		docs: {
 			description: {
@@ -35,7 +38,3 @@ export const RTL = meta.story({
 		</Container>
 	),
 });
-
-RTL.args = {
-	locale: "ar-EG",
-};
