@@ -7,11 +7,10 @@
   },
   "scripts": {
     "dev": "vite dev",
+    "test": "vitest run",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run",
-    "format": "biome format",
-    "lint": "biome lint",
+    "deploy": "pnpm build && wrangler deploy",
     "check": "biome check"
   },
   "dependencies": {
@@ -37,6 +36,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.37.3",
     "@pandacss/dev": "^1.9.1",
     "@tanstack/devtools-vite": "latest",
     "@testing-library/dom": "^10.4.1",
@@ -51,6 +51,7 @@
     "vite": "^7.3.1",
     "vite-plugin-svgr": "^5.2.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.5"
+    "vitest": "^3.0.5",
+    "wrangler": "^4.93.1"
   }
 }
