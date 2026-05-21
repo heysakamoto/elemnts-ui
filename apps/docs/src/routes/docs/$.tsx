@@ -62,16 +62,11 @@ const clientLoader = browserCollections.docs.createClientLoader({
 
 function Page() {
 	const data = useFumadocsLoader(Route.useLoaderData());
-
-	if (!data) return null;
+	const content = clientLoader.useContent(data?.path);
 
 	return (
 		<DocsLayout pageTree={data.pageTree}>
-			<Suspense>{data.path ? <MDXContent path={data.path} /> : null}</Suspense>
+			<Suspense fallback={null}>{content}</Suspense>
 		</DocsLayout>
 	);
-}
-
-function MDXContent({ path }: { path: string }) {
-	return clientLoader.useContent(path);
 }

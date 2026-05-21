@@ -11,6 +11,7 @@ import * as MdxConfig from "./source.config";
 
 const config = defineConfig({
 	plugins: [
+		// cloudflare({ viteEnvironment: { name: "ssr" } }),
 		// devtools(),
 		mdx(MdxConfig),
 		svgr({ include: "**/*.svg?react" }),
@@ -21,7 +22,6 @@ const config = defineConfig({
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
-		cloudflare({ viteEnvironment: { name: "ssr" } }),
 	],
 });
 

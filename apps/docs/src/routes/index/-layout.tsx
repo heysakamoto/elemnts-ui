@@ -135,7 +135,7 @@ function MobileMenu() {
 						<Icon
 							width={16}
 							height={16}
-							icon="tabler:layout-sidebar"
+							icon="tabler:layout-sidebar-right"
 						/>
 					</Button>
 				);

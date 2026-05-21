@@ -168,8 +168,8 @@ export function Header() {
 										>
 											<Icon
 												icon="tabler:search"
-												width={18}
-												height={18}
+												width={16}
+												height={16}
 											/>
 										</Button>
 									}

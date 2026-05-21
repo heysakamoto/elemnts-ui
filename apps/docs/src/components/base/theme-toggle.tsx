@@ -35,8 +35,8 @@ export function ThemeToggle(props: ThemeToggleProps) {
 						{...props}
 					>
 						<Icon
-							width={20}
-							height={20}
+							width={16}
+							height={16}
 							icon={theme === "dark" ? "tabler:sun" : "tabler:moon"}
 						/>
 					</Button>

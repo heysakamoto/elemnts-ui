@@ -55,7 +55,8 @@ export function AIMenu() {
 	const { open, setOpen } = useLockedDisclosure();
 	const pathname = useLocation({ select: (l) => l.pathname });
 
-	const url = `${window.location.origin}${pathname}`;
+	const VITE_URL = import.meta.env.VITE_URL;
+	const url = `${VITE_URL}${pathname}`;
 
 	return (
 		<Menu
