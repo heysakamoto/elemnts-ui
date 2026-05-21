@@ -1,5 +1,13 @@
 # @moto-ui/preset-base
 
+## 0.0.2
+
+### Patch Changes
+
+- ae40709: Update setup instructions in @moto-ui/react package README with complete step-by-step Panda CSS
+- Updated dependencies [ae40709]
+  - @moto-ui/colors@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
