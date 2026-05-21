@@ -20,45 +20,6 @@ It utilizes **Panda CSS** to parse preset configurations and output optimized Re
 
 ---
 
-## 📦 Role in the Monorepo
-
-```mermaid
-graph TD
-    A[@moto-ui/colors] -->|Imports| B[@moto-ui/preset-base]
-    B -->|Presets Configuration| C[@moto-ui/styled-system]
-    C -->|Styles & Types| D[@moto-ui/react]
-    D -->|Components| E[apps/docs & Apps]
-```
-
-1. **Preset Input**: Imports design configurations from `@moto-ui/preset-base`.
-2. **styled-system compilation**: Compiles tokens, keyframes, and recipes into `dist/`.
-3. **React consumption**: `@moto-ui/react` consumes `@moto-ui/styled-system/jsx` and recipes to build styled components.
-
----
-
-## 🚀 Compilation & Regeneration
-
-Whenever presets, token values, or recipes inside `@moto-ui/preset-base` are modified, you must regenerate the styling system package:
-
-```bash
-# Build the styled system from the root workspace
-pnpm --filter @moto-ui/styled-system build
-```
-
-This will trigger `panda` to generate files inside `dist/`.
-
----
-
-## 🛠️ Development & Scripts
-
-Inside the `packages/styled-system` directory:
-
-- **Build**: `pnpm run build` — Compiles styled tokens, CSS files, and TS definitions into the `dist/` directory.
-- **Develop**: `pnpm run dev` — Runs `panda --watch` to monitor and compile styled declarations automatically.
-- **Clean**: `pnpm run clean` — Removes built files.
-
----
-
 ## 📄 License
 
-Part of the Moto UI workspace. Distributed under the MIT License. See root `LICENSE` for details.
+Part of the Moto UI workspace. Distributed under the MIT License. See repository `LICENSE` for details.

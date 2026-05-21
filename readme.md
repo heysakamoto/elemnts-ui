@@ -165,6 +165,31 @@ export default defineConfig({
 
 ```
 
+## Project Structure
+
+The Moto UI project is organized into the following packages:
+
+- **`packages/preset-base`**: The base preset for Moto UI, providing shared design tokens and configurations.
+- **`packages/styled-system`**: Compiles styled tokens, CSS files, and TS definitions into the `dist/` directory.
+- **`packages/react`**: : Provides React components and hooks for building styled UI with Moto UI.
+- **`packages/storybook`**: Provides Storybook configuration for Moto UI components.
+
+---
+
+## 📦 Role in the Monorepo
+
+```mermaid
+graph TD
+    A[@moto-ui/colors] -->|Imports| B[@moto-ui/preset-base]
+    B -->|Presets Configuration| C[@moto-ui/styled-system]
+    C -->|Styles & Types| D[@moto-ui/react]
+    D -->|Components| E[apps/docs & Apps]
+```
+
+1. **Preset Input**: Imports design configurations from `@moto-ui/preset-base`.
+2. **styled-system compilation**: Compiles tokens, keyframes, and recipes into `dist/`.
+3. **React consumption**: `@moto-ui/react` consumes `@moto-ui/styled-system/jsx` and recipes to build styled components.
+
 ---
 
 ## 🤝 Contributing

@@ -44,40 +44,11 @@ export default defineConfig({
   // Extend and apply the Moto UI base preset
   presets: [basePreset],
 
-  // Ensure all recipes are compiled
-  staticCss: {
-    recipes: "*",
-  },
-
+  // Include all source files for compilation
   include: ["./src/**/*.{js,jsx,ts,tsx}"],
 });
 ```
 
----
-
-## 📂 Project Structure
-
-- **`src/conditions.ts`** — Customized states and selectors (e.g., active, hover, dark mode).
-- **`src/global-css.ts`** — Reset styles and baseline global styles for high-fidelity rendering.
-- **`src/keyframes.ts`** — Custom keyframe animations for smooth, premium UI transitions.
-- **`src/theme/tokens`** — Design tokens including spacing, radii, font-sizes, colors, and shadow values.
-- **`src/theme/recipes`** — Single-part component styling recipes (e.g., `buttonRecipe`, `badgeRecipe`).
-- **`src/theme/slot-recipes`** — Multi-part (compound) component recipes (e.g., `accordionRecipe`, `selectRecipe`).
-- **`src/utilities.ts`** — Direct CSS utility mappings.
-
----
-
-## 🛠️ Development & Scripts
-
-Inside the `packages/preset-base` directory, the following commands are available:
-
-- **Build**: `pnpm run build` — Cleans old artifacts, compiles the code using `tsup` and `tsc`.
-- **Develop**: `pnpm run dev` — Watches source files and recompiles incrementally on changes.
-- **Clean**: `pnpm run clean` — Removes the compiled `dist/` directory.
-- **Lint**: `pnpm run lint` — Runs style and quality checks using Biome.
-
----
-
 ## 📄 License
 
-Part of the Moto UI workspace. Distributed under the MIT License. See root `LICENSE` for details.
+Part of the Moto UI workspace. Distributed under the MIT License. See repository `LICENSE` for details.
