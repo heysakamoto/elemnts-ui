@@ -20,7 +20,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/heysakamoto/moto-ui.git",
-    "directory": "packages/colors"
+    "directory": "packages/styled-system"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "MIT",
   "version": "0.0.0",

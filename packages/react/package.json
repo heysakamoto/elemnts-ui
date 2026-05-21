@@ -13,10 +13,13 @@
   "author": {
     "name": "heysakamoto"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/heysakamoto/moto-ui.git",
-    "directory": "packages/colors"
+    "directory": "packages/react"
   },
   "license": "MIT",
   "name": "@moto-ui/react",

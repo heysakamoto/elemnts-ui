@@ -4,7 +4,10 @@
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "biome:check": "biome check",
-    "biome:fix": "biome check --write"
+    "biome:fix": "biome check --write",
+    "build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/storybook\" --filter \"!@moto-ui/docs\" build",
+    "version-packages": "changeset version && pnpm install --no-frozen-lockfile",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@ark-ui/mcp": "^1.2.1",
