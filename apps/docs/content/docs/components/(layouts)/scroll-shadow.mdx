@@ -1,0 +1,52 @@
+---
+title: ScrollShadow
+description: Display shadows to signal scrollable overflow, automatically updating with scroll position.
+---
+
+
+<ComponentPreview name="scroll-shadow:basic" />
+
+### Usage
+Brief guide to importing and setting up `ScrollShadow` component.
+
+```tsx
+import { ScrollShadow } from "@moto-ui/react"
+```
+
+```tsx
+<ScrollShadow>
+  <Text>
+    {...content}
+  </Text>
+</ScrollShadow>
+```
+
+### Orientation
+To see the shadows, make the content overflow the `ScrollShadow` component vertically or horizontally.
+
+<ComponentPreview name="scroll-shadow:orientation" />
+
+### Custom size
+Adjust the shadow size by setting the `size` prop.
+
+<ComponentPreview name="scroll-shadow:custom-size" />
+
+
+### With Surface
+Use `ScrollShadow` with the `Surface` component.
+
+<ComponentPreview name="scroll-shadow:with-surface" />
+
+### API reference
+
+| Prop | Type | Default | Description |
+|------|------|----------|-------------|
+| isEnabled | boolean | true | Enables or disables the scroll shadows. |
+| hideScrollbar | boolean | true | Hides the scrollbar. |
+| asChild | boolean | - | Use the provided child element as the default rendered element, combining their props and behavior. |
+| size | number | 40 | The size of the shadow. |
+
+| Variable | Description |
+|----------|-------------|
+| --scroll-shadow-end-color | The color of the end shadow. |
+| --scroll-shadow-start-color | The color of the start shadow. |

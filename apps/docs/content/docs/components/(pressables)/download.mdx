@@ -1,0 +1,55 @@
+---
+title: Download
+description: A component that initiates a file download when clicked.
+---
+
+<ComponentPreview name="download:basic" />
+
+### Usage
+The `Download` component (internally using `DownloadTrigger`) initiates a client-side file download using in-memory data.
+
+Render the component; when it is activated (e.g., clicked), the browser will prompt the user to download the file.
+
+```tsx
+import { Download, Button } from "@moto-ui/react"
+
+<Download
+  data="Hello, world!"
+  fileName="hello.txt"
+  mimeType="text/plain"
+  asChild
+>
+  <Button>Download Text</Button>
+</Download>
+```
+
+### Download SVG
+Pass the SVG markup as a string to `data`, set `fileName` to a `.svg` filename, and use `mimeType` `"image/svg+xml"`.
+
+<ComponentPreview name="download:svg" />
+
+### Asynchronous Data
+You can also trigger downloads from a function that returns a `Promise` resolving to a `Blob`, `File`, or `string`.
+
+<ComponentPreview name="download:asynchronous-data" />
+
+### File Size
+Pair the `Download` component with the `Format.Byte` component to display the file size in a human-readable format.
+
+<ComponentPreview name="download:file-size" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| data | `DownloadableData \| (() => MaybePromise<DownloadableData>)` | - | **Required**. The data to download. |
+| fileName | `string` | - | **Required**. The name (including extension) to save the file as. |
+| mimeType | `FileMimeType` | - | **Required**. The MIME type of the data (e.g., `image/png`). |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+| Attribute | Description |
+| :--- | :--- |
+| data-scope | `download` |
+| data-part | `root` |

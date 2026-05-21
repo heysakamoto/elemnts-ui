@@ -1,0 +1,48 @@
+---
+title: Icon
+description: Renders an SVG icon
+---
+
+<ComponentPreview name="icon:basic" />
+
+
+### Usage
+Use the Icon component to render a scalable SVG glyph that aligns with the design system. Under the hood, it uses [@iconify/react](https://iconify.design/docs/icon-components/react/) to resolve and render icons. Icons are vector-based and typically inherit color from the current text color (currentColor) unless overridden with CSS.
+
+Best practices:
+- Use icons to support meaning; avoid relying on them as the only indicator.
+- Mark purely decorative icons as hidden from assistive technologies (aria-hidden="true").
+- Provide an accessible name for meaningful icons (for example, via an adjacent text label or aria-label).
+- Keep sizing consistent with surrounding UI; size with CSS (font-size or width/height) for predictable results.
+- Prefer standard, predefined icons to ensure visual consistency across the product.
+
+Common placements include inline with text, inside buttons, and within inputs or form controls to clarify actions or statuses.
+
+```tsx 
+import { Icon } from "@moto-ui/react"
+<Icon />
+```
+
+### Custom icon
+Provide your own SVG by passing path/shape elements to `icon` prop.
+
+<ComponentPreview name="icon:custom" />
+
+### Add to Storage
+Register the icon globally so it can be referenced by its key:
+
+<ComponentPreview name="icon:storage" />
+
+### Collections
+Group related icons under a shared namespace so you can register and consume many icons at once while avoiding key collisions.
+
+<ComponentPreview name="icon:collections" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| icon | `string \| React.ReactNode` | undefined | The icon to render. Provide a registered icon key (e.g., "mdi:home") or custom SVG elements (paths/shapes). |
+| width | `string \| number` | undefined | Explicit width of the icon. If omitted, it follows the current font-size. Accepts numbers (px) or CSS lengths (e.g., "1.25rem"). |
+| height | `string \| number` | undefined | Explicit height of the icon. If omitted, it scales to maintain aspect ratio or inherits from font-size. |
+| color | `string` | undefined | CSS color for the icon. Defaults to currentColor when not set. |

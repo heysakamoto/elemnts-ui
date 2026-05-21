@@ -1,0 +1,170 @@
+---
+title: Checkbox
+description: A control that allows the user to toggle between checked and unchecked states.
+---
+
+<ComponentPreview name="checkbox:basic" />
+
+### Usage
+The `Checkbox` component is used to allow users to select one or more options from a set.
+
+- `Checkbox.Root`: The root container for the checkbox.
+- `Checkbox.RootProvider`: Provides the checkbox context to its children.
+- `Checkbox.Label`: The label for the checkbox.
+- `Checkbox.Control`: The visual control for the checkbox.
+- `Checkbox.Indicator`: A visual indicator (usually a check icon) when the checkbox is checked.
+- `Checkbox.HiddenInput`: The native hidden input for form integration.
+- `Checkbox.Group`: A container for grouping multiple checkboxes.
+- `Checkbox.GroupProvider`: Provides the checkbox group context to its children.
+- `Checkbox.Context`: Access the checkbox state and methods.
+
+```tsx
+import { Checkbox, Icon } from "@moto-ui/react"
+
+<Checkbox.Root>
+  <Checkbox.Control>
+    <Checkbox.Indicator>
+      <Icon icon="tabler:check" />
+    </Checkbox.Indicator>
+  </Checkbox.Control>
+  <Checkbox.Label>Accept terms</Checkbox.Label>
+  <Checkbox.HiddenInput />
+</Checkbox.Root>
+```
+
+### Checkbox Group
+Use the `Checkbox.Group` component to group related checkboxes together.
+
+<ComponentPreview name="checkbox:group" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| checked | `CheckedState` | - | The controlled checked state of the checkbox. |
+| defaultChecked | `CheckedState` | - | The initial checked state of the checkbox. |
+| disabled | `boolean` | `false` | Whether the checkbox is disabled. |
+| form | `string` | - | The id of the form that the checkbox belongs to. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, hiddenInput: string, control: string, label: string }>` | - | The ids of the elements in the checkbox. Useful for composition. |
+| invalid | `boolean` | `false` | Whether the checkbox is invalid. |
+| name | `string` | - | The name of the input field in a checkbox. Useful for form submission. |
+| readOnly | `boolean` | `false` | Whether the checkbox is read-only. |
+| required | `boolean` | `false` | Whether the checkbox is required. |
+| value | `string` | `"on"` | The value of checkbox input. Useful for form submission. |
+| onCheckedChange | `(details: CheckedChangeDetails) => void` | - | The callback invoked when the checked state changes. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseCheckboxReturn` | - | **Required**. The value returned from `useCheckbox`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Group**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| defaultValue | `string[]` | - | The initial value of `value` when uncontrolled. |
+| disabled | `boolean` | `false` | If `true`, the checkbox group is disabled. |
+| invalid | `boolean` | `false` | If `true`, the checkbox group is invalid. |
+| maxSelectedValues | `number` | - | The maximum number of selected values. |
+| name | `string` | - | The name of the input fields in the checkbox group. |
+| readOnly | `boolean` | `false` | If `true`, the checkbox group is read-only. |
+| value | `string[]` | - | The controlled value of the checkbox group. |
+| onValueChange | `(value: string[]) => void` | - | The callback to call when the value changes. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| indeterminate | `boolean` | `false` | Whether the indicator is in an indeterminate state. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**HiddenInput**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `checkbox` |
+| data-part | `root` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"indeterminate" \| "checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `checkbox` |
+| data-part | `label` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"indeterminate" \| "checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `checkbox` |
+| data-part | `control` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"indeterminate" \| "checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Indicator**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `checkbox` |
+| data-part | `indicator` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"indeterminate" \| "checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |

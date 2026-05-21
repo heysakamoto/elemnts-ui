@@ -1,0 +1,159 @@
+---
+title: Clipboard
+description: Copies text to the clipboard
+---
+
+<ComponentPreview name="clipboard:basic" />
+
+### Usage
+Use the Clipboard to let users copy text (e.g., a code snippet or token) to their clipboard.
+```tsx
+import { Clipboard } from "@moto-ui/react"
+
+<Clipboard value="Hello, World!">
+  <Clipboard.Trigger>
+    <Clipboard.Indicator />
+  </Clipboard.Trigger>
+  <Clipboard.Input />
+</Clipboard>
+```
+
+### Button
+Use `Clipboard.Trigger` as a button to copy text.
+
+<ComponentPreview name="clipboard:with-button" />
+
+### Input
+Use `Clipboard.Input` to render an input field that contains the text to be copied.
+
+<ComponentPreview name="clipboard:with-input" />
+
+### Timeout
+Control how long the copied state remains active before resetting by configuring a timeout.
+
+<ComponentPreview name="clipboard:timeout" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | The controlled value of the clipboard |
+| defaultValue | `string` | - | The initial value to be copied to the clipboard when rendered. |
+| timeout | `number` | `3000` | The timeout for the copy operation |
+| onStatusChange | `(details: CopyStatusDetails) => void` | - | The function to be called when the value is copied to the clipboard |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | The function to be called when the value changes |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string; input: string; label: string }>` | - | The ids of the elements in the clipboard. Useful for composition. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseClipboardReturn` | - | The clipboard instance (Required) |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Input**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| copied | `React.ReactNode` | - | Content to render when the copy action succeeds |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**ValueText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Context**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(context: UseClipboardContext) => React.ReactNode` | - | Render prop that provides access to the clipboard context |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="root"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |
+
+**Control**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="control"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |
+
+**Indicator**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="indicator"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |
+
+**Input**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="input"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |
+| `[data-readonly]` | Present when the input is read-only. |
+
+**Label**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="label"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |
+
+**Trigger**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="trigger"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |
+
+**ValueText**
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="clipboard"]` | The component scope. |
+| `[data-part="value-text"]` | The component part. |
+| `[data-copied]` | Present when the copy action succeeds. |

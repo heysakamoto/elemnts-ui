@@ -1,0 +1,129 @@
+---
+title: Styling
+description: Style Moto UI components with Panda CSS styled props, recipes, or external libraries like Tailwind CSS.
+---
+
+Moto UI is powered by [Panda CSS](https://panda-css.com/), providing a robust and type-safe way to style your components directly in JSX.
+
+## Style Props
+
+Style props allow you to apply CSS properties directly to components. Moto UI exports a `styled` factory that enables these props on any HTML element.
+
+```tsx
+import { styled } from "@moto-ui/react";
+
+function Example() {
+  return (
+    <styled.button
+      px="4"
+      py="2"
+      rounded="md"
+      bg="accent.primary"
+      color="white"
+      _hover={{ bg: "blue.90" }}
+    >
+      Click Me
+    </styled.button>
+  );
+}
+```
+
+## The `styled` Factory
+
+The `styled` function can be used to wrap native elements or custom components, attaching default styles or complex recipes.
+
+### Attaching Base Styles
+```tsx
+import { styled } from "@moto-ui/react";
+
+const Link = styled("a", {
+  base: {
+    color: "accent.primary",
+    textDecoration: "none",
+    _hover: { textDecoration: "underline" },
+  },
+});
+```
+
+### Attaching Recipes
+Recipes allow you to define multiple visual variants for a component.
+
+```tsx
+const Card = styled("div", {
+  base: {
+    bg: "bg.primary",
+    p: "4",
+    rounded: "lg",
+  },
+  variants: {
+    variant: {
+      outline: { border: "1px solid", borderColor: "stroke.primary" },
+      ghost: { bg: "transparent", _hover: { bg: "bg.secondary" } },
+    },
+  },
+});
+```
+
+## Styling States
+
+Panda CSS uses "conditions" to style elements based on their state (e.g., hover, active, open). These are available as prefixed props.
+
+```tsx
+<Button
+  bg="blue.50"
+  _hover={{ bg: "blue.60" }}
+  _active={{ transform: "scale(0.98)" }}
+  _dark={{ bg: "blue.200", color: "black" }}
+>
+  Themed Button
+</Button>
+```
+
+---
+
+## The `unstyled` Prop
+
+All Moto UI components support the `unstyled` prop. When set to `true`, it removes all default Moto UI styling, leaving only the base functional logic. This is particularly useful when you want to use your own CSS or a utility framework like Tailwind.
+
+```tsx
+import { Accordion } from "@moto-ui/react";
+
+<Accordion.Root unstyled>
+  <Accordion.Item value="1" className="custom-border">
+    {/* ... */}
+  </Accordion.Item>
+</Accordion.Root>
+```
+
+## Using with Tailwind CSS
+
+Because Moto UI components support `className` and `unstyled`, they work seamlessly with Tailwind CSS.
+
+```tsx
+<Button
+  unstyled
+  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+>
+  Tailwind Button
+</Button>
+```
+
+---
+
+## Slot Recipes (Advanced)
+
+For complex components with multiple internal parts (like an Accordion or Tabs), Moto UI uses **Slot Recipes**. These allow you to define styles for every internal part of a component in one place.
+
+```ts
+import { defineSlotRecipe } from '@pandacss/dev'
+
+export const myMenuRecipe = defineSlotRecipe({
+  className: 'menu',
+  slots: ['root', 'item', 'trigger'],
+  base: {
+    root: { bg: 'bg.primary', shadow: 'md' },
+    item: { p: '2', _hover: { bg: 'bg.secondary' } },
+    trigger: { fontWeight: 'bold' }
+  }
+})
+```

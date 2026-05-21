@@ -1,0 +1,16 @@
+{
+	"icon": "",
+	"title": "Feedback",
+	"defaultOpen": false,
+	"pages": [
+		"---feedback---",
+		"alert",
+		"progress",
+		"progress-circle",
+		"skeleton",
+		"spinner",
+		"status",
+		"timer",
+		"toast"
+	]
+}

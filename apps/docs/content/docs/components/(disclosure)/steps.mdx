@@ -1,0 +1,158 @@
+---
+title: Steps
+description: Indicates progress through a multi-step process
+---
+<ComponentPreview name="steps:basic" />
+
+
+### Usage
+Use `Steps` to build a multi-step flow (wizard) with a clickable list of steps and matching content panels.
+
+- `Steps`: The root container that manages the stepper state.
+- `Steps.List`: A container for the `Steps.Item` elements.
+- `Steps.Item`: A single step within the list.
+- `Steps.Trigger`: The interactive control for a step.
+- `Steps.Indicator`: A visual cue for the step state (e.g., current, complete).
+- `Steps.Separator`: A visual divider between steps.
+- `Steps.Content`: Renders the content for a specific step.
+- `Steps.CompletedContent`: Renders content after all steps are completed.
+- `Steps.Progress`: A progress bar indicating the overall completion.
+- `Steps.PrevTrigger` / `Steps.NextTrigger`: Triggers to navigate between steps.
+- `Steps.Context`: Provides access to the stepper state via a render prop.
+- `Steps.ItemContext`: Provides access to an individual step's state via a render prop.
+- `Steps.RootProvider`: Advanced component for using a custom stepper hook.
+
+```tsx
+import { Steps, Button, Text } from "@moto-ui/react"
+
+<Steps count={3}>
+  <Steps.List>
+    {[0, 1, 2].map((index) => (
+      <Steps.Item key={index} index={index}>
+        <Steps.Trigger>
+          <Steps.Indicator>{index + 1}</Steps.Indicator>
+          <Text>Step {index + 1}</Text>
+        </Steps.Trigger>
+        <Steps.Separator />
+      </Steps.Item>
+    ))}
+  </Steps.List>
+  {[0, 1, 2].map((index) => (
+    <Steps.Content key={index} index={index}>
+      <Text>Step {index + 1} Content</Text>
+    </Steps.Content>
+  ))}
+  <Steps.CompletedContent>
+    <Text>All steps completed!</Text>
+  </Steps.CompletedContent>
+  <Steps.PrevTrigger asChild>
+    <Button variant="ghost">Prev</Button>
+  </Steps.PrevTrigger>
+  <Steps.NextTrigger asChild>
+    <Button variant="ghost">Next</Button>
+  </Steps.NextTrigger>
+</Steps>
+```
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| count | `number` | - | The total number of steps. |
+| step | `number` | - | The controlled value of the stepper. |
+| defaultStep | `number` | - | The initial value of the stepper when rendered. |
+| orientation | `'horizontal' \| 'vertical'` | `"horizontal"` | The orientation of the stepper. |
+| linear | `boolean` | `false` | If `true`, requires completing steps in order. |
+| isStepSkippable | `(index: number) => boolean` | `() => false` | Whether a step can be skipped during navigation. |
+| isStepValid | `(index: number) => boolean` | `() => true` | Whether a step is valid. |
+| ids | `ElementIds` | - | The custom ids for the stepper elements. |
+| onStepChange | `(details: StepChangeDetails) => void` | - | Callback to be called when the value changes. |
+| onStepComplete | `VoidFunction` | - | Callback to be called when all steps are completed. |
+| onStepInvalid | `(details: StepInvalidDetails) => void` | - | Called when navigation is blocked due to an invalid step. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | The index of the step. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | The index of the content panel. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**List**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Separator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**CompletedContent**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Progress**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**PrevTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**NextTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+Provides access to the `Steps` API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseStepsContext) => ReactNode` | - | Render prop to access the component API. |
+
+**ItemContext**
+Provides access to an individual `Steps.Item`'s API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseStepsItemContext) => ReactNode` | - | Render prop to access the item API. |
+
+**RootProvider**
+Advanced component for using a custom `useSteps` hook.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseStepsReturn` | - | The value returned from the `useSteps` hook. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

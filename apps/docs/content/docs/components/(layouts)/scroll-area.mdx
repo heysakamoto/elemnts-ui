@@ -1,0 +1,172 @@
+---
+title: ScrollArea
+description: A component that provides custom scrollbars for overflowing content.
+---
+
+<ComponentPreview name="scroll-area:basic" />
+
+### Usage
+The `ScrollArea` component is a compound component that provides a way to scroll content with custom-styled scrollbars.
+
+- `ScrollArea.Root`: The root container for the scroll area.
+- `ScrollArea.RootProvider`: Provides the scroll area context to its children.
+- `ScrollArea.Viewport`: The viewport of the scroll area.
+- `ScrollArea.Content`: The content container.
+- `ScrollArea.Scrollbar`: The scrollbar container.
+- `ScrollArea.Thumb`: The draggable thumb of the scrollbar.
+- `ScrollArea.Corner`: The corner element where two scrollbars meet.
+- `ScrollArea.Context`: Access the scroll area state and methods.
+
+```tsx
+import { ScrollArea } from "@moto-ui/react"
+
+<ScrollArea.Root>
+  <ScrollArea.Viewport>
+    <ScrollArea.Content>
+       {/* Your content here */}
+    </ScrollArea.Content>
+  </ScrollArea.Viewport>
+  <ScrollArea.Scrollbar orientation="vertical">
+    <ScrollArea.Thumb />
+  </ScrollArea.Scrollbar>
+  <ScrollArea.Scrollbar orientation="horizontal">
+    <ScrollArea.Thumb />
+  </ScrollArea.Scrollbar>
+  <ScrollArea.Corner />
+</ScrollArea.Root>
+```
+
+### Variants
+Control when scrollbars are shown using the `variant` prop: `hover` (default) displays them on hover, while `always` keeps them visible at all times.
+
+<ComponentPreview name="scroll-area:variants" />
+
+### Sizes
+Use the `size` prop to adjust the scroll area. It controls scrollbar thickness and content padding.
+
+<ComponentPreview name="scroll-area:sizes" />
+
+### Horizontal Scrolling
+Horizontal scrolling is automatically enabled when the content exceeds the container's width.
+
+<ComponentPreview name="scroll-area:horizontal" />
+
+### RTL Support
+The scroll area component fully supports Right-to-Left (RTL) languages like Arabic and Hebrew.
+
+<ComponentPreview name="scroll-area:rtl" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| variant | `"hover" \| "always"` | `"hover"` | Controls when scrollbars are shown. |
+| size | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Adjusts the overall scroll area sizing. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| ids | `Partial<{ root: string, viewport: string, content: string, scrollbar: string, thumb: string }>` | - | The ids of the scroll area elements. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseScrollAreaReturn` | - | **Required**. The value returned from `useScrollArea`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Scrollbar**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| orientation | `"horizontal" \| "vertical"` | - | Sets the orientation of the scrollbar. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Viewport / Content / Thumb / Corner**
+Supports `asChild` and standard HTML attributes.
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `scroll-area` |
+| data-part | `root` |
+| data-overflow-x | Present when the content overflows the x-axis. |
+| data-overflow-y | Present when the content overflows the y-axis. |
+
+**Viewport**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `scroll-area` |
+| data-part | `viewport` |
+| data-at-top | Present when scrolled to the top edge. |
+| data-at-bottom | Present when scrolled to the bottom edge. |
+| data-at-left | Present when scrolled to the left edge. |
+| data-at-right | Present when scrolled to the right edge. |
+| data-overflow-x | Present when the content overflows the x-axis. |
+| data-overflow-y | Present when the content overflows the y-axis. |
+
+**Content**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `scroll-area` |
+| data-part | `content` |
+| data-overflow-x | Present when the content overflows the x-axis. |
+| data-overflow-y | Present when the content overflows the y-axis. |
+
+**Scrollbar**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `scroll-area` |
+| data-part | `scrollbar` |
+| data-orientation | The orientation of the scrollbar. |
+| data-scrolling | Present when scrolling. |
+| data-hover | Present when hovered. |
+| data-dragging | Present when in the dragging state. |
+| data-overflow-x | Present when the content overflows the x-axis. |
+| data-overflow-y | Present when the content overflows the y-axis. |
+
+**Thumb**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `scroll-area` |
+| data-part | `thumb` |
+| data-orientation | The orientation of the thumb. |
+| data-hover | Present when hovered. |
+| data-dragging | Present when in the dragging state. |
+
+**Corner**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `scroll-area` |
+| data-part | `corner` |
+| data-hover | Present when hovered. |
+| data-state | `"hidden" \| "visible"` |
+| data-overflow-x | Present when the content overflows the x-axis. |
+| data-overflow-y | Present when the content overflows the y-axis. |
+
+### CSS Variables
+
+**Root**
+
+| Variable | Description |
+| --- | --- |
+| --corner-width | The width of the Root. |
+| --corner-height | The height of the Root. |
+| --thumb-width | The width of the slider thumb. |
+| --thumb-height | The height of the slider thumb. |
+
+**Viewport**
+
+| Variable | Description |
+| --- | --- |
+| --scroll-area-overflow-x-start | The distance from the horizontal start edge in pixels. |
+| --scroll-area-overflow-x-end | The distance from the horizontal end edge in pixels. |
+| --scroll-area-overflow-y-start | The distance from the vertical start edge in pixels. |
+| --scroll-area-overflow-y-end | The distance from the vertical end edge in pixels. |

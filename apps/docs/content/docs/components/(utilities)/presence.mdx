@@ -1,0 +1,51 @@
+---
+title: Presence
+description: A utility component that manages the enter and exit animations of its children.
+---
+
+<ComponentPreview name="presence:basic" />
+
+### Usage
+
+The `Presence` component is used to manage the mounting and unmounting of components with animations. It tracks the animation and transition states of its children to ensure they are fully animated out before being hidden or unmounted.
+
+```tsx
+import { Presence } from "@moto-ui/react"
+
+<Presence present={present}>
+  <div>Content to animate</div>
+</Presence>
+```
+
+### Examples
+
+#### Unmount on Exit
+
+Use the `unmountOnExit` prop to completely remove the component from the DOM when it's not present.
+
+<ComponentPreview name="presence:unmount" />
+
+#### Lazy Mounting
+
+Use the `lazyMount` prop to defer rendering the component until the first time `present` is true.
+
+<ComponentPreview name="presence:lazy-mount" />
+
+
+### Props
+
+The `Presence` component accepts all props from the [Ark UI Presence](https://ark-ui.com/docs/utilities/presence) component.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| present | `boolean` | `false` | Whether the component should be present (visible). |
+| lazyMount | `boolean` | `false` | Whether to defer rendering until the first time `present` is true. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount the component when `present` is false. |
+| onExitComplete | `() => void` | - | Function called when the exit animation is complete. |
+
+### Data Attributes
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-state]` | The current state: `open` or `closed`. |
+| `[data-present]` | Present when the component is visible or animating. |

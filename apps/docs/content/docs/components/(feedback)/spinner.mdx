@@ -1,0 +1,47 @@
+---
+title: Spinner
+description: A visual indicator used to represent a loading state or an ongoing process.
+---
+
+<ComponentPreview name="spinner:basic" />
+
+### Usage
+
+The `Spinner` component provides visual feedback to users that a task is in progress.
+
+```tsx
+import { Spinner } from "@moto-ui/react"
+
+<Spinner />
+```
+
+### Examples
+
+#### Variants
+
+The `Spinner` supports customization of size, color palette, and animation speed.
+
+<ComponentPreview name="spinner:variants" />
+
+#### Custom Icon
+
+You can provide a custom icon or any other content to be animated by the spinner. The `Spinner` component will automatically apply the spinning animation to its direct SVG child.
+
+<ComponentPreview name="spinner:custom-icon" />
+
+### Props
+
+The `Spinner` component is a styled `ark.span` and accepts all standard HTML `span` props in addition to the following variants:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | The size of the spinner. |
+| colorPalette | `'accent' \| 'neutral' \| 'success' \| 'warning' \| 'destructive'` | `'accent'` | The color palette of the spinner. |
+| speed | `'slow' \| 'normal' \| 'fast'` | `'normal'` | The rotation speed of the spinner. |
+
+### Data Attributes
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="spinner"]` | The component scope. |
+| `[data-part="root"]` | The root part of the spinner. |

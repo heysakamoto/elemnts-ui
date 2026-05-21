@@ -1,0 +1,43 @@
+---
+title: Radiomark
+description: A customizable circular indicator used to show a selection state, typically in radio buttons.
+---
+
+<ComponentPreview name="radiomark:basic" />
+
+### Usage
+
+The `Radiomark` component is a visual indicator that represents a selected or unselected state in a circular format. It is primarily used within radio button components or any selection interface that requires a circular marker.
+
+```tsx
+import { Radiomark } from "@moto-ui/react"
+
+<Radiomark checked />
+```
+
+### Examples
+
+#### Variants
+
+The `Radiomark` supports multiple sizes and color palettes.
+
+<ComponentPreview name="radiomark:variants" />
+
+### Props
+
+The `Radiomark` component is a styled `ark.span` and accepts all standard HTML `span` props in addition to the following:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| checked | `boolean` | `false` | Whether the radiomark is in a checked/selected state. |
+| disabled | `boolean` | `false` | Whether the radiomark is disabled. |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'sm'` | The size of the radiomark. |
+| colorPalette | `'accent' \| 'neutral' \| 'success' \| 'warning' \| 'destructive'` | `'accent'` | The color palette of the radiomark. |
+
+### Data Attributes
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-state]` | The current state: `checked` or `unchecked`. |
+| `[data-checked]` | Present when the radiomark is checked. |
+| `[data-disabled]` | Present when the radiomark is disabled. |

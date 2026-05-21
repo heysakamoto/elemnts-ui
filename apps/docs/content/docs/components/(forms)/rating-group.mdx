@@ -1,0 +1,171 @@
+---
+title: RatingGroup
+description: A set of buttons that allow users to rate something.
+---
+
+<ComponentPreview name="rating-group:basic" />
+
+### Usage
+The `RatingGroup` component allows users to provide a rating by selecting a number of icons, typically stars.
+
+- `RatingGroup.Root`: The root container for the rating group.
+- `RatingGroup.RootProvider`: Provides the rating group context to its children.
+- `RatingGroup.Label`: The label for the rating group.
+- `RatingGroup.Control`: The container for the rating items.
+- `RatingGroup.Item`: Represents an individual rating item.
+- `RatingGroup.Indicator`: A visual indicator for the rating item, typically containing icons.
+- `RatingGroup.HiddenInput`: The native hidden input for accessibility and form submission.
+- `RatingGroup.Context`: Access the rating group state and methods.
+
+```tsx
+import { Icon, RatingGroup } from "@moto-ui/react"
+
+<RatingGroup.Root count={5} defaultValue={3}>
+  <RatingGroup.Label>Rating</RatingGroup.Label>
+  <RatingGroup.Control>
+    <RatingGroup.Context>
+      {({ items }) =>
+        items.map((item) => (
+          <RatingGroup.Item key={item} index={item}>
+            <RatingGroup.Indicator>
+              <Icon icon="tabler:star" />
+              <Icon icon="tabler:star-filled" />
+            </RatingGroup.Indicator>
+          </RatingGroup.Item>
+        ))
+      }
+    </RatingGroup.Context>
+  </RatingGroup.Control>
+  <RatingGroup.HiddenInput />
+</RatingGroup.Root>
+```
+
+### Half Rating
+Use the `allowHalf` prop to allow users to select half-star ratings.
+
+<ComponentPreview name="rating-group:half-rating" />
+
+### Disabled
+Use the `disabled` prop to disable the rating group.
+
+<ComponentPreview name="rating-group:disabled" />
+
+### Read Only
+Use the `readOnly` prop to make the rating group read-only.
+
+<ComponentPreview name="rating-group:read-only" />
+
+### Color Palette
+Use the `colorPalette` prop to change the color of the rating group.
+
+<ComponentPreview name="rating-group:palette" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| allowHalf | `boolean` | `false` | Whether to allow half stars. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| autoFocus | `boolean` | `false` | Whether to autofocus the rating. |
+| count | `number` | `5` | The total number of ratings. |
+| defaultValue | `number` | - | The initial value of the rating when rendered. |
+| disabled | `boolean` | `false` | Whether the rating is disabled. |
+| form | `string` | - | The associate form of the underlying input element. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, label: string, hiddenInput: string, control: string, item: (id: string) => string }>` | - | The ids of the elements in the rating. Useful for composition. |
+| name | `string` | - | The name attribute of the rating element (used in forms). |
+| readOnly | `boolean` | `false` | Whether the rating is readonly. |
+| required | `boolean` | `false` | Whether the rating is required. |
+| translations | `IntlTranslations` | - | Specifies the localized strings for accessibility. |
+| value | `number` | - | The controlled value of the rating. |
+| onHoverChange | `(details: HoverChangeDetails) => void` | - | Function to be called when the rating value is hovered. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | Function to be called when the rating value changes. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseRatingGroupReturn` | - | **Required**. The value returned from `useRatingGroup`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | **Required**. The index of the rating item. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**HiddenInput**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `root` |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `rating-group` |
+| data-part | `label` |
+| data-disabled | Present when disabled. |
+| data-required | Present when required. |
+
+**Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `rating-group` |
+| data-part | `control` |
+| data-readonly | Present when read-only. |
+| data-disabled | Present when disabled. |
+
+**Item**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `rating-group` |
+| data-part | `item` |
+| data-disabled | Present when disabled. |
+| data-readonly | Present when read-only. |
+| data-checked | Present when checked. |
+| data-highlighted | Present when highlighted. |
+| data-half | Present when half. |
+
+**Indicator**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `rating-group` |
+| data-part | `item-indicator` |
+| data-state | The state of the item. `checked` or `unchecked`. |
+| data-highlighted | Present when highlighted. |
+| data-half | Present when half. |

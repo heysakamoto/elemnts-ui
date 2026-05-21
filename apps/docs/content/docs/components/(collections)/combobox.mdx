@@ -1,0 +1,235 @@
+---
+title: Combobox
+description: An input with a filterable listbox for selecting one or multiple options.
+---
+
+<ComponentPreview name="combobox:basic" />
+
+### Usage
+
+```tsx
+import { Combobox, Portal } from "@moto-ui/react"
+
+<Combobox.Root collection={collection}>
+  <Combobox.Label>Framework</Combobox.Label>
+
+  <Combobox.Control>
+    <Combobox.Input placeholder="Select framework" />
+    <Combobox.IndicatorGroup>
+      <Combobox.ClearTrigger>Clear</Combobox.ClearTrigger>
+      <Combobox.Trigger>Open</Combobox.Trigger>
+    </Combobox.IndicatorGroup>
+  </Combobox.Control>
+
+  <Portal>
+    <Combobox.Positioner>
+      <Combobox.Content>
+        <Combobox.List>
+          {collection.items.map((item) => (
+            <Combobox.Item key={item.value} item={item}>
+              <Combobox.ItemText>{item.label}</Combobox.ItemText>
+              <Combobox.ItemIndicator>✓</Combobox.ItemIndicator>
+            </Combobox.Item>
+          ))}
+        </Combobox.List>
+        <Combobox.Empty>No results found</Combobox.Empty>
+      </Combobox.Content>
+    </Combobox.Positioner>
+  </Portal>
+</Combobox.Root>
+```
+
+### Disabled
+Use the `disabled` prop on `Combobox` to disable the entire combobox.
+
+<ComponentPreview name="combobox:disabled" />
+
+### Multiple
+Use the `multiple` prop on `Combobox` to allow users to select more than one item from the list.
+
+<ComponentPreview name="combobox:multiple" />
+
+### Open on click
+Set the `openOnClick` prop to open the combobox when a user clicks the input.
+
+<ComponentPreview name="combobox:open-on-click" />
+
+### Highlight
+This example shows how to compose the `Combobox.Item` and `Highlight` components to emphasize matching text in search results.
+
+<ComponentPreview name="combobox:highlight-matching-text" />
+
+### Guides
+Use `value` and `onValueChange` for controlled mode. When changing the value
+externally (e.g. form reset, sync) with filtering enabled, the input can show
+empty if the selected item is filtered out. Call `reset()` before updating:
+
+```tsx
+const { collection, filter, reset } = useListCollection({
+  initialItems: items,
+  filter: contains,
+})
+
+// When changing value externally, reset the filter first
+const setValueWithReset = (v: string[]) => {
+  reset()
+  setValue(v)
+}
+```
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| collection | `ListCollection<T>` | - | The collection of items. **Required.** |
+| allowCustomValue | `boolean` | - | Whether to allow typing custom values in the input. |
+| alwaysSubmitOnEnter | `boolean` | `false` | Whether to always submit on Enter key press, even if popup is open. |
+| autoFocus | `boolean` | - | Whether to autofocus the input on mount. |
+| closeOnSelect | `boolean` | - | Whether to close the combobox when an item is selected. |
+| composite | `boolean` | `true` | Whether the combobox is a composed with other composite widgets like tabs. |
+| defaultHighlightedValue | `string` | - | The initial highlighted value of the combobox when rendered. |
+| defaultInputValue | `string` | `""` | The initial value of the combobox's input when rendered. |
+| defaultOpen | `boolean` | - | The initial open state of the combobox when rendered. |
+| defaultValue | `string[]` | `[]` | The initial value of the combobox's selected items when rendered. |
+| disabled | `boolean` | - | Whether the combobox is disabled. |
+| disableLayer | `boolean` | - | Whether to disable registering this a dismissable layer. |
+| form | `string` | - | The associate form of the combobox. |
+| highlightedValue | `string` | - | The controlled highlighted value of the combobox. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, ... }>` | - | The ids of the elements in the combobox. Useful for composition. |
+| immediate | `boolean` | - | Whether to synchronize the present change immediately or defer it to the next frame. |
+| inputBehavior | `'none' \| 'autohighlight' \| 'autocomplete'` | `"none"` | Defines the auto-completion behavior of the combobox. |
+| inputValue | `string` | - | The controlled value of the combobox's input. |
+| invalid | `boolean` | - | Whether the combobox is invalid. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| loopFocus | `boolean` | `true` | Whether to loop the keyboard navigation through the items. |
+| multiple | `boolean` | - | Whether to allow multiple selection. |
+| name | `string` | - | The `name` attribute of the combobox's input. |
+| navigate | `(details: NavigateDetails) => void` | - | Function to navigate to the selected item. |
+| onExitComplete | `VoidFunction` | - | Function called when the animation ends in the closed state. |
+| onFocusOutside | `(event: FocusOutsideEvent) => void` | - | Function called when the focus is moved outside the component. |
+| onHighlightChange | `(details: HighlightChangeDetails<T>) => void` | - | Function called when an item is highlighted. |
+| onInputValueChange | `(details: InputValueChangeDetails) => void` | - | Function called when the input's value changes. |
+| onInteractOutside | `(event: InteractOutsideEvent) => void` | - | Function called when an interaction happens outside the component. |
+| onOpenChange | `(details: OpenChangeDetails) => void` | - | Function called when the popup is opened or closed. |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | - | Function called when the pointer is pressed down outside the component. |
+| onSelect | `(details: SelectionDetails) => void` | - | Function called when an item is selected. |
+| onValueChange | `(details: ValueChangeDetails<T>) => void` | - | Function called when a new item is selected. |
+| open | `boolean` | - | The controlled open state of the combobox. |
+| openOnChange | `boolean \| ((details: InputValueChangeDetails) => boolean)` | `true` | Whether to show the combobox when the input value changes. |
+| openOnClick | `boolean` | `false` | Whether to open the combobox popup on initial click on the input. |
+| openOnKeyPress | `boolean` | `true` | Whether to open the combobox on arrow key press. |
+| placeholder | `string` | - | The placeholder text of the combobox's input. |
+| positioning | `PositioningOptions` | `{ placement: "bottom-start" }` | The positioning options to dynamically position the menu. |
+| present | `boolean` | - | Whether the node is present (controlled by the user). |
+| readOnly | `boolean` | - | Whether the combobox is readonly. |
+| required | `boolean` | - | Whether the combobox is required. |
+| scrollToIndexFn | `(details: ScrollToIndexDetails) => void` | - | Function to scroll to a specific index. |
+| selectionBehavior | `'clear' \| 'replace' \| 'preserve'` | `"replace"` | The behavior of the combobox input when an item is selected. |
+| skipAnimationOnMount | `boolean` | `false` | Whether to allow the initial presence animation. |
+| translations | `IntlTranslations` | - | Specifies the localized strings for accessibility elements. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| value | `string[]` | - | The controlled value of the combobox's selected items. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseComboboxReturn<T>` | - | The return value of the `useCombobox` hook. **Required.** |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| immediate | `boolean` | - | Whether to synchronize the present change immediately. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| onExitComplete | `VoidFunction` | - | Function called when the animation ends in the closed state. |
+| present | `boolean` | - | Whether the node is present. |
+| skipAnimationOnMount | `boolean` | `false` | Whether to allow the initial presence animation. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+
+**ClearTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Empty**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Input**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| item | `any` | - | The item to render. **Required.** |
+| persistFocus | `boolean` | - | Whether hovering outside should clear the highlighted state. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**ItemIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**ItemText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**ItemGroup**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**ItemGroupLabel**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**List**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Positioner**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| focusable | `boolean` | `false` | Whether the trigger is focusable. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element. |

@@ -1,0 +1,46 @@
+---
+title: Skeleton
+description: A placeholder component used to represent content while it's loading.
+---
+
+<ComponentPreview name="skeleton:basic" />
+
+### Usage
+
+The `Skeleton` component provides a visual cue that content is being loaded. It can be used to mimic the layout of the actual content, such as text, images, or cards.
+
+```tsx
+import { Skeleton } from "@moto-ui/react"
+
+<Skeleton h="20px" w="full" />
+```
+
+### Examples
+
+#### Effects
+
+The `Skeleton` supports two types of animations: `pulse` (default) and `shimmer`.
+
+<ComponentPreview name="skeleton:variants" />
+
+#### Text Only
+
+The `textOnly` prop allows you to skeletonize inline text. It uses `display: inline` and adjusts the width to fit the content.
+
+<ComponentPreview name="skeleton:text-only" />
+
+### Props
+
+The `Skeleton` component is a styled `ark.div` and accepts all standard HTML `div` props in addition to the following variants:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| effect | `'pulse' \| 'shimmer' \| 'none'` | `'pulse'` | The animation effect to use. |
+| textOnly | `boolean` | `false` | Whether the skeleton should behave as an inline text placeholder. |
+
+### Data Attributes
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="skeleton"]` | The component scope. |
+| `[data-part="root"]` | The root part of the skeleton. |

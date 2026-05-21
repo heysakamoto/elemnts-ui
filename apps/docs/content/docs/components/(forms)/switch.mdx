@@ -1,0 +1,156 @@
+---
+title: Switch
+description: A control that allows the user to toggle between checked and unchecked states.
+---
+
+<ComponentPreview name="switch:basic" />
+
+### Usage
+The `Switch` component is used to toggle between two states, typically on and off.
+
+- `Switch.Root`: The root container for the switch.
+- `Switch.RootProvider`: Provides the switch context to its children.
+- `Switch.Label`: The label for the switch.
+- `Switch.Control`: The visual track for the switch.
+- `Switch.Thumb`: The visual thumb that slides along the track.
+- `Switch.HiddenInput`: The native hidden input for form integration.
+- `Switch.Context`: Access the switch state and methods.
+
+```tsx
+import { Switch } from "@moto-ui/react"
+
+<Switch.Root>
+  <Switch.Control>
+    <Switch.Thumb />
+  </Switch.Control>
+  <Switch.Label>Enable notifications</Switch.Label>
+  <Switch.HiddenInput />
+</Switch.Root>
+```
+
+
+#### With label
+The `Switch.Label` component is used to provide a descriptive label for the switch, which is essential for accessibility.
+
+<ComponentPreview name="switch:with-label" />
+
+#### Disabled
+Set the `disabled` prop on `Switch.Root` to make the switch non-interactive.
+
+<ComponentPreview name="switch:disabled" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| checked | `boolean` | - | The controlled checked state of the switch. |
+| defaultChecked | `boolean` | - | The initial checked state of the switch. |
+| disabled | `boolean` | `false` | Whether the switch is disabled. |
+| ids | `Partial<{ root: string, hiddenInput: string, control: string, label: string, thumb: string }>` | - | The ids of the elements in the switch. Useful for composition. |
+| invalid | `boolean` | `false` | If `true`, the switch is marked as invalid. |
+| label | `string` | - | Specifies the localized strings that identifies the accessibility elements and their states. |
+| name | `string` | - | The name of the input field in a switch. Useful for form submission. |
+| readOnly | `boolean` | `false` | Whether the switch is read-only. |
+| required | `boolean` | `false` | If `true`, the switch input is marked as required. |
+| value | `string \| number` | `"on"` | The value of switch input. Useful for form submission. |
+| onCheckedChange | `(details: CheckedChangeDetails) => void` | - | Function to call when the switch is clicked. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseSwitchReturn` | - | **Required**. The value returned from `useSwitch`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Thumb**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**HiddenInput**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `switch` |
+| data-part | `root` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `switch` |
+| data-part | `label` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Thumb**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `switch` |
+| data-part | `thumb` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `switch` |
+| data-part | `control` |
+| data-active | Present when active or pressed. |
+| data-focus | Present when focused. |
+| data-focus-visible | Present when focused with keyboard. |
+| data-readonly | Present when read-only. |
+| data-hover | Present when hovered. |
+| data-disabled | Present when disabled. |
+| data-state | `"checked" \| "unchecked"` |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |

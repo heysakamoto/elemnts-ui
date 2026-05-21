@@ -1,0 +1,121 @@
+import { accordionRecipe } from "./accordion";
+import { alertRecipe } from "./alert";
+import { angleSliderRecipe } from "./angle-slider";
+import { avatarRecipe } from "./avatar";
+import { badgeRecipe } from "./badge";
+import { buttonGroupRecipe } from "./button-group";
+import { carouselRecipe } from "./carousel";
+import { checkboxRecipe } from "./checkbox";
+import { clipboardRecipe } from "./clipboard";
+import { codeBlockRecipe } from "./code-block";
+import { collapsibleRecipe } from "./collapsible";
+import { colorPickerRecipe } from "./color-picker";
+import { comboboxRecipe } from "./combobox";
+import { datePickerRecipe } from "./date-picker";
+import { dialogRecipe } from "./dialog";
+import { editableRecipe } from "./editable";
+import { fieldRecipe } from "./field";
+import { fieldsetRecipe } from "./fieldset";
+import { fileUploadRecipe } from "./file-upload";
+import { floatingPanelRecipe } from "./floating-panel";
+import { hoverCardRecipe } from "./hover-card";
+import { imageCropperRecipe } from "./image-cropper";
+import { inputGroupRecipe } from "./input-group";
+import { jsonTreeViewRecipe } from "./json-tree-view";
+import { kbdRecipe } from "./kbd";
+import { listboxRecipe } from "./listbox";
+import { marqueeRecipe } from "./marquee";
+import { menuRecipe } from "./menu";
+import { numberInputRecipe } from "./number-input";
+import { paginationRecipe } from "./pagination";
+import { passwordInputRecipe } from "./password-input";
+import { pinInputRecipe } from "./pin-input";
+import { popoverRecipe } from "./popover";
+import { progressRecipe } from "./progress";
+import { qrCodeRecipe } from "./qr-code";
+import { radioGroupRecipe } from "./radio-group";
+import { ratingGroupRecipe } from "./rating-group";
+import { scrollAreaRecipe } from "./scroll-area";
+import { segmentGroupRecipe } from "./segment-group";
+import { selectRecipe } from "./select";
+import { signaturePadRecipe } from "./signature-pad";
+import { sliderRecipe } from "./slider";
+import { splitterRecipe } from "./splitter";
+import { statusRecipe } from "./status";
+import { stepsRecipe } from "./steps";
+import { surfaceRecipe } from "./surface";
+import { swapRecipe } from "./swap";
+import { switchRecipe } from "./switch";
+import { tabsRecipe } from "./tabs";
+import { tagsInputRecipe } from "./tags-input";
+import { tileRecipe } from "./tile";
+import { timerRecipe } from "./timer";
+import { toastRecipe } from "./toast";
+import { toggleRecipe } from "./toggle";
+import { toggleGroupRecipe } from "./toggle-group";
+import { tooltipRecipe } from "./tooltip";
+import { tourRecipe } from "./tour";
+import { treeViewRecipe } from "./tree-view";
+import { wheelPickerRecipe } from "./wheel-picker";
+
+export const slotRecipes = {
+	accordionRecipe,
+	alertRecipe,
+	angleSliderRecipe,
+	avatarRecipe,
+	badgeRecipe,
+	datePickerRecipe,
+	carouselRecipe,
+	checkboxRecipe,
+	tagsInputRecipe,
+	collapsibleRecipe,
+	codeBlockRecipe,
+	clipboardRecipe,
+	comboboxRecipe,
+	dialogRecipe,
+	editableRecipe,
+	inputGroupRecipe,
+	surfaceRecipe,
+	fieldRecipe,
+	imageCropperRecipe,
+	jsonTreeViewRecipe,
+	fieldsetRecipe,
+	floatingPanelRecipe,
+	hoverCardRecipe,
+	listboxRecipe,
+	fileUploadRecipe,
+	menuRecipe,
+	popoverRecipe,
+	progressRecipe,
+	passwordInputRecipe,
+	paginationRecipe,
+	pinInputRecipe,
+	radioGroupRecipe,
+	ratingGroupRecipe,
+	qrCodeRecipe,
+	switchRecipe,
+	scrollAreaRecipe,
+	segmentGroupRecipe,
+	selectRecipe,
+	signaturePadRecipe,
+	sliderRecipe,
+	statusRecipe,
+	splitterRecipe,
+	stepsRecipe,
+	numberInputRecipe,
+	tileRecipe,
+	tabsRecipe,
+	timerRecipe,
+	toggleRecipe,
+	tooltipRecipe,
+	treeViewRecipe,
+	toastRecipe,
+	colorPickerRecipe,
+	kbdRecipe,
+	toggleGroupRecipe,
+	buttonGroupRecipe,
+	marqueeRecipe,
+	tourRecipe,
+	swapRecipe,
+	wheelPickerRecipe,
+};

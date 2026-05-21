@@ -1,0 +1,105 @@
+---
+title: Fieldset
+description: A component used to group related form fields.
+---
+<ComponentPreview name="fieldset:basic" />
+
+## Usage
+
+The `Fieldset` component is used to group related form elements and provide a caption (legend) for the group. It also provides a shared state for its children, such as `disabled` or `invalid`.
+
+- `Fieldset.Root`: The root container for the fieldset.
+- `Fieldset.Legend`: The legend for the fieldset.
+- `Fieldset.HelperText`: Descriptive text providing additional guidance for the group.
+- `Fieldset.ErrorText`: Message displayed when the fieldset is in an invalid state.
+
+```tsx
+import { Fieldset, Field, Input, Stack } from "@moto-ui/react"
+
+<Fieldset.Root>
+  <Stack gap="4">
+    <Fieldset.Legend>Contact Details</Fieldset.Legend>
+    <Fieldset.HelperText>Please provide your contact information.</Fieldset.HelperText>
+    <Stack gap="3">
+      <Field.Root>
+        <Field.Label>Name</Field.Label>
+        <Input placeholder="John Doe" />
+      </Field.Root>
+    </Stack>
+  </Stack>
+</Fieldset.Root>
+```
+
+## Examples
+
+### Disabled
+
+When the `Fieldset` is disabled, all of its children form fields will also be disabled.
+
+<ComponentPreview name="fieldset:disabled" />
+
+### Invalid
+
+The `Fieldset` can be marked as invalid to indicate that there are errors within the group.
+
+<ComponentPreview name="fieldset:invalid" />
+
+## Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| disabled | `boolean` | `false` | Indicates whether the fieldset is disabled. |
+| invalid | `boolean` | `false` | Indicates whether the fieldset is invalid. |
+
+**Legend**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**HelperText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ErrorText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+## Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `root` |
+| data-disabled | Present when the fieldset is disabled. |
+| data-invalid | Present when the fieldset is invalid. |
+
+**Legend**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `legend` |
+| data-disabled | Present when the fieldset is disabled. |
+| data-invalid | Present when the fieldset is invalid. |
+
+**HelperText**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `helper-text` |
+| data-disabled | Present when the fieldset is disabled. |
+
+**ErrorText**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `error-text` |
+| data-disabled | Present when the fieldset is disabled. |

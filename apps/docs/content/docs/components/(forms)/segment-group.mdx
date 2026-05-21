@@ -1,0 +1,182 @@
+---
+title: SegmentGroup
+description: A component that allows users to select a single value from a set of options, presented as a group of segments.
+---
+
+<ComponentPreview name="segment-group:basic" />
+
+### Usage
+The `SegmentGroup` component is a compound component used for selecting a single option from a set of options.
+
+- `SegmentGroup.Root`: The root container for the segment group.
+- `SegmentGroup.RootProvider`: Provides the segment group context to its children.
+- `SegmentGroup.Label`: The label for the segment group.
+- `SegmentGroup.Indicator`: A visual indicator that moves to the selected item.
+- `SegmentGroup.Item`: Represents a single segment in the group.
+- `SegmentGroup.ItemText`: Displays the text label of the segment.
+- `SegmentGroup.ItemControl`: The visual control for the segment item.
+- `SegmentGroup.ItemHiddenInput`: The native hidden radio input for accessibility and form submission.
+- `SegmentGroup.Context`: Access the segment group state and methods.
+
+```tsx
+import { SegmentGroup } from "@moto-ui/react"
+
+<SegmentGroup.Root defaultValue="daily">
+  <SegmentGroup.Indicator />
+  <SegmentGroup.Item value="daily">
+    <SegmentGroup.ItemText>Daily</SegmentGroup.ItemText>
+    <SegmentGroup.ItemControl />
+    <SegmentGroup.ItemHiddenInput />
+  </SegmentGroup.Item>
+  <SegmentGroup.Item value="weekly">
+    <SegmentGroup.ItemText>Weekly</SegmentGroup.ItemText>
+    <SegmentGroup.ItemControl />
+    <SegmentGroup.ItemHiddenInput />
+  </SegmentGroup.Item>
+</SegmentGroup.Root>
+```
+
+### Variants
+The `SegmentGroup` supports several visual variants.
+
+<ComponentPreview name="segment-group:variants" />
+
+### Sizes
+The `SegmentGroup` is available in different sizes.
+
+<ComponentPreview name="segment-group:sizes" />
+
+### Vertical
+Use the `orientation="vertical"` prop to display segments vertically.
+
+<ComponentPreview name="segment-group:vertical" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| defaultValue | `string` | - | The initial value of the checked radio when rendered. |
+| disabled | `boolean` | `false` | If `true`, the radio group will be disabled. |
+| form | `string` | - | The associate form of the underlying input. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, label: string, indicator: string, item: (value: string) => string, itemLabel: (value: string) => string, itemControl: (value: string) => string, itemHiddenInput: (value: string) => string }>` | - | The ids of the elements in the radio. Useful for composition. |
+| invalid | `boolean` | `false` | If `true`, the radio group is marked as invalid. |
+| name | `string` | - | The name of the input fields in the radio (Useful for form submission). |
+| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | Orientation of the radio group. |
+| readOnly | `boolean` | `false` | Whether the radio group is read-only. |
+| required | `boolean` | `false` | If `true`, the radio group is marked as required. |
+| value | `string` | - | The controlled value of the radio group. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | Function called once a radio is checked. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseSegmentGroupReturn` | - | **Required**. The value returned from `useSegmentGroup`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | **Required**. The value of the segment item. |
+| disabled | `boolean` | `false` | Whether the segment item is disabled. |
+| invalid | `boolean` | `false` | Whether the segment item is invalid. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemControl**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemHiddenInput**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `segment-group` |
+| data-part | `root` |
+| data-orientation | The orientation of the segment-group. |
+| data-disabled | Present when disabled. |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `segment-group` |
+| data-part | `label` |
+| data-orientation | The orientation of the label. |
+| data-disabled | Present when disabled. |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+
+**Item**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `segment-group` |
+| data-part | `item` |
+| data-state | The state of the item. `checked` or `unchecked`. |
+| data-orientation | The orientation of the item. |
+| data-disabled | Present when the item is disabled. |
+| data-readonly | Present when the item is read-only. |
+| data-invalid | Present when the item is invalid. |
+
+**ItemControl**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `segment-group` |
+| data-part | `item-control` |
+
+**Indicator**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `segment-group` |
+| data-part | `indicator` |
+| data-disabled | Present when disabled. |
+| data-orientation | The orientation of the indicator. |
+
+### CSS Variables
+
+**Indicator**
+
+| Variable | Description |
+| --- | --- |
+| --transition-property | The transition property value for the Indicator. |
+| --left | The left position value. |
+| --top | The top position value. |
+| --width | The width of the element. |
+| --height | The height of the element. |

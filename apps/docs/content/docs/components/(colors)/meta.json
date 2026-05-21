@@ -1,0 +1,6 @@
+{
+	"icon": "",
+	"title": "Colors",
+	"defaultOpen": false,
+	"pages": ["---colors---", "color-picker"]
+}

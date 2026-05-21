@@ -1,0 +1,15 @@
+{
+	"icon": "HomeIcon",
+	"title": "Handbook",
+	"root": true,
+	"pages": [
+		"---concepts---",
+		"animations",
+		"colors",
+		"composition",
+		"design-principle",
+		"styling",
+		"surfaces",
+		"theming"
+	]
+}

@@ -1,0 +1,457 @@
+---
+title: DatePicker
+description: A component that allows users to select a date or a range of dates.
+---
+
+<ComponentPreview name="date-picker:basic" />
+
+### Usage
+The `DatePicker` component is a complex compound component that provides a full-featured date selection interface.
+
+- `DatePicker`: The root container for the date picker.
+- `DatePicker.Label`: The label for the date picker.
+- `DatePicker.Control`: The container for the input and trigger elements.
+- `DatePicker.Input`: The input field for the date.
+- `DatePicker.Trigger`: The button that opens the date picker popover.
+- `DatePicker.ClearTrigger`: The button that clears the selected date.
+- `DatePicker.Positioner`: Positions the content popover.
+- `DatePicker.Content`: The content of the date picker popover.
+- `DatePicker.View`: A specific view (day, month, or year).
+- `DatePicker.ViewControl`: Container for the view triggers (prev, next, view switch).
+- `DatePicker.PrevTrigger`: Trigger to go to the previous page of the current view.
+- `DatePicker.NextTrigger`: Trigger to go to the next page of the current view.
+- `DatePicker.ViewTrigger`: Trigger to switch between views (e.g., from day to month).
+- `DatePicker.RangeText`: Displays the current date range or view context text.
+- `DatePicker.Table`: The calendar table for the current view.
+- `DatePicker.TableHead`: The header section of the calendar table.
+- `DatePicker.TableBody`: The body section of the calendar table.
+- `DatePicker.TableHeader`: A header cell in the calendar table.
+- `DatePicker.TableRow`: A row in the calendar table.
+- `DatePicker.TableCell`: A cell in the calendar table.
+- `DatePicker.TableCellTrigger`: The trigger within a cell to select a date/month/year.
+
+```tsx
+import { DatePicker, InputGroup, IconButton, Icon, Portal, Button } from "@moto-ui/react"
+
+<DatePicker>
+  <DatePicker.Label>Date</DatePicker.Label>
+  <DatePicker.Control>
+    <InputGroup>
+      <DatePicker.Input asChild>
+        <InputGroup.Input placeholder="YYYY-MM-DD" />
+      </DatePicker.Input>
+      <InputGroup.Addon>
+        <DatePicker.Trigger asChild>
+          <IconButton variant="ghost" size="sm">
+            <Icon icon="tabler:calendar" />
+          </IconButton>
+        </DatePicker.Trigger>
+      </InputGroup.Addon>
+    </InputGroup>
+  </DatePicker.Control>
+  <Portal>
+    <DatePicker.Positioner>
+      <DatePicker.Content>
+        <DatePicker.View view="day">
+          <DatePicker.Context>
+            {(api) => (
+              <>
+                <DatePicker.ViewControl>
+                  <DatePicker.PrevTrigger asChild>
+                    <IconButton variant="ghost" size="sm"><Icon icon="tabler:chevron-left" /></IconButton>
+                  </DatePicker.PrevTrigger>
+                  <DatePicker.ViewTrigger asChild>
+                    <Button variant="ghost" size="sm">
+                      <DatePicker.RangeText />
+                    </Button>
+                  </DatePicker.ViewTrigger>
+                  <DatePicker.NextTrigger asChild>
+                    <IconButton variant="ghost" size="sm"><Icon icon="tabler:chevron-right" /></IconButton>
+                  </DatePicker.NextTrigger>
+                </DatePicker.ViewControl>
+                <DatePicker.Table>
+                  <DatePicker.TableHead>
+                    <DatePicker.TableRow>
+                      {api.weekDays.map((weekDay, id) => (
+                        <DatePicker.TableHeader key={id}>{weekDay.short}</DatePicker.TableHeader>
+                      ))}
+                    </DatePicker.TableRow>
+                  </DatePicker.TableHead>
+                  <DatePicker.TableBody>
+                    {api.weeks.map((week, id) => (
+                      <DatePicker.TableRow key={id}>
+                        {week.map((day, id) => (
+                          <DatePicker.TableCell key={id} value={day}>
+                            <DatePicker.TableCellTrigger asChild>
+                              <IconButton variant="ghost" size="sm">{day.day}</IconButton>
+                            </DatePicker.TableCellTrigger>
+                          </DatePicker.TableCell>
+                        ))}
+                      </DatePicker.TableRow>
+                    ))}
+                  </DatePicker.TableBody>
+                </DatePicker.Table>
+              </>
+            )}
+          </DatePicker.Context>
+        </DatePicker.View>
+      </DatePicker.Content>
+    </DatePicker.Positioner>
+  </Portal>
+</DatePicker>
+```
+
+### Range Selection
+To enable range selection, set the `selectionMode` prop to `range`.
+
+<ComponentPreview name="date-picker:range" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| closeOnSelect | `boolean` | `true` | Whether to close the date picker when a date is selected. |
+| defaultFocusedValue | `DateValue` | - | The initial focused date value. |
+| defaultOpen | `boolean` | `false` | The initial open state of the date picker. |
+| defaultValue | `DateValue[]` | - | The initial value of the date picker. |
+| defaultView | `'day' \| 'month' \| 'year'` | `'day'` | The initial view of the date picker. |
+| disabled | `boolean` | `false` | Whether the date picker is disabled. |
+| fixedWeeks | `boolean` | `false` | Whether the calendar should always show 6 weeks. |
+| focusedValue | `DateValue` | - | The value that is currently focused. |
+| format | `(date: DateValue, details: LocaleDetails) => string` | - | Function to format the input value. |
+| id | `string` | - | The unique identifier of the date picker. |
+| ids | `Partial<{ root: string; label: (index: number) => string; ... }>` | - | The ids of the different parts of the date picker. |
+| immediate | `boolean` | `false` | Whether to update the value as the user types. |
+| inline | `boolean` | `false` | Whether the date picker is displayed inline. |
+| invalid | `boolean` | `false` | Whether the date picker is invalid. |
+| isDateUnavailable | `(date: DateValue, locale: string) => boolean` | - | Function to determine if a date is unavailable. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| locale | `string` | `'en-US'` | The locale used to format the dates. |
+| max | `DateValue` | - | The maximum date allowed. |
+| maxSelectedDates | `number` | - | The maximum number of dates that can be selected. |
+| maxView | `'day' \| 'month' \| 'year'` | `'year'` | The maximum view the date picker can show. |
+| min | `DateValue` | - | The minimum date allowed. |
+| minView | `'day' \| 'month' \| 'year'` | `'day'` | The minimum view the date picker can show. |
+| name | `string` | - | The name of the input element for form submission. |
+| numOfMonths | `number` | `1` | The number of months to show. |
+| open | `boolean` | - | The controlled open state of the date picker. |
+| openOnClick | `boolean` | `false` | Whether to open the date picker when the input is clicked. |
+| outsideDaySelectable | `boolean` | `false` | Whether days outside the current month are selectable. |
+| parse | `(value: string, details: LocaleDetails) => DateValue \| undefined` | - | Function to parse the input value. |
+| placeholder | `string` | - | The placeholder text for the input. |
+| positioning | `PositioningOptions` | - | The positioning options for the popover. |
+| readOnly | `boolean` | `false` | Whether the date picker is read-only. |
+| required | `boolean` | `false` | Whether the date picker is required. |
+| selectionMode | `'single' \| 'multiple' \| 'range'` | `'single'` | The selection mode of the date picker. |
+| showWeekNumbers | `boolean` | `false` | Whether to show week numbers. |
+| startOfWeek | `number` | - | The first day of the week (0 for Sunday, 1 for Monday, etc.). |
+| timeZone | `string` | `'UTC'` | The time zone to use. |
+| translations | `IntlTranslations` | - | The translations for the date picker. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| value | `DateValue[]` | - | The controlled value of the date picker. |
+| view | `'day' \| 'month' \| 'year'` | `'day'` | The controlled view of the date picker. |
+| onFocusChange | `(details: FocusChangeDetails) => void` | - | Callback fired when the focused date changes. |
+| onOpenChange | `(details: OpenChangeDetails) => void` | - | Callback fired when the open state changes. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | Callback fired when the value changes. |
+| onViewChange | `(details: ViewChangeDetails) => void` | - | Callback fired when the view changes. |
+| onVisibleRangeChange | `(details: VisibleRangeChangeDetails) => void` | - | Callback fired when the visible range changes. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Input**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | The index of the input to focus. |
+| fixOnBlur | `boolean` | `true` | Whether to fix the input value on blur. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TableCell**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `DateValue \| number` | - | The value represented by the cell. **Required**. |
+| disabled | `boolean` | `false` | Whether the cell is disabled. |
+| columns | `number` | - | The number of columns the cell spans. |
+| visibleRange | `VisibleRange` | - | The visible range of the cell. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Table**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| columns | `number` | - | The number of columns in the table. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**View**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| view | `'day' \| 'month' \| 'year'` | - | The view to display. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ValueText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| placeholder | `string` | - | Text to display when no date is selected. |
+| separator | `string` | `", "` | The separator to use between multiple date values. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**PresetTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `PresetTriggerValue` | - | The value to set when the trigger is clicked. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**WeekNumberCell**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| week | `DateValue[]` | - | The week to display. **Required**. |
+| weekIndex | `number` | - | The index of the week. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ClearTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**PrevTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**NextTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ViewTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Positioner**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ViewControl**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**RangeText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TableHead**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TableBody**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TableHeader**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TableRow**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TableCellTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**YearSelect**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**MonthSelect**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `root` |
+| data-state | The open state of the date picker. `open` or `closed`. |
+| data-disabled | Present when the date picker is disabled. |
+| data-readonly | Present when the date picker is read-only. |
+| data-empty | Present when the value is empty. |
+
+**Content**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `content` |
+| data-state | The open state of the date picker. `open` or `closed`. |
+| data-nested | Present when the content is nested. |
+| data-has-nested | Present when the content has nested content. |
+| data-placement | The actual placement of the content. |
+| data-inline | Present when the date picker is inline. |
+
+**Input**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `input` |
+| data-index | The index of the date value this input handles. |
+| data-state | The open state of the date picker. `open` or `closed`. |
+| data-placeholder-shown | Present when the placeholder is shown. |
+| data-invalid | Present when the input is invalid. |
+
+**Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `control` |
+| data-disabled | Present when the control is disabled. |
+| data-placeholder-shown | Present when the placeholder is shown. |
+
+**Trigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `trigger` |
+| data-placement | The placement of the trigger. |
+| data-state | The open state of the date picker. `open` or `closed`. |
+| data-placeholder-shown | Present when the placeholder is shown. |
+
+**Next / Prev Trigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `next-trigger` or `prev-trigger`. |
+| data-disabled | Present when the trigger is disabled. |
+
+**View Trigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `date-picker` |
+| data-part | `view-trigger` |
+| data-view | The view controlled by the trigger. |
+
+**Table Parts**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `table`, `table-head`, `table-body`, `table-header`, or `table-row`. |
+| data-view | The view context of the table part. |
+| data-columns | The number of columns in the table. |
+| data-disabled | Present when the table part is disabled. |
+
+**TableCell**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `table-cell` |
+| data-view | The view context of the cell. |
+| data-selected | Present when the cell is selected. |
+| data-disabled | Present when the cell is disabled. |
+| data-focused | Present when the cell is focused. |
+| data-in-range | Present when the cell is in the selected range. |
+| data-today | Present when the cell represents today's date. |
+| data-outside-range | Present when the cell is outside the min/max range. |
+| data-weekend | Present when the cell represents a weekend. |
+
+**View / View Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `view` or `view-control`. |
+| data-view | The view being displayed. |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-part | `label` |
+| data-state | The open state of the date picker. |
+| data-index | The index of the input the label belongs to. |
+| data-disabled | Present when the label is disabled. |
+| data-readonly | Present when the label is read-only. |
+
+### CSS Variables
+
+**Positioner**
+
+| Variable | Description |
+| --- | --- |
+| `--reference-width` | The width of the reference element. |
+| `--reference-height` | The height of the reference element. |
+| `--available-width` | The available width in the viewport. |
+| `--available-height` | The available height in the viewport. |
+| `--x` | The x-axis position of the positioner. |
+| `--y` | The y-axis position of the positioner. |
+| `--z-index` | The z-index of the positioner. |
+| `--transform-origin` | The transform origin of the positioner. |
+
+**Content**
+
+| Variable | Description |
+| --- | --- |
+| `--layer-index` | The index of the content in the layer stack. |
+| `--nested-layer-count` | The number of nested date-pickers. |

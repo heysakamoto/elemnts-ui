@@ -1,0 +1,31 @@
+---
+title: Aspect Ratio
+description: A component used to embed responsive videos, maps, and images while maintaining a specific aspect ratio.
+---
+
+<ComponentPreview name="aspect-ratio:basic" />
+
+### Usage
+
+The `AspectRatio` component offers a simple way to maintain a specific aspect ratio for your content.
+
+```tsx
+import { AspectRatio } from "@moto-ui/react"
+```
+
+```tsx
+<AspectRatio ratio={16 / 9}>
+  <img
+    src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+    alt="Landscape photograph"
+  />
+</AspectRatio>
+```
+
+### Props
+
+The `AspectRatio` component accepts all `div` properties and the following custom props:
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `ratio` | `number \| string` | `1` | The aspect ratio of the element. |

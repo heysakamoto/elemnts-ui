@@ -1,0 +1,53 @@
+---
+title: Item
+description: A versatile primitive component used to create lists, menus, and navigation items.
+---
+
+<ComponentPreview name="item:basic" />
+
+### Usage
+
+The `Item` component is a flexible primitive designed to be used in various contexts such as sidebars, menus, and lists. It provides consistent styling for hover, active, and disabled states.
+
+```tsx
+import { Item, Icon, Text } from "@moto-ui/react"
+
+<Item>
+  <Icon icon="tabler:user" />
+  <Text>Profile</Text>
+</Item>
+```
+
+### Examples
+
+#### Variants
+
+The `Item` component supports different sizes, appearances, and active variants.
+
+<ComponentPreview name="item:variants" />
+
+#### Icon Only
+
+Use the `iconOnly` prop to create compact items that only contain an icon.
+
+<ComponentPreview name="item:icon-only" />
+
+### Props
+
+The `Item` component is a styled `ark.div` and accepts all standard HTML `div` props in addition to the following:
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the item. |
+| tone | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | The visual tone of the item in its normal state. |
+| variant | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | The variant style when the item is active or highlighted. |
+| iconOnly | `boolean` | `false` | Whether the item contains only an icon. |
+| selected | `boolean` | `false` | Whether the item is in a selected state. |
+| disabled | `boolean` | `false` | Whether the item is disabled. |
+
+### Data Attributes
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-selected]` | Present when the item is selected. |
+| `[data-disabled]` | Present when the item is disabled. |

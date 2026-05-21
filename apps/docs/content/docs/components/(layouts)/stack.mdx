@@ -1,0 +1,29 @@
+---
+title: Stack
+description: Arranges its children in a vertical or horizontal stack.
+---
+
+<ComponentPreview name="stack:basic" />
+
+
+### Usage
+The Stack component is a flex container `display: flex` that arranges its children horizontally or vertically.
+```tsx
+import { Stack } from "@moto-ui/react"
+```
+```tsx
+<Stack>
+  {...content}
+</Stack>
+```
+
+
+### Vertical
+Set the direction prop to "column" to arrange children in a vertical stack.
+
+<ComponentPreview name="stack:vertical" />
+
+### Responsive direaction
+Control the stack’s orientation at different breakpoints with the `direction` prop.
+
+<ComponentPreview name="stack:responsive-direction" />

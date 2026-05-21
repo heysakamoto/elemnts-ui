@@ -1,0 +1,48 @@
+{
+	"name": "@moto-ui/preset-base",
+	"version": "0.0.0",
+	"description": "PandaCSS presets for moto-ui with built-in colors and component styles.",
+	"type": "module",
+	"keywords": [
+		"pandacss",
+		"presets",
+		"moto",
+		"design-system",
+		"ui",
+		"css",
+		"panda"
+	],
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist",
+		"package.json"
+	],
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm/index.js",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/esm/index.js",
+			"require": "./dist/cjs/index.js"
+		}
+	},
+	"scripts": {
+		"clean": "rm -rf dist",
+		"lint": "biome lint .",
+		"dev": "tsc && tsup --watch",
+		"prepublishOnly": "pnpm run build",
+		"build": "pnpm run clean && tsup && tsc"
+	},
+	"dependencies": {
+		"@moto-ui/colors": "workspace:*",
+		"@pandacss/dev": "^1.5.0",
+		"@pandacss/preset-base": "^1.8.1"
+	},
+	"devDependencies": {
+		"tsup": "^8.5.1"
+	}
+}

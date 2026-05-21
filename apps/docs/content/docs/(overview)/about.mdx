@@ -1,0 +1,38 @@
+---
+title: "About"
+description: "A high-performance, accessible React component library built with Ark UI and Panda CSS."
+---
+
+# About Moto UI
+
+Moto UI is a high-performance, accessible React component library designed for building modern, scalable user interfaces. It combines the power of **Ark UI** for headless, accessible component logic with **Panda CSS** for type-safe, build-time styling.
+
+## Core Technologies
+
+Moto UI is built on a modern stack that prioritizes performance, developer experience, and accessibility.
+
+- **React**: Moto UI is built for the React ecosystem, providing full support for React 18 and 19.
+- **Ark UI**: We leverage [Ark UI](https://ark-ui.com/) for the foundational logic of our components. Ark UI provides headless, accessible, and customizable components that follow WAI-ARIA patterns, ensuring that accessibility is built-in, not an afterthought.
+- **Panda CSS**: For styling, we use [Panda CSS](https://panda-css.com/), a build-time CSS-in-JS engine. Panda CSS allows us to write type-safe styles that are extracted into static CSS at build time, resulting in zero runtime overhead and excellent performance.
+
+## Core Principles
+
+### Accessibility First
+Every component in Moto UI is built with accessibility in mind. By utilizing Ark UI's headless logic, we ensure that our components meet WAI-ARIA standards and provide a seamless experience for all users, including those using assistive technologies.
+
+### Type Safety
+Moto UI is written entirely in TypeScript. We provide first-class type definitions for all components, props, and design tokens, enabling a robust developer experience with excellent autocompletion and compile-time error checking.
+
+### Compound Component Pattern
+We embrace the "Compound Component" pattern, which provides maximum flexibility and control over the rendered output. This allows developers to compose complex UI elements while maintaining a clear and declarative API.
+
+### Styling Flexibility
+With Panda CSS, we provide a powerful system of **recipes** and **tokens**. This allows for easy customization and consistent design across your application. Styles are extracted at build time, ensuring that your application remains fast and responsive.
+
+## Architecture
+
+Moto UI is structured as a **pnpm monorepo**, allowing us to manage our components, presets, and documentation in a single, cohesive workspace.
+
+- **`packages/react`**: The core component library.
+- **`packages/preset-base`**: Shared design tokens and Panda CSS configurations.
+- **`apps/docs`**: This documentation site, built with TanStack Start and Fumadocs.

@@ -1,0 +1,62 @@
+---
+title: Badge
+description: Shows a small indicator attached to another element, often used for notification counts, status dots, or labels
+---
+
+<ComponentPreview name="badge:basic" />
+
+
+### Usage
+Use Badge to attach a small indicator to another element (for notification counts, status dots, or short labels). Wrap the element you want to annotate, then render another Badge inside to act as the indicator, as shown below.
+
+- Place the inner Badge as a child so it overlays the wrapped element.
+- Use a number or short text inside the inner Badge for counts or labels.
+- Keep content brief (typically 1–3 characters) for best fit.
+- Add an aria-label to the inner Badge to describe the count or status for screen readers.
+- Works well with Avatar, Icon, and Button components.
+
+```tsx
+import { Badge } from '@moto-ui/react';
+
+<Badge>
+  <Avatar />
+  <Badge>5</Badge>
+</Badge>
+```
+
+### Sizes
+Control the indicator's size with the `size` prop.
+
+<ComponentPreview name="badge:sizes" />
+
+### Variants
+Control the indicator's appearance with the `variant` prop.
+
+<ComponentPreview name="badge:variants" />
+
+### Placements
+Control the indicator's position with the `placement` prop.
+
+<ComponentPreview name="badge:placements" />
+
+### Content
+Badge can display text, numbers, or icons. If no children are passed, it renders as a dot-only indicator.
+
+<ComponentPreview name="badge:content" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| colorPalette | `"accent" \| "neutral" \| "success" \| "warning" \| "destructive"` | - | Color variant of the badge |
+| variant | `"primary" \| "secondary" \| "tertiary"`                           | `"primary"` | Visual style variant |
+| size | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Size of the badge |
+| placement | `"top-right" \| "top-left" \| "bottom-right" \| "bottom-left"`   | `"top-right"` | Position of the badge relative to its anchor |
+
+**Anchor**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | - | The element to anchor the badge to, plus the Badge itself |
+| asChild | `boolean`  | - | Additional CSS classes for the anchor wrapper |

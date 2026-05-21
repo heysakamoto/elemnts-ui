@@ -1,0 +1,14 @@
+{
+	"icon": "",
+	"title": "Disclosure",
+	"defaultOpen": false,
+	"pages": [
+		"---disclosure---",
+		"accordion",
+		"carousel",
+		"collapsible",
+		"pagination",
+		"steps",
+		"tabs"
+	]
+}

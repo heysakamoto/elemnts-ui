@@ -1,0 +1,139 @@
+---
+index: true
+title: Introduction
+subtitle: |
+    Modern UI components for professional developers.
+    Crafted with Panda CSS and Ark UI.
+description: Moto UI is an open-source React component library focused on performance, accessibility, and high-end aesthetics.
+---
+
+import { Icon, Surface, Stack, WheelPicker, Grid, Text } from "@moto-ui/react";
+
+export const options = [
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:device-gamepad-2" width={18} height={18} /> Gaming
+      </Stack>
+    ),
+    value: "gaming",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:music" width={18} height={18} /> Music
+      </Stack>
+    ),
+    value: "music",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:video" width={18} height={18} /> Film
+      </Stack>
+    ),
+    value: "film",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:book" width={18} height={18} /> Reading
+      </Stack>
+    ),
+    value: "reading",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:bike" width={18} height={18} /> Cycling
+      </Stack>
+    ),
+    value: "cycling",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:run" width={18} height={18} /> Running
+      </Stack>
+    ),
+    value: "running",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:swimming" width={18} height={18} /> Swimming
+      </Stack>
+    ),
+    value: "swimming",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:hiking" width={18} height={18} /> Hiking
+      </Stack>
+    ),
+    value: "hiking",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:pennant-2" width={18} height={18} /> Golf
+      </Stack>
+    ),
+    value: "golf",
+  },
+  {
+    label: (
+      <Stack direction="row" align="center" gap="2">
+        <Icon icon="tabler:karate" width={18} height={18} /> Karate
+      </Stack>
+    ),
+    value: "karate",
+  },
+];
+
+<Surface rounded="20" direction="column" delta={1} h="360px" align="center" justify="center">
+  <WheelPicker palette="neutral" variant="secondary" w="14rem">
+    <WheelPicker.Control>
+      <WheelPicker.Options options={options} defaultValue="gaming" />
+    </WheelPicker.Control>
+  </WheelPicker>
+</Surface>
+
+
+Moto UI is a high-performance React component library designed for building modern, polished, and accessible web applications. By combining the headless logic of **Ark UI** with the build-time styling power of **Panda CSS**, Moto UI provides a foundation that is both incredibly flexible and exceptionally fast.
+
+## The Moto Philosophy
+
+We believe that professional-grade UI components should not force a trade-off between speed and quality. Moto UI is built on three core pillars:
+
+1.  **Semantic Clarity**: We prioritize semantic naming and intent over purely visual descriptions. This results in a design system that is easier to reason about and maintain.
+2.  **Performance by Default**: By leveraging build-time CSS generation, we eliminate the runtime overhead associated with traditional CSS-in-JS libraries.
+3.  **Uncompromising Accessibility**: Every component is tested against WAI-ARIA standards, ensuring your applications are inclusive and usable by everyone.
+
+## Architecture
+
+Moto UI stands on the shoulders of modern web giants to deliver a world-class developer experience.
+
+### Headless Logic with Ark UI
+At the core of Moto UI is [Ark UI](https://ark-ui.com/), a headless library that handles the complex state management and accessibility requirements for every component. This allows us to focus on providing a beautiful, cohesive visual layer while you benefit from robust, battle-tested logic.
+
+### Build-time Styling with Panda CSS
+For styling, we use [Panda CSS](https://panda-css.com/), a build-time CSS-in-JS engine. Panda generates static CSS files during your build process, ensuring **zero runtime overhead**. This approach provides the best of both worlds: the developer experience of CSS-in-JS with the performance of static CSS.
+
+### Modern Color Science (OKLCH)
+Our color system utilizes the **OKLCH** color space. Unlike RGB or HSL, OKLCH provides uniform perceived brightness and much smoother color transitions, resulting in a more natural and visually pleasing palette that works perfectly across both light and dark modes.
+
+## Key Benefits
+
+- **Polymorphism with `asChild`**: Most components support the `asChild` prop, allowing you to seamlessly integrate with framework routers (like TanStack Router or Next.js) without rendering unnecessary wrapper elements.
+- **Compound Component Pattern**: We favor the compound component pattern, giving you granular control over the rendering and layout of internal parts.
+- **Strictly Typed**: Written in TypeScript from the ground up, providing exhaustive type definitions, IntelliSense, and compile-time safety.
+- **Rich Aesthetics**: From subtle shadows to smooth spring-based animations, every detail is tuned for a high-end, professional feel.
+
+## Ready to dive in?
+
+Whether you're building a simple dashboard or a complex enterprise application, Moto UI provides the primitives you need to succeed.
+
+- [Quick Start](/docs/installation): Get up and running with Moto UI in minutes.
+- [Design Principles](/docs/animations): Learn about the philosophy behind our design system.

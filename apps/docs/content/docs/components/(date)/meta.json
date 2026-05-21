@@ -1,0 +1,6 @@
+{
+	"icon": "",
+	"title": "Date",
+	"defaultOpen": false,
+	"pages": ["---date---", "date-picker"]
+}

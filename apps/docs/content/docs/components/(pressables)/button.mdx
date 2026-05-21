@@ -1,0 +1,50 @@
+---
+title: Button
+description: Triggers an action or event
+---
+
+<ComponentPreview name="button:basic" />
+
+### Usage
+The `Button` component streamlines styling with design tokens and an intuitive API for responsive interfaces.
+```tsx
+import { Button } from "@moto-ui/react"
+```
+
+```tsx
+<Button>
+  {...content}
+</Button>
+```
+
+### Sizes
+Use the `size` prop to change the size of the button.
+
+<ComponentPreview name="button:sizes" />
+
+### Variants
+Use the `variant` prop to change the variant of the button.
+
+<ComponentPreview name="button:variants" />
+
+### Icon
+Use icons within a button
+
+<ComponentPreview name="button:icon" />
+
+### Disabled
+Use icons within a button
+
+<ComponentPreview name="button:disabled" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| colorPalette | `accent \| neutral \| warning \| success \| destructive` | `accent` | The color palette of the component |
+| size | `2xs \| xs \| sm \| md \| lg \| xl` | | The size of the component |
+| variant | `secondary \| tertiary \| surface \| ghost \| plain` | `primary` | The variant of the component |
+| iconOnly | `boolean` | `false` | Renders the button as icon-only |
+| fullWidth | `boolean` | `false` | Expands the button to the full width of its container |
+| as | `React.ElementType` | `undefined` | The underlying element to render. |
+| asChild | `boolean` | `undefined` | Use the provided child element as the default rendered element, combining their props and behavior. |

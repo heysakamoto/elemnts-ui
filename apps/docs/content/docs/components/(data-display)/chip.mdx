@@ -1,0 +1,49 @@
+---
+title: Chip
+description: Compact badges for displaying labels, statuses, and categories
+---
+
+<ComponentPreview name="chip:basic" />
+
+
+### Usage
+Use Chip to present compact, contextual metadata like statuses, categories, or tags. Chips can be static (informational), clickable (trigger an action or navigation), or dismissible (removable by the user).
+
+Guidelines:
+- Keep labels short (1–2 words) and use sentence case.
+- Use color consistently to convey meaning, but never rely on color alone.
+- Provide accessible names for interactive elements (for example, an aria-label on the dismiss button) and clear focus styles.
+- Group related chips and allow them to wrap on smaller screens.
+- Avoid long text, complex layouts, or actions better suited to buttons.
+```tsx 
+import { Chip } from "@moto-ui/react"
+
+<Chip>
+	{...content}
+</Chip>
+```
+
+### Sizes
+Change the size of the component using the `size` prop.
+
+<ComponentPreview name="chip:sizes" />
+
+### Variants
+Change the component's visual style using the `variant` prop.
+
+<ComponentPreview name="chip:variants" />
+
+### With icon
+Display an icon inside the chip.
+
+<ComponentPreview name="chip:with-icon" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| colorPalette | `accent \| neutral \| success \| warning \| destructive` | The color palette of the component |
+| variant | `primary \| secondary \| tertiary \| surface \| ghost` | The variant of the component |
+| size | `xs \| sm \| md \| lg \| xl` | sm | The size of the component |
+| as | `React.ElementType` | undefined | The underlying element to render. |
+| asChild | `boolean` | undefined | Use the provided child element as the default rendered element, combining their props and behavior. |

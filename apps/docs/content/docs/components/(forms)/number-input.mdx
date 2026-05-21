@@ -1,0 +1,218 @@
+---
+title: NumberInput
+description: A component that allows users to enter a number and increment or decrement the value.
+---
+
+<ComponentPreview name="number-input:basic" />
+
+### Usage
+The `NumberInput` component is a compound component that provides a way to enter and adjust numerical values.
+
+- `NumberInput.Root`: The root container for the number input.
+- `NumberInput.RootProvider`: Provides the number input context to its children.
+- `NumberInput.Label`: The label for the number input.
+- `NumberInput.Input`: The input field for the numerical value.
+- `NumberInput.Control`: The container for the increment and decrement triggers.
+- `NumberInput.IncrementTrigger`: The button to increment the value.
+- `NumberInput.DecrementTrigger`: The button to decrement the value.
+- `NumberInput.Scrubber`: A region that allows users to change the value by dragging.
+- `NumberInput.ValueText`: Displays the formatted value of the number input.
+- `NumberInput.Context`: Access the number input state and methods.
+
+```tsx
+import { NumberInput, Button, Icon } from "@moto-ui/react"
+
+<NumberInput.Root defaultValue="10">
+  <NumberInput.Label>Quantity</NumberInput.Label>
+  <NumberInput.Input />
+  <NumberInput.Control>
+    <NumberInput.DecrementTrigger asChild>
+      <Button variant="tertiary" size="xs">
+        <Icon icon="tabler:minus" width="14" height="14" />
+      </Button>
+    </NumberInput.DecrementTrigger>
+    <NumberInput.IncrementTrigger asChild>
+      <Button variant="tertiary" size="xs">
+        <Icon icon="tabler:plus" width="14" height="14" />
+      </Button>
+    </NumberInput.IncrementTrigger>
+  </NumberInput.Control>
+</NumberInput.Root>
+```
+
+### Min and Max
+Use the `min` and `max` props to restrict the range of values.
+
+<ComponentPreview name="number-input:min-max" />
+
+### Step
+Use the `step` prop to change the increment/decrement amount.
+
+<ComponentPreview name="number-input:step" />
+
+### Scrubber
+The `NumberInput.Scrubber` allows users to change the value by clicking and dragging.
+
+<ComponentPreview name="number-input:scrubber" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| allowMouseWheel | `boolean` | `false` | Whether to allow mouse wheel to change the value. |
+| allowOverflow | `boolean` | `true` | Whether to allow the value overflow the min/max range. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element, combining their props and behavior. |
+| clampValueOnBlur | `boolean` | `true` | Whether to clamp the value when the input loses focus (blur). |
+| defaultValue | `string` | - | The initial value of the input when rendered. |
+| disabled | `boolean` | `false` | Whether the number input is disabled. |
+| focusInputOnChange | `boolean` | `true` | Whether to focus input when the value changes. |
+| form | `string` | - | The associate form of the input element. |
+| formatOptions | `Intl.NumberFormatOptions` | - | The options to pass to the `Intl.NumberFormat` constructor. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, label: string, input: string, incrementTrigger: string, decrementTrigger: string, scrubber: string }>` | - | The ids of the elements in the number input. Useful for composition. |
+| inputMode | `InputMode` | `'decimal'` | Hints at the type of data that might be entered by the user. |
+| invalid | `boolean` | `false` | Whether the number input value is invalid. |
+| locale | `string` | `'en-US'` | The current locale. Based on the BCP 47 definition. |
+| max | `number` | `Number.MAX_SAFE_INTEGER` | The maximum value of the number input. |
+| min | `number` | `Number.MIN_SAFE_INTEGER` | The minimum value of the number input. |
+| name | `string` | - | The name attribute of the number input. Useful for form submission. |
+| pattern | `string` | `"-?[0-9]*(.[0-9]+)?"` | The pattern used to check the input element's value against. |
+| readOnly | `boolean` | `false` | Whether the number input is readonly. |
+| required | `boolean` | `false` | Whether the number input is required. |
+| spinOnPress | `boolean` | `true` | Whether to spin the value when the increment/decrement button is pressed. |
+| step | `number` | `1` | The amount to increment or decrement the value by. |
+| translations | `IntlTranslations` | - | Specifies the localized strings that identifies the accessibility elements and their states. |
+| value | `string` | - | The controlled value of the input. |
+| onFocusChange | `(details: FocusChangeDetails) => void` | - | Function invoked when the number input is focused. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | Function invoked when the value changes. |
+| onValueCommit | `(details: ValueChangeDetails) => void` | - | Function invoked when the value is committed (when the input is blurred or the Enter key is pressed). |
+| onValueInvalid | `(details: ValueInvalidDetails) => void` | - | Function invoked when the value overflows or underflows the min/max range. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseNumberInputReturn` | - | **Required**. The value returned from `useNumberInput`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Input**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**IncrementTrigger / DecrementTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Scrubber**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ValueText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `root` |
+| data-disabled | Present when disabled. |
+| data-focus | Present when focused. |
+| data-invalid | Present when invalid. |
+| data-scrubbing | Present when scrubbing. |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `label` |
+| data-disabled | Present when disabled. |
+| data-focus | Present when focused. |
+| data-invalid | Present when invalid. |
+| data-required | Present when required. |
+| data-scrubbing | Present when scrubbing. |
+
+**Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `control` |
+| data-focus | Present when focused. |
+| data-disabled | Present when disabled. |
+| data-invalid | Present when invalid. |
+| data-scrubbing | Present when scrubbing. |
+
+**ValueText**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `value-text` |
+| data-disabled | Present when disabled. |
+| data-invalid | Present when invalid. |
+| data-focus | Present when focused. |
+| data-scrubbing | Present when scrubbing. |
+
+**Input**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `input` |
+| data-invalid | Present when invalid. |
+| data-disabled | Present when disabled. |
+| data-scrubbing | Present when scrubbing. |
+
+**DecrementTrigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `decrement-trigger` |
+| data-disabled | Present when disabled. |
+| data-scrubbing | Present when scrubbing. |
+
+**IncrementTrigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `increment-trigger` |
+| data-disabled | Present when disabled. |
+| data-scrubbing | Present when scrubbing. |
+
+**Scrubber**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `number-input` |
+| data-part | `scrubber` |
+| data-disabled | Present when disabled. |
+| data-scrubbing | Present when scrubbing. |

@@ -1,0 +1,129 @@
+---
+title: Tabs
+description: Displays content in a tabbed interface
+---
+
+<ComponentPreview name="tabs:basic" />
+
+
+### Usage
+Use Tabs to organize related content into a tabbed interface. Place your tab controls inside `Tabs.List`, optionally include `Tabs.Indicator` for an active-state underline or highlight, and render one `Tabs.Content` panel per tab.
+
+- `Tabs`: Root component that manages tab state and renders the tab system.
+- `Tabs.List`: Wraps the set of tab triggers.
+- `Tabs.Trigger`: Clickable control that switches the active tab.
+- `Tabs.Indicator`: Optional visual marker that tracks the active trigger.
+- `Tabs.Content`: Content panel for the currently active tab.
+- `Tabs.Panel`: A styled container often used inside `Tabs.Content`.
+- `Tabs.Context`: Provides access to the tabs' state via a render prop.
+- `Tabs.RootProvider`: Advanced component for using the tabs with a custom hook.
+
+```tsx
+import { Tabs, Text } from "@moto-ui/react"
+
+<Tabs defaultValue="tab-1">
+  <Tabs.List>
+    <Tabs.Trigger value="tab-1">Tab 1</Tabs.Trigger>
+    <Tabs.Trigger value="tab-2">Tab 2</Tabs.Trigger>
+    <Tabs.Indicator />
+  </Tabs.List>
+  <Tabs.Content value="tab-1">
+    <Text>Tab 1 Content</Text>
+  </Tabs.Content>
+  <Tabs.Content value="tab-2">
+    <Text>Tab 2 Content</Text>
+  </Tabs.Content>
+</Tabs>
+```
+
+### Vertical
+Use the `orientation` prop to change the orientation of the tabs.
+
+<ComponentPreview name="tabs:vertical" />
+
+### Disabled
+Set the `disabled` prop on `Tabs.Trigger` to disable a specific tab.
+
+<ComponentPreview name="tabs:disabled" />
+
+
+### Sizes
+Use the `size` prop to change the size of the tabs.
+
+<ComponentPreview name="tabs:sizes" />
+
+### Variants
+Use the `variant` prop to change the appearance of the tabs.
+
+<ComponentPreview name="tabs:variants" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| activationMode | `'manual' \| 'automatic'` | `"automatic"` | The activation mode of the tabs. |
+| defaultValue | `string` | - | The initial selected tab value when rendered. |
+| value | `string` | - | The controlled selected tab value. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | Callback fired when the active tab changes. |
+| orientation | `'horizontal' \| 'vertical'` | `"horizontal"` | The orientation of the tabs. |
+| deselectable | `boolean` | `false` | Whether the active tab can be deselected. |
+| loopFocus | `boolean` | `true` | Whether keyboard navigation will loop. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| composite | `boolean` | `true` | Whether the tab system is composite. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string; trigger: (value: string) => string; list: string; content: (value: string) => string; indicator: string; }>` | - | The ids of the elements in the tabs. |
+| navigate | `(details: NavigateDetails) => void` | - | Function to navigate to the selected tab. |
+| onFocusChange | `(details: FocusChangeDetails) => void` | - | Callback fired when the focused tab changes. |
+| translations | `IntlTranslations` | - | Localized strings for accessibility. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**List**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | The value of the tab. **Required**. |
+| disabled | `boolean` | `false` | Whether the tab is disabled. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | The value of the tab. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Panel**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+Provides access to the `Tabs` API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseTabsContext) => ReactNode` | - | Render prop to access the component API. |
+
+**RootProvider**
+Advanced component for using a custom `useTabs` hook.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseTabsReturn` | - | The value returned from the `useTabs` hook. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

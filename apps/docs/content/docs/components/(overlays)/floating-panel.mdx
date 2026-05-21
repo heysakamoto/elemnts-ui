@@ -1,0 +1,265 @@
+---
+title: FloatingPanel
+description: A draggable and resizable floating panel.
+---
+
+<ComponentPreview name="floating-panel:basic" />
+
+### Usage
+The `FloatingPanel` is a complex component designed for windows that users can interactively reposition and resize.
+
+- `FloatingPanel.Root`: The top-level provider and state manager.
+- `FloatingPanel.RootProvider`: Provides the floating panel context to its children.
+- `FloatingPanel.Trigger`: Opens the panel from a button or other element.
+- `FloatingPanel.Positioner`: Manages the absolute positioning and z-index.
+- `FloatingPanel.Content`: The visual container for the panel.
+- `FloatingPanel.Header`: Contains the drag handle, title, and controls.
+- `FloatingPanel.Title`: Descriptive text for the panel.
+- `FloatingPanel.DragTrigger`: Specifically defines the area used to move the panel.
+- `FloatingPanel.Control`: Groups action triggers like minimize, maximize, and close.
+- `FloatingPanel.StageTrigger`: Toggles between different panel "stages" (e.g., minimized, maximized).
+- `FloatingPanel.CloseTrigger`: Closes the panel.
+- `FloatingPanel.Body`: The primary content container.
+- `FloatingPanel.ResizeTrigger`: Handles placed at edges or corners for resizing.
+- `FloatingPanel.Context`: Access the floating panel state and methods.
+
+```tsx
+import { FloatingPanel, Button, IconButton, Icon } from "@moto-ui/react"
+
+<FloatingPanel.Root>
+  <FloatingPanel.Trigger asChild>
+    <Button variant="outline">Open Panel</Button>
+  </FloatingPanel.Trigger>
+  <FloatingPanel.Positioner>
+    <FloatingPanel.Content>
+      <FloatingPanel.Header>
+        <FloatingPanel.DragTrigger asChild>
+           <FloatingPanel.Title>Panel Title</FloatingPanel.Title>
+        </FloatingPanel.DragTrigger>
+        <FloatingPanel.Control>
+          <FloatingPanel.StageTrigger stage="minimized" asChild>
+             <IconButton variant="ghost" size="sm"><Icon icon="tabler:minus" /></IconButton>
+          </FloatingPanel.StageTrigger>
+          <FloatingPanel.CloseTrigger asChild>
+             <IconButton variant="ghost" size="sm"><Icon icon="tabler:x" /></IconButton>
+          </FloatingPanel.CloseTrigger>
+        </FloatingPanel.Control>
+      </FloatingPanel.Header>
+      <FloatingPanel.Body>
+        <p>Panel Content</p>
+      </FloatingPanel.Body>
+      <FloatingPanel.ResizeTrigger axis="se" />
+    </FloatingPanel.Content>
+  </FloatingPanel.Positioner>
+</FloatingPanel.Root>
+```
+
+### Dragging and Resizing
+By wrapping the `Title` with `DragTrigger`, you enable the header to act as a handle for moving the panel. `ResizeTrigger` components can be added to any of the 8 cardinal and ordinal directions using the `axis` prop.
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| allowOverflow | `boolean` | `true` | Whether the panel should be strictly contained within the boundary when dragging. |
+| closeOnEscape | `boolean` | - | Whether the panel should close when the escape key is pressed. |
+| defaultOpen | `boolean` | `false` | The initial open state of the panel when rendered. |
+| defaultPosition | `Point` | - | The initial position of the panel when rendered. |
+| defaultSize | `Size` | - | The default size of the panel. |
+| dir | `'ltr' \| 'rtl'` | `"ltr"` | The document's text/writing direction. |
+| disabled | `boolean` | - | Whether the panel is disabled. |
+| draggable | `boolean` | `true` | Whether the panel is draggable. |
+| getAnchorPosition | `(details: AnchorPositionDetails) => Point` | - | Function that returns the initial position of the panel when it is opened. |
+| getBoundaryEl | `() => HTMLElement \| null` | - | The boundary of the panel. |
+| gridSize | `number` | `1` | The snap grid for the panel. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ trigger: string, positioner: string, content: string, title: string, header: string }>` | - | The ids of the elements in the floating panel. |
+| immediate | `boolean` | - | Whether to synchronize the present change immediately. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| lockAspectRatio | `boolean` | `false` | Whether the panel is locked to its aspect ratio. |
+| maxSize | `Size` | - | The maximum size of the panel. |
+| minSize | `Size` | - | The minimum size of the panel. |
+| onExitComplete | `VoidFunction` | - | Function called when the animation ends in the closed state. |
+| onOpenChange | `(details: OpenChangeDetails) => void` | - | Function called when the panel is opened or closed. |
+| onPositionChange | `(details: PositionChangeDetails) => void` | - | Function called when the position of the panel changes. |
+| onPositionChangeEnd | `(details: PositionChangeDetails) => void` | - | Function called when the position change ends. |
+| onSizeChange | `(details: SizeChangeDetails) => void` | - | Function called when the size of the panel changes. |
+| onSizeChangeEnd | `(details: SizeChangeDetails) => void` | - | Function called when the size change ends. |
+| onStageChange | `(details: StageChangeDetails) => void` | - | Function called when the stage of the panel changes. |
+| open | `boolean` | - | The controlled open state of the panel. |
+| persistRect | `boolean` | - | Whether the panel size and position should be preserved when it is closed. |
+| position | `Point` | - | The controlled position of the panel. |
+| present | `boolean` | - | Whether the node is present (controlled by the user). |
+| resizable | `boolean` | `true` | Whether the panel is resizable. |
+| size | `Size` | - | The controlled size of the panel. |
+| skipAnimationOnMount | `boolean` | `false` | Whether to allow the initial presence animation. |
+| strategy | `'absolute' \| 'fixed'` | `"fixed"` | The strategy to use for positioning. |
+| translations | `IntlTranslations` | - | The translations for the floating panel. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| value | `UseFloatingPanelReturn` | - | **Required**. The value returned from `useFloatingPanel`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**StageTrigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| stage | `"minimized" \| "maximized" \| "restored"` | - | **Required**. The stage to transition to. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ResizeTrigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| axis | `'n' \| 's' \| 'w' \| 'e' \| 'nw' \| 'ne' \| 'sw' \| 'se'` | - | **Required**. The axis along which the panel can be resized. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Positioner**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Header**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Title**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**DragTrigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**CloseTrigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Body**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+None (Context only).
+
+**Trigger**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `trigger` |
+| `[data-state]` | `"open" \| "closed"` |
+| `[data-dragging]` | Present when in the dragging state. |
+
+**Content**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `content` |
+| `[data-state]` | `"open" \| "closed"` |
+| `[data-dragging]` | Present when in the dragging state. |
+| `[data-topmost]` | Present when topmost. |
+| `[data-behind]` | Present when not topmost. |
+| `[data-minimized]` | Present when minimized. |
+| `[data-maximized]` | Present when maximized. |
+| `[data-staged]` | Present when not in default stage. |
+
+**StageTrigger**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `stage-trigger` |
+| `[data-stage]` | The stage of the trigger. |
+
+**ResizeTrigger**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `resize-trigger` |
+| `[data-disabled]` | Present when disabled. |
+| `[data-axis]` | The axis to resize. |
+
+**DragTrigger**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `drag-trigger` |
+| `[data-disabled]` | Present when disabled. |
+
+**Control**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `control` |
+| `[data-disabled]` | Present when disabled. |
+| `[data-stage]` | The current stage. |
+| `[data-minimized]` | Present when minimized. |
+| `[data-maximized]` | Present when maximized. |
+| `[data-staged]` | Present when not in default stage. |
+
+**Header / Body**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope]` | `floating-panel` |
+| `[data-part]` | `header` or `body` |
+| `[data-dragging]` | Present when dragging. |
+| `[data-minimized]` | Present when minimized. |
+| `[data-maximized]` | Present when maximized. |
+| `[data-staged]` | Present when not in default stage. |
+
+### CSS Variables
+
+**Positioner**
+
+| Variable | Description |
+| :--- | :--- |
+| `--width` | The width of the element. |
+| `--height` | The height of the element. |
+| `--x` | The x position for transform. |
+| `--y` | The y position for transform. |
+| `--z-index` | The z-index value. |
+| `--transform-origin` | The transform origin for animations. |

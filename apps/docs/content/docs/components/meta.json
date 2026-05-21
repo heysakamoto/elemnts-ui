@@ -1,0 +1,20 @@
+{
+	"icon": "HomeIcon",
+	"title": "Components",
+	"root": true,
+	"pages": [
+		"(collections)",
+		"(colors)",
+		"(data-display)",
+		"(date)",
+		"(disclosure)",
+		"(feedback)",
+		"(forms)",
+		"(internationalization)",
+		"(layouts)",
+		"(overlays)",
+		"(pressables)",
+		"(typography)",
+		"(utilities)"
+	]
+}

@@ -1,0 +1,125 @@
+---
+title: JsonTreeView
+description: A component that displays JSON data in a browsable, hierarchical tree structure.
+---
+
+<ComponentPreview name="json-tree-view:basic" />
+
+### Usage
+The `JsonTreeView` component provides a convenient way to visualize complex JSON objects. It supports expanding/collapsing levels, custom rendering for values, and various data types.
+
+- `JsonTreeView.Root`: The root container for the JSON tree.
+- `JsonTreeView.RootProvider`: Provides the JSON tree context to its children.
+- `JsonTreeView.Tree`: The tree container that renders the hierarchical structure.
+
+```tsx
+import { JsonTreeView, Icon } from "@moto-ui/react"
+
+const data = {
+  name: "John Doe",
+  age: 30,
+  address: {
+    city: "New York",
+    zip: "10001"
+  }
+}
+
+const Demo = () => (
+  <JsonTreeView data={data} defaultExpandedDepth={1}>
+    <JsonTreeView.Tree arrow={<Icon icon="tabler:chevron-right" width={16} height={16} />} />
+  </JsonTreeView>
+)
+```
+
+### Expanded Depth
+Use the `defaultExpandedDepth` prop to specify how many levels should be expanded by default.
+
+<ComponentPreview name="json-tree-view:expanded-depth" />
+
+### Custom Value Rendering
+You can use the `renderValue` prop on `JsonTreeView.Tree` to customize how different values are displayed.
+
+<ComponentPreview name="json-tree-view:custom-value-rendering" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| data | `{}` | - | The JSON data to display in the tree. |
+| defaultExpandedDepth | `number` | `0` | The default depth to expand. |
+| expandedValue | `string[]` | - | The controlled expanded node ids. |
+| defaultExpandedValue | `string[]` | - | The initial expanded node ids. |
+| defaultFocusedValue | `string` | - | The initial focused node id. |
+| focusedValue | `string` | - | The controlled focused node id. |
+| defaultSelectedValue | `string[]` | - | The initial selected node ids. |
+| selectedValue | `string[]` | - | The controlled selected node ids. |
+| selectionMode | `'single' \| 'multiple'` | `'single'` | The selection mode of the tree. |
+| expandOnClick | `boolean` | `true` | Whether clicking a branch should open it. |
+| typeahead | `boolean` | `true` | Whether the tree supports typeahead search. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, tree: string, label: string, node: (value: string) => string }>` | - | The ids of the elements. |
+| canRename | `(node: JsonNode, indexPath: IndexPath) => boolean` | - | Function to determine if a node can be renamed. |
+| loadChildren | `(details: LoadChildrenDetails) => Promise<JsonNode[]>` | - | Function to load children asynchronously. |
+| onExpandedChange | `(details: ExpandedChangeDetails) => void` | - | Callback called when expanded nodes change. |
+| onFocusChange | `(details: FocusChangeDetails) => void` | - | Callback called when focused node changes. |
+| onSelectionChange | `(details: SelectionChangeDetails) => void` | - | Callback called when selection changes. |
+| onRenameStart | `(details: RenameStartDetails) => void` | - | Callback called when rename starts. |
+| onRenameComplete | `(details: RenameCompleteDetails) => void` | - | Callback called when rename is completed. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| value | `UseJsonTreeViewReturn` | - | **Required**. The value returned from `useJsonTreeView`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Tree**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| arrow | `ReactNode` | - | The icon to use for the expansion arrow. |
+| indentGuide | `boolean \| ReactNode` | `true` | Whether to show the indentation guide. |
+| renderValue | `(node: JsonNodeHastElement) => ReactNode` | - | Function to customize value rendering. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `data-scope` | `json-tree-view` |
+| `data-part` | `root` |
+
+**Tree**
+
+| Attribute | Description |
+| :--- | :--- |
+| `data-scope` | `json-tree-view` |
+| `data-part` | `tree` |
+
+**Item**
+
+| Attribute | Description |
+| :--- | :--- |
+| `data-part` | `item` |
+| `data-depth` | The depth level of the current node. |
+| `data-type` | The data type of the value. |
+
+**Branch**
+
+| Attribute | Description |
+| :--- | :--- |
+| `data-part` | `branch` |
+| `data-state` | The expansion state: `open` or `closed`. |
+| `data-depth` | The depth level of the branch. |
+
+### CSS Variables
+
+| Variable | Description |
+| :--- | :--- |
+| `--depth` | The depth of the current node. |

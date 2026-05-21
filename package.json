@@ -1,0 +1,32 @@
+{
+	"name": "moto-ui",
+	"private": true,
+	"packageManager": "pnpm@10.33.0",
+	"scripts": {
+		"biome:check": "biome check",
+		"biome:fix": "biome check --write",
+		"dev:docs": "cd apps/docs && pnpm run dev",
+		"dev:react": "cd packages/react && pnpm run dev",
+		"build:react": "cd packages/react && pnpm run build",
+		"build:colors": "cd packages/colors && pnpm run build",
+		"dev:storybook": "cd packages/storybook && pnpm run dev",
+		"dev:preset-base": "cd packages/preset-base && pnpm run dev",
+		"dev:styled-system": "cd packages/styled-system && pnpm run dev",
+		"build:preset-base": "cd packages/preset-base && pnpm run build",
+		"build:styled-system": "cd packages/styled-system && pnpm run build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.15",
+		"@changesets/cli": "^2.29.8"
+	},
+	"dependencies": {
+		"@ark-ui/mcp": "^1.2.1",
+		"typescript": "^5.9.3"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"lightningcss"
+		]
+	}
+}

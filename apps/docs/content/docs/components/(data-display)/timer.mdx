@@ -1,0 +1,81 @@
+---
+title: Timer
+description: A component used to manage and display time-based counts or countdowns.
+---
+
+<ComponentPreview name="timer:basic" />
+
+### Usage
+
+The `Timer` component consists of a root container and several subcomponents to manage and display time units and controls.
+
+```tsx
+import { Timer } from "@moto-ui/react";
+
+<Timer.Root startMs={60 * 60 * 1000}>
+  <Timer.Area>
+    <Timer.ItemGroup>
+      <Timer.Item type="hours" />
+      <Timer.ItemLabel>Hours</Timer.ItemLabel>
+    </Timer.ItemGroup>
+    <Timer.Separator>:</Timer.Separator>
+    <Timer.ItemGroup>
+      <Timer.Item type="minutes" />
+      <Timer.ItemLabel>Minutes</Timer.ItemLabel>
+    </Timer.ItemGroup>
+    <Timer.Separator>:</Timer.Separator>
+    <Timer.ItemGroup>
+      <Timer.Item type="seconds" />
+      <Timer.ItemLabel>Seconds</Timer.ItemLabel>
+    </Timer.ItemGroup>
+  </Timer.Area>
+  <Timer.Control>
+    <Timer.ActionTrigger action="start">Start</Timer.ActionTrigger>
+    <Timer.ActionTrigger action="pause">Pause</Timer.ActionTrigger>
+  </Timer.Control>
+</Timer.Root>
+```
+
+### Countdown
+
+Set the `countdown` prop on the `Root` component to decrement the timer.
+
+<ComponentPreview name="timer:countdown" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| autoStart | `boolean` | `false` | Whether the timer should start automatically. |
+| countdown | `boolean` | `false` | Whether the timer should countdown. |
+| interval | `number` | `1000` | The interval in milliseconds to update the timer count. |
+| startMs | `number` | - | The initial duration of the timer in milliseconds. |
+| targetMs | `number` | - | The target duration of the timer in milliseconds. |
+| onComplete | `() => void` | - | Function invoked when the timer is completed. |
+| onTick | `(details: TickDetails) => void` | - | Function invoked when the timer ticks. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| type | `"days" \| "hours" \| "minutes" \| "seconds" \| "milliseconds"` | - | The type of time unit to display. |
+
+**ItemGroup**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Whether to use the provided child element as the default rendered element. |
+
+**ItemLabel**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Whether to use the provided child element as the default rendered element. |
+
+**ActionTrigger**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| action | `"start" \| "pause" \| "resume" \| "reset" \| "stop" \| "tick"` | - | The action to perform when triggered. |

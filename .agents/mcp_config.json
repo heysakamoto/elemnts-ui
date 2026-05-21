@@ -1,0 +1,12 @@
+{
+	"mcpServers": {
+		"ark-ui": {
+			"command": "/usr/bin/npx",
+			"args": ["-y", "@ark-ui/mcp"]
+		},
+		"storybook": {
+			"url": "http://localhost:6006/mcp",
+			"type": "http"
+		}
+	}
+}

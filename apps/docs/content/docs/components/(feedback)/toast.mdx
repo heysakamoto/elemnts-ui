@@ -1,0 +1,217 @@
+---
+title: Toast
+description: A brief on-screen notification that delivers feedback about a recent action.
+---
+
+<ComponentPreview name="toast:basic" />
+
+### Usage
+
+The `Toast` component is used to display temporary notifications. It is built on top of [Ark UI's Toast](https://ark-ui.com/docs/components/toast) logic.
+
+To use toasts, you first need to create a `toaster` using `createToaster` and then render the `Toaster` component at the root of your application (or near the root).
+
+```tsx
+import { createToaster, Toaster, Button } from "@moto-ui/react"
+
+const toaster = createToaster({
+  placement: "top-end",
+  overlap: true,
+  gap: 16,
+})
+
+const Demo = () => {
+  return (
+    <>
+      <Button
+        onClick={() =>
+          toaster.create({
+            title: "Success",
+            description: "Your changes have been saved.",
+            type: "success",
+          })
+        }
+      >
+        Show Toast
+      </Button>
+      <Toaster toaster={toaster} />
+    </>
+  )
+}
+```
+
+### Anatomy
+
+The `Toast` component is composed of several parts that can be used for custom implementations:
+
+- `Toast.Group`: The container that manages multiple toasts.
+- `Toast.Root`: The root container for an individual toast.
+- `Toast.Indicator`: A container for icons or spinners based on the toast type.
+- `Toast.Title`: The title of the toast.
+- `Toast.Description`: The supporting text for the toast.
+- `Toast.Control`: A container for action buttons.
+- `Toast.ActionTrigger`: A button that triggers a toast action.
+- `Toast.CloseTrigger`: A button that closes the toast.
+- `Toast.Context`: Provides access to the toast's state via a render prop.
+
+### Examples
+
+#### Types
+
+Toast supports different semantic types: `info`, `success`, `warning`, `error`, and `loading`. Each type comes with a default icon and color palette.
+
+<ComponentPreview name="toast:type" />
+
+#### Custom Icons
+
+You can customize the icons for each toast type using the `indicator` prop on the `Toaster` component or by providing an icon in the `toaster.create` call.
+
+<ComponentPreview name="toast:custom-icon" />
+
+#### Duration
+
+The duration of the toast can be customized globally in `createToaster` or per toast in `toaster.create`.
+
+<ComponentPreview name="toast:duration" />
+
+#### With Action
+
+Toasts can include action buttons using the `action` property in `toaster.create`.
+
+<ComponentPreview name="toast:dismissable" />
+
+### Props
+
+**Toaster**
+
+The `Toaster` component is a high-level component that simplifies toast rendering.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| toaster | `CreateToasterReturn` | - | The toaster instance created by `createToaster`. **Required**. |
+| indicator | `ReactNode` | - | Custom element to render as the toast indicator (e.g., an icon). |
+| title | `ReactNode` | - | Custom element to render as the default title. |
+| description | `ReactNode` | - | Custom element to render as the default description. |
+| control | `ReactNode` | - | Custom element to render as the default control area. |
+| root | `(toast: Options) => ReactNode` | - | A function that returns a custom toast component for a given toast option. |
+| dir | `'ltr' \| 'rtl'` | `'ltr'` | The document's text/writing direction. |
+| getRootNode | `() => Node \| ShadowRoot \| Document` | - | A root node to correctly resolve document in custom environments. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Root**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Title**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Description**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ActionTrigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**CloseTrigger**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `(api: UseToastContext) => ReactNode` | - | Render prop to access the toast API. |
+
+**createToaster**
+
+The `createToaster` function accepts several options to configure global toast behavior.
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| placement | `Placement` | `'bottom'` | The placement of the toast group. |
+| duration | `number` | - | The duration in milliseconds before the toast closes. |
+| overlap | `boolean` | `false` | Whether toasts should overlap. |
+| gap | `number` | `16` | The gap between toasts. |
+| hotkey | `string[]` | `['altKey', 'KeyT']` | The hotkey that will move focus to the toast group. |
+| max | `number` | `24` | The maximum number of toasts. |
+| offsets | `string \| Record<string, string>` | `"1rem"` | The offset from the viewport edge. |
+| pauseOnPageIdle | `boolean` | `false` | Whether to pause toast when the user leaves the browser tab. |
+| removeDelay | `number` | `200` | The delay in milliseconds before removing the toast from the DOM. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="toast"]` | The component scope. |
+| `[data-part="root"]` | The root part. |
+| `[data-state]` | The state of the toast. `open` or `closed`. |
+| `[data-type]` | The type of the toast. `info`, `success`, `warning`, `error`, or `loading`. |
+
+**Title**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="title"]` | The title part. |
+
+**Description**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="description"]` | The description part. |
+
+**Indicator**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="indicator"]` | The indicator part. |
+
+**ActionTrigger**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="actionTrigger"]` | The action trigger part. |
+
+**CloseTrigger**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="closeTrigger"]` | The close trigger part. |
+
+### CSS Variables
+
+**Root**
+
+| Variable | Description |
+| :--- | :--- |
+| `--z-index` | The z-index of the toast. |
+| `--opacity` | The opacity of the toast. |
+| `--scale` | The scale of the toast. |
+| `--height` | The height of the toast. |
+| `--x` | The x-translation of the toast. |
+| `--y` | The y-translation of the toast. |

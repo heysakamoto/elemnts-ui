@@ -1,0 +1,137 @@
+---
+title: Surfaces
+description: Context-aware elevation system for consistent depth and hierarchy.
+---
+
+import { Surface, Elevated, Text } from "@moto-ui/react";
+
+<Elevated delta={0} p="16" h="360px" rounded="24" fontFamily="mono" fontSize="12">
+  <Text color="fg.tertiary" mb="12">Page</Text>
+  <Elevated delta={1} p="16" rounded="20" flex="1">
+    <Text color="fg.tertiary" mb="12">Card/Surface/Overlay</Text>
+    <Elevated delta={1} p="16" rounded="16" flex="1">
+       <Text color="fg.tertiary" mb="12">Inner Overlay</Text>
+    </Elevated>
+  </Elevated>
+</Elevated>
+
+Surfaces in Moto UI implement a **context-aware elevation system**. Unlike traditional design systems that use fixed background colors (e.g., `bg-card`), Moto UI calculates the background and shadow of a component relative to its current environment.
+
+This approach solves the problem of **elevation collapse**, where nested components disappear because they share the same visual level as their container.
+
+## Core Concepts
+
+### Relative Elevation
+
+Instead of picking a specific level (like "Level 3"), you define a **delta** — how much higher a component should sit relative to its parent.
+
+- **Substrate**: The current background level (1–8).
+- **Delta**: The amount of elevation to add to the current level.
+
+When you wrap a component in `<Elevated delta={1}>`, it reads the current level from its context and increments it. A popover on the base page (Level 1) will lift to Level 2. That same popover inside a Dialog (Level 5) will automatically lift to Level 6.
+
+### The Eight Levels
+
+Moto UI defines **eight levels** of elevation. Each level corresponds to a specific background color and shadow recipe:
+
+- **Level 1**: The base substrate (typically the page background).
+- **Levels 2–8**: Increasingly elevated layers with more pronounced shadows.
+
+In **Dark Mode**, as levels increase, the background becomes lighter (using `color-mix` with white) and the shadows become more complex, effectively simulating depth through light emission.
+
+## Components
+
+### Elevated
+
+The `Elevated` component is the foundational primitive for the elevation system. It manages the `Substrate` context and applies the necessary data attributes for styling.
+
+```tsx
+import { Elevated, Text } from "@moto-ui/react";
+
+<Elevated delta={1}>
+  <Text>I am one level higher than my parent.</Text>
+</Elevated>
+```
+
+### Surface
+
+`Surface` is a higher-level compound component used for panels, cards, and distinct UI sections. It uses `Elevated` as its base and provides slots for headers, content, and footers.
+
+By default, `Surface` includes a border and shadow. You can disable this by setting `elevated={false}` for a flat look that still provides the substrate context to its children.
+
+```tsx
+import { Surface, Text } from "@moto-ui/react";
+
+<Surface delta={1} p="6">
+  <Surface.Header>
+    <Surface.Title>Card Title</Surface.Title>
+  </Surface.Header>
+  <Surface.Content>
+    <Text>Main content goes here.</Text>
+  </Surface.Content>
+</Surface>
+```
+
+## How it works
+
+The system relies on CSS Variables and Data Attributes provided by the `Elevated` component:
+
+- `data-elevation`: The calculated absolute level (current + delta).
+- `data-elevation-shadow`: The level used for the box-shadow (usually matches `data-elevation`).
+- `--elevation`: A CSS variable containing the current level.
+
+### Dark Mode Depth
+
+In dark mode, Moto UI uses `color-mix` to subtly lighten backgrounds as they get closer to the "light source":
+
+```css
+/* Conceptual Dark Mode Logic */
+surface-1: neutral.100;
+surface-2: color-mix(in oklab, neutral.100, 4% white);
+surface-3: color-mix(in oklab, neutral.100, 8% white);
+```
+
+This ensures that depth is perceptible even in pure black environments, where traditional shadows are invisible.
+
+## Examples
+
+### Deeply Nested Hierarchy
+
+The power of relative elevation is best seen in deep nesting. Notice how each layer remains distinct without any manual color configuration.
+
+<Elevated my="32" delta={0} p="16" rounded="24" fontFamily="mono" fontSize="12">
+  <Text color="fg.tertiary" mb="12">Level 1</Text>
+  <Elevated delta={1} p="16" rounded="20">
+    <Text color="fg.tertiary" mb="12">Level 2</Text>
+    <Elevated delta={1} p="16" rounded="16">
+      <Text color="fg.tertiary" mb="12">Level 3</Text>
+      <Elevated delta={1} p="16" rounded="12">
+        <Text color="fg.tertiary" mb="12" >Level 4</Text>
+        <Elevated delta={1} p="16" rounded="8">
+          <Text color="fg.tertiary" mb="12">Level 5</Text>
+          <Elevated delta={1} p="16" rounded="8">
+            <Text color="fg.tertiary" mb="12">Level 6</Text>
+            <Elevated delta={1} p="16" rounded="8">
+              <Text color="fg.tertiary" mb="12">Level 7</Text>
+              <Elevated delta={1} p="16" rounded="8">
+                <Text color="fg.tertiary" mb="12">Level 8</Text>
+              </Elevated>
+            </Elevated>
+          </Elevated>
+        </Elevated>
+      </Elevated>
+    </Elevated>
+  </Elevated>
+</Elevated>
+
+```tsx
+<Elevated delta={0}>
+  <Elevated delta={1}>
+    <Elevated delta={1}>
+      <Elevated delta={1}>
+        {/* Each layer lifts relative to the previous one */}
+      </Elevated>
+    </Elevated>
+  </Elevated>
+</Elevated>
+```

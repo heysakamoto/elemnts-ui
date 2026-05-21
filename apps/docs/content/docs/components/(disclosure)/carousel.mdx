@@ -1,0 +1,170 @@
+---
+title: Carousel
+description: Enables cycling through a sequence of visual content within a container.
+---
+
+<ComponentPreview name="carousel:basic" />
+
+### Usage
+Use Carousel to cycle through a set of slides. Place your slides inside `Carousel.ItemGroup` as individual `Carousel.Item` elements, then optionally add `Carousel.Control` to render built-in navigation and status UI.
+
+- `Carousel`: The root container for the carousel.
+- `Carousel.ItemGroup`: A container for the carousel items.
+- `Carousel.Item`: An individual slide within the carousel.
+- `Carousel.Control`: A container for the carousel controls.
+- `Carousel.NextTrigger`: A trigger that scrolls to the next slide.
+- `Carousel.PrevTrigger`: A trigger that scrolls to the previous slide.
+- `Carousel.IndicatorGroup`: A container for the carousel indicators.
+- `Carousel.Indicator`: An indicator that scrolls to a specific slide.
+- `Carousel.AutoplayTrigger`: A trigger that toggles autoplay.
+- `Carousel.AutoplayIndicator`: An indicator that reflects the autoplay status.
+- `Carousel.ProgressText`: A text element that displays the current progress.
+- `Carousel.Context`: Provides access to the carousel's state via a render prop.
+- `Carousel.RootProvider`: Advanced component for using the carousel with a custom hook.
+
+```tsx
+import { Carousel } from "@moto-ui/react"
+
+<Carousel slideCount={3}>
+  <Carousel.ItemGroup>
+    <Carousel.Item index={0}>Item 1</Carousel.Item>
+    <Carousel.Item index={1}>Item 2</Carousel.Item>
+    <Carousel.Item index={2}>Item 3</Carousel.Item>
+  </Carousel.ItemGroup>
+  <Carousel.Control>
+    <Carousel.AutoplayTrigger>
+      <Carousel.AutoplayIndicator fallback="Play">Pause</Carousel.AutoplayIndicator>
+    </Carousel.AutoplayTrigger>
+    <Carousel.PrevTrigger>Prev</Carousel.PrevTrigger>
+    <Carousel.IndicatorGroup>
+      {[0, 1, 2].map((i) => (
+        <Carousel.Indicator key={i} index={i} />
+      ))}
+    </Carousel.IndicatorGroup>
+    <Carousel.NextTrigger>Next</Carousel.NextTrigger>
+    <Carousel.ProgressText />
+  </Carousel.Control>
+</Carousel>
+```
+
+### Spacing
+Set the space between slides using the `spacing` prop.
+
+<ComponentPreview name="carousel:spacing" />
+
+### Autoplay
+Enable automatic slide advancement by setting the `autoplay` prop on the `Carousel` component.
+
+<ComponentPreview name="carousel:autoplay" />
+
+### Vertical
+Set the `orientation` prop to `'vertical'` to render a vertical carousel.
+
+<ComponentPreview name="carousel:vertical" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| slideCount | `number` | - | The total number of slides. **Required**. |
+| allowMouseDrag | `boolean` | `false` | Whether to allow scrolling via dragging with mouse. |
+| autoplay | `boolean \| { delay: number }` | `false` | Whether to scroll automatically. |
+| autoSize | `boolean` | `false` | Whether to enable variable width slides. |
+| defaultPage | `number` | `0` | The initial page to scroll to when rendered. |
+| ids | `Partial<{ root: string; item: (index: number) => string; ... }>` | - | The ids of the elements in the carousel. |
+| inViewThreshold | `number \| number[]` | `0.6` | The threshold for determining if an item is in view. |
+| loop | `boolean` | `false` | Whether the carousel should loop around. |
+| orientation | `'horizontal' \| 'vertical'` | `"horizontal"` | The orientation of the element. |
+| padding | `string` | - | Defines the extra space added around the scrollable area. |
+| page | `number` | - | The controlled page of the carousel. |
+| slidesPerMove | `number \| 'auto'` | `"auto"` | The number of slides to scroll at a time. |
+| slidesPerPage | `number` | `1` | The number of slides to show at a time. |
+| snapType | `'proximity' \| 'mandatory'` | `"mandatory"` | The snap type of the item. |
+| spacing | `string` | `"0px"` | The amount of space between items. |
+| translations | `IntlTranslations` | - | The localized messages to use. |
+| onAutoplayStatusChange | `(details: AutoplayStatusDetails) => void` | - | Function called when the autoplay status changes. |
+| onDragStatusChange | `(details: DragStatusDetails) => void` | - | Function called when the drag status changes. |
+| onPageChange | `(details: PageChangeDetails) => void` | - | Function called when the page changes. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | The index of the item. **Required**. |
+| snapAlign | `'center' \| 'start' \| 'end'` | `"start"` | The snap alignment of the item. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | The index of the indicator. **Required**. |
+| readOnly | `boolean` | `false` | Whether the indicator is read only. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**AutoplayIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| fallback | `ReactNode` | - | The fallback content to render when autoplay is paused. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemGroup**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**NextTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**PrevTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**AutoplayTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**IndicatorGroup**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ProgressText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+Provides access to the `Carousel` API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseCarouselContext) => ReactNode` | - | Render prop to access the component API. |
+
+**RootProvider**
+Advanced component for using a custom `useCarousel` hook.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseCarouselReturn` | - | The value returned from the `useCarousel` hook. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

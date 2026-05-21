@@ -1,0 +1,14 @@
+{
+	"icon": "",
+	"title": "Overlays",
+	"defaultOpen": false,
+	"pages": [
+		"---overlays---",
+		"dialog",
+		"floating-panel",
+		"hover-card",
+		"menu",
+		"popover",
+		"tooltip"
+	]
+}

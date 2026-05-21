@@ -1,0 +1,6 @@
+{
+	"icon": "HomeIcon",
+	"title": "Typography",
+	"defaultOpen": false,
+	"pages": ["---typography---", "anchor", "highlight", "kbd", "text"]
+}

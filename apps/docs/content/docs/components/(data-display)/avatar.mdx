@@ -1,0 +1,104 @@
+---
+title: Avatar
+description: Displays a user's profile image or initials
+---
+
+<ComponentPreview name="avatar:basic" />
+
+### Usage
+Use `Avatar` to show a user’s profile picture with a graceful fallback when no image is available or it fails to load.
+```tsx
+import { Avatar } from "@moto-ui/react"
+
+<Avatar>
+  <Avatar.Image src="..." alt="..." />
+  <Avatar.Fallback>JD</Avatar.Fallback>
+</Avatar>
+```
+
+### Sizes
+Control the avatar size with the `size` prop. Supported sizes are `2xs`, `xs`, `sm`, `md`, `lg`, `xl`, and `2xl`.
+
+<ComponentPreview name="avatar:sizes" />
+
+### Shapes
+Change the avatar shape by applying a specific `borderRadius | radius` value or using style props.
+
+<ComponentPreview name="avatar:shapes" />
+
+### Variant
+Switch the avatar’s visual style using the `variant` prop. Supported variants are `primary`, `secondary`, `tertiary`, and `surface`.
+
+<ComponentPreview name="avatar:variants" />
+
+### Colors
+Customize the avatar’s background and text colors using `colorPalette`.
+
+<ComponentPreview name="avatar:colors" />
+
+### Ring
+Add an outline ring around the avatar using the `outline` style props.
+
+<ComponentPreview name="avatar:ring" />
+
+### With badge
+Add a status or notification badge to the avatar using `Badge`.
+
+<ComponentPreview name="avatar:with-badge" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| colorPalette | `ColorPalette` | `"accent"` | The color palette of the component. |
+| variant | `"primary" \| "secondary" \| "tertiary" \| "surface"` | `"primary"` | The variant of the component. |
+| size | `"2xs" \| "xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | The size of the component. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| ids | `Partial<{ root: string; image: string; fallback: string }>` | - | The ids of the elements in the avatar. Useful for composition. |
+| onStatusChange | `(details: StatusChangeDetails) => void` | - | Function called when the image loading status changes. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+|------|------|----------|-------------|
+| value | `UseAvatarReturn` | - | The context value returned by `useAvatar`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Image**
+
+| Prop | Type | Default | Description |
+|------|------|----------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Fallback**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| children | `(context: UseAvatarContext) => React.ReactNode` | - | Render prop that provides access to the avatar context. |
+
+### Data Attributes
+
+**Fallback**
+
+| Attribute | Description |
+|-----------|-------|
+| `[data-scope="avatar"]` | The component scope. |
+| `[data-part="fallback"]` | The component part. |
+| `[data-state="visible" \| "hidden"]` | Visibility of the fallback. |
+
+**Image**
+
+| Attribute | Description |
+|-----------|-------|
+| `[data-scope="avatar"]` | The component scope. |
+| `[data-part="image"]` | The component part. |
+| `[data-state="visible" \| "hidden"]` | Visibility of the image. |

@@ -1,0 +1,98 @@
+---
+title: Collapsible
+description: Lets users show or hide additional content.
+---
+
+<ComponentPreview name="collapsible:basic" />
+
+### Usage
+Use Collapsible to reveal or hide supplementary content on demand.
+
+- `Collapsible`: The root container that manages the open/closed state.
+- `Collapsible.Trigger`: The interactive control that toggles the state.
+- `Collapsible.Indicator`: An optional visual cue that reflects the open/closed state.
+- `Collapsible.Content`: The collapsible region that shows or hides based on the state.
+- `Collapsible.Context`: Provides access to the collapsible's state via a render prop.
+- `Collapsible.RootProvider`: Advanced component for using the collapsible with a custom hook.
+
+```tsx 
+import { Collapsible, Text, Icon } from "@moto-ui/react"
+
+<Collapsible>
+  <Collapsible.Trigger>
+    <Text flex="1">Toggle Content</Text>
+    <Collapsible.Indicator>
+      <Icon icon="tabler:chevron-down" />
+    </Collapsible.Indicator>
+  </Collapsible.Trigger>
+  <Collapsible.Content>
+    <Text p="12">Hidden Content</Text>
+  </Collapsible.Content>
+</Collapsible>
+```
+
+### Default open
+To render the collapsible open initially, set the `defaultOpen` prop.
+
+<ComponentPreview name="collapsible:default-open" />
+
+### Partial height
+Set the `collapsedHeight` prop to keep a fixed-height preview of the content visible when collapsed.
+
+<ComponentPreview name="collapsible:partial-height" />
+
+### Disabled
+Set the `disabled` prop to prevent users from toggling the collapsible.
+
+<ComponentPreview name="collapsible:disabled" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| collapsedHeight | `string \| number` | - | The height of the content when collapsed. |
+| collapsedWidth | `string \| number` | - | The width of the content when collapsed. |
+| defaultOpen | `boolean` | - | The initial open state of the collapsible when rendered. |
+| disabled | `boolean` | `false` | Whether the collapsible is disabled. |
+| ids | `Partial<{ root: string; content: string; trigger: string }>` | - | The ids of the elements in the collapsible. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| open | `boolean` | - | The controlled open state of the collapsible. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| onExitComplete | `VoidFunction` | - | The callback invoked when the exit animation completes. |
+| onOpenChange | `(details: OpenChangeDetails) => void` | - | The callback invoked when the open state changes. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+Provides access to the `Collapsible` API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseCollapsibleContext) => ReactNode` | - | Render prop to access the component API. |
+
+**RootProvider**
+Advanced component for using a custom `useCollapsible` hook.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseCollapsibleReturn` | - | The value returned from the `useCollapsible` hook. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

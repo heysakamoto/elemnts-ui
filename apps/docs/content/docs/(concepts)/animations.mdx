@@ -1,0 +1,131 @@
+---
+title: Animations
+description: Add smooth animations and transitions to Moto UI components.
+---
+
+import { Surface } from "@moto-ui/react";
+
+<Surface delta={1} h="360px" rounded="24" gap="12" direction="row" align="center" justify="center">
+  <Surface delta={1} boxSize="48" rounded="12" animation="rotate-in 1s ease-in-out infinite alternate"/>
+  <Surface delta={1} boxSize="48" rounded="12" animation="flip-in 1s ease-in-out infinite alternate"/>
+  <Surface delta={1} boxSize="48" rounded="12" animation="float 2s ease-in-out infinite"/>
+</Surface>
+
+Moto UI provides a comprehensive set of built-in keyframes and animation tokens to help you create engaging and smooth user interfaces. Leveraging Panda CSS, you can apply animations directly via props or define reusable animation styles.
+
+## Built-in Keyframes
+
+Moto UI includes a variety of predefined keyframes that you can use with the `animation` prop.
+
+### Fades & Scales
+- `fade-in` / `fade-out`
+- `scale-in` / `scale-out`
+- `scale-fade-in` / `scale-fade-out`
+
+### Slides
+- `slide-up` / `slide-down`
+- `slide-left` / `slide-right`
+- `slide-down-fade` / `slide-up-fade`
+
+### Attention & Feedback
+- `pulse`: Soft background color pulse.
+- `spin`: Linear rotation.
+- `ping`: Scaling effect for notifications.
+- `bounce`: Vertical bounce.
+- `shake`: Horizontal shake.
+- `float`: Gentle vertical floating.
+- `breath`: Soft opacity breathing.
+
+### Specialized
+- `rotate-in` / `rotate-out`
+- `flip-in` / `flip-out`
+- `marquee-x` / `marquee-y`
+- `expand-height` / `collapse-height`
+
+## Usage
+
+### Standard Animation Prop
+You can use the `animation` prop to apply any keyframe. It supports the standard CSS animation shorthand.
+
+```tsx
+import { Box } from "@moto-ui/react";
+
+<Box animation="fade-in 0.5s ease-out" />
+```
+
+### Animation Tokens
+We provide pre-composed animation tokens for common use cases:
+
+- `animation="spin"`: `spin 1s linear infinite`
+- `animation="pulse"`: `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`
+- `animation="ping"`: `ping 1s cubic-bezier(0, 0, 0.2, 1) infinite`
+- `animation="bounce"`: `bounce 1s infinite`
+
+### Durations & Easings
+Use tokens for consistent timing and feel:
+
+```tsx
+<Box
+  animationName="fade-in"
+  animationDuration="moderate" // 200ms
+  animationTimingFunction="ease-in-smooth"
+/>
+```
+
+Available durations: `fastest` (50ms), `faster` (100ms), `fast` (150ms), `moderate` (200ms), `slow` (300ms), `slower` (400ms), `slowest` (500ms).
+
+---
+
+## Animation Styles (Advanced)
+
+`animationStyles` allow you to create high-level, reusable animation presets. These are defined in your Panda config and can be applied via the `animationStyle` prop.
+
+### Defining Animation Styles
+```ts
+import { defineAnimationStyles } from '@pandacss/dev'
+
+export const animationStyles = defineAnimationStyles({
+  'slide-fade-in': {
+    value: {
+      animationName: 'slide-from-bottom, fade-in',
+      animationDuration: 'fast',
+      animationTimingFunction: 'ease-out'
+    }
+  }
+})
+```
+
+### Using Animation Styles
+```tsx
+<Button animationStyle="slide-fade-in">
+  Click Me
+</Button>
+```
+
+### Nested Styles
+You can define variants with a `DEFAULT` fallback:
+
+```ts
+animationStyles: {
+  fade: {
+    DEFAULT: { value: { animationName: 'fade-in', animationDuration: '300ms' } },
+    fast: { value: { animationName: 'fade-in', animationDuration: '150ms' } }
+  }
+}
+```
+
+## Keyframes vs Animation Styles
+
+| Feature | Keyframes | Animation Styles |
+| :--- | :--- | :--- |
+| **Level** | Low-level building blocks | High-level reusable presets |
+| **Purpose** | Defines the "how" (steps) | Defines the "what" (preset) |
+| **Prop** | `animation` / `animationName` | `animationStyle` |
+| **Composition** | Manual per component | Pre-composed in theme |
+
+## Best Practices
+
+- **Judicious Use**: Avoid over-animating. Use motion to guide attention or provide feedback, not to distract.
+- **Accessibility**: Respect user preferences for reduced motion. Use `_motionReduce` modifiers or check `prefers-reduced-motion`.
+- **Consistency**: Stick to the built-in durations and easings to maintain a cohesive feel across your application.
+- **Performance**: Prefer `transform` and `opacity` animations as they are GPU-accelerated and don't trigger layout shifts.

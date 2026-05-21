@@ -1,0 +1,62 @@
+---
+title: Toggle
+description: A two-state button that can be either on or off.
+---
+
+<ComponentPreview name="toggle:basic" />
+
+### Usage
+
+The `Toggle` component is a compound component that allows users to toggle between two states, such as "on" and "off".
+
+```tsx
+import { Toggle } from "@moto-ui/react"
+```
+
+```tsx
+<Toggle.Root>
+	{/* ...content */}
+</Toggle.Root>
+```
+
+### Controlled
+Use the `pressed` and `onPressedChange` props to control the state of the toggle.
+
+<ComponentPreview name="toggle:controlled" />
+
+### Indicator
+Use the `Toggle.Indicator` component to render different content based on the toggle state. The `fallback` prop is rendered when the toggle is not pressed.
+
+<ComponentPreview name="toggle:indicator" />
+
+### Disabled
+The toggle can be disabled using the `disabled` prop.
+
+<ComponentPreview name="toggle:disabled" />
+
+### Anatomy
+
+The `Toggle` component consists of the following subcomponents:
+
+- `Toggle.Root`: The root container for the toggle button.
+- `Toggle.Indicator`: A component that conditionally renders its children based on the toggle state.
+- `Toggle.Context`: A component that provides access to the toggle's state via a render prop.
+
+### Props
+
+#### Root
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| defaultPressed | `boolean` | `false` | The default pressed state of the toggle. |
+| onPressedChange | `(pressed: boolean) => void` | | Event handler called when the pressed state of the toggle changes. |
+| pressed | `boolean` | | The pressed state of the toggle. |
+| disabled | `boolean` | `false` | Whether the toggle is disabled. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+#### Indicator
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| fallback | `ReactNode` | | The content to render when the toggle is not pressed. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

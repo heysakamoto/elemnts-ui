@@ -1,0 +1,159 @@
+---
+title: Listbox
+description: Designed to present a list of choices for user selection.
+---
+
+<ComponentPreview name="listbox:basic" />
+
+
+### Usage
+The Listbox component is a versatile UI element that allows users to select one or more options from a predefined list. It is commonly used in forms, dropdown menus, and other interactive interfaces where selection is required.
+
+```tsx
+import { Listbox } from "@moto-ui/react"
+
+<Listbox>
+  <Listbox.Label />
+  <Listbox.Content>
+    <Listbox.Item>
+      <Listbox.ItemText />
+      <Listbox.ItemIndicator />
+    </Listbox.Item>
+  </Listbox.Content>
+</Listbox>
+```
+
+
+### Disabled
+Mark certain items in the listbox as disabled to show they are not selectable, while still displaying them for informational purposes.
+
+<ComponentPreview name="listbox:disabled" />
+
+### With Checkmark
+Use custom checkmarks to indicate selected items in scenarios that allow multiple selections, ensuring clear visual distinction for users.
+
+<ComponentPreview name="listbox:checkmark" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| collection | `ListCollection<T>` | - | The collection of items (Required) |
+| defaultValue | `string[]` | `[]` | The initial default value of the listbox when rendered. |
+| value | `string[]` | - | The controlled keys of the selected items |
+| onValueChange | `(details: ValueChangeDetails<T>) => void` | - | The callback fired when the selected item changes. |
+| selectionMode | `SelectionMode` | `"single"` | How multiple selection should behave in the listbox.<br />- `single`: The user can select a single item.<br />- `multiple`: The user can select multiple items without using modifier keys.<br />- `extended`: The user can select multiple items by using modifier keys. |
+| orientation | `'horizontal' \| 'vertical'` | `"vertical"` | The orientation of the listbox. |
+| loopFocus | `boolean` | `false` | Whether to loop the keyboard navigation through the options |
+| disabled | `boolean` | - | Whether the listbox is disabled |
+| deselectable | `boolean` | - | Whether to disallow empty selection |
+| disallowSelectAll | `boolean` | - | Whether to disallow selecting all items when `meta+a` is pressed |
+| highlightedValue | `string` | - | The controlled key of the highlighted item |
+| defaultHighlightedValue | `string` | - | The initial value of the highlighted item when opened. |
+| onHighlightChange | `(details: HighlightChangeDetails<T>) => void` | - | The callback fired when the highlighted item changes. |
+| onSelect | `(details: SelectionDetails) => void` | - | Function called when an item is selected |
+| selectOnHighlight | `boolean` | - | Whether to select the item when it is highlighted |
+| typeahead | `boolean` | - | Whether to enable typeahead on the listbox |
+| scrollToIndexFn | `(details: ScrollToIndexDetails) => void` | - | Function to scroll to a specific index |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{...}>` | - | The ids of the elements in the listbox. Useful for composition. |
+| colorPalette | `ColorPalette` | `"gray"` | The color palette of the component |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+| unstyled | `boolean` | - | Whether to remove the component's style. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseListboxReturn<T>` | - | The listbox instance (Required) |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Input**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| autoHighlight | `boolean` | `false` | Whether to automatically highlight the item when typing |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| item | `any` | - | The item to render |
+| highlightOnHover | `boolean` | - | Whether to highlight the item on hover |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**ItemText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**ItemIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**ItemGroup**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**ItemGroupLabel**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Empty**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**ValueText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| placeholder | `string` | - | Text to display when no value is selected. |
+| as | `React.ElementType` | - | The underlying element to render. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Context**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(context: UseListboxContext<T>) => React.ReactNode` | - | Render prop that provides access to the listbox context |
+
+**ItemContext**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(context: UseListboxItemContext) => React.ReactNode` | - | Render prop that provides access to the listbox item context |

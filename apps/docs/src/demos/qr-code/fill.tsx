@@ -1,0 +1,11 @@
+import { QrCode } from "@moto-ui/react";
+
+export function Fill() {
+	return (
+		<QrCode.Root value="https://www.mobbin.com">
+			<QrCode.Frame>
+				<QrCode.Pattern fill="destructive.primary" />
+			</QrCode.Frame>
+		</QrCode.Root>
+	);
+}

@@ -1,0 +1,153 @@
+---
+title: PinInput
+description: For optimized user experience of entering a PIN or OTP.
+---
+
+<ComponentPreview name="pin-input:basic" />
+
+### Usage
+The `PinInput` component is a compound component that provides an optimized experience for entering multi-digit codes like PINs or One-Time Passwords (OTPs).
+
+- `PinInput.Root`: The root container for the pin input.
+- `PinInput.RootProvider`: Provides the pin input context to its children.
+- `PinInput.Label`: The label for the pin input.
+- `PinInput.Control`: The container for the individual input fields.
+- `PinInput.Input`: Individual input fields for each digit.
+- `PinInput.HiddenInput`: A hidden input for form integration.
+- `PinInput.Context`: Access the pin input state and methods.
+
+```tsx
+import { PinInput, Input } from "@moto-ui/react"
+
+<PinInput.Root onValueComplete={(e) => console.log(e.value)}>
+  <PinInput.Control>
+    {Array.from({ length: 4 }).map((_, idx) => (
+      <PinInput.Input asChild index={idx} key={idx}>
+        <Input variant="secondary" boxSize="2.4rem" fontSize="20" />
+      </PinInput.Input>
+    ))}
+  </PinInput.Control>
+</PinInput.Root>
+```
+
+### Masking
+Use the `mask` prop to obscure the input values, similar to a password input.
+
+<ComponentPreview name="pin-input:masking" />
+
+### OTP Mode
+Use the `otp` prop to signal to mobile devices that the input is a one-time password, enabling auto-fill features.
+
+<ComponentPreview name="pin-input:otp-mode" />
+
+### With Field
+The `PinInput` can be used within a `Field` component to provide a label, helper text, and validation states.
+
+<ComponentPreview name="pin-input:with-field" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| autoFocus | `boolean` | `false` | Whether to auto-focus the first input. |
+| blurOnComplete | `boolean` | `false` | Whether to blur the input when the value is complete. |
+| count | `number` | - | The number of inputs to render. |
+| defaultValue | `string[]` | - | The initial value of the pin input. |
+| disabled | `boolean` | `false` | Whether the inputs are disabled. |
+| form | `string` | - | The associate form of the underlying input element. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, hiddenInput: string, label: string, control: string, input: (id: string) => string }>` | - | The ids of the elements in the pin input. Useful for composition. |
+| invalid | `boolean` | `false` | Whether the pin input is in the invalid state. |
+| mask | `boolean` | `false` | If `true`, the input's value will be masked just like `type=password`. |
+| name | `string` | - | The name of the input element. Useful for form submission. |
+| otp | `boolean` | `false` | If `true`, the pin input component signals that it should use `autocomplete="one-time-code"`. |
+| pattern | `string` | - | The regular expression that the user-entered input value is checked against. |
+| placeholder | `string` | `"○"` | The placeholder text for the input. |
+| readOnly | `boolean` | `false` | Whether the pin input is read-only. |
+| required | `boolean` | `false` | Whether the pin input is required. |
+| selectOnFocus | `boolean` | `false` | Whether to select input value when input is focused. |
+| translations | `IntlTranslations` | - | Specifies the localized strings for accessibility. |
+| type | `'numeric' \| 'alphanumeric' \| 'alphabetic'` | `'numeric'` | The type of value the pin-input should allow. |
+| value | `string[]` | - | The controlled value of the pin input. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | Function called on input change. |
+| onValueComplete | `(details: ValueChangeDetails) => void` | - | Function called when all inputs have valid values. |
+| onValueInvalid | `(details: ValueInvalidDetails) => void` | - | Function called when an invalid value is entered. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UsePinInputReturn` | - | **Required**. The value returned from `usePinInput`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Input**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| index | `number` | - | **Required**. The index of the input field. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**HiddenInput**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `pin-input` |
+| data-part | `root` |
+| data-invalid | Present when invalid. |
+| data-disabled | Present when disabled. |
+| data-complete | Present when the pin-input value is complete. |
+| data-readonly | Present when read-only. |
+
+**Label**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `pin-input` |
+| data-part | `label` |
+| data-invalid | Present when invalid. |
+| data-disabled | Present when disabled. |
+| data-complete | Present when the label value is complete. |
+| data-required | Present when required. |
+| data-readonly | Present when read-only. |
+
+**Input**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `pin-input` |
+| data-part | `input` |
+| data-disabled | Present when disabled. |
+| data-complete | Present when the input value is complete. |
+| data-filled | Present when the input is filled. |
+| data-index | The index of the item. |
+| data-invalid | Present when invalid. |
+
+**Control**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `pin-input` |
+| data-part | `control` |

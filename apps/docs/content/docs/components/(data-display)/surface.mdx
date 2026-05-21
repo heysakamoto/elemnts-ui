@@ -1,0 +1,86 @@
+---
+title: Surface
+description: A container component that applies surface styling and provides context to child components
+---
+
+<ComponentPreview name="surface:basic" />
+
+### Usage
+Surface provides a styled container with an optional header/content/footer structure. Use it to group related UI and to share “surface” context with child components.
+
+- `Surface.Header`: Optional top area for actions, badges, or metadata.
+- `Surface.Content`: Main body region. Place `Surface.Title` and `Surface.Description` here.
+- `Surface.Title`: Primary heading for the surface.
+- `Surface.Description`: Supporting text displayed under the title.
+- `Surface.Footer`: Optional bottom area for secondary actions, status, or links.
+- `Surface.Addon`: Optional container for side assets, actions, or icons (commonly used in horizontal layouts).
+
+Compose only the pieces you need; all sections are optional.
+
+```tsx
+import { Surface } from "@moto-ui/react";
+
+<Surface>
+	<Surface.Header />
+	<Surface.Content>
+		<Surface.Title />
+		<Surface.Description />
+	</Surface.Content>
+	<Surface.Footer />
+</Surface>
+```
+
+
+### Variants
+Customize the layout orientation and elevation levels to match your visual structure.
+
+<ComponentPreview name="surface:variants" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| orientation | `"vertical" \| "horizontal"` | `"vertical"` | The layout direction of the surface's children. |
+| elevated | `boolean` | `true` | Whether to apply border and shadow styling. |
+| delta | `number` | `0` | The elevation delta to add to the current substrate level. |
+| shadowLevel | `number` | — | Optional override for the shadow level. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element, combining their props and behavior. |
+
+**Header**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Footer**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Addon**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Title**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Description**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

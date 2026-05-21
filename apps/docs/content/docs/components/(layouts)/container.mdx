@@ -1,0 +1,28 @@
+---
+title: Container
+description: Constrains content width to the current breakpoint's max width while keeping it fluid.
+---
+
+<ComponentPreview name="container:basic" />
+
+### Usage
+The `Container` component centers content and constrains its maximum width to the current breakpoint—fluid below that size. Use it to wrap pages or sections so content doesn’t stretch edge to edge on wide screens.
+```tsx
+import { Container } from "@moto-ui/react"
+```
+```tsx
+<Container>
+  {...content}
+</Container>
+```
+
+
+### Sizes
+Control the container’s max width with the size prop.
+
+<ComponentPreview name="container:sizes" />
+
+### Fluid
+Enable the fluid prop to make the container fill its parent's width.
+
+<ComponentPreview name="container:fluid" />

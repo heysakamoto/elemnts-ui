@@ -1,0 +1,83 @@
+---
+title: Status
+description: Used to indicate the status of an item or a process.
+---
+
+<ComponentPreview name="status:basic" />
+
+### Usage
+
+The `Status` component is used to communicate the status of an item or a process at a glance. It typically consists of a visual indicator (a dot) and an optional text label.
+
+```tsx
+import { Status } from "@moto-ui/react"
+
+<Status.Root colorPalette="success">
+  <Status.Indicator />
+  <Status.Text>Online</Status.Text>
+</Status.Root>
+```
+
+### Examples
+
+#### Sizes
+
+The `Status` component supports different sizes: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="status:sizes" />
+
+#### Only Indicator
+
+You can use the indicator without text for a more compact representation.
+
+<ComponentPreview name="status:only-indicator" />
+
+### Props
+
+**Root**
+
+The `Status.Root` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| colorPalette | `'accent' \| 'neutral' \| 'success' \| 'warning' \| 'destructive'` | `'accent'` | The color palette of the status indicator. |
+| size | `'xs \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the status indicator and text. |
+
+**Indicator**
+
+The `Status.Indicator` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Text**
+
+The `Status.Text` component accepts all standard `span` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="status"]` | The component scope. |
+| `[data-part="root"]` | The root part. |
+
+**Indicator**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="status"]` | The component scope. |
+| `[data-part="indicator"]` | The indicator part. |
+
+**Text**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="status"]` | The component scope. |
+| `[data-part="text"]` | The text part. |

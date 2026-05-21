@@ -1,0 +1,20 @@
+{
+	"icon": "HomeIcon",
+	"title": "Data Display",
+	"defaultOpen": false,
+	"pages": [
+		"---data-display---",
+		"avatar",
+		"badge",
+		"chip",
+		"clipboard",
+		"icon",
+		"image",
+		"image-cropper",
+		"marquee",
+		"qr-code",
+		"surface",
+		"tile",
+		"timer"
+	]
+}

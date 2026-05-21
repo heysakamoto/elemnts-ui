@@ -1,0 +1,61 @@
+# --- Node.js & Package Managers ---
+node_modules/
+.npm/
+pnpm-lock.yaml
+.pnpm-debug.log*
+
+# --- pnpm Specific ---
+# If you use a local store (uncommon, but possible)
+.pnpm-store/
+
+# --- Build Outputs ---
+dist/
+build/
+out/
+.next/
+.nuxt/
+*.tsbuildinfo
+
+# --- Environment & Secrets ---
+.env
+.env.local
+.env.*.local
+*.pem
+
+# --- IDEs & Editors ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Testing & Coverage ---
+coverage/
+.nyc_output/
+
+## CSS engine
+styled-system
+styled-system-studio
+
+## Antigravity
+.antigravitycli
+
+## Editor
+.vscode
+.zed
+.cursor
+
+## Others
+todos.md

@@ -1,0 +1,152 @@
+---
+title: Splitter
+description: A component used to resize adjacent panels with a draggable handle.
+---
+
+<ComponentPreview name="splitter:basic" />
+
+### Usage
+The `Splitter` component allows users to resize panels in a layout. It supports both horizontal and vertical orientations.
+
+- `Splitter.Root`: The root container for the splitter.
+- `Splitter.RootProvider`: Provides the splitter context to its children.
+- `Splitter.Panel`: A resizable panel within the splitter.
+- `Splitter.ResizeTrigger`: The handle used to resize adjacent panels.
+- `Splitter.ResizeTriggerSeparator`: A visual separator line within the resize trigger.
+- `Splitter.ResizeTriggerIndicator`: A visual handle indicator within the resize trigger.
+- `Splitter.Context`: Access the splitter state and methods.
+
+```tsx
+import { Splitter } from "@moto-ui/react"
+
+<Splitter.Root panels={[{ id: 'left', size: 50 }, { id: 'right', size: 50 }]}>
+  <Splitter.Panel id="left">Left Panel</Splitter.Panel>
+  <Splitter.ResizeTrigger id="left:right">
+    <Splitter.ResizeTriggerSeparator />
+    <Splitter.ResizeTriggerIndicator />
+  </Splitter.ResizeTrigger>
+  <Splitter.Panel id="right">Right Panel</Splitter.Panel>
+</Splitter.Root>
+```
+
+### Vertical
+Set the `orientation` prop to `"vertical"` to stack panels vertically.
+
+<ComponentPreview name="splitter:vertical" />
+
+### Multiple Panels
+You can create layouts with multiple resizable panels by defining more panel data and adding corresponding triggers.
+
+<ComponentPreview name="splitter:multiple-panels" />
+
+### Disabled Resize
+Use the `disabled` prop on a `Splitter.ResizeTrigger` to prevent resizing.
+
+<ComponentPreview name="splitter:disabled-resize" />
+
+### Separator Only
+You can choose to only render the separator line for a more minimal look.
+
+<ComponentPreview name="splitter:separator-only" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| panels | `PanelData[]` | - | **Required**. The size constraints of the panels. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| defaultSize | `number[]` | - | The initial size of the panels when rendered. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string, resizeTrigger: (id: string) => string, label: (id: string) => string, panel: (id: string \| number) => string }>` | - | The ids of the elements in the splitter. Useful for composition. |
+| keyboardResizeBy | `number` | - | The number of pixels to resize the panel by when using the keyboard. |
+| nonce | `string` | - | The nonce for the injected splitter cursor stylesheet. |
+| orientation | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the splitter. |
+| size | `number[]` | - | The controlled size data of the panels. |
+| onCollapse | `(details: ExpandCollapseDetails) => void` | - | Function called when a panel is collapsed. |
+| onExpand | `(details: ExpandCollapseDetails) => void` | - | Function called when a panel is expanded. |
+| onResize | `(details: ResizeDetails) => void` | - | Function called when the splitter is resized. |
+| onResizeEnd | `(details: ResizeEndDetails) => void` | - | Function called when the splitter resize ends. |
+| onResizeStart | `() => void` | - | Function called when the splitter resize starts. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseSplitterReturn` | - | **Required**. The value returned from `useSplitter`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Panel**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| id | `string` | - | **Required**. The unique identifier for the panel. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ResizeTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| id | `${string}:${string}` | - | **Required**. The unique identifier for the resize trigger (e.g., `left:right`). |
+| disabled | `boolean` | `false` | Whether the resize trigger is disabled. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ResizeTriggerIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ResizeTriggerSeparator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `splitter` |
+| data-part | `root` |
+| data-orientation | The orientation of the splitter. |
+| data-dragging | Present when in the dragging state. |
+
+**Panel**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `splitter` |
+| data-part | `panel` |
+| data-id | The id of the panel. |
+| data-index | The index of the panel. |
+| data-orientation | The orientation of the panel. |
+| data-dragging | Present when in the dragging state. |
+
+**ResizeTrigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `splitter` |
+| data-part | `resize-trigger` |
+| data-id | The id of the trigger. |
+| data-orientation | The orientation of the resize trigger. |
+| data-focus | Present when focused. |
+| data-dragging | Present when in the dragging state. |
+| data-disabled | Present when disabled. |
+
+### CSS Variables
+
+**ResizeTrigger**
+
+| Variable | Description |
+| --- | --- |
+| --splitter-border-size | The size of the border. |
+| --splitter-thumb-size | The size of the thumb in the resize handle. |
+| --splitter-handle-size | The size of the resize handle. |
+| --splitter-handle-color | The color of the resize handle. |
+| --splitter-border-color | The color of the border. |
+| --splitter-active-color | The color of the resize handle when active. |

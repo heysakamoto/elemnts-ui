@@ -1,0 +1,19 @@
+{
+	"icon": "",
+	"title": "Utilities",
+	"defaultOpen": false,
+	"pages": [
+		"---utilities---",
+		"checkmark",
+		"environment",
+		"item",
+		"json-tree-view",
+		"portal",
+		"presence",
+		"radiomark",
+		"substrate",
+		"swap",
+		"swatch",
+		"tag"
+	]
+}

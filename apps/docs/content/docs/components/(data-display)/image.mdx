@@ -1,0 +1,34 @@
+---
+title: Image
+description: Displays images
+---
+
+<ComponentPreview name="image:basic" />
+
+
+### Usage
+Use the Image component to display pictures in your UI while keeping them accessible and performant. See the basic example above.
+
+- Always provide meaningful alt text (or alt="" for purely decorative images).
+- Set explicit width and height (via attributes or CSS) to prevent layout shifts.
+- Prefer responsive sources (for example, srcset/sizes) so images scale across breakpoints.
+- Lazy-load offscreen images to improve performance.
+- Provide a placeholder or fallback for loading and error states.
+- Optimize assets (compression, modern formats like WebP/AVIF) and choose appropriate object-fit and position for cropping/letterboxing.
+```tsx
+import { Image } from "@moto-ui/react"
+<Image src="..." />
+```
+
+### Height
+Control an image’s vertical size with either element attributes or CSS. Pair width and height to reserve space and avoid layout shifts.
+
+<ComponentPreview name="image:height" />
+
+### Circular
+Make an image appear circular by applying a 50% border-radius (or a "rounded-full" utility).
+
+<ComponentPreview name="image:circular" />
+
+### Props
+The `Image` component accepts all standard HTML `<img>` attributes and forwards them to the underlying element.

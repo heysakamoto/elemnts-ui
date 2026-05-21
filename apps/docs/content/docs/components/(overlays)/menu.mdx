@@ -1,0 +1,293 @@
+---
+title: Menu
+description: Creates an accessible dropdown menu.
+---
+
+<ComponentPreview name="menu:basic" />
+
+### Usage
+The `Menu` component is a set of primitives you compose to build an accessible dropdown.
+
+- `Menu.Root`: The root container for the menu.
+- `Menu.RootProvider`: Provides the menu context to its children.
+- `Menu.Trigger`: The button that opens the menu.
+- `Menu.Positioner`: Manages the absolute positioning of the menu.
+- `Menu.Content`: The visual container for the menu items.
+- `Menu.Item`: A selectable action within the menu.
+- `Menu.ItemGroup`: Groups related items under a section.
+- `Menu.ItemGroupLabel`: The label for an item group.
+- `Menu.Separator`: Visually separates sections.
+- `Menu.Arrow`: An optional arrow that points to the trigger.
+- `Menu.ArrowTip`: The tip of the arrow.
+- `Menu.Indicator`: A visual indicator for the menu state.
+- `Menu.ItemText`: The text label for a menu item.
+- `Menu.ItemIndicator`: A visual indicator (e.g., a checkmark) for selected items.
+- `Menu.CheckboxItem`: A menu item that toggles a boolean option.
+- `Menu.RadioItemGroup`: Groups related radio items.
+- `Menu.RadioItem`: A menu item that represents a single choice in a group.
+- `Menu.ContextTrigger`: Opens the menu via a context action (e.g., right-click).
+- `Menu.TriggerItem`: A menu item that acts as a trigger for a submenu.
+- `Menu.Context`: Access the menu state and methods.
+- `Menu.ItemContext`: Access the state and methods of a specific menu item.
+
+```tsx
+import { Menu, Portal, Surface, Item, Icon } from "@moto-ui/react"
+
+<Menu.Root>
+  <Menu.Trigger asChild>
+    <button>Open Menu</button>
+  </Menu.Trigger>
+  <Portal>
+    <Menu.Positioner>
+      <Menu.Content asChild>
+        <Surface w="12rem">
+           <Surface.Content p="4">
+              <Menu.Item value="edit" asChild>
+                <Item>
+                  <Icon icon="tabler:edit" />
+                  <Menu.ItemText>Edit</Menu.ItemText>
+                </Item>
+              </Menu.Item>
+              <Menu.Separator />
+              <Menu.Item value="delete" asChild>
+                <Item>
+                  <Icon icon="tabler:trash" />
+                  <Menu.ItemText>Delete</Menu.ItemText>
+                </Item>
+              </Menu.Item>
+           </Surface.Content>
+        </Surface>
+      </Menu.Content>
+    </Menu.Positioner>
+  </Portal>
+</Menu.Root>
+```
+
+### Command
+Use the `Kbd` component to show command shortcuts in the menu.
+
+<ComponentPreview name="menu:command" />
+
+### Context Menu
+Use the `Menu.ContextTrigger` component to open the menu via a context action (right-click or long-press).
+
+<ComponentPreview name="menu:context-menu" />
+
+### Group
+Group related menu items using the `Menu.ItemGroup` component.
+
+<ComponentPreview name="menu:group" />
+
+### Submenu
+Create submenus by nesting `Menu` components and using `Menu.TriggerItem`.
+
+<ComponentPreview name="menu:submenu" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| anchorPoint | `Point` | - | The positioning point for the menu. |
+| aria-label | `string` | - | The accessibility label for the menu. |
+| closeOnSelect | `boolean` | `true` | Whether to close the menu when an option is selected. |
+| composite | `boolean` | `true` | Whether the menu is composed with other composite widgets. |
+| defaultHighlightedValue | `string` | - | The initial highlighted value of the menu item. |
+| defaultOpen | `boolean` | - | The initial open state of the menu. |
+| highlightedValue | `string` | - | The controlled highlighted value of the menu item. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ trigger: string, contextTrigger: string, content: string, groupLabel: (id: string) => string, group: (id: string) => string, positioner: string, arrow: string }>` | - | The ids of the elements in the menu. |
+| immediate | `boolean` | - | Whether to synchronize the present change immediately. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| loopFocus | `boolean` | `false` | Whether to loop the keyboard navigation. |
+| navigate | `(details: NavigateDetails) => void` | - | Function to navigate to the selected item. |
+| open | `boolean` | - | The controlled open state of the menu. |
+| positioning | `PositioningOptions` | - | The options used to dynamically position the menu. |
+| present | `boolean` | - | Whether the node is present (controlled by the user). |
+| skipAnimationOnMount | `boolean` | `false` | Whether to allow the initial presence animation. |
+| typeahead | `boolean` | `true` | Whether pressing printable characters should trigger navigation. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| onEscapeKeyDown | `(event: KeyboardEvent) => void` | - | Function called when the escape key is pressed. |
+| onExitComplete | `VoidFunction` | - | Function called when the animation ends in the closed state. |
+| onFocusOutside | `(event: FocusOutsideEvent) => void` | - | Function called when the focus is moved outside. |
+| onHighlightChange | `(details: HighlightChangeDetails) => void` | - | Function called when the highlighted menu item changes. |
+| onInteractOutside | `(event: InteractOutsideEvent) => void` | - | Function called when an interaction happens outside. |
+| onOpenChange | `(details: OpenChangeDetails) => void` | - | Function called when the menu opens or closes. |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | - | Function called when the pointer is pressed down outside. |
+| onRequestDismiss | `(event: LayerDismissEvent) => void` | - | Function called when this layer is closed due to a parent. |
+| onSelect | `(details: SelectionDetails) => void` | - | Function called when a menu item is selected. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseMenuReturn` | - | **Required**. The value returned from `useMenu`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | **Required**. The unique value of the menu item option. |
+| closeOnSelect | `boolean` | - | Whether the menu should be closed when the option is selected. |
+| disabled | `boolean` | - | Whether the menu item is disabled. |
+| valueText | `string` | - | The textual value of the option for typeahead navigation. |
+| onSelect | `VoidFunction` | - | The function to call when the item is selected. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**CheckboxItem**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| checked | `boolean` | - | **Required**. Whether the option is checked. |
+| value | `string` | - | **Required**. The value of the option. |
+| closeOnSelect | `boolean` | - | Whether the menu should be closed when the option is selected. |
+| disabled | `boolean` | - | Whether the menu item is disabled. |
+| valueText | `string` | - | The textual value of the option. |
+| onCheckedChange | `(checked: boolean) => void` | - | Function called when the option state is changed. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**RadioItemGroup**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | The current value of the radio group. |
+| onValueChange | `(e: ValueChangeDetails) => void` | - | Callback when the value changes. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**RadioItem**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | **Required**. The value of the option. |
+| closeOnSelect | `boolean` | - | Whether the menu should be closed when the option is selected. |
+| disabled | `boolean` | - | Whether the menu item is disabled. |
+| valueText | `string` | - | The textual value of the option. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Positioner**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Arrow**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ArrowTip**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemGroup**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemGroupLabel**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemText**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ContextTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**TriggerItem**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Separator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+
+### Data Attributes
+
+**Trigger / ContextTrigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `menu` |
+| data-part | `trigger` or `context-trigger` |
+| data-state | The state of the menu. `open` or `closed`. |
+
+**Content**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `menu` |
+| data-part | `content` |
+| data-state | The state of the menu. `open` or `closed`. |
+| data-placement | The placement of the content. |
+
+**Item / OptionItem**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `menu` |
+| data-part | `item` or `option-item` |
+| data-disabled | Present when disabled. |
+| data-highlighted | Present when highlighted. |
+| data-state | For option items, `"checked"` or `"unchecked"`. |
+
+### CSS Variables
+
+**Positioner**
+
+| Variable | Description |
+| --- | --- |
+| --x | The x position for transform. |
+| --y | The y position for transform. |
+| --z-index | The z-index value. |
+| --transform-origin | The transform origin for animations. |
+
+**Arrow**
+
+| Variable | Description |
+| --- | --- |
+| --arrow-size | The size of the arrow. |
+| --arrow-background | The background color of the arrow. |

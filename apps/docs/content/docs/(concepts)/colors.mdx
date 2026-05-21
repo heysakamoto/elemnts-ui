@@ -1,0 +1,100 @@
+---
+title: Colors
+description: Color palette and theming system for Moto UI.
+---
+
+import { Swatch, Surface, Stack, Tooltip, Portal, Text, Group } from "@moto-ui/react";
+
+export const ComposedTooltip = ({ color, label }) => {
+  return (
+    <Tooltip positioning={{ placement: "top" }} openDelay={100}>
+      <Tooltip.Trigger asChild>
+        <Swatch bgColor={label} size="sm" />
+      </Tooltip.Trigger>
+      <Portal>
+        <Tooltip.Positioner>
+          <Tooltip.Content>
+            <Surface delta={1} px="10" py="6" rounded="24">
+              <Text size="14" lineHeight="none">
+                {label ?? color}
+              </Text>
+            </Surface>
+          </Tooltip.Content>
+        </Tooltip.Positioner>
+      </Portal>
+    </Tooltip>
+  );
+};
+
+<Surface delta={1} rounded="24" h="360px" gap="16" align="center" justify="center">
+  <Group direction="row" gap="8">
+    <ComposedTooltip color="green.10" label="green.10" />
+    <ComposedTooltip color="green.50" label="green.50" />
+    <ComposedTooltip color="green.80" label="green.80" />
+    <ComposedTooltip color="green.100" label="green.100" />
+  </Group>
+</Surface>
+
+Colors in Moto UI utilize the **OKLCH** color space. This ensures uniform perceived brightness and much smoother color transitions across our entire palette compared to traditional RGB or HSL models.
+
+## How it works
+
+The color system is built on a foundation inspired by Tailwind CSS v4, optimized for OKLCH. By importing `@moto-ui/preset-base`, you get access to a rich set of primitive palettes that are automatically mapped to semantic variables for consistent theming.
+
+## Color Token Types
+
+The library provides two distinct types of color tokens:
+
+### Primitive Tokens
+
+Primitive tokens are raw color values. They represent the foundational colors available in the design system.
+
+- **Format**: `{color}.{step}`
+- **Steps**: `10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100` (Light to Dark)
+- **Alpha Variants**: Use the `a` prefix for transparency, e.g., `{color}.a10` to `{color}.a100`.
+
+```css
+/* Examples */
+green.10   /* Lightest green */
+green.100  /* Darkest green */
+blue.a50   /* Blue with 50% opacity */
+```
+
+### Semantic Tokens
+
+Semantic tokens map primitive colors to specific design intentions. They abstract away the underlying color values, allowing the UI to automatically adapt to different themes (like Dark Mode).
+
+- **Format**: `{group}.{importance}`
+- **Common Groups**:
+    - `bg`: Background colors
+    - `fg`: Foreground/Text colors
+    - `stroke`: Border and line colors
+    - `icon`: Iconography colors
+- **Functional Groups**:
+    - `accent`: Primary brand/action color
+    - `success`: Positive feedback
+    - `warning`: Cautionary feedback
+    - `destructive`: Error or dangerous actions
+
+```css
+/* Semantic token examples */
+bg.primary      /* Main application background */
+fg.secondary    /* Secondary text */
+accent.primary  /* Main action color */
+```
+
+## Dark Mode
+
+Semantic tokens in Moto UI are "theme-aware." This means `bg.primary` will automatically switch from a light value to a dark value when the dark theme is active, without requiring any manual color overrides in your components.
+
+| Semantic Token | Light Mode Value | Dark Mode Value |
+| :--- | :--- | :--- |
+| `bg.primary` | `white` | `neutral.95` |
+| `fg.primary` | `neutral.100` | `neutral.10` |
+| `accent.primary` | `blue.80` | `blue.70` |
+
+## When to use
+
+- **Semantic Tokens**: **Always preferred** for component styling. They ensure consistency and make theme switching seamless.
+- **Primitive Tokens**: Use sparingly for unique design cases where a specific color is required that doesn't fit a semantic category.
+- **Alpha Tokens**: Use when you need background overlays, subtle borders, or to layer colors with transparency.

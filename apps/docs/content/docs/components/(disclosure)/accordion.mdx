@@ -1,0 +1,127 @@
+---
+title: Accordion
+description: Lets users expand or collapse related sections of content on a page
+---
+
+<ComponentPreview name="accordion:basic" />
+
+### Usage
+Use an accordion to organize related content into sections that users can expand or collapse. Each `Accordion.Item` represents a single section and is composed of:
+
+- `Accordion.ItemTrigger`: The clickable header for the section. Place your label or summary text here.
+- `Accordion.ItemIndicator`: An optional visual cue (for example, a chevron) that reflects the open/closed state.
+- `Accordion.ItemContent`: The collapsible region that shows when the item is expanded.
+- `Accordion.Separator`: An optional visual separator between accordion items.
+- `Accordion.Context`: Provides access to the accordion's state via a render prop.
+- `Accordion.ItemContext`: Provides access to an individual accordion item's state via a render prop.
+- `Accordion.RootProvider`: Advanced component for using the accordion with a custom hook.
+
+Add one or more `Accordion.Item` elements inside `Accordion` to create multiple sections. Keep trigger labels concise and ensure content within `Accordion.ItemContent` is scannable.
+
+```tsx
+import { Accordion, Icon, Text } from "@moto-ui/react"
+
+<Accordion>
+  <Accordion.Item value="item-1">
+    <Accordion.ItemTrigger>
+      Accordion Title
+      <Accordion.ItemIndicator>
+        <Icon icon="tabler:chevron-down" />
+      </Accordion.ItemIndicator>
+    </Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      <Text p="12">Accordion Content</Text>
+    </Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion>
+```
+
+### With icon
+This example demonstrates how to render a custom icon in each accordion item.
+
+<ComponentPreview name="accordion:with-icon" />
+
+### Multiple
+Set the `multiple` prop to allow more than one item to be expanded at the same time.
+
+<ComponentPreview name="accordion:multiple" />
+
+### Disabled
+Set the `disabled` prop on any `Accordion.Item` to make it non-interactive, preventing it from being expanded or collapsed.
+
+<ComponentPreview name="accordion:disabled" />
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| collapsible | `boolean` | `false` | Whether an accordion item can be closed after it has been expanded. |
+| defaultValue | `string[]` | - | The initial value of the expanded accordion items. |
+| disabled | `boolean` | `false` | Whether the accordion items are disabled. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ root: string; item: (value: string) => string; itemContent: (value: string) => string; itemTrigger: (value: string) => string; }>` | - | The ids of the elements in the accordion. Useful for composition. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| multiple | `boolean` | `false` | Whether multiple accordion items can be expanded at the same time. |
+| orientation | `'horizontal' \| 'vertical'` | `"vertical"` | The orientation of the accordion items. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| value | `string[]` | - | The controlled value of the expanded accordion items. |
+| onFocusChange | `(details: FocusChangeDetails) => void` | - | The callback fired when the focused accordion item changes. |
+| onValueChange | `(details: ValueChangeDetails) => void` | - | The callback fired when the state of expanded/collapsed accordion items changes. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `string` | - | The value of the accordion item. **Required**. |
+| disabled | `boolean` | `false` | Whether the accordion item is disabled. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemContent**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Separator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Context**
+Provides access to the `Accordion` API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseAccordionContext) => ReactNode` | - | Render prop to access the component API. |
+
+**ItemContext**
+Provides access to an individual `Accordion.Item`'s API via a render prop.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(api: UseAccordionItemContext) => ReactNode` | - | Render prop to access the item API. |
+
+**RootProvider**
+Advanced component for using a custom `useAccordion` hook.
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseAccordionReturn` | - | The value returned from the `useAccordion` hook. **Required**. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |

@@ -1,0 +1,152 @@
+---
+title: Marquee
+description: Display logos, images, or text in a continuous horizontal or vertical scroll.
+---
+
+<ComponentPreview name="marquee:basic" />
+
+
+### Usage
+Use Marquee to continuously scroll a sequence of logos, images, or short text snippets when space is limited. It’s well-suited for brand walls, partner showcases, and news tickers, but should not be used for critical reading content.
+
+```tsx 
+import { Marquee } from "@moto-ui/react"
+
+<Marquee>
+  <Marquee.Viewport>
+    <Marquee.Content>
+      <Marquee.Item>Item 1</Marquee.Item>
+      <Marquee.Item>Item 2</Marquee.Item>
+    </Marquee.Content>
+  </Marquee.Viewport>
+</Marquee>
+```
+
+### Reversed
+Use the `reverse` prop to make the marquee scroll in the opposite direction.
+
+<ComponentPreview name="marquee:reversed" />
+
+### Vertical
+Use the `side` prop with `top` or `bottom` values to make the marquee scroll vertically.
+
+<ComponentPreview name="marquee:vertical" />
+
+### Edges
+Use the `Marquee.Edge` component to add a subtle gradient overlay to the edges of the marquee.
+
+<ComponentPreview name="marquee:edges" />
+
+
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| autoFill | `boolean` | `false` | Whether to automatically duplicate content to fill the container. |
+| defaultPaused | `boolean` | `false` | Whether the marquee is paused by default. |
+| delay | `number` | `0` | The delay before the animation starts (in seconds). |
+| loopCount | `number` | `0` | The number of times to loop the animation (0 = infinite). |
+| pauseOnInteraction | `boolean` | `false` | Whether to pause the marquee on user interaction (hover, focus). |
+| reverse | `boolean` | `false` | Whether to reverse the animation direction. |
+| side | `"start" \| "end" \| "top" \| "bottom"` | `"start"` | The side/direction the marquee scrolls towards. |
+| spacing | `string` | `"1rem"` | The spacing between marquee items. |
+| speed | `number` | `50` | The speed of the marquee animation in pixels per second. |
+| paused | `boolean` | - | Whether the marquee is paused. |
+| onPauseChange | `(details: PauseStatusDetails) => void` | - | Function called when the pause status changes. |
+| onComplete | `() => void` | - | Function called when the marquee completes all loops and stops. |
+| onLoopComplete | `() => void` | - | Function called when the marquee completes one loop iteration. |
+| ids | `Partial<{ root: string; viewport: string; content: (index: number) => string }>` | - | The ids of the elements in the marquee. Useful for composition. |
+| translations | `IntlTranslations` | - | The localized messages to use. |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseMarqueeReturn` | - | The marquee instance (Required) |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Viewport**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Item**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Edge**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| side | `"start" \| "end" \| "top" \| "bottom"` | - | The side where the edge gradient should appear (Required). |
+| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+
+**Context**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| children | `(context: UseMarqueeContext) => React.ReactNode` | - | Render prop that provides access to the marquee context |
+
+### Variables
+
+| Variable               | Description                         |
+| ---------------------- | ----------------------------------- |
+| `--marquee-duration`   | Animation duration                  |
+| `--marquee-delay`      | Animation delay before starting     |
+| `--marquee-loop-count` | Number of animation iterations      |
+| `--marquee-edge-color` | Color for the edge gradient overlay |
+| `--marquee-edge-size`  | Size of the edge gradient           |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="marquee"]` | The component scope. |
+| `[data-part="root"]` | The component part. |
+| `[data-paused]` | Present when the marquee is paused. |
+
+**Content**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="marquee"]` | The component scope. |
+| `[data-part="content"]` | The component part. |
+| `[data-side]` | The scroll direction. |
+| `[data-reverse]` | Present when the direction is reversed. |
+
+**Viewport**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="marquee"]` | The component scope. |
+| `[data-part="viewport"]` | The component part. |
+
+**Edge**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="marquee"]` | The component scope. |
+| `[data-part="edge"]` | The component part. |
+| `[data-side]` | The side of the edge gradient. |
+
+**Item**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="marquee"]` | The component scope. |
+| `[data-part="item"]` | The component part. |
