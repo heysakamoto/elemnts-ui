@@ -66,16 +66,6 @@ The library exports the following color palettes:
 
 ---
 
-## 🛠️ Development & Scripts
-
-Inside the `packages/colors` directory, you can run the following development commands:
-
-- **Build**: `pnpm run build` — Compiles the TypeScript source into CommonJS and ESM targets (outputs to `dist/`) via `tsup`.
-- **Compile**: `pnpm run compile` — Typechecks the codebase using the TypeScript compiler.
-- **Lint**: `pnpm run lint` — Performs formatting and code quality checks using Biome.
-
----
-
 ## 📄 License
 
-Part of the Moto UI workspace. Distributed under the MIT License. See root `LICENSE` for details.
+Part of the Moto UI workspace. Distributed under the MIT License. See repository `LICENSE` for details.
