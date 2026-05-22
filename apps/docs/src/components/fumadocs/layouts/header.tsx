@@ -221,44 +221,72 @@ export function Header() {
 					/>
 				</Stack>
 			</Stack>
-			<ComposedDialog
-				fullHeight
-				content={({ onClose }) => {
-					return (
-						<Stack
-							direction="column"
-							onClick={() => onClose()}
-						>
-							<Sidebar />
-						</Stack>
-					);
-				}}
-				trigger={(ctx) => {
-					return (
-						<Stack
-							h="36"
-							px="12"
-							gap="8"
-							align="center"
-							justify="start"
-							cursor="pointer"
-							gridColumn="1 / -1"
-							onClick={ctx.onOpen}
-							colorPalette="neutral"
-							pointerEvents={{ base: "auto", md: "none" }}
-							borderBottom="1px solid {colors.stroke.primary}"
-						>
-							<Icon
-								width={16}
-								height={16}
-								color="icon.secondary"
-								icon="tabler:layout-sidebar"
-							/>
-							<HeaderBreadcrumb />
-						</Stack>
-					);
-				}}
-			/>
+			<Stack
+				h="36"
+				px="12"
+				align="center"
+				justify="space-between"
+				borderBottom="1px solid {colors.stroke.primary}"
+			>
+				<ComposedDialog
+					fullHeight
+					content={({ onClose }) => {
+						return (
+							<Stack
+								direction="column"
+								onClick={() => onClose()}
+							>
+								<Sidebar />
+							</Stack>
+						);
+					}}
+					trigger={(ctx) => {
+						return (
+							<Button
+								size="sm"
+								px="0"
+								variant="plain"
+								colorPalette="neutral"
+								onClick={() => ctx.onOpen()}
+								pointerEvents={{ md: "none" }}
+							>
+								<Icon
+									width={16}
+									height={16}
+									color="icon.secondary"
+									icon="tabler:layout-sidebar"
+								/>
+								<HeaderBreadcrumb />
+							</Button>
+						);
+					}}
+				/>
+				<Button
+					asChild
+					iconOnly
+					size="sm"
+					rounded="full"
+					variant="ghost"
+					colorPalette="neutral"
+					css={{
+						"&:not(:hover)": {
+							color: "icon.secondary",
+						},
+					}}
+				>
+					<Link
+						target="_blank"
+						to={"https://github.com/heysakamoto/moto-ui" as any}
+					>
+						<Icon
+							ml="-2"
+							width={18}
+							height={18}
+							icon="tabler:brand-github"
+						/>
+					</Link>
+				</Button>
+			</Stack>
 		</Box>
 	);
 }
