@@ -1,10 +1,19 @@
-// lib/shiki.ts
-// lib/shiki.ts - return HTML string, not JSX
-import { createHighlighter } from "shiki";
+import { createHighlighterCore } from "shiki/core";
+import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
+import js from "shiki/langs/javascript.mjs";
+import jsx from "shiki/langs/jsx.mjs";
+import tsx from "shiki/langs/tsx.mjs";
+import ts from "shiki/langs/typescript.mjs";
 
-const highlighterInstance = createHighlighter({
-	themes: ["github-dark", "github-light"],
-	langs: ["tsx", "ts", "js", "jsx"],
+import githubDark from "shiki/themes/github-dark.mjs";
+import githubLight from "shiki/themes/github-light.mjs";
+
+const jsEngine = createJavaScriptRegexEngine();
+
+const highlighterInstance = createHighlighterCore({
+	themes: [githubDark, githubLight],
+	langs: [tsx, ts, js, jsx],
+	engine: jsEngine,
 });
 
 export async function codeToHtml(
