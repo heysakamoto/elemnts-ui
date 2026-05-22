@@ -88,7 +88,7 @@ const fg = {
 	tertiary: {
 		value: {
 			base: "{colors.neutral.60}",
-			_dark: "{colors.neutral.60}",
+			_dark: "{colors.neutral.50}",
 		},
 	},
 };
