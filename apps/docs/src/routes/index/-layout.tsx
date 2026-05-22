@@ -97,7 +97,10 @@ function Header() {
 								</Link>
 							))}
 						</Group>
-						<Stack justify={{ lg: "center" }}>
+						<Stack
+							align="center"
+							justify={{ lg: "center" }}
+						>
 							<Logo />
 						</Stack>
 						<Group
