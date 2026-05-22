@@ -24,9 +24,21 @@ import { ThemeToggle } from "@/components/base/theme-toggle";
 const pageTree = [
 	{ name: "About", url: "/docs/about", target: "_self" },
 	{ name: "Concepts", url: "/docs/animations", target: "_self" },
-	{ name: "Components", url: "/docs/components", target: "_self" },
-	{ name: "Contributing", url: "https://github.com/", target: "_blank" },
-	{ name: "Sponsor", url: "https://github.com/sponsors/", target: "_blank" },
+	{
+		name: "Storybook",
+		url: "https://storybook.moto-ui.app",
+		target: "_blank",
+	},
+	{
+		name: "Contributing",
+		url: "https://github.com/heysakamoto/moto-ui?tab=contributing-ov-file",
+		target: "_blank",
+	},
+	{
+		name: "Sponsor",
+		url: "https://opencollective.com/motoui",
+		target: "_blank",
+	},
 ];
 
 export function Layout(props: PropsWithChildren) {
@@ -76,7 +88,7 @@ function Header() {
 										py: "8",
 										px: "12",
 										rounded: "24",
-										fontSize: "12",
+										fontSize: "13",
 										color: "fg.secondary",
 										_hover: { bgColor: "bg.secondary", color: "fg.primary" },
 									})}
@@ -98,7 +110,7 @@ function Header() {
 								asChild
 								size="sm"
 								rounded="24"
-								fontSize="12"
+								fontSize="13"
 								hideBelow="sm"
 								variant="tertiary"
 								colorPalette="neutral"
