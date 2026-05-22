@@ -18,9 +18,11 @@ import { CopyButton } from "./copy-button";
 type Input = { name: string };
 type Output = { code: string; raw: string; file: string };
 
-// 1. Tell Vite to bundle the raw text of all your demo files during the build step.
-// The { as: "raw" } option returns the string content instead of parsing it.
-const rawDemoFiles = import.meta.glob("/src/demos/**/*.tsx", { as: "raw" });
+// Tell Vite to bundle the raw text of all your demo files during the build step.
+const rawDemoFiles = import.meta.glob("/src/demos/**/*.tsx", {
+	query: "?raw",
+	import: "default",
+});
 
 const serverLoader = createServerFn({ method: "GET" })
 	.inputValidator((data: Input) => data)
@@ -33,8 +35,6 @@ const serverLoader = createServerFn({ method: "GET" })
 		}
 
 		try {
-			// 2. Find the file in our pre-bundled Vite glob map
-			// Adjust the match logic if demo.file doesn't exactly match the end of the path
 			const fileKey = Object.keys(rawDemoFiles).find((key) =>
 				key.endsWith(demo.file),
 			);
@@ -46,10 +46,9 @@ const serverLoader = createServerFn({ method: "GET" })
 				return null;
 			}
 
-			// 3. Execute the function Vite generated to get the string
+			// Execute the function Vite generated to get the string
 			const code = (await rawDemoFiles[fileKey]?.()) as string;
 
-			// 4. Highlight it as usual
 			const highlighted = await codeToHtml(code, { lang: "tsx" });
 
 			return {

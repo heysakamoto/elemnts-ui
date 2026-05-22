@@ -3,10 +3,11 @@ title: Components
 description: Explore smooth, refined, and satisfying UI.
 ---
 
+import { Suspense } from "react"
 import { demos } from "../../../src/demos"
 import { Link } from "@tanstack/react-router"
 import { toCamelCase } from "../../../src/utils/string"
-import { Grid, Icon, Surface, Button, ButtonGroup } from "@moto-ui/react"
+import { Grid, Icon, Surface, Button, ButtonGroup, Spinner } from "@moto-ui/react"
 
 export const components = Object.entries(demos).filter(([key]) => key.includes("basic"))
 
@@ -36,7 +37,9 @@ Explore all the {components.length} components available in Moto UI.
           justify="center"
           scrollbar="hidden"
         >
-          <demo.component />
+          <Suspense fallback={<Spinner colorPalette="neutral" />}>
+            <demo.component />
+          </Suspense>
         </Surface.Content>
         <Surface.Footer
           py="8"

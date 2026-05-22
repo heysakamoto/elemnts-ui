@@ -1,6 +1,7 @@
 import { Container, Grid, GridItem, ScrollShadow } from "@moto-ui/react";
 import { DocsLayoutProvider, type DocsLayoutProviderProps } from "./client";
 import { Header } from "./header";
+import { Loader } from "./loader";
 import { Description, Page, Title } from "./page";
 import { Sidebar } from "./sidebar";
 import { Toc } from "./toc";
@@ -72,5 +73,6 @@ export const DocsLayout = Object.assign(Root, {
 	Page,
 	Title,
 	Sidebar,
+	Loader,
 	Description,
 });

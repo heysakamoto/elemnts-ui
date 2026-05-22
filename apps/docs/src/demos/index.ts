@@ -1,1319 +1,1921 @@
-import * as AccordionDemos from "./accordion";
-import * as AlertDemos from "./alert";
-import * as AnchorDemos from "./anchor";
-import * as AspectRatioDemos from "./aspect-ratio";
-import * as AvatarDemos from "./avatar";
-import * as BadgeDemos from "./badge";
-import * as BoxDemos from "./box";
-import * as ButtonDemos from "./button";
-import * as ButtonGroupDemos from "./button-group";
-import * as CarouselDemos from "./carousel";
-import * as CheckboxDemos from "./checkbox";
-import * as CheckmarkDemos from "./checkmark";
-import * as ChipDemos from "./chip";
-import * as ClipboardDemos from "./clipboard";
-import * as CollapsibleDemos from "./collapsible";
-import * as ColorPickerDemos from "./color-picker";
-import * as ComboboxDemos from "./combobox";
-import * as ContainerDemos from "./container";
-import * as DatePickerDemos from "./date-picker";
-import * as DecorativeBoxDemos from "./decorative-box";
-import * as DialogDemos from "./dialog";
-import * as DownloadDemos from "./download";
-import * as EditableDemos from "./editable";
-import * as ElevatedDemos from "./elevated";
-import * as EnvironmentDemos from "./environment";
-import * as FieldDemos from "./field";
-import * as FieldsetDemos from "./fieldset";
-import * as FileUploadDemos from "./file-upload";
-import * as FloatingPanelDemos from "./floating-panel";
-import * as FormatDemos from "./format";
-import * as GridDemos from "./grid";
-import * as GroupDemos from "./group";
-import * as HighlightDemos from "./highlight";
-import * as HoverCardDemos from "./hover-card";
-import * as IconDemos from "./icon";
-import * as ImageDemos from "./image";
-import * as ImageCropperDemos from "./image-cropper";
-import * as InputDemos from "./input";
-import * as InputGroupDemos from "./input-group";
-import * as ItemDemos from "./item";
-import * as JsonTreeViewDemos from "./json-tree-view";
-import * as KbdDemos from "./kbd";
-import * as ListboxDemos from "./listbox";
-import * as LocaleDemos from "./locale";
-import * as MarqueeDemos from "./marquee";
-import * as MenuDemos from "./menu";
-import * as NumberInputDemos from "./number-input";
-import * as PaginationDemos from "./pagination";
-import * as PasswordInputDemos from "./password-input";
-import * as PinInputDemos from "./pin-input";
-import * as PopoverDemos from "./popover";
-import * as PortalDemos from "./portal";
-import * as PresenceDemos from "./presence";
-import * as ProgressDemos from "./progress";
-import * as ProgressCircleDemos from "./progress-circle";
-import * as QRCodeDemos from "./qr-code";
-import * as RadioGroupDemos from "./radio-group";
-import * as RadiomarkDemos from "./radiomark";
-import * as RatingGroupDemos from "./rating-group";
-import * as ScrollAreaDemos from "./scroll-area";
-import * as ScrollShadowDemos from "./scroll-shadow";
-import * as SectionDemos from "./section";
-import * as SegmentGroupDemos from "./segment-group";
-import * as SelectDemos from "./select";
-import * as SeparatorDemos from "./separator";
-import * as SignaturePadDemos from "./signature-pad";
-import * as SkeletonDemos from "./skeleton";
-import * as SliderDemos from "./slider";
-import * as SpinnerDemos from "./spinner";
-import * as SplitterDemos from "./splitter";
-import * as StackDemos from "./stack";
-import * as StatusDemos from "./status";
-import * as StepsDemos from "./steps";
-import * as SubstrateDemos from "./substrate";
-import * as SurfaceDemos from "./surface";
-import * as SwapDemos from "./swap";
-import * as SwatchDemos from "./swatch";
-import * as SwitchDemos from "./switch";
-import * as TabsDemos from "./tabs";
-import * as TagDemos from "./tag";
-import * as TagsInputDemos from "./tags-input";
-import * as TextDemos from "./text";
-import * as TextareaDemos from "./textarea";
-import * as TileDemos from "./tile";
-import * as TimerDemos from "./timer";
-import * as ToastDemos from "./toast";
-import * as ToggleDemos from "./toggle";
-import * as ToggleGroupDemos from "./toggle-group";
-import * as TooltipDemos from "./tooltip";
-import * as TreeDemos from "./tree-view";
-import * as WheelPickerDemos from "./wheel-picker";
+import { type ComponentType, lazy } from "react";
 
 export type DemoItem = {
-	component: React.ComponentType;
+	component: ComponentType;
 	file: string;
 };
 
 export const demos: Record<string, DemoItem> = {
 	"accordion:basic": {
-		component: AccordionDemos.Basic,
+		component: lazy(() =>
+			import("./accordion/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "accordion/basic.tsx",
 	},
 	"accordion:disabled": {
-		component: AccordionDemos.Disabled,
+		component: lazy(() =>
+			import("./accordion/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "accordion/disabled.tsx",
 	},
 	"accordion:multiple": {
-		component: AccordionDemos.Multiple,
+		component: lazy(() =>
+			import("./accordion/multiple").then((m) => ({ default: m.Multiple })),
+		),
 		file: "accordion/multiple.tsx",
 	},
 	"accordion:with-icon": {
-		component: AccordionDemos.WithIcon,
+		component: lazy(() =>
+			import("./accordion/with-icon").then((m) => ({ default: m.WithIcon })),
+		),
 		file: "accordion/with-icon.tsx",
 	},
 	"alert:basic": {
-		component: AlertDemos.Basic,
+		component: lazy(() =>
+			import("./alert/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "alert/basic.tsx",
 	},
 	"alert:control": {
-		component: AlertDemos.Control,
+		component: lazy(() =>
+			import("./alert/control").then((m) => ({ default: m.Control })),
+		),
 		file: "alert/control.tsx",
 	},
 	"alert:description": {
-		component: AlertDemos.Description,
+		component: lazy(() =>
+			import("./alert/description").then((m) => ({ default: m.Description })),
+		),
 		file: "alert/description.tsx",
 	},
 	"alert:palettes": {
-		component: AlertDemos.Palettes,
+		component: lazy(() =>
+			import("./alert/palettes").then((m) => ({ default: m.Palettes })),
+		),
 		file: "alert/palettes.tsx",
 	},
 	"anchor:basic": {
-		component: AnchorDemos.Basic,
+		component: lazy(() =>
+			import("./anchor/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "anchor/basic.tsx",
 	},
 	"anchor:routers": {
-		component: AnchorDemos.Routers,
+		component: lazy(() =>
+			import("./anchor/routers").then((m) => ({ default: m.Routers })),
+		),
 		file: "anchor/routers.tsx",
 	},
 	"anchor:variants": {
-		component: AnchorDemos.Variants,
+		component: lazy(() =>
+			import("./anchor/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "anchor/variants.tsx",
 	},
 	"anchor:within-text": {
-		component: AnchorDemos.WithinText,
+		component: lazy(() =>
+			import("./anchor/within-text").then((m) => ({ default: m.WithinText })),
+		),
 		file: "anchor/within-text.tsx",
 	},
 	"aspect-ratio:basic": {
-		component: AspectRatioDemos.Basic,
+		component: lazy(() =>
+			import("./aspect-ratio/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "aspect-ratio/basic.tsx",
 	},
 	"avatar:basic": {
-		component: AvatarDemos.Basic,
+		component: lazy(() =>
+			import("./avatar/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "avatar/basic.tsx",
 	},
 	"avatar:colors": {
-		component: AvatarDemos.Colors,
+		component: lazy(() =>
+			import("./avatar/colors").then((m) => ({ default: m.Colors })),
+		),
 		file: "avatar/colors.tsx",
 	},
 	"avatar:ring": {
-		component: AvatarDemos.Ring,
+		component: lazy(() =>
+			import("./avatar/ring").then((m) => ({ default: m.Ring })),
+		),
 		file: "avatar/ring.tsx",
 	},
 	"avatar:shapes": {
-		component: AvatarDemos.Shapes,
+		component: lazy(() =>
+			import("./avatar/shapes").then((m) => ({ default: m.Shapes })),
+		),
 		file: "avatar/shapes.tsx",
 	},
 	"avatar:sizes": {
-		component: AvatarDemos.Sizes,
+		component: lazy(() =>
+			import("./avatar/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "avatar/sizes.tsx",
 	},
 	"avatar:variants": {
-		component: AvatarDemos.Variants,
+		component: lazy(() =>
+			import("./avatar/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "avatar/variants.tsx",
 	},
 	"avatar:with-badge": {
-		component: AvatarDemos.WithBadge,
+		component: lazy(() =>
+			import("./avatar/with-badge").then((m) => ({ default: m.WithBadge })),
+		),
 		file: "avatar/with-badge.tsx",
 	},
 	"badge:basic": {
-		component: BadgeDemos.Basic,
+		component: lazy(() =>
+			import("./badge/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "badge/basic.tsx",
 	},
 	"badge:content": {
-		component: BadgeDemos.Content,
+		component: lazy(() =>
+			import("./badge/content").then((m) => ({ default: m.Content })),
+		),
 		file: "badge/content.tsx",
 	},
 	"badge:placements": {
-		component: BadgeDemos.Placements,
+		component: lazy(() =>
+			import("./badge/placements").then((m) => ({ default: m.Placements })),
+		),
 		file: "badge/placements.tsx",
 	},
 	"badge:sizes": {
-		component: BadgeDemos.Sizes,
+		component: lazy(() =>
+			import("./badge/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "badge/sizes.tsx",
 	},
 	"badge:variants": {
-		component: BadgeDemos.Variants,
+		component: lazy(() =>
+			import("./badge/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "badge/variants.tsx",
 	},
 	"box:basic": {
-		component: BoxDemos.Basic,
+		component: lazy(() =>
+			import("./box/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "box/basic.tsx",
 	},
 	"box:pseudo-props": {
-		component: BoxDemos.PseudoProps,
+		component: lazy(() =>
+			import("./box/pseudo-props").then((m) => ({ default: m.PseudoProps })),
+		),
 		file: "box/pseudo-props.tsx",
 	},
 	"box:shorthand": {
-		component: BoxDemos.Shorthand,
+		component: lazy(() =>
+			import("./box/shorthand").then((m) => ({ default: m.Shorthand })),
+		),
 		file: "box/shorthand.tsx",
 	},
 	"button:basic": {
-		component: ButtonDemos.Basic,
+		component: lazy(() =>
+			import("./button/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "button/basic.tsx",
 	},
 	"button:icon": {
-		component: ButtonDemos.Icon,
+		component: lazy(() =>
+			import("./button/icon").then((m) => ({ default: m.Icon })),
+		),
 		file: "button/icon.tsx",
 	},
 	"button:sizes": {
-		component: ButtonDemos.Sizes,
+		component: lazy(() =>
+			import("./button/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "button/sizes.tsx",
 	},
 	"button:variants": {
-		component: ButtonDemos.Variants,
+		component: lazy(() =>
+			import("./button/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "button/variants.tsx",
 	},
 	"button:disabled": {
-		component: ButtonDemos.Disabled,
+		component: lazy(() =>
+			import("./button/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "button/disabled.tsx",
 	},
 	"button-group:basic": {
-		component: ButtonGroupDemos.Basic,
+		component: lazy(() =>
+			import("./button-group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "button-group/basic.tsx",
 	},
 	"button-group:full-width": {
-		component: ButtonGroupDemos.FullWidth,
+		component: lazy(() =>
+			import("./button-group/full-width").then((m) => ({
+				default: m.FullWidth,
+			})),
+		),
 		file: "button-group/full-width.tsx",
 	},
 	"button-group:orientation": {
-		component: ButtonGroupDemos.Orientation,
+		component: lazy(() =>
+			import("./button-group/orientation").then((m) => ({
+				default: m.Orientation,
+			})),
+		),
 		file: "button-group/orientation.tsx",
 	},
 	"button-group:palettes": {
-		component: ButtonGroupDemos.Palettes,
+		component: lazy(() =>
+			import("./button-group/palettes").then((m) => ({ default: m.Palettes })),
+		),
 		file: "button-group/palettes.tsx",
 	},
 	"button-group:sizes": {
-		component: ButtonGroupDemos.Sizes,
+		component: lazy(() =>
+			import("./button-group/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "button-group/sizes.tsx",
 	},
 	"button-group:variants": {
-		component: ButtonGroupDemos.Variants,
+		component: lazy(() =>
+			import("./button-group/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "button-group/variants.tsx",
 	},
 	"carousel:autoplay": {
-		component: CarouselDemos.Autoplay,
+		component: lazy(() =>
+			import("./carousel/autoplay").then((m) => ({ default: m.Autoplay })),
+		),
 		file: "carousel/autoplay.tsx",
 	},
 	"carousel:basic": {
-		component: CarouselDemos.Basic,
+		component: lazy(() =>
+			import("./carousel/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "carousel/basic.tsx",
 	},
 	"carousel:spacing": {
-		component: CarouselDemos.Spacing,
+		component: lazy(() =>
+			import("./carousel/spacing").then((m) => ({ default: m.Spacing })),
+		),
 		file: "carousel/spacing.tsx",
 	},
 	"carousel:vertical": {
-		component: CarouselDemos.Vertical,
+		component: lazy(() =>
+			import("./carousel/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "carousel/vertical.tsx",
 	},
 	"checkbox:basic": {
-		component: CheckboxDemos.Basic,
+		component: lazy(() =>
+			import("./checkbox/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "checkbox/basic.tsx",
 	},
 	"checkbox:group": {
-		component: CheckboxDemos.Group,
+		component: lazy(() =>
+			import("./checkbox/group").then((m) => ({ default: m.Group })),
+		),
 		file: "checkbox/group.tsx",
 	},
 	"checkmark:basic": {
-		component: CheckmarkDemos.Basic,
+		component: lazy(() =>
+			import("./checkmark/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "checkmark/basic.tsx",
 	},
 	"checkmark:indeterminate": {
-		component: CheckmarkDemos.Indeterminate,
+		component: lazy(() =>
+			import("./checkmark/indeterminate").then((m) => ({
+				default: m.Indeterminate,
+			})),
+		),
 		file: "checkmark/indeterminate.tsx",
 	},
 	"checkmark:variants": {
-		component: CheckmarkDemos.Variants,
+		component: lazy(() =>
+			import("./checkmark/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "checkmark/variants.tsx",
 	},
 	"chip:basic": {
-		component: ChipDemos.Basic,
+		component: lazy(() =>
+			import("./chip/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "chip/basic.tsx",
 	},
 	"chip:sizes": {
-		component: ChipDemos.Sizes,
+		component: lazy(() =>
+			import("./chip/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "chip/sizes.tsx",
 	},
 	"chip:variants": {
-		component: ChipDemos.Variants,
+		component: lazy(() =>
+			import("./chip/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "chip/variants.tsx",
 	},
 	"chip:with-icon": {
-		component: ChipDemos.WithIcon,
+		component: lazy(() =>
+			import("./chip/with-icon").then((m) => ({ default: m.WithIcon })),
+		),
 		file: "chip/with-icon.tsx",
 	},
 	"clipboard:basic": {
-		component: ClipboardDemos.Basic,
+		component: lazy(() =>
+			import("./clipboard/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "clipboard/basic.tsx",
 	},
 	"clipboard:timeout": {
-		component: ClipboardDemos.Timeout,
+		component: lazy(() =>
+			import("./clipboard/timeout").then((m) => ({ default: m.Timeout })),
+		),
 		file: "clipboard/timeout.tsx",
 	},
 	"clipboard:with-button": {
-		component: ClipboardDemos.WithButton,
+		component: lazy(() =>
+			import("./clipboard/with-button").then((m) => ({
+				default: m.WithButton,
+			})),
+		),
 		file: "clipboard/with-button.tsx",
 	},
 	"clipboard:with-input": {
-		component: ClipboardDemos.WithInput,
+		component: lazy(() =>
+			import("./clipboard/with-input").then((m) => ({ default: m.WithInput })),
+		),
 		file: "clipboard/with-input.tsx",
 	},
 	"collapsible:basic": {
-		component: CollapsibleDemos.Basic,
+		component: lazy(() =>
+			import("./collapsible/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "collapsible/basic.tsx",
 	},
 	"collapsible:default-open": {
-		component: CollapsibleDemos.DefaultOpen,
+		component: lazy(() =>
+			import("./collapsible/default-open").then((m) => ({
+				default: m.DefaultOpen,
+			})),
+		),
 		file: "collapsible/default-open.tsx",
 	},
 	"collapsible:disabled": {
-		component: CollapsibleDemos.Disabled,
+		component: lazy(() =>
+			import("./collapsible/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "collapsible/disabled.tsx",
 	},
 	"collapsible:partial-height": {
-		component: CollapsibleDemos.PartialHeight,
+		component: lazy(() =>
+			import("./collapsible/partial-height").then((m) => ({
+				default: m.PartialHeight,
+			})),
+		),
 		file: "collapsible/partial-height.tsx",
 	},
 	"color-picker:area-channels": {
-		component: ColorPickerDemos.AreaChannels,
+		component: lazy(() =>
+			import("./color-picker/area-channels").then((m) => ({
+				default: m.AreaChannels,
+			})),
+		),
 		file: "color-picker/area-channels.tsx",
 	},
 	"color-picker:basic": {
-		component: ColorPickerDemos.Basic,
+		component: lazy(() =>
+			import("./color-picker/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "color-picker/basic.tsx",
 	},
 	"color-picker:channel-slider-alpha": {
-		component: ColorPickerDemos.ChannelSliderAlpha,
+		component: lazy(() =>
+			import("./color-picker/channel-slider-alpha").then((m) => ({
+				default: m.ChannelSliderAlpha,
+			})),
+		),
 		file: "color-picker/channel-slider-alpha.tsx",
 	},
 	"color-picker:channel-sliders-rgb": {
-		component: ColorPickerDemos.ChannelSlidersRGB,
+		component: lazy(() =>
+			import("./color-picker/channel-sliders-rgb").then((m) => ({
+				default: m.ChannelSlidersRGB,
+			})),
+		),
 		file: "color-picker/channel-sliders-rgb.tsx",
 	},
 	"color-picker:swatch-grid": {
-		component: ColorPickerDemos.SwatchGrid,
+		component: lazy(() =>
+			import("./color-picker/swatch-grid").then((m) => ({
+				default: m.SwatchGrid,
+			})),
+		),
 		file: "color-picker/swatch-grid.tsx",
 	},
 	"combobox:basic": {
-		component: ComboboxDemos.Basic,
+		component: lazy(() =>
+			import("./combobox/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "combobox/basic.tsx",
 	},
 	"combobox:disabled": {
-		component: ComboboxDemos.Disabled,
+		component: lazy(() =>
+			import("./combobox/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "combobox/disabled.tsx",
 	},
 	"combobox:highlight-matching-text": {
-		component: ComboboxDemos.HighlightMatchingText,
+		component: lazy(() =>
+			import("./combobox/highlight-matching-text").then((m) => ({
+				default: m.HighlightMatchingText,
+			})),
+		),
 		file: "combobox/highlight-matching-text.tsx",
 	},
 	"combobox:multiple": {
-		component: ComboboxDemos.Multiple,
+		component: lazy(() =>
+			import("./combobox/multiple").then((m) => ({ default: m.Multiple })),
+		),
 		file: "combobox/multiple.tsx",
 	},
 	"combobox:open-on-click": {
-		component: ComboboxDemos.OpenOnClick,
+		component: lazy(() =>
+			import("./combobox/open-on-click").then((m) => ({
+				default: m.OpenOnClick,
+			})),
+		),
 		file: "combobox/open-on-click.tsx",
 	},
 	"container:basic": {
-		component: ContainerDemos.Basic,
+		component: lazy(() =>
+			import("./container/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "container/basic.tsx",
 	},
 	"container:fluid": {
-		component: ContainerDemos.Fluid,
+		component: lazy(() =>
+			import("./container/fluid").then((m) => ({ default: m.Fluid })),
+		),
 		file: "container/fluid.tsx",
 	},
 	"container:sizes": {
-		component: ContainerDemos.Sizes,
+		component: lazy(() =>
+			import("./container/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "container/sizes.tsx",
 	},
 	"date-picker:basic": {
-		component: DatePickerDemos.Basic,
+		component: lazy(() =>
+			import("./date-picker/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "date-picker/basic.tsx",
 	},
 	"date-picker:range": {
-		component: DatePickerDemos.Range,
+		component: lazy(() =>
+			import("./date-picker/range").then((m) => ({ default: m.Range })),
+		),
 		file: "date-picker/range.tsx",
 	},
 	"decorative-box:basic": {
-		component: DecorativeBoxDemos.Basic,
+		component: lazy(() =>
+			import("./decorative-box/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "decorative-box/basic.tsx",
 	},
 	"decorative-box:variants": {
-		component: DecorativeBoxDemos.Variants,
+		component: lazy(() =>
+			import("./decorative-box/variants").then((m) => ({
+				default: m.Variants,
+			})),
+		),
 		file: "decorative-box/variants.tsx",
 	},
 	"dialog:basic": {
-		component: DialogDemos.Basic,
+		component: lazy(() =>
+			import("./dialog/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "dialog/basic.tsx",
 	},
 	"dialog:cover": {
-		component: DialogDemos.Cover,
+		component: lazy(() =>
+			import("./dialog/cover").then((m) => ({ default: m.Cover })),
+		),
 		file: "dialog/cover.tsx",
 	},
 	"dialog:fullscreen": {
-		component: DialogDemos.Fullscreen,
+		component: lazy(() =>
+			import("./dialog/fullscreen").then((m) => ({ default: m.Fullscreen })),
+		),
 		file: "dialog/fullscreen.tsx",
 	},
 	"dialog:placements": {
-		component: DialogDemos.Placements,
+		component: lazy(() =>
+			import("./dialog/placements").then((m) => ({ default: m.Placements })),
+		),
 		file: "dialog/placements.tsx",
 	},
 	"dialog:sizes": {
-		component: DialogDemos.Sizes,
+		component: lazy(() =>
+			import("./dialog/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "dialog/sizes.tsx",
 	},
 	"download:asynchronous-data": {
-		component: DownloadDemos.AsynchronousData,
+		component: lazy(() =>
+			import("./download/asynchronous-data").then((m) => ({
+				default: m.AsynchronousData,
+			})),
+		),
 		file: "download/asynchronous-data.tsx",
 	},
 	"download:basic": {
-		component: DownloadDemos.Basic,
+		component: lazy(() =>
+			import("./download/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "download/basic.tsx",
 	},
 	"download:file-size": {
-		component: DownloadDemos.FileSize,
+		component: lazy(() =>
+			import("./download/file-size").then((m) => ({ default: m.FileSize })),
+		),
 		file: "download/file-size.tsx",
 	},
 	"download:svg": {
-		component: DownloadDemos.Svg,
+		component: lazy(() =>
+			import("./download/svg").then((m) => ({ default: m.Svg })),
+		),
 		file: "download/svg.tsx",
 	},
 	"editable:basic": {
-		component: EditableDemos.Basic,
+		component: lazy(() =>
+			import("./editable/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "editable/basic.tsx",
 	},
 	"editable:custom-controls": {
-		component: EditableDemos.CustomControls,
+		component: lazy(() =>
+			import("./editable/custom-controls").then((m) => ({
+				default: m.CustomControls,
+			})),
+		),
 		file: "editable/custom-controls.tsx",
 	},
 	"elevated:basic": {
-		component: ElevatedDemos.Basic,
+		component: lazy(() =>
+			import("./elevated/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "elevated/basic.tsx",
 	},
 	"elevated:no-border": {
-		component: ElevatedDemos.NoBorder,
+		component: lazy(() =>
+			import("./elevated/no-border").then((m) => ({ default: m.NoBorder })),
+		),
 		file: "elevated/no-border.tsx",
 	},
 	"elevated:shadow-override": {
-		component: ElevatedDemos.ShadowOverride,
+		component: lazy(() =>
+			import("./elevated/shadow-override").then((m) => ({
+				default: m.ShadowOverride,
+			})),
+		),
 		file: "elevated/shadow-override.tsx",
 	},
 	"environment:basic": {
-		component: EnvironmentDemos.Basic,
+		component: lazy(() =>
+			import("./environment/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "environment/basic.tsx",
 	},
 	"field:basic": {
-		component: FieldDemos.Basic,
+		component: lazy(() =>
+			import("./field/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "field/basic.tsx",
 	},
 	"field:disabled": {
-		component: FieldDemos.Disabled,
+		component: lazy(() =>
+			import("./field/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "field/disabled.tsx",
 	},
 	"field:helper-text": {
-		component: FieldDemos.HelperText,
+		component: lazy(() =>
+			import("./field/helper-text").then((m) => ({ default: m.HelperText })),
+		),
 		file: "field/helper-text.tsx",
 	},
 	"field:invalid": {
-		component: FieldDemos.Invalid,
+		component: lazy(() =>
+			import("./field/invalid").then((m) => ({ default: m.Invalid })),
+		),
 		file: "field/invalid.tsx",
 	},
 	"fieldset:basic": {
-		component: FieldsetDemos.Basic,
+		component: lazy(() =>
+			import("./fieldset/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "fieldset/basic.tsx",
 	},
 	"fieldset:disabled": {
-		component: FieldsetDemos.Disabled,
+		component: lazy(() =>
+			import("./fieldset/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "fieldset/disabled.tsx",
 	},
 	"fieldset:invalid": {
-		component: FieldsetDemos.Invalid,
+		component: lazy(() =>
+			import("./fieldset/invalid").then((m) => ({ default: m.Invalid })),
+		),
 		file: "fieldset/invalid.tsx",
 	},
 	"file-upload:basic": {
-		component: FileUploadDemos.Basic,
+		component: lazy(() =>
+			import("./file-upload/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "file-upload/basic.tsx",
 	},
 	"file-upload:dropzone": {
-		component: FileUploadDemos.Dropzone,
+		component: lazy(() =>
+			import("./file-upload/dropzone").then((m) => ({ default: m.Dropzone })),
+		),
 		file: "file-upload/dropzone.tsx",
 	},
 	"floating-panel:basic": {
-		component: FloatingPanelDemos.Basic,
+		component: lazy(() =>
+			import("./floating-panel/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "floating-panel/basic.tsx",
 	},
 	"format:byte": {
-		component: FormatDemos.Byte,
+		component: lazy(() =>
+			import("./format/byte").then((m) => ({ default: m.Byte })),
+		),
 		file: "format/byte.tsx",
 	},
 	"format:number": {
-		component: FormatDemos.Integer,
+		component: lazy(() =>
+			import("./format/integer").then((m) => ({ default: m.Integer })),
+		),
 		file: "format/integer.tsx",
 	},
 	"format:relative-time": {
-		component: FormatDemos.RelativeTime,
+		component: lazy(() =>
+			import("./format/relative-time").then((m) => ({
+				default: m.RelativeTime,
+			})),
+		),
 		file: "format/relative-time.tsx",
 	},
 	"grid:basic": {
-		component: GridDemos.Basic,
+		component: lazy(() =>
+			import("./grid/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "grid/basic.tsx",
 	},
 	"grid:col-span": {
-		component: GridDemos.ColSpan,
+		component: lazy(() =>
+			import("./grid/col-span").then((m) => ({ default: m.ColSpan })),
+		),
 		file: "grid/col-span.tsx",
 	},
 	"grid:row-span": {
-		component: GridDemos.RowSpan,
+		component: lazy(() =>
+			import("./grid/row-span").then((m) => ({ default: m.RowSpan })),
+		),
 		file: "grid/row-span.tsx",
 	},
 	"group:attached": {
-		component: GroupDemos.Attached,
+		component: lazy(() =>
+			import("./group/attached").then((m) => ({ default: m.Attached })),
+		),
 		file: "group/attached.tsx",
 	},
 	"group:basic": {
-		component: GroupDemos.Basic,
+		component: lazy(() =>
+			import("./group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "group/basic.tsx",
 	},
 	"group:button": {
-		component: GroupDemos.ButtonGroup,
+		component: lazy(() =>
+			import("./group/button").then((m) => ({ default: m.ButtonGroup })),
+		),
 		file: "group/button.tsx",
 	},
 	"group:full-width": {
-		component: GroupDemos.FullWidth,
+		component: lazy(() =>
+			import("./group/full-width").then((m) => ({ default: m.FullWidth })),
+		),
 		file: "group/full-width.tsx",
 	},
 	"highlight:basic": {
-		component: HighlightDemos.Basic,
+		component: lazy(() =>
+			import("./highlight/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "highlight/basic.tsx",
 	},
 	"highlight:multiple": {
-		component: HighlightDemos.Multiple,
+		component: lazy(() =>
+			import("./highlight/multiple").then((m) => ({ default: m.Multiple })),
+		),
 		file: "highlight/multiple.tsx",
 	},
 	"highlight:search-query": {
-		component: HighlightDemos.SearchQuery,
+		component: lazy(() =>
+			import("./highlight/search-query").then((m) => ({
+				default: m.SearchQuery,
+			})),
+		),
 		file: "highlight/search-query.tsx",
 	},
 	"highlight:squiggle": {
-		component: HighlightDemos.Squiggle,
+		component: lazy(() =>
+			import("./highlight/squiggle").then((m) => ({ default: m.Squiggle })),
+		),
 		file: "highlight/squiggle.tsx",
 	},
 	"hover-card:basic": {
-		component: HoverCardDemos.Basic,
+		component: lazy(() =>
+			import("./hover-card/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "hover-card/basic.tsx",
 	},
 	"hover-card:delays": {
-		component: HoverCardDemos.Delays,
+		component: lazy(() =>
+			import("./hover-card/delays").then((m) => ({ default: m.Delays })),
+		),
 		file: "hover-card/delays.tsx",
 	},
 	"icon:basic": {
-		component: IconDemos.Basic,
+		component: lazy(() =>
+			import("./icon/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "icon/basic.tsx",
 	},
 	"icon:collections": {
-		component: IconDemos.Collections,
+		component: lazy(() =>
+			import("./icon/collections").then((m) => ({ default: m.Collections })),
+		),
 		file: "icon/collections.tsx",
 	},
 	"icon:custom": {
-		component: IconDemos.Custom,
+		component: lazy(() =>
+			import("./icon/custom").then((m) => ({ default: m.Custom })),
+		),
 		file: "icon/custom.tsx",
 	},
 	"icon:storage": {
-		component: IconDemos.Storage,
+		component: lazy(() =>
+			import("./icon/storage").then((m) => ({ default: m.Storage })),
+		),
 		file: "icon/storage.tsx",
 	},
 	"image:basic": {
-		component: ImageDemos.Basic,
+		component: lazy(() =>
+			import("./image/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "image/basic.tsx",
 	},
 	"image:circular": {
-		component: ImageDemos.Circular,
+		component: lazy(() =>
+			import("./image/circular").then((m) => ({ default: m.Circular })),
+		),
 		file: "image/circular.tsx",
 	},
 	"image:height": {
-		component: ImageDemos.Height,
+		component: lazy(() =>
+			import("./image/height").then((m) => ({ default: m.Height })),
+		),
 		file: "image/height.tsx",
 	},
 	"image-cropper:basic": {
-		component: ImageCropperDemos.Basic,
+		component: lazy(() =>
+			import("./image-cropper/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "image-cropper/basic.tsx",
 	},
 	"image-cropper:controls": {
-		component: ImageCropperDemos.Controls,
+		component: lazy(() =>
+			import("./image-cropper/controls").then((m) => ({ default: m.Controls })),
+		),
 		file: "image-cropper/controls.tsx",
 	},
 	"input-group:basic": {
-		component: InputGroupDemos.Basic,
+		component: lazy(() =>
+			import("./input-group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "input-group/basic.tsx",
 	},
 	"input-group:sizes": {
-		component: InputGroupDemos.Sizes,
+		component: lazy(() =>
+			import("./input-group/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "input-group/sizes.tsx",
 	},
 	"input-group:variants": {
-		component: InputGroupDemos.Variants,
+		component: lazy(() =>
+			import("./input-group/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "input-group/variants.tsx",
 	},
 	"input:basic": {
-		component: InputDemos.Basic,
+		component: lazy(() =>
+			import("./input/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "input/basic.tsx",
 	},
 	"input:disabled": {
-		component: InputDemos.Disabled,
+		component: lazy(() =>
+			import("./input/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "input/disabled.tsx",
 	},
 	"input:sizes": {
-		component: InputDemos.Sizes,
+		component: lazy(() =>
+			import("./input/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "input/sizes.tsx",
 	},
 	"input:variants": {
-		component: InputDemos.Variants,
+		component: lazy(() =>
+			import("./input/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "input/variants.tsx",
 	},
 	"item:basic": {
-		component: ItemDemos.Basic,
+		component: lazy(() =>
+			import("./item/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "item/basic.tsx",
 	},
 	"item:icon-only": {
-		component: ItemDemos.IconOnly,
+		component: lazy(() =>
+			import("./item/icon-only").then((m) => ({ default: m.IconOnly })),
+		),
 		file: "item/icon-only.tsx",
 	},
 	"item:variants": {
-		component: ItemDemos.Variants,
+		component: lazy(() =>
+			import("./item/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "item/variants.tsx",
 	},
 	"json-tree-view:basic": {
-		component: JsonTreeViewDemos.Basic,
+		component: lazy(() =>
+			import("./json-tree-view/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "json-tree-view/basic.tsx",
 	},
 	"json-tree-view:custom-value-rendering": {
-		component: JsonTreeViewDemos.CustomValueRendering,
+		component: lazy(() =>
+			import("./json-tree-view/custom-value-rendering").then((m) => ({
+				default: m.CustomValueRendering,
+			})),
+		),
 		file: "json-tree-view/custom-value-rendering.tsx",
 	},
 	"json-tree-view:expanded-depth": {
-		component: JsonTreeViewDemos.ExpandedDepth,
+		component: lazy(() =>
+			import("./json-tree-view/expanded-depth").then((m) => ({
+				default: m.ExpandedDepth,
+			})),
+		),
 		file: "json-tree-view/expanded-depth.tsx",
 	},
 	"kbd:basic": {
-		component: KbdDemos.Basic,
+		component: lazy(() =>
+			import("./kbd/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "kbd/basic.tsx",
 	},
 	"kbd:inline": {
-		component: KbdDemos.Inline,
+		component: lazy(() =>
+			import("./kbd/inline").then((m) => ({ default: m.Inline })),
+		),
 		file: "kbd/inline.tsx",
 	},
 	"kbd:navigation-keys": {
-		component: KbdDemos.NavigationKeys,
+		component: lazy(() =>
+			import("./kbd/navigation-keys").then((m) => ({
+				default: m.NavigationKeys,
+			})),
+		),
 		file: "kbd/navigation-keys.tsx",
 	},
 	"kbd:palettes": {
-		component: KbdDemos.Palettes,
+		component: lazy(() =>
+			import("./kbd/palettes").then((m) => ({ default: m.Palettes })),
+		),
 		file: "kbd/palettes.tsx",
 	},
 	"kbd:sizes": {
-		component: KbdDemos.Sizes,
+		component: lazy(() =>
+			import("./kbd/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "kbd/sizes.tsx",
 	},
 	"kbd:variants": {
-		component: KbdDemos.Variants,
+		component: lazy(() =>
+			import("./kbd/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "kbd/variants.tsx",
 	},
 	"listbox:basic": {
-		component: ListboxDemos.Basic,
+		component: lazy(() =>
+			import("./listbox/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "listbox/basic.tsx",
 	},
 	"listbox:checkmark": {
-		component: ListboxDemos.WithCheckmark,
+		component: lazy(() =>
+			import("./listbox/with-checkmark").then((m) => ({
+				default: m.WithCheckmark,
+			})),
+		),
 		file: "listbox/with-checkmark.tsx",
 	},
 	"listbox:disabled": {
-		component: ListboxDemos.Disabled,
+		component: lazy(() =>
+			import("./listbox/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "listbox/disabled.tsx",
 	},
 	"locale:basic": {
-		component: LocaleDemos.Basic,
+		component: lazy(() =>
+			import("./locale/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "locale/basic.tsx",
 	},
 	"locale:rtl": {
-		component: LocaleDemos.RTL,
+		component: lazy(() =>
+			import("./locale/rtl").then((m) => ({ default: m.RTL })),
+		),
 		file: "locale/rtl.tsx",
 	},
 	"marquee:basic": {
-		component: MarqueeDemos.Basic,
+		component: lazy(() =>
+			import("./marquee/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "marquee/basic.tsx",
 	},
 	"marquee:edges": {
-		component: MarqueeDemos.Edges,
+		component: lazy(() =>
+			import("./marquee/edges").then((m) => ({ default: m.Edges })),
+		),
 		file: "marquee/edges.tsx",
 	},
 	"marquee:reversed": {
-		component: MarqueeDemos.Reversed,
+		component: lazy(() =>
+			import("./marquee/reversed").then((m) => ({ default: m.Reversed })),
+		),
 		file: "marquee/reversed.tsx",
 	},
 	"marquee:vertical": {
-		component: MarqueeDemos.Vertical,
+		component: lazy(() =>
+			import("./marquee/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "marquee/vertical.tsx",
 	},
 	"menu:basic": {
-		component: MenuDemos.Basic,
+		component: lazy(() =>
+			import("./menu/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "menu/basic.tsx",
 	},
 	"menu:command": {
-		component: MenuDemos.Command,
+		component: lazy(() =>
+			import("./menu/command").then((m) => ({ default: m.Command })),
+		),
 		file: "menu/command.tsx",
 	},
 	"menu:context-menu": {
-		component: MenuDemos.ContextMenu,
+		component: lazy(() =>
+			import("./menu/context-menu").then((m) => ({ default: m.ContextMenu })),
+		),
 		file: "menu/context-menu.tsx",
 	},
 	"menu:group": {
-		component: MenuDemos.Group,
+		component: lazy(() =>
+			import("./menu/group").then((m) => ({ default: m.Group })),
+		),
 		file: "menu/group.tsx",
 	},
 	"menu:submenu": {
-		component: MenuDemos.Submenu,
+		component: lazy(() =>
+			import("./menu/submenu").then((m) => ({ default: m.Submenu })),
+		),
 		file: "menu/submenu.tsx",
 	},
 	"number-input:basic": {
-		component: NumberInputDemos.Basic,
+		component: lazy(() =>
+			import("./number-input/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "number-input/basic.tsx",
 	},
 	"number-input:min-max": {
-		component: NumberInputDemos.MinMax,
+		component: lazy(() =>
+			import("./number-input/min-max").then((m) => ({ default: m.MinMax })),
+		),
 		file: "number-input/min-max.tsx",
 	},
 	"number-input:scrubber": {
-		component: NumberInputDemos.Scrubber,
+		component: lazy(() =>
+			import("./number-input/scrubber").then((m) => ({ default: m.Scrubber })),
+		),
 		file: "number-input/scrubber.tsx",
 	},
 	"number-input:step": {
-		component: NumberInputDemos.Step,
+		component: lazy(() =>
+			import("./number-input/step").then((m) => ({ default: m.Step })),
+		),
 		file: "number-input/step.tsx",
 	},
 	"pagination:attached": {
-		component: PaginationDemos.Attached,
+		component: lazy(() =>
+			import("./pagination/attached").then((m) => ({ default: m.Attached })),
+		),
 		file: "pagination/attached.tsx",
 	},
 	"pagination:basic": {
-		component: PaginationDemos.Basic,
+		component: lazy(() =>
+			import("./pagination/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "pagination/basic.tsx",
 	},
 	"pagination:sibling-count": {
-		component: PaginationDemos.SiblingCount,
+		component: lazy(() =>
+			import("./pagination/sibling-count").then((m) => ({
+				default: m.SiblingCount,
+			})),
+		),
 		file: "pagination/sibling-count.tsx",
 	},
 	"pagination:store": {
-		component: PaginationDemos.Store,
+		component: lazy(() =>
+			import("./pagination/store").then((m) => ({ default: m.Store })),
+		),
 		file: "pagination/store.tsx",
 	},
 	"password-input:basic": {
-		component: PasswordInputDemos.Basic,
+		component: lazy(() =>
+			import("./password-input/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "password-input/basic.tsx",
 	},
 	"password-input:with-field": {
-		component: PasswordInputDemos.WithField,
+		component: lazy(() =>
+			import("./password-input/with-field").then((m) => ({
+				default: m.WithField,
+			})),
+		),
 		file: "password-input/with-field.tsx",
 	},
 	"pin-input:basic": {
-		component: PinInputDemos.Basic,
+		component: lazy(() =>
+			import("./pin-input/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "pin-input/basic.tsx",
 	},
 	"pin-input:masking": {
-		component: PinInputDemos.Masking,
+		component: lazy(() =>
+			import("./pin-input/masking").then((m) => ({ default: m.Masking })),
+		),
 		file: "pin-input/masking.tsx",
 	},
 	"pin-input:otp-mode": {
-		component: PinInputDemos.OTPMode,
+		component: lazy(() =>
+			import("./pin-input/otp-mode").then((m) => ({ default: m.OTPMode })),
+		),
 		file: "pin-input/otp-mode.tsx",
 	},
 	"pin-input:with-field": {
-		component: PinInputDemos.WithField,
+		component: lazy(() =>
+			import("./pin-input/with-field").then((m) => ({ default: m.WithField })),
+		),
 		file: "pin-input/with-field.tsx",
 	},
 	"popover:basic": {
-		component: PopoverDemos.Basic,
+		component: lazy(() =>
+			import("./popover/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "popover/basic.tsx",
 	},
 	"popover:same-width": {
-		component: PopoverDemos.SameWidth,
+		component: lazy(() =>
+			import("./popover/same-width").then((m) => ({ default: m.SameWidth })),
+		),
 		file: "popover/same-width.tsx",
 	},
 	"portal:basic": {
-		component: PortalDemos.Basic,
+		component: lazy(() =>
+			import("./portal/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "portal/basic.tsx",
 	},
 	"portal:custom-container": {
-		component: PortalDemos.CustomContainer,
+		component: lazy(() =>
+			import("./portal/custom-container").then((m) => ({
+				default: m.CustomContainer,
+			})),
+		),
 		file: "portal/custom-container.tsx",
 	},
 	"portal:disabled": {
-		component: PortalDemos.Disabled,
+		component: lazy(() =>
+			import("./portal/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "portal/disabled.tsx",
 	},
 	"presence:basic": {
-		component: PresenceDemos.Basic,
+		component: lazy(() =>
+			import("./presence/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "presence/basic.tsx",
 	},
 	"presence:lazy-mount": {
-		component: PresenceDemos.LazyMount,
+		component: lazy(() =>
+			import("./presence/lazy-mount").then((m) => ({ default: m.LazyMount })),
+		),
 		file: "presence/lazy-mount.tsx",
 	},
 	"presence:unmount": {
-		component: PresenceDemos.Unmount,
+		component: lazy(() =>
+			import("./presence/unmount").then((m) => ({ default: m.Unmount })),
+		),
 		file: "presence/unmount.tsx",
 	},
 	"progress-circle:basic": {
-		component: ProgressCircleDemos.Basic,
+		component: lazy(() =>
+			import("./progress-circle/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "progress-circle/basic.tsx",
 	},
 	"progress-circle:indeterminate": {
-		component: ProgressCircleDemos.Indeterminate,
+		component: lazy(() =>
+			import("./progress-circle/indeterminate").then((m) => ({
+				default: m.Indeterminate,
+			})),
+		),
 		file: "progress-circle/indeterminate.tsx",
 	},
 	"progress:basic": {
-		component: ProgressDemos.Basic,
+		component: lazy(() =>
+			import("./progress/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "progress/basic.tsx",
 	},
 	"progress:indeterminate": {
-		component: ProgressDemos.Indeterminate,
+		component: lazy(() =>
+			import("./progress/indeterminate").then((m) => ({
+				default: m.Indeterminate,
+			})),
+		),
 		file: "progress/indeterminate.tsx",
 	},
 	"progress:with-label": {
-		component: ProgressDemos.WithLabel,
+		component: lazy(() =>
+			import("./progress/with-label").then((m) => ({ default: m.WithLabel })),
+		),
 		file: "progress/with-label.tsx",
 	},
 	"qr-code:basic": {
-		component: QRCodeDemos.Basic,
+		component: lazy(() =>
+			import("./qr-code/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "qr-code/basic.tsx",
 	},
 	"qr-code:download": {
-		component: QRCodeDemos.Download,
+		component: lazy(() =>
+			import("./qr-code/download").then((m) => ({ default: m.Download })),
+		),
 		file: "qr-code/download.tsx",
 	},
 	"qr-code:fill": {
-		component: QRCodeDemos.Fill,
+		component: lazy(() =>
+			import("./qr-code/fill").then((m) => ({ default: m.Fill })),
+		),
 		file: "qr-code/fill.tsx",
 	},
 	"qr-code:logo-overlay": {
-		component: QRCodeDemos.LogoOverlay,
+		component: lazy(() =>
+			import("./qr-code/logo-overlay").then((m) => ({
+				default: m.LogoOverlay,
+			})),
+		),
 		file: "qr-code/logo-overlay.tsx",
 	},
 	"radio-group:basic": {
-		component: RadioGroupDemos.Basic,
+		component: lazy(() =>
+			import("./radio-group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "radio-group/basic.tsx",
 	},
 	"radio-group:disabled": {
-		component: RadioGroupDemos.Disabled,
+		component: lazy(() =>
+			import("./radio-group/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "radio-group/disabled.tsx",
 	},
 	"radio-group:horizontal": {
-		component: RadioGroupDemos.Horizontal,
+		component: lazy(() =>
+			import("./radio-group/horizontal").then((m) => ({
+				default: m.Horizontal,
+			})),
+		),
 		file: "radio-group/horizontal.tsx",
 	},
 	"radiomark:basic": {
-		component: RadiomarkDemos.Basic,
+		component: lazy(() =>
+			import("./radiomark/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "radiomark/basic.tsx",
 	},
 	"radiomark:variants": {
-		component: RadiomarkDemos.Variants,
+		component: lazy(() =>
+			import("./radiomark/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "radiomark/variants.tsx",
 	},
 	"rating-group:basic": {
-		component: RatingGroupDemos.Basic,
+		component: lazy(() =>
+			import("./rating-group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "rating-group/basic.tsx",
 	},
 	"rating-group:disabled": {
-		component: RatingGroupDemos.Disabled,
+		component: lazy(() =>
+			import("./rating-group/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "rating-group/disabled.tsx",
 	},
 	"rating-group:half-rating": {
-		component: RatingGroupDemos.HalfRating,
+		component: lazy(() =>
+			import("./rating-group/half-rating").then((m) => ({
+				default: m.HalfRating,
+			})),
+		),
 		file: "rating-group/half-rating.tsx",
 	},
 	"rating-group:palette": {
-		component: RatingGroupDemos.Palette,
+		component: lazy(() =>
+			import("./rating-group/palette").then((m) => ({ default: m.Palette })),
+		),
 		file: "rating-group/palette.tsx",
 	},
 	"rating-group:read-only": {
-		component: RatingGroupDemos.ReadOnly,
+		component: lazy(() =>
+			import("./rating-group/read-only").then((m) => ({ default: m.ReadOnly })),
+		),
 		file: "rating-group/read-only.tsx",
 	},
 	"scroll-area:basic": {
-		component: ScrollAreaDemos.Basic,
+		component: lazy(() =>
+			import("./scroll-area/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "scroll-area/basic.tsx",
 	},
 	"scroll-area:horizontal": {
-		component: ScrollAreaDemos.Horizontal,
+		component: lazy(() =>
+			import("./scroll-area/horizontal").then((m) => ({
+				default: m.Horizontal,
+			})),
+		),
 		file: "scroll-area/horizontal.tsx",
 	},
 	"scroll-area:rtl": {
-		component: ScrollAreaDemos.Rtl,
+		component: lazy(() =>
+			import("./scroll-area/rtl").then((m) => ({ default: m.Rtl })),
+		),
 		file: "scroll-area/rtl.tsx",
 	},
 	"scroll-area:sizes": {
-		component: ScrollAreaDemos.Sizes,
+		component: lazy(() =>
+			import("./scroll-area/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "scroll-area/sizes.tsx",
 	},
 	"scroll-area:variants": {
-		component: ScrollAreaDemos.Variants,
+		component: lazy(() =>
+			import("./scroll-area/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "scroll-area/variants.tsx",
 	},
 	"scroll-shadow:basic": {
-		component: ScrollShadowDemos.Basic,
+		component: lazy(() =>
+			import("./scroll-shadow/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "scroll-shadow/basic.tsx",
 	},
 	"scroll-shadow:custom-size": {
-		component: ScrollShadowDemos.CustomSize,
+		component: lazy(() =>
+			import("./scroll-shadow/custom-size").then((m) => ({
+				default: m.CustomSize,
+			})),
+		),
 		file: "scroll-shadow/custom-size.tsx",
 	},
 	"scroll-shadow:orientation": {
-		component: ScrollShadowDemos.Orientation,
+		component: lazy(() =>
+			import("./scroll-shadow/orientation").then((m) => ({
+				default: m.Orientation,
+			})),
+		),
 		file: "scroll-shadow/orientation.tsx",
 	},
 	"scroll-shadow:with-surface": {
-		component: ScrollShadowDemos.WithSurface,
+		component: lazy(() =>
+			import("./scroll-shadow/with-surface").then((m) => ({
+				default: m.WithSurface,
+			})),
+		),
 		file: "scroll-shadow/with-surface.tsx",
 	},
 	"section:basic": {
-		component: SectionDemos.Basic,
+		component: lazy(() =>
+			import("./section/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "section/basic.tsx",
 	},
 	"segment-group:basic": {
-		component: SegmentGroupDemos.Basic,
+		component: lazy(() =>
+			import("./segment-group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "segment-group/basic.tsx",
 	},
 	"segment-group:sizes": {
-		component: SegmentGroupDemos.Sizes,
+		component: lazy(() =>
+			import("./segment-group/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "segment-group/sizes.tsx",
 	},
 	"segment-group:variants": {
-		component: SegmentGroupDemos.Variants,
+		component: lazy(() =>
+			import("./segment-group/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "segment-group/variants.tsx",
 	},
 	"segment-group:vertical": {
-		component: SegmentGroupDemos.Vertical,
+		component: lazy(() =>
+			import("./segment-group/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "segment-group/vertical.tsx",
 	},
 	"select:basic": {
-		component: SelectDemos.Basic,
+		component: lazy(() =>
+			import("./select/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "select/basic.tsx",
 	},
 	"select:disabled": {
-		component: SelectDemos.Disabled,
+		component: lazy(() =>
+			import("./select/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "select/disabled.tsx",
 	},
 	"select:group": {
-		component: SelectDemos.Group,
+		component: lazy(() =>
+			import("./select/group").then((m) => ({ default: m.Group })),
+		),
 		file: "select/group.tsx",
 	},
 	"select:with-icons": {
-		component: SelectDemos.WithIcons,
+		component: lazy(() =>
+			import("./select/with-icons").then((m) => ({ default: m.WithIcons })),
+		),
 		file: "select/with-icons.tsx",
 	},
 	"separator:basic": {
-		component: SeparatorDemos.Basic,
+		component: lazy(() =>
+			import("./separator/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "separator/basic.tsx",
 	},
 	"separator:label": {
-		component: SeparatorDemos.Label,
+		component: lazy(() =>
+			import("./separator/label").then((m) => ({ default: m.Label })),
+		),
 		file: "separator/label.tsx",
 	},
 	"separator:sizes": {
-		component: SeparatorDemos.Sizes,
+		component: lazy(() =>
+			import("./separator/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "separator/sizes.tsx",
 	},
 	"separator:vertical": {
-		component: SeparatorDemos.Vertical,
+		component: lazy(() =>
+			import("./separator/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "separator/vertical.tsx",
 	},
 	"signature-pad:basic": {
-		component: SignaturePadDemos.Basic,
+		component: lazy(() =>
+			import("./signature-pad/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "signature-pad/basic.tsx",
 	},
 	"skeleton:basic": {
-		component: SkeletonDemos.Basic,
+		component: lazy(() =>
+			import("./skeleton/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "skeleton/basic.tsx",
 	},
 	"skeleton:text-only": {
-		component: SkeletonDemos.TextOnly,
+		component: lazy(() =>
+			import("./skeleton/text-only").then((m) => ({ default: m.TextOnly })),
+		),
 		file: "skeleton/text-only.tsx",
 	},
 	"skeleton:variants": {
-		component: SkeletonDemos.Variants,
+		component: lazy(() =>
+			import("./skeleton/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "skeleton/variants.tsx",
 	},
 	"slider:basic": {
-		component: SliderDemos.Basic,
+		component: lazy(() =>
+			import("./slider/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "slider/basic.tsx",
 	},
 	"slider:minmax": {
-		component: SliderDemos.MinMax,
+		component: lazy(() =>
+			import("./slider/minmax").then((m) => ({ default: m.MinMax })),
+		),
 		file: "slider/minmax.tsx",
 	},
 	"slider:range": {
-		component: SliderDemos.Range,
+		component: lazy(() =>
+			import("./slider/range").then((m) => ({ default: m.Range })),
+		),
 		file: "slider/range.tsx",
 	},
 	"spinner:basic": {
-		component: SpinnerDemos.Basic,
+		component: lazy(() =>
+			import("./spinner/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "spinner/basic.tsx",
 	},
 	"spinner:custom-icon": {
-		component: SpinnerDemos.CustomIcon,
+		component: lazy(() =>
+			import("./spinner/custom-icon").then((m) => ({ default: m.CustomIcon })),
+		),
 		file: "spinner/custom-icon.tsx",
 	},
 	"spinner:variants": {
-		component: SpinnerDemos.Variants,
+		component: lazy(() =>
+			import("./spinner/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "spinner/variants.tsx",
 	},
 	"splitter:basic": {
-		component: SplitterDemos.Basic,
+		component: lazy(() =>
+			import("./splitter/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "splitter/basic.tsx",
 	},
 	"splitter:disabled-resize": {
-		component: SplitterDemos.DisabledResize,
+		component: lazy(() =>
+			import("./splitter/disabled-resize").then((m) => ({
+				default: m.DisabledResize,
+			})),
+		),
 		file: "splitter/disabled-resize.tsx",
 	},
 	"splitter:multiple-panels": {
-		component: SplitterDemos.MultiplePanels,
+		component: lazy(() =>
+			import("./splitter/multiple-panels").then((m) => ({
+				default: m.MultiplePanels,
+			})),
+		),
 		file: "splitter/multiple-panels.tsx",
 	},
 	"splitter:separator-only": {
-		component: SplitterDemos.SeparatorOnly,
+		component: lazy(() =>
+			import("./splitter/separator-only").then((m) => ({
+				default: m.SeparatorOnly,
+			})),
+		),
 		file: "splitter/separator-only.tsx",
 	},
 	"splitter:vertical": {
-		component: SplitterDemos.Vertical,
+		component: lazy(() =>
+			import("./splitter/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "splitter/vertical.tsx",
 	},
 	"stack:basic": {
-		component: StackDemos.Basic,
+		component: lazy(() =>
+			import("./stack/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "stack/basic.tsx",
 	},
 	"stack:responsive-direction": {
-		component: StackDemos.ResponsiveDirection,
+		component: lazy(() =>
+			import("./stack/responsive-direction").then((m) => ({
+				default: m.ResponsiveDirection,
+			})),
+		),
 		file: "stack/responsive-direction.tsx",
 	},
 	"stack:vertical": {
-		component: StackDemos.Vertical,
+		component: lazy(() =>
+			import("./stack/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "stack/vertical.tsx",
 	},
 	"status:basic": {
-		component: StatusDemos.Basic,
+		component: lazy(() =>
+			import("./status/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "status/basic.tsx",
 	},
 	"status:only-indicator": {
-		component: StatusDemos.OnlyIndicator,
+		component: lazy(() =>
+			import("./status/only-indicator").then((m) => ({
+				default: m.OnlyIndicator,
+			})),
+		),
 		file: "status/only-indicator.tsx",
 	},
 	"status:sizes": {
-		component: StatusDemos.Sizes,
+		component: lazy(() =>
+			import("./status/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "status/sizes.tsx",
 	},
 	"steps:basic": {
-		component: StepsDemos.Basic,
+		component: lazy(() =>
+			import("./steps/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "steps/basic.tsx",
 	},
 	"substrate:basic": {
-		component: SubstrateDemos.Basic,
+		component: lazy(() =>
+			import("./substrate/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "substrate/basic.tsx",
 	},
 	"surface:basic": {
-		component: SurfaceDemos.Basic,
+		component: lazy(() =>
+			import("./surface/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "surface/basic.tsx",
 	},
 	"surface:variants": {
-		component: SurfaceDemos.Variants,
+		component: lazy(() =>
+			import("./surface/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "surface/variants.tsx",
 	},
 	"swap:basic": {
-		component: SwapDemos.Basic,
+		component: lazy(() =>
+			import("./swap/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "swap/basic.tsx",
 	},
 	"swap:fade": {
-		component: SwapDemos.Fade,
+		component: lazy(() =>
+			import("./swap/fade").then((m) => ({ default: m.Fade })),
+		),
 		file: "swap/fade.tsx",
 	},
 	"swap:flip": {
-		component: SwapDemos.Flip,
+		component: lazy(() =>
+			import("./swap/flip").then((m) => ({ default: m.Flip })),
+		),
 		file: "swap/flip.tsx",
 	},
 	"swap:rotate": {
-		component: SwapDemos.Rotate,
+		component: lazy(() =>
+			import("./swap/rotate").then((m) => ({ default: m.Rotate })),
+		),
 		file: "swap/rotate.tsx",
 	},
 	"swap:scale": {
-		component: SwapDemos.Scale,
+		component: lazy(() =>
+			import("./swap/scale").then((m) => ({ default: m.Scale })),
+		),
 		file: "swap/scale.tsx",
 	},
 	"swatch:basic": {
-		component: SwatchDemos.Basic,
+		component: lazy(() =>
+			import("./swatch/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "swatch/basic.tsx",
 	},
-	"swatch:variants": {
-		component: SwatchDemos.Sizes,
-		file: "swatch/variants.tsx",
+	"swatch:sizes": {
+		component: lazy(() =>
+			import("./swatch/sizes").then((m) => ({ default: m.Sizes })),
+		),
+		file: "swatch/sizes.tsx",
 	},
 	"switch:basic": {
-		component: SwitchDemos.Basic,
+		component: lazy(() =>
+			import("./switch/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "switch/basic.tsx",
 	},
 	"switch:disabled": {
-		component: SwitchDemos.Disabled,
+		component: lazy(() =>
+			import("./switch/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "switch/disabled.tsx",
 	},
 	"switch:with-label": {
-		component: SwitchDemos.WithLabel,
+		component: lazy(() =>
+			import("./switch/with-label").then((m) => ({ default: m.WithLabel })),
+		),
 		file: "switch/with-label.tsx",
 	},
 	"tabs:basic": {
-		component: TabsDemos.Basic,
+		component: lazy(() =>
+			import("./tabs/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "tabs/basic.tsx",
 	},
 	"tabs:disabled": {
-		component: TabsDemos.Disabled,
+		component: lazy(() =>
+			import("./tabs/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "tabs/disabled.tsx",
 	},
 	"tabs:sizes": {
-		component: TabsDemos.Sizes,
+		component: lazy(() =>
+			import("./tabs/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "tabs/sizes.tsx",
 	},
 	"tabs:variants": {
-		component: TabsDemos.Variants,
+		component: lazy(() =>
+			import("./tabs/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "tabs/variants.tsx",
 	},
 	"tabs:vertical": {
-		component: TabsDemos.Vertical,
+		component: lazy(() =>
+			import("./tabs/vertical").then((m) => ({ default: m.Vertical })),
+		),
 		file: "tabs/vertical.tsx",
 	},
 	"tag:basic": {
-		component: TagDemos.Basic,
+		component: lazy(() =>
+			import("./tag/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "tag/basic.tsx",
 	},
 	"tag:variants": {
-		component: TagDemos.Variants,
+		component: lazy(() =>
+			import("./tag/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "tag/variants.tsx",
 	},
 	"tag:with-icon": {
-		component: TagDemos.WithIcon,
+		component: lazy(() =>
+			import("./tag/with-icon").then((m) => ({ default: m.WithIcon })),
+		),
 		file: "tag/with-icon.tsx",
 	},
 	"tags-input:basic": {
-		component: TagsInputDemos.Basic,
+		component: lazy(() =>
+			import("./tags-input/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "tags-input/basic.tsx",
 	},
 	"tags-input:clearable": {
-		component: TagsInputDemos.Clearable,
+		component: lazy(() =>
+			import("./tags-input/clearable").then((m) => ({ default: m.Clearable })),
+		),
 		file: "tags-input/clearable.tsx",
 	},
 	"text:basic": {
-		component: TextDemos.Basic,
+		component: lazy(() =>
+			import("./text/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "text/basic.tsx",
 	},
 	"text:line-clamp": {
-		component: TextDemos.LineClamp,
+		component: lazy(() =>
+			import("./text/line-clamp").then((m) => ({ default: m.LineClamp })),
+		),
 		file: "text/line-clamp.tsx",
 	},
 	"text:sizes": {
-		component: TextDemos.Sizes,
+		component: lazy(() =>
+			import("./text/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "text/sizes.tsx",
 	},
 	"text:truncate": {
-		component: TextDemos.Truncate,
+		component: lazy(() =>
+			import("./text/truncate").then((m) => ({ default: m.Truncate })),
+		),
 		file: "text/truncate.tsx",
 	},
 	"text:weights": {
-		component: TextDemos.Weights,
+		component: lazy(() =>
+			import("./text/weights").then((m) => ({ default: m.Weights })),
+		),
 		file: "text/weights.tsx",
 	},
 	"textarea:basic": {
-		component: TextareaDemos.Basic,
+		component: lazy(() =>
+			import("./textarea/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "textarea/basic.tsx",
 	},
 	"textarea:disabled": {
-		component: TextareaDemos.Disabled,
+		component: lazy(() =>
+			import("./textarea/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "textarea/disabled.tsx",
 	},
 	"textarea:sizes": {
-		component: TextareaDemos.Sizes,
+		component: lazy(() =>
+			import("./textarea/sizes").then((m) => ({ default: m.Sizes })),
+		),
 		file: "textarea/sizes.tsx",
 	},
 	"textarea:variants": {
-		component: TextareaDemos.Variants,
+		component: lazy(() =>
+			import("./textarea/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "textarea/variants.tsx",
 	},
 	"tile:basic": {
-		component: TileDemos.Basic,
+		component: lazy(() =>
+			import("./tile/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "tile/basic.tsx",
 	},
 	"tile:orientation": {
-		component: TileDemos.Orientation,
+		component: lazy(() =>
+			import("./tile/orientation").then((m) => ({ default: m.Orientation })),
+		),
 		file: "tile/orientation.tsx",
 	},
 	"tile:variants": {
-		component: TileDemos.Variants,
+		component: lazy(() =>
+			import("./tile/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "tile/variants.tsx",
 	},
 	"timer:basic": {
-		component: TimerDemos.Basic,
+		component: lazy(() =>
+			import("./timer/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "timer/basic.tsx",
 	},
 	"timer:countdown": {
-		component: TimerDemos.Countdown,
+		component: lazy(() =>
+			import("./timer/countdown").then((m) => ({ default: m.Countdown })),
+		),
 		file: "timer/countdown.tsx",
 	},
 	"toast:basic": {
-		component: ToastDemos.Basic,
+		component: lazy(() =>
+			import("./toast/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "toast/basic.tsx",
 	},
 	"toast:custom-icon": {
-		component: ToastDemos.CustomIcon,
+		component: lazy(() =>
+			import("./toast/custom-icon").then((m) => ({ default: m.CustomIcon })),
+		),
 		file: "toast/custom-icon.tsx",
 	},
 	"toast:dismissable": {
-		component: ToastDemos.Dismissable,
+		component: lazy(() =>
+			import("./toast/dismissable").then((m) => ({ default: m.Dismissable })),
+		),
 		file: "toast/dismissable.tsx",
 	},
 	"toast:duration": {
-		component: ToastDemos.Duration,
+		component: lazy(() =>
+			import("./toast/duration").then((m) => ({ default: m.Duration })),
+		),
 		file: "toast/duration.tsx",
 	},
 	"toast:type": {
-		component: ToastDemos.Type,
+		component: lazy(() =>
+			import("./toast/type").then((m) => ({ default: m.Type })),
+		),
 		file: "toast/type.tsx",
 	},
 	"toggle:basic": {
-		component: ToggleDemos.Basic,
+		component: lazy(() =>
+			import("./toggle/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "toggle/basic.tsx",
 	},
 	"toggle:controlled": {
-		component: ToggleDemos.Controlled,
+		component: lazy(() =>
+			import("./toggle/controlled").then((m) => ({ default: m.Controlled })),
+		),
 		file: "toggle/controlled.tsx",
 	},
 	"toggle:disabled": {
-		component: ToggleDemos.Disabled,
+		component: lazy(() =>
+			import("./toggle/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "toggle/disabled.tsx",
 	},
 	"toggle:indicator": {
-		component: ToggleDemos.Indicator,
+		component: lazy(() =>
+			import("./toggle/indicator").then((m) => ({ default: m.Indicator })),
+		),
 		file: "toggle/indicator.tsx",
 	},
 	"toggle-group:attached": {
-		component: ToggleGroupDemos.Attached,
+		component: lazy(() =>
+			import("./toggle-group/attached").then((m) => ({ default: m.Attached })),
+		),
 		file: "toggle-group/attached.tsx",
 	},
 	"toggle-group:basic": {
-		component: ToggleGroupDemos.Basic,
+		component: lazy(() =>
+			import("./toggle-group/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "toggle-group/basic.tsx",
 	},
 	"toggle-group:controlled": {
-		component: ToggleGroupDemos.Controlled,
+		component: lazy(() =>
+			import("./toggle-group/controlled").then((m) => ({
+				default: m.Controlled,
+			})),
+		),
 		file: "toggle-group/controlled.tsx",
 	},
 	"toggle-group:disabled": {
-		component: ToggleGroupDemos.Disabled,
+		component: lazy(() =>
+			import("./toggle-group/disabled").then((m) => ({ default: m.Disabled })),
+		),
 		file: "toggle-group/disabled.tsx",
 	},
 	"toggle-group:multiple": {
-		component: ToggleGroupDemos.Multiple,
+		component: lazy(() =>
+			import("./toggle-group/multiple").then((m) => ({ default: m.Multiple })),
+		),
 		file: "toggle-group/multiple.tsx",
 	},
 	"toggle-group:orientation": {
-		component: ToggleGroupDemos.Orientation,
+		component: lazy(() =>
+			import("./toggle-group/orientation").then((m) => ({
+				default: m.Orientation,
+			})),
+		),
 		file: "toggle-group/orientation.tsx",
 	},
 	"tooltip:basic": {
-		component: TooltipDemos.Basic,
+		component: lazy(() =>
+			import("./tooltip/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "tooltip/basic.tsx",
 	},
 	"tooltip:delay": {
-		component: TooltipDemos.Delay,
+		component: lazy(() =>
+			import("./tooltip/delay").then((m) => ({ default: m.Delay })),
+		),
 		file: "tooltip/delay.tsx",
 	},
 	"tooltip:interactive": {
-		component: TooltipDemos.Interactive,
+		component: lazy(() =>
+			import("./tooltip/interactive").then((m) => ({ default: m.Interactive })),
+		),
 		file: "tooltip/interactive.tsx",
 	},
 	"tree-view:basic": {
-		component: TreeDemos.Basic,
+		component: lazy(() =>
+			import("./tree-view/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "tree-view/basic.tsx",
 	},
 	"tree-view:checkbox": {
-		component: TreeDemos.Checkbox,
+		component: lazy(() =>
+			import("./tree-view/checkbox").then((m) => ({ default: m.Checkbox })),
+		),
 		file: "tree-view/checkbox.tsx",
 	},
 	"wheel-picker:basic": {
-		component: WheelPickerDemos.Basic,
+		component: lazy(() =>
+			import("./wheel-picker/basic").then((m) => ({ default: m.Basic })),
+		),
 		file: "wheel-picker/basic.tsx",
 	},
 	"wheel-picker:variants": {
-		component: WheelPickerDemos.Variants,
+		component: lazy(() =>
+			import("./wheel-picker/variants").then((m) => ({ default: m.Variants })),
+		),
 		file: "wheel-picker/variants.tsx",
 	},
 	"wheel-picker:radius": {
-		component: WheelPickerDemos.Radius,
+		component: lazy(() =>
+			import("./wheel-picker/radius").then((m) => ({ default: m.Radius })),
+		),
 		file: "wheel-picker/radius.tsx",
 	},
 };

@@ -66,7 +66,7 @@ function Page() {
 
 	return (
 		<DocsLayout pageTree={data.pageTree}>
-			<Suspense fallback={null}>{content}</Suspense>
+			<Suspense fallback={<DocsLayout.Loader />}>{content}</Suspense>
 		</DocsLayout>
 	);
 }

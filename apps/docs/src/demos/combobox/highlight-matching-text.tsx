@@ -20,17 +20,17 @@ const items = [
 		value: "bannana",
 	},
 	{
-		id: "1",
+		id: "2",
 		label: "Apple",
 		value: "apple",
 	},
 	{
-		id: "1",
+		id: "3",
 		label: "Mango",
 		value: "mango",
 	},
 	{
-		id: "1",
+		id: "4",
 		label: "Cherry",
 		value: "cherry",
 	},
