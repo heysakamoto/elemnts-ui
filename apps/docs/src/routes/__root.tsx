@@ -7,6 +7,8 @@ import {
 import { NotFound } from "@/components/base/not-found";
 import css from "../styles.css?url";
 
+const baseUrl = import.meta.env.VITE_URL || "https://motoui.com";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 	{
 		notFoundComponent: NotFound,
@@ -21,6 +23,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				},
 				{
 					title: "Moto UI",
+				},
+				{
+					name: "description",
+					content:
+						"Moto UI is a high-performance, accessible React component library engineered for speed and scalability.",
+				},
+				//--- Open Graph Tags
+				{
+					property: "og:title",
+					content: "Moto UI | High-Performance, Accessible React Components",
+				},
+				{
+					property: "og:description",
+					content:
+						"Moto UI is a high-performance, accessible React component library engineered for speed and scalability, built on Ark UI and Panda CSS.",
+				},
+				{
+					property: "og:type",
+					content: "website",
+				},
+				{
+					property: "og:image",
+					content: `${baseUrl}/og-image.png`,
+				},
+				// --- Twitter Card Tags
+				{
+					name: "twitter:card",
+					content: "summary_large_image",
+				},
+				{
+					name: "twitter:image",
+					content: `${baseUrl}/og-image.png`,
 				},
 			],
 			links: [

@@ -141,6 +141,7 @@ export function Header() {
 				</Stack>
 				<Stack
 					w="full"
+					align="center"
 					justify={{ md: "center" }}
 				>
 					<Logo />
