@@ -13,14 +13,14 @@ import { CopyButton } from "./copy-button";
 const items = [
 	{
 		id: "1",
-		label: "Tab 1",
 		value: "break-spaces",
 		icon: "tabler:text-wrap",
+		label: "Enable text wrapping",
 	},
 	{
 		id: "2",
 		value: "pre",
-		label: "Tab 2",
+		label: "Disable text wrapping",
 		icon: "tabler:text-wrap-disabled",
 	},
 ];
@@ -84,6 +84,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 											<SegmentGroup.Item
 												key={key}
 												value={value}
+												aria-label={item.label}
 											>
 												<Icon
 													icon={item.icon}

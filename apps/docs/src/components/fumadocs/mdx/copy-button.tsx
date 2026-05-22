@@ -20,6 +20,7 @@ export const CopyButton = (props: Props) => {
 			rounded="full"
 			flexShrink={0}
 			variant="ghost"
+			aria-label="Copy code"
 			colorPalette="neutral"
 			_notHover={{ color: "icon.secondary" }}
 			{...restProps}

@@ -17,6 +17,7 @@ export function Logo(props: LogoProps) {
 		<Fragment>
 			<Link
 				to="/"
+				aria-label="Go to home"
 				className={css({
 					"& > svg": {
 						w: "auto",
@@ -36,6 +37,7 @@ export function Logo(props: LogoProps) {
 			</Link>
 			<Link
 				to="/"
+				aria-label="Go to home"
 				className={css({
 					"& > svg": {
 						w: "auto",

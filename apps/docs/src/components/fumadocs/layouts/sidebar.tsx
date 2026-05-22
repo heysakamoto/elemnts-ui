@@ -43,8 +43,7 @@ function Page({ node, onSelect }: PageProps) {
 				py: "4",
 				px: "8",
 				rounded: "12",
-				fontSize: "12",
-				fontWeight: "500",
+				fontSize: "13",
 				textAlign: "left",
 				color: "fg.secondary",
 				"&:is([data-status=active], :hover)": {

@@ -40,6 +40,7 @@ export function Hero() {
 							asChild
 							size="lg"
 							rounded="24"
+							fontSize="16"
 						>
 							<Link to="/docs/$">Start shipping</Link>
 						</Button>
@@ -47,6 +48,7 @@ export function Hero() {
 							size="lg"
 							asChild
 							rounded="24"
+							fontSize="16"
 							variant="secondary"
 							colorPalette="neutral"
 						>

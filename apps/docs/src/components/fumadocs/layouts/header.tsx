@@ -92,7 +92,7 @@ export function HeaderBreadcrumb() {
 					<Fragment key={key}>
 						<Text
 							asChild
-							fontSize="12"
+							fontSize="13"
 							lineHeight="1"
 							fontWeight="400"
 							color="fg.tertiary"
@@ -163,6 +163,7 @@ export function Header() {
 											iconOnly
 											rounded="full"
 											variant="ghost"
+											aria-label="Search"
 											colorPalette="neutral"
 											onClick={() => ctx.onOpen()}
 											_notHover={{ color: "icon.secondary" }}
@@ -204,6 +205,7 @@ export function Header() {
 											hideFrom="md"
 											rounded="full"
 											variant="ghost"
+											aria-label="Open menu"
 											colorPalette="neutral"
 											onClick={() => ctx.onOpen()}
 											_notHover={{ color: "icon.secondary" }}
@@ -243,9 +245,10 @@ export function Header() {
 					trigger={(ctx) => {
 						return (
 							<Button
-								size="sm"
 								px="0"
+								size="sm"
 								variant="plain"
+								aria-label="Open menu"
 								colorPalette="neutral"
 								onClick={() => ctx.onOpen()}
 								pointerEvents={{ md: "none" }}
@@ -261,31 +264,37 @@ export function Header() {
 						);
 					}}
 				/>
-				<Button
-					asChild
-					iconOnly
-					size="sm"
-					rounded="full"
-					variant="ghost"
-					colorPalette="neutral"
-					css={{
-						"&:not(:hover)": {
-							color: "icon.secondary",
-						},
-					}}
-				>
-					<Link
-						target="_blank"
-						to={"https://github.com/heysakamoto/moto-ui" as any}
-					>
-						<Icon
-							ml="-2"
-							width={18}
-							height={18}
-							icon="tabler:brand-github"
-						/>
-					</Link>
-				</Button>
+				<ComposedTooltip
+					content="Github"
+					trigger={
+						<Button
+							asChild
+							iconOnly
+							size="sm"
+							rounded="full"
+							variant="ghost"
+							colorPalette="neutral"
+							aria-label="Visit Github"
+							css={{
+								"&:not(:hover)": {
+									color: "icon.secondary",
+								},
+							}}
+						>
+							<Link
+								target="_blank"
+								to={"https://github.com/heysakamoto/moto-ui" as any}
+							>
+								<Icon
+									ml="-2"
+									width={18}
+									height={18}
+									icon="tabler:brand-github"
+								/>
+							</Link>
+						</Button>
+					}
+				/>
 			</Stack>
 		</Box>
 	);

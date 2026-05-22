@@ -1,6 +1,7 @@
 import {
 	Anchor,
 	Avatar,
+	Box,
 	Button,
 	ButtonGroup,
 	Container,
@@ -43,11 +44,11 @@ const pageTree = [
 
 export function Layout(props: PropsWithChildren) {
 	return (
-		<>
+		<Box as="main">
 			<Header />
 			{props.children}
 			<Footer />
-		</>
+		</Box>
 	);
 }
 
@@ -139,8 +140,9 @@ function MobileMenu() {
 						hideFrom="lg"
 						rounded="full"
 						variant="ghost"
-						onClick={() => onOpen()}
 						colorPalette="neutral"
+						onClick={() => onOpen()}
+						aria-label="Open mobile menu"
 						css={{
 							"&:not(:hover)": {
 								color: "icon.secondary",
@@ -288,12 +290,12 @@ function Footer() {
 											>
 												<Surface.Title
 													lineHeight="1"
-													fontSize="14"
+													fontSize="16"
 												>
-													Sakamoto
+													sakamoto
 												</Surface.Title>
 												<Surface.Description
-													fontSize="12"
+													fontSize="13"
 													lineHeight="1"
 												>
 													@hey__sakamoto

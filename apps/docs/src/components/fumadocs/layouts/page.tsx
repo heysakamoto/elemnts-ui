@@ -127,9 +127,9 @@ export function Description(props: DescriptionProps) {
 		<Text
 			mt="12"
 			mb="24"
-			fontSize="16"
-			letterSpacing="xs"
+			fontSize="17"
 			color="fg.secondary"
+			letterSpacing="-0.008em"
 		>
 			{children}
 		</Text>

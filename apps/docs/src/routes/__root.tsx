@@ -59,16 +59,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 			],
 			links: [
 				{
-					rel: "stylesheet",
 					href: css,
-				},
-				{
-					rel: "preconnect",
-					href: "https://cdn.aviosans.lerbb.com/",
-				},
-				{
 					rel: "stylesheet",
-					href: "https://cdn.aviosans.lerbb.com/avio-sans.css",
 				},
 				{
 					rel: "icon",

@@ -69,8 +69,9 @@ export function AIMenu() {
 		>
 			<Menu.Trigger asChild>
 				<Button
-					roundedEnd="16"
 					iconOnly
+					roundedEnd="16"
+					aria-label="Open AI menu"
 					css={{
 						"&:not(:hover)": {
 							color: "icon.secondary",
