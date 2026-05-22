@@ -15,7 +15,6 @@ export function ComposedDialog(props: ComposedDialogProps) {
 			lazyMount
 			size="full"
 			unmountOnExit
-			open={open}
 			placement="bottom"
 		>
 			<Dialog.Context>
