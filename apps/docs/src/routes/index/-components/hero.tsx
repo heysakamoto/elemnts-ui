@@ -51,10 +51,10 @@ export function Hero() {
 							colorPalette="neutral"
 						>
 							<Link
-								to="/docs/$"
-								params={{ _splat: "components" }}
+								to={"https://github.com/heysakamoto/moto-ui" as any}
+								target="_blank"
 							>
-								View Components
+								Github repo
 							</Link>
 						</Button>
 					</Group>
