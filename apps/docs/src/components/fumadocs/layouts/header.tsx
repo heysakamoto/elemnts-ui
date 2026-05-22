@@ -17,22 +17,22 @@ export const links = [
 		target: "_self",
 	},
 	{
-		url: "/docs/components",
-		label: "Components",
-		target: "_self",
-	},
-	{
 		url: "/docs/animations",
 		label: "Concepts",
 		target: "_self",
 	},
 	{
-		url: "https://github.com/",
+		url: "https://storybook.moto-ui.app",
+		label: "Storybook",
+		target: "_blank",
+	},
+	{
+		url: "https://github.com/heysakamoto/moto-ui?tab=contributing-ov-file",
 		label: "Contribute",
 		target: "_blank",
 	},
 	{
-		url: "https://github.com/sponsors/",
+		url: "https://opencollective.com/motoui",
 		label: "Sponsor",
 		target: "_blank",
 	},
@@ -50,9 +50,9 @@ export function HeaderLink({ label, url, target }: HeaderLinkProps) {
 			to={url}
 			target={target}
 			className={css({
-				h: "32",
+				py: "8",
 				px: "12",
-				fontSize: "12",
+				fontSize: "13",
 				rounded: "full",
 				align: "center",
 				lineHeight: "none",

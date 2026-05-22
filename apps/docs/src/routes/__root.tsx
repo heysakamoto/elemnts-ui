@@ -28,6 +28,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 					rel: "stylesheet",
 					href: css,
 				},
+				{
+					rel: "preconnect",
+					href: "https://cdn.aviosans.lerbb.com/",
+				},
+				{
+					rel: "stylesheet",
+					href: "https://cdn.aviosans.lerbb.com/avio-sans.css",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon/light.png",
+					media: "(prefers-color-scheme: light)",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon/dark.png",
+					media: "(prefers-color-scheme: dark)",
+				},
 			],
 		}),
 		shellComponent: RootDocument,
@@ -42,19 +62,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 		>
 			<head>
 				<HeadContent />
-				<link
-					rel="preconnect"
-					href="https://cdn.aviosans.lerbb.com/"
-				/>
-				<link
-					rel="stylesheet"
-					href="https://cdn.aviosans.lerbb.com/avio-sans.css"
-				/>
-				<link
-					rel="icon"
-					type="image/svg+xml"
-					href="/favicon.svg"
-				/>
 			</head>
 			<body>
 				{children}
