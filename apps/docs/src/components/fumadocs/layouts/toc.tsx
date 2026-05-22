@@ -70,7 +70,7 @@ export function Toc() {
 							py: "6",
 							px: "8",
 							w: "12rem",
-							fontSize: "12",
+							fontSize: "13",
 							lineHeight: "1",
 							display: "block",
 							color: "fg.tertiary",
@@ -130,6 +130,7 @@ export function TocMobile() {
 							disabled={!previous}
 							colorPalette="neutral"
 							backdropFilter="blur(10px)"
+							aria-label="Go to previous page"
 						>
 							<Link
 								to={previous?.url}
@@ -174,6 +175,7 @@ export function TocMobile() {
 							disabled={!next}
 							colorPalette="neutral"
 							backdropFilter="blur(10px)"
+							aria-label="Go to next page"
 						>
 							<Link
 								to={next?.url}

@@ -26,6 +26,7 @@ export const Root = (props: RootProps) => {
 					top="0"
 					w="full"
 					zIndex="2"
+					as="header"
 					position="sticky"
 					gridColumn="1 / -1"
 					bgColor="bg.primary"
@@ -36,6 +37,7 @@ export const Root = (props: RootProps) => {
 					px="12"
 					py="16"
 					top="92"
+					as="aside"
 					size={80}
 					hideBelow="md"
 					position="sticky"
@@ -45,7 +47,10 @@ export const Root = (props: RootProps) => {
 				>
 					<Sidebar />
 				</ScrollShadow>
-				<GridItem py="32">
+				<GridItem
+					py="32"
+					as="main"
+				>
 					<Container
 						px="12"
 						maxW="36rem"
@@ -57,6 +62,7 @@ export const Root = (props: RootProps) => {
 					px="12"
 					py="16"
 					top="92"
+					as="aside"
 					hideBelow="lg"
 					position="sticky"
 					h="calc(100vh - 92px)"

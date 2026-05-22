@@ -9,7 +9,7 @@ import * as MdxConfig from "./source.config";
 
 export default defineConfig({
 	plugins: [
-		cloudflare({ viteEnvironment: { name: "ssr" } }),
+		// cloudflare({ viteEnvironment: { name: "ssr" } }),
 		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tanstackStart(),
 		viteReact({

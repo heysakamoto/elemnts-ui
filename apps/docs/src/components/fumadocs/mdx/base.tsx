@@ -35,8 +35,9 @@ export const base: MDXComponents = {
 	li: (props) => (
 		<Text
 			as="li"
-			fontSize="14"
+			fontSize="15"
 			color="fg.secondary"
+			letterSpacing="-0.008em"
 			css={{ "& > h1, h2, h3, h4": { my: "0" } }}
 			{...props}
 		>
@@ -68,10 +69,10 @@ export const base: MDXComponents = {
 	),
 	p: (props) => (
 		<Text
-			fontSize="14"
+			fontSize="15"
 			textWrap="pretty"
-			letterSpacing="sm"
 			color="fg.secondary"
+			letterSpacing="-0.008em"
 			css={{ "&:not(:first-child)": { mt: "24" } }}
 			{...props}
 		>

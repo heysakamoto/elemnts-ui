@@ -13,7 +13,7 @@ export default defineConfig({
 		"content/**/*.{md,mdx}",
 	],
 	globalVars: {
-		"--font-sans-default": "Avio Sans",
+		"--font-sans-default": "Inter",
 		"--font-mono-default": "JetBrains Mono",
 	},
 	staticCss: {
@@ -28,6 +28,36 @@ export default defineConfig({
 					height: ["256"],
 					gap: ["24"],
 				},
+			},
+		],
+	},
+	globalFontface: {
+		Inter: [
+			{
+				src: 'url("/fonts/inter-regular.woff2") format("woff2")',
+				fontWeight: "400",
+				fontStyle: "normal",
+				fontDisplay: "swap",
+			},
+			{
+				src: 'url("/fonts/inter-medium.woff2") format("woff2")',
+				fontWeight: "500",
+				fontStyle: "normal",
+				fontDisplay: "swap",
+			},
+			{
+				src: 'url("/fonts/inter-semibold.woff2") format("woff2")',
+				fontWeight: "600",
+				fontStyle: "normal",
+				fontDisplay: "swap",
+			},
+		],
+		"JetBrains Mono": [
+			{
+				src: 'url("/fonts/jetbrainsmono-regular.woff2") format("woff2")',
+				fontWeight: "400",
+				fontStyle: "normal",
+				fontDisplay: "swap",
 			},
 		],
 	},
