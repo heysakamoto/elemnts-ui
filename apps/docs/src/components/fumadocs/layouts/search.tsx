@@ -40,7 +40,7 @@ export function useSearch() {
 			hotkey: "Mod+K",
 			callback: (event) => {
 				event.preventDefault();
-				setOpen(!open);
+				setOpen(true);
 			},
 		},
 	]);
@@ -456,6 +456,7 @@ export function Search(props: SearchProps) {
 		<SearchProvider value={search}>
 			<Combobox
 				selectionBehavior="clear"
+				inputValue={search.search}
 				onValueChange={search.onValueChange}
 				collection={search.collection as any}
 				onInputValueChange={search.onInputValueChange}
@@ -464,6 +465,7 @@ export function Search(props: SearchProps) {
 					unmountOnExit
 					open={search.open}
 					size={{ base: "full" }}
+					onEscapeKeyDown={() => search.setSearch("")}
 					onOpenChange={(details) => search.setOpen(details.open)}
 				>
 					{children({ onOpen: () => search.setOpen(true) })}
