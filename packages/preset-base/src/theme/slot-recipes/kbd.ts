@@ -2,16 +2,26 @@ import { defineSlotRecipe } from "@pandacss/dev";
 
 export const kbdRecipe = defineSlotRecipe({
 	className: "kbd",
-	slots: ["root", "item"],
+	slots: ["root", "item", "itemGroup", "itemGroupText"],
 	base: {
 		root: {
-			gap: "6",
 			lineHeight: "1",
 			userSelect: "none",
 			alignItems: "center",
 			display: "inline-flex",
 			colorPalette: "accent",
-			fontSize: "var(--kbd-text-fs)",
+			fontSize: "{fontSizes.14}",
+			gap: "calc({sizes.4} * 3)",
+		},
+		itemGroup: {
+			fontSize: "inherit",
+			display: "inline-flex",
+			gap: "calc({sizes.4} * 1)",
+		},
+		itemGroupText: {
+			fontSize: "inherit",
+			color: "{colors.fg.tertiary}",
+			lineHeight: "{lineHeights.none}",
 		},
 		item: {
 			lineHeight: "1",
@@ -21,7 +31,7 @@ export const kbdRecipe = defineSlotRecipe({
 			h: "var(--kbd-size)",
 			rounded: "{radii.8}",
 			alignItems: "center",
-			color: "var(--kbd-fg)",
+			color: "var(--kbd-color)",
 			display: "inline-flex",
 			bgColor: "var(--kbd-bg)",
 			justifyContent: "center",
@@ -42,25 +52,21 @@ export const kbdRecipe = defineSlotRecipe({
 			sm: {
 				root: {
 					"--kbd-size": "{sizes.24}",
-					"--kbd-text-fs": "{fontSizes.14}",
 				},
 			},
 			md: {
 				root: {
 					"--kbd-size": "{sizes.28}",
-					"--kbd-text-fs": "{fontSizes.14}",
 				},
 			},
 			lg: {
 				root: {
 					"--kbd-size": "{sizes.32}",
-					"--kbd-text-fs": "{fontSizes.14}",
 				},
 			},
 			xl: {
 				root: {
 					"--kbd-size": "{sizes.36}",
-					"--kbd-text-fs": "{fontSizes.14}",
 				},
 			},
 		},
@@ -68,27 +74,27 @@ export const kbdRecipe = defineSlotRecipe({
 			primary: {
 				root: {
 					"--kbd-bg": "{colors.colorPalette.primary}",
-					"--kbd-fg": "{colors.colorPalette.tertiary}",
+					"--kbd-color": "{colors.colorPalette.tertiary}",
 				},
 			},
 			secondary: {
 				root: {
-					"--kbd-fg": "{colors.colorPalette.primary}",
+					"--kbd-color": "{colors.colorPalette.primary}",
 					"--kbd-bg": "{colors.colorPalette.secondary}",
 				},
 			},
 			tertiary: {
 				root: {
+					"--kbd-shadow": "{shadows.3}",
 					"--kbd-bg": "{colors.bg.tertiary}",
-					"--kbd-shadow": "{shadows.2}",
-					"--kbd-fg": "{colors.colorPalette.primary}",
+					"--kbd-color": "{colors.colorPalette.primary}",
 					"--kbd-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 			surface: {
 				root: {
 					"--kbd-bg": "{colors.bg.secondary}",
-					"--kbd-fg": "{colors.colorPalette.primary}",
+					"--kbd-color": "{colors.colorPalette.primary}",
 				},
 			},
 			ghost: {
@@ -96,7 +102,7 @@ export const kbdRecipe = defineSlotRecipe({
 					"--kbd-bg": "{colors.transparent}",
 					"--kbd-px": "calc({spacing.4} * 0)",
 					"--kbd-radius": "calc({radii.4} * 0)",
-					"--kbd-fg": "{colors.colorPalette.primary}",
+					"--kbd-color": "{colors.colorPalette.primary}",
 				},
 			},
 		},
