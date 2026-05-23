@@ -15,6 +15,7 @@ export const kbdRecipe = defineSlotRecipe({
 		},
 		itemGroup: {
 			fontSize: "inherit",
+			alignItems: "center",
 			display: "inline-flex",
 			gap: "calc({sizes.4} * 1)",
 		},
