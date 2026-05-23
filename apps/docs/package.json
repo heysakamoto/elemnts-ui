@@ -18,6 +18,7 @@
 		"@moto-ui/react": "workspace:*",
 		"@tanstack/react-devtools": "latest",
 		"@tanstack/react-form": "latest",
+		"@tanstack/react-hotkeys": "^0.10.0",
 		"@tanstack/react-query": "latest",
 		"@tanstack/react-query-devtools": "latest",
 		"@tanstack/react-router": "latest",
