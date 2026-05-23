@@ -85,9 +85,6 @@ importers:
         specifier: ^4.3.6
         version: 4.3.6
     devDependencies:
-      '@cloudflare/vite-plugin':
-        specifier: ^1.37.3
-        version: 1.37.3(vite@7.3.1(@types/node@22.19.15)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(tsx@4.21.0))(workerd@1.20260520.1)(wrangler@4.93.1)
       '@pandacss/dev':
         specifier: ^1.9.1
         version: 1.9.1(jsdom@28.1.0)(typescript@5.9.3)
@@ -173,9 +170,6 @@ importers:
       '@ncdai/react-wheel-picker':
         specifier: ^1.2.2
         version: 1.2.2(react@19.2.4)
-      '@pandacss/dev':
-        specifier: ^1.9.1
-        version: 1.9.1(jsdom@28.1.0)(typescript@5.9.3)
       '@tanstack/react-virtual':
         specifier: ^3.13.18
         version: 3.13.19(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -6137,19 +6131,6 @@ snapshots:
       unenv: 2.0.0-rc.24
     optionalDependencies:
       workerd: 1.20260520.1
-
-  '@cloudflare/vite-plugin@1.37.3(vite@7.3.1(@types/node@22.19.15)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(tsx@4.21.0))(workerd@1.20260520.1)(wrangler@4.93.1)':
-    dependencies:
-      '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260520.1)
-      miniflare: 4.20260520.0
-      unenv: 2.0.0-rc.24
-      vite: 7.3.1(@types/node@22.19.15)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(tsx@4.21.0)
-      wrangler: 4.93.1
-      ws: 8.20.1
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - workerd
 
   '@cloudflare/vite-plugin@1.37.3(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(tsx@4.21.0))(workerd@1.20260520.1)(wrangler@4.93.1)':
     dependencies:

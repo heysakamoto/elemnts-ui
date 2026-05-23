@@ -1,4 +1,3 @@
-import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import mdx from "fumadocs-mdx/vite";
@@ -9,7 +8,6 @@ import * as MdxConfig from "./source.config";
 
 export default defineConfig({
 	plugins: [
-		cloudflare({ viteEnvironment: { name: "ssr" } }),
 		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tanstackStart(),
 		viteReact({
@@ -17,7 +15,7 @@ export default defineConfig({
 				plugins: ["babel-plugin-react-compiler"],
 			},
 		}),
-		mdx(MdxConfig),
 		svgr({ include: "**/*.svg?react" }),
+		mdx(MdxConfig),
 	],
 });
