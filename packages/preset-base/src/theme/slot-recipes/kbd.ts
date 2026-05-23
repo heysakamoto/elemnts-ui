@@ -86,7 +86,7 @@ export const kbdRecipe = defineSlotRecipe({
 			},
 			tertiary: {
 				root: {
-					"--kbd-shadow": "{shadows.3}",
+					"--kbd-shadow": "{shadows.2}",
 					"--kbd-bg": "{colors.bg.tertiary}",
 					"--kbd-color": "{colors.colorPalette.primary}",
 					"--kbd-border": "1px solid {colors.stroke.secondary}",
