@@ -38,13 +38,10 @@ const preview = definePreview({
 
 			return (
 				<Section bgColor="bg.primary">
-					<Container
-						maxW="40rem"
-						minH="100dvh"
-						alignContent="center"
-					>
+					<Container maxW="40rem">
 						<Stack
 							p="12"
+							minH="100dvh"
 							align="center"
 							justify="center"
 							direction="column"
