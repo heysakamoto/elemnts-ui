@@ -15,27 +15,31 @@ export const timerRecipe = defineSlotRecipe({
 	base: {
 		area: {
 			display: "flex",
+			alignItems: "center",
+			fontSize: "{fontSizes.16}",
+			lineHeight: "{lineHeights.none}",
 		},
 		control: {
 			display: "flex",
 			flexDirection: "column",
 		},
-		item: {
-			fontWeight: "500",
-			fontSize: "{fontSizes.16}",
-			lineHeight: "{lineHeights.none}",
-			fontFeatureSettings: "'tnum', 1, 'lnum' 1",
-			fontVariantNumeric: "tabular-nums lining-nums",
-		},
 		itemGroup: {
+			gap: "4",
 			display: "flex",
 			flexDirection: "column",
-			gap: "4",
+			fontFeatureSettings: "'tnum' 1",
+			fontVariantNumeric: "tabular-nums lining-nums",
+		},
+		item: {
+			fontWeight: "500",
+			fontSize: "inherit",
+			fontVariantNumeric: "inherit",
+			fontFeatureSettings: "inherit",
+			lineHeight: "{lineHeights.none}",
 		},
 		separator: {
-			fontSize: "{fontSizes.16}",
-			lineHeight: "{lineHeights.none}",
-			letterSpacing: "{letterSpacings.sm}",
+			fontSize: "inherit",
+			lineHeight: "inherit",
 		},
 	},
 });
