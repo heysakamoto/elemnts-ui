@@ -44,6 +44,7 @@ function Page({ node, onSelect }: PageProps) {
 				px: "8",
 				rounded: "12",
 				fontSize: "13",
+				fontWeight: "500",
 				textAlign: "left",
 				color: "fg.secondary",
 				"&:is([data-status=active], :hover)": {
