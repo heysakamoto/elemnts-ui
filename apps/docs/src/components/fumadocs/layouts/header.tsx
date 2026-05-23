@@ -56,7 +56,7 @@ export function HeaderLink({ label, url, target }: HeaderLinkProps) {
 				rounded: "full",
 				align: "center",
 				lineHeight: "none",
-				color: "fg.tertiary",
+				color: "fg.secondary",
 				display: "inline-flex",
 				_hover: {
 					color: "fg.primary",
