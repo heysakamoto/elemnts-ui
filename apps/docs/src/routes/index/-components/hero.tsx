@@ -14,7 +14,7 @@ export function Hero() {
 						fontWeight="600"
 						lineHeight="xs"
 						textAlign="center"
-						letterSpacing="-0.05em"
+						letterSpacing="-.04em"
 						fontSize={{ base: "32", lg: "44" }}
 					>
 						Typesafe for engineers. <Text as="br" /> Perfect for brands.
@@ -23,7 +23,7 @@ export function Hero() {
 						mt="12"
 						mx="auto"
 						textAlign="center"
-						letterSpacing="xs"
+						letterSpacing="sm"
 						color="fg.secondary"
 						fontSize={{ base: "16", md: "20" }}
 						maxW={{ base: "21rem", sm: "32rem", lg: "40rem" }}
