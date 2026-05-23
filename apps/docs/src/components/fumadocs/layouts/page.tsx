@@ -96,11 +96,11 @@ export function Title(props: TitleProps) {
 		>
 			<Text
 				as="h1"
+				fontWeight="500"
 				lineHeight="none"
-				fontWeight="600"
 				color="fg.primary"
+				letterSpacing="xs"
 				whiteSpace="pre-line"
-				letterSpacing="-0.04em"
 				fontSize={{ base: "24", md: "28" }}
 			>
 				{children}
@@ -127,9 +127,10 @@ export function Description(props: DescriptionProps) {
 		<Text
 			mt="12"
 			mb="24"
-			fontSize="17"
+			lineHeight="1.5"
 			color="fg.secondary"
-			letterSpacing="-0.008em"
+			letterSpacing="-.005em"
+			fontSize={{ base: "16", sm: "18" }}
 		>
 			{children}
 		</Text>
