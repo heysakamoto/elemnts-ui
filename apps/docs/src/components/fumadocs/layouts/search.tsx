@@ -43,15 +43,6 @@ export function useSearch() {
 				setOpen(!open);
 			},
 		},
-		{
-			hotkey: "Escape",
-			callback: (event) => {
-				event.preventDefault();
-				if (open) {
-					setOpen(false);
-				}
-			},
-		},
 	]);
 
 	const collection = createListCollection({
@@ -117,17 +108,22 @@ export function SearchFooter() {
 				elevated={false}
 			>
 				<Kbd
+					gap="16"
 					size="xs"
 					fontSize="12"
 					variant="tertiary"
 					colorPalette="neutral"
 					color="fg.secondary"
 				>
-					<Kbd.Item rounded="8">⏎</Kbd.Item>
-					to select
-					<Kbd.Item rounded="8">↓</Kbd.Item>
-					<Kbd.Item rounded="8">↓</Kbd.Item>
-					to navigate
+					<Kbd.ItemGroup>
+						<Kbd.Item rounded="8">⏎</Kbd.Item>
+						<Kbd.ItemGroupText>to select</Kbd.ItemGroupText>
+					</Kbd.ItemGroup>
+					<Kbd.ItemGroup>
+						<Kbd.Item rounded="8">↓</Kbd.Item>
+						<Kbd.Item rounded="8">↓</Kbd.Item>
+						<Kbd.ItemGroupText>to navigate</Kbd.ItemGroupText>
+					</Kbd.ItemGroup>
 				</Kbd>
 			</Surface>
 		</Surface.Footer>
