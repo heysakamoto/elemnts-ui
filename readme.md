@@ -180,10 +180,10 @@ The Moto UI project is organized into the following packages:
 
 ```mermaid
 graph TD
-    A[@moto-ui/colors] -->|Imports| B[@moto-ui/preset-base]
-    B -->|Presets Configuration| C[@moto-ui/styled-system]
-    C -->|Styles & Types| D[@moto-ui/react]
-    D -->|Components| E[apps/docs & Apps]
+    A["@moto-ui/colors"] -->|Imports| B["@moto-ui/preset-base"]
+    B -->|Presets Configuration| C["@moto-ui/styled-system"]
+    C -->|Styles & Types| D["@moto-ui/react"]
+    D -->|Components| E["apps/docs & apps"]
 ```
 
 1. **Preset Input**: Imports design configurations from `@moto-ui/preset-base`.
