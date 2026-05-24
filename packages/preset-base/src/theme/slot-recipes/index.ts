@@ -11,6 +11,7 @@ import { codeBlockRecipe } from "./code-block";
 import { collapsibleRecipe } from "./collapsible";
 import { colorPickerRecipe } from "./color-picker";
 import { comboboxRecipe } from "./combobox";
+import { dataListRecipe } from "./data-list";
 import { datePickerRecipe } from "./date-picker";
 import { dialogRecipe } from "./dialog";
 import { editableRecipe } from "./editable";
@@ -41,6 +42,7 @@ import { selectRecipe } from "./select";
 import { signaturePadRecipe } from "./signature-pad";
 import { sliderRecipe } from "./slider";
 import { splitterRecipe } from "./splitter";
+import { statRecipe } from "./stat";
 import { statusRecipe } from "./status";
 import { stepsRecipe } from "./steps";
 import { surfaceRecipe } from "./surface";
@@ -72,6 +74,7 @@ export const slotRecipes = {
 	codeBlockRecipe,
 	clipboardRecipe,
 	comboboxRecipe,
+	dataListRecipe,
 	dialogRecipe,
 	editableRecipe,
 	inputGroupRecipe,
@@ -99,6 +102,7 @@ export const slotRecipes = {
 	selectRecipe,
 	signaturePadRecipe,
 	sliderRecipe,
+	statRecipe,
 	statusRecipe,
 	splitterRecipe,
 	stepsRecipe,
