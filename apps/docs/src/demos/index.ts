@@ -1528,6 +1528,24 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "stack/vertical.tsx",
 	},
+	"stat:basic": {
+		component: lazy(() =>
+			import("./stat/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "stat/basic.tsx",
+	},
+	"stat:indicator": {
+		component: lazy(() =>
+			import("./stat/indicator").then((m) => ({ default: m.Indicator })),
+		),
+		file: "stat/indicator.tsx",
+	},
+	"stat:unit": {
+		component: lazy(() =>
+			import("./stat/unit").then((m) => ({ default: m.Unit })),
+		),
+		file: "stat/unit.tsx",
+	},
 	"status:basic": {
 		component: lazy(() =>
 			import("./status/basic").then((m) => ({ default: m.Basic })),
