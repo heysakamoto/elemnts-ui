@@ -1,46 +1,46 @@
 {
-  "short_name": "Moto UI",
-  "name": "Moto UI",
-  "icons": [
-    {
-      "src": "favicon/light.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon",
-      "media": "(prefers-color-scheme: light)"
-    },
-    {
-      "src": "favicon/dark.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon",
-      "media": "(prefers-color-scheme: dark)"
-    },
-    {
-      "src": "favicon/light.png",
-      "type": "image/png",
-      "sizes": "192x192",
-      "media": "(prefers-color-scheme: light)"
-    },
-    {
-      "src": "favicon/dark.png",
-      "type": "image/png",
-      "sizes": "192x192",
-      "media": "(prefers-color-scheme: dark)"
-    },
-    {
-      "src": "favicon/light.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "media": "(prefers-color-scheme: light)"
-    },
-    {
-      "src": "favicon/dark.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "media": "(prefers-color-scheme: dark)"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+	"short_name": "Moto UI",
+	"name": "Moto UI",
+	"icons": [
+		{
+			"src": "favicon/light.png",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon",
+			"media": "(prefers-color-scheme: light)"
+		},
+		{
+			"src": "favicon/dark.png",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon",
+			"media": "(prefers-color-scheme: dark)"
+		},
+		{
+			"src": "favicon/light.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"media": "(prefers-color-scheme: light)"
+		},
+		{
+			"src": "favicon/dark.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"media": "(prefers-color-scheme: dark)"
+		},
+		{
+			"src": "favicon/light.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"media": "(prefers-color-scheme: light)"
+		},
+		{
+			"src": "favicon/dark.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"media": "(prefers-color-scheme: dark)"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
 }
