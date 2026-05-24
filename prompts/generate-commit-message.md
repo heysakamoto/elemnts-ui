@@ -1,4 +1,4 @@
-# Generate commit message
+# Read the @agents.md and follow it strictly
 
 ## Role
 You are an expert developer assistant tasked with generating clean, descriptive, and standardized commit messages based on the following git diffs:

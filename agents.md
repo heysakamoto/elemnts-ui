@@ -1,83 +1,799 @@
-# agents.md
+# moto-ui Architecture & Contribution Guide
 
-## Project Overview
-This is a ui component library monorepo built with:
-- ark ui(accessible unstyled components)
-- pandacss(css engine with zero runtime)
-- react
-- storybook
-- fumadocs
+## Overview
 
-## Structure
+moto-ui is a monorepo-based UI component library built around:
 
-- **/packages/storybook**: Storybook
-- **/apps/docs**: Documentation website
-- **/packages/react**: React components
-- **/packages/styled-system**: Pandacss styled system
-- **/packages/colors**: Mapped OKLCH Colors based on tailwindcss v4 colors
-- **/packages/preset-base**: Base preset for the ui library based on pandacss
+* React
+* Ark UI
+* Panda CSS
+* TypeScript
+* Storybook
+* Fumadocs
 
-## Workflow
+The system is designed around:
 
-1. **Component Selection & Analysis**: Identify or choose an Ark UI primitive for the target component. Inspect its upstream type definitions and styling requirements.
-2. **Panda CSS Styling**: Define the component's styling structure in `packages/preset-base/src/theme/slot-recipes/<component-name>.ts` using Panda CSS's `defineSlotRecipe`. Register it inside `packages/preset-base/src/theme/slot-recipes/index.ts`.
-3. **React Implementation**: Implement the React component under `packages/react/src/components/<component-name>` using Ark UI primitives and styled via `createStyleContext`. Wrap components using the Compound Component pattern.
-4. **Alphabetical Registration**: Export the newly created component from `packages/react/src/components/index.ts` and `packages/react/src/index.ts`, keeping all exports strictly alphabetically sorted.
-5. **Interactive Demos**: Create visual demo templates under `apps/docs/src/demos/<component-name>/` (including a required `basic.tsx` template). Register these demos in `apps/docs/src/demos/index.ts` maintaining strict alphabetical sorting.
-6. **MDX Documentation**: Write user-facing documentation in `apps/docs/content/docs/components/<category>/<component-name>.mdx`, detailing the component structure, previews, and interactive API tables.
-7. **Storybook Sync**: Sync the generated component with its corresponding Storybook CSF Next stories inside `packages/storybook/src/stories/<component-name>/` using the `components-sync` skill.
+* Accessibility-first primitives
+* Zero-runtime styling
+* Strict type-safety
+* Compound component APIs
+* Design-token-driven theming
+* Scalable package boundaries
+* SSR-compatible rendering
 
-## Coding Standards
+---
 
-### Typescript
-- Enforce strict type-safety across all configurations and components. Never use the `any` type under any circumstances.
-- Utilize Ark UI's `Assign` helper to combine native HTML, Panda CSS, and component variant properties:
-  ```typescript
-  type ComponentProps = Assign<HTMLArkProps<"div">, HTMLStyledProps<"div"> & ComponentRecipeVariantProps>;
-  ```
-- Export clean type definitions for all individual sub-components (e.g., `export type AccordionItemProps = ComponentProps<typeof AccordionItem>;`).
+# Monorepo Structure
 
-### React
-- **Compound Pattern**: Group subcomponents on the root namespace using `Object.assign` to provide developers with declarative control (e.g. `Accordion.Root`, `Accordion.Item`, `Accordion.ItemTrigger`).
-- **Ref Forwarding**: Wrap components using `forwardRef` to ensure that standard React ref forwarding works cleanly down to the underlying DOM elements.
-- Display Name requirement: Every component must define a clear `displayName` property corresponding to its exported name.
-- Maintain a clean and sorted import order: standard React core imports, third-party libraries (e.g. Ark UI), local styled-system layers, and lastly local components/hooks/utils.
+## Applications
 
-### Styling
-- **Zero Runtime CSS**: All component styling must be defined as build-time slot recipes (`defineSlotRecipe`) or recipes (`defineRecipe`) using Panda CSS. Do not use ad-hoc inline styling utilities.
-- **Panda CSS Tokens**: Prefer token reference values (e.g., `{colors.bg.secondary}`, `{spacing.4}`, `{radii.4}`) in recipes instead of static/hardcoded pixel or color codes.
-- **Style Context**: Leverage `createStyleContext(recipe)` to bind multi-slot styling cleanly across compound component structures via `withProvider` and `withContext`.
+### `/apps/docs`
 
-### State
-- **Context Hook Pattern**: Use React context (`createContext` and `useContext`) to share state/variant properties between parent layout providers and nested subcomponents (e.g., `useButtonGroupContext`).
-- **Variant Props Splitting**: Utilize `recipe.splitVariantProps(props)` to isolate layout/styling variants from target DOM properties before compiling elements.
-- Implement both controlled and uncontrolled states correctly, honoring standard UI expectations.
+Documentation website powered by Fumadocs.
 
-## Contraints
-- Never use any
-- Code Formatting: Maintain tabs for code indentation and double quotes for string values in all JavaScript, TypeScript, and JSX/TSX files.
-- No `TODO` comments or empty placeholders allowed within source code.
-- Alphabetical Order: Maintain alphabetical ordering in exports, imports, and registry listings.
-- No new external styling or layout libraries unless authorized.
+Responsibilities:
 
-## Operating rules
-Before making any changes:
-- Read neighboring and related files
-- Match existing patterns and conventions
-- Prefer minimal diffs
+* Component documentation
+* Interactive demos
+* Usage examples
+* API documentation
+* Design references
+
+---
+
+## Packages
+
+### `/packages/react`
+
+React component implementations built on Ark UI primitives.
+
+Responsibilities:
+
+* Compound component APIs
+* Context composition
+* Accessibility preservation
+* Variant handling
+* Component exports
+* Public library entrypoints
+
+This package must remain framework-focused and should not contain design-token source definitions.
+
+---
+
+### `/packages/preset-base`
+
+Source-of-truth Panda CSS preset.
+
+Responsibilities:
+
+* Design tokens
+* Semantic tokens
+* Recipes
+* Slot recipes
+* Conditions
+* Themes
+* Utility definitions
+* Token mappings
+* Panda configuration
+
+This package defines the design system foundation consumed by other packages.
+
+---
+
+### `/packages/styled-system`
+
+Generated Panda CSS artifacts.
+
+Responsibilities:
+
+* Generated CSS utilities
+* Generated recipe utilities
+* Generated typings
+* Runtime styling helpers generated by Panda
+
+Constraints:
+
+* Must not contain hand-written component logic
+* Must not contain design decisions
+* Must only contain generated or build-derived output
+
+---
+
+### `/packages/colors`
+
+Framework-agnostic color system.
+
+Responsibilities:
+
+* OKLCH color palettes
+* Tailwind v4 compatible mappings
+* Primitive color exports
+* Color scales
+
+Constraints:
+
+* No React dependencies
+* No Panda-specific logic
+* Must remain platform-agnostic
+
+---
+
+# Package Dependency Rules
+
+## Allowed Dependencies
+
+### `react`
+
+May depend on:
+
+* `preset-base`
+* `styled-system`
+* `colors`
+
+---
+
+### `preset-base`
+
+May depend on:
+
+* `colors`
+
+---
+
+### `styled-system`
+
+May depend on:
+
+* `preset-base`
+
+---
+
+### `colors`
+
+Must not depend on:
+
+* React
+* Panda CSS
+* Ark UI
+* Storybook
+
+---
+
+## Dependency Constraints
+
+* Circular dependencies are prohibited
+* Cross-package internal imports are prohibited
+* Packages must only consume public exports
+* Relative imports across package boundaries are prohibited
+
+---
+
+# Design System Architecture
+
+## Token Hierarchy
+
+The design system follows a layered token architecture.
+
+### 1. Primitive Tokens
+
+Raw foundational values.
+
+Examples:
+
+* Raw colors
+* Raw spacing values
+* Font sizes
+* Radii
+* Shadows
+
+---
+
+### 2. Semantic Tokens
+
+Contextual aliases derived from primitives.
+
+Examples:
+
+* `bg.default`
+* `fg.muted`
+* `border.subtle`
+* `accent.solid`
+
+Semantic tokens must never directly expose implementation-specific color values.
+
+---
+
+### 3. Component Tokens
+
+Component-scoped token abstractions.
+
+Examples:
+
+* Button background
+* Card shadow
+* Dialog border
+
+---
+
+### 4. Recipes & Slot Recipes
+
+Recipes consume semantic and component tokens.
+
+Flow:
+
+```txt
+colors → primitive tokens → semantic tokens → recipes → components
+```
+
+---
+
+# Component Architecture
+
+## Core Principles
+
+Every component must:
+
+* Preserve Ark UI accessibility guarantees
+* Use zero-runtime styling
+* Support controlled and uncontrolled state
+* Be fully typed
+* Be tree-shakeable
+* Support SSR
+* Avoid unnecessary runtime abstractions
+
+---
+
+## Component Anatomy
+
+Multi-slot components must define:
+
+* Anatomy
+* Slot recipe
+* Style context
+* Context provider
+* Root namespace export
+* Typed subcomponents
+
+---
+
+## Compound Component Pattern
+
+Components must expose declarative APIs using namespace composition.
+
+Example:
+
+```tsx
+<Accordion.Root>
+	<Accordion.Item>
+		<Accordion.ItemTrigger />
+	</Accordion.Item>
+</Accordion.Root>
+```
+
+Use `Object.assign` to attach subcomponents to the root namespace.
+
+---
+
+## Ref Forwarding
+
+All public components must support React ref forwarding.
+
+Requirements:
+
+* Use `forwardRef`
+* Forward refs to the underlying DOM node
+* Preserve generic typing
+* Avoid ref type widening
+
+---
+
+## Display Names
+
+Every component must define a `displayName`.
+
+Example:
+
+```ts
+Button.displayName = "Button"
+```
+
+---
+
+# Styling Architecture
+
+## Zero Runtime CSS
+
+All styling must be generated at build time.
+
+Allowed:
+
+* `defineRecipe`
+* `defineSlotRecipe`
+* Panda token references
+* Panda conditions
+
+Disallowed:
+
+* Inline style objects
+* Runtime CSS-in-JS libraries
+* Arbitrary runtime style computation
+
+---
+
+## Token Usage
+
+Always prefer token references.
+
+Preferred:
+
+```ts
+bg: "bg.default"
+```
+
+Disallowed:
+
+```ts
+bg: "#ffffff"
+```
+
+---
+
+## Slot Recipes
+
+Slot recipes must be defined under:
+
+```txt
+/packages/preset-base/src/theme/slot-recipes
+```
+
+Registration must occur in:
+
+```txt
+/packages/preset-base/src/theme/slot-recipes/index.ts
+```
+
+---
+
+## Variant Naming Conventions
+
+Preferred variant names:
+
+* `size`
+* `variant`
+* `colorPalette`
+* `orientation`
+* `placement`
+* `rounded`
+* `unstyled`
+
+Avoid ambiguous variant names.
+
+---
+
+## Style Context
+
+Multi-slot components must use:
+
+```ts
+createStyleContext(recipe)
+```
+
+Use:
+
+* `withProvider`
+* `withContext`
+
+To bind slot styles across compound structures.
+
+---
+
+# TypeScript Standards
+
+## Strict Type Safety
+
+Requirements:
+
+* Strict mode enabled
+* No implicit any
+* No unsafe casts
+* No untyped object access
+
+Disallowed:
+
+* `any`
+* `as unknown as`
+* Non-null assertions unless justified
+
+---
+
+## Component Props
+
+Use Ark UI's `Assign` helper.
+
+Example:
+
+```ts
+export type ButtonProps = Assign<
+	HTMLArkProps<"button">,
+	HTMLStyledProps<"button"> & ButtonVariantProps
+>
+```
+
+---
+
+## Exported Types
+
+All public subcomponents must export their prop types.
+
+Example:
+
+```ts
+export type DialogContentProps = ComponentProps<typeof DialogContent>
+```
+
+---
+
+# React Standards
+
+## Controlled & Uncontrolled State
+
+Components must correctly support both controlled and uncontrolled usage.
+
+Requirements:
+
+* Controlled props must have matching callbacks
+* Controlled props must support default values
+* APIs should follow Ark UI naming conventions
+
+Examples:
+
+* `open`
+* `defaultOpen`
+* `onOpenChange`
+
+---
+
+## Context Usage
+
+Use React context only when necessary.
+
+Requirements:
+
+* Prevent unnecessary re-renders
+* Memoize expensive context values
+* Keep provider nesting minimal
+
+---
+
+## Import Ordering
+
+Imports must remain consistently ordered.
+
+Order:
+
+1. React imports
+2. Third-party libraries
+3. Styled-system imports
+4. Internal utilities
+5. Local components
+6. Relative imports
+
+All imports must remain alphabetically sorted within groups.
+
+---
+
+# Accessibility Standards
+
+Accessibility is mandatory.
+
+Requirements:
+
+* Preserve Ark UI accessibility behavior
+* Preserve keyboard navigation
+* Preserve ARIA attributes
+* Support focus-visible states
+* Meet WCAG AA contrast minimums
+* Ensure screen reader compatibility
+
+Every interactive component must:
+
+* Support keyboard interaction
+* Expose correct semantics
+* Maintain focus management
+
+---
+
+# Performance Standards
+
+Components must prioritize runtime efficiency.
+
+Requirements:
+
+* Avoid unnecessary renders
+* Avoid expensive runtime computations
+* Avoid module-scope side effects
+* Preserve tree-shakeability
+* Avoid oversized dependency chains
+
+---
+
+# SSR & RSC Compatibility
+
+Components must remain SSR-safe.
+
+Requirements:
+
+* Avoid browser-only APIs during render
+* Guard browser globals when required
+* Minimize client-only boundaries
+* Remain compatible with React Server Components where possible
+
+---
+
+# Testing Standards
+
+Every component must include:
+
+* Rendering tests
+* Accessibility tests
+* Keyboard interaction tests
+* Variant coverage tests
+* Controlled/uncontrolled state tests
+
+Recommended tooling:
+
+* Vitest
+* Testing Library
+* Playwright
+* Storybook interaction testing
+
+---
+
+# Documentation Standards
+
+## Demo Requirements
+
+Every component must include:
+
+* Basic demo
+* Variant demo
+* Controlled example
+* Accessibility example where applicable
+
+Demos must exist under:
+
+```txt
+/apps/docs/src/demos/<component-name>
+```
+
+Required:
+
+```txt
+basic.tsx
+```
+
+---
+
+## Documentation Requirements
+
+Component documentation must include:
+
+* Overview
+* Anatomy
+* Installation
+* Usage examples
+* Variants
+* Accessibility notes
+* API tables
+
+Documentation location:
+
+```txt
+/apps/docs/content/docs/components/<category>/<component-name>.mdx
+```
+
+---
+
+# Storybook Standards
+
+Stories must:
+
+* Mirror public APIs
+* Remain synchronized with documentation
+* Cover variants and states
+* Avoid duplicated demo logic
+
+Stories must exist under:
+
+```txt
+/packages/storybook/src/stories/<component-name>
+```
+
+---
+
+# Workflow
+
+## 1. Component Analysis
+
+* Select the Ark UI primitive
+* Inspect upstream types
+* Inspect accessibility behavior
+* Inspect composition requirements
+
+---
+
+## 2. Define Recipes
+
+Create:
+
+```txt
+/packages/preset-base/src/theme/slot-recipes/<component>.ts
+```
+
+Register inside:
+
+```txt
+/packages/preset-base/src/theme/slot-recipes/index.ts
+```
+
+---
+
+## 3. Implement React Components
+
+Create component implementation under:
+
+```txt
+/packages/react/src/components/<component>
+```
+
+Requirements:
+
+* Compound API
+* Typed exports
+* Ref forwarding
+* Style context integration
+* Variant splitting
+
+---
+
+## 4. Register Exports
+
+Update:
+
+```txt
+/packages/react/src/components/index.ts
+/packages/react/src/index.ts
+```
+
+Requirements:
+
+* Alphabetical ordering
+* Public exports only
+
+---
+
+## 5. Create Demos
+
+Create demos under:
+
+```txt
+/apps/docs/src/demos/<component>
+```
+
+Register in:
+
+```txt
+/apps/docs/src/demos/index.ts
+```
+
+Maintain alphabetical ordering.
+
+---
+
+## 6. Write Documentation
+
+Create MDX documentation under:
+
+```txt
+/apps/docs/content/docs/components/<category>/<component>.mdx
+```
+
+---
+
+## 7. Create Storybook Stories
+
+Add stories under:
+
+```txt
+/packages/storybook/src/stories/<component>
+```
+
+---
+
+## 8. Validation
+
+Before completion:
+
+* Run typecheck
+* Run lint
+* Run tests
+* Run Storybook verification
+* Ensure formatting consistency
+* Verify accessibility behavior
+
+---
+
+# Constraints
+
+## General Constraints
+
+Disallowed:
+
+* `any`
+* Placeholder implementations
+* `TODO` comments
+* Dead exports
+* Circular dependencies
+* Unused code
+* Runtime styling systems
+
+---
+
+## Formatting Constraints
+
+Requirements:
+
+* Tabs for indentation
+* Double quotes for strings
+* Consistent import ordering
+* Alphabetical export ordering
+
+---
+
+## Dependency Constraints
+
+Do not:
+
+* Introduce new dependencies without approval
+* Introduce overlapping styling systems
+* Duplicate utilities already existing in the monorepo
+
+---
+
+# Operating Rules
+
+Before making changes:
+
+* Read neighboring files
+* Inspect existing patterns
+* Preserve architecture consistency
+* Prefer minimal diffs
 
 When uncertain:
-- Do not hesitate to ask for clarification
-- Search existing codebase for similar patterns
 
-Never: 
-- Make changes without consulting the codebase first
-- Introduce new dependencies without authorization
+* Search the codebase for similar implementations
+* Ask for clarification before introducing new patterns
 
-## Conclusion or Defination of Done
+Never:
 
-A task is considered done when:
-- No type errors
-- No runtime errors
-- No linting errors
-- All code has been formatted
+* Introduce architectural drift
+* Ignore existing conventions
+* Bypass type safety
+* Modify generated files manually
+
+---
+
+# Definition of Done
+
+A task is considered complete when:
+
+* No type errors
+* No runtime errors
+* No linting errors
+* Formatting passes
+* Accessibility requirements pass
+* Tests pass
+* Stories render correctly
+* Documentation is updated
+* Public exports are registered
+* No dead code remains

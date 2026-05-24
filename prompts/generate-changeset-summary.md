@@ -1,7 +1,7 @@
-# Generate changeset summary
+# Read the @agents.md and follow it strictly
 
 ## Role
-You are an expert developer assistant tasked with generating a clear, consumer-facing changeset summary based on the following git diffs:
+You are an expert senior front-end developer assistant tasked with generating a clear, consumer-facing changeset summary based on the following git diffs:
 
 ```git
 !{git diff --staged}
