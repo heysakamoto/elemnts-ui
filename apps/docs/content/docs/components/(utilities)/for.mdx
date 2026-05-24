@@ -1,0 +1,34 @@
+---
+title: For
+description: A utility component for rendering a list of items.
+---
+
+<ComponentPreview name="for:basic" />
+
+### Usage
+
+The `For` component provides a clean way to iterate over an array and render its items. It also supports a fallback UI when the array is empty.
+
+```tsx
+import { For } from "@moto-ui/react"
+
+<For each={items} fallback={<p>No items found.</p>}>
+  {(item, index) => <div key={index}>{item}</div>}
+</For>
+```
+
+### Examples
+
+#### Fallback
+
+The `fallback` prop allows you to render content when the `each` array is empty or undefined.
+
+<ComponentPreview name="for:fallback" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| each | `T[] | readonly T[] | undefined` | - | The array of items to iterate over. |
+| fallback | `ReactNode` | - | Optional content to render when the array is empty. |
+| children | `(item: T, index: number) => ReactNode` | - | A render function called for each item in the array. |

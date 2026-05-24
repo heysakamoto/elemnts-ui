@@ -662,6 +662,18 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "floating-panel/basic.tsx",
 	},
+	"for:basic": {
+		component: lazy(() =>
+			import("./for/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "for/basic.tsx",
+	},
+	"for:fallback": {
+		component: lazy(() =>
+			import("./for/fallback").then((m) => ({ default: m.Fallback })),
+		),
+		file: "for/fallback.tsx",
+	},
 	"format:byte": {
 		component: lazy(() =>
 			import("./format/byte").then((m) => ({ default: m.Byte })),
