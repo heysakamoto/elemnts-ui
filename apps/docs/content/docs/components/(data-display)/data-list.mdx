@@ -1,0 +1,71 @@
+---
+title: Data List
+description: Displays a list of terms and their descriptions.
+---
+
+<ComponentPreview name="data-list:basic" />
+
+### Usage
+Use `DataList` to display key-value pairs, such as user information, product specifications, or metadata.
+
+```tsx
+import { DataList } from "@moto-ui/react"
+
+export function Demo() {
+	return (
+		<DataList.Root>
+			<DataList.Item>
+				<DataList.ItemLabel>Name</DataList.ItemLabel>
+				<DataList.ItemValue>Moto UI</DataList.ItemValue>
+			</DataList.Item>
+			<DataList.Item>
+				<DataList.ItemLabel>License</DataList.ItemLabel>
+				<DataList.ItemValue>MIT</DataList.ItemValue>
+			</DataList.Item>
+		</DataList.Root>
+	)
+}
+```
+
+### Orientation
+Control the layout of the data list with the `orientation` prop. Supported values are `vertical` (default) and `horizontal`.
+
+#### Horizontal
+<ComponentPreview name="data-list:horizontal" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| orientation | `"horizontal" \| "vertical"` | `"vertical"` | The orientation of the data list. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemLabel**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ItemValue**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+| Attribute | Description |
+|-----------|-------|
+| `[data-scope="data-list"]` | The component scope. |
+| `[data-part="root"]` | The root element. |
+| `[data-part="item"]` | The item container element. |
+| `[data-part="item-label"]` | The term/label element. |
+| `[data-part="item-value"]` | The description/value element. |

@@ -468,6 +468,18 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "container/sizes.tsx",
 	},
+	"data-list:basic": {
+		component: lazy(() =>
+			import("./data-list/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "data-list/basic.tsx",
+	},
+	"data-list:horizontal": {
+		component: lazy(() =>
+			import("./data-list/horizontal").then((m) => ({ default: m.Horizontal })),
+		),
+		file: "data-list/horizontal.tsx",
+	},
 	"date-picker:basic": {
 		component: lazy(() =>
 			import("./date-picker/basic").then((m) => ({ default: m.Basic })),
