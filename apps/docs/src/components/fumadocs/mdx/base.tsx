@@ -35,8 +35,11 @@ export const base: MDXComponents = {
 	li: (props) => (
 		<Text
 			as="li"
-			fontSize="14"
+			textWrap="auto"
+			lineHeight="md"
+			letterSpacing="sm"
 			color="fg.secondary"
+			fontSize={{ base: "15", sm: "16" }}
 			css={{ "& > h1, h2, h3, h4": { my: "0" } }}
 			{...props}
 		>
@@ -68,10 +71,11 @@ export const base: MDXComponents = {
 	),
 	p: (props) => (
 		<Text
-			fontSize="14"
-			textWrap="pretty"
+			textWrap="auto"
+			lineHeight="md"
 			letterSpacing="sm"
 			color="fg.secondary"
+			fontSize={{ base: "15", sm: "16" }}
 			css={{ "&:not(:first-child)": { mt: "24" } }}
 			{...props}
 		>

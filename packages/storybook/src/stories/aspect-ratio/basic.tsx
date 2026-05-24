@@ -1,5 +1,5 @@
 import preview from "@.storybook/preview";
-import { AspectRatio } from "@moto-ui/react";
+import { AspectRatio, Image } from "@moto-ui/react";
 
 const meta = preview.meta({
 	title: "Basic",
@@ -16,8 +16,12 @@ export const Basic = meta.story({
 		},
 	},
 	render: (args) => (
-		<AspectRatio {...args}>
-			<img
+		<AspectRatio
+			{...args}
+			w="20rem"
+			rounded="24"
+		>
+			<Image
 				src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
 				alt="Landscape photograph"
 			/>

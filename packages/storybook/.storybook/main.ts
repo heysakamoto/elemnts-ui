@@ -4,6 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineMain({
 	framework: "@storybook/react-vite",
+	staticDirs: ["../public"],
 	docs: {
 		docsMode: true,
 		defaultName: "Moto UI documentation",

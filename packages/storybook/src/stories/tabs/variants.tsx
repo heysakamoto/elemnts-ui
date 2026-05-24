@@ -36,6 +36,9 @@ const meta = preview.meta({
 });
 
 export const Variants = meta.story({
+	args: {
+		defaultValue: "overview",
+	},
 	parameters: {
 		docs: {
 			description: {

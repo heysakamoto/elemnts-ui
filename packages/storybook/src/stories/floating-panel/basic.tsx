@@ -1,13 +1,12 @@
 import preview from "@.storybook/preview";
 import {
-	Box,
 	Button,
 	ButtonGroup,
 	FloatingPanel,
 	Portal,
 	Surface,
-	Text,
 } from "@moto-ui/react";
+import { Component as StepsBasic } from "../steps/basic";
 
 const meta = preview.meta({
 	title: "Basic",
@@ -77,9 +76,7 @@ export const Basic = meta.story({
 								px="8"
 								pb="8"
 							>
-								<Box p="20">
-									<Text>Floating Panel Content</Text>
-								</Box>
+								<StepsBasic />
 							</FloatingPanel.Body>
 							<FloatingPanel.ResizeTrigger axis="nw" />
 							<FloatingPanel.ResizeTrigger axis="ne" />

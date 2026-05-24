@@ -1,5 +1,10 @@
+import preview from "@.storybook/preview";
 import { Icon, Item, Toggle } from "@moto-ui/react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Basic",
+	component: Toggle,
+});
 
 export const Basic = meta.story({
 	parameters: {

@@ -1,0 +1,9 @@
+"$schema" = "node_modules/wrangler/config-schema.json"
+name = "moto-ui"
+# Set this to today's date
+compatibility_date = "2026-05-21"
+compatibility_flags = [ "nodejs_compat" ]
+main = "@tanstack/react-start/server-entry"
+
+[observability]
+enabled = true

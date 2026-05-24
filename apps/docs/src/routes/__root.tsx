@@ -7,6 +7,8 @@ import {
 import { NotFound } from "@/components/base/not-found";
 import css from "../styles.css?url";
 
+const baseUrl = import.meta.env.VITE_URL || "https://motoui.com";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 	{
 		notFoundComponent: NotFound,
@@ -22,11 +24,55 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				{
 					title: "Moto UI",
 				},
+				{
+					name: "description",
+					content:
+						"Moto UI is a high-performance, accessible React component library engineered for speed and scalability.",
+				},
+				//--- Open Graph Tags
+				{
+					property: "og:title",
+					content: "Moto UI | High-Performance, Accessible React Components",
+				},
+				{
+					property: "og:description",
+					content:
+						"Moto UI is a high-performance, accessible React component library engineered for speed and scalability, built on Ark UI and Panda CSS.",
+				},
+				{
+					property: "og:type",
+					content: "website",
+				},
+				{
+					property: "og:image",
+					content: `${baseUrl}/og-image.png`,
+				},
+				// --- Twitter Card Tags
+				{
+					name: "twitter:card",
+					content: "summary_large_image",
+				},
+				{
+					name: "twitter:image",
+					content: `${baseUrl}/og-image.png`,
+				},
 			],
 			links: [
 				{
-					rel: "stylesheet",
 					href: css,
+					rel: "stylesheet",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon/light.png",
+					media: "(prefers-color-scheme: light)",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon/dark.png",
+					media: "(prefers-color-scheme: dark)",
 				},
 			],
 		}),
@@ -42,19 +88,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 		>
 			<head>
 				<HeadContent />
-				<link
-					rel="preconnect"
-					href="https://cdn.aviosans.lerbb.com/"
-				/>
-				<link
-					rel="stylesheet"
-					href="https://cdn.aviosans.lerbb.com/avio-sans.css"
-				/>
-				<link
-					rel="icon"
-					type="image/svg+xml"
-					href="/favicon.svg"
-				/>
 			</head>
 			<body>
 				{children}

@@ -19,6 +19,7 @@ out/
 .env
 .env.local
 .env.*.local
+.dev.vars
 *.pem
 
 # --- IDEs & Editors ---
@@ -58,5 +59,9 @@ styled-system-studio
 .cursor
 
 ## Others
+.sourcehow
 todos.md
+.wrangler
+
+## Storybook
 storybook-static

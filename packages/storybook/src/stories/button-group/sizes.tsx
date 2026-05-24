@@ -1,6 +1,11 @@
+import preview from "@.storybook/preview";
 import { ButtonGroup, Container, SegmentGroup, Stack } from "@moto-ui/react";
 import { useState } from "react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Sizes",
+	component: ButtonGroup,
+});
 
 const sizes = ["sm", "md", "lg"];
 type Size = ButtonGroup["RootProps"]["size"];

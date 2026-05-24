@@ -81,14 +81,14 @@ const fg = {
 	},
 	secondary: {
 		value: {
-			base: "{colors.neutral.60}",
-			_dark: "{colors.neutral.50}",
+			base: "{colors.neutral.80}",
+			_dark: "{colors.neutral.40}",
 		},
 	},
 	tertiary: {
 		value: {
 			base: "{colors.neutral.50}",
-			_dark: "{colors.neutral.60}",
+			_dark: "{colors.neutral.50}",
 		},
 	},
 };

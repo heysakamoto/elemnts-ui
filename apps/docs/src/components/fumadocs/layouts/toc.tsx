@@ -70,7 +70,7 @@ export function Toc() {
 							py: "6",
 							px: "8",
 							w: "12rem",
-							fontSize: "12",
+							fontSize: "13",
 							lineHeight: "1",
 							display: "block",
 							color: "fg.tertiary",
@@ -104,8 +104,8 @@ export function TocMobile() {
 	return (
 		<Menu
 			open={open}
-			positioning={{ sameWidth: true }}
 			onOpenChange={(d) => setOpen(d.open)}
+			positioning={{ sameWidth: true, strategy: "fixed" }}
 		>
 			<Stack
 				px="12"
@@ -130,6 +130,7 @@ export function TocMobile() {
 							disabled={!previous}
 							colorPalette="neutral"
 							backdropFilter="blur(10px)"
+							aria-label="Go to previous page"
 						>
 							<Link
 								to={previous?.url}
@@ -157,7 +158,7 @@ export function TocMobile() {
 							fontSize="13"
 							justify="center"
 						>
-							{current?.title}
+							{current?.title ?? "On this page"}
 						</Surface.Title>
 					</Menu.Trigger>
 				</Surface>
@@ -174,6 +175,7 @@ export function TocMobile() {
 							disabled={!next}
 							colorPalette="neutral"
 							backdropFilter="blur(10px)"
+							aria-label="Go to next page"
 						>
 							<Link
 								to={next?.url}
@@ -210,8 +212,33 @@ export function TocMobile() {
 function TocWheelPicker() {
 	const { current, toc } = useToc();
 	const navigate = useTocNavigate();
+	const defaultValue = current?.url ?? toc[0]?.url;
 
-	const value = current?.url ?? toc[0]?.url;
+	if (!defaultValue)
+		return (
+			<Surface
+				delta={0}
+				elevated={false}
+				rounded="0"
+			>
+				<Surface.Content
+					gap="6"
+					minH="14rem"
+					align="center"
+					justify="center"
+				>
+					<Surface.Title
+						justify="center"
+						fontSize="14"
+					>
+						Nothing to see here
+					</Surface.Title>
+					<Surface.Description>
+						There are no sections to navigate to.
+					</Surface.Description>
+				</Surface.Content>
+			</Surface>
+		);
 
 	const options = toc.map((node) => ({
 		value: node.url,
@@ -226,8 +253,8 @@ function TocWheelPicker() {
 			<WheelPicker.Control>
 				<WheelPicker.Options
 					options={options}
-					defaultValue={value}
 					optionItemHeight={32}
+					defaultValue={defaultValue}
 					onValueChange={(v) => {
 						navigate(v);
 					}}

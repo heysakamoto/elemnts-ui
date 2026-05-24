@@ -1,23 +1,26 @@
 {
-  "name": "moto-ui",
-  "private": true,
-  "packageManager": "pnpm@10.33.0",
-  "scripts": {
-    "biome:check": "biome check",
-    "biome:fix": "biome check --write"
-  },
-  "devDependencies": {
-    "@ark-ui/mcp": "^1.2.1",
-    "@biomejs/biome": "^2.3.15",
-    "@changesets/cli": "^2.29.8"
-  },
-  "dependencies": {
-    "typescript": "^5.9.3"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "lightningcss"
-    ]
-  }
+	"name": "moto-ui",
+	"private": true,
+	"packageManager": "pnpm@10.33.0",
+	"scripts": {
+		"biome:check": "biome check",
+		"biome:fix": "biome check --write",
+		"build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/storybook\" --filter \"!@moto-ui/docs\" build",
+		"version-packages": "changeset version",
+		"release": "pnpm build && changeset publish"
+	},
+	"devDependencies": {
+		"@ark-ui/mcp": "^1.2.1",
+		"@biomejs/biome": "^2.3.15",
+		"@changesets/cli": "^2.29.8"
+	},
+	"dependencies": {
+		"typescript": "^5.9.3"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"lightningcss"
+		]
+	}
 }

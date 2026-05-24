@@ -17,22 +17,22 @@ export const links = [
 		target: "_self",
 	},
 	{
-		url: "/docs/components",
-		label: "Components",
-		target: "_self",
-	},
-	{
 		url: "/docs/animations",
 		label: "Concepts",
 		target: "_self",
 	},
 	{
-		url: "https://github.com/",
+		url: "https://storybook.moto-ui.app",
+		label: "Storybook",
+		target: "_blank",
+	},
+	{
+		url: "https://github.com/heysakamoto/moto-ui?tab=contributing-ov-file",
 		label: "Contribute",
 		target: "_blank",
 	},
 	{
-		url: "https://github.com/sponsors/",
+		url: "https://opencollective.com/motoui",
 		label: "Sponsor",
 		target: "_blank",
 	},
@@ -50,13 +50,13 @@ export function HeaderLink({ label, url, target }: HeaderLinkProps) {
 			to={url}
 			target={target}
 			className={css({
-				h: "32",
+				py: "8",
 				px: "12",
-				fontSize: "12",
+				fontSize: "13",
 				rounded: "full",
 				align: "center",
 				lineHeight: "none",
-				color: "fg.tertiary",
+				color: "fg.secondary",
 				display: "inline-flex",
 				_hover: {
 					color: "fg.primary",
@@ -92,7 +92,7 @@ export function HeaderBreadcrumb() {
 					<Fragment key={key}>
 						<Text
 							asChild
-							fontSize="12"
+							fontSize="13"
 							lineHeight="1"
 							fontWeight="400"
 							color="fg.tertiary"
@@ -141,6 +141,7 @@ export function Header() {
 				</Stack>
 				<Stack
 					w="full"
+					align="center"
 					justify={{ md: "center" }}
 				>
 					<Logo />
@@ -162,14 +163,15 @@ export function Header() {
 											iconOnly
 											rounded="full"
 											variant="ghost"
+											aria-label="Search"
 											colorPalette="neutral"
 											onClick={() => ctx.onOpen()}
 											_notHover={{ color: "icon.secondary" }}
 										>
 											<Icon
 												icon="tabler:search"
-												width={18}
-												height={18}
+												width={16}
+												height={16}
 											/>
 										</Button>
 									}
@@ -203,6 +205,7 @@ export function Header() {
 											hideFrom="md"
 											rounded="full"
 											variant="ghost"
+											aria-label="Open menu"
 											colorPalette="neutral"
 											onClick={() => ctx.onOpen()}
 											_notHover={{ color: "icon.secondary" }}
@@ -220,44 +223,79 @@ export function Header() {
 					/>
 				</Stack>
 			</Stack>
-			<ComposedDialog
-				fullHeight
-				content={({ onClose }) => {
-					return (
-						<Stack
-							direction="column"
-							onClick={() => onClose()}
-						>
-							<Sidebar />
-						</Stack>
-					);
-				}}
-				trigger={(ctx) => {
-					return (
-						<Stack
-							h="36"
-							px="12"
-							gap="8"
-							align="center"
-							justify="start"
-							cursor="pointer"
-							gridColumn="1 / -1"
-							onClick={ctx.onOpen}
+			<Stack
+				h="36"
+				px="12"
+				align="center"
+				justify="space-between"
+				borderBottom="1px solid {colors.stroke.primary}"
+			>
+				<ComposedDialog
+					fullHeight
+					content={({ onClose }) => {
+						return (
+							<Stack
+								direction="column"
+								onClick={() => onClose()}
+							>
+								<Sidebar />
+							</Stack>
+						);
+					}}
+					trigger={(ctx) => {
+						return (
+							<Button
+								px="0"
+								size="sm"
+								variant="plain"
+								aria-label="Open menu"
+								colorPalette="neutral"
+								onClick={() => ctx.onOpen()}
+								pointerEvents={{ md: "none" }}
+							>
+								<Icon
+									width={16}
+									height={16}
+									color="icon.secondary"
+									icon="tabler:layout-sidebar"
+								/>
+								<HeaderBreadcrumb />
+							</Button>
+						);
+					}}
+				/>
+				<ComposedTooltip
+					content="Github"
+					trigger={
+						<Button
+							asChild
+							iconOnly
+							size="sm"
+							rounded="full"
+							variant="ghost"
 							colorPalette="neutral"
-							pointerEvents={{ base: "auto", md: "none" }}
-							borderBottom="1px solid {colors.stroke.primary}"
+							aria-label="Visit Github"
+							css={{
+								"&:not(:hover)": {
+									color: "icon.secondary",
+								},
+							}}
 						>
-							<Icon
-								width={16}
-								height={16}
-								color="icon.secondary"
-								icon="tabler:layout-sidebar"
-							/>
-							<HeaderBreadcrumb />
-						</Stack>
-					);
-				}}
-			/>
+							<Link
+								target="_blank"
+								to={"https://github.com/heysakamoto/moto-ui" as any}
+							>
+								<Icon
+									ml="-2"
+									width={18}
+									height={18}
+									icon="tabler:brand-github"
+								/>
+							</Link>
+						</Button>
+					}
+				/>
+			</Stack>
 		</Box>
 	);
 }

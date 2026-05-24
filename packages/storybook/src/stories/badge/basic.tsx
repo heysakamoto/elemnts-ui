@@ -7,6 +7,9 @@ const meta = preview.meta({
 });
 
 export const Basic = meta.story({
+	args: {
+		size: "sm",
+	},
 	parameters: {
 		docs: {
 			description: {

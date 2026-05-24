@@ -7,6 +7,9 @@ const meta = preview.meta({
 });
 
 export const Label = meta.story({
+	args: {
+		orientation: "horizontal",
+	},
 	parameters: {
 		docs: {
 			description: {

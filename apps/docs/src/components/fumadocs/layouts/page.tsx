@@ -8,7 +8,7 @@ import {
 	Stack,
 	Text,
 } from "@moto-ui/react";
-import { ClientOnly, Link } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { type PropsWithChildren, useEffect } from "react";
 import { AICopyButton } from "@/components/fumadocs/layouts/ai-copy-button";
 import { AIMenu } from "@/components/fumadocs/layouts/ai-menu";
@@ -96,11 +96,11 @@ export function Title(props: TitleProps) {
 		>
 			<Text
 				as="h1"
+				fontWeight="500"
 				lineHeight="none"
-				fontWeight="600"
 				color="fg.primary"
+				letterSpacing="xs"
 				whiteSpace="pre-line"
-				letterSpacing="-0.04em"
 				fontSize={{ base: "24", md: "28" }}
 			>
 				{children}
@@ -112,10 +112,8 @@ export function Title(props: TitleProps) {
 				variant="surface"
 				colorPalette="neutral"
 			>
-				<ClientOnly>
-					<AICopyButton />
-					<AIMenu />
-				</ClientOnly>
+				<AICopyButton />
+				<AIMenu />
 			</ButtonGroup>
 		</Stack>
 	);
@@ -129,9 +127,10 @@ export function Description(props: DescriptionProps) {
 		<Text
 			mt="12"
 			mb="24"
-			fontSize="16"
-			letterSpacing="xs"
+			lineHeight="1.5"
 			color="fg.secondary"
+			letterSpacing="-.005em"
+			fontSize={{ base: "16", sm: "18" }}
 		>
 			{children}
 		</Text>

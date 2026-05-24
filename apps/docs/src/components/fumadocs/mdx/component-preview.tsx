@@ -8,10 +8,87 @@ import {
 	Stack,
 	Surface,
 } from "@moto-ui/react";
+import { useQuery } from "@tanstack/react-query";
+import { createServerFn, useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { getDemo } from "@/demos";
-import { ComponentPreviewSource } from "./component-preview-source";
+import { codeToHtml } from "@/lib/shiki";
 import { CopyButton } from "./copy-button";
+
+type Input = { name: string };
+type Output = { code: string; raw: string; file: string };
+
+// Tell Vite to bundle the raw text of all your demo files during the build step.
+const rawDemoFiles = import.meta.glob("/src/demos/**/*.tsx", {
+	query: "?raw",
+	import: "default",
+});
+
+const serverLoader = createServerFn({ method: "GET" })
+	.inputValidator((data: Input) => data)
+	.handler(async ({ data }) => {
+		const { name } = data;
+		const demo = getDemo(name);
+
+		if (!demo?.file) {
+			return null;
+		}
+
+		try {
+			const fileKey = Object.keys(rawDemoFiles).find((key) =>
+				key.endsWith(demo.file),
+			);
+
+			if (!fileKey) {
+				console.error(
+					`Demo file ${demo.file} not found in import.meta.glob map.`,
+				);
+				return null;
+			}
+
+			// Execute the function Vite generated to get the string
+			const code = (await rawDemoFiles[fileKey]?.()) as string;
+
+			const highlighted = await codeToHtml(code, { lang: "tsx" });
+
+			return {
+				raw: code,
+				file: demo.file,
+				code: highlighted,
+			};
+		} catch (error) {
+			console.error("Failed to read demo file:", error);
+			return null;
+		}
+	});
+
+type ComponentPreviewSourceProps = {
+	name: string;
+	children?: ((data: Output) => React.ReactNode) | React.ReactNode;
+};
+
+function ComponentPreviewSource(props: ComponentPreviewSourceProps) {
+	const { name, children } = props;
+
+	const severFn = useServerFn(serverLoader);
+
+	const { data, isLoading } = useQuery({
+		gcTime: 1000 * 60 * 60,
+		staleTime: 1000 * 60 * 60,
+		queryKey: ["cp", name],
+		placeholderData: (previousData) => previousData,
+		queryFn: async () => {
+			const result = await severFn({ data: { name } });
+			return result;
+		},
+	});
+
+	if (!data || isLoading) {
+		return null;
+	}
+
+	return typeof children === "function" ? children(data) : children;
+}
 
 const styles = css.raw({
 	"& code": {

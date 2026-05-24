@@ -1,6 +1,11 @@
+import preview from "@.storybook/preview";
 import { Icon, Item, Toggle } from "@moto-ui/react";
 import { useState } from "react";
-import meta from "./stories";
+
+const meta = preview.meta({
+	title: "Controlled",
+	component: Toggle,
+});
 
 export const Controlled = meta.story({
 	parameters: {

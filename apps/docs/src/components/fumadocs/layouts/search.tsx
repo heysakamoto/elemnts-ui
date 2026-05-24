@@ -1,5 +1,4 @@
 import {
-	Box,
 	Combobox,
 	type ComboboxInputValueChangeDetails,
 	type ComboboxValueChangeDetails,
@@ -15,6 +14,7 @@ import {
 	Spinner,
 	Surface,
 } from "@moto-ui/react";
+import { useHotkeys } from "@tanstack/react-hotkeys";
 import { useNavigate } from "@tanstack/react-router";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import type { SortedResult } from "fumadocs-core/search";
@@ -34,6 +34,16 @@ export function useSearch() {
 		type: "fetch",
 		allowEmpty: true,
 	});
+
+	useHotkeys([
+		{
+			hotkey: "Mod+K",
+			callback: (event) => {
+				event.preventDefault();
+				setOpen(true);
+			},
+		},
+	]);
 
 	const collection = createListCollection({
 		items: Array.isArray(query.data) ? query.data : [],
@@ -87,43 +97,35 @@ export function SearchProvider(props: SearchProviderProps) {
 	);
 }
 
-export function SearchEmpty() {
-	return (
-		<Combobox.Empty>
-			<Surface
-				py="12"
-				delta={0}
-				elevated={false}
-				align="center"
-			>
-				<Surface.Description>No results found.</Surface.Description>
-			</Surface>
-		</Combobox.Empty>
-	);
-}
-
 export function SearchFooter() {
 	return (
-		<Surface.Footer
-			py="8"
-			px="12"
-			rounded="0"
-			align="center"
-		>
-			<Kbd
-				size="xs"
-				fontSize="12"
-				variant="tertiary"
-				colorPalette="neutral"
-				color="fg.secondary"
+		<Surface.Footer>
+			<Surface
+				py="8"
+				px="12"
+				delta={5}
+				rounded="0"
+				elevated={false}
 			>
-				<Kbd.Item rounded="8">⏎</Kbd.Item>
-				Enter
-				<Kbd.Item rounded="8">↑</Kbd.Item>
-				Up
-				<Kbd.Item rounded="8">↓</Kbd.Item>
-				Down
-			</Kbd>
+				<Kbd
+					gap="16"
+					size="xs"
+					fontSize="12"
+					variant="tertiary"
+					colorPalette="neutral"
+					color="fg.secondary"
+				>
+					<Kbd.ItemGroup>
+						<Kbd.Item rounded="8">⏎</Kbd.Item>
+						<Kbd.ItemGroupText>to select</Kbd.ItemGroupText>
+					</Kbd.ItemGroup>
+					<Kbd.ItemGroup>
+						<Kbd.Item rounded="8">↓</Kbd.Item>
+						<Kbd.Item rounded="8">↓</Kbd.Item>
+						<Kbd.ItemGroupText>to navigate</Kbd.ItemGroupText>
+					</Kbd.ItemGroup>
+				</Kbd>
+			</Surface>
 		</Surface.Footer>
 	);
 }
@@ -132,15 +134,11 @@ export function SearchInput() {
 	const { query } = useSearchContext();
 
 	return (
-		<Surface.Header
-			m="8"
-			top="0"
-			zIndex="2"
-			position="sticky"
-		>
+		<Surface.Header>
 			<InputGroup
 				size="lg"
 				rounded="20"
+				variant="tertiary"
 			>
 				<InputGroup.Addon pl="10">
 					<Icon
@@ -156,7 +154,7 @@ export function SearchInput() {
 				>
 					<InputGroup.Input
 						px="8"
-						fontSize="14"
+						fontSize="16"
 						placeholder="Search the docs..."
 					/>
 				</Combobox.Input>
@@ -176,7 +174,7 @@ export function SearchInput() {
 }
 
 const icon = {
-	text: "tabler:search",
+	text: "tabler:dots",
 	heading: "tabler:hash",
 	page: "tabler:arrow-up-right",
 };
@@ -194,7 +192,7 @@ function SearchResultItem({ item, translateY }: SearchResultItemProps) {
 				top="0"
 				left="0"
 				item={item}
-				fontSize="13"
+				fontSize="14"
 				letterSpacing="sm"
 				position="absolute"
 				style={{
@@ -356,44 +354,61 @@ export function SearchResults() {
 		getScrollElement: () => parentRef.current,
 	});
 
+	if (collection.items.length === 0)
+		return (
+			<Surface
+				flex="1"
+				delta={0}
+				elevated={false}
+				justify="center"
+				align="center"
+			>
+				<Surface.Header>
+					<Icon
+						width={32}
+						height={32}
+						color="icon.secondary"
+						icon="tabler:face-id-error"
+					/>
+				</Surface.Header>
+				<Surface.Content
+					flex="0"
+					mt="12"
+					gap="6"
+				>
+					<Surface.Title
+						fontSize="16"
+						justify="center"
+					>
+						No results found
+					</Surface.Title>
+					<Surface.Description textAlign="center">
+						Try searching for something else.
+					</Surface.Description>
+				</Surface.Content>
+			</Surface>
+		);
+
 	return (
 		<Combobox.Content
-			p="8"
-			h="20rem"
 			ref={parentRef}
-			overflow="scroll"
-			scrollbar="hidden"
-			css={{ "&:is([data-empty])": { display: "none" } }}
+			position="relative"
+			style={{
+				height: rowVirtualizer.getTotalSize(),
+			}}
 		>
-			{collection.items.length > 0 && (
-				<Surface.Description
-					mb="2"
-					px="12"
-					fontSize="12"
-					color="fg.tertiary"
-				>
-					Found {collection.items.length} results
-				</Surface.Description>
-			)}
-			<Box
-				position="relative"
-				style={{
-					height: rowVirtualizer.getTotalSize(),
-				}}
-			>
-				{rowVirtualizer.getVirtualItems().map((vRow) => {
-					const item = collection.items[vRow.index]!;
-					const key = item.id;
+			{rowVirtualizer.getVirtualItems().map((vRow) => {
+				const item = collection.items[vRow.index]!;
+				const key = item.id;
 
-					return (
-						<SearchResultItem
-							key={key}
-							item={item}
-							translateY={vRow.start}
-						/>
-					);
-				})}
-			</Box>
+				return (
+					<SearchResultItem
+						key={key}
+						item={item}
+						translateY={vRow.start}
+					/>
+				);
+			})}
 		</Combobox.Content>
 	);
 }
@@ -402,19 +417,25 @@ export function SearchDialog() {
 	return (
 		<Portal>
 			<Dialog.Backdrop />
-			<Dialog.Positioner>
+			<Dialog.Positioner p="12">
 				<Dialog.Content asChild>
 					<Surface
 						delta={1}
-						rounded="28"
+						rounded="24"
 					>
 						<SearchInput />
-						<SearchResults />
-						<SearchEmpty />
-						<Separator
-							orientation="horizontal"
-							variant="tertiary"
-						/>
+						<Surface
+							p="8"
+							flex="1"
+							delta={1}
+							rounded="0"
+							borderX="none"
+							roundedTop="0"
+							overflow="scroll"
+							scrollbar="hidden"
+						>
+							<SearchResults />
+						</Surface>
 						<SearchFooter />
 					</Surface>
 				</Dialog.Content>
@@ -435,14 +456,16 @@ export function Search(props: SearchProps) {
 		<SearchProvider value={search}>
 			<Combobox
 				selectionBehavior="clear"
+				inputValue={search.search}
 				onValueChange={search.onValueChange}
 				collection={search.collection as any}
 				onInputValueChange={search.onInputValueChange}
 			>
 				<Dialog
-					size="sm"
 					unmountOnExit
 					open={search.open}
+					size={{ base: "full" }}
+					onEscapeKeyDown={() => search.setSearch("")}
 					onOpenChange={(details) => search.setOpen(details.open)}
 				>
 					{children({ onOpen: () => search.setOpen(true) })}

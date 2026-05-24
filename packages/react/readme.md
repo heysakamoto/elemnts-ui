@@ -20,12 +20,61 @@ Designed for speed, scalability, and flexibility, it features 90+ primitives cra
 
 To use Moto UI React components, install the library, preset-base, and styled-system dependencies:
 
+### Install Dependencies
+
 ```bash
 pnpm add @moto-ui/react @moto-ui/preset-base
-pnpm add @moto-ui/styled-system
+pnpm add -D @pandacss/dev
+# or
+yarn add @moto-ui/react @moto-ui/preset-base
+yarn add -D @pandacss/dev
+# or
+npm install @moto-ui/react @moto-ui/preset-base
+npm install -D @pandacss/dev
 ```
 
-Make sure your **Panda CSS** config matches the setup described in the root [README](file:///home/sakamoto/Desktop/projects/moto/ui/readme.md) of this project.
+### Setup Panda CSS
+
+```bash
+pnpm panda init
+# or
+yarn panda init
+# or
+npx panda init
+```
+
+Add this to your `panda.config.ts` file:
+
+```ts
+import { defineConfig } from '@pandacss/dev';
+import { basePreset } from '@moto-ui/preset-base';
+
+export default defineConfig({
+  eject: true,
+  outExtension: "js",
+  jsxFramework: "react",
+  presets: [basePreset],
+  include: ["src/components", "src/routes"],
+});
+```
+### Add css file
+
+Create a `src/css` directory and add a `global.css` file:
+
+```css
+/* src/css/global.css */
+@@layer reset, base, tokens, recipes, utilities;
+```
+
+### Add prepare scripts
+
+Add the following scripts to your `package.json` file:
+
+```json
+"scripts": {
+  "prepare": "panda codegen"
+}
+```
 
 ---
 
@@ -54,9 +103,9 @@ For complex structures, use compound component children to structure the layout 
 ```tsx
 import { Accordion } from '@moto-ui/react';
 
-function AccordionDemo() {
+function App() {
   return (
-    <Accordion.Root defaultValue={['features']}>
+    <Accordion defaultValue={['features']}>
       <Accordion.Item value="features">
         <Accordion.ItemTrigger>
           What makes Moto UI fast?
@@ -66,31 +115,13 @@ function AccordionDemo() {
           ensuring zero runtime JS execution overhead for CSS styles.
         </Accordion.ItemContent>
       </Accordion.Item>
-    </Accordion.Root>
+    </Accordion>
   );
 }
 ```
 
 ---
 
-## 📂 Project Structure
-
-- **`src/components/`** — Subdirectories containing component logic, context providers, exports, and React rendering.
-- **`src/hooks/`** — Custom React hooks for keyboard navigation, media query tracking, and state synchronization.
-- **`src/index.ts`** — Primary entry point exporting components and hooks.
-
----
-
-## 🛠️ Development & Scripts
-
-Commands inside the `packages/react` package directory:
-
-- **Build**: `pnpm run build` — Bundles component sources into ES Modules and CommonJS packages inside the `dist/` folder using `tsup`.
-- **Develop**: `pnpm run dev` — Watches component directories and rebuilds dynamically as files are updated.
-- **Clean**: `pnpm run clean` — Removes built files.
-
----
-
 ## 📄 License
 
-Part of the Moto UI workspace. Distributed under the MIT License. See root `LICENSE` for details.
+Part of the Moto UI workspace. Distributed under the MIT License. See repository `LICENSE` for details.

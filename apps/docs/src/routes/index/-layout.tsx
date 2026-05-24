@@ -1,6 +1,7 @@
 import {
 	Anchor,
 	Avatar,
+	Box,
 	Button,
 	ButtonGroup,
 	Container,
@@ -24,18 +25,30 @@ import { ThemeToggle } from "@/components/base/theme-toggle";
 const pageTree = [
 	{ name: "About", url: "/docs/about", target: "_self" },
 	{ name: "Concepts", url: "/docs/animations", target: "_self" },
-	{ name: "Components", url: "/docs/components", target: "_self" },
-	{ name: "Contributing", url: "https://github.com/", target: "_blank" },
-	{ name: "Sponsor", url: "https://github.com/sponsors/", target: "_blank" },
+	{
+		name: "Storybook",
+		url: "https://storybook.moto-ui.app",
+		target: "_blank",
+	},
+	{
+		name: "Contributing",
+		url: "https://github.com/heysakamoto/moto-ui?tab=contributing-ov-file",
+		target: "_blank",
+	},
+	{
+		name: "Sponsor",
+		url: "https://opencollective.com/motoui",
+		target: "_blank",
+	},
 ];
 
 export function Layout(props: PropsWithChildren) {
 	return (
-		<>
+		<Box as="main">
 			<Header />
 			{props.children}
 			<Footer />
-		</>
+		</Box>
 	);
 }
 
@@ -76,7 +89,7 @@ function Header() {
 										py: "8",
 										px: "12",
 										rounded: "24",
-										fontSize: "12",
+										fontSize: "13",
 										color: "fg.secondary",
 										_hover: { bgColor: "bg.secondary", color: "fg.primary" },
 									})}
@@ -85,7 +98,10 @@ function Header() {
 								</Link>
 							))}
 						</Group>
-						<Stack justify={{ lg: "center" }}>
+						<Stack
+							align="center"
+							justify={{ lg: "center" }}
+						>
 							<Logo />
 						</Stack>
 						<Group
@@ -98,7 +114,7 @@ function Header() {
 								asChild
 								size="sm"
 								rounded="24"
-								fontSize="12"
+								fontSize="13"
 								hideBelow="sm"
 								variant="tertiary"
 								colorPalette="neutral"
@@ -124,8 +140,9 @@ function MobileMenu() {
 						hideFrom="lg"
 						rounded="full"
 						variant="ghost"
-						onClick={() => onOpen()}
 						colorPalette="neutral"
+						onClick={() => onOpen()}
+						aria-label="Open mobile menu"
 						css={{
 							"&:not(:hover)": {
 								color: "icon.secondary",
@@ -135,7 +152,7 @@ function MobileMenu() {
 						<Icon
 							width={16}
 							height={16}
-							icon="tabler:layout-sidebar"
+							icon="tabler:layout-sidebar-right"
 						/>
 					</Button>
 				);
@@ -273,12 +290,12 @@ function Footer() {
 											>
 												<Surface.Title
 													lineHeight="1"
-													fontSize="14"
+													fontSize="16"
 												>
-													Sakamoto
+													sakamoto
 												</Surface.Title>
 												<Surface.Description
-													fontSize="12"
+													fontSize="13"
 													lineHeight="1"
 												>
 													@hey__sakamoto

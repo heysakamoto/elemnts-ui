@@ -15,64 +15,83 @@ export const Basic = meta.story({
 			},
 		},
 	},
-	render: () => (
-		<Container maxW="12rem">
+	render: (args) => (
+		<Container maxW="16rem">
 			<Timer
 				startMs={0}
 				targetMs={60 * 60 * 1000}
+				{...args}
 			>
 				<Timer.Area justify="center">
 					<Timer.ItemGroup>
-						<Timer.Item type="days" />
-						<Timer.ItemLabel textAlign="center">D</Timer.ItemLabel>
+						<Timer.Item
+							type="hours"
+							fontSize="24"
+						/>
 					</Timer.ItemGroup>
 					<Timer.Separator>:</Timer.Separator>
 					<Timer.ItemGroup>
-						<Timer.Item type="hours" />
-						<Timer.ItemLabel textAlign="center">H</Timer.ItemLabel>
+						<Timer.Item
+							type="minutes"
+							fontSize="24"
+						/>
 					</Timer.ItemGroup>
 					<Timer.Separator>:</Timer.Separator>
 					<Timer.ItemGroup>
-						<Timer.Item type="minutes" />
-						<Timer.ItemLabel textAlign="center">M</Timer.ItemLabel>
-					</Timer.ItemGroup>
-					<Timer.Separator>:</Timer.Separator>
-					<Timer.ItemGroup>
-						<Timer.Item type="seconds" />
-						<Timer.ItemLabel textAlign="center">S</Timer.ItemLabel>
+						<Timer.Item
+							type="seconds"
+							fontSize="24"
+						/>
 					</Timer.ItemGroup>
 				</Timer.Area>
-				<Timer.Control mt="12">
+				<Timer.Control mt="96">
 					<ButtonGroup
-						size="xs"
+						gap="8"
+						size="md"
 						fullWidth
 						justify="center"
-						variant="secondary"
+						variant="primary"
 						colorPalette="neutral"
 					>
 						<Timer.ActionTrigger
 							asChild
 							action="start"
 						>
-							<Button>Start</Button>
+							<Button rounded="24">Start</Button>
 						</Timer.ActionTrigger>
 						<Timer.ActionTrigger
 							asChild
 							action="pause"
 						>
-							<Button>Pause</Button>
+							<Button
+								rounded="24"
+								variant="secondary"
+							>
+								Pause
+							</Button>
 						</Timer.ActionTrigger>
 						<Timer.ActionTrigger
 							asChild
 							action="resume"
 						>
-							<Button>Resume</Button>
+							<Button
+								rounded="24"
+								variant="secondary"
+							>
+								Resume
+							</Button>
 						</Timer.ActionTrigger>
 						<Timer.ActionTrigger
 							asChild
 							action="reset"
 						>
-							<Button>Reset</Button>
+							<Button
+								rounded="24"
+								variant="primary"
+								colorPalette="destructive"
+							>
+								Stop
+							</Button>
 						</Timer.ActionTrigger>
 					</ButtonGroup>
 				</Timer.Control>

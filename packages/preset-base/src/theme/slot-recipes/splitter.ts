@@ -17,7 +17,6 @@ export const splitterRecipe = defineSlotRecipe({
 				flexDirection: "column",
 			},
 		},
-		panel: {},
 		resizeTrigger: {
 			"--splitter-border-size": "1px",
 			"--splitter-thumb-size": "calc({sizes.4} * 1.5)",
@@ -32,6 +31,14 @@ export const splitterRecipe = defineSlotRecipe({
 			display: "inline-flex",
 			flexDirection: "column",
 			justifyContent: "center",
+
+			_before: {
+				top: "0",
+				content: "''",
+				h: "{sizes.full}",
+				position: "absolute",
+				w: "calc({sizes.4} * 10)",
+			},
 
 			_disabled: {
 				opacity: "0.5",

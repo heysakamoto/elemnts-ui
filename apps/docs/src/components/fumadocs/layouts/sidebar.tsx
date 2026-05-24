@@ -15,10 +15,11 @@ function Separator({ node }: SeparatorProps) {
 			mb="2"
 			px="8"
 			fontSize="12"
+			color="fg.tertiary"
 			textTransform="capitalize"
 			css={{
 				"&:not(:first-child)": {
-					mt: "20",
+					mt: "24",
 				},
 			}}
 		>
@@ -42,13 +43,11 @@ function Page({ node, onSelect }: PageProps) {
 				py: "4",
 				px: "8",
 				rounded: "12",
-				fontSize: "12",
+				fontSize: "13",
+				fontWeight: "500",
 				textAlign: "left",
-				color: "fg.tertiary",
-				_hover: {
-					color: "fg.primary",
-				},
-				"&:is([data-status=active])": {
+				color: "fg.secondary",
+				"&:is([data-status=active], :hover)": {
 					color: "fg.primary",
 					bgColor: "bg.secondary",
 				},
@@ -74,7 +73,7 @@ function Folder({ node, onSelect }: FolderProps) {
 			direction="column"
 			css={{
 				"&:not(:first-child)": {
-					mt: "20",
+					mt: "24",
 				},
 			}}
 		>

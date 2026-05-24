@@ -4,7 +4,7 @@ import { kbdRecipe } from "@moto-ui/styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(kbdRecipe);
 
-export const KbdRoot = withProvider(ark.div, "root", {
+export const KbdRoot = withProvider(ark.ul, "root", {
 	dataAttr: true,
 	defaultProps: {
 		role: "group",
@@ -14,10 +14,26 @@ export const KbdRoot = withProvider(ark.div, "root", {
 });
 KbdRoot.displayName = "KbdRoot";
 
-export const KbdItem = withContext(ark.div, "item", {
+export const KbdItem = withContext(ark.kbd, "item", {
 	defaultProps: {
 		"data-scope": "kbd",
 		"data-part": "item",
 	},
 });
 KbdItem.displayName = "KbdItem";
+
+export const KbdItemGroup = withContext(ark.li, "itemGroup", {
+	defaultProps: {
+		"data-scope": "kbd",
+		"data-part": "itemGroup",
+	},
+});
+KbdItemGroup.displayName = "KbdItemGroup";
+
+export const KbdItemGroupText = withContext(ark.span, "itemGroupText", {
+	defaultProps: {
+		"data-scope": "kbd",
+		"data-part": "itemGroupText",
+	},
+});
+KbdItemGroupText.displayName = "KbdItemGroupText";

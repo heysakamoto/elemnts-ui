@@ -127,10 +127,14 @@ export const Basic = meta.story({
 			},
 		},
 	},
-	render: (args) => (
+	render: (args) => <Component {...args} />,
+});
+
+export function Component(props: Steps["RootProps"]) {
+	return (
 		<Container maxW="30rem">
 			<Steps
-				{...args}
+				{...props}
 				count={steps.length - 1}
 			>
 				<Surface
@@ -233,5 +237,5 @@ export const Basic = meta.story({
 				</Surface>
 			</Steps>
 		</Container>
-	),
-});
+	);
+}

@@ -1,4 +1,4 @@
-import * as preview from "@.storybook/preview";
+import preview from "@.storybook/preview";
 import { Button, Icon, Swap } from "@moto-ui/react";
 import { useState } from "react";
 

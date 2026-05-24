@@ -1,11 +1,4 @@
-import {
-	Button,
-	Dialog,
-	Icon,
-	Portal,
-	Surface,
-	useLockedDisclosure,
-} from "@moto-ui/react";
+import { Button, Dialog, Icon, Portal, Surface } from "@moto-ui/react";
 import type { ReactNode } from "react";
 
 type ComposedDialogProps = {
@@ -15,7 +8,6 @@ type ComposedDialogProps = {
 };
 export function ComposedDialog(props: ComposedDialogProps) {
 	const { fullHeight, trigger, content } = props;
-	const { open, setOpen } = useLockedDisclosure();
 
 	return (
 		<Dialog
@@ -23,9 +15,7 @@ export function ComposedDialog(props: ComposedDialogProps) {
 			lazyMount
 			size="full"
 			unmountOnExit
-			open={open}
 			placement="bottom"
-			onOpenChange={(d) => setOpen(d.open)}
 		>
 			<Dialog.Context>
 				{(ctx) => {

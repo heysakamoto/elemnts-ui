@@ -10,11 +10,7 @@ import {
 import { Link, useLocation } from "@tanstack/react-router";
 import { replaceSlug } from "@/utils/url";
 
-const prompt = `Read this component documentation: slug. Review its structure, props, examples, styles, and answer the following question.
-
-- Question 1
-- Question 2
-- Question 3`;
+const prompt = `“Read the slug; I’ll ask questions about it.”`;
 
 const encodedPrompt = encodeURIComponent(prompt);
 
@@ -23,7 +19,7 @@ const options = [
 		icon: "ph:markdown-logo",
 		label: "View as markdown",
 		value: "markdown",
-		url: "slug.mdx",
+		url: "slug.md",
 	},
 	{
 		icon: "ri:openai-fill",
@@ -55,7 +51,8 @@ export function AIMenu() {
 	const { open, setOpen } = useLockedDisclosure();
 	const pathname = useLocation({ select: (l) => l.pathname });
 
-	const url = `${window.location.origin}${pathname}`;
+	const VITE_URL = import.meta.env.VITE_URL;
+	const url = `${VITE_URL}${pathname}`;
 
 	return (
 		<Menu
@@ -68,8 +65,9 @@ export function AIMenu() {
 		>
 			<Menu.Trigger asChild>
 				<Button
-					roundedEnd="16"
 					iconOnly
+					roundedEnd="16"
+					aria-label="Open AI menu"
 					css={{
 						"&:not(:hover)": {
 							color: "icon.secondary",

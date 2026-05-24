@@ -26,10 +26,10 @@ export function ComposedTooltip({ trigger, content }: ComposedTooltipProps) {
 							shadowLevel={2}
 						>
 							<Text
-								fontSize="12"
+								fontSize="13"
 								lineHeight="1"
 								letterSpacing="sm"
-								color="fg.primary"
+								color="fg.secondary"
 							>
 								{content}
 							</Text>

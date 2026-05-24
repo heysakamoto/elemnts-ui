@@ -15,58 +15,93 @@ export const Countdown = meta.story({
 			},
 		},
 	},
-	render: () => (
-		<Container maxW="12rem">
-			<Timer.Root
-				startMs={60 * 1000}
-				targetMs={0}
+	args: {
+		countdown: true,
+		startMs: 124 * 60 * 1000,
+		targetMs: 0,
+	},
+	render: (args) => (
+		<Container maxW="16rem">
+			<Timer
 				countdown
+				targetMs={0}
+				startMs={124 * 60 * 1000}
+				{...args}
 			>
 				<Timer.Area justify="center">
-					<Timer.Item type="seconds" />
-					<Timer.ItemLabel
-						fontSize="14"
-						color="fg.tertiary"
-						verticalAlign="bottom"
-					>
-						s
-					</Timer.ItemLabel>
+					<Timer.ItemGroup>
+						<Timer.Item
+							type="hours"
+							fontSize="24"
+						/>
+					</Timer.ItemGroup>
+					<Timer.Separator>:</Timer.Separator>
+					<Timer.ItemGroup>
+						<Timer.Item
+							type="minutes"
+							fontSize="24"
+						/>
+					</Timer.ItemGroup>
+					<Timer.Separator>:</Timer.Separator>
+					<Timer.ItemGroup>
+						<Timer.Item
+							type="seconds"
+							fontSize="24"
+						/>
+					</Timer.ItemGroup>
 				</Timer.Area>
-				<Timer.Control mt="12">
+				<Timer.Control mt="96">
 					<ButtonGroup
-						size="xs"
+						gap="8"
+						size="md"
 						fullWidth
 						justify="center"
+						variant="primary"
 						colorPalette="neutral"
-						variant="secondary"
 					>
 						<Timer.ActionTrigger
 							asChild
 							action="start"
 						>
-							<Button>Start</Button>
+							<Button rounded="24">Start</Button>
 						</Timer.ActionTrigger>
 						<Timer.ActionTrigger
 							asChild
 							action="pause"
 						>
-							<Button>Pause</Button>
+							<Button
+								rounded="24"
+								variant="secondary"
+							>
+								Pause
+							</Button>
 						</Timer.ActionTrigger>
 						<Timer.ActionTrigger
 							asChild
 							action="resume"
 						>
-							<Button>Resume</Button>
+							<Button
+								rounded="24"
+								variant="secondary"
+							>
+								Resume
+							</Button>
 						</Timer.ActionTrigger>
 						<Timer.ActionTrigger
 							asChild
 							action="reset"
 						>
-							<Button>Reset</Button>
+							<Button
+								rounded="24"
+								variant="primary"
+								colorPalette="destructive"
+							>
+								Stop
+							</Button>
 						</Timer.ActionTrigger>
 					</ButtonGroup>
 				</Timer.Control>
-			</Timer.Root>
+			</Timer>
 		</Container>
 	),
 });

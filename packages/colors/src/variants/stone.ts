@@ -1,6 +1,6 @@
 import type { ColorScale } from "../types";
 
-export const spalette = {
+export const stone = {
 	50: "oklch(98.5% 0.001 106.423)",
 	100: "oklch(97% 0.001 106.424)",
 	200: "oklch(92.3% 0.003 48.717)",
@@ -14,7 +14,7 @@ export const spalette = {
 	950: "oklch(14.7% 0.004 49.25)",
 } satisfies ColorScale;
 
-export const spaletteAlpha = {
+export const stoneAlpha = {
 	50: "oklch(98.5% 0.001 106.423 / 0.05)",
 	100: "oklch(97% 0.001 106.424 / 0.1)",
 	200: "oklch(92.3% 0.003 48.717 / 0.2)",
@@ -28,7 +28,7 @@ export const spaletteAlpha = {
 	950: "oklch(14.7% 0.004 49.25 / 0.95)",
 } satisfies ColorScale;
 
-export const spaletteDark = {
+export const stoneDark = {
 	50: "oklch(14.7% 0.004 49.25)",
 	100: "oklch(21.6% 0.006 56.043)",
 	200: "oklch(26.8% 0.007 34.298)",
@@ -42,7 +42,7 @@ export const spaletteDark = {
 	950: "oklch(98.5% 0.001 106.423)",
 } satisfies ColorScale;
 
-export const spaletteDarkAlpha = {
+export const stoneDarkAlpha = {
 	50: "oklch(14.7% 0.004 49.25 / 0.05)",
 	100: "oklch(21.6% 0.006 56.043 / 0.1)",
 	200: "oklch(26.8% 0.007 34.298 / 0.2)",
