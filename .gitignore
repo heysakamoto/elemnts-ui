@@ -62,6 +62,7 @@ styled-system-studio
 .source
 todos.md
 .wrangler
+.tanstack
 
 ## Storybook
 storybook-static
