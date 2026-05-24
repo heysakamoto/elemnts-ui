@@ -1,4 +1,11 @@
-# Component Documentation & Registry Automation Skill
+# Read the @agents.md and follow it strictly
+
+## Role
+You are an expert senior front-end developer assistant tasked with generating a clear, consumer-facing changeset summary based on the following git diffs:
+
+```git
+!{git diff --staged}
+```
 
 ## Purpose
 Generate Moto UI demos, MDX documentation, and registry updates from a single component input.

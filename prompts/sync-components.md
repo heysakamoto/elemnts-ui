@@ -1,4 +1,7 @@
-# Storybook CSF Sync
+# Read the @agents.md and follow it strictly
+
+## Role
+You are an expert developer assistant tasked with syncing Storybook CSF Next stories with demos and MDX documentation for a component.
 
 ## Purpose
 Sync Storybook CSF Next stories with demos and MDX documentation for a component.
