@@ -1,0 +1,128 @@
+---
+title: Stat
+description: Displays summary statistics or data points.
+---
+
+<ComponentPreview name="stat:basic" />
+
+### Usage
+
+The `Stat` component is used to display a single statistic or data point, often with a label and a comparison to a previous period.
+
+```tsx
+import { Stat } from "@moto-ui/react"
+
+<Stat.Root>
+  <Stat.Label>Total Revenue</Stat.Label>
+  <Stat.ValueText>$45,231.89</Stat.ValueText>
+  <Stat.HelpText>+20.1% from last month</Stat.HelpText>
+</Stat.Root>
+```
+
+### Examples
+
+#### With Indicator
+
+Use the `Stat.Indicator` to display a trend or status icon within the help text.
+
+<ComponentPreview name="stat:indicator" />
+
+#### With Unit
+
+Use the `Stat.ValueUnit` to display units next to the value.
+
+<ComponentPreview name="stat:unit" />
+
+### Props
+
+**Root**
+
+The `Stat.Root` component accepts all standard `dl` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Label**
+
+The `Stat.Label` component accepts all standard `dt` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ValueText**
+
+The `Stat.ValueText` component accepts all standard `span` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ValueUnit**
+
+The `Stat.ValueUnit` component accepts all standard `span` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**HelpText**
+
+The `Stat.HelpText` component accepts all standard `span` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+The `Stat.Indicator` component accepts all standard `span` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="stat"]` | The component scope. |
+| `[data-part="root"]` | The root part. |
+
+**Label**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="stat"]` | The component scope. |
+| `[data-part="label"]` | The label part. |
+
+**ValueText**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="stat"]` | The component scope. |
+| `[data-part="value-text"]` | The value text part. |
+
+**ValueUnit**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="stat"]` | The component scope. |
+| `[data-part="value-unit"]` | The value unit part. |
+
+**HelpText**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="stat"]` | The component scope. |
+| `[data-part="help-text"]` | The help text part. |
+
+**Indicator**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="stat"]` | The component scope. |
+| `[data-part="indicator"]` | The indicator part. |
