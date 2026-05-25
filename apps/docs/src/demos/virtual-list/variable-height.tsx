@@ -9,25 +9,27 @@ export function VariableHeight() {
 		<Container maxW="18rem">
 			<VirtualList
 				count={1000}
-				dynamicHeight={false}
 				estimateSize={(index) => rowHeights[index] || 64}
 			>
 				<VirtualList.Viewport
 					h="320"
 					scrollbar="hidden"
 				>
-					<VirtualList.Container>
-						<VirtualList.Items>
-							{(index) => (
+					<VirtualList.Content>
+						{({ item }) => (
+							<VirtualList.Item
+								item={item}
+								style={{ height: `${item.size}px` }}
+							>
 								<DecorativeBox
 									h="full"
 									fontSize="14"
 								>
-									Row {index} ({rowHeights[index]}px)
+									Row {item.index} ({rowHeights[item.index]}px)
 								</DecorativeBox>
-							)}
-						</VirtualList.Items>
-					</VirtualList.Container>
+							</VirtualList.Item>
+						)}
+					</VirtualList.Content>
 				</VirtualList.Viewport>
 			</VirtualList>
 		</Container>

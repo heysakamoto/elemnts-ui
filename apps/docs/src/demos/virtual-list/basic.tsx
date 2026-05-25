@@ -11,19 +11,23 @@ export function Basic() {
 					h="320"
 					scrollbar="hidden"
 				>
-					<VirtualList.Container>
-						<VirtualList.Items>
-							{(index) => (
+					<VirtualList.Content>
+						{({ item, measureElement }) => (
+							<VirtualList.Item
+								item={item}
+								key={item.index}
+								ref={measureElement}
+							>
 								<DecorativeBox
 									mt="8"
 									h="64"
 									fontSize="14"
 								>
-									{index}
+									{item.index}
 								</DecorativeBox>
-							)}
-						</VirtualList.Items>
-					</VirtualList.Container>
+							</VirtualList.Item>
+						)}
+					</VirtualList.Content>
 				</VirtualList.Viewport>
 			</VirtualList>
 		</Container>
