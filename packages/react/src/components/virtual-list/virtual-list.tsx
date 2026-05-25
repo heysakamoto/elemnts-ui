@@ -9,6 +9,7 @@ import {
 	useVirtualListContext,
 	VirtualListContext,
 } from "./client";
+import { mergeRefs } from "../../utils/merge-ref";
 
 const { withRootProvider, withProvider, withContext } =
 	createStyleContext(virtualListRecipe);
@@ -63,14 +64,14 @@ type VirtualListViewportBaseProps = HTMLArkProps<"div">;
 export const VirtualListViewportBase = forwardRef<
 	HTMLDivElement,
 	VirtualListViewportBaseProps
->((props, _) => {
+>((props, ref) => {
 	const { style, ...restProps } = props;
 	const { parentRef } = useVirtualListContext();
 
 	return (
 		<ark.div
 			style={{ position: "relative", overflow: "auto", ...style }}
-			ref={parentRef}
+			ref={mergeRefs(parentRef, ref)}
 			{...restProps}
 		/>
 	);
@@ -116,22 +117,23 @@ type VirtualListItemsProps = {
 
 export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
 	const { virtualizer } = useVirtualListContext();
-	const virtualItems = virtualizer.getVirtualItems();
+	const items = virtualizer.getVirtualItems();
 
-	return virtualItems.map((virtualRow) => (
+	return items.map((item) => (
 		<div
-			key={virtualRow.key}
-			data-index={virtualRow.index}
+			key={item.key}
+			data-index={item.index}
 			ref={virtualizer.measureElement}
 			style={{
 				top: 0,
 				left: 0,
 				width: "100%",
 				position: "absolute",
-				transform: `translateY(${virtualRow.start}px)`,
+				height: `${item.size}px`,
+				transform: `translateY(${item.start}px)`,
 			}}
 		>
-			{children(virtualRow.index)}
+			{children(item.index)}
 		</div>
 	));
 };
