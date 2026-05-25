@@ -9,16 +9,10 @@ export const VirtualListContext = createContext<VirtualListContextValue | null>(
 export type UseVirtualListProps = {
 	count: number;
 	overscan?: number;
-	dynamicHeight?: boolean;
 	estimateSize?: (index: number) => number;
 };
 export function useVirtualList(props: UseVirtualListProps) {
-	const {
-		count,
-		overscan,
-		dynamicHeight = true,
-		estimateSize = () => 50,
-	} = props;
+	const { count, overscan, estimateSize = () => 50 } = props;
 	const [scrollElement, setScrollElement] = useState<HTMLDivElement | null>(
 		null,
 	);
@@ -35,7 +29,6 @@ export function useVirtualList(props: UseVirtualListProps) {
 	return {
 		items,
 		virtualizer,
-		dynamicHeight,
 		parentRef: setScrollElement,
 	};
 }

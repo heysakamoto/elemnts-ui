@@ -1,7 +1,8 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { virtualListRecipe } from "@moto-ui/styled-system/recipes";
-import type { ReactNode } from "react";
+import type { VirtualItem } from "@tanstack/react-virtual";
+import type { ReactNode, Ref } from "react";
 import { forwardRef } from "react";
 import { mergeRefs } from "../../utils/merge-ref";
 import {
@@ -49,12 +50,11 @@ export const VirtualListRootBase = forwardRef<
 	HTMLDivElement,
 	VirtualListRootBaseProps
 >((props, ref) => {
-	const { count, overscan, dynamicHeight, estimateSize, ...restProps } = props;
+	const { count, overscan, estimateSize, ...restProps } = props;
 	const value = useVirtualList({
 		count,
 		overscan,
 		estimateSize,
-		dynamicHeight,
 	});
 
 	return (
@@ -142,30 +142,21 @@ export const VirtualListContainer = withContext(
 VirtualListContainer.displayName = "VirtualListContainer";
 
 type VirtualListItemsProps = {
-	children: (index: number) => ReactNode;
+	children: (props: {
+		item: VirtualItem;
+		measureElement: Ref<Element>;
+	}) => ReactNode;
 };
 
 export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
-	const { items, dynamicHeight, virtualizer } = useVirtualListContext();
+	const { items, virtualizer } = useVirtualListContext();
 
 	return (
 		<>
 			{items.map((item) => (
-				<div
-					key={item.key}
-					data-index={item.index}
-					ref={dynamicHeight ? virtualizer.measureElement : null}
-					style={{
-						top: 0,
-						left: 0,
-						width: "100%",
-						position: "absolute",
-						transform: `translateY(${item.start}px)`,
-						height: dynamicHeight ? undefined : `${item.size}px`,
-					}}
-				>
-					{children(item.index)}
-				</div>
+				<>
+					{children({ item: item, measureElement: virtualizer.measureElement })}
+				</>
 			))}
 		</>
 	);
