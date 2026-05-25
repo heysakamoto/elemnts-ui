@@ -1,0 +1,68 @@
+---
+title: Virtual List
+description: Render large lists efficiently by only rendering items in the viewport
+---
+
+<ComponentPreview name="virtual-list:basic" />
+
+### Usage
+Use `VirtualList` when you need to render thousands of items without compromising performance. It uses virtualization to only render the items currently visible in the viewport.
+
+```tsx
+import { VirtualList } from "@moto-ui/react"
+
+<VirtualList.Root count={1000} estimateSize={() => 35}>
+  <VirtualList.Viewport style={{ height: "400px" }}>
+    <VirtualList.Container>
+      <VirtualList.Items>
+        {(index) => <div key={index}>Row {index}</div>}
+      </VirtualList.Items>
+    </VirtualList.Container>
+  </VirtualList.Viewport>
+</VirtualList.Root>
+```
+
+### Variable Height
+You can provide an `estimateSize` function to handle items with different heights.
+
+<ComponentPreview name="virtual-list:variable-height" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| count | `number` | - | The total number of items to render. |
+| overscan | `number` | `5` | The number of items to render outside the visible area. |
+| estimateSize | `(index: number) => number` | `() => 50` | A function that returns the estimated size of an item at a given index. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| count | `number` | - | The total number of items to render. |
+| overscan | `number` | `5` | The number of items to render outside the visible area. |
+| estimateSize | `(index: number) => number` | `() => 50` | A function that returns the estimated size of an item at a given index. |
+
+**Items**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| children | `(index: number) => ReactNode` | - | A render function that provides the index of the item to render. |
+
+### Hooks
+
+**useVirtualList**
+
+Returns the virtualizer instance and a reference to the parent element.
+
+```tsx
+const { virtualizer, parentRef } = useVirtualList({ count: 1000 })
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| count | `number` | - | The total number of items to render. |
+| overscan | `number` | `5` | The number of items to render outside the visible area. |
+| estimateSize | `(index: number) => number` | `() => 50` | A function that returns the estimated size of an item at a given index. |
