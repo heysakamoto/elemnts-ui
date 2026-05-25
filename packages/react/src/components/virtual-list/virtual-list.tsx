@@ -143,7 +143,7 @@ export const VirtualListContentBase = forwardRef<
 
 export const VirtualListContent = withContext(
 	VirtualListContentBase,
-	"container",
+	"content",
 	{
 		dataAttr: true,
 		defaultProps: {
