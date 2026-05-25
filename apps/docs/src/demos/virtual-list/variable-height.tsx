@@ -25,7 +25,7 @@ export function VariableHeight() {
 									h="full"
 									fontSize="14"
 								>
-									Row {item.index} ({rowHeights[item.index]}px)
+									Row {item.index + 1} ({rowHeights[item.index]}px)
 								</DecorativeBox>
 							</VirtualList.Item>
 						)}
