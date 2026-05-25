@@ -3,13 +3,13 @@ import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { virtualListRecipe } from "@moto-ui/styled-system/recipes";
 import type { ReactNode } from "react";
 import { forwardRef } from "react";
+import { mergeRefs } from "../../utils/merge-ref";
 import {
 	type UseVirtualListProps,
 	useVirtualList,
 	useVirtualListContext,
 	VirtualListContext,
 } from "./client";
-import { mergeRefs } from "../../utils/merge-ref";
 
 const { withRootProvider, withProvider, withContext } =
 	createStyleContext(virtualListRecipe);
@@ -119,21 +119,25 @@ export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
 	const { virtualizer } = useVirtualListContext();
 	const items = virtualizer.getVirtualItems();
 
-	return items.map((item) => (
-		<div
-			key={item.key}
-			data-index={item.index}
-			ref={virtualizer.measureElement}
-			style={{
-				top: 0,
-				left: 0,
-				width: "100%",
-				position: "absolute",
-				height: `${item.size}px`,
-				transform: `translateY(${item.start}px)`,
-			}}
-		>
-			{children(item.index)}
-		</div>
-	));
+	return (
+		<>
+			{items.map((item) => (
+				<div
+					key={item.key}
+					data-index={item.index}
+					ref={virtualizer.measureElement}
+					style={{
+						top: 0,
+						left: 0,
+						width: "100%",
+						position: "absolute",
+						height: `${item.size}px`,
+						transform: `translateY(${item.start}px)`,
+					}}
+				>
+					{children(item.index)}
+				</div>
+			))}
+		</>
+	);
 };
