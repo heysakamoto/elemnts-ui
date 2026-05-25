@@ -8,26 +8,33 @@ export const dataListRecipe = defineSlotRecipe({
 		root: {
 			display: "flex",
 			flexDirection: "column",
+			gap: "calc({spacing.4} * 3)",
+		},
+		item: {
+			fontSize: "{fontSizes.14}",
+			lineHeight: "{lineHeights.xs}",
 		},
 		itemLabel: {
 			display: "flex",
-			alignItems: "center",
+			lineHeight: "inherit",
 			gap: "calc({spacing.4} * 1)",
+			color: "{colors.fg.tertiary}",
 		},
 		itemValue: {
 			flex: 1,
 			display: "flex",
+			lineHeight: "inherit",
 			minW: "calc({sizes.4} * 0)",
-			color: "{colors.fg.tertiary}",
+			color: "{colors.fg.primary}",
 		},
 	},
 	variants: {
 		orientation: {
 			horizontal: {
 				item: {
-					alignItems: "center",
-					display: "inline-flex",
+					display: "inline-grid",
 					gap: "calc({spacing.4} * 4)",
+					gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))",
 				},
 				itemLabel: {
 					minW: "calc({sizes.4} * 30)",
