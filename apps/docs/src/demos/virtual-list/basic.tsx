@@ -1,36 +1,23 @@
-import { Container, VirtualList } from "@moto-ui/react";
+import { Container, DecorativeBox, VirtualList } from "@moto-ui/react";
+import { ClientOnly } from "@tanstack/react-router";
 
 export function Basic() {
 	return (
 		<Container maxW="18rem">
-			<VirtualList.Root
-				count={1000}
-				estimateSize={() => 35}
-			>
-				<VirtualList.Viewport
-					style={{
-						height: "400px",
-						width: "100%",
-						border: "1px solid var(--colors-border-default)",
-						borderRadius: "var(--radii-md)",
-					}}
+			<ClientOnly>
+				<VirtualList.Root
+					count={1000}
+					estimateSize={() => 35}
 				>
-					<VirtualList.Container>
-						<VirtualList.Items>
-							{(index) => (
-								<div
-									style={{
-										padding: "8px",
-										borderBottom: "1px solid var(--colors-border-subtle)",
-									}}
-								>
-									Row {index}
-								</div>
-							)}
-						</VirtualList.Items>
-					</VirtualList.Container>
-				</VirtualList.Viewport>
-			</VirtualList.Root>
+					<VirtualList.Viewport style={{ height: 320 }}>
+						<VirtualList.Container>
+							<VirtualList.Items>
+								{(index) => <DecorativeBox h="full">{index}</DecorativeBox>}
+							</VirtualList.Items>
+						</VirtualList.Container>
+					</VirtualList.Viewport>
+				</VirtualList.Root>
+			</ClientOnly>
 		</Container>
 	);
 }
