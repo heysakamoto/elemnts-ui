@@ -1,5 +1,11 @@
 # @moto-ui/preset-base
 
+## 0.0.3
+
+### Patch Changes
+
+- b15327c: Add Stat, For, DataList and VirtualList components
+
 ## 0.0.2
 
 ### Patch Changes

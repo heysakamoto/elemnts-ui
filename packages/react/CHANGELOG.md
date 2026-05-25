@@ -1,5 +1,12 @@
 # @moto-ui/react
 
+## 0.0.3
+
+### Patch Changes
+
+- b15327c: Add Stat, For, DataList and VirtualList components
+  - @moto-ui/styled-system@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
