@@ -4,10 +4,10 @@ import { dataListRecipe } from "@moto-ui/styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(dataListRecipe);
 
-export const DataListRoot = withProvider(ark.dl, "root");
+export const DataListRoot = withProvider(ark.div, "root");
 DataListRoot.displayName = "Root";
 
-export const DataListItem = withContext(ark.div, "item");
+export const DataListItem = withContext(ark.dl, "item");
 DataListItem.displayName = "Item";
 
 export const DataListItemLabel = withContext(ark.dt, "itemLabel");
