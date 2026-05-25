@@ -1942,6 +1942,20 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "tree-view/checkbox.tsx",
 	},
+	"virtual-list:basic": {
+		component: lazy(() =>
+			import("./virtual-list/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "virtual-list/basic.tsx",
+	},
+	"virtual-list:variable-height": {
+		component: lazy(() =>
+			import("./virtual-list/variable-height").then((m) => ({
+				default: m.VariableHeight,
+			})),
+		),
+		file: "virtual-list/variable-height.tsx",
+	},
 	"wheel-picker:basic": {
 		component: lazy(() =>
 			import("./wheel-picker/basic").then((m) => ({ default: m.Basic })),

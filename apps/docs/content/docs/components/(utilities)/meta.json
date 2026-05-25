@@ -15,6 +15,7 @@
 		"substrate",
 		"swap",
 		"swatch",
-		"tag"
+		"tag",
+		"virtual-list"
 	]
 }
