@@ -1,5 +1,5 @@
 import { useVirtualizer, type Virtualizer } from "@tanstack/react-virtual";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef } from "react";
 
 interface VirtualizerContextType {
 	virtualizer: Virtualizer<HTMLDivElement, Element>;
@@ -18,20 +18,20 @@ export type UseVirtualListProps = {
 export function useVirtualList(props: UseVirtualListProps) {
 	const { count, overscan = 5, estimateSize = () => 50 } = props;
 
-	const [scrollElement, setScrollElement] = useState<HTMLDivElement | null>(
-		null,
-	);
+	const parentRef = useRef<HTMLDivElement | null>(null);
 
 	const virtualizer = useVirtualizer({
 		count,
-		getScrollElement: () => scrollElement,
-		estimateSize,
 		overscan,
+		estimateSize,
+		getScrollElement: () => parentRef.current,
 	});
 
 	return {
 		virtualizer,
-		parentRef: setScrollElement,
+		parentRef: (node: HTMLDivElement | null) => {
+			parentRef.current = node;
+		},
 	};
 }
 
