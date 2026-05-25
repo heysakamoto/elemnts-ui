@@ -9,30 +9,35 @@ import {
 	useVirtualList,
 	useVirtualListContext,
 	VirtualListContext,
+	type VirtualListContextValue,
 } from "./client";
 
-const { withRootProvider, withProvider, withContext } =
-	createStyleContext(virtualListRecipe);
+const { withProvider, withContext } = createStyleContext(virtualListRecipe);
 
-type VirtualListRootProviderBaseProps = UseVirtualListProps & {
-	children: ReactNode;
-};
+type VirtualListRootProviderBaseProps = Assign<
+	HTMLArkProps<"div">,
+	{ value: VirtualListContextValue }
+>;
 
-export const VirtualListRootProviderBase = (
-	props: VirtualListRootProviderBaseProps,
-) => {
-	const { count, overscan, estimateSize, children } = props;
-	const value = useVirtualList({ count, overscan, estimateSize });
+export const VirtualListRootProviderBase = forwardRef<
+	HTMLDivElement,
+	VirtualListRootProviderBaseProps
+>((props, ref) => {
+	const { value, ...restProps } = props;
 
 	return (
 		<VirtualListContext.Provider value={value}>
-			{children}
+			<ark.div
+				ref={ref}
+				{...restProps}
+			/>
 		</VirtualListContext.Provider>
 	);
-};
+});
 
-export const VirtualListRootProvider = withRootProvider(
+export const VirtualListRootProvider = withProvider(
 	VirtualListRootProviderBase,
+	"root",
 );
 VirtualListRootProvider.displayName = "VirtualListRootProvider";
 
@@ -57,7 +62,13 @@ export const VirtualListRootBase = forwardRef<
 	);
 });
 
-export const VirtualListRoot = withProvider(VirtualListRootBase, "root");
+export const VirtualListRoot = withProvider(VirtualListRootBase, "root", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "root",
+		"data-scope": "virtual-list",
+	},
+});
 VirtualListRoot.displayName = "VirtualListRoot";
 
 type VirtualListViewportBaseProps = HTMLArkProps<"div">;
@@ -80,6 +91,13 @@ export const VirtualListViewportBase = forwardRef<
 export const VirtualListViewport = withContext(
 	VirtualListViewportBase,
 	"viewport",
+	{
+		dataAttr: true,
+		defaultProps: {
+			"data-part": "viewport",
+			"data-scope": "virtual-list",
+		},
+	},
 );
 VirtualListViewport.displayName = "VirtualListViewport";
 
@@ -108,6 +126,13 @@ export const VirtualListContainerBase = forwardRef<
 export const VirtualListContainer = withContext(
 	VirtualListContainerBase,
 	"container",
+	{
+		dataAttr: true,
+		defaultProps: {
+			"data-part": "container",
+			"data-scope": "virtual-list",
+		},
+	},
 );
 VirtualListContainer.displayName = "VirtualListContainer";
 
@@ -116,8 +141,7 @@ type VirtualListItemsProps = {
 };
 
 export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
-	const { virtualizer } = useVirtualListContext();
-	const items = virtualizer.getVirtualItems();
+	const { items, virtualizer } = useVirtualListContext();
 
 	return (
 		<>
@@ -131,7 +155,6 @@ export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
 						left: 0,
 						width: "100%",
 						position: "absolute",
-						height: `${item.size}px`,
 						transform: `translateY(${item.start}px)`,
 					}}
 				>
