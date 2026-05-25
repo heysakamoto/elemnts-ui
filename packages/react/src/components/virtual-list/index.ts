@@ -1,8 +1,8 @@
 import type { ComponentProps } from "react";
 import {
-	VirtualListContainer,
-	VirtualListContainerBase,
-	VirtualListItems,
+	VirtualListContent,
+	VirtualListContentBase,
+	VirtualListItem,
 	VirtualListRoot,
 	VirtualListRootBase,
 	VirtualListRootProvider,
@@ -12,10 +12,8 @@ import {
 } from "./virtual-list";
 
 export type VirtualListRootProps = ComponentProps<typeof VirtualListRoot>;
-export type VirtualListContainerProps = ComponentProps<
-	typeof VirtualListContainer
->;
-export type VirtualListItemsProps = ComponentProps<typeof VirtualListItems>;
+export type VirtualListContentProps = ComponentProps<typeof VirtualListContent>;
+export type VirtualListItemProps = ComponentProps<typeof VirtualListItem>;
 export type VirtualListRootProviderProps = ComponentProps<
 	typeof VirtualListRootProvider
 >;
@@ -25,8 +23,8 @@ export type VirtualListViewportProps = ComponentProps<
 export type VirtualListRootBaseProps = ComponentProps<
 	typeof VirtualListRootBase
 >;
-export type VirtualListContainerBaseProps = ComponentProps<
-	typeof VirtualListContainerBase
+export type VirtualListContentBaseProps = ComponentProps<
+	typeof VirtualListContentBase
 >;
 export type VirtualListRootProviderBaseProps = ComponentProps<
 	typeof VirtualListRootProviderBase
@@ -37,26 +35,26 @@ export type VirtualListViewportBaseProps = ComponentProps<
 
 export const VirtualList = Object.assign(VirtualListRoot, {
 	Root: VirtualListRoot,
-	Items: VirtualListItems,
+	Items: VirtualListItem,
 	RootBase: VirtualListRootBase,
-	Container: VirtualListContainer,
+	Container: VirtualListContent,
 	Viewport: VirtualListViewport,
 	ViewportBase: VirtualListViewportBase,
 	RootProvider: VirtualListRootProvider,
-	ContainerBase: VirtualListContainerBase,
+	ContainerBase: VirtualListContentBase,
 	RootProviderBase: VirtualListRootProviderBase,
 });
 
 export type VirtualList = {
 	Props: VirtualListRootProps;
 	RootProps: VirtualListRootProps;
-	ItemsProps: VirtualListItemsProps;
+	ItemsProps: VirtualListItemProps;
 	ViewportProps: VirtualListViewportProps;
 	RootBaseProps: VirtualListRootBaseProps;
-	ContainerProps: VirtualListContainerProps;
+	ContainerProps: VirtualListContentProps;
 	ViewportBaseProps: VirtualListViewportBaseProps;
 	RootProviderProps: VirtualListRootProviderProps;
-	ContainerBaseProps: VirtualListContainerBaseProps;
+	ContainerBaseProps: VirtualListContentBaseProps;
 	RootProviderBaseProps: VirtualListRootProviderBaseProps;
 };
 
@@ -71,13 +69,13 @@ export type { UseVirtualListProps } from "./client";
 export { useVirtualList, useVirtualListContext } from "./client";
 
 export {
-	VirtualListContainer,
-	VirtualListContainerBase,
+	VirtualListContent,
+	VirtualListContentBase,
 	VirtualListRootProvider,
 	VirtualListRootProviderBase,
 	VirtualListRoot,
 	VirtualListRootBase,
-	VirtualListItems,
+	VirtualListItem,
 	VirtualListViewport,
 	VirtualListViewportBase,
 };
