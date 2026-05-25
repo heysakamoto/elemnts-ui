@@ -58,6 +58,7 @@ import { toggleGroupRecipe } from "./toggle-group";
 import { tooltipRecipe } from "./tooltip";
 import { tourRecipe } from "./tour";
 import { treeViewRecipe } from "./tree-view";
+import { virtualListRecipe } from "./virtual-list";
 import { wheelPickerRecipe } from "./wheel-picker";
 
 export const slotRecipes = {
@@ -121,5 +122,6 @@ export const slotRecipes = {
 	marqueeRecipe,
 	tourRecipe,
 	swapRecipe,
+	virtualListRecipe,
 	wheelPickerRecipe,
 };
