@@ -1,21 +1,20 @@
 {
-	"icon": "",
-	"title": "Utilities",
-	"defaultOpen": false,
-	"pages": [
-		"---utilities---",
-		"checkmark",
-		"environment",
-		"for",
-		"item",
-		"json-tree-view",
-		"portal",
-		"presence",
-		"radiomark",
-		"substrate",
-		"swap",
-		"swatch",
-		"tag",
-		"virtual-list"
-	]
+  "icon": "",
+  "title": "Utilities",
+  "defaultOpen": false,
+  "pages": [
+    "---utilities---",
+    "checkmark",
+    "environment",
+    "for",
+    "item",
+    "json-tree-view",
+    "portal",
+    "presence",
+    "radiomark",
+    "substrate",
+    "swap",
+    "swatch",
+    "tag"
+  ]
 }

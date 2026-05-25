@@ -23,7 +23,7 @@ export function Basic() {
 									h="64"
 									fontSize="14"
 								>
-									{item.index}
+									{item.index + 1}
 								</DecorativeBox>
 							</VirtualList.Item>
 						)}
