@@ -94,4 +94,5 @@ export * from "./toggle-group";
 export * from "./tooltip";
 export * from "./tour";
 export * from "./tree-view";
+export * from "./virtual-list";
 export * from "./wheel-picker";
