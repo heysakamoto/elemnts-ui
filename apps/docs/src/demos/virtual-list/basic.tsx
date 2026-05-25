@@ -7,10 +7,21 @@ export function Basic() {
 				count={1000}
 				estimateSize={() => 35}
 			>
-				<VirtualList.Viewport style={{ height: 320 }}>
+				<VirtualList.Viewport
+					h="320"
+					scrollbar="hidden"
+				>
 					<VirtualList.Container>
 						<VirtualList.Items>
-							{(index) => <DecorativeBox h="full">{index}</DecorativeBox>}
+							{(index) => (
+								<DecorativeBox
+									mt="8"
+									h="64"
+									fontSize="14"
+								>
+									{index}
+								</DecorativeBox>
+							)}
 						</VirtualList.Items>
 					</VirtualList.Container>
 				</VirtualList.Viewport>
