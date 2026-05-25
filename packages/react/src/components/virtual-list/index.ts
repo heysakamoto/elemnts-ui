@@ -37,11 +37,11 @@ export const VirtualList = Object.assign(VirtualListRoot, {
 	Root: VirtualListRoot,
 	Items: VirtualListItem,
 	RootBase: VirtualListRootBase,
-	Container: VirtualListContent,
+	Content: VirtualListContent,
 	Viewport: VirtualListViewport,
 	ViewportBase: VirtualListViewportBase,
 	RootProvider: VirtualListRootProvider,
-	ContainerBase: VirtualListContentBase,
+	ContentBase: VirtualListContentBase,
 	RootProviderBase: VirtualListRootProviderBase,
 });
 
@@ -51,10 +51,10 @@ export type VirtualList = {
 	ItemsProps: VirtualListItemProps;
 	ViewportProps: VirtualListViewportProps;
 	RootBaseProps: VirtualListRootBaseProps;
-	ContainerProps: VirtualListContentProps;
+	ContentProps: VirtualListContentProps;
 	ViewportBaseProps: VirtualListViewportBaseProps;
 	RootProviderProps: VirtualListRootProviderProps;
-	ContainerBaseProps: VirtualListContentBaseProps;
+	ContentBaseProps: VirtualListContentBaseProps;
 	RootProviderBaseProps: VirtualListRootProviderBaseProps;
 };
 
