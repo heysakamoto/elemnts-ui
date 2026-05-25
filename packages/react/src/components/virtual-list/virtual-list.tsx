@@ -2,8 +2,7 @@ import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { virtualListRecipe } from "@moto-ui/styled-system/recipes";
 import type { VirtualItem } from "@tanstack/react-virtual";
-import type { ReactNode, Ref } from "react";
-import { forwardRef } from "react";
+import { Fragment, forwardRef, type ReactNode } from "react";
 import { mergeRefs } from "../../utils/merge-ref";
 import {
 	type UseVirtualListProps,
@@ -106,13 +105,21 @@ export const VirtualListViewport = withContext(
 );
 VirtualListViewport.displayName = "VirtualListViewport";
 
-type VirtualListContainerBaseProps = HTMLArkProps<"div">;
-export const VirtualListContainerBase = forwardRef<
+type VirtualListContentBaseProps = Assign<
+	HTMLArkProps<"div">,
+	{
+		children: (props: {
+			item: VirtualItem;
+			measureElement: (node: Element | null | undefined) => void;
+		}) => ReactNode;
+	}
+>;
+export const VirtualListContentBase = forwardRef<
 	HTMLDivElement,
-	VirtualListContainerBaseProps
+	VirtualListContentBaseProps
 >((props, ref) => {
-	const { style, ...restProps } = props;
-	const { virtualizer } = useVirtualListContext();
+	const { style, children, ...restProps } = props;
+	const { virtualizer, items } = useVirtualListContext();
 
 	return (
 		<ark.div
@@ -124,12 +131,18 @@ export const VirtualListContainerBase = forwardRef<
 				...style,
 			}}
 			{...restProps}
-		/>
+		>
+			{items.map((item) => (
+				<Fragment key={item.key}>
+					{children({ item, measureElement: virtualizer.measureElement })}
+				</Fragment>
+			))}
+		</ark.div>
 	);
 });
 
-export const VirtualListContainer = withContext(
-	VirtualListContainerBase,
+export const VirtualListContent = withContext(
+	VirtualListContentBase,
 	"container",
 	{
 		dataAttr: true,
@@ -139,25 +152,44 @@ export const VirtualListContainer = withContext(
 		},
 	},
 );
-VirtualListContainer.displayName = "VirtualListContainer";
+VirtualListContent.displayName = "VirtualListContent";
 
-type VirtualListItemsProps = {
-	children: (props: {
+type VirtualListItemBaseProps = Assign<
+	HTMLArkProps<"div">,
+	{
 		item: VirtualItem;
-		measureElement: Ref<Element>;
-	}) => ReactNode;
-};
+	}
+>;
 
-export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
-	const { items, virtualizer } = useVirtualListContext();
+export const VirtualListItemBase = forwardRef<
+	HTMLDivElement,
+	VirtualListItemBaseProps
+>((props: VirtualListItemBaseProps, ref) => {
+	const { item, style, ...restProps } = props;
 
 	return (
-		<>
-			{items.map((item) => (
-				<>
-					{children({ item: item, measureElement: virtualizer.measureElement })}
-				</>
-			))}
-		</>
+		<ark.div
+			ref={ref}
+			data-index={item.index}
+			style={{
+				top: 0,
+				left: 0,
+				width: "100%",
+				position: "absolute",
+				height: `${item.size}px`,
+				transform: `translateY(${item.start}px)`,
+				...style,
+			}}
+			{...restProps}
+		/>
 	);
-};
+});
+
+export const VirtualListItem = withContext(VirtualListItemBase, "item", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "item",
+		"data-scope": "virtual-list",
+	},
+});
+VirtualListItem.displayName = "VirtualListItem";
