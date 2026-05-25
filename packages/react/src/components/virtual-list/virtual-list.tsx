@@ -132,11 +132,9 @@ export const VirtualListContentBase = forwardRef<
 			}}
 			{...restProps}
 		>
-			{items.map((item) => (
-				<Fragment key={item.key}>
-					{children({ item, measureElement: virtualizer.measureElement })}
-				</Fragment>
-			))}
+			{items.map((item) =>
+				children({ item, measureElement: virtualizer.measureElement }),
+			)}
 		</ark.div>
 	);
 });
@@ -147,7 +145,7 @@ export const VirtualListContent = withContext(
 	{
 		dataAttr: true,
 		defaultProps: {
-			"data-part": "container",
+			"data-part": "content",
 			"data-scope": "virtual-list",
 		},
 	},
@@ -164,7 +162,7 @@ type VirtualListItemBaseProps = Assign<
 export const VirtualListItemBase = forwardRef<
 	HTMLDivElement,
 	VirtualListItemBaseProps
->((props: VirtualListItemBaseProps, ref) => {
+>((props, ref) => {
 	const { item, style, ...restProps } = props;
 
 	return (
@@ -176,7 +174,6 @@ export const VirtualListItemBase = forwardRef<
 				left: 0,
 				width: "100%",
 				position: "absolute",
-				height: `${item.size}px`,
 				transform: `translateY(${item.start}px)`,
 				...style,
 			}}
