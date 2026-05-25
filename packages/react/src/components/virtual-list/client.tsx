@@ -16,7 +16,7 @@ export type UseVirtualListProps = {
 	estimateSize?: (index: number) => number;
 };
 export function useVirtualList(props: UseVirtualListProps) {
-	const { count, overscan = 5, estimateSize = () => 50 } = props;
+	const { count, overscan, estimateSize = () => 50 } = props;
 
 	const parentRef = useRef<HTMLDivElement | null>(null);
 
