@@ -35,7 +35,7 @@ export type VirtualListViewportBaseProps = ComponentProps<
 
 export const VirtualList = Object.assign(VirtualListRoot, {
 	Root: VirtualListRoot,
-	Items: VirtualListItem,
+	Item: VirtualListItem,
 	RootBase: VirtualListRootBase,
 	Content: VirtualListContent,
 	Viewport: VirtualListViewport,
@@ -48,7 +48,7 @@ export const VirtualList = Object.assign(VirtualListRoot, {
 export type VirtualList = {
 	Props: VirtualListRootProps;
 	RootProps: VirtualListRootProps;
-	ItemsProps: VirtualListItemProps;
+	ItemProps: VirtualListItemProps;
 	ViewportProps: VirtualListViewportProps;
 	RootBaseProps: VirtualListRootBaseProps;
 	ContentProps: VirtualListContentProps;
