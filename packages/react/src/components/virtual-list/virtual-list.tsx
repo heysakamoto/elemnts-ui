@@ -49,8 +49,13 @@ export const VirtualListRootBase = forwardRef<
 	HTMLDivElement,
 	VirtualListRootBaseProps
 >((props, ref) => {
-	const { count, overscan, estimateSize, ...restProps } = props;
-	const value = useVirtualList({ count, overscan, estimateSize });
+	const { count, overscan, dynamicHeight, estimateSize, ...restProps } = props;
+	const value = useVirtualList({
+		count,
+		overscan,
+		estimateSize,
+		dynamicHeight,
+	});
 
 	return (
 		<VirtualListContext.Provider value={value}>
@@ -141,7 +146,7 @@ type VirtualListItemsProps = {
 };
 
 export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
-	const { items, virtualizer } = useVirtualListContext();
+	const { items, dynamicHeight, virtualizer } = useVirtualListContext();
 
 	return (
 		<>
@@ -149,13 +154,14 @@ export const VirtualListItems = ({ children }: VirtualListItemsProps) => {
 				<div
 					key={item.key}
 					data-index={item.index}
-					ref={virtualizer.measureElement}
+					ref={dynamicHeight ? virtualizer.measureElement : null}
 					style={{
 						top: 0,
 						left: 0,
 						width: "100%",
 						position: "absolute",
 						transform: `translateY(${item.start}px)`,
+						height: dynamicHeight ? undefined : `${item.size}px`,
 					}}
 				>
 					{children(item.index)}
