@@ -10,7 +10,7 @@ import {
 import { Link, useLocation } from "@tanstack/react-router";
 import { replaceSlug } from "@/utils/url";
 
-const prompt = `“Read the slug; I’ll ask questions about it.”`;
+const prompt = `“Read the markdown: slug; I'll ask questions about it.”`;
 
 const encodedPrompt = encodeURIComponent(prompt);
 
@@ -19,7 +19,7 @@ const options = [
 		icon: "ph:markdown-logo",
 		label: "View as markdown",
 		value: "markdown",
-		url: "slug.md",
+		url: "slug",
 	},
 	{
 		icon: "ri:openai-fill",
@@ -109,7 +109,7 @@ export function AIMenu() {
 												rel="noopener noreferrer"
 												to={replaceSlug(option.url, {
 													find: "slug",
-													slug: `${url}`,
+													slug: `${url}.md`,
 												})}
 											>
 												<Menu.ItemIndicator>
