@@ -1,21 +1,21 @@
 {
-  "icon": "HomeIcon",
-  "title": "Layouts",
-  "defaultOpen": false,
-  "pages": [
-    "---layout---",
-    "box",
-    "container",
-    "decorative-box",
-    "elevated",
-    "grid",
-    "group",
-    "scroll-area",
-    "scroll-shadow",
-    "section",
-    "separator",
-    "splitter",
-    "stack",
-    "virtual-list"
-  ]
+	"icon": "HomeIcon",
+	"title": "Layouts",
+	"defaultOpen": false,
+	"pages": [
+		"---layout---",
+		"box",
+		"container",
+		"decorative-box",
+		"elevated",
+		"grid",
+		"group",
+		"scroll-area",
+		"scroll-shadow",
+		"section",
+		"separator",
+		"splitter",
+		"stack",
+		"virtual-list"
+	]
 }
