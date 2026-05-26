@@ -1,4 +1,5 @@
 import {
+	Button,
 	Combobox,
 	type ComboboxInputValueChangeDetails,
 	type ComboboxValueChangeDetails,
@@ -13,17 +14,16 @@ import {
 	Separator,
 	Spinner,
 	Surface,
+	VirtualList,
 } from "@moto-ui/react";
 import { useHotkeys } from "@tanstack/react-hotkeys";
 import { useNavigate } from "@tanstack/react-router";
-import { useVirtualizer } from "@tanstack/react-virtual";
 import type { SortedResult } from "fumadocs-core/search";
 import { useDocsSearch } from "fumadocs-core/search/client";
 import {
 	createContext,
 	type PropsWithChildren,
 	useContext,
-	useRef,
 	useState,
 } from "react";
 
@@ -52,7 +52,17 @@ export function useSearch() {
 	});
 
 	const onInputValueChange = (details: ComboboxInputValueChangeDetails) => {
-		setSearch(details.inputValue.length < 2 ? "" : details.inputValue);
+		switch (true) {
+			case details.inputValue.length === 0: {
+				return setSearch("");
+			}
+			case details.inputValue.length < 2: {
+				return;
+			}
+			default: {
+				return setSearch(details.inputValue);
+			}
+		}
 	};
 
 	const onValueChange = (details: ComboboxValueChangeDetails) => {
@@ -60,18 +70,18 @@ export function useSearch() {
 		if (item) {
 			navigate({ to: item.url });
 		}
-		setOpen(false);
+		setTimeout(() => setOpen(false), 0);
 	};
 
 	return {
-		search,
+		open,
 		query,
+		search,
+		setOpen,
 		setSearch,
 		collection,
 		onValueChange,
 		onInputValueChange,
-		open,
-		setOpen,
 	};
 }
 
@@ -109,19 +119,37 @@ export function SearchFooter() {
 			>
 				<Kbd
 					gap="16"
-					size="xs"
+					size="sm"
 					fontSize="12"
 					variant="tertiary"
 					colorPalette="neutral"
 					color="fg.secondary"
 				>
 					<Kbd.ItemGroup>
-						<Kbd.Item rounded="8">⏎</Kbd.Item>
+						<Kbd.Item rounded="8">
+							<Icon
+								width={14}
+								height={14}
+								icon="boxicons:enter"
+							/>
+						</Kbd.Item>
 						<Kbd.ItemGroupText>to select</Kbd.ItemGroupText>
 					</Kbd.ItemGroup>
-					<Kbd.ItemGroup>
-						<Kbd.Item rounded="8">↓</Kbd.Item>
-						<Kbd.Item rounded="8">↓</Kbd.Item>
+					<Kbd.ItemGroup fontSize="14">
+						<Kbd.Item rounded="8">
+							<Icon
+								width={14}
+								height={14}
+								icon="boxicons:arrow-down"
+							/>
+						</Kbd.Item>
+						<Kbd.Item rounded="8">
+							<Icon
+								width={14}
+								height={14}
+								icon="boxicons:arrow-up"
+							/>
+						</Kbd.Item>
 						<Kbd.ItemGroupText>to navigate</Kbd.ItemGroupText>
 					</Kbd.ItemGroup>
 				</Kbd>
@@ -130,28 +158,31 @@ export function SearchFooter() {
 	);
 }
 
-export function SearchInput() {
+export function SearchHeader() {
 	const { query } = useSearchContext();
 
 	return (
-		<Surface.Header>
+		<Surface.Header
+			py="8"
+			px="12"
+			gap="12"
+			align="center"
+			direction="row"
+		>
 			<InputGroup
 				size="lg"
 				rounded="20"
-				variant="tertiary"
+				variant="secondary"
 			>
 				<InputGroup.Addon pl="10">
 					<Icon
+						width={20}
+						height={20}
 						icon="tabler:search"
-						width={16}
-						height={16}
 						color="icon.secondary"
 					/>
 				</InputGroup.Addon>
-				<Combobox.Input
-					asChild
-					px="8"
-				>
+				<Combobox.Input asChild>
 					<InputGroup.Input
 						px="8"
 						fontSize="16"
@@ -169,176 +200,168 @@ export function SearchInput() {
 					</Presence>
 				</InputGroup.Addon>
 			</InputGroup>
+			<Dialog.CloseTrigger asChild>
+				<Button
+					iconOnly
+					rounded="full"
+					variant="ghost"
+					colorPalette="neutral"
+				>
+					<Icon
+						width={16}
+						height={16}
+						icon="tabler:x"
+					/>
+				</Button>
+			</Dialog.CloseTrigger>
 		</Surface.Header>
 	);
 }
 
-const icon = {
+const iconMap = {
 	text: "tabler:dots",
 	heading: "tabler:hash",
 	page: "tabler:arrow-up-right",
 };
 
 type SearchResultItemProps = {
-	item: SortedResult;
-	translateY: number;
+	item: SortedResult<string>;
 };
 
-function SearchResultItem({ item, translateY }: SearchResultItemProps) {
-	function Wrapper({ children }: PropsWithChildren) {
-		return (
-			<Combobox.Item
-				asChild
-				top="0"
-				left="0"
-				item={item}
-				fontSize="14"
-				letterSpacing="sm"
-				position="absolute"
-				style={{
-					transform: `translateY(${translateY}px)`,
-				}}
-			>
-				{children}
-			</Combobox.Item>
-		);
-	}
+function SearchResultItem(props: SearchResultItemProps) {
+	const item = props.item;
+	const html = item.content;
+	const icon = iconMap[item.type];
 
 	switch (item.type) {
 		case "page": {
 			return (
-				<Wrapper>
-					<Item
-						h="36"
-						gap="4"
-						size="lg"
-						rounded="16"
-						variant="secondary"
-						colorPalette="neutral"
-						_notHover={{ color: "fg.secondary" }}
-					>
-						<Icon
-							ml="-2"
-							width={14}
-							height={14}
-							icon={icon[item.type]}
-						/>
-						<Combobox.ItemText
-							lineHeight="xs"
-							overflow="hidden"
-							whiteSpace="nowrap"
-							textOverflow="ellipsis"
-							css={{
-								"& > *": {
-									display: "inline",
-								},
-								"& > mark": {
-									fontWeight: 500,
-									color: "neutral.primary",
-									bgColor: "transparent",
-									textDecoration: "underline",
-								},
-							}}
-							dangerouslySetInnerHTML={{
-								__html: item.content,
-							}}
-						/>
-					</Item>
-				</Wrapper>
+				<Item
+					h="36"
+					gap="4"
+					size="lg"
+					rounded="16"
+					variant="secondary"
+					colorPalette="neutral"
+					_notHover={{ color: "fg.secondary" }}
+				>
+					<Icon
+						ml="-2"
+						width={14}
+						height={14}
+						icon={icon}
+					/>
+					<Combobox.ItemText
+						lineHeight="xs"
+						overflow="hidden"
+						whiteSpace="nowrap"
+						textOverflow="ellipsis"
+						css={{
+							"& > *": {
+								display: "inline",
+							},
+							"& > mark": {
+								fontWeight: 500,
+								color: "neutral.primary",
+								bgColor: "transparent",
+								textDecoration: "underline",
+							},
+						}}
+						dangerouslySetInnerHTML={{
+							__html: html,
+						}}
+					/>
+				</Item>
 			);
 		}
 		case "heading": {
 			return (
-				<Wrapper>
-					<Item
+				<Item
+					h="36"
+					size="lg"
+					rounded="16"
+					variant="secondary"
+					colorPalette="neutral"
+					_notHover={{ color: "fg.secondary" }}
+				>
+					<Separator
 						h="36"
-						size="lg"
-						rounded="16"
-						variant="secondary"
-						colorPalette="neutral"
-						_notHover={{ color: "fg.secondary" }}
-					>
-						<Separator
-							h="36"
-							mr="8"
-							ml="6"
-							orientation="vertical"
-						/>
-						<Icon
-							ml="-2"
-							width={14}
-							height={14}
-							icon={icon[item.type]}
-						/>
-						<Combobox.ItemText
-							lineHeight="xs"
-							overflow="hidden"
-							whiteSpace="nowrap"
-							textOverflow="ellipsis"
-							css={{
-								"& > *": {
-									display: "inline",
-								},
-								"& > mark": {
-									fontWeight: 500,
-									bgColor: "transparent",
-									color: "neutral.primary",
-									textDecoration: "underline",
-								},
-							}}
-							dangerouslySetInnerHTML={{
-								__html: item.content,
-							}}
-						/>
-					</Item>
-				</Wrapper>
+						mr="8"
+						ml="6"
+						orientation="vertical"
+					/>
+					<Icon
+						ml="-2"
+						width={14}
+						height={14}
+						icon={icon}
+					/>
+					<Combobox.ItemText
+						lineHeight="xs"
+						overflow="hidden"
+						whiteSpace="nowrap"
+						textOverflow="ellipsis"
+						css={{
+							"& > *": {
+								display: "inline",
+							},
+							"& > mark": {
+								fontWeight: 500,
+								bgColor: "transparent",
+								color: "neutral.primary",
+								textDecoration: "underline",
+							},
+						}}
+						dangerouslySetInnerHTML={{
+							__html: html,
+						}}
+					/>
+				</Item>
 			);
 		}
 		default: {
 			return (
-				<Wrapper>
-					<Item
+				<Item
+					h="36"
+					size="lg"
+					rounded="16"
+					variant="secondary"
+					colorPalette="neutral"
+					_notHover={{ color: "fg.secondary" }}
+				>
+					<Separator
 						h="36"
-						size="lg"
-						rounded="16"
-						variant="secondary"
-						colorPalette="neutral"
-						_notHover={{ color: "fg.secondary" }}
-					>
-						<Separator
-							h="36"
-							mr="8"
-							ml="6"
-							orientation="vertical"
-						/>
-						<Icon
-							ml="-2"
-							width={14}
-							height={14}
-							icon={icon[item.type]}
-						/>
-						<Combobox.ItemText
-							lineHeight="xs"
-							overflow="hidden"
-							whiteSpace="nowrap"
-							textOverflow="ellipsis"
-							css={{
-								"& > *": {
-									display: "inline",
-								},
-								"& > mark": {
-									fontWeight: 500,
-									color: "neutral.primary",
-									bgColor: "transparent",
-									textDecoration: "underline",
-								},
-							}}
-							dangerouslySetInnerHTML={{
-								__html: item.content,
-							}}
-						/>
-					</Item>
-				</Wrapper>
+						mr="8"
+						ml="6"
+						orientation="vertical"
+					/>
+					<Icon
+						ml="-2"
+						width={14}
+						height={14}
+						icon={icon}
+					/>
+					<Combobox.ItemText
+						lineHeight="xs"
+						overflow="hidden"
+						whiteSpace="nowrap"
+						textOverflow="ellipsis"
+						css={{
+							"& > *": {
+								display: "inline",
+							},
+							"& > mark": {
+								fontWeight: 500,
+								color: "neutral.primary",
+								bgColor: "transparent",
+								textDecoration: "underline",
+							},
+						}}
+						dangerouslySetInnerHTML={{
+							__html: html,
+						}}
+					/>
+				</Item>
 			);
 		}
 	}
@@ -346,13 +369,6 @@ function SearchResultItem({ item, translateY }: SearchResultItemProps) {
 
 export function SearchResults() {
 	const { collection } = useSearchContext();
-	const parentRef = useRef<HTMLDivElement>(null);
-	const rowVirtualizer = useVirtualizer({
-		overscan: 8,
-		estimateSize: () => 36,
-		count: collection.items.length,
-		getScrollElement: () => parentRef.current,
-	});
 
 	if (collection.items.length === 0)
 		return (
@@ -390,57 +406,41 @@ export function SearchResults() {
 		);
 
 	return (
-		<Combobox.Content
-			ref={parentRef}
-			position="relative"
-			style={{
-				height: rowVirtualizer.getTotalSize(),
-			}}
-		>
-			{rowVirtualizer.getVirtualItems().map((vRow) => {
-				const item = collection.items[vRow.index]!;
-				const key = item.id;
+		<Combobox.Content>
+			<VirtualList
+				p="8"
+				estimateSize={() => 36}
+				count={collection.items.length}
+			>
+				<VirtualList.Viewport
+					h="89vh"
+					scrollbar="hidden"
+				>
+					<VirtualList.Content>
+						{({ item, measureElement }) => {
+							const collectionItem = collection.items[item.index]!;
 
-				return (
-					<SearchResultItem
-						key={key}
-						item={item}
-						translateY={vRow.start}
-					/>
-				);
-			})}
+							return (
+								<VirtualList.Item
+									asChild
+									item={item}
+									key={item.key}
+									ref={measureElement}
+								>
+									<Combobox.Item
+										fontSize="14"
+										letterSpacing="sm"
+										item={collectionItem}
+									>
+										<SearchResultItem item={collectionItem} />
+									</Combobox.Item>
+								</VirtualList.Item>
+							);
+						}}
+					</VirtualList.Content>
+				</VirtualList.Viewport>
+			</VirtualList>
 		</Combobox.Content>
-	);
-}
-
-export function SearchDialog() {
-	return (
-		<Portal>
-			<Dialog.Backdrop />
-			<Dialog.Positioner p="12">
-				<Dialog.Content asChild>
-					<Surface
-						delta={1}
-						rounded="24"
-					>
-						<SearchInput />
-						<Surface
-							p="8"
-							flex="1"
-							delta={1}
-							rounded="0"
-							borderX="none"
-							roundedTop="0"
-							overflow="scroll"
-							scrollbar="hidden"
-						>
-							<SearchResults />
-						</Surface>
-						<SearchFooter />
-					</Surface>
-				</Dialog.Content>
-			</Dialog.Positioner>
-		</Portal>
 	);
 }
 
@@ -454,24 +454,37 @@ export function Search(props: SearchProps) {
 
 	return (
 		<SearchProvider value={search}>
-			<Combobox
-				selectionBehavior="clear"
-				inputValue={search.search}
-				onValueChange={search.onValueChange}
-				collection={search.collection as any}
-				onInputValueChange={search.onInputValueChange}
+			<Dialog
+				open={search.open}
+				size={{ base: "full" }}
+				onEscapeKeyDown={() => search.setSearch("")}
+				onOpenChange={(details) => search.setOpen(details.open)}
 			>
-				<Dialog
-					unmountOnExit
-					open={search.open}
-					size={{ base: "full" }}
-					onEscapeKeyDown={() => search.setSearch("")}
-					onOpenChange={(details) => search.setOpen(details.open)}
-				>
-					{children({ onOpen: () => search.setOpen(true) })}
-					<SearchDialog />
-				</Dialog>
-			</Combobox>
+				{children({ onOpen: () => search.setOpen(true) })}
+				<Portal>
+					<Dialog.Backdrop />
+					<Dialog.Positioner>
+						<Dialog.Content asChild>
+							<Surface
+								asChild
+								delta={1}
+							>
+								<Combobox
+									selectionBehavior="clear"
+									inputValue={search.search}
+									collection={search.collection}
+									onValueChange={search.onValueChange}
+									onInputValueChange={search.onInputValueChange}
+								>
+									<SearchHeader />
+									<SearchResults />
+									<SearchFooter />
+								</Combobox>
+							</Surface>
+						</Dialog.Content>
+					</Dialog.Positioner>
+				</Portal>
+			</Dialog>
 		</SearchProvider>
 	);
 }

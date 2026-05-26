@@ -1,4 +1,10 @@
-import { css, Stack, Surface, Text } from "@moto-ui/react";
+import {
+	css,
+	Separator as MotoSeparator,
+	Stack,
+	Surface,
+	Text,
+} from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import type { Folder as FolderType, Item, Node } from "fumadocs-core/page-tree";
 import { useDocsLayoutContext } from "./client";
@@ -14,7 +20,7 @@ function Separator({ node }: SeparatorProps) {
 		<Text
 			mb="2"
 			px="8"
-			fontSize="12"
+			fontSize="13"
 			color="fg.tertiary"
 			textTransform="capitalize"
 			css={{
@@ -40,12 +46,14 @@ function Page({ node, onSelect }: PageProps) {
 			preload="intent"
 			activeOptions={{ exact: true }}
 			className={css({
-				py: "4",
+				h: "28",
 				px: "8",
 				rounded: "12",
 				fontSize: "13",
 				fontWeight: "500",
 				textAlign: "left",
+				alignItems: "center",
+				display: "inline-flex",
 				color: "fg.secondary",
 				"&:is([data-status=active], :hover)": {
 					color: "fg.primary",
@@ -54,6 +62,12 @@ function Page({ node, onSelect }: PageProps) {
 			})}
 			onClick={onSelect}
 		>
+			<MotoSeparator
+				ml="6"
+				mr="8"
+				h="full"
+				orientation="vertical"
+			/>
 			{node.name}
 		</Link>
 	);

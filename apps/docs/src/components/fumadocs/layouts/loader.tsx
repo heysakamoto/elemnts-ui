@@ -7,12 +7,15 @@ export function Loader() {
 				align="center"
 				justify="space-between"
 			>
-				<Text fontSize={{ base: "24", md: "32" }}>
+				<Text
+					lineHeight="1"
+					fontSize={{ base: "24", md: "28" }}
+				>
 					<Skeleton textOnly>Component</Skeleton>
 				</Text>
 				<Skeleton
-					w="8rem"
-					h="2rem"
+					w="6.5em"
+					h="1.9rem"
 				/>
 			</Stack>
 

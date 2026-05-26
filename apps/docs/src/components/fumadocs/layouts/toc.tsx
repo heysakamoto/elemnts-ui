@@ -260,14 +260,13 @@ function TocWheelPicker() {
 					}}
 					classNames={{
 						optionItem: css({
-							fontSize: "12",
+							fontSize: "13",
 						}),
 						highlightWrapper: css({
 							rounded: "12",
 						}),
 						highlightItem: css({
-							fontSize: "12",
-							fontWeight: "500",
+							fontSize: "13",
 						}),
 					}}
 				/>
