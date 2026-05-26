@@ -129,8 +129,8 @@ export function TocMobile() {
 							variant="surface"
 							disabled={!previous}
 							colorPalette="neutral"
-							backdropFilter="blur(10px)"
 							aria-label="Go to previous page"
+							style={{ backdropFilter: "blur(10px)" }}
 						>
 							<Link
 								to={previous?.url}
@@ -174,8 +174,8 @@ export function TocMobile() {
 							variant="surface"
 							disabled={!next}
 							colorPalette="neutral"
-							backdropFilter="blur(10px)"
 							aria-label="Go to next page"
+							style={{ backdropFilter: "blur(10px)" }}
 						>
 							<Link
 								to={next?.url}
