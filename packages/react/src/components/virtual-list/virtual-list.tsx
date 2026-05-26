@@ -2,7 +2,7 @@ import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { virtualListRecipe } from "@moto-ui/styled-system/recipes";
 import type { VirtualItem } from "@tanstack/react-virtual";
-import { Fragment, forwardRef, type ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 import { mergeRefs } from "../../utils/merge-ref";
 import {
 	type UseVirtualListProps,
