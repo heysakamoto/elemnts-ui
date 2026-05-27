@@ -45,22 +45,6 @@ export const TimelineIndicator = withContext(ark.div, "indicator", {
 	},
 });
 
-export const TimelineTitle = withContext(ark.div, "title", {
-	dataAttr: true,
-	defaultProps: {
-		"data-part": "title",
-		"data-scope": "timeline",
-	},
-});
-
-export const TimelineDescription = withContext(ark.div, "description", {
-	dataAttr: true,
-	defaultProps: {
-		"data-part": "description",
-		"data-scope": "timeline",
-	},
-});
-
 export const TimelineConnector = withContext(ark.div, "connector", {
 	dataAttr: true,
 	defaultProps: {

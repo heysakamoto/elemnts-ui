@@ -5,7 +5,7 @@ import { blockquoteRecipe } from "@moto-ui/styled-system/recipes";
 export const { withProvider, withContext } =
 	createStyleContext(blockquoteRecipe);
 
-export const BlockquoteRoot = withProvider(ark.div, "figure", {
+export const BlockquoteRoot = withProvider(ark.figure, "root", {
 	dataAttr: true,
 	defaultProps: {
 		"data-part": "root",
