@@ -4,6 +4,7 @@ import { boxRecipe } from "./box";
 import { buttonRecipe } from "./button";
 import { checkmarkRecipe } from "./checkmark";
 import { chipRecipe } from "./chip";
+import { codeRecipe } from "./code";
 import { containerRecipe } from "./container";
 import { decorativeBoxRecipe } from "./decorative-box";
 import { downloadRecipe } from "./download";
@@ -16,6 +17,8 @@ import { imageRecipe } from "./image";
 import { inputRecipe } from "./input";
 import { itemRecipe } from "./item";
 import { labelRecipe } from "./label";
+import { markRecipe } from "./mark";
+import { proseRecipe } from "./prose";
 import { radiomarkRecipe } from "./radiomark";
 import { scrollShadowRecipe } from "./scroll-shadow";
 import { sectionRecipe } from "./section";
@@ -58,4 +61,7 @@ export const recipes = {
 	textareaRecipe,
 	scrollShadowRecipe,
 	swatchRecipe,
+	markRecipe,
+	codeRecipe,
+	proseRecipe,
 };

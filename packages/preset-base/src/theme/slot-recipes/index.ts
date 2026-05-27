@@ -3,6 +3,8 @@ import { alertRecipe } from "./alert";
 import { angleSliderRecipe } from "./angle-slider";
 import { avatarRecipe } from "./avatar";
 import { badgeRecipe } from "./badge";
+import { blockquoteRecipe } from "./blockquote";
+import { breadcrumbRecipe } from "./breadcrumb";
 import { buttonGroupRecipe } from "./button-group";
 import { carouselRecipe } from "./carousel";
 import { checkboxRecipe } from "./checkbox";
@@ -41,6 +43,7 @@ import { segmentGroupRecipe } from "./segment-group";
 import { selectRecipe } from "./select";
 import { signaturePadRecipe } from "./signature-pad";
 import { sliderRecipe } from "./slider";
+import { sortableRecipe } from "./sortable";
 import { splitterRecipe } from "./splitter";
 import { statRecipe } from "./stat";
 import { statusRecipe } from "./status";
@@ -51,6 +54,7 @@ import { switchRecipe } from "./switch";
 import { tabsRecipe } from "./tabs";
 import { tagsInputRecipe } from "./tags-input";
 import { tileRecipe } from "./tile";
+import { timelineRecipe } from "./timeline";
 import { timerRecipe } from "./timer";
 import { toastRecipe } from "./toast";
 import { toggleRecipe } from "./toggle";
@@ -124,4 +128,8 @@ export const slotRecipes = {
 	swapRecipe,
 	virtualListRecipe,
 	wheelPickerRecipe,
+	breadcrumbRecipe,
+	blockquoteRecipe,
+	timelineRecipe,
+	sortableRecipe,
 };
