@@ -60,6 +60,7 @@
 	},
 	"dependencies": {
 		"@ark-ui/react": "^5.18.4",
+		"@dnd-kit/react": "^0.4.0",
 		"@iconify/react": "^6.0.2",
 		"@ncdai/react-wheel-picker": "^1.2.2",
 		"@tanstack/react-virtual": "^3.13.18"
