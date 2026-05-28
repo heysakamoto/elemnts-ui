@@ -52,7 +52,7 @@ SortableItemHandleBase.displayName = "SortableItemHandleBase";
 
 export const SortableItemHandle = withContext(
 	SortableItemHandleBase,
-	"handle",
+	"itemHandle",
 	{
 		dataAttr: true,
 		defaultProps: {
