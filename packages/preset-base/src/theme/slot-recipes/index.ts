@@ -26,6 +26,7 @@ import { imageCropperRecipe } from "./image-cropper";
 import { inputGroupRecipe } from "./input-group";
 import { jsonTreeViewRecipe } from "./json-tree-view";
 import { kbdRecipe } from "./kbd";
+import { listRecipe } from "./list";
 import { listboxRecipe } from "./listbox";
 import { marqueeRecipe } from "./marquee";
 import { menuRecipe } from "./menu";
@@ -132,4 +133,5 @@ export const slotRecipes = {
 	blockquoteRecipe,
 	timelineRecipe,
 	sortableRecipe,
+	listRecipe,
 };

@@ -2,7 +2,7 @@ import { defineSlotRecipe } from "@pandacss/dev";
 
 export const blockquoteRecipe = defineSlotRecipe({
 	className: "blockquote",
-	slots: ["root", "cite", "caption", "indication", "content"],
+	slots: ["root", "cite", "caption", "indicator", "content"],
 	base: {
 		root: {
 			display: "flex",
@@ -14,7 +14,7 @@ export const blockquoteRecipe = defineSlotRecipe({
 			fontSize: "12",
 			color: "{colors.fg.tertiary}",
 		},
-		indication: {
+		indicator: {
 			alignItems: "center",
 			display: "inline-flex",
 			justifyContent: "center",
