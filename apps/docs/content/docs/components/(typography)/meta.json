@@ -1,6 +1,13 @@
 {
-	"icon": "HomeIcon",
-	"title": "Typography",
-	"defaultOpen": false,
-	"pages": ["---typography---", "anchor", "highlight", "kbd", "text"]
+  "icon": "HomeIcon",
+  "title": "Typography",
+  "defaultOpen": false,
+  "pages": [
+    "---typography---",
+    "anchor",
+    "highlight",
+    "kbd",
+    "mark",
+    "text"
+  ]
 }
