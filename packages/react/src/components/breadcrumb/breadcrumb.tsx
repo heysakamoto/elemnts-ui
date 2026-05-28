@@ -41,7 +41,7 @@ export const BreadcrumbLink = withContext(ark.a, "link", {
 });
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
-export const BreadcrumbCurrentLink = withContext(ark.span, "current-link", {
+export const BreadcrumbCurrentLink = withContext(ark.span, "currentLink", {
 	dataAttr: true,
 	defaultProps: {
 		role: "link",
