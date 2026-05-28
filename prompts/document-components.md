@@ -108,6 +108,7 @@ Include:
 - Feature sections
 - Props API tables
 - Accessibility notes
+- Headings in the correct order
 
 ---
 
