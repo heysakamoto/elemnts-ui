@@ -980,6 +980,24 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "locale/rtl.tsx",
 	},
+	"mark:basic": {
+		component: lazy(() =>
+			import("./mark/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "mark/basic.tsx",
+	},
+	"mark:palettes": {
+		component: lazy(() =>
+			import("./mark/palettes").then((m) => ({ default: m.Palettes })),
+		),
+		file: "mark/palettes.tsx",
+	},
+	"mark:variants": {
+		component: lazy(() =>
+			import("./mark/variants").then((m) => ({ default: m.Variants })),
+		),
+		file: "mark/variants.tsx",
+	},
 	"marquee:basic": {
 		component: lazy(() =>
 			import("./marquee/basic").then((m) => ({ default: m.Basic })),

@@ -1,0 +1,38 @@
+---
+title: Mark
+description: Highlights text for reference or notation purposes.
+---
+
+<ComponentPreview name="mark:basic" />
+
+### Usage
+Use the `Mark` component to visually highlight parts of a text sentence or paragraph.
+
+```tsx
+import { Mark } from "@moto-ui/react"
+```
+
+```tsx
+<Text>
+	Make sure to <Mark>highlight</Mark> important terms in your text.
+</Text>
+```
+
+### Variants
+Use the `variant` prop to change the styling of the highlighted text. The component supports `primary`, `secondary`, `tertiary`, and `underline` variants.
+
+<ComponentPreview name="mark:variants" />
+
+### Palettes
+Use the `colorPalette` prop to apply different color themes to the highlight.
+
+<ComponentPreview name="mark:palettes" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| variant | `'primary' \| 'secondary' \| 'tertiary' \| 'underline'` | `'primary'` | The variant of the component |
+| colorPalette | `string` | `undefined` | The color palette of the component |
+| as | `React.ElementType` | `undefined` | The underlying element to render. |
+| asChild | `boolean` | `undefined` | Use the provided child element as the default rendered element, combining their props and behavior. |
