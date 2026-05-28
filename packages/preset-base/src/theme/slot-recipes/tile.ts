@@ -12,7 +12,6 @@ export const tileRecipe = defineSlotRecipe({
 			py: "var(--tile-py)",
 			position: "relative",
 			justifyContent: "start",
-			colorPalette: "accent",
 			bgColor: "var(--tile-bg)",
 			fontSize: "{fontSizes.14}",
 			color: "var(--tile-color)",

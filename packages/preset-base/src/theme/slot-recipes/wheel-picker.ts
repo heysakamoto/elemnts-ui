@@ -5,8 +5,6 @@ export const wheelPickerRecipe = defineSlotRecipe({
 	slots: ["root"],
 	base: {
 		root: {
-			colorPalette: "accent",
-
 			"& [data-rwp-wrapper]": {
 				display: "flex",
 				userSelect: "none",

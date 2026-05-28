@@ -8,7 +8,6 @@ export const tagRecipe = defineRecipe({
 		alignItems: "center",
 		h: "var(--tag-size)",
 		rounded: "{radii.12}",
-		colorPalette: "accent",
 		display: "inline-flex",
 		justifyContent: "center",
 		bgColor: "var(--tag-bg)",

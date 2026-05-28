@@ -4,9 +4,7 @@ export const ratingGroupRecipe = defineSlotRecipe({
 	className: "rating-group",
 	slots: ["root", "control", "label", "item", "itemIndicator"],
 	base: {
-		root: {
-			colorPalette: "accent",
-		},
+		root: {},
 		label: {},
 		control: {
 			display: "flex",

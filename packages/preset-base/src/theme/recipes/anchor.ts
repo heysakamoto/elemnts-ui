@@ -9,7 +9,6 @@ export const anchorRecipe = defineRecipe({
 		position: "relative",
 		userSelect: "none",
 		alignItems: "center",
-		colorPalette: "accent",
 		display: "inline-flex",
 		color: "{colors.colorPalette.primary}",
 

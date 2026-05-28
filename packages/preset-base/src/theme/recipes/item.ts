@@ -9,7 +9,6 @@ export const itemRecipe = defineRecipe({
 		gap: "{spacing.8}",
 		position: "relative",
 		alignItems: "center",
-		colorPalette: "accent",
 		display: "inline-flex",
 		justifyContent: "start",
 		bgColor: "var(--item-bg)",

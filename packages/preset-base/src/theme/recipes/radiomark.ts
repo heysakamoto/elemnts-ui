@@ -9,7 +9,6 @@ export const radiomarkRecipe = defineRecipe({
 		alignItems: "center",
 		position: "relative",
 		boxSize: "var(--size)",
-		colorPalette: "accent",
 		rounded: "{radii.full}",
 		justifyContent: "center",
 		shadow: "{shadows.2}",

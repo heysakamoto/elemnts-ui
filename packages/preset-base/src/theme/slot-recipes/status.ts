@@ -7,7 +7,6 @@ export const statusRecipe = defineSlotRecipe({
 		root: {
 			alignItems: "center",
 			display: "inline-flex",
-			colorPalette: "accent",
 			gap: "calc({sizes.4} * 1)",
 		},
 		indicator: {

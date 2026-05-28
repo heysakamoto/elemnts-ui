@@ -9,7 +9,6 @@ export const kbdRecipe = defineSlotRecipe({
 			userSelect: "none",
 			alignItems: "center",
 			display: "inline-flex",
-			colorPalette: "accent",
 			fontSize: "{fontSizes.14}",
 			gap: "calc({sizes.4} * 3)",
 		},
