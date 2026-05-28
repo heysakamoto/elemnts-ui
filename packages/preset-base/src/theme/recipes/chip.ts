@@ -11,7 +11,6 @@ export const chipRecipe = defineRecipe({
 		px: "var(--chip-px)",
 		alignItems: "center",
 		h: "var(--chip-size)",
-		colorPalette: "accent",
 		display: "inline-flex",
 		rounded: "{radii.full}",
 		justifyContent: "center",

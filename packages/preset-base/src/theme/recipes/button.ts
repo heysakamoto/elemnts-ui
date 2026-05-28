@@ -13,7 +13,6 @@ export const buttonRecipe = defineRecipe({
 		userSelect: "none",
 		alignItems: "center",
 		rounded: "{radii.12}",
-		colorPalette: "accent",
 		display: "inline-flex",
 		px: "var(--btn-px)",
 		justifyContent: "center",

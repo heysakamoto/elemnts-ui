@@ -8,7 +8,6 @@ export const buttonGroupRecipe = defineSlotRecipe({
 	base: {
 		root: {
 			display: "flex",
-			colorPalette: "accent",
 
 			"& > *": {
 				_active: {

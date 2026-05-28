@@ -9,7 +9,6 @@ export const checkmarkRecipe = defineRecipe({
 		position: "relative",
 		alignItems: "center",
 		display: "inline-flex",
-		colorPalette: "accent",
 		rounded: "{radii.full}",
 		justifyContent: "center",
 

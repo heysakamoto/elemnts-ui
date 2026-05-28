@@ -8,7 +8,6 @@ export const checkboxRecipe = defineSlotRecipe({
 			gap: "{spacing.8}",
 			alignItems: "center",
 			display: "inline-flex",
-			colorPalette: "accent",
 			justifyContent: "start",
 
 			_focusVisible: {

@@ -2,6 +2,7 @@ import { defineGlobalStyles } from "@pandacss/dev";
 
 export const globalCss = defineGlobalStyles({
 	":root": {
+		colorPalette: "accent",
 		colorScheme: "light dark",
 	},
 

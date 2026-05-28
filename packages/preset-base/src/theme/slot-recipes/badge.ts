@@ -6,7 +6,6 @@ export const badgeRecipe = defineSlotRecipe({
 	base: {
 		root: {
 			position: "relative",
-			colorPalette: "accent",
 			display: "inline-flex",
 			boxSize: "max-content",
 		},
