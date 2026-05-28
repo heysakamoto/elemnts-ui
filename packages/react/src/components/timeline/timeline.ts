@@ -11,6 +11,7 @@ export const TimelineRoot = withProvider(ark.div, "root", {
 		"data-scope": "timeline",
 	},
 });
+TimelineRoot.displayName = "TimelineRoot";
 
 export const TimelineContent = withContext(ark.div, "content", {
 	dataAttr: true,
@@ -19,6 +20,7 @@ export const TimelineContent = withContext(ark.div, "content", {
 		"data-scope": "timeline",
 	},
 });
+TimelineContent.displayName = "TimelineContent";
 
 export const TimelineItem = withContext(ark.div, "item", {
 	dataAttr: true,
@@ -28,6 +30,7 @@ export const TimelineItem = withContext(ark.div, "item", {
 		"data-scope": "timeline",
 	},
 });
+TimelineItem.displayName = "TimelineItem";
 
 export const TimelineSeparator = withContext(ark.div, "separator", {
 	dataAttr: true,
@@ -36,6 +39,7 @@ export const TimelineSeparator = withContext(ark.div, "separator", {
 		"data-scope": "timeline",
 	},
 });
+TimelineSeparator.displayName = "TimelineSeparator";
 
 export const TimelineIndicator = withContext(ark.div, "indicator", {
 	dataAttr: true,
@@ -44,6 +48,7 @@ export const TimelineIndicator = withContext(ark.div, "indicator", {
 		"data-scope": "timeline",
 	},
 });
+TimelineIndicator.displayName = "TimelineIndicator";
 
 export const TimelineConnector = withContext(ark.div, "connector", {
 	dataAttr: true,
@@ -52,3 +57,4 @@ export const TimelineConnector = withContext(ark.div, "connector", {
 		"data-scope": "timeline",
 	},
 });
+TimelineConnector.displayName = "TimelineConnector";

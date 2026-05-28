@@ -12,6 +12,7 @@ export const ListRoot = withProvider(ark.ul, "root", {
 		"data-scope": "list",
 	},
 });
+ListRoot.displayName = "ListRoot";
 
 export const ListItem = withContext(ark.li, "item", {
 	dataAttr: true,
@@ -21,6 +22,7 @@ export const ListItem = withContext(ark.li, "item", {
 		"data-scope": "list",
 	},
 });
+ListItem.displayName = "ListItem";
 
 export const ListIndicator = withContext(ark.span, "indicator", {
 	dataAttr: true,
@@ -30,3 +32,4 @@ export const ListIndicator = withContext(ark.span, "indicator", {
 		"data-scope": "list",
 	},
 });
+ListIndicator.displayName = "ListIndicator";

@@ -12,6 +12,7 @@ export const BlockquoteRoot = withProvider(ark.figure, "root", {
 		"data-scope": "blockquote",
 	},
 });
+BlockquoteRoot.displayName = "BlockquoteRoot";
 
 export const BlockquoteContent = withContext(ark.blockquote, "content", {
 	dataAttr: true,
@@ -20,6 +21,7 @@ export const BlockquoteContent = withContext(ark.blockquote, "content", {
 		"data-scope": "blockquote",
 	},
 });
+BlockquoteContent.displayName = "BlockquoteContent";
 
 export const BlockquoteCite = withContext(ark.cite, "cite", {
 	dataAttr: true,
@@ -28,6 +30,7 @@ export const BlockquoteCite = withContext(ark.cite, "cite", {
 		"data-scope": "blockquote",
 	},
 });
+BlockquoteCite.displayName = "BlockquoteCite";
 
 export const BlockquoteCaption = withContext(ark.figcaption, "caption", {
 	dataAttr: true,
@@ -36,6 +39,7 @@ export const BlockquoteCaption = withContext(ark.figcaption, "caption", {
 		"data-scope": "blockquote",
 	},
 });
+BlockquoteCaption.displayName = "BlockquoteCaption";
 
 export const BlockquoteIndicator = withContext(ark.span, "indicator", {
 	dataAttr: true,
@@ -44,3 +48,4 @@ export const BlockquoteIndicator = withContext(ark.span, "indicator", {
 		"data-scope": "blockquote",
 	},
 });
+BlockquoteIndicator.displayName = "BlockquoteIndicator";
