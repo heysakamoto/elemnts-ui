@@ -54,7 +54,7 @@ export const toastRecipe = defineSlotRecipe({
 				colorPalette: "accent",
 			},
 
-			"&:noy([data-type])": {
+			"&:not([data-type])": {
 				colorPalette: "neutral",
 			},
 
