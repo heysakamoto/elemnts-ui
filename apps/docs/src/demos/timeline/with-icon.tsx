@@ -20,7 +20,10 @@ export function WithIcon() {
 						>
 							<Timeline.Connector>
 								<Timeline.Separator asChild>
-									<Separator orientation="vertical" />
+									<Separator
+										h="full"
+										orientation="vertical"
+									/>
 								</Timeline.Separator>
 								<Timeline.Indicator>
 									<Chip
