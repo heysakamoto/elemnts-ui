@@ -1,0 +1,90 @@
+---
+title: Blockquote
+description: Displays a quotation with optional attribution.
+---
+
+<ComponentPreview name="blockquote:basic" />
+
+### Usage
+The `Blockquote` component is a compound component that provides a semantic way to display quotations.
+```tsx
+import { Blockquote } from "@moto-ui/react"
+```
+
+```tsx
+<Blockquote>
+  <BlockquoteContent>
+    <p>
+      The best way to predict the future is to invent it.
+    </p>
+  </BlockquoteContent>
+  <BlockquoteCaption>
+    — Alan Kay, Computer Scientist
+  </BlockquoteCaption>
+</Blockquote>
+```
+
+### Structure
+The Blockquote component consists of several parts that can be used together or individually.
+
+#### BlockquoteContent
+The main content of the quotation.
+```tsx
+<Blockquote>
+  <BlockquoteContent>
+    <p>
+      The best way to predict the future is to invent it.
+    </p>
+  </BlockquoteContent>
+</Blockquote>
+```
+
+#### BlockquoteCaption
+The attribution or source of the quotation.
+```tsx
+<Blockquote>
+  <BlockquoteContent>
+    <p>
+      The best way to predict the future is to invent it.
+    </p>
+  </BlockquoteContent>
+  <BlockquoteCaption>
+    — Alan Kay, Computer Scientist
+  </BlockquoteCaption>
+</Blockquote>
+```
+
+#### BlockquoteCite
+A citation reference, typically used for the title of a work.
+```tsx
+<Blockquote>
+  <BlockquoteContent>
+    <p>
+      The best way to predict the future is to invent it.
+    </p>
+  </BlockquoteContent>
+  <BlockquoteCite>
+    Alan Kay, in a 1971 interview with Datamation
+  </BlockquoteCite>
+</Blockquote>
+```
+
+#### BlockquoteIndicator
+A visual indicator, often used to denote the opening or closing of a quote.
+```tsx
+<Blockquote>
+  <BlockquoteIndicator>“</BlockquoteIndicator>
+  <BlockquoteContent>
+    <p>
+      The best way to predict the future is to invent it.
+    </p>
+  </BlockquoteContent>
+  <BlockquoteIndicator>”</BlockquoteIndicator>
+</Blockquote>
+```
+
+### Styling
+The Blockquote component uses the `blockquoteRecipe` for styling, which allows you to customize the appearance via props.
+
+### Accessibility
+The Blockquote component is designed to be accessible out of the box. It uses semantic HTML elements (`figure`, `blockquote`, `cite`, `figcaption`) to ensure proper announcement by screen readers.

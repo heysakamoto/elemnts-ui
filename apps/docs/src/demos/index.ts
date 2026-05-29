@@ -156,6 +156,12 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "badge/variants.tsx",
 	},
+	"blockquote:basic": {
+		component: lazy(() =>
+			import("./blockquote/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "blockquote/basic.tsx",
+	},
 	"box:basic": {
 		component: lazy(() =>
 			import("./box/basic").then((m) => ({ default: m.Basic })),
@@ -173,6 +179,28 @@ export const demos: Record<string, DemoItem> = {
 			import("./box/shorthand").then((m) => ({ default: m.Shorthand })),
 		),
 		file: "box/shorthand.tsx",
+	},
+	"breadcrumb:basic": {
+		component: lazy(() =>
+			import("./breadcrumb/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "breadcrumb/basic.tsx",
+	},
+	"breadcrumb:collapsed": {
+		component: lazy(() =>
+			import("./breadcrumb/collapsed").then((m) => ({
+				default: m.Collapsed,
+			})),
+		),
+		file: "breadcrumb/collapsed.tsx",
+	},
+	"breadcrumb:custom-separator": {
+		component: lazy(() =>
+			import("./breadcrumb/custom-separator").then((m) => ({
+				default: m.CustomSeparator,
+			})),
+		),
+		file: "breadcrumb/custom-separator.tsx",
 	},
 	"button:basic": {
 		component: lazy(() =>
@@ -349,6 +377,24 @@ export const demos: Record<string, DemoItem> = {
 			import("./clipboard/with-input").then((m) => ({ default: m.WithInput })),
 		),
 		file: "clipboard/with-input.tsx",
+	},
+	"code:basic": {
+		component: lazy(() =>
+			import("./code/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "code/basic.tsx",
+	},
+	"code:sizes": {
+		component: lazy(() =>
+			import("./code/sizes").then((m) => ({ default: m.Sizes })),
+		),
+		file: "code/sizes.tsx",
+	},
+	"code:variants": {
+		component: lazy(() =>
+			import("./code/variants").then((m) => ({ default: m.Variants })),
+		),
+		file: "code/variants.tsx",
 	},
 	"collapsible:basic": {
 		component: lazy(() =>
@@ -948,6 +994,38 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "kbd/variants.tsx",
 	},
+	"label:basic": {
+		component: lazy(() =>
+			import("./label/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "label/basic.tsx",
+	},
+	"list:basic": {
+		component: lazy(() =>
+			import("./list/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "list/basic.tsx",
+	},
+	"list:nested": {
+		component: lazy(() =>
+			import("./list/nested").then((m) => ({ default: m.Nested })),
+		),
+		file: "list/nested.tsx",
+	},
+	"list:ordered": {
+		component: lazy(() =>
+			import("./list/ordered").then((m) => ({ default: m.Ordered })),
+		),
+		file: "list/ordered.tsx",
+	},
+	"list:with-indicator": {
+		component: lazy(() =>
+			import("./list/with-indicator").then((m) => ({
+				default: m.WithIndicator,
+			})),
+		),
+		file: "list/with-indicator.tsx",
+	},
 	"listbox:basic": {
 		component: lazy(() =>
 			import("./listbox/basic").then((m) => ({ default: m.Basic })),
@@ -1223,6 +1301,12 @@ export const demos: Record<string, DemoItem> = {
 			import("./progress/with-label").then((m) => ({ default: m.WithLabel })),
 		),
 		file: "progress/with-label.tsx",
+	},
+	"prose:basic": {
+		component: lazy(() =>
+			import("./prose/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "prose/basic.tsx",
 	},
 	"qr-code:basic": {
 		component: lazy(() =>
@@ -1751,6 +1835,24 @@ export const demos: Record<string, DemoItem> = {
 			import("./tags-input/clearable").then((m) => ({ default: m.Clearable })),
 		),
 		file: "tags-input/clearable.tsx",
+	},
+	"timeline:basic": {
+		component: lazy(() =>
+			import("./timeline/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "timeline/basic.tsx",
+	},
+	"timeline:outline": {
+		component: lazy(() =>
+			import("./timeline/outline").then((m) => ({ default: m.Outline })),
+		),
+		file: "timeline/outline.tsx",
+	},
+	"timeline:with-icon": {
+		component: lazy(() =>
+			import("./timeline/with-icon").then((m) => ({ default: m.WithIcon })),
+		),
+		file: "timeline/with-icon.tsx",
 	},
 	"text:basic": {
 		component: lazy(() =>

@@ -18,9 +18,11 @@ type SeparatorProps = {
 function Separator({ node }: SeparatorProps) {
 	return (
 		<Text
-			mb="2"
+			mb="4"
 			px="8"
-			fontSize="13"
+			fontSize="12"
+			fontFamily="mono"
+			letterSpacing="xs"
 			color="fg.tertiary"
 			textTransform="capitalize"
 			css={{
@@ -91,7 +93,7 @@ function Folder({ node, onSelect }: FolderProps) {
 				},
 			}}
 		>
-			<Surface.Content gap="2">
+			<Surface.Content>
 				{node.children.map((child) => {
 					return (
 						<Switch

@@ -1,0 +1,29 @@
+---
+title: Label
+description: A label component used to display text labels for form controls and sections.
+---
+
+<ComponentPreview name="label:basic" />
+
+### Usage
+The `Label` component is a styled text element used for labeling form controls, sections, or any UI element that needs a visual label.
+
+```tsx
+import { Label } from "@moto-ui/react"
+
+<Label>Email address</Label>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+The `Label` component also accepts all standard HTML div attributes and Panda CSS style props.
+
+### Accessibility
+The `Label` component renders as a `<div>` element with the `label` class. For proper form labeling, pair it with the `Field` component which provides an accessible `<label>` element via `Field.Label`.
+
+### CSS Variables
+This component does not use any custom CSS variables. It relies on standard Panda CSS tokens for styling.

@@ -1,0 +1,87 @@
+---
+title: Breadcrumb
+description: Shows the user's current location within a hierarchy of pages, with links to previous levels
+---
+
+<ComponentPreview name="breadcrumb:basic" />
+
+
+### Usage
+Use Breadcrumb to display a navigation trail that helps users understand their current location and navigate back through a hierarchy of pages.
+
+- Use `Breadcrumb.Root` as the outermost wrapper (renders a `<nav>` element with `aria-label="breadcrumb"`).
+- Use `Breadcrumb.List` for the ordered list of breadcrumb items.
+- Wrap each step in `Breadcrumb.Item`.
+- Use `Breadcrumb.Link` for clickable ancestor links and `Breadcrumb.CurrentLink` for the current page.
+- Place `Breadcrumb.Separator` between items for visual separation (it is hidden from assistive technology by default).
+
+```tsx
+import { Breadcrumb } from '@moto-ui/react';
+
+<Breadcrumb.Root>
+  <Breadcrumb.List>
+    <Breadcrumb.Item>
+      <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+      <Breadcrumb.Separator />
+    </Breadcrumb.Item>
+    <Breadcrumb.Item>
+      <Breadcrumb.CurrentLink>Current Page</Breadcrumb.CurrentLink>
+    </Breadcrumb.Item>
+  </Breadcrumb.List>
+</Breadcrumb.Root>
+```
+
+### Collapsed
+Use `Breadcrumb.Ellipsis` to hide intermediate items when the breadcrumb trail is long.
+
+<ComponentPreview name="breadcrumb:collapsed" />
+
+### Custom Separator
+Replace the default chevron separator by passing children to `Breadcrumb.Separator`.
+
+<ComponentPreview name="breadcrumb:custom-separator" />
+
+### Props
+
+**Root**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `nav` | The element to render the root as |
+
+**List**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `ol` | The element to render the list as |
+
+**Item**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `li` | The element to render the item as |
+
+**Link**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `a` | The element to render the link as |
+| href | `string` | - | URL the link points to |
+
+**CurrentLink**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `span` | The element to render the current link as |
+
+**Separator**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `li` | The element to render the separator as |
+| children | `React.ReactNode` | `<Icon icon="tabler:chevron-right" />` | Custom separator icon |
+
+**Ellipsis**
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `React.ElementType` | `span` | The element to render the ellipsis as |
+
+### Accessibility
+- `Breadcrumb.Root` renders a `<nav>` element that can be labeled with an `aria-label` for screen readers.
+- `Breadcrumb.Separator` and `Breadcrumb.Ellipsis` are hidden from assistive technology with `aria-hidden="true"`.
+- `Breadcrumb.CurrentLink` uses `aria-current="page"` to indicate the current page.
+- The ordered list (`Breadcrumb.List`) preserves the natural hierarchy for screen readers.
