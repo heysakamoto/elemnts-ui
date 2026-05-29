@@ -1,0 +1,44 @@
+---
+title: Code
+description: Displays inline code or code snippets
+---
+
+### Overview
+The `Code` component is used to display inline code or short code snippets. It styles the default HTML `<code>` element using design tokens to ensure consistent typography and background highlights.
+
+<ComponentPreview name="code:basic" />
+
+### Usage
+
+```tsx
+import { Code } from "@moto-ui/react"
+```
+
+```tsx
+<Code>npm install @moto-ui/react</Code>
+```
+
+### Sizes
+Use the `size` prop to change the font size and padding of the code block.
+
+<ComponentPreview name="code:sizes" />
+
+### Variants
+Use the `variant` prop to change the visual styling of the code block.
+
+<ComponentPreview name="code:variants" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| colorPalette | `'accent' \| 'neutral' \| 'warning' \| 'success' \| 'destructive'` | `'accent'` | The color palette of the component |
+| variant | `'primary' \| 'secondary' \| 'tertiary' \| 'surface' \| 'ghost'` | `'primary'` | The variant of the component |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | The size of the component |
+| iconOnly | `boolean` | `false` | Render only the icon (if applicable) |
+| as | `React.ElementType` | `undefined` | The underlying element to render |
+| asChild | `boolean` | `undefined` | Use the provided child element as the default rendered element, combining their props and behavior |
+
+### Accessibility
+- Renders as a semantic `<code>` HTML element.
+- Retains correct visual contrast ratios in both light and dark modes when combined with appropriate color palettes.

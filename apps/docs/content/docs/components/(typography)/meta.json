@@ -5,9 +5,12 @@
   "pages": [
     "---typography---",
     "anchor",
+    "blockquote",
+    "code",
     "highlight",
     "kbd",
     "mark",
+    "prose",
     "text"
   ]
 }

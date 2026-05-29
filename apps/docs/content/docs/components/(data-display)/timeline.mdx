@@ -1,0 +1,134 @@
+---
+title: Timeline
+description: Displays a sequence of events or milestones in chronological order.
+---
+
+<ComponentPreview name="timeline:basic" />
+
+### Usage
+
+The `Timeline` component is used to display a sequence of events, steps, or milestones in chronological order. It consists of items with separators containing an indicator dot and an optional connector line.
+
+```tsx
+import { Timeline } from "@moto-ui/react"
+
+<Timeline>
+	<Timeline.Item>
+		<Timeline.Separator>
+			<Timeline.Indicator />
+			<Timeline.Connector />
+		</Timeline.Separator>
+		<Timeline.Content>
+			<p>Event content</p>
+		</Timeline.Content>
+	</Timeline.Item>
+</Timeline>
+```
+
+### Examples
+
+#### With Icon
+
+Use custom icons as timeline indicators to add visual context to each event.
+
+<ComponentPreview name="timeline:with-icon" />
+
+#### Outline
+
+Apply an outline style to the indicator for a lighter visual appearance.
+
+<ComponentPreview name="timeline:outline" />
+
+### Props
+
+**Root**
+
+The `Timeline.Root` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+The `Timeline.Item` component accepts all standard `div` props with the `listitem` role.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Separator**
+
+The `Timeline.Separator` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+The `Timeline.Indicator` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Connector**
+
+The `Timeline.Connector` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+The `Timeline.Content` component accepts all standard `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="timeline"]` | The component scope. |
+| `[data-part="root"]` | The root part. |
+
+**Item**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="timeline"]` | The component scope. |
+| `[data-part="item"]` | The item part. |
+
+**Separator**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="timeline"]` | The component scope. |
+| `[data-part="separator"]` | The separator part. |
+
+**Indicator**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="timeline"]` | The component scope. |
+| `[data-part="indicator"]` | The indicator part. |
+
+**Connector**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="timeline"]` | The component scope. |
+| `[data-part="connector"]` | The connector part. |
+
+**Content**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="timeline"]` | The component scope. |
+| `[data-part="content"]` | The content part. |

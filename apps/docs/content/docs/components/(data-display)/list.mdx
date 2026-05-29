@@ -1,0 +1,73 @@
+---
+title: List
+description: Displays a list of items with optional indicators and nested structure support.
+---
+
+<ComponentPreview name="list:basic" />
+
+### Usage
+Use `List` to present a collection of items in a structured vertical layout. It supports both unordered and ordered lists, custom indicators, and nested hierarchies.
+
+```tsx
+import { List } from "@moto-ui/react"
+
+export function Demo() {
+	return (
+		<List.Root>
+			<List.Item>Introduction to Moto UI</List.Item>
+			<List.Item>Installation and Setup</List.Item>
+			<List.Item>Component Overview</List.Item>
+		</List.Root>
+	)
+}
+```
+
+### Ordered List
+Use the `as` prop to render an ordered list. Apply custom styles to adjust the list numbering as needed.
+
+<ComponentPreview name="list:ordered" />
+
+
+
+### With Indicators
+Use `List.Indicator` to add icons or other visual markers alongside list items.
+
+<ComponentPreview name="list:with-indicator" />
+
+### Nested Lists
+Nest lists to create hierarchical structures such as navigation menus or table of contents.
+
+<ComponentPreview name="list:nested" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| as | `"ul" \| "ol"` | `"ul"` | The underlying HTML element to render. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Item**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="list"]` | The component scope. |
+| `[data-part="root"]` | The root list element. |
+| `[data-part="item"]` | The list item element. |
+| `[data-part="indicator"]` | The indicator element. |
+| `[data-role="list"]` | Applied to the root element. |
+| `[data-role="listitem"]` | Applied to each item element. |
+| `[data-role="presentation"]` | Applied to the indicator element. |

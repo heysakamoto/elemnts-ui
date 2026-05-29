@@ -8,6 +8,7 @@
 		"editable",
 		"field",
 		"fieldset",
+		"label",
 		"file-upload",
 		"input",
 		"input-group",

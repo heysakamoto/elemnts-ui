@@ -1,0 +1,37 @@
+---
+title: Prose
+description: Adds typographic styles to raw HTML or markdown content.
+---
+
+### Overview
+
+The `Prose` component is used to add typographic styles to raw HTML or markdown content. It helps design beautiful, readable document layouts without manual styling of individual elements.
+
+<ComponentPreview name="prose:basic" />
+
+### Usage
+
+Use the `Prose` component to render rich text content with automatic typography and spacing styles. It targets standard nested HTML tags like `h1`, `h2`, `p`, `blockquote`, and lists.
+
+```tsx
+import { Prose } from "@moto-ui/react"
+```
+
+```tsx
+<Prose>
+	<h1>Heading</h1>
+	<p>This is a paragraph inside the prose container.</p>
+</Prose>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| as | `React.ElementType` | `"div"` | The underlying element to render. |
+| asChild | `boolean` | `undefined` | Use the provided child element as the default rendered element, combining their props and behavior. |
+
+### Accessibility
+
+- Retains readable line lengths, font sizes, and color contrast for nested typography.
+- Preserves semantic HTML tags (`<h1>` to `<h6>`, `<p>`, `<blockquote>`, `<ul>`, etc.) ensuring screen readers correctly interpret the page structure.

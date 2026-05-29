@@ -6,17 +6,20 @@
 		"---data-display---",
 		"avatar",
 		"badge",
+		"breadcrumb",
 		"chip",
 		"clipboard",
 		"data-list",
 		"icon",
 		"image",
+		"list",
 		"image-cropper",
 		"marquee",
 		"qr-code",
 		"stat",
 		"surface",
 		"tile",
+		"timeline",
 		"timer"
 	]
 }
