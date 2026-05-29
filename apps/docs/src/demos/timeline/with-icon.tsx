@@ -1,4 +1,11 @@
-import { Chip, Container, Icon, Surface, Timeline } from "@moto-ui/react";
+import {
+	Chip,
+	Container,
+	Icon,
+	Separator,
+	Surface,
+	Timeline,
+} from "@moto-ui/react";
 
 export function WithIcon() {
 	return (
@@ -12,6 +19,9 @@ export function WithIcon() {
 							gap="24"
 						>
 							<Timeline.Connector>
+								<Timeline.Separator asChild>
+									<Separator orientation="vertical" />
+								</Timeline.Separator>
 								<Timeline.Indicator>
 									<Chip
 										size="sm"
@@ -51,27 +61,27 @@ export function WithIcon() {
 const events = [
 	{
 		title: "Order Placed",
-		description: "Your order has been confirmed and is being processed.",
 		icon: "tabler:shopping-cart",
+		description: "Your order has been confirmed and is being processed.",
 	},
 	{
 		title: "Payment Confirmed",
-		description: "Payment was successfully processed.",
 		icon: "tabler:credit-card",
+		description: "Payment was successfully processed.",
 	},
 	{
 		title: "Shipped",
-		description: "Your package has been dispatched from our warehouse.",
 		icon: "tabler:truck-delivery",
+		description: "Your package has been dispatched from our warehouse.",
 	},
 	{
 		title: "Out for Delivery",
-		description: "Your package is with the courier and on its way.",
 		icon: "tabler:package",
+		description: "Your package is with the courier and on its way.",
 	},
 	{
 		title: "Delivered",
-		description: "Package delivered successfully. Enjoy!",
 		icon: "tabler:circle-check",
+		description: "Package delivered successfully. Enjoy!",
 	},
 ];
