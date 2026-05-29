@@ -1,15 +1,15 @@
 import { defineRecipe } from "@pandacss/dev";
 import { chipRecipe } from "./chip";
 
-const { variants, defaultVariants } = chipRecipe;
+const { base, variants, defaultVariants } = chipRecipe;
 
 export const codeRecipe = defineRecipe({
 	className: "code",
 	base: {
 		fontFamily: "mono",
-		alignItems: "center",
-		display: "inline-flex",
+		justifyContent: "start",
 		rounded: "calc({radii.4} * 3)",
+		...base,
 	},
 	variants,
 	defaultVariants,
