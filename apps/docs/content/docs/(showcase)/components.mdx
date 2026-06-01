@@ -3,82 +3,9 @@ title: Components
 description: Explore smooth, refined, and satisfying UI.
 ---
 
-import { Suspense } from "react"
-import { demos } from "../../../src/demos"
-import { Link } from "@tanstack/react-router"
-import { toCamelCase } from "../../../src/utils/string"
-import { Grid, Icon, Surface, Button, ButtonGroup, Spinner } from "@moto-ui/react"
+import { Components } from "../../../src/components/base/components"
 
-export const components = Object.entries(demos).filter(([key]) => key.includes("basic"))
+## All Components
+Explore all components available in Moto UI.
 
-#### All Components ({components.length})
-Explore all the {components.length} components available in Moto UI.
-
-<Grid
-  my="32"
-  gap="12"
-  w="full"
-  cols="1fr"
-  colorPalette="neutral"
->
-  {components.map(([key, demo]) => {
-    const name = key.split(":")[0]
-
-    return (
-      <Surface
-        delta={1}
-        key={key}
-        rounded="24"
-      >
-        <Surface.Content
-          p="12"
-          h="280"
-          align="center"
-          overflow="auto"
-          justify="center"
-          scrollbar="hidden"
-        >
-          <Suspense fallback={<Spinner colorPalette="neutral" />}>
-            <demo.component />
-          </Suspense>
-        </Surface.Content>
-        <Surface.Footer
-          py="8"
-          w="full"
-          align="center"
-        >
-          <Surface
-            p="2"
-            delta={1}
-            rounded="24"
-          >
-            <ButtonGroup>
-              <Button
-                asChild
-                size="sm"
-                rounded="22"
-                fontSize="12"
-                variant="ghost"
-                preload="intent"
-                textTransform="capitalize"
-              >
-                <Link
-                  to="/docs/$"
-                  params={{ _splat: `components/${name}` }}
-                >
-                  <Icon
-                    ml="-2"
-                    width={16}
-                    height={16}
-                    icon="tabler:arrow-right"
-                  />
-                  {toCamelCase(name)}
-                </Link>
-              </Button>
-            </ButtonGroup>
-          </Surface>
-        </Surface.Footer>
-      </Surface>
-    )
-  })}
-</Grid>
+<Components />
