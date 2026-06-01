@@ -16,13 +16,13 @@ export const Root = (props: RootProps) => {
 				gap="0"
 				justifyContent="space-between"
 				cols={{
-					base: "minmax(0, 1fr)",
 					md: "14rem 1fr",
 					lg: "13rem 1fr 13rem",
+					base: "minmax(0, 1fr)",
 				}}
 			>
 				<GridItem
-					h="92"
+					h="96"
 					top="0"
 					w="full"
 					zIndex="2"
@@ -36,12 +36,12 @@ export const Root = (props: RootProps) => {
 				<ScrollShadow
 					px="12"
 					py="16"
-					top="92"
+					top="96"
 					as="aside"
 					size={80}
 					hideBelow="md"
 					position="sticky"
-					h="calc(100vh - 92px)"
+					h="calc(100vh - 96px)"
 					borderRight="1px solid"
 					borderColor="stroke.primary"
 				>
@@ -61,11 +61,11 @@ export const Root = (props: RootProps) => {
 				<GridItem
 					px="12"
 					py="16"
-					top="92"
+					top="96"
 					as="aside"
 					hideBelow="lg"
 					position="sticky"
-					h="calc(100vh - 92px)"
+					h="calc(100vh - 96px)"
 				>
 					<Toc />
 				</GridItem>

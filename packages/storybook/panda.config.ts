@@ -10,6 +10,7 @@ export default defineConfig({
 	include: [
 		"./src/stories/**/*.{js,jsx,ts,tsx}",
 		"./.storybook/**/*.{js,jsx,ts,tsx}",
+		"node_modules/@moto-ui/react/dist/buildinfo.json",
 	],
 	globalVars: {
 		"--font-sans-default": "Geist",

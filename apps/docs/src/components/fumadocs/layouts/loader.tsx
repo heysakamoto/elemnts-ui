@@ -3,21 +3,12 @@ import { Skeleton, Stack, Text } from "@moto-ui/react";
 export function Loader() {
 	return (
 		<Stack direction="column">
-			<Stack
-				align="center"
-				justify="space-between"
+			<Text
+				lineHeight="1"
+				fontSize={{ base: "24", md: "32" }}
 			>
-				<Text
-					lineHeight="1"
-					fontSize={{ base: "24", md: "28" }}
-				>
-					<Skeleton textOnly>Component</Skeleton>
-				</Text>
-				<Skeleton
-					w="6.5em"
-					h="1.9rem"
-				/>
-			</Stack>
+				<Skeleton textOnly>Component</Skeleton>
+			</Text>
 
 			<Text mt="20">
 				<Skeleton textOnly>

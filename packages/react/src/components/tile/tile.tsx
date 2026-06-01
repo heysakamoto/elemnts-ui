@@ -9,14 +9,17 @@ export const TileRoot = withProvider(
 		props: HTMLArkProps<"div"> &
 			React.RefAttributes<HTMLDivElement> & {
 				selected?: boolean;
+				disabled?: boolean;
 			},
 	) => {
-		const { selected = false, ...rest } = props;
+		const { selected = false, disabled = false, ...rest } = props;
 
 		return (
 			<ark.div
-				aria-selected={selected ? true : undefined}
+				data-disabled={disabled ? "" : undefined}
 				data-selected={selected ? "" : undefined}
+				aria-disabled={disabled ? true : undefined}
+				aria-selected={selected ? true : undefined}
 				data-state={selected ? "selected" : undefined}
 				{...rest}
 			/>
@@ -77,3 +80,12 @@ export const TileControl = withContext(ark.div, "control", {
 	},
 });
 TileControl.displayName = "TileControl";
+
+export const TileAddon = withContext(ark.div, "addon", {
+	dataAttr: true,
+	defaultProps: {
+		"data-scope": "tile",
+		"data-part": "addon",
+	},
+});
+TileAddon.displayName = "TileAddon";

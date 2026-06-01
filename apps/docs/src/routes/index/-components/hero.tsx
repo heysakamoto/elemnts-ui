@@ -1,4 +1,4 @@
-import { Button, Container, Group, Section, Stack, Text } from "@moto-ui/react";
+import { ButtonGroup, Container, Section, Stack, Text } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
 export function Hero() {
@@ -31,35 +31,33 @@ export function Hero() {
 						MotoUI is a modern react UI library that helps you build quickly,
 						maintain consistency, and ship polished user experiences.
 					</Text>
-					<Group
+					<ButtonGroup
 						mt="20"
 						gap="8"
 						justify="center"
+						colorPalette="neutral"
 					>
-						<Button
+						<ButtonGroup.Item
 							asChild
 							size="lg"
 							rounded="24"
-							fontSize="16"
 						>
-							<Link to="/docs/$">Start shipping</Link>
-						</Button>
-						<Button
+							<Link to="/docs/$">Documentation</Link>
+						</ButtonGroup.Item>
+						<ButtonGroup.Item
 							size="lg"
 							asChild
 							rounded="24"
-							fontSize="16"
 							variant="secondary"
-							colorPalette="neutral"
 						>
 							<Link
-								to={"https://github.com/heysakamoto/moto-ui" as any}
 								target="_blank"
+								to={"https://storybook.moto-ui.app" as any}
 							>
-								Github repo
+								Storybook
 							</Link>
-						</Button>
-					</Group>
+						</ButtonGroup.Item>
+					</ButtonGroup>
 				</Stack>
 			</Container>
 		</Section>

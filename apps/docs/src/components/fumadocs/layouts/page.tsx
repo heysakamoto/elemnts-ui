@@ -1,19 +1,8 @@
-import {
-	Box,
-	Button,
-	ButtonGroup,
-	Group,
-	Icon,
-	Separator,
-	Stack,
-	Text,
-} from "@moto-ui/react";
+import { Box, Button, Group, Icon, Separator, Text } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import { type PropsWithChildren, useEffect } from "react";
-import { AICopyButton } from "@/components/fumadocs/layouts/ai-copy-button";
-import { AIMenu } from "@/components/fumadocs/layouts/ai-menu";
 import { type DocsLayoutState, useDocsLayoutContext } from "./client";
-import { TocMobile } from "./toc";
+import { Toc } from "./toc";
 
 type PageProps = PropsWithChildren<Pick<DocsLayoutState, "toc">>;
 export function Page(props: PageProps) {
@@ -79,7 +68,7 @@ export function Page(props: PageProps) {
 				)}
 			</Group>
 			<Box hideFrom="md">
-				<TocMobile />
+				<Toc.Mobile />
 			</Box>
 		</Box>
 	);
@@ -90,32 +79,16 @@ export function Title(props: TitleProps) {
 	const { children } = props;
 
 	return (
-		<Stack
-			justify="space-between"
-			align="center"
+		<Text
+			as="h1"
+			fontWeight="500"
+			lineHeight="none"
+			color="fg.primary"
+			letterSpacing="-0.02em"
+			fontSize={{ base: "24", md: "32" }}
 		>
-			<Text
-				as="h1"
-				fontWeight="500"
-				lineHeight="none"
-				color="fg.primary"
-				letterSpacing="xs"
-				whiteSpace="pre-line"
-				fontSize={{ base: "24", md: "28" }}
-			>
-				{children}
-			</Text>
-
-			<ButtonGroup
-				attached
-				size="md"
-				variant="surface"
-				colorPalette="neutral"
-			>
-				<AICopyButton />
-				<AIMenu />
-			</ButtonGroup>
-		</Stack>
+			{children}
+		</Text>
 	);
 }
 
@@ -125,12 +98,12 @@ export function Description(props: DescriptionProps) {
 
 	return (
 		<Text
-			mt="12"
-			mb="24"
-			lineHeight="1.5"
+			mt="20"
+			mb="32"
+			fontSize="1rem"
+			lineHeight="md"
 			color="fg.secondary"
 			letterSpacing="-.005em"
-			fontSize={{ base: "16", sm: "18" }}
 		>
 			{children}
 		</Text>

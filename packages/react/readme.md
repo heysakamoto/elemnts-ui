@@ -23,24 +23,29 @@ To use Moto UI React components, install the library, preset-base, and styled-sy
 ### Install Dependencies
 
 ```bash
-pnpm add @moto-ui/react @moto-ui/preset-base
+pnpm add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
 pnpm add -D @pandacss/dev
 # or
-yarn add @moto-ui/react @moto-ui/preset-base
+yarn add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
 yarn add -D @pandacss/dev
 # or
-npm install @moto-ui/react @moto-ui/preset-base
+npm install @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
 npm install -D @pandacss/dev
+# or
+bun add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
+bun add -D @pandacss/dev
 ```
 
 ### Setup Panda CSS
 
 ```bash
-pnpm panda init
+pnpm panda init --postcss
 # or
-yarn panda init
+yarn panda init --postcss
 # or
-npx panda init
+npx panda init --postcss
+# or
+bun panda init --postcss
 ```
 
 Add this to your `panda.config.ts` file:
@@ -54,7 +59,12 @@ export default defineConfig({
   outExtension: "js",
   jsxFramework: "react",
   presets: [basePreset],
-  include: ["src/components", "src/routes"],
+
+   // Path to your source files
+  include: [
+    "./src/**/*.{ts,tsx}", 
+    "node_modules/@moto-ui/react/dist/buildinfo.json",
+  ],
 });
 ```
 ### Add css file

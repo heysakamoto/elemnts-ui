@@ -1,11 +1,9 @@
 import { Breadcrumb } from "@moto-ui/react";
 
 const items = [
-	{ label: "Home", href: "/" },
 	{ label: "Docs", href: "/docs" },
 	{ label: "Components", href: "/docs/components" },
-	{ label: "Data Display", href: "/docs/components/data-display" },
-	{ label: "Breadcrumb", href: "/docs/components/data-display/breadcrumb" },
+	{ label: "Breadcrumb", href: "/docs/components/breadcrumb" },
 ];
 
 export function Collapsed() {

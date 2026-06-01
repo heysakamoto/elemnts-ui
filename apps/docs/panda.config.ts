@@ -2,32 +2,19 @@ import { basePreset } from "@moto-ui/preset-base";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
-	preflight: true,
 	minify: true,
-	lightningcss: true,
 	outExtension: "js",
 	jsxFramework: "react",
 	presets: [basePreset],
 	outdir: "styled-system",
-	include: ["src/**/*.{js,jsx,ts,tsx}", "content/**/*.{md,mdx}"],
+	include: [
+		"src/**/*.{ts,tsx}",
+		"content/**/*.{mdx}",
+		"node_modules/@moto-ui/react/dist/buildinfo.json",
+	],
 	globalVars: {
 		"--font-sans-default": "Geist",
 		"--font-mono-default": "JetBrains Mono",
-	},
-	staticCss: {
-		css: [
-			{
-				properties: {
-					gap: ["24"],
-					gridRow: ["*"],
-					height: ["256"],
-					gridColumn: ["*"],
-					backgroundColor: ["*"],
-					gridTemplateColumns: ["*"],
-					gridTemplateRows: ["*", "repeat(3, 96px)", "repeat(4, 96px)"],
-				},
-			},
-		],
 	},
 	globalFontface: {
 		Geist: [

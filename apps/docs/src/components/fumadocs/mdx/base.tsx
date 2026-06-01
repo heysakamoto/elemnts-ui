@@ -36,10 +36,10 @@ export const base: MDXComponents = {
 		<Text
 			as="li"
 			textWrap="auto"
+			fontSize="1rem"
 			lineHeight="md"
-			letterSpacing="sm"
 			color="fg.secondary"
-			fontSize={{ base: "15", sm: "16" }}
+			letterSpacing="-0.005em"
 			css={{ "& > h1, h2, h3, h4": { my: "0" } }}
 			{...props}
 		>
@@ -56,6 +56,8 @@ export const base: MDXComponents = {
 	a: (props) => (
 		<Anchor
 			target="_blank"
+			fontSize="1rem"
+			lineHeight="md"
 			underline="hover"
 			{...props}
 		/>
@@ -72,10 +74,10 @@ export const base: MDXComponents = {
 	p: (props) => (
 		<Text
 			textWrap="auto"
+			fontSize="1rem"
 			lineHeight="md"
-			letterSpacing="sm"
 			color="fg.secondary"
-			fontSize={{ base: "15", sm: "16" }}
+			letterSpacing="-0.005em"
 			css={{ "&:not(:first-child)": { mt: "24" } }}
 			{...props}
 		>

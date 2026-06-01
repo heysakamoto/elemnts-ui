@@ -1,4 +1,5 @@
-import { css, WheelPicker } from "@moto-ui/react";
+import { WheelPicker } from "@moto-ui/react";
+import { css } from "@moto-ui/styled-system/css";
 
 export const Radius = () => {
 	const options = [

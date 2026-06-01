@@ -6,6 +6,56 @@ export type DemoItem = {
 };
 
 export const demos: Record<string, DemoItem> = {
+	"base:introduction": {
+		component: lazy(() =>
+			import("./base/introduction").then((m) => ({ default: m.Introduction })),
+		),
+		file: "base/intrduction.tsx",
+	},
+	"base:animations": {
+		component: lazy(() =>
+			import("./base/animations").then((m) => ({ default: m.Animations })),
+		),
+		file: "base/animations.tsx",
+	},
+	"base:colors": {
+		component: lazy(() =>
+			import("./base/colors").then((m) => ({ default: m.Colors })),
+		),
+		file: "base/colors.tsx",
+	},
+	"base:design-principles": {
+		component: lazy(() =>
+			import("./base/design-principles").then((m) => ({
+				default: m.DesignPrinciples,
+			})),
+		),
+		file: "base/design-principles.tsx",
+	},
+	"base:pro": {
+		component: lazy(() =>
+			import("./base/pro").then((m) => ({
+				default: m.Pro,
+			})),
+		),
+		file: "base/pro.tsx",
+	},
+	"base:surfaces-base": {
+		component: lazy(() =>
+			import("./base/surfaces").then((m) => ({
+				default: m.SurfacesBase,
+			})),
+		),
+		file: "base/surfaces.tsx",
+	},
+	"base:surfaces-all": {
+		component: lazy(() =>
+			import("./base/surfaces").then((m) => ({
+				default: m.SurfacesAll,
+			})),
+		),
+		file: "base/surfaces.tsx",
+	},
 	"accordion:basic": {
 		component: lazy(() =>
 			import("./accordion/basic").then((m) => ({ default: m.Basic })),
@@ -1538,6 +1588,30 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "separator/vertical.tsx",
 	},
+	"show:basic": {
+		component: lazy(() =>
+			import("./show/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "show/basic.tsx",
+	},
+	"show:fallback": {
+		component: lazy(() =>
+			import("./show/fallback").then((m) => ({ default: m.Fallback })),
+		),
+		file: "show/fallback.tsx",
+	},
+	"show:nested": {
+		component: lazy(() =>
+			import("./show/nested").then((m) => ({ default: m.Nested })),
+		),
+		file: "show/nested.tsx",
+	},
+	"show:render-fn": {
+		component: lazy(() =>
+			import("./show/render-fn").then((m) => ({ default: m.RenderFn })),
+		),
+		file: "show/render-fn.tsx",
+	},
 	"signature-pad:basic": {
 		component: lazy(() =>
 			import("./signature-pad/basic").then((m) => ({ default: m.Basic })),
@@ -1561,6 +1635,26 @@ export const demos: Record<string, DemoItem> = {
 			import("./skeleton/variants").then((m) => ({ default: m.Variants })),
 		),
 		file: "skeleton/variants.tsx",
+	},
+	"sortable:basic": {
+		component: lazy(() =>
+			import("./sortable/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "sortable/basic.tsx",
+	},
+	"sortable:horizontal": {
+		component: lazy(() =>
+			import("./sortable/horizontal").then((m) => ({ default: m.Horizontal })),
+		),
+		file: "sortable/horizontal.tsx",
+	},
+	"sortable:with-handle-icon": {
+		component: lazy(() =>
+			import("./sortable/with-handle-icon").then((m) => ({
+				default: m.WithHandleIcon,
+			})),
+		),
+		file: "sortable/with-handle-icon.tsx",
 	},
 	"slider:basic": {
 		component: lazy(() =>

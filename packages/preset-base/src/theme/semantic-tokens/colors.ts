@@ -81,13 +81,13 @@ const fg = {
 	},
 	secondary: {
 		value: {
-			base: "{colors.neutral.80}",
+			base: "{colors.neutral.90}",
 			_dark: "{colors.neutral.40}",
 		},
 	},
 	tertiary: {
 		value: {
-			base: "{colors.neutral.50}",
+			base: "{colors.neutral.60}",
 			_dark: "{colors.neutral.50}",
 		},
 	},
@@ -102,14 +102,14 @@ const stroke = {
 	},
 	secondary: {
 		value: {
-			base: "color-mix(in oklab, {colors.neutral.100}, 94% {colors.transparent})",
-			_dark: "color-mix(in oklab, {colors.white}, 94% {colors.transparent})",
+			base: "color-mix(in oklab, {colors.neutral.100}, 92% {colors.transparent})",
+			_dark: "color-mix(in oklab, {colors.white}, 92% {colors.transparent})",
 		},
 	},
 	tertiary: {
 		value: {
-			base: "color-mix(in oklab, {colors.neutral.100}, 96% {colors.transparent})",
-			_dark: "color-mix(in oklab, {colors.white}, 96% {colors.transparent})",
+			base: "color-mix(in oklab, {colors.neutral.100}, 95% {colors.transparent})",
+			_dark: "color-mix(in oklab, {colors.white}, 95% {colors.transparent})",
 		},
 	},
 };
@@ -151,8 +151,9 @@ export const colors = defineSemanticTokens.colors({
 		},
 		secondary: {
 			value: {
-				base: "color-mix(in oklab, {colors.neutral.primary}, 90% {colors.transparent})",
-				_dark: "color-mix(in oklab, {colors.white}, 90% {colors.transparent})",
+				base: "color-mix(in oklab, {colors.neutral.primary}, 94% {colors.transparent})",
+				_dark:
+					"color-mix(in oklab, {colors.neutral.primary}, 94% {colors.transparent})",
 			},
 		},
 		tertiary: {

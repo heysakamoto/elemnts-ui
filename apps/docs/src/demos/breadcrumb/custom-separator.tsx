@@ -1,9 +1,9 @@
 import { Breadcrumb, Icon } from "@moto-ui/react";
 
 const items = [
-	{ label: "Home", href: "/" },
-	{ label: "Projects", href: "/projects" },
-	{ label: "Moto UI", href: "/projects/moto-ui" },
+	{ label: "Docs", href: "/docs" },
+	{ label: "Components", href: "/docs/components" },
+	{ label: "Breadcrumb", href: "/docs/components/breadcrumb" },
 ];
 
 export function CustomSeparator() {

@@ -5,6 +5,8 @@ export const wheelPickerRecipe = defineSlotRecipe({
 	slots: ["root"],
 	base: {
 		root: {
+			"--wheel-picker-radius": "calc({radii.4} * 3)",
+
 			"& [data-rwp-wrapper]": {
 				display: "flex",
 				userSelect: "none",
@@ -102,29 +104,6 @@ export const wheelPickerRecipe = defineSlotRecipe({
 		},
 	},
 	variants: {
-		radius: {
-			xs: {
-				root: { "--wheel-picker-radius": "calc({radii.4} * 1)" },
-			},
-			sm: {
-				root: { "--wheel-picker-radius": "calc({radii.4} * 2)" },
-			},
-			md: {
-				root: { "--wheel-picker-radius": "calc({radii.4} * 3)" },
-			},
-			lg: {
-				root: { "--wheel-picker-radius": "calc({radii.4} * 4)" },
-			},
-			xl: {
-				root: { "--wheel-picker-radius": "calc({radii.4} * 5)" },
-			},
-			none: {
-				root: { "--wheel-picker-radius": "calc({radii.4} * 0)" },
-			},
-			full: {
-				root: { "--wheel-picker-radius": "{radii.full}" },
-			},
-		},
 		variant: {
 			primary: {
 				root: {
@@ -148,7 +127,6 @@ export const wheelPickerRecipe = defineSlotRecipe({
 		},
 	},
 	defaultVariants: {
-		radius: "md",
 		variant: "primary",
 	},
 });

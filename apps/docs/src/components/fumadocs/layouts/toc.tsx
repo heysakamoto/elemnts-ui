@@ -1,16 +1,17 @@
 import {
 	Button,
-	css,
+	Group,
 	Icon,
 	Menu,
 	Portal,
 	Stack,
 	Surface,
+	Text,
 	useLockedDisclosure,
 	WheelPicker,
 } from "@moto-ui/react";
+import { css } from "@moto-ui/styled-system/css";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { ComposedTooltip } from "@/components/base/composed-tooltip";
 import { useActiveHeadings } from "@/hooks/use-active-headings";
 import { stripHash } from "@/utils/url";
 import { useDocsLayoutContext } from "./client";
@@ -50,11 +51,18 @@ function useTocNavigate() {
 	};
 }
 
-export function Toc() {
+function TocRoot() {
 	const { toc, isActive } = useToc();
 
 	return (
 		<Stack direction="column">
+			<Text
+				mb="8"
+				as="strong"
+				fontWeight="500"
+			>
+				On this page
+			</Text>
 			{toc.map((item) => {
 				const itemHash = stripHash(item.url);
 				const isInView = isActive(itemHash);
@@ -68,9 +76,8 @@ export function Toc() {
 						data-current={isInView ? true : undefined}
 						className={css({
 							py: "6",
-							px: "8",
 							w: "12rem",
-							fontSize: "13",
+							fontSize: "14",
 							lineHeight: "1",
 							display: "block",
 							color: "fg.tertiary",
@@ -96,7 +103,7 @@ export function Toc() {
 	);
 }
 
-export function TocMobile() {
+function TocMobile() {
 	const { current } = useToc();
 	const { open, setOpen } = useLockedDisclosure();
 	const { next, previous } = useDocsLayoutContext();
@@ -107,7 +114,7 @@ export function TocMobile() {
 			onOpenChange={(d) => setOpen(d.open)}
 			positioning={{ sameWidth: true, strategy: "fixed" }}
 		>
-			<Stack
+			<Group
 				px="12"
 				w="full"
 				gap="16"
@@ -118,33 +125,28 @@ export function TocMobile() {
 				position="fixed"
 				transform="translateX(-50%)"
 			>
-				<ComposedTooltip
-					content={previous?.name}
-					trigger={
-						<Button
-							asChild
-							size="lg"
-							iconOnly
-							rounded="full"
-							variant="surface"
-							disabled={!previous}
-							colorPalette="neutral"
-							aria-label="Go to previous page"
-							style={{ backdropFilter: "blur(10px)" }}
-						>
-							<Link
-								to={previous?.url}
-								preload="intent"
-							>
-								<Icon
-									width={18}
-									height={18}
-									icon="tabler:chevron-left"
-								/>
-							</Link>
-						</Button>
-					}
-				/>
+				<Button
+					asChild
+					size="lg"
+					iconOnly
+					rounded="full"
+					variant="surface"
+					disabled={!previous}
+					colorPalette="neutral"
+					aria-label="Go to previous page"
+					style={{ backdropFilter: "blur(10px)" }}
+				>
+					<Link
+						to={previous?.url}
+						preload="intent"
+					>
+						<Icon
+							width={18}
+							height={18}
+							icon="tabler:chevron-left"
+						/>
+					</Link>
+				</Button>
 
 				<Surface
 					delta={1}
@@ -163,34 +165,29 @@ export function TocMobile() {
 					</Menu.Trigger>
 				</Surface>
 
-				<ComposedTooltip
-					content={next?.name}
-					trigger={
-						<Button
-							asChild
-							size="lg"
-							iconOnly
-							rounded="full"
-							variant="surface"
-							disabled={!next}
-							colorPalette="neutral"
-							aria-label="Go to next page"
-							style={{ backdropFilter: "blur(10px)" }}
-						>
-							<Link
-								to={next?.url}
-								preload="intent"
-							>
-								<Icon
-									icon="tabler:chevron-right"
-									width={18}
-									height={18}
-								/>
-							</Link>
-						</Button>
-					}
-				/>
-			</Stack>
+				<Button
+					asChild
+					size="lg"
+					iconOnly
+					rounded="full"
+					variant="surface"
+					disabled={!next}
+					colorPalette="neutral"
+					aria-label="Go to next page"
+					style={{ backdropFilter: "blur(10px)" }}
+				>
+					<Link
+						to={next?.url}
+						preload="intent"
+					>
+						<Icon
+							icon="tabler:chevron-right"
+							width={18}
+							height={18}
+						/>
+					</Link>
+				</Button>
+			</Group>
 
 			<Portal>
 				<Menu.Positioner>
@@ -218,8 +215,8 @@ function TocWheelPicker() {
 		return (
 			<Surface
 				delta={0}
-				elevated={false}
 				rounded="0"
+				elevated={false}
 			>
 				<Surface.Content
 					gap="6"
@@ -267,6 +264,7 @@ function TocWheelPicker() {
 						}),
 						highlightItem: css({
 							fontSize: "13",
+							fontWeight: "400",
 						}),
 					}}
 				/>
@@ -274,3 +272,7 @@ function TocWheelPicker() {
 		</WheelPicker>
 	);
 }
+
+export const Toc = Object.assign(TocRoot, {
+	Mobile: TocMobile,
+});

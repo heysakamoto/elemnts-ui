@@ -82,7 +82,7 @@ export const buttonRecipe = defineRecipe({
 				"--btn-shadow": "{shadows.2}",
 				"--btn-bg": "{colors.transparent}",
 				"--btn-color": "{colors.colorPalette.primary}",
-				"--btn-border": "1px solid {colors.stroke.tertiary}",
+				"--btn-border": "1px solid {colors.stroke.secondary}",
 			},
 			surface: {
 				"--btn-bg": "{colors.bg.secondary}",

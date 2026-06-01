@@ -18,7 +18,8 @@ Explore all the {components.length} components available in Moto UI.
   my="32"
   gap="12"
   w="full"
-  cols={{ base: "1fr" }}
+  cols="1fr"
+  colorPalette="neutral"
 >
   {components.map(([key, demo]) => {
     const name = key.split(":")[0]
@@ -31,7 +32,7 @@ Explore all the {components.length} components available in Moto UI.
       >
         <Surface.Content
           p="12"
-          h="280px"
+          h="280"
           align="center"
           overflow="auto"
           justify="center"
@@ -59,7 +60,6 @@ Explore all the {components.length} components available in Moto UI.
                 fontSize="12"
                 variant="ghost"
                 preload="intent"
-                colorPalette="neutral"
                 textTransform="capitalize"
               >
                 <Link

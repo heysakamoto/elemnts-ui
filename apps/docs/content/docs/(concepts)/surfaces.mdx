@@ -3,17 +3,7 @@ title: Surfaces
 description: Context-aware elevation system for consistent depth and hierarchy.
 ---
 
-import { Surface, Elevated, Text } from "@moto-ui/react";
-
-<Elevated delta={0} p="16" h="360px" rounded="24" fontFamily="mono" fontSize="12">
-  <Text color="fg.tertiary" mb="12">Page</Text>
-  <Elevated delta={1} p="16" rounded="20" flex="1">
-    <Text color="fg.tertiary" mb="12">Card/Surface/Overlay</Text>
-    <Elevated delta={1} p="16" rounded="16" flex="1">
-       <Text color="fg.tertiary" mb="12">Inner Overlay</Text>
-    </Elevated>
-  </Elevated>
-</Elevated>
+<ComponentPreview name="base:surfaces-base"/>
 
 Surfaces in Moto UI implement a **context-aware elevation system**. Unlike traditional design systems that use fixed background colors (e.g., `bg-card`), Moto UI calculates the background and shadow of a component relative to its current environment.
 
@@ -99,30 +89,7 @@ This ensures that depth is perceptible even in pure black environments, where tr
 
 The power of relative elevation is best seen in deep nesting. Notice how each layer remains distinct without any manual color configuration.
 
-<Elevated my="32" delta={0} p="16" rounded="24" fontFamily="mono" fontSize="12">
-  <Text color="fg.tertiary" mb="12">Level 1</Text>
-  <Elevated delta={1} p="16" rounded="20">
-    <Text color="fg.tertiary" mb="12">Level 2</Text>
-    <Elevated delta={1} p="16" rounded="16">
-      <Text color="fg.tertiary" mb="12">Level 3</Text>
-      <Elevated delta={1} p="16" rounded="12">
-        <Text color="fg.tertiary" mb="12" >Level 4</Text>
-        <Elevated delta={1} p="16" rounded="8">
-          <Text color="fg.tertiary" mb="12">Level 5</Text>
-          <Elevated delta={1} p="16" rounded="8">
-            <Text color="fg.tertiary" mb="12">Level 6</Text>
-            <Elevated delta={1} p="16" rounded="8">
-              <Text color="fg.tertiary" mb="12">Level 7</Text>
-              <Elevated delta={1} p="16" rounded="8">
-                <Text color="fg.tertiary" mb="12">Level 8</Text>
-              </Elevated>
-            </Elevated>
-          </Elevated>
-        </Elevated>
-      </Elevated>
-    </Elevated>
-  </Elevated>
-</Elevated>
+<ComponentPreview name="base:surfaces-all"/>
 
 ```tsx
 <Elevated delta={0}>

@@ -44,8 +44,8 @@ export const inputRecipe = defineRecipe({
 		},
 		variant: {
 			primary: {
-				"--input-bg": "{colors.bg.tertiary}",
 				"--input-shadow": "{shadows.2}",
+				"--input-bg": "{colors.bg.tertiary}",
 				"--input-border": "1px solid {colors.stroke.secondary}",
 			},
 			secondary: {

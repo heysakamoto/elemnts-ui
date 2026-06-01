@@ -73,6 +73,7 @@ export * from "./section";
 export * from "./segment-group";
 export * from "./select";
 export * from "./separator";
+export * from "./show";
 export * from "./signature-pad";
 export * from "./skeleton";
 export * from "./slider";

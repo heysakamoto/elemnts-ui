@@ -1,15 +1,12 @@
-import {
-	css,
-	Separator as MotoSeparator,
-	Stack,
-	Surface,
-	Text,
-} from "@moto-ui/react";
+import { Dialog, Portal, Stack, Surface, Text } from "@moto-ui/react";
+import { css } from "@moto-ui/styled-system/css";
 import { Link } from "@tanstack/react-router";
 import type { Folder as FolderType, Item, Node } from "fumadocs-core/page-tree";
-import { useDocsLayoutContext } from "./client";
-
-// --- Components ---
+import {
+	InDialogProvider,
+	useDocsLayoutContext,
+	useInDialogContext,
+} from "./client";
 
 type SeparatorProps = {
 	node: Node;
@@ -18,11 +15,9 @@ type SeparatorProps = {
 function Separator({ node }: SeparatorProps) {
 	return (
 		<Text
-			mb="4"
 			px="8"
-			fontSize="12"
-			fontFamily="mono"
-			letterSpacing="xs"
+			fontSize="14"
+			letterSpacing="sm"
 			color="fg.tertiary"
 			textTransform="capitalize"
 			css={{
@@ -38,38 +33,32 @@ function Separator({ node }: SeparatorProps) {
 
 type PageProps = {
 	node: Item;
-	onSelect?: () => void;
+	onClick?: () => void;
 };
 
-function Page({ node, onSelect }: PageProps) {
+function Page({ node, onClick }: PageProps) {
 	return (
 		<Link
 			to={node.url}
 			preload="intent"
+			onClick={onClick}
 			activeOptions={{ exact: true }}
 			className={css({
+				mt: "2",
 				h: "28",
-				px: "8",
+				px: "10",
 				rounded: "12",
-				fontSize: "13",
-				fontWeight: "500",
+				fontSize: "14",
 				textAlign: "left",
 				alignItems: "center",
-				display: "inline-flex",
 				color: "fg.secondary",
+				display: "inline-flex",
 				"&:is([data-status=active], :hover)": {
 					color: "fg.primary",
 					bgColor: "bg.secondary",
 				},
 			})}
-			onClick={onSelect}
 		>
-			<MotoSeparator
-				ml="6"
-				mr="8"
-				h="full"
-				orientation="vertical"
-			/>
 			{node.name}
 		</Link>
 	);
@@ -77,10 +66,9 @@ function Page({ node, onSelect }: PageProps) {
 
 type FolderProps = {
 	node: FolderType;
-	onSelect?: () => void;
 };
 
-function Folder({ node, onSelect }: FolderProps) {
+function Folder({ node }: FolderProps) {
 	return (
 		<Surface
 			delta={0}
@@ -99,7 +87,6 @@ function Folder({ node, onSelect }: FolderProps) {
 						<Switch
 							node={child}
 							key={child.$id}
-							onSelect={onSelect}
 						/>
 					);
 				})}
@@ -110,27 +97,29 @@ function Folder({ node, onSelect }: FolderProps) {
 
 type SwitchProps = {
 	node: Node;
-	onSelect?: () => void;
 };
 
-function Switch({ node, onSelect }: SwitchProps) {
+function Switch({ node }: SwitchProps) {
+	const inDialog = useInDialogContext();
+
 	switch (node.type) {
 		case "separator":
 			return <Separator node={node} />;
 		case "page":
-			return (
-				<Page
-					node={node}
-					onSelect={onSelect}
-				/>
-			);
+			if (inDialog)
+				return (
+					<Dialog.Context>
+						{({ setOpen }) => (
+							<Page
+								node={node}
+								onClick={() => setOpen(false)}
+							/>
+						)}
+					</Dialog.Context>
+				);
+			return <Page node={node} />;
 		case "folder":
-			return (
-				<Folder
-					node={node}
-					onSelect={onSelect}
-				/>
-			);
+			return <Folder node={node} />;
 		default:
 			return null;
 	}
@@ -138,27 +127,18 @@ function Switch({ node, onSelect }: SwitchProps) {
 
 type NodesProps = {
 	nodes: Node[];
-	onSelect?: () => void;
 };
 
-function Nodes({ nodes, onSelect }: NodesProps) {
+function Nodes({ nodes }: NodesProps) {
 	return nodes.map((node) => (
 		<Switch
 			node={node}
 			key={node.$id}
-			onSelect={onSelect}
 		/>
 	));
 }
 
-// --- Main Component ---
-
-type SidebarProps = {
-	onSelect?: () => void;
-};
-
-export const Sidebar = (props: SidebarProps) => {
-	const { onSelect } = props;
+const SidebarRoot = () => {
 	const {
 		state: { pageTree },
 	} = useDocsLayoutContext();
@@ -173,7 +153,6 @@ export const Sidebar = (props: SidebarProps) => {
 				return (
 					<Nodes
 						key={folder.$id}
-						onSelect={onSelect}
 						nodes={folder.children}
 					/>
 				);
@@ -181,3 +160,44 @@ export const Sidebar = (props: SidebarProps) => {
 		</Stack>
 	);
 };
+
+type SidebarMobileProps = {
+	children: React.ReactNode;
+};
+
+function SidebarMobile({ children }: SidebarMobileProps) {
+	return (
+		<InDialogProvider value={true}>
+			<Dialog
+				modal
+				size="full"
+			>
+				{children}
+				<Portal>
+					<Dialog.Backdrop />
+					<Dialog.Positioner pt="48">
+						<Dialog.Content asChild>
+							<Surface
+								delta={1}
+								rounded="0"
+								roundedTop="24"
+							>
+								<Surface.Content
+									p="12"
+									overflow="auto"
+								>
+									<Sidebar />
+								</Surface.Content>
+							</Surface>
+						</Dialog.Content>
+					</Dialog.Positioner>
+				</Portal>
+			</Dialog>
+		</InDialogProvider>
+	);
+}
+
+export const Sidebar = Object.assign(SidebarRoot, {
+	Mobile: SidebarMobile,
+	MobileTrigger: Dialog.Trigger,
+});
