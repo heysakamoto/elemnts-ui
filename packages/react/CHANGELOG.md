@@ -1,5 +1,12 @@
 # @moto-ui/react
 
+## 0.0.4
+
+### Patch Changes
+
+- Add 5+ new components List, Show, e.t.c
+  - @moto-ui/styled-system@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
