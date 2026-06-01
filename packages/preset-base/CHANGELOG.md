@@ -1,5 +1,11 @@
 # @moto-ui/preset-base
 
+## 0.0.4
+
+### Patch Changes
+
+- Add 5+ new components List, Show, e.t.c
+
 ## 0.0.3
 
 ### Patch Changes
