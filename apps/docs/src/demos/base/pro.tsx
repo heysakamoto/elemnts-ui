@@ -9,6 +9,7 @@ export function Pro() {
 			>
 				<Surface.Content p="24">
 					<Icon
+						ml="-8"
 						width={40}
 						height={40}
 						color="icon.secondary"
