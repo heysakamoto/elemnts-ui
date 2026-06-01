@@ -1,17 +1,14 @@
 import {
-	Anchor,
 	Avatar,
 	Box,
 	Button,
 	ButtonGroup,
 	Container,
-	css,
-	Grid,
-	Group,
 	HoverCard,
 	Icon,
 	Portal,
 	Section,
+	Separator,
 	Stack,
 	Surface,
 	Text,
@@ -19,28 +16,9 @@ import {
 import { Link } from "@tanstack/react-router";
 import type { PropsWithChildren } from "react";
 import { Logo } from "@//components/base/logo";
-import { ComposedDialog } from "@/components/base/composed-dialog";
+import { Navigation } from "@/components/base/navigation";
+import { Sponsor } from "@/components/base/sponsor";
 import { ThemeToggle } from "@/components/base/theme-toggle";
-
-const pageTree = [
-	{ name: "About", url: "/docs/about", target: "_self" },
-	{ name: "Concepts", url: "/docs/animations", target: "_self" },
-	{
-		name: "Storybook",
-		url: "https://storybook.moto-ui.app",
-		target: "_blank",
-	},
-	{
-		name: "Contributing",
-		url: "https://github.com/heysakamoto/moto-ui?tab=contributing-ov-file",
-		target: "_blank",
-	},
-	{
-		name: "Sponsor",
-		url: "https://opencollective.com/motoui",
-		target: "_blank",
-	},
-];
 
 export function Layout(props: PropsWithChildren) {
 	return (
@@ -67,176 +45,93 @@ function Header() {
 					shadow="tertiary"
 					roundedBottom="32"
 				>
-					<Grid
+					<Stack
 						h="64"
 						px="20"
-						alignContent="center"
+						align="center"
+						justify="space-between"
 						gridTemplateColumns={{
 							base: "repeat(2, 1fr)",
 							lg: "repeat(3, 1fr)",
 						}}
 					>
-						<Group
-							gap="2"
-							hideBelow="lg"
-						>
-							{pageTree.map((item) => (
-								<Link
-									to={item.url}
-									key={item.name}
-									target={item.target}
-									className={css({
-										py: "8",
-										px: "12",
-										rounded: "24",
-										fontSize: "13",
-										color: "fg.secondary",
-										_hover: { bgColor: "bg.secondary", color: "fg.primary" },
-									})}
-								>
-									{item.name}
-								</Link>
-							))}
-						</Group>
+						<Logo />
+						<Navigation />
 						<Stack
 							align="center"
-							justify={{ lg: "center" }}
-						>
-							<Logo />
-						</Stack>
-						<Group
-							gap="8"
 							justify="end"
 						>
 							<ThemeToggle />
-							<MobileMenu />
-							<Button
-								asChild
-								size="sm"
-								rounded="24"
-								fontSize="13"
-								hideBelow="sm"
-								variant="tertiary"
-								colorPalette="neutral"
-							>
-								<Link to="/docs/$">Visit docs</Link>
-							</Button>
-						</Group>
-					</Grid>
-				</Surface>
-			</Container>
-		</Section>
-	);
-}
-
-function MobileMenu() {
-	return (
-		<ComposedDialog
-			fullHeight
-			trigger={({ onOpen }) => {
-				return (
-					<Button
-						iconOnly
-						hideFrom="lg"
-						rounded="full"
-						variant="ghost"
-						colorPalette="neutral"
-						onClick={() => onOpen()}
-						aria-label="Open mobile menu"
-						css={{
-							"&:not(:hover)": {
-								color: "icon.secondary",
-							},
-						}}
-					>
-						<Icon
-							width={16}
-							height={16}
-							icon="tabler:layout-sidebar-right"
-						/>
-					</Button>
-				);
-			}}
-			content={({ onClose }) => {
-				return (
-					<Surface.Content
-						p="12"
-						flex="1"
-						justify="space-between"
-					>
-						<Surface.Addon
-							direction="column"
-							onClick={() => onClose()}
-						>
-							{pageTree.map((item) => (
-								<Anchor
-									py="16"
-									asChild
-									key={item.url}
-									colorPalette="neutral"
-									css={{
-										"&:not(:hover)": {
-											color: "fg.tertiary",
-										},
-									}}
-									_hover={{
-										"& svg": {
-											opacity: 1,
-											transform: "translateY(0px) translateX(0px)",
-										},
-									}}
-								>
-									<Link
-										to={item.url}
-										target={item.target}
+							<Navigation.Mobile>
+								<Navigation.MobileTrigger asChild>
+									<Button
+										iconOnly
+										size="sm"
+										hideFrom="lg"
+										rounded="full"
+										variant="ghost"
+										colorPalette="neutral"
+										aria-label="Open mobile menu"
+										css={{
+											"&:not(:hover)": {
+												color: "icon.secondary",
+											},
+										}}
 									>
-										{item.name}
 										<Icon
 											width={16}
 											height={16}
-											opacity={0}
-											transformOrigin="right"
-											icon="tabler:arrow-right"
-											transform="translateX(20px)"
-											transition="transform 200ms ease"
+											icon="tabler:menu"
+										/>
+									</Button>
+								</Navigation.MobileTrigger>
+							</Navigation.Mobile>
+							<Separator
+								mx="12"
+								h="1.5rem"
+								hideBelow="sm"
+								orientation="vertical"
+							/>
+							<ButtonGroup
+								attached
+								hideBelow="sm"
+								colorPalette="neutral"
+							>
+								<Sponsor>
+									<Sponsor.Trigger asChild>
+										<ButtonGroup.Item roundedStart="16">
+											<Icon
+												ml="-2"
+												width={16}
+												height={16}
+												icon="tabler:heart"
+											/>
+											Sponsor
+											<ButtonGroup.Separator />
+										</ButtonGroup.Item>
+									</Sponsor.Trigger>
+								</Sponsor>
+								<ButtonGroup.Item
+									roundedEnd="16"
+									aria-label="github"
+								>
+									<Link
+										target="_blank"
+										to={"https://github.com/heysakamoto/moto-ui" as any}
+									>
+										<Icon
+											width={16}
+											height={16}
+											icon="radix-icons:github-logo"
 										/>
 									</Link>
-								</Anchor>
-							))}
-						</Surface.Addon>
-						<ButtonGroup
-							mt="32"
-							attached
-							fullWidth
-							variant="tertiary"
-						>
-							<Button
-								roundedStart="16"
-								asChild
-							>
-								<Link
-									to="/docs/$"
-									params={{ _splat: "/" }}
-								>
-									Visit docs
-								</Link>
-							</Button>
-							<Button
-								roundedEnd="16"
-								asChild
-							>
-								<Link
-									target="_blank"
-									to={"https://www.npmjs.com/package/@moto-ui/react" as any}
-								>
-									Npm
-								</Link>
-							</Button>
-						</ButtonGroup>
-					</Surface.Content>
-				);
-			}}
-		/>
+								</ButtonGroup.Item>
+							</ButtonGroup>
+						</Stack>
+					</Stack>
+				</Surface>
+			</Container>
+		</Section>
 	);
 }
 
@@ -252,16 +147,13 @@ function Footer() {
 					align="center"
 				>
 					<HoverCard>
-						<Text color="fg.secondary">
+						<Text color="fg.tertiary">
 							Built by{" "}
-							<HoverCard.Trigger asChild>
-								<Anchor
-									asChild
-									fontSize="inherit"
-									colorPalette="neutral"
-								>
-									<Link to=".">sakamoto</Link>
-								</Anchor>
+							<HoverCard.Trigger
+								fontSize="inherit"
+								textDecoration="underline"
+							>
+								sakamoto
 							</HoverCard.Trigger>
 							.
 						</Text>
@@ -269,13 +161,13 @@ function Footer() {
 							<HoverCard.Positioner>
 								<HoverCard.Content asChild>
 									<Surface
+										w="16rem"
 										delta={1}
 										rounded="24"
 									>
-										<Surface.Content
-											p="8"
-											gap="8"
-											direction="row"
+										<Surface.Header
+											p="12"
+											align="start"
 										>
 											<Avatar>
 												<Avatar.Image
@@ -284,26 +176,26 @@ function Footer() {
 												/>
 												<Avatar.Fallback>Sm</Avatar.Fallback>
 											</Avatar>
-											<Surface.Addon
-												gap="2"
-												pr="4"
+										</Surface.Header>
+										<Surface.Content px="12">
+											<Surface.Title
+												fontSize="14"
+												lineHeight="1"
 											>
-												<Surface.Title
-													lineHeight="1"
-													fontSize="16"
-												>
-													sakamoto
-												</Surface.Title>
-												<Surface.Description
-													fontSize="13"
-													lineHeight="1"
-												>
-													@hey__sakamoto
-												</Surface.Description>
-											</Surface.Addon>
+												Sakamoto
+											</Surface.Title>
+											<Surface.Description
+												mt="4"
+												fontSize="14"
+											>
+												The creator of Moto UI, a design system and component
+												library for building modern web applications.
+											</Surface.Description>
+										</Surface.Content>
+										<Surface.Footer p="12">
 											<Button
 												asChild
-												iconOnly
+												fullWidth
 												rounded="full"
 												variant="surface"
 											>
@@ -311,6 +203,7 @@ function Footer() {
 													target="_blank"
 													to={"https://x.com/hey__sakamoto" as string}
 												>
+													Profile
 													<Icon
 														icon="tabler:arrow-right"
 														width={16}
@@ -318,7 +211,7 @@ function Footer() {
 													/>
 												</Link>
 											</Button>
-										</Surface.Content>
+										</Surface.Footer>
 									</Surface>
 								</HoverCard.Content>
 							</HoverCard.Positioner>

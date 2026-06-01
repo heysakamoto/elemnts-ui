@@ -3,37 +3,7 @@ title: Colors
 description: Color palette and theming system for Moto UI.
 ---
 
-import { Swatch, Surface, Stack, Tooltip, Portal, Text, Group } from "@moto-ui/react";
-
-export const ComposedTooltip = ({ color, label }) => {
-  return (
-    <Tooltip positioning={{ placement: "top" }} openDelay={100}>
-      <Tooltip.Trigger asChild>
-        <Swatch bgColor={label} size="sm" />
-      </Tooltip.Trigger>
-      <Portal>
-        <Tooltip.Positioner>
-          <Tooltip.Content>
-            <Surface delta={1} px="10" py="6" rounded="24">
-              <Text size="14" lineHeight="none">
-                {label ?? color}
-              </Text>
-            </Surface>
-          </Tooltip.Content>
-        </Tooltip.Positioner>
-      </Portal>
-    </Tooltip>
-  );
-};
-
-<Surface delta={1} rounded="24" h="360px" gap="16" align="center" justify="center">
-  <Group direction="row" gap="8">
-    <ComposedTooltip color="green.10" label="green.10" />
-    <ComposedTooltip color="green.50" label="green.50" />
-    <ComposedTooltip color="green.80" label="green.80" />
-    <ComposedTooltip color="green.100" label="green.100" />
-  </Group>
-</Surface>
+<ComponentPreview name="base:colors" />
 
 Colors in Moto UI utilize the **OKLCH** color space. This ensures uniform perceived brightness and much smoother color transitions across our entire palette compared to traditional RGB or HSL models.
 

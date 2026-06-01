@@ -26,8 +26,17 @@ Moto UI relies on **Panda CSS** for its high-performance styling engine. Follow 
 Install the Moto UI core components and the Panda CSS development dependencies:
 
 ```bash
-pnpm add @moto-ui/react @moto-ui/preset-base
+pnpm add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
 pnpm add -D @pandacss/dev
+# OR
+npm install @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+npm install -D @pandacss/dev
+# OR
+yarn add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+yarn add -D @pandacss/dev
+# OR
+bun add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+bun add -D @pandacss/dev
 ````
 
 ---
@@ -38,6 +47,12 @@ Run the initialization command to set up your PostCSS and Panda configuration:
 
 ```bash
 pnpm panda init --postcss
+# OR
+npm panda init --postcss
+# OR
+yarn panda init --postcss
+# OR
+bun panda init --postcss
 ```
 
 ---
@@ -72,7 +87,10 @@ export default defineConfig({
   presets: [basePreset],
 
   // Path to your source files
-  include: ["./src/**/*.{js,jsx,ts,tsx}"],
+  include: [
+    "./src/**/*.{ts,tsx}", 
+    "node_modules/@moto-ui/react/dist/buildinfo.json",
+  ],
 });
 ```
 

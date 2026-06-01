@@ -171,3 +171,7 @@ export function ThemeProvider(props: Props) {
 		</ThemeContext.Provider>
 	);
 }
+
+export const InDialogProvider = createContext(false);
+
+export const useInDialogContext = () => useContext(InDialogProvider);

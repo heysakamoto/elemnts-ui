@@ -4,7 +4,7 @@ import { swatchRecipe } from "@moto-ui/styled-system/recipes";
 
 export const Swatch = styled(ark.div, swatchRecipe, {
 	defaultProps: {
-		"data-scope": "color-swatch",
+		"data-scope": "swatch",
 		"data-part": "root",
 	},
 });

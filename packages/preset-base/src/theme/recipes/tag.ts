@@ -66,7 +66,7 @@ export const tagRecipe = defineRecipe({
 			primary: {
 				"--tag-bg": "{colors.transparent}",
 				"--tag-shadow": "{shadows.2}",
-				"--tag-border": "1px solid {colors.stroke.tertiary}",
+				"--tag-border": "1px solid {colors.stroke.secondary}",
 			},
 			secondary: {
 				"--tag-bg": "{colors.bg.secondary}",

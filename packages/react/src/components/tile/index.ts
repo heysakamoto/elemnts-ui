@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
 import {
+	TileAddon,
 	TileContent,
 	TileControl,
 	TileDescription,
@@ -14,8 +15,10 @@ export type TileDescriptionProps = ComponentProps<typeof TileDescription>;
 export type TileRootProps = ComponentProps<typeof TileRoot>;
 export type TileTitleProps = ComponentProps<typeof TileTitle>;
 export type TileIndicatorProps = ComponentProps<typeof TileIndicator>;
+export type TileAddonProps = ComponentProps<typeof TileAddon>;
 
 export const Tile = Object.assign(TileRoot, {
+	Addon: TileAddon,
 	Content: TileContent,
 	Description: TileDescription,
 	Root: TileRoot,
@@ -26,6 +29,7 @@ export const Tile = Object.assign(TileRoot, {
 
 export type Tile = {
 	Props: TileRootProps;
+	AddonProps: TileAddonProps;
 	ContentProps: TileContentProps;
 	ControlProps: TileControlProps;
 	DescriptionProps: TileDescriptionProps;
@@ -35,6 +39,7 @@ export type Tile = {
 };
 
 export {
+	TileAddon,
 	TileContent,
 	TileDescription,
 	TileRoot,

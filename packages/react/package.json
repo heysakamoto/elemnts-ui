@@ -32,6 +32,7 @@
 			"import": "./dist/esm/index.js",
 			"require": "./dist/cjs/index.cjs"
 		},
+		"./buildinfo.json": "./dist/buildinfo.json",
 		"./*": {
 			"types": "./dist/types/components/*/index.d.ts",
 			"import": "./dist/esm/components/*/index.js",
@@ -46,15 +47,17 @@
 	"scripts": {
 		"clean": "rm -rf dist",
 		"dev": "tsc && tsup --watch",
-		"build": "pnpm clean && tsup && tsc"
+		"build": "pnpm clean && pnpm panda:ship && tsup && tsc",
+		"panda:ship": "panda ship --outfile dist/buildinfo.json"
 	},
 	"devDependencies": {
+		"tsup": "^8.5.1",
+		"@pandacss/dev": "^1.11.1",
 		"@types/react": "^18.0.0 || ^19.0.0",
-		"@types/react-dom": "^18.0.0 || ^19.0.0",
-		"tsup": "^8.5.1"
+		"@moto-ui/preset-base": "workspace:*",
+		"@types/react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"peerDependencies": {
-		"@moto-ui/styled-system": "workspace:*",
 		"react": "^18.0.0 || ^19.0.0",
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
@@ -63,6 +66,7 @@
 		"@dnd-kit/react": "^0.4.0",
 		"@iconify/react": "^6.0.2",
 		"@ncdai/react-wheel-picker": "^1.2.2",
-		"@tanstack/react-virtual": "^3.13.18"
+		"@tanstack/react-virtual": "^3.13.18",
+		"@moto-ui/styled-system": "workspace:*"
 	}
 }

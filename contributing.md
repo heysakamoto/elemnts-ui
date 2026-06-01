@@ -41,9 +41,9 @@ Run these commands from the repository root to start development servers:
 
 | Command | Action |
 |---|---|
-| `pnpm run dev:react` | Starts compilation of the React package with watch mode |
-| `pnpm run dev:storybook` | Starts Storybook local server (usually at `http://localhost:6006`) |
-| `pnpm run dev:docs` | Starts the docs website development server |
+| `pnpm --filter @moto-ui/react dev` | Starts compilation of the React package with watch mode |
+| `pnpm --filter @moto-ui/storybook dev` | Starts Storybook local server (usually at `http://localhost:6006`) |
+| `pnpm run --filter @moto-ui/docs dev` | Starts the docs website development server |
 | `pnpm run biome:check` | Run linter and formatter checks using Biome |
 | `pnpm run biome:fix` | Automatically apply linter and formatter fixes |
 

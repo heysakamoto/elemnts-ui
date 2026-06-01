@@ -76,10 +76,11 @@ export function Table(props: TableBaseProps) {
 			</Surface.Header>
 			{/*Table body*/}
 			<Surface.Content
+				divideX="0px"
 				divideY="1px"
 				divideStyle="solid"
-				divideColor="stroke.tertiary"
 				data-table-part="tbody"
+				divideColor="stroke.tertiary"
 			>
 				{/*Table body rows*/}
 				{rows.nodes.map((row, idx) => {

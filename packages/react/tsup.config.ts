@@ -12,15 +12,17 @@ export default defineConfig([
 		bundle: false,
 		sourcemap: true,
 		splitting: false,
+		external: ["@moto-ui/styled-system"],
 	},
 	{
 		entry,
 		format: ["esm"],
-		outDir: "dist/esm",
 		dts: false,
 		clean: false,
 		bundle: false,
 		sourcemap: true,
 		splitting: false,
+		outDir: "dist/esm",
+		external: ["@moto-ui/styled-system"],
 	},
 ]);

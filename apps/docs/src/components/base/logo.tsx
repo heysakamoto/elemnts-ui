@@ -1,4 +1,4 @@
-import { css } from "@moto-ui/react";
+import { css } from "@moto-ui/styled-system/css";
 import { Link } from "@tanstack/react-router";
 import { Fragment } from "react/jsx-runtime";
 import BrandmarkDarkLogo from "@/assets/brandmark/dark.svg?react";

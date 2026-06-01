@@ -1,16 +1,58 @@
 import {
 	Button,
+	ButtonGroup,
 	Icon,
 	Item,
 	Menu,
 	Portal,
 	Surface,
-	useLockedDisclosure,
+	useClipboard,
 } from "@moto-ui/react";
-import { Link, useLocation } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { Link, useLocation, useParams } from "@tanstack/react-router";
+import type { PropsWithChildren } from "react";
 import { replaceSlug } from "@/utils/url";
 
-const prompt = `“Read the markdown: slug; I'll ask questions about it.”`;
+function AICopyButton() {
+	const splat = useParams({ from: "/docs/$", select: (p) => p._splat ?? "" });
+
+	const { data } = useQuery({
+		queryKey: [`copy-markdown`, splat],
+		queryFn: async () => {
+			const md = await fetch(`/docs/${splat}.md`, {
+				method: "GET",
+			}).then((r) => r.text());
+
+			return md;
+		},
+	});
+
+	const api = useClipboard({ value: data || "" });
+
+	const icons = {
+		true: "tabler:check",
+		false: "tabler:copy",
+	};
+
+	return (
+		<Button
+			roundedStart="12"
+			disabled={!data || api.copied}
+			_notHover={{ "& svg": { color: "icon.secondary" } }}
+			{...api.getTriggerProps()}
+		>
+			<Icon
+				ml="-2"
+				icon={icons[String(api.copied) as keyof typeof icons]}
+				width={14}
+				height={14}
+			/>
+			Copy
+		</Button>
+	);
+}
+
+const prompt = `“Read the documentation slug; I'll ask questions about it.”`;
 
 const encodedPrompt = encodeURIComponent(prompt);
 
@@ -47,8 +89,7 @@ const options = [
 	},
 ];
 
-export function AIMenu() {
-	const { open, setOpen } = useLockedDisclosure();
+export function AIMenuOptions() {
 	const pathname = useLocation({ select: (l) => l.pathname });
 
 	const VITE_URL = import.meta.env.VITE_URL;
@@ -56,9 +97,8 @@ export function AIMenu() {
 
 	return (
 		<Menu
-			open={open}
-			onOpenChange={(d) => setOpen(d.open)}
 			positioning={{
+				strategy: "fixed",
 				placement: "bottom-end",
 				offset: { mainAxis: 0, crossAxis: 40 },
 			}}
@@ -66,7 +106,7 @@ export function AIMenu() {
 			<Menu.Trigger asChild>
 				<Button
 					iconOnly
-					roundedEnd="16"
+					roundedEnd="12"
 					aria-label="Open AI menu"
 					css={{
 						"&:not(:hover)": {
@@ -132,3 +172,21 @@ export function AIMenu() {
 		</Menu>
 	);
 }
+
+function AIButtonsRoot({ children }: PropsWithChildren) {
+	return (
+		<ButtonGroup
+			size="sm"
+			attached
+			variant="secondary"
+			colorPalette="neutral"
+		>
+			{children}
+		</ButtonGroup>
+	);
+}
+
+export const AIButtons = Object.assign(AIButtonsRoot, {
+	MenuOptions: AIMenuOptions,
+	CopyButton: AICopyButton,
+});

@@ -59,10 +59,10 @@ export const chipRecipe = defineRecipe({
 				"--bg": "{colors.colorPalette.secondary}",
 			},
 			tertiary: {
+				"--shadow": "{shadows.2}",
 				"--bg": "{colors.bg.tertiary}",
 				"--color": "{colors.colorPalette.primary}",
-				"--shadow": "{shadows.2}",
-				"--border": "1px solid {colors.stroke.tertiary}",
+				"--border": "1px solid {colors.stroke.secondary}",
 			},
 			surface: {
 				"--bg": "{colors.bg.secondary}",

@@ -1,4 +1,4 @@
-import { Chip, type TextProps } from "@moto-ui/react";
+import { Code as MotoCode, type TextProps } from "@moto-ui/react";
 import { useCodeBlockContext } from "./client";
 
 type CodeProps = TextProps;
@@ -13,20 +13,16 @@ export const Code = (props: CodeProps) => {
 		}
 		default: {
 			return (
-				<Chip
-					as="code"
+				<MotoCode
 					size="xs"
 					rounded="8"
-					fontSize="12"
-					fontWeight="400"
-					fontFamily="mono"
+					fontSize="13"
 					letterSpacing="sm"
 					variant="secondary"
 					colorPalette="neutral"
-					whiteSpace="nowrap"
 				>
 					{children}
-				</Chip>
+				</MotoCode>
 			);
 		}
 	}

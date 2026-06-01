@@ -50,10 +50,15 @@ export const globalCss = defineGlobalStyles({
 		lineHeight: "{lineHeights.sm}",
 	},
 
-	"p, span": {
+	p: {
 		color: "inherit",
 		textAlign: "start",
 		lineHeight: "{lineHeights.md}",
+	},
+
+	span: {
+		color: "inherit",
+		lineHeight: "inherit",
 	},
 
 	// Interactive Elements

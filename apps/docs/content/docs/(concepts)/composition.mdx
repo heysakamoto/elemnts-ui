@@ -5,7 +5,7 @@ description: Create adaptable user interfaces using component composition techni
 
 Moto UI components are designed with flexibility in mind, offering two primary ways to compose and change their rendered output: the `as` prop and the `asChild` prop. Both are powered by [Ark UI](https://ark-ui.com/).
 
-## The `as` Prop
+## The as Prop
 
 The `as` prop allows you to change the underlying HTML element that a component renders while retaining all its styles and behavior.
 
@@ -16,7 +16,7 @@ import { Text } from "@moto-ui/react";
 <Text as="span">This renders as a span</Text>
 ```
 
-## The `asChild` Prop
+## The asChild Prop
 
 The `asChild` prop is the preferred way to compose a Moto UI component with another custom component or a framework-specific link (like TanStack Router or Next.js `Link`).
 
@@ -31,7 +31,7 @@ import { Link } from "@tanstack/react-router";
 </Button>
 ```
 
-### Important Rules for `asChild`
+### Important Rules for asChild
 
 1.  **Single Child Only**: You must pass exactly one child element.
 2.  **Prop Merging**: Props from the parent (Moto UI component) and the child are merged. If both have the same prop (like `onClick`), both functions will be executed.
@@ -43,7 +43,7 @@ import { Link } from "@tanstack/react-router";
 
 Moto UI exports `factory` and `styled` to help you build your own polymorphic, styled components.
 
-### Using `factory` (Ark UI)
+### Using factory (Ark UI)
 
 The `factory` (aliased from `ark`) provides a way to create HTML elements that support the `asChild` prop natively.
 
@@ -57,7 +57,7 @@ const MyComponent = factory.div;
 </MyComponent>
 ```
 
-### Using `styled` (Panda CSS)
+### Using styled (Panda CSS)
 
 The `styled` function combines an element (or a factory element) with a Panda CSS recipe or styles.
 

@@ -1,9 +1,14 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
-import { useSortable } from "@dnd-kit/react/sortable";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { sortableRecipe } from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
 import { mergeRefs } from "../../utils/merge-ref";
+import {
+	SortableItemProvider,
+	type UseSortableItemProps,
+	useSortableItem,
+	useSortableItemContext,
+} from "./client";
 
 const { withProvider, withContext } = createStyleContext(sortableRecipe);
 
@@ -17,7 +22,31 @@ export const SortableRoot = withProvider(ark.ul, "root", {
 });
 SortableRoot.displayName = "SortableRoot";
 
-export const SortableItem = withContext(ark.li, "item", {
+type SortableItemBaseProps = Assign<HTMLArkProps<"li">, UseSortableItemProps>;
+export const SortableItemBase = forwardRef<
+	HTMLLIElement,
+	SortableItemBaseProps
+>((props, ref) => {
+	const { id, index, ...restProps } = props;
+
+	const value = useSortableItem({ id, index });
+
+	return (
+		<SortableItemProvider value={value}>
+			<ark.li
+				ref={mergeRefs(value.ref, ref)}
+				data-dropping={value.isDropping ? "" : undefined}
+				data-dragging={value.isDragging ? "" : undefined}
+				data-state={
+					value.isDragging ? "dragging" : value.isDropping ? "dropping" : "idle"
+				}
+				{...restProps}
+			/>
+		</SortableItemProvider>
+	);
+});
+
+export const SortableItem = withContext(SortableItemBase, "item", {
 	dataAttr: true,
 	defaultProps: {
 		role: "listitem",
@@ -27,24 +56,20 @@ export const SortableItem = withContext(ark.li, "item", {
 });
 SortableItem.displayName = "SortableItem";
 
-type SortableItemHandleProps = Assign<
-	HTMLArkProps<"div">,
-	{
-		id: number;
-		index: number;
-	}
->;
+type SortableItemHandleBaseProps = HTMLArkProps<"div">;
 export const SortableItemHandleBase = forwardRef<
 	HTMLDivElement,
-	SortableItemHandleProps
+	SortableItemHandleBaseProps
 >((props, ref) => {
-	const { id, index, ...rest } = props;
-	const { ref: sortableRef } = useSortable({ id, index });
+	const { handleRef, isDropping, isDragging } = useSortableItemContext();
 
 	return (
 		<ark.div
-			ref={mergeRefs(sortableRef, ref)}
-			{...rest}
+			ref={mergeRefs(handleRef, ref)}
+			data-dropping={isDropping ? "" : undefined}
+			data-dragging={isDragging ? "" : undefined}
+			data-state={isDragging ? "dragging" : isDropping ? "dropping" : "idle"}
+			{...props}
 		/>
 	);
 });

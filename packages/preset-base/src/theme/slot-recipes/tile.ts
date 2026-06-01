@@ -2,7 +2,15 @@ import { defineSlotRecipe } from "@pandacss/dev";
 
 export const tileRecipe = defineSlotRecipe({
 	className: "tile",
-	slots: ["root", "content", "control", "title", "description", "indicator"],
+	slots: [
+		"root",
+		"content",
+		"control",
+		"addon",
+		"title",
+		"description",
+		"indicator",
+	],
 	base: {
 		root: {
 			display: "flex",
@@ -19,11 +27,13 @@ export const tileRecipe = defineSlotRecipe({
 			gap: "calc({spacing.4} * 1)",
 			border: "var(--tile-border, none)",
 
-			_selected: {
-				bgColor: "var(--tile-bg-checked)",
-				color: "var(--tile-color-checked)",
-				"& svg, [data-part=description]": {
-					color: "inherit",
+			"&:not(:disabled, [data-disabled], [aria-disabled=true])": {
+				_selected: {
+					bgColor: "var(--tile-bg-checked)",
+					color: "var(--tile-color-checked)",
+					"& svg, [data-part=description]": {
+						color: "inherit",
+					},
 				},
 			},
 
@@ -60,6 +70,7 @@ export const tileRecipe = defineSlotRecipe({
 			},
 		},
 		description: {
+			textAlign: "start",
 			fontSize: "{fontSizes.12}",
 			color: "{colors.fg.secondary}",
 		},
@@ -117,7 +128,7 @@ export const tileRecipe = defineSlotRecipe({
 					"--tile-shadow": "{shadows.2}",
 					"--tile-bg": "{colors.transparent}",
 					"--tile-color": "{colors.fg.primary}",
-					"--tile-border": "1px solid {colors.stroke.tertiary}",
+					"--tile-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 			secondary: {

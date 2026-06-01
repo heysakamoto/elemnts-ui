@@ -1,16 +1,16 @@
 {
-  "icon": "HomeIcon",
-  "title": "Typography",
-  "defaultOpen": false,
-  "pages": [
-    "---typography---",
-    "anchor",
-    "blockquote",
-    "code",
-    "highlight",
-    "kbd",
-    "mark",
-    "prose",
-    "text"
-  ]
+	"icon": "HomeIcon",
+	"title": "Typography",
+	"defaultOpen": false,
+	"pages": [
+		"---typography---",
+		"anchor",
+		"blockquote",
+		"code",
+		"highlight",
+		"kbd",
+		"mark",
+		"prose",
+		"text"
+	]
 }

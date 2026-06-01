@@ -10,14 +10,14 @@ import {
 	Item,
 	Kbd,
 	Portal,
-	Presence,
 	Separator,
+	Show,
 	Spinner,
 	Surface,
 	VirtualList,
 } from "@moto-ui/react";
 import { useHotkeys } from "@tanstack/react-hotkeys";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import type { SortedResult } from "fumadocs-core/search";
 import { useDocsSearch } from "fumadocs-core/search/client";
 import {
@@ -37,7 +37,7 @@ export function useSearch() {
 
 	useHotkeys([
 		{
-			hotkey: "Mod+K",
+			hotkey: "/",
 			callback: (event) => {
 				event.preventDefault();
 				setOpen(true);
@@ -169,10 +169,30 @@ export function SearchHeader() {
 			align="center"
 			direction="row"
 		>
+			<Button
+				asChild
+				iconOnly
+				size="xl"
+				flexShrink={0}
+				rounded="full"
+				variant="tertiary"
+				aria-label="storybook"
+				colorPalette="neutral"
+			>
+				<Link
+					target="_blank"
+					to={"https://storybook.moto-ui.app" as any}
+				>
+					<Icon
+						width={16}
+						height={16}
+						icon="devicon-plain:storybook"
+					/>
+				</Link>
+			</Button>
 			<InputGroup
 				size="lg"
 				rounded="20"
-				variant="secondary"
 			>
 				<InputGroup.Addon pl="10">
 					<Icon
@@ -190,21 +210,27 @@ export function SearchHeader() {
 					/>
 				</Combobox.Input>
 				<InputGroup.Addon pr="8">
-					<Presence present={query.isLoading}>
+					<Show
+						fallback={null}
+						when={query.isLoading}
+					>
 						<Spinner
 							size="sm"
 							color="icon.tertiary"
 						>
 							<Icon icon="tabler:loader-2" />
 						</Spinner>
-					</Presence>
+					</Show>
 				</InputGroup.Addon>
 			</InputGroup>
 			<Dialog.CloseTrigger asChild>
 				<Button
 					iconOnly
+					size="xl"
+					flexShrink={0}
 					rounded="full"
-					variant="ghost"
+					variant="tertiary"
+					aria-label="close"
 					colorPalette="neutral"
 				>
 					<Icon
@@ -444,12 +470,11 @@ export function SearchResults() {
 	);
 }
 
-type SearchProps = {
-	children: (props: { onOpen: () => void }) => React.ReactNode;
+type SearchRootProps = {
+	children: React.ReactNode;
 };
 
-export function Search(props: SearchProps) {
-	const { children } = props;
+function SearchRoot({ children }: SearchRootProps) {
 	const search = useSearch();
 
 	return (
@@ -460,7 +485,7 @@ export function Search(props: SearchProps) {
 				onEscapeKeyDown={() => search.setSearch("")}
 				onOpenChange={(details) => search.setOpen(details.open)}
 			>
-				{children({ onOpen: () => search.setOpen(true) })}
+				{children}
 				<Portal>
 					<Dialog.Backdrop />
 					<Dialog.Positioner>
@@ -488,3 +513,7 @@ export function Search(props: SearchProps) {
 		</SearchProvider>
 	);
 }
+
+export const Search = Object.assign(SearchRoot, {
+	Trigger: Dialog.Trigger,
+});

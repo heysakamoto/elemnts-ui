@@ -19,15 +19,22 @@ export const breadcrumbRecipe = defineSlotRecipe({
 			color: "{colors.fg.tertiary}",
 		},
 		link: {
-			outline: "0",
+			outline: "none",
 			textDecoration: "none",
 		},
 		item: {
-			display: "inline-flex",
 			alignItems: "center",
+			display: "inline-flex",
+			fontSize: "{fontSizes.14}",
+			lineHeight: "{lineHeights.none}",
 		},
 		separator: {
 			opacity: "0.8",
+			alignItems: "center",
+			boxSize: "fit-content",
+			display: "inline-flex",
+			justifyContent: "center",
+			mx: "calc({spacing.4} * 2)",
 			color: "{colors.fg.tertiary}",
 			_rtl: {
 				rotate: "180deg",

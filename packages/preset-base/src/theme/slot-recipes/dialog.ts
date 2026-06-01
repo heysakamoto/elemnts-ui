@@ -31,13 +31,16 @@ export const dialogRecipe = defineSlotRecipe({
 			color: "{colors.fg.primary}",
 		},
 		backdrop: {
+			w: "100dvw",
+			h: "100dvh",
 			position: "fixed",
 			inset: "{spacing.0}",
-			boxSize: "{sizes.full}",
 			bg: "{colors.white.a50}",
-			zIndex: "{zIndex.overlay}",
-			backdropFilter: "blur(8px)",
-			_dark: { bg: "{colors.black.a50}" },
+			backdropFilter: "blur(12px)",
+			zIndex: "calc(var(--z-index, 9) + var(--layer-index, 0) - 1)",
+			_dark: {
+				bg: "{colors.black.a50}",
+			},
 		},
 		description: {
 			fontSize: "{fontSizes.14}",
@@ -50,8 +53,8 @@ export const dialogRecipe = defineSlotRecipe({
 			alignItems: "center",
 			boxSize: "{sizes.full}",
 			flexDirection: "column",
-			zIndex: "{zIndex.modal}",
 			p: "calc({spacing.4} * 3)",
+			zIndex: "calc(var(--z-index, 9) + var(--layer-index, 0))",
 		},
 	},
 
