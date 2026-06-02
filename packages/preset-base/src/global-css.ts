@@ -121,7 +121,6 @@ export const globalCss = defineGlobalStyles({
 
 	// focus
 	":focus, [data-focus]": {
-		shadow: "none",
 		outline: "none",
 	},
 
