@@ -56,6 +56,7 @@ function SponsorRoot({ children }: PropsWithChildren) {
 						<Surface
 							delta={1}
 							rounded="24"
+							colorPalette="neutral"
 						>
 							<Surface.Header
 								px="16"
@@ -70,7 +71,6 @@ function SponsorRoot({ children }: PropsWithChildren) {
 										rounded="full"
 										flexShrink="0"
 										variant="ghost"
-										colorPalette="neutral"
 									>
 										<Icon
 											width={20}
@@ -88,7 +88,6 @@ function SponsorRoot({ children }: PropsWithChildren) {
 									rounded="full"
 									flexShrink={0}
 									variant="secondary"
-									colorPalette="neutral"
 								>
 									<Link
 										target="_blank"
@@ -111,7 +110,6 @@ function SponsorRoot({ children }: PropsWithChildren) {
 									gap="8"
 									value={value}
 									direction="column"
-									colorPalette="neutral"
 									onValueChange={({ value }) => setValue(value ?? [])}
 								>
 									{options.map((option) => {

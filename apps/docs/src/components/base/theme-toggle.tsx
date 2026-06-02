@@ -26,7 +26,6 @@ export function ThemeToggle(props: ThemeToggleProps) {
 				size="md"
 				rounded="24"
 				variant="ghost"
-				colorPalette="neutral"
 				aria-label="Toggle theme"
 				onClick={() => toggleTheme()}
 				css={{ "&:not(:hover)": { color: "icon.secondary" } }}

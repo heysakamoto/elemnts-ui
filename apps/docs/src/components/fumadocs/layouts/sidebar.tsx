@@ -1,7 +1,7 @@
-import { Dialog, Portal, Stack, Surface, Text } from "@moto-ui/react";
-import { css } from "@moto-ui/styled-system/css";
+import { Anchor, Dialog, List, Portal, Surface } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import type { Folder as FolderType, Item, Node } from "fumadocs-core/page-tree";
+import { Fragment } from "react";
 import {
 	InDialogProvider,
 	useDocsLayoutContext,
@@ -14,9 +14,10 @@ type SeparatorProps = {
 
 function Separator({ node }: SeparatorProps) {
 	return (
-		<Text
+		<List.Item
 			px="8"
-			fontSize="14"
+			as="span"
+			fontSize="13"
 			letterSpacing="sm"
 			color="fg.tertiary"
 			textTransform="capitalize"
@@ -27,7 +28,7 @@ function Separator({ node }: SeparatorProps) {
 			}}
 		>
 			{node.name}
-		</Text>
+		</List.Item>
 	);
 }
 
@@ -38,29 +39,39 @@ type PageProps = {
 
 function Page({ node, onClick }: PageProps) {
 	return (
-		<Link
-			to={node.url}
-			preload="intent"
-			onClick={onClick}
-			activeOptions={{ exact: true }}
-			className={css({
-				mt: "2",
-				h: "28",
-				px: "10",
-				rounded: "12",
-				fontSize: "14",
-				textAlign: "left",
-				alignItems: "center",
-				color: "fg.secondary",
-				display: "inline-flex",
-				"&:is([data-status=active], :hover)": {
-					color: "fg.primary",
-					bgColor: "bg.secondary",
-				},
-			})}
-		>
-			{node.name}
-		</Link>
+		<List.Item>
+			<Anchor
+				mt="2"
+				h="28"
+				px="10"
+				asChild
+				w="full"
+				unstyled
+				rounded="12"
+				fontSize="13"
+				lineHeight="1"
+				fontWeight="500"
+				textAlign="left"
+				alignItems="center"
+				color="fg.secondary"
+				display="inline-flex"
+				css={{
+					"&:is([data-status=active], :hover)": {
+						color: "fg.primary",
+						bgColor: "bg.secondary",
+					},
+				}}
+			>
+				<Link
+					to={node.url}
+					preload="intent"
+					onClick={onClick}
+					activeOptions={{ exact: true }}
+				>
+					{node.name}
+				</Link>
+			</Anchor>
+		</List.Item>
 	);
 }
 
@@ -70,59 +81,17 @@ type FolderProps = {
 
 function Folder({ node }: FolderProps) {
 	return (
-		<Surface
-			delta={0}
-			rounded="0"
-			elevated={false}
-			direction="column"
-			css={{
-				"&:not(:first-child)": {
-					mt: "24",
-				},
-			}}
-		>
-			<Surface.Content>
-				{node.children.map((child) => {
-					return (
-						<Switch
-							node={child}
-							key={child.$id}
-						/>
-					);
-				})}
-			</Surface.Content>
-		</Surface>
-	);
-}
-
-type SwitchProps = {
-	node: Node;
-};
-
-function Switch({ node }: SwitchProps) {
-	const inDialog = useInDialogContext();
-
-	switch (node.type) {
-		case "separator":
-			return <Separator node={node} />;
-		case "page":
-			if (inDialog)
+		<Fragment>
+			{node.children.map((child) => {
 				return (
-					<Dialog.Context>
-						{({ setOpen }) => (
-							<Page
-								node={node}
-								onClick={() => setOpen(false)}
-							/>
-						)}
-					</Dialog.Context>
+					<Nodes
+						nodes={[child]}
+						key={child.$id}
+					/>
 				);
-			return <Page node={node} />;
-		case "folder":
-			return <Folder node={node} />;
-		default:
-			return null;
-	}
+			})}
+		</Fragment>
+	);
 }
 
 type NodesProps = {
@@ -130,15 +99,48 @@ type NodesProps = {
 };
 
 function Nodes({ nodes }: NodesProps) {
-	return nodes.map((node) => (
-		<Switch
-			node={node}
-			key={node.$id}
-		/>
-	));
+	const inDialog = useInDialogContext();
+	return nodes.map((node) => {
+		switch (node.type) {
+			case "separator":
+				return (
+					<Separator
+						key={node.$id}
+						node={node}
+					/>
+				);
+			case "page":
+				if (inDialog)
+					return (
+						<Dialog.Context>
+							{({ setOpen }) => (
+								<Page
+									node={node}
+									onClick={() => setOpen(false)}
+								/>
+							)}
+						</Dialog.Context>
+					);
+				return (
+					<Page
+						key={node.$id}
+						node={node}
+					/>
+				);
+			case "folder":
+				return (
+					<Folder
+						key={node.$id}
+						node={node}
+					/>
+				);
+			default:
+				return null;
+		}
+	});
 }
 
-const SidebarRoot = () => {
+const Root = () => {
 	const {
 		state: { pageTree },
 	} = useDocsLayoutContext();
@@ -148,7 +150,7 @@ const SidebarRoot = () => {
 	);
 
 	return (
-		<Stack direction="column">
+		<List>
 			{rootFolders.map((folder) => {
 				return (
 					<Nodes
@@ -157,20 +159,20 @@ const SidebarRoot = () => {
 					/>
 				);
 			})}
-		</Stack>
+		</List>
 	);
 };
 
-type SidebarMobileProps = {
+type MobileProps = {
 	children: React.ReactNode;
 };
 
-function SidebarMobile({ children }: SidebarMobileProps) {
+function Mobile({ children }: MobileProps) {
 	return (
 		<InDialogProvider value={true}>
 			<Dialog
 				modal
-				size="full"
+				size="cover"
 			>
 				{children}
 				<Portal>
@@ -179,14 +181,13 @@ function SidebarMobile({ children }: SidebarMobileProps) {
 						<Dialog.Content asChild>
 							<Surface
 								delta={1}
-								rounded="0"
-								roundedTop="24"
+								rounded="24"
 							>
 								<Surface.Content
 									p="12"
 									overflow="auto"
 								>
-									<Sidebar />
+									<Root />
 								</Surface.Content>
 							</Surface>
 						</Dialog.Content>
@@ -197,7 +198,7 @@ function SidebarMobile({ children }: SidebarMobileProps) {
 	);
 }
 
-export const Sidebar = Object.assign(SidebarRoot, {
-	Mobile: SidebarMobile,
+export const DocsLayoutSidebar = Object.assign(Root, {
+	Mobile,
 	MobileTrigger: Dialog.Trigger,
 });
