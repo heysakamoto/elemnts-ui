@@ -1,7 +1,8 @@
 import {
+	Anchor,
 	Button,
-	Group,
 	Icon,
+	List,
 	Menu,
 	Portal,
 	Stack,
@@ -51,11 +52,11 @@ function useTocNavigate() {
 	};
 }
 
-function TocRoot() {
+function Root() {
 	const { toc, isActive } = useToc();
 
 	return (
-		<Stack direction="column">
+		<List direction="column">
 			<Text
 				mb="8"
 				as="strong"
@@ -68,42 +69,51 @@ function TocRoot() {
 				const isInView = isActive(itemHash);
 
 				return (
-					<Link
-						to="."
-						key={itemHash}
-						hash={itemHash}
-						activeOptions={{ includeHash: true }}
-						data-current={isInView ? true : undefined}
-						className={css({
-							py: "6",
-							w: "12rem",
-							fontSize: "14",
-							lineHeight: "1",
-							display: "block",
-							color: "fg.tertiary",
-							whiteSpace: "nowrap",
-							overflowX: "hidden",
-							scrollbar: "hidden",
-							textOverflow: "ellipsis",
-							"&:is([data-current])": {
-								color: "fg.primary",
-							},
-							"&:not([data-current])": {
+					<List.Item key={itemHash}>
+						<Anchor
+							py="6"
+							asChild
+							unstyled
+							w="12rem"
+							fontSize="13"
+							lineHeight="1"
+							display="block"
+							overflowX="hidden"
+							scrollbar="hidden"
+							color="fg.tertiary"
+							whiteSpace="nowrap"
+							textOverflow="ellipsis"
+							css={{
 								_hover: {
 									color: "fg.secondary",
 								},
-							},
-						})}
-					>
-						{item.title}
-					</Link>
+								"&:is([data-current])": {
+									color: "fg.primary",
+								},
+								"&:not([data-current])": {
+									_hover: {
+										color: "fg.secondary",
+									},
+								},
+							}}
+						>
+							<Link
+								to="."
+								hash={itemHash}
+								activeOptions={{ includeHash: true }}
+								data-current={isInView ? true : undefined}
+							>
+								{item.title}
+							</Link>
+						</Anchor>
+					</List.Item>
 				);
 			})}
-		</Stack>
+		</List>
 	);
 }
 
-function TocMobile() {
+function Mobile() {
 	const { current } = useToc();
 	const { open, setOpen } = useLockedDisclosure();
 	const { next, previous } = useDocsLayoutContext();
@@ -114,15 +124,17 @@ function TocMobile() {
 			onOpenChange={(d) => setOpen(d.open)}
 			positioning={{ sameWidth: true, strategy: "fixed" }}
 		>
-			<Group
+			<Stack
 				px="12"
 				w="full"
 				gap="16"
 				zIndex="2"
 				left="50%"
 				bottom="12"
+				hideFrom="md"
 				align="center"
 				position="fixed"
+				colorPalette="neutral"
 				transform="translateX(-50%)"
 			>
 				<Button
@@ -132,7 +144,6 @@ function TocMobile() {
 					rounded="full"
 					variant="surface"
 					disabled={!previous}
-					colorPalette="neutral"
 					aria-label="Go to previous page"
 					style={{ backdropFilter: "blur(10px)" }}
 				>
@@ -172,7 +183,6 @@ function TocMobile() {
 					rounded="full"
 					variant="surface"
 					disabled={!next}
-					colorPalette="neutral"
 					aria-label="Go to next page"
 					style={{ backdropFilter: "blur(10px)" }}
 				>
@@ -187,7 +197,7 @@ function TocMobile() {
 						/>
 					</Link>
 				</Button>
-			</Group>
+			</Stack>
 
 			<Portal>
 				<Menu.Positioner>
@@ -196,8 +206,9 @@ function TocMobile() {
 							p="6"
 							delta={1}
 							rounded="24"
+							colorPalette="neutral"
 						>
-							<TocWheelPicker />
+							<Picker />
 						</Surface>
 					</Menu.Content>
 				</Menu.Positioner>
@@ -206,7 +217,7 @@ function TocMobile() {
 	);
 }
 
-function TocWheelPicker() {
+function Picker() {
 	const { current, toc } = useToc();
 	const navigate = useTocNavigate();
 	const defaultValue = current?.url ?? toc[0]?.url;
@@ -243,10 +254,7 @@ function TocWheelPicker() {
 	}));
 
 	return (
-		<WheelPicker
-			variant="secondary"
-			colorPalette="neutral"
-		>
+		<WheelPicker variant="secondary">
 			<WheelPicker.Control>
 				<WheelPicker.Options
 					options={options}
@@ -273,6 +281,6 @@ function TocWheelPicker() {
 	);
 }
 
-export const Toc = Object.assign(TocRoot, {
-	Mobile: TocMobile,
+export const DocsLayoutToc = Object.assign(Root, {
+	Mobile,
 });

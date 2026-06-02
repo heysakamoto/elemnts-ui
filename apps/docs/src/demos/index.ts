@@ -10,7 +10,7 @@ export const demos: Record<string, DemoItem> = {
 		component: lazy(() =>
 			import("./base/introduction").then((m) => ({ default: m.Introduction })),
 		),
-		file: "base/intrduction.tsx",
+		file: "base/introduction.tsx",
 	},
 	"base:animations": {
 		component: lazy(() =>

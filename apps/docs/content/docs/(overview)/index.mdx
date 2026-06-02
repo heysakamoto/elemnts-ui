@@ -1,48 +1,113 @@
 ---
-index: true
-title: Introduction
-subtitle: |
-    Modern UI components for professional developers.
-    Crafted with Panda CSS and Ark UI.
-description: Moto UI is an open-source React component library focused on performance, accessibility, and high-end aesthetics.
+title: Getting Started
+description: Moto UI is a Chakra UI alternative built with Ark UI and Pandacss.
 ---
 
 <ComponentPreview name="base:introduction" />
 
 
-Moto UI is a high-performance React component library designed for building modern, polished, and accessible web applications. By combining the headless logic of **Ark UI** with the build-time styling power of **Panda CSS**, Moto UI provides a foundation that is both incredibly flexible and exceptionally fast.
+Moto UI is a high-performance React component library designed for building modern, polished, and accessible web applications combining the headless logic of **Ark UI** with the build-time styling power of **Panda CSS**.
 
-## The Moto Philosophy
+## Installation
 
-We believe that professional-grade UI components should not force a trade-off between speed and quality. Moto UI is built on three core pillars:
+Follow these steps to set up Moto UI and its styling engine, Panda CSS.
 
-1.  **Semantic Clarity**: We prioritize semantic naming and intent over purely visual descriptions. This results in a design system that is easier to reason about and maintain.
-2.  **Performance by Default**: By leveraging **Panda CSS**, we eliminate the runtime overhead associated with traditional CSS-in-JS libraries.
-3.  **Uncompromising Accessibility**: Every component is built on top of **Ark UI**, ensuring that your applications are accessible and usable by everyone.
+### Prerequisites
 
-## Architecture
+Before you begin, ensure your project meets the following requirements:
+- **React**: Version 18.0.0 or higher (including React 19).
+- **TypeScript**: Recommended for the best developer experience.
+- **Panda CSS**: Moto UI requires Panda CSS for styling.
 
-Moto UI stands on the shoulders of modern web giants to deliver a world-class developer experience.
+### 1. Install Packages
 
-### Headless Logic with Ark UI
-At the core of Moto UI is [Ark UI](https://ark-ui.com/), a headless library that handles the complex state management and accessibility requirements for every component. This allows us to focus on providing a beautiful, cohesive visual layer while you benefit from robust, battle-tested logic.
+Install the core library along with the Panda CSS presets and development dependencies.
 
-### Build-time Styling with Panda CSS
-For styling, we use [Panda CSS](https://panda-css.com/), a build-time CSS-in-JS engine. Panda generates static CSS files during your build process, ensuring **zero runtime overhead**. This approach provides the best of both worlds: the developer experience of CSS-in-JS with the performance of static CSS.
+```npm
+npm install @moto-ui/preset-base @moto-ui/react
+npm install -D @pandacss/dev
+```
 
-### Modern Color Science (OKLCH)
-Our color system utilizes the **OKLCH** color space. Unlike RGB or HSL, OKLCH provides uniform perceived brightness and much smoother color transitions, resulting in a more natural and visually pleasing palette that works perfectly across both light and dark modes.
+### 2. Panda CSS Configuration
 
-## Key Benefits
+Initialize Panda CSS in your project if you haven't already.
 
-- **Polymorphism with `asChild`**: Most components support the `asChild` prop, allowing you to seamlessly integrate with framework routers (like TanStack Router or Next.js) without rendering unnecessary wrapper elements.
-- **Compound Component Pattern**: We favor the compound component pattern, giving you granular control over the rendering and layout of internal parts.
-- **Strictly Typed**: Written in TypeScript from the ground up, providing exhaustive type definitions, IntelliSense, and compile-time safety.
-- **Rich Aesthetics**: From subtle shadows to smooth spring-based animations, every detail is tuned for a high-end, professional feel.
+```npm
+npx panda init --postcss
+```
 
-## Ready to dive in?
+Then, update your `panda.config.ts` to include the Moto UI base preset. **Crucially**, you must include the Moto UI build info in your `include` path so that Panda can scan the library's components for styles.
 
-Whether you're building a simple dashboard or a complex enterprise application, Moto UI provides the primitives you need to succeed.
+```ts title="panda.config.ts"
+import { basePreset } from "@moto-ui/preset-base";
+import { defineConfig } from "@pandacss/dev";
 
-- [Quick Start](/docs/installation): Get up and running with Moto UI in minutes.
-- [Design Principles](/docs/animations): Learn about the philosophy behind our design system.
+export default defineConfig({
+  // 1. Use the Moto UI preset
+  presets: [basePreset],
+
+  // 2. Necessary for Moto UI components
+  preflight: true,
+  jsxFramework: "react",
+
+  // 3. Include your files AND Moto UI's build info
+  include: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@moto-ui/react/dist/panda.buildinfo.json",
+  ],
+
+  // 4. Output directory for the generated CSS-in-JS
+  outdir: "styled-system",
+
+  // 5. Optional: Global variables for default fonts used by presets
+  globalVars: {
+    "--font-sans-default": "Geist, sans-serif",
+    "--font-mono-default": "JetBrains Mono, monospace",
+  },
+});
+```
+
+### 3. Configure Global CSS
+
+Update your global CSS file (e.g., `src/index.css`) to include the Panda CSS layers. These layers ensure correct CSS specificity and allow Moto UI's recipes to work correctly alongside your own utilities.
+
+```css title="src/index.css"
+@layer reset, base, tokens, recipes, utilities;
+```
+
+### 4. Import Global CSS
+
+Import the CSS file at the root of your application (usually `main.tsx` or `app.tsx`).
+
+```tsx title="src/main.tsx"
+import "./index.css";
+// ... rest of your app imports
+```
+
+### 5. Start Building
+
+You're all set! You can now start using Moto UI components.
+
+```tsx
+import { Button, Stack, Text } from "@moto-ui/react";
+
+export function Welcome() {
+  return (
+    <Stack gap="4" align="start">
+      <Text size="xl" fontWeight="bold">Hello Moto!</Text>
+      <Button variant="primary">Get Started</Button>
+    </Stack>
+  );
+}
+```
+
+## Troubleshooting
+
+### Styles not appearing?
+If you see the components but they have no styling, ensure that:
+1. Your `include` array contains all your `[...paths]` array.
+2. You have run `npx panda` (or your build script).
+3. You have imported your `index.css` file at the root of your project.
+
+### Font Issues
+Moto UI presets use `--font-sans-default` and `--font-mono-default` variables. If your fonts look off, make sure these are defined in your `globalVars`.

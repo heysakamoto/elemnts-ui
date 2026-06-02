@@ -1,6 +1,6 @@
 import { Skeleton, Stack, Text } from "@moto-ui/react";
 
-export function Loader() {
+export function DocsLayoutLoader() {
 	return (
 		<Stack direction="column">
 			<Text

@@ -68,7 +68,7 @@ function NavigationMobile({ children }: NavigationProps) {
 	return (
 		<Dialog
 			modal
-			size="full"
+			size="cover"
 			placement="bottom"
 		>
 			{children}
@@ -77,14 +77,12 @@ function NavigationMobile({ children }: NavigationProps) {
 				<Dialog.Positioner>
 					<Dialog.Content asChild>
 						<Surface
+							h="fit"
 							delta={1}
-							roundedTop="24"
-							maxH="fit-content"
+							rounded="24"
+							colorPalette="neutral"
 						>
-							<Surface.Content
-								px="12"
-								py="20"
-							>
+							<Surface.Content p="16">
 								<List>
 									{links.map((link) => (
 										<Dialog.Context key={link.label}>
@@ -92,13 +90,15 @@ function NavigationMobile({ children }: NavigationProps) {
 												return (
 													<List.Item
 														py="12"
-														px="16"
 														asChild
 														rounded="20"
 														fontSize="16"
 														align="center"
 														fontWeight="500"
-														_hover={{ bgColor: "neutral.secondary" }}
+														color="fg.tertiary"
+														_hover={{
+															color: "fg.primary",
+														}}
 													>
 														<Link
 															to={link.url}
@@ -115,16 +115,13 @@ function NavigationMobile({ children }: NavigationProps) {
 								</List>
 							</Surface.Content>
 							<Surface.Footer
-								px="20"
-								py="12"
+								px="16"
+								pb="16"
 							>
-								<ButtonGroup
-									justify="space-between"
-									colorPalette="neutral"
-								>
+								<ButtonGroup justify="space-between">
 									<Sponsor>
 										<Sponsor.Trigger asChild>
-											<ButtonGroup.Item rounded="16">
+											<ButtonGroup.Item rounded="20">
 												<Icon
 													ml="-2"
 													width={16}
@@ -138,7 +135,8 @@ function NavigationMobile({ children }: NavigationProps) {
 									<ButtonGroup.Item
 										iconOnly
 										asChild
-										rounded="16"
+										rounded="20"
+										variant="secondary"
 										aria-label="github"
 									>
 										<Link

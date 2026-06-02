@@ -1,11 +1,11 @@
-import { Box, Button, Group, Icon, Separator, Text } from "@moto-ui/react";
+import { Box, ButtonGroup, Icon, Show, Stack, Text } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import { type PropsWithChildren, useEffect } from "react";
+import { DocsLayoutAiButtons } from "./ai";
 import { type DocsLayoutState, useDocsLayoutContext } from "./client";
-import { Toc } from "./toc";
 
-type PageProps = PropsWithChildren<Pick<DocsLayoutState, "toc">>;
-export function Page(props: PageProps) {
+type DocsLayoutPageProps = PropsWithChildren<Pick<DocsLayoutState, "toc">>;
+export function DocsLayoutPage(props: DocsLayoutPageProps) {
 	const { toc, children } = props;
 	const { setState, next, previous } = useDocsLayoutContext();
 
@@ -15,85 +15,89 @@ export function Page(props: PageProps) {
 
 	return (
 		<Box>
-			<Box minH="76dvh">{children}</Box>
-			<Separator
-				my="40"
-				size="xs"
-				orientation="horizontal"
-			/>
-			<Group
+			{children}
+			<ButtonGroup
+				mt="40"
 				hideBelow="md"
+				colorPalette="neutral"
 				justify="space-between"
 			>
-				{previous && (
-					<Button
-						asChild
-						variant="surface"
-						colorPalette="neutral"
-					>
-						<Link
-							preload="intent"
-							to={previous.url as any}
+				<Show when={previous}>
+					{(previous) => (
+						<ButtonGroup.Item
+							asChild
+							variant="surface"
 						>
-							<Icon
-								icon="tabler:arrow-left"
-								width="16"
-								height="16"
-								ml="-2"
-							/>
-							{previous.name}
-						</Link>
-					</Button>
-				)}
-				<Box flex="1" />
-				{next && (
-					<Button
-						asChild
-						variant="surface"
-						colorPalette="neutral"
-					>
-						<Link
-							preload="intent"
-							to={next.url as any}
+							<Link
+								preload="intent"
+								to={previous.url}
+							>
+								<Icon
+									ml="-2"
+									width={16}
+									height={16}
+									icon="tabler:arrow-left"
+								/>
+								{previous.name}
+							</Link>
+						</ButtonGroup.Item>
+					)}
+				</Show>
+				<Show when={next}>
+					{(next) => (
+						<ButtonGroup.Item
+							asChild
+							variant="surface"
 						>
-							{next.name}
-							<Icon
-								icon="tabler:arrow-right"
-								width="16"
-								height="16"
-								mr="-2"
-							/>
-						</Link>
-					</Button>
-				)}
-			</Group>
-			<Box hideFrom="md">
-				<Toc.Mobile />
-			</Box>
+							<Link
+								to={next.url}
+								preload="intent"
+							>
+								{next.name}
+								<Icon
+									mr="-2"
+									width={16}
+									height={16}
+									icon="tabler:arrow-right"
+								/>
+							</Link>
+						</ButtonGroup.Item>
+					)}
+				</Show>
+			</ButtonGroup>
 		</Box>
 	);
 }
 
-type TitleProps = PropsWithChildren;
-export function Title(props: TitleProps) {
+type DocsLayoutTitleProps = PropsWithChildren;
+export function DocsLayoutTitle(props: DocsLayoutTitleProps) {
 	const { children } = props;
 
 	return (
-		<Text
-			as="h1"
-			fontWeight="500"
-			lineHeight="none"
-			color="fg.primary"
-			letterSpacing="-0.02em"
-			fontSize={{ base: "24", md: "32" }}
+		<Stack
+			align="center"
+			justify="space-between"
 		>
-			{children}
-		</Text>
+			<Text
+				as="h1"
+				fontWeight="500"
+				lineHeight="none"
+				color="fg.primary"
+				letterSpacing="-0.02em"
+				fontSize={{ base: "24", md: "32" }}
+			>
+				{children}
+			</Text>
+			<DocsLayoutAiButtons>
+				<DocsLayoutAiButtons.CopyButton />
+				<DocsLayoutAiButtons.MenuOptions />
+			</DocsLayoutAiButtons>
+		</Stack>
 	);
 }
 
-type DescriptionProps = PropsWithChildren;
-export function Description(props: DescriptionProps) {
+type DocsLayoutDescriptionProps = PropsWithChildren;
+export function DocsLayoutDescription(props: DocsLayoutDescriptionProps) {
 	const { children } = props;
 
 	return (

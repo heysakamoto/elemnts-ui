@@ -1,0 +1,116 @@
+---
+title: Changelog
+description: All previous and current changes can be found here
+---
+
+## [0.0.4] - 2026-06-01
+
+### Added
+- **Show**: A utility component for conditionally rendering content based on a truthy condition.
+```tsx
+import { Show } from "@moto-ui/react";
+
+export function App() {
+  return (
+    <Show when={condition}>
+      <ComponentToRender />
+    </Show>
+  )
+}
+```
+- **List**: A compound component for rendering ordered and unordered lists with customizable item indicators.
+
+  ```tsx
+  import { List } from "@moto-ui/react";
+
+  export function App() {
+    return (
+      <List.Root>
+        <List.Item>
+          <List.Indicator />
+          Semantic color system
+        </List.Item>
+        <List.Item>
+          <List.Indicator />
+          Build-time CSS-in-JS
+        </List.Item>
+      </List.Root>
+    );
+  }
+  ```
+
+- **Code**: An inline code element with recipe-based styling, ideal for rendering code snippets within text.
+
+  ```tsx
+  import { Code } from "@moto-ui/react";
+
+  export function App() {
+    return (
+      <p>
+        Use the <Code>Code</Code> component for inline code.
+      </p>
+    );
+  }
+  ```
+
+- **Prose**: A styled container for rendering rich text and markdown content with typographic defaults.
+
+  ```tsx
+  import { Prose } from "@moto-ui/react";
+
+  export function App() {
+    return (
+      <Prose>
+        <h1>Article Title</h1>
+        <p>Beautifully styled typography out of the box.</p>
+      </Prose>
+    );
+  }
+  ```
+
+- **Blockquote**: A compound component for displaying quoted content with citation and caption support.
+
+  ```tsx
+  import { Blockquote } from "@moto-ui/react";
+
+  export function App() {
+    return (
+      <Blockquote.Root>
+        <Blockquote.Indicator />
+        <Blockquote.Content>
+          The best way to predict the future is to create it.
+        </Blockquote.Content>
+        <Blockquote.Cite>Peter Drucker</Blockquote.Cite>
+        <Blockquote.Caption>
+          Management consultant and educator
+        </Blockquote.Caption>
+      </Blockquote.Root>
+    );
+  }
+  ```
+
+- **Breadcrumb**: A compound navigation component that provides a trail of links for users to track their location.
+
+  ```tsx
+  import { Breadcrumb } from "@moto-ui/react";
+
+  export function App() {
+    return (
+      <Breadcrumb.Root>
+        <Breadcrumb.List>
+          <Breadcrumb.Item>
+            <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Separator />
+          <Breadcrumb.Item>
+            <Breadcrumb.Link href="/docs">Docs</Breadcrumb.Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Separator />
+          <Breadcrumb.Item>
+            <Breadcrumb.CurrentLink>Installation</Breadcrumb.CurrentLink>
+          </Breadcrumb.Item>
+        </Breadcrumb.List>
+      </Breadcrumb.Root>
+    );
+  }
+  ```

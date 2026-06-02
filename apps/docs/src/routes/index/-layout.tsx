@@ -2,7 +2,6 @@ import {
 	Avatar,
 	Box,
 	Button,
-	ButtonGroup,
 	Container,
 	HoverCard,
 	Icon,
@@ -37,6 +36,7 @@ function Header() {
 			zIndex="2"
 			as="header"
 			position="sticky"
+			colorPalette="neutral"
 		>
 			<Container maxW="90rem">
 				<Surface
@@ -61,6 +61,27 @@ function Header() {
 							align="center"
 							justify="end"
 						>
+							<Button
+								mr="4"
+								iconOnly
+								size="md"
+								rounded="20"
+								hideBelow="lg"
+								variant="ghost"
+								aria-label="github"
+								css={{ "&:not(:hover)": { color: "icon.secondary" } }}
+							>
+								<Link
+									target="_blank"
+									to={"https://github.com/heysakamoto/moto-ui" as any}
+								>
+									<Icon
+										width={16}
+										height={16}
+										icon="radix-icons:github-logo"
+									/>
+								</Link>
+							</Button>
 							<ThemeToggle />
 							<Navigation.Mobile>
 								<Navigation.MobileTrigger asChild>
@@ -70,8 +91,7 @@ function Header() {
 										hideFrom="lg"
 										rounded="full"
 										variant="ghost"
-										colorPalette="neutral"
-										aria-label="Open mobile menu"
+										aria-label="open menu"
 										css={{
 											"&:not(:hover)": {
 												color: "icon.secondary",
@@ -89,44 +109,25 @@ function Header() {
 							<Separator
 								mx="12"
 								h="1.5rem"
-								hideBelow="sm"
+								hideBelow="lg"
 								orientation="vertical"
 							/>
-							<ButtonGroup
-								attached
-								hideBelow="sm"
-								colorPalette="neutral"
-							>
-								<Sponsor>
-									<Sponsor.Trigger asChild>
-										<ButtonGroup.Item roundedStart="16">
-											<Icon
-												ml="-2"
-												width={16}
-												height={16}
-												icon="tabler:heart"
-											/>
-											Sponsor
-											<ButtonGroup.Separator />
-										</ButtonGroup.Item>
-									</Sponsor.Trigger>
-								</Sponsor>
-								<ButtonGroup.Item
-									roundedEnd="16"
-									aria-label="github"
-								>
-									<Link
-										target="_blank"
-										to={"https://github.com/heysakamoto/moto-ui" as any}
+							<Sponsor>
+								<Sponsor.Trigger asChild>
+									<Button
+										rounded="20"
+										hideBelow="lg"
 									>
 										<Icon
+											ml="-2"
 											width={16}
 											height={16}
-											icon="radix-icons:github-logo"
+											icon="tabler:heart"
 										/>
-									</Link>
-								</ButtonGroup.Item>
-							</ButtonGroup>
+										Sponsor
+									</Button>
+								</Sponsor.Trigger>
+							</Sponsor>
 						</Stack>
 					</Stack>
 				</Surface>

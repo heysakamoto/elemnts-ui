@@ -13,7 +13,7 @@ import { Link, useLocation, useParams } from "@tanstack/react-router";
 import type { PropsWithChildren } from "react";
 import { replaceSlug } from "@/utils/url";
 
-function AICopyButton() {
+function CopyButton() {
 	const splat = useParams({ from: "/docs/$", select: (p) => p._splat ?? "" });
 
 	const { data } = useQuery({
@@ -89,7 +89,7 @@ const options = [
 	},
 ];
 
-export function AIMenuOptions() {
+function MenuOptions() {
 	const pathname = useLocation({ select: (l) => l.pathname });
 
 	const VITE_URL = import.meta.env.VITE_URL;
@@ -173,7 +173,7 @@ export function AIMenuOptions() {
 	);
 }
 
-function AIButtonsRoot({ children }: PropsWithChildren) {
+function ButtonsRoot({ children }: PropsWithChildren) {
 	return (
 		<ButtonGroup
 			size="sm"
@@ -186,7 +186,7 @@ function AIButtonsRoot({ children }: PropsWithChildren) {
 	);
 }
 
-export const AIButtons = Object.assign(AIButtonsRoot, {
-	MenuOptions: AIMenuOptions,
-	CopyButton: AICopyButton,
+export const DocsLayoutAiButtons = Object.assign(ButtonsRoot, {
+	CopyButton,
+	MenuOptions,
 });

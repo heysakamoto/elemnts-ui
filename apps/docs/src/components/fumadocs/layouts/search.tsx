@@ -514,6 +514,6 @@ function SearchRoot({ children }: SearchRootProps) {
 	);
 }
 
-export const Search = Object.assign(SearchRoot, {
+export const DocsLayoutSearch = Object.assign(SearchRoot, {
 	Trigger: Dialog.Trigger,
 });
