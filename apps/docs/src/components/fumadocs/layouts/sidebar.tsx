@@ -81,16 +81,10 @@ type FolderProps = {
 
 function Folder({ node }: FolderProps) {
 	return (
-		<Fragment>
-			{node.children.map((child) => {
-				return (
-					<Nodes
-						nodes={[child]}
-						key={child.$id}
-					/>
-				);
-			})}
-		</Fragment>
+		<Nodes
+			key={node.$id}
+			nodes={node.children}
+		/>
 	);
 }
 
@@ -114,10 +108,9 @@ function Nodes({ nodes }: NodesProps) {
 			case "page":
 				if (inDialog)
 					return (
-						<Dialog.Context>
+						<Dialog.Context key={key}>
 							{({ setOpen }) => (
 								<Page
-									key={key}
 									node={node}
 									onClick={() => setOpen(false)}
 								/>
