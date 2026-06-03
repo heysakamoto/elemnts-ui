@@ -106,21 +106,6 @@ export const buttonRecipe = defineRecipe({
 			},
 		},
 
-		onHidden: {
-			hide: {
-				_hidden: {
-					display: "none",
-				},
-			},
-			disable: {
-				_hidden: {
-					opacity: "0.5",
-					cursor: "not-allowed",
-					pointerEvents: "none",
-				},
-			},
-		},
-
 		iconOnly: {
 			true: {
 				boxSize: "var(--btn-size)",

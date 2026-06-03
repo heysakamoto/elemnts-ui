@@ -1,5 +1,18 @@
 # @moto-ui/preset-base
 
+## 0.0.5
+
+### Patch Changes
+
+- refactor: remove onHidden variant and rework focus
+  - Remove the `onHidden` visual variant (hide/disable) from the button
+    recipe and clean up corresponding extract entries
+  - Replace `shadow`-based focus indicators with `outline` for better
+    accessibility and consistency
+  - Add `xs` breakpoint (386px) to the preset theme
+  - Clean up docs config by removing custom page schema
+  - Fix sidebar node key collision by appending the array index
+
 ## 0.0.4
 
 ### Patch Changes

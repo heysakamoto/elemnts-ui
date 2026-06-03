@@ -100,12 +100,14 @@ type NodesProps = {
 
 function Nodes({ nodes }: NodesProps) {
 	const inDialog = useInDialogContext();
-	return nodes.map((node) => {
+	return nodes.map((node, idx) => {
+		const key = `${node.$id}-${idx}`;
+
 		switch (node.type) {
 			case "separator":
 				return (
 					<Separator
-						key={node.$id}
+						key={key}
 						node={node}
 					/>
 				);
@@ -115,6 +117,7 @@ function Nodes({ nodes }: NodesProps) {
 						<Dialog.Context>
 							{({ setOpen }) => (
 								<Page
+									key={key}
 									node={node}
 									onClick={() => setOpen(false)}
 								/>
@@ -123,14 +126,14 @@ function Nodes({ nodes }: NodesProps) {
 					);
 				return (
 					<Page
-						key={node.$id}
+						key={key}
 						node={node}
 					/>
 				);
 			case "folder":
 				return (
 					<Folder
-						key={node.$id}
+						key={key}
 						node={node}
 					/>
 				);

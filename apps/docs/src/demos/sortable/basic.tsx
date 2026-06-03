@@ -12,7 +12,7 @@ export function Basic() {
 							id={(idx + 1).toString()}
 						>
 							<Sortable.ItemHandle>
-								<DecorativeBox h="3rem">{idx + 1}</DecorativeBox>
+								<DecorativeBox h="4rem">{idx + 1}</DecorativeBox>
 							</Sortable.ItemHandle>
 						</Sortable.Item>
 					);
