@@ -169,105 +169,90 @@ buttonRecipe({
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "xs",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "sm",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "lg",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "xl",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "secondary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "tertiary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "surface",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "ghost",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "plain",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "primary",
 	fullWidth: true,
 	iconOnly: false,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: true,
-	onHidden: undefined,
 });
 buttonRecipe({
 	size: "md",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: "hide",
 });
 buttonRecipe({
 	size: "md",
 	variant: "primary",
 	fullWidth: false,
 	iconOnly: false,
-	onHidden: "disable",
 });
 
 // ** Carousel Recipe **

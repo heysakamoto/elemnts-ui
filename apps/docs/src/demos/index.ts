@@ -3,6 +3,7 @@ import { type ComponentType, lazy } from "react";
 export type DemoItem = {
 	component: ComponentType;
 	file: string;
+	new?: boolean;
 };
 
 export const demos: Record<string, DemoItem> = {

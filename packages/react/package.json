@@ -1,6 +1,6 @@
 {
 	"type": "module",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "An open source react components library, providing 80+ components with a consistent design system.",
 	"keywords": [
 		"react",
