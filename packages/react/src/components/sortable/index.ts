@@ -5,6 +5,10 @@ import {
 	SortableItemHandle,
 	SortableItemHandleBase,
 	SortableRoot,
+	SortableRootBase,
+	type SortableRootBaseProps,
+	type SortableRootProps,
+	SortableRootProvider,
 } from "./sortable";
 
 export type SortableItemProps = ComponentProps<typeof SortableItem>;
@@ -13,30 +17,43 @@ export type SortableItemHandleProps = ComponentProps<typeof SortableItemHandle>;
 export type SortableItemHandleBaseProps = ComponentProps<
 	typeof SortableItemHandleBase
 >;
-export type SortableRootProps = ComponentProps<typeof SortableRoot>;
+export type SortableRootProviderProps = ComponentProps<
+	typeof SortableRootProvider
+>;
 
 export const Sortable = Object.assign(SortableRoot, {
 	Item: SortableItem,
-	ItemBase: SortableItemBase,
-	ItemHandle: SortableItemHandle,
-	ItemHandleBase: SortableItemHandleBase,
 	Root: SortableRoot,
+	ItemBase: SortableItemBase,
+	RootBase: SortableRootBase,
+	ItemHandle: SortableItemHandle,
+	RootProvider: SortableRootProvider,
+	ItemHandleBase: SortableItemHandleBase,
 });
 
-export type Sortable = {
-	Props: SortableRootProps;
-	RootProps: SortableRootProps;
+export type Sortable<T> = {
+	Props: SortableRootProps<T>;
 	ItemProps: SortableItemProps;
+	RootProps: SortableRootProps<T>;
+	RootBaseProps: SortableRootBaseProps<T>;
 	ItemHandleProps: SortableItemHandleProps;
+	RootProviderProps: SortableRootProviderProps;
 	ItemHandleBaseProps: SortableItemHandleBaseProps;
 };
 
-export { useSortable } from "@dnd-kit/react/sortable";
+export {
+	type UseSortableItemProps,
+	type UseSortableProps,
+	useSortable,
+	useSortableItem,
+} from "./client";
 
 export {
 	SortableItem,
 	SortableRoot,
+	SortableRootBase,
 	SortableItemBase,
 	SortableItemHandle,
+	SortableRootProvider,
 	SortableItemHandleBase,
 };
