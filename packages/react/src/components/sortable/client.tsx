@@ -124,15 +124,15 @@ export type SortableRootProviderProps = Assign<
 const SortableContext = createContext<SortableContextValue | null>(null);
 
 export function SortableRootProvider(props: SortableRootProviderProps) {
-	const { value, ...rest } = props;
+	const { value, onDragEnd, ...rest } = props;
 
 	return (
 		<SortableContext.Provider value={value}>
 			<DragDropProvider
-				onDragEnd={({ canceled, operation }) => {
-					if (canceled || !operation) return;
+				onDragEnd={(event, manager) => {
+					if (event.canceled || !event.operation) return;
 
-					const { source } = operation;
+					const { source } = event.operation;
 
 					// Verify it's a sortable interaction
 					if (!isSortable(source)) return;
@@ -148,6 +148,7 @@ export function SortableRootProvider(props: SortableRootProviderProps) {
 					updatedItems.splice(index, 0, movedItem);
 
 					value.setValue(updatedItems);
+					onDragEnd?.(event, manager);
 				}}
 				{...rest}
 			/>
