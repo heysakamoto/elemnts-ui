@@ -188,8 +188,9 @@ function Mobile({ children }: MobileProps) {
 					<Dialog.Positioner pt="48">
 						<Dialog.Content asChild>
 							<Surface
-								delta={1}
-								rounded="24"
+								delta={0}
+								rounded="0"
+								bgColor="inherit"
 							>
 								<Surface.Content
 									p="12"
