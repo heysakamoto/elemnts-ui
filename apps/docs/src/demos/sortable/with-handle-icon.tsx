@@ -1,23 +1,34 @@
-import { Container, DecorativeBox, Icon, Sortable } from "@moto-ui/react";
+import {
+	Button,
+	Container,
+	DecorativeBox,
+	Icon,
+	Sortable,
+	Text,
+} from "@moto-ui/react";
 
 const items = [
-	"Getting Started",
-	"Installation",
-	"Configuration",
-	"Components",
-	"Theming",
+	{ id: "1", label: "Getting Started" },
+	{ id: "2", label: "Installation" },
+	{ id: "3", label: "Configuration" },
+	{ id: "4", label: "Components" },
+	{ id: "5", label: "Theming" },
 ];
 
 export function WithHandleIcon() {
 	return (
 		<Container maxW="20rem">
-			<Sortable gap="8">
+			<Sortable
+				gap="8"
+				defaultValue={items}
+			>
 				{items.map((item, idx) => {
 					return (
 						<Sortable.Item
-							key={item}
-							index={idx + 1}
-							id={(idx + 1).toString()}
+							index={idx}
+							id={item.id}
+							key={item.id}
+							colorPalette="neutral"
 						>
 							<DecorativeBox
 								h="3rem"
@@ -27,15 +38,27 @@ export function WithHandleIcon() {
 								justify="start"
 								direction="row"
 							>
-								<Sortable.ItemHandle>
-									<Icon
-										width={16}
-										height={16}
-										color="fg.muted"
-										icon="tabler:grip-vertical"
-									/>
+								<Sortable.ItemHandle asChild>
+									<Button
+										iconOnly
+										size="sm"
+										rounded="full"
+										variant="ghost"
+									>
+										<Icon
+											width={16}
+											height={16}
+											color="fg.muted"
+											icon="tabler:grip-vertical"
+										/>
+									</Button>
 								</Sortable.ItemHandle>
-								<span>{item}</span>
+								<Text
+									as="span"
+									fontSize="14"
+								>
+									{item.label}
+								</Text>
 							</DecorativeBox>
 						</Sortable.Item>
 					);
