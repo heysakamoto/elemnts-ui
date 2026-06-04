@@ -39,10 +39,10 @@ function Root() {
 				<DocsLayoutSearch>
 					<DocsLayoutSearch.Trigger asChild>
 						<InputGroup
-							size="lg"
-							minW="14rem"
+							size="md"
+							minW="12rem"
 							maxW="20rem"
-							rounded="20"
+							rounded="16"
 							hideBelow="xl"
 						>
 							<InputGroup.Addon pl="10">

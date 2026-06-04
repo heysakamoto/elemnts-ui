@@ -1,19 +1,28 @@
-import { metaSchema } from "fumadocs-core/source/schema";
-import { defineConfig, defineDocs } from "fumadocs-mdx/config";
+import {
+	defineConfig,
+	defineDocs,
+	frontmatterSchema,
+} from "fumadocs-mdx/config";
+import { z } from "zod";
 
-export default defineConfig({
-	mdxOptions: {},
-});
+export default defineConfig({});
 
 export const docs = defineDocs({
 	dir: "content/docs",
 	docs: {
-		async: true,
 		postprocess: {
 			includeProcessedMarkdown: true,
 		},
-	},
-	meta: {
-		schema: metaSchema.extend({}),
+		schema: frontmatterSchema.extend({
+			status: z.enum(["updated", "new"]).optional(),
+			links: z
+				.object({
+					ark: z.string().optional(),
+					recipe: z.string().optional(),
+					source: z.string().optional(),
+					storybook: z.string().optional(),
+				})
+				.optional(),
+		}),
 	},
 });

@@ -14,7 +14,7 @@ export function DocsLayoutPage(props: DocsLayoutPageProps) {
 	}, [toc, setState]);
 
 	return (
-		<Box>
+		<Box colorPalette="neutral">
 			{children}
 			<ButtonGroup
 				mt="40"

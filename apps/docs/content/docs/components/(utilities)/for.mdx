@@ -29,6 +29,6 @@ The `fallback` prop allows you to render content when the `each` array is empty 
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| each | `T[] | readonly T[] | undefined` | - | The array of items to iterate over. |
+| each | `T[] \| readonly T[]` | `undefined` | - | The array of items to iterate over. |
 | fallback | `ReactNode` | - | Optional content to render when the array is empty. |
 | children | `(item: T, index: number) => ReactNode` | - | A render function called for each item in the array. |

@@ -1,7 +1,6 @@
 import { Breadcrumb } from "@moto-ui/react";
 
 const items = [
-	{ label: "Home", href: "/" },
 	{ label: "Docs", href: "/docs" },
 	{ label: "Components", href: "/docs/components" },
 	{ label: "Breadcrumb", href: "/docs/components/breadcrumb" },

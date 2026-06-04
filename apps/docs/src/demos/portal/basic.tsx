@@ -4,33 +4,28 @@ export function Basic() {
 	return (
 		<Container maxW="20rem">
 			<Surface
+				p="12"
 				delta={1}
-				p="8"
 			>
 				<Surface.Title
-					justify="center"
-					w="full"
 					fontSize="14"
+					justify="center"
 				>
 					This text is inside the container.
 				</Surface.Title>
 			</Surface>
 			<Portal>
 				<Surface
-					p="8"
-					top="0"
-					left="0"
-					w="full"
+					p="12"
+					w="fit"
+					top="64"
+					left="12"
 					delta={1}
-					shadow="lg"
-					rounded="0"
+					zIndex="99"
 					position="fixed"
 				>
-					<Surface.Title
-						fontSize="14"
-						w="full"
-					>
-						I am portalled to the end of document.body
+					<Surface.Title fontSize="14">
+						I am portalled to the top of the page
 					</Surface.Title>
 				</Surface>
 			</Portal>
