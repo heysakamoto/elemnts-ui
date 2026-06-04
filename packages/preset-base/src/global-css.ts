@@ -126,7 +126,7 @@ export const globalCss = defineGlobalStyles({
 
 	"button:focus-visible, a[href]:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:not([tabindex='-1']):focus-visible, [role='button']:focus-visible, [role='link']:focus-visible, [role='menuitem']:focus-visible, [role='tab']:focus-visible, [role='checkbox']:focus-visible, [role='radio']:focus-visible, [role='switch']:focus-visible, [data-focus-visible]":
 		{
-			outline: "2px solid {colors.accent.primary}",
+			outline: "2px solid {colors.colorPalette.primary}",
 		},
 
 	// Disabled styles

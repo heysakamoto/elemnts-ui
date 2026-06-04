@@ -8,12 +8,11 @@ export const dataListRecipe = defineSlotRecipe({
 		root: {
 			display: "flex",
 			flexDirection: "column",
-			gap: "calc({spacing.4} * 3)",
-		},
-		item: {
 			fontSize: "{fontSizes.14}",
+			gap: "calc({spacing.4} * 3)",
 			lineHeight: "{lineHeights.xs}",
 		},
+		item: {},
 		itemLabel: {
 			display: "flex",
 			lineHeight: "inherit",
@@ -34,7 +33,7 @@ export const dataListRecipe = defineSlotRecipe({
 				item: {
 					display: "inline-grid",
 					gap: "calc({spacing.4} * 4)",
-					gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))",
+					gridTemplateColumns: "6rem minmax(0, 1fr)",
 				},
 				itemLabel: {
 					minW: "calc({sizes.4} * 30)",

@@ -67,7 +67,7 @@ const bg = {
 	tertiary: {
 		value: {
 			base: "{colors.white}",
-			_dark: "color-mix(in oklab, {colors.white}, 90% {colors.transparent})",
+			_dark: "color-mix(in oklab, {colors.white}, 94% {colors.transparent})",
 		},
 	},
 };

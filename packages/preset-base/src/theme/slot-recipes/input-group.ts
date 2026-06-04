@@ -44,6 +44,8 @@ export const inputGroupRecipe = defineSlotRecipe({
 			display: "inline-flex",
 			lineHeight: "{lineHeights.none}",
 
+			"&:not(:first-of-type)": {},
+
 			_focus: {
 				outline: "none",
 			},

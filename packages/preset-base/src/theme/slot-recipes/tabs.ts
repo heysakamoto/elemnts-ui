@@ -58,27 +58,9 @@ export const tabsRecipe = defineSlotRecipe({
 			h: "var(--height)",
 			rounded: "var(--tabs-radius)",
 			shadow: "var(--tabs-indicator-shadow, none)",
+			border: "var(--tabs-indicator-border, none)",
 			color: "var(--tabs-indicator-color, transparent)",
 			bgColor: "var(--tabs-indicator-bg-color, transparent)",
-
-			_before: {
-				left: "0",
-				content: "''",
-				rounded: "{radii.full}",
-				bgColor: "{colors.current}",
-			},
-			_horizontal: {
-				_before: {
-					h: "{sizes.2}",
-					w: "var(--width)",
-				},
-			},
-			_vertical: {
-				_before: {
-					h: "var(--height)",
-					w: "{sizes.2}",
-				},
-			},
 		},
 
 		content: {
@@ -122,10 +104,10 @@ export const tabsRecipe = defineSlotRecipe({
 		variant: {
 			primary: {
 				root: {
+					"--tabs-indicator-shadow": "{shadows.2}",
 					"--tabs-color": "{colors.colorPalette.primary}",
 					"--tabs-indicator-bg-color": "{colors.bg.tertiary}",
-					"--tabs-indicator-shadow":
-						"{shadows.2}, 0 0 0 1px {colors.stroke.secondary}",
+					"--tabs-indicator-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 			secondary: {
