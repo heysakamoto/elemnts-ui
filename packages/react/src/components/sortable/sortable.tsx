@@ -1,25 +1,76 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
+import {
+	createStyleContext,
+	type HTMLStyledProps,
+} from "@moto-ui/styled-system/jsx";
 import { sortableRecipe } from "@moto-ui/styled-system/recipes";
-import { forwardRef } from "react";
+import { forwardRef, type ReactElement, type RefAttributes } from "react";
 import { mergeRefs } from "../../utils/merge-ref";
 import {
 	SortableItemProvider,
+	SortableRootProvider as SortableRootProviderBase,
 	type UseSortableItemProps,
+	type UseSortableProps,
+	useSortable,
 	useSortableItem,
 	useSortableItemContext,
 } from "./client";
 
-const { withProvider, withContext } = createStyleContext(sortableRecipe);
+const { withProvider, withRootProvider, withContext } =
+	createStyleContext(sortableRecipe);
 
-export const SortableRoot = withProvider(ark.ul, "root", {
+export const SortableRootProvider = withRootProvider(SortableRootProviderBase);
+SortableRootProvider.displayName = "SortableRootProvider";
+
+export type SortableRootBaseProps<T> = Assign<
+	HTMLArkProps<"ul">,
+	UseSortableProps<T>
+>;
+type SortableRootBaseComponent = {
+	<T>(
+		props: SortableRootBaseProps<T> & RefAttributes<HTMLUListElement>,
+	): ReactElement;
+	displayName?: string;
+};
+export const SortableRootBase = forwardRef<
+	HTMLUListElement,
+	SortableRootBaseProps<any>
+>((props, ref) => {
+	const { value, defaultValue, onValueChange, ...restProps } = props;
+
+	const ctx = useSortable({
+		value,
+		defaultValue,
+		onValueChange,
+	});
+
+	return (
+		<SortableRootProviderBase value={ctx}>
+			<ark.ul
+				ref={ref}
+				{...restProps}
+			/>
+		</SortableRootProviderBase>
+	);
+}) as SortableRootBaseComponent;
+SortableRootBase.displayName = "SortableRootBase";
+
+export type SortableRootProps<T> = Assign<
+	SortableRootBaseProps<T>,
+	HTMLStyledProps<"ul">
+>;
+type SortableRootComponent = {
+	<T>(props: SortableRootProps<T>): ReactElement;
+	displayName?: string;
+};
+export const SortableRoot = withProvider(SortableRootBase, "root", {
 	dataAttr: true,
 	defaultProps: {
 		role: "list",
 		"data-part": "root",
 		"data-scope": "sortable",
 	},
-});
+}) as SortableRootComponent;
 SortableRoot.displayName = "SortableRoot";
 
 type SortableItemBaseProps = Assign<HTMLArkProps<"li">, UseSortableItemProps>;
@@ -40,6 +91,7 @@ export const SortableItemBase = forwardRef<
 				data-state={
 					value.isDragging ? "dragging" : value.isDropping ? "dropping" : "idle"
 				}
+				style={{ touchAction: "none", ...restProps.style }}
 				{...restProps}
 			/>
 		</SortableItemProvider>

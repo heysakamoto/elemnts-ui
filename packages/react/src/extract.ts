@@ -130,7 +130,31 @@ avatarRecipe({ size: "md", variant: "tertiary" });
 avatarRecipe({ size: "md", variant: "surface" });
 
 // ** Badge Recipe **
-badgeRecipe();
+badgeRecipe({
+	size: "xs",
+	variant: "primary",
+	placement: "bottom-left",
+});
+badgeRecipe({
+	size: "sm",
+	variant: "secondary",
+	placement: "bottom-right",
+});
+badgeRecipe({
+	size: "md",
+	variant: "tertiary",
+	placement: "top-left",
+});
+badgeRecipe({
+	size: "lg",
+	variant: "tertiary",
+	placement: "top-right",
+});
+badgeRecipe({
+	size: "xl",
+	variant: "tertiary",
+	placement: "top-right",
+});
 
 // ** Blockquote Recipe **
 blockquoteRecipe();
