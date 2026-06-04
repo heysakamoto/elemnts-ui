@@ -23,7 +23,7 @@ export const SortableRootProvider = withRootProvider(SortableRootProviderBase);
 SortableRootProvider.displayName = "SortableRootProvider";
 
 export type SortableRootBaseProps<T> = Assign<
-	HTMLArkProps<"ul">,
+	Omit<HTMLArkProps<"ul">, keyof UseSortableProps<T>>,
 	UseSortableProps<T>
 >;
 type SortableRootBaseComponent = {
