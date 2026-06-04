@@ -58,10 +58,8 @@ export const CodeBlock = (props: CodeBlockProps) => {
 					>
 						<Surface.Header
 							m="8"
-							top="8"
 							align="center"
 							direction="row"
-							position="sticky"
 							justify="space-between"
 						>
 							<Surface

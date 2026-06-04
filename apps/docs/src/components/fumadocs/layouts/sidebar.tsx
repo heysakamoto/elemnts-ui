@@ -1,7 +1,14 @@
-import { Anchor, Dialog, List, Portal, Surface } from "@moto-ui/react";
+import {
+	Anchor,
+	Dialog,
+	List,
+	Portal,
+	Show,
+	Status,
+	Surface,
+} from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import type { Folder as FolderType, Item, Node } from "fumadocs-core/page-tree";
-import { Fragment } from "react";
 import {
 	InDialogProvider,
 	useDocsLayoutContext,
@@ -69,6 +76,11 @@ function Page({ node, onClick }: PageProps) {
 					activeOptions={{ exact: true }}
 				>
 					{node.name}
+					<Show when={(node as any).status}>
+						<Status size="sm">
+							<Status.Indicator ml="8" />
+						</Status>
+					</Show>
 				</Link>
 			</Anchor>
 		</List.Item>

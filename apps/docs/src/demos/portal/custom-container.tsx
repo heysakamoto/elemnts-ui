@@ -11,7 +11,7 @@ export function CustomContainer() {
 		>
 			<Portal container={containerRef}>
 				<Surface
-					p="8"
+					p="12"
 					delta={1}
 				>
 					<Surface.Title fontSize="14">

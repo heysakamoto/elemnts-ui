@@ -74,7 +74,7 @@ function Root() {
 							py="6"
 							asChild
 							unstyled
-							w="12rem"
+							w="full"
 							fontSize="13"
 							lineHeight="1"
 							display="block"

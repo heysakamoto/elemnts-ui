@@ -18,8 +18,8 @@ export const Code = (props: CodeProps) => {
 					rounded="8"
 					fontSize="13"
 					letterSpacing="sm"
+					whiteSpace="nowrap"
 					variant="secondary"
-					colorPalette="neutral"
 				>
 					{children}
 				</MotoCode>

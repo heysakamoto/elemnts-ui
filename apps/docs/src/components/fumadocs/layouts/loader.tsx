@@ -7,7 +7,18 @@ export function DocsLayoutLoader() {
 				lineHeight="1"
 				fontSize={{ base: "24", md: "32" }}
 			>
-				<Skeleton textOnly>Component</Skeleton>
+				<Stack
+					align="center"
+					justify="space-between"
+				>
+					<Skeleton textOnly>Component</Skeleton>
+					<Skeleton
+						w="6rem"
+						h="1.75rem"
+					>
+						Component
+					</Skeleton>
+				</Stack>
 			</Text>
 
 			<Text mt="20">

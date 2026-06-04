@@ -20,7 +20,6 @@ export function Components() {
 		<Box
 			my="32"
 			spaceY="12"
-			colorPalette="neutral"
 		>
 			{components.map(([key, demo]) => {
 				const name = key.split(":")[0];
@@ -61,7 +60,7 @@ export function Components() {
 										asChild
 										size="sm"
 										rounded="24"
-										fontSize="12"
+										fontSize="14"
 										variant="ghost"
 										textTransform="capitalize"
 									>

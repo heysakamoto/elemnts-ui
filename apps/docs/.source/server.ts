@@ -8,7 +8,7 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
-export const docs = await create.docsLazy("docs", "content/docs", import.meta.glob(["./**/*.{json,yaml}"], {
+export const docs = await create.docs("docs", "content/docs", import.meta.glob(["./**/*.{json,yaml}"], {
   "base": "./../content/docs",
   "query": {
     "collection": "docs"
@@ -18,15 +18,7 @@ export const docs = await create.docsLazy("docs", "content/docs", import.meta.gl
 }), import.meta.glob(["./**/*.{mdx,md}"], {
   "base": "./../content/docs",
   "query": {
-    "collection": "docs",
-    "only": "frontmatter"
-  },
-  "import": "frontmatter",
-  "eager": true
-}), import.meta.glob(["./**/*.{mdx,md}"], {
-  "base": "./../content/docs",
-  "query": {
     "collection": "docs"
   },
-  "eager": false
+  "eager": true
 }));

@@ -21,10 +21,12 @@ import { ThemeToggle } from "@/components/base/theme-toggle";
 
 export function Layout(props: PropsWithChildren) {
 	return (
-		<Box as="main">
-			<Header />
-			{props.children}
-			<Footer />
+		<Box bgColor={{ base: "surface.7", _dark: "surface.1" }}>
+			<Container maxW="88rem">
+				<Header />
+				{props.children}
+				<Footer />
+			</Container>
 		</Box>
 	);
 }
@@ -37,101 +39,90 @@ function Header() {
 			as="header"
 			position="sticky"
 			colorPalette="neutral"
+			borderBottom="1px solid {colors.stroke.primary}"
+			bgColor={{ base: "surface.7", _dark: "surface.1" }}
 		>
-			<Container maxW="90rem">
-				<Surface
-					delta={1}
-					rounded="0"
-					shadow="tertiary"
-					roundedBottom="32"
+			<Stack
+				h="64"
+				px="20"
+				align="center"
+				justify="space-between"
+			>
+				<Logo />
+				<Navigation />
+				<Stack
+					align="center"
+					justify="end"
 				>
-					<Stack
-						h="64"
-						px="20"
-						align="center"
-						justify="space-between"
-						gridTemplateColumns={{
-							base: "repeat(2, 1fr)",
-							lg: "repeat(3, 1fr)",
-						}}
+					<Button
+						mr="4"
+						iconOnly
+						size="md"
+						rounded="20"
+						hideBelow="lg"
+						variant="ghost"
+						aria-label="github"
+						css={{ "&:not(:hover)": { color: "icon.secondary" } }}
 					>
-						<Logo />
-						<Navigation />
-						<Stack
-							align="center"
-							justify="end"
+						<Link
+							target="_blank"
+							to={"https://github.com/heysakamoto/moto-ui" as any}
 						>
+							<Icon
+								width={16}
+								height={16}
+								icon="radix-icons:github-logo"
+							/>
+						</Link>
+					</Button>
+					<ThemeToggle />
+					<Navigation.Mobile>
+						<Navigation.MobileTrigger asChild>
 							<Button
-								mr="4"
 								iconOnly
-								size="md"
+								size="sm"
+								hideFrom="lg"
+								rounded="full"
+								variant="ghost"
+								aria-label="open menu"
+								css={{
+									"&:not(:hover)": {
+										color: "icon.secondary",
+									},
+								}}
+							>
+								<Icon
+									width={16}
+									height={16}
+									icon="tabler:menu"
+								/>
+							</Button>
+						</Navigation.MobileTrigger>
+					</Navigation.Mobile>
+					<Separator
+						mx="12"
+						h="1.5rem"
+						hideBelow="lg"
+						orientation="vertical"
+					/>
+					<Sponsor>
+						<Sponsor.Trigger asChild>
+							<Button
 								rounded="20"
 								hideBelow="lg"
-								variant="ghost"
-								aria-label="github"
-								css={{ "&:not(:hover)": { color: "icon.secondary" } }}
 							>
-								<Link
-									target="_blank"
-									to={"https://github.com/heysakamoto/moto-ui" as any}
-								>
-									<Icon
-										width={16}
-										height={16}
-										icon="radix-icons:github-logo"
-									/>
-								</Link>
+								<Icon
+									ml="-2"
+									width={16}
+									height={16}
+									icon="tabler:heart"
+								/>
+								Sponsor
 							</Button>
-							<ThemeToggle />
-							<Navigation.Mobile>
-								<Navigation.MobileTrigger asChild>
-									<Button
-										iconOnly
-										size="sm"
-										hideFrom="lg"
-										rounded="full"
-										variant="ghost"
-										aria-label="open menu"
-										css={{
-											"&:not(:hover)": {
-												color: "icon.secondary",
-											},
-										}}
-									>
-										<Icon
-											width={16}
-											height={16}
-											icon="tabler:menu"
-										/>
-									</Button>
-								</Navigation.MobileTrigger>
-							</Navigation.Mobile>
-							<Separator
-								mx="12"
-								h="1.5rem"
-								hideBelow="lg"
-								orientation="vertical"
-							/>
-							<Sponsor>
-								<Sponsor.Trigger asChild>
-									<Button
-										rounded="20"
-										hideBelow="lg"
-									>
-										<Icon
-											ml="-2"
-											width={16}
-											height={16}
-											icon="tabler:heart"
-										/>
-										Sponsor
-									</Button>
-								</Sponsor.Trigger>
-							</Sponsor>
-						</Stack>
-					</Stack>
-				</Surface>
-			</Container>
+						</Sponsor.Trigger>
+					</Sponsor>
+				</Stack>
+			</Stack>
 		</Section>
 	);
 }
@@ -151,6 +142,7 @@ function Footer() {
 						<Text color="fg.tertiary">
 							Built by{" "}
 							<HoverCard.Trigger
+								color="fg.primary"
 								fontSize="inherit"
 								textDecoration="underline"
 							>
