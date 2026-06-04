@@ -65,6 +65,7 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			h: "var(--height)",
 			left: "var(--left)",
 			rounded: "var(--sg-border-radius)",
+			border: "var(--sg-indicator-border, none)",
 			shadow: "var(--sg-indicator-shadow, none)",
 			color: "var(--sg-indicator-color, transparent)",
 			bgColor: "var(--sg-indicator-bg-color, transparent)",
@@ -113,10 +114,10 @@ export const segmentGroupRecipe = defineSlotRecipe({
 		variant: {
 			primary: {
 				root: {
+					"--sg-indicator-shadow": "{shadows.2}",
 					"--sg-color": "{colors.colorPalette.primary}",
 					"--sg-indicator-bg-color": "{colors.bg.tertiary}",
-					"--sg-indicator-shadow":
-						"{shadows.2}, 0 0 0 1px {colors.stroke.secondary}",
+					"--sg-indicator-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 			secondary: {

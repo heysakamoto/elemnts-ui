@@ -76,6 +76,7 @@ export const wheelPickerRecipe = defineSlotRecipe({
 			},
 			"& [data-rwp-option], & [data-rwp-highlight-item]": {
 				display: "flex",
+				fontWeight: "400",
 				alignItems: "center",
 				justifyContent: "center",
 				fontSize: "{fontSizes.16}",
