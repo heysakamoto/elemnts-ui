@@ -66,3 +66,6 @@ todos.md
 
 ## Storybook
 storybook-static
+
+## Cache
+.tsup

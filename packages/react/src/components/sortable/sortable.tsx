@@ -57,7 +57,7 @@ SortableRootBase.displayName = "SortableRootBase";
 
 export type SortableRootProps<T> = Assign<
 	SortableRootBaseProps<T>,
-	HTMLStyledProps<"ul">
+	Omit<HTMLStyledProps<"ul">, keyof UseSortableProps<T>>
 >;
 type SortableRootComponent = {
 	<T>(props: SortableRootProps<T>): ReactElement;
@@ -85,6 +85,7 @@ export const SortableItemBase = forwardRef<
 	return (
 		<SortableItemProvider value={value}>
 			<ark.li
+				id={String(id)}
 				ref={mergeRefs(value.ref, ref)}
 				data-dropping={value.isDropping ? "" : undefined}
 				data-dragging={value.isDragging ? "" : undefined}
