@@ -73,7 +73,11 @@ export const SortableRoot = withProvider(SortableRootBase, "root", {
 }) as SortableRootComponent;
 SortableRoot.displayName = "SortableRoot";
 
-type SortableItemBaseProps = Assign<HTMLArkProps<"li">, UseSortableItemProps>;
+type SortableItemBaseProps = Omit<
+	HTMLArkProps<"li">,
+	keyof UseSortableItemProps
+> &
+	UseSortableItemProps;
 export const SortableItemBase = forwardRef<
 	HTMLLIElement,
 	SortableItemBaseProps
