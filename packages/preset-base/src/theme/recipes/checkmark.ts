@@ -6,11 +6,13 @@ export const checkmarkRecipe = defineRecipe({
 		flexShrink: "0",
 		overflow: "clip",
 		cursor: "pointer",
+		border: "1px solid",
 		position: "relative",
 		alignItems: "center",
 		display: "inline-flex",
 		rounded: "{radii.full}",
 		justifyContent: "center",
+		borderColor: "{colors.transparent}",
 
 		_before: {
 			scale: "0.5",
@@ -20,6 +22,7 @@ export const checkmarkRecipe = defineRecipe({
 			boxSize: "{sizes.full}",
 			rounded: "{radii.full}",
 			transformOrigin: "center",
+			bgColor: "{colors.colorPalette.primary}",
 			transition: `
       scale 150ms ease,
       border 100ms ease-out,
@@ -35,7 +38,7 @@ export const checkmarkRecipe = defineRecipe({
 		},
 
 		"&[data-state='checked'], &[data-state='indeterminate']": {
-			border: "0px solid {colors.transparent}",
+			borderColor: "{colors.colorPalette.primary}",
 
 			_before: {
 				scale: "1",
@@ -60,20 +63,13 @@ export const checkmarkRecipe = defineRecipe({
 			primary: {
 				shadow: "{shadows.2}",
 				bgColor: "{colors.bg.primary}",
-				border: "1px solid {colors.stroke.tertiary}",
 				color: "{colors.colorPalette.tertiary}",
-				_before: {
-					bgColor: "{colors.colorPalette.primary}",
-				},
+				borderColor: "{colors.stroke.tertiary}",
 			},
 			secondary: {
 				shadow: "none",
-				border: "none",
 				bgColor: "{colors.bg.secondary}",
 				color: "{colors.colorPalette.tertiary}",
-				_before: {
-					bgColor: "{colors.colorPalette.primary}",
-				},
 			},
 		},
 	},

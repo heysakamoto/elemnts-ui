@@ -7,6 +7,7 @@ export const itemRecipe = defineRecipe({
 		w: "{sizes.full}",
 		cursor: "pointer",
 		gap: "{spacing.8}",
+		border: "1px solid",
 		position: "relative",
 		alignItems: "center",
 		display: "inline-flex",
@@ -15,11 +16,16 @@ export const itemRecipe = defineRecipe({
 		fontSize: "{fontSizes.14}",
 		h: "var(--item-size, auto)",
 		color: "{colors.fg.primary}",
-		shadow: "var(--item-shadow)",
 		rounded: "calc({spacing.4} * 3)",
 		lineHeight: "{lineHeights.none}",
 		px: "calc(var(--item-size) * 0.3)",
-		border: "var(--item-border, none)",
+		shadow: "var(--item-shadow, none)",
+		borderColor: "var(--item-border-color, {colors.transparent})",
+
+		_focusVisible: {
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.accent.primary}",
+		},
 
 		"& > svg": {
 			color: "{colors.icon.secondary}",
@@ -73,7 +79,7 @@ export const itemRecipe = defineRecipe({
 			tertiary: {
 				"--item-shadow": "{shadows.2}",
 				"--item-bg": "{colors.transparent}",
-				"--item-border": "1px solid {colors.stroke.secondary}",
+				"--item-border-color": "{colors.stroke.secondary}",
 			},
 		},
 

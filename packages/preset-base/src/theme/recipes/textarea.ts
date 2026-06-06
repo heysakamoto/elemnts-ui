@@ -7,21 +7,23 @@ export const textareaRecipe = defineRecipe({
 		"--textarea-px": "calc(var(--textarea-size) * 0.25)",
 
 		w: "{sizes.full}",
+		border: "1px solid",
 		alignItems: "start",
 		fontFamily: "inherit",
+		rounded: "{radii.12}",
 		display: "inline-flex",
 		justifyContent: "start",
-		rounded: "{radii.12}",
 		lineHeight: "{lineHeights.sm}",
 		minH: "var(--textarea-size, auto)",
 		fontSize: "var(--textarea-font-size)",
-		shadow: "var(--textarea-shadow, none)",
-		border: "var(--textarea-border, none)",
 		bgColor: "var(--textarea-bg, transparent)",
 		p: "var(--textarea-py) var(--textarea-px)",
+		shadow: "var(--textarea-shadow), var(--focus-ring)",
+		borderColor: "var(--textarea-border-color, {colors.transparent})",
 
 		_focusVisible: {
-			outline: "none",
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.accent.primary}",
 		},
 	},
 	variants: {
@@ -52,24 +54,13 @@ export const textareaRecipe = defineRecipe({
 				"--textarea-shadow": "{shadows.2}",
 				"--textarea-bg": "{colors.bg.tertiary}",
 				"--textarea-border": "1px solid {colors.stroke.secondary}",
-				_focusVisible: {
-					bgColor:
-						"color-mix(in oklab, var(--input-bg), 2% {colors.fg.primary})",
-				},
 			},
 			secondary: {
 				"--textarea-bg": "{colors.bg.secondary}",
-				_focusVisible: {
-					bgColor:
-						"color-mix(in oklab, var(--input-bg), 2% {colors.fg.primary})",
-				},
 			},
 			tertiary: {
 				"--textarea-bg": "{colors.transparent}",
 				"--textarea-radius": "calc({radii.4} * 0)",
-				_focusVisible: {
-					bgColor: "{colors.bg.secondary}",
-				},
 			},
 		},
 	},

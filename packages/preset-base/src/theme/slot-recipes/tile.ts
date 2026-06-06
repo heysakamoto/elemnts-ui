@@ -15,6 +15,7 @@ export const tileRecipe = defineSlotRecipe({
 		root: {
 			display: "flex",
 			cursor: "pointer",
+			border: "1px solid",
 			px: "var(--tile-px)",
 			alignItems: "center",
 			py: "var(--tile-py)",
@@ -23,17 +24,15 @@ export const tileRecipe = defineSlotRecipe({
 			bgColor: "var(--tile-bg)",
 			fontSize: "{fontSizes.14}",
 			color: "var(--tile-color)",
-			shadow: "var(--tile-shadow)",
 			gap: "calc({spacing.4} * 1)",
-			border: "var(--tile-border, none)",
+			shadow: "var(--tile-shadow, none)",
+			borderColor: "var(--tile-border, {colors.transparent})",
 
-			"&:not(:disabled, [data-disabled], [aria-disabled=true])": {
-				_selected: {
-					bgColor: "var(--tile-bg-checked)",
-					color: "var(--tile-color-checked)",
-					"& svg, [data-part=description]": {
-						color: "inherit",
-					},
+			_selected: {
+				bgColor: "var(--tile-bg-checked)",
+				color: "var(--tile-color-checked)",
+				"& svg, [data-part=description]": {
+					color: "inherit",
 				},
 			},
 
@@ -128,7 +127,7 @@ export const tileRecipe = defineSlotRecipe({
 					"--tile-shadow": "{shadows.2}",
 					"--tile-bg": "{colors.transparent}",
 					"--tile-color": "{colors.fg.primary}",
-					"--tile-border": "1px solid {colors.stroke.secondary}",
+					"--tile-border-color": "{colors.stroke.secondary}",
 				},
 			},
 			secondary: {

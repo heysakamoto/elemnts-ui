@@ -4,6 +4,7 @@ export const globalCss = defineGlobalStyles({
 	":root": {
 		colorPalette: "accent",
 		colorScheme: "light dark",
+		"--focus-ring": "inset 0 0 0 2px var(--focus-ring-color, transparent)",
 	},
 
 	// Reset & Base Styles
@@ -124,9 +125,9 @@ export const globalCss = defineGlobalStyles({
 		outline: "none",
 	},
 
-	"button:focus-visible, a[href]:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:not([tabindex='-1']):focus-visible, [role='button']:focus-visible, [role='link']:focus-visible, [role='menuitem']:focus-visible, [role='tab']:focus-visible, [role='checkbox']:focus-visible, [role='radio']:focus-visible, [role='switch']:focus-visible, [data-focus-visible]":
+	"button:focus-visible, a[href]:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible, [role='button']:focus-visible, [role='link']:focus-visible, [role='menuitem']:focus-visible, [role='tab']:focus-visible, [role='checkbox']:focus-visible, [role='radio']:focus-visible, [role='switch']:focus-visible, [data-focus-visible]":
 		{
-			outline: "2px solid {colors.colorPalette.primary}",
+			outline: "2px solid {colors.accent.primary}",
 		},
 
 	// Disabled styles

@@ -173,17 +173,7 @@ buttonGroupRecipe({
 });
 buttonGroupRecipe({
 	attached: true,
-	fullWidth: false,
-	orientation: "horizontal",
-});
-buttonGroupRecipe({
-	attached: false,
 	fullWidth: true,
-	orientation: "horizontal",
-});
-buttonGroupRecipe({
-	attached: false,
-	fullWidth: false,
 	orientation: "vertical",
 });
 
@@ -394,9 +384,7 @@ gridRecipe({ inline: true });
 
 // ** Group Recipe **
 groupRecipe({ attached: false, fullWidth: false, orientation: "horizontal" });
-groupRecipe({ attached: true, fullWidth: false, orientation: "horizontal" });
-groupRecipe({ attached: false, fullWidth: true, orientation: "horizontal" });
-groupRecipe({ attached: false, fullWidth: false, orientation: "vertical" });
+groupRecipe({ attached: true, fullWidth: true, orientation: "vertical" });
 
 // ** Highlight Recipe **
 highlightRecipe({ variant: "primary" });
@@ -818,9 +806,12 @@ timerRecipe();
 toastRecipe();
 
 // ** ToggleGroup Recipe **
-toggleGroupRecipe({ attached: false, fullWidth: false });
-toggleGroupRecipe({ attached: true, fullWidth: false });
-toggleGroupRecipe({ attached: false, fullWidth: true });
+toggleGroupRecipe({
+	attached: false,
+	fullWidth: false,
+	orientation: "horizontal",
+});
+toggleGroupRecipe({ attached: true, fullWidth: true, orientation: "vertical" });
 
 // ** Toggle Recipe **
 toggleRecipe();

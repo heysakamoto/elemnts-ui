@@ -9,12 +9,13 @@ export const buttonRecipe = defineRecipe({
 
 		w: "fit-content",
 		fontWeight: "500",
-		position: "relative",
 		userSelect: "none",
+		px: "var(--btn-px)",
+		position: "relative",
 		alignItems: "center",
+		border: " 1px solid",
 		rounded: "{radii.12}",
 		display: "inline-flex",
-		px: "var(--btn-px)",
 		justifyContent: "center",
 		transformOrigin: "center",
 		color: "var(--btn-color)",
@@ -22,14 +23,19 @@ export const buttonRecipe = defineRecipe({
 		gap: "calc({spacing.4} * 1)",
 		lineHeight: "{lineHeights.none}",
 		fontSize: "var(--btn-font-size)",
-		border: "var(--btn-border, none)",
 		shadow: "var(--btn-shadow, none)",
 		bgColor: "var(--btn-bg, {colors.transparent})",
+		borderColor: "var(--btn-border-color, {colors.transparent})",
 		transition: `
       scale 150ms ease,
       background-color 100ms ease-in,
       color 100ms ease-in
     `,
+
+		_focusVisible: {
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.accent.primary}",
+		},
 
 		_active: {
 			scale: "0.98",
@@ -82,7 +88,7 @@ export const buttonRecipe = defineRecipe({
 				"--btn-shadow": "{shadows.2}",
 				"--btn-bg": "{colors.transparent}",
 				"--btn-color": "{colors.colorPalette.primary}",
-				"--btn-border": "1px solid {colors.stroke.secondary}",
+				"--btn-border-color": "{colors.stroke.secondary}",
 			},
 			surface: {
 				"--btn-bg": "{colors.bg.secondary}",

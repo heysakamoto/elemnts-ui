@@ -79,8 +79,8 @@ export function Table(props: TableBaseProps) {
 							unstyled
 						>
 							<Collapsible.Trigger
-								asChild
 								w="full"
+								asChild
 								unstyled
 								css={{
 									_open: {
@@ -88,7 +88,10 @@ export function Table(props: TableBaseProps) {
 									},
 								}}
 							>
-								<DataList orientation="horizontal">
+								<DataList
+									as="button"
+									orientation="horizontal"
+								>
 									<DataList.Item
 										py="10"
 										fontSize="12"

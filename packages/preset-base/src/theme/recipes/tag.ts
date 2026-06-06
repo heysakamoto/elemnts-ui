@@ -4,6 +4,7 @@ export const tagRecipe = defineRecipe({
 	className: "tag",
 	base: {
 		cursor: "pointer",
+		border: "1px solid",
 		position: "relative",
 		alignItems: "center",
 		h: "var(--tag-size)",
@@ -13,11 +14,11 @@ export const tagRecipe = defineRecipe({
 		bgColor: "var(--tag-bg)",
 		fontSize: "{fontSizes.14}",
 		color: "{colors.fg.primary}",
-		shadow: "var(--tag-shadow)",
 		gap: "calc({spacing.4} * 1)",
 		lineHeight: "{lineHeights.none}",
-		border: "var(--tag-border, none)",
+		shadow: "var(--tag-shadow, none)",
 		px: "calc(var(--tag-size, 0) * 0.3)",
+		borderColor: "var(--tag-border-color, {colors.transparent})",
 		transition: `
       background-color 100ms ease,
       color 100ms ease
@@ -26,6 +27,11 @@ export const tagRecipe = defineRecipe({
 		_hover: {
 			color: "var(--tag-color-selected)",
 			bg: "color-mix(in oklab, var(--tag-bg-selected), 10% {colors.transparent})",
+		},
+
+		_focusVisible: {
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.accent.primary}",
 		},
 
 		_selected: {
@@ -64,9 +70,9 @@ export const tagRecipe = defineRecipe({
 
 		tone: {
 			primary: {
-				"--tag-bg": "{colors.transparent}",
 				"--tag-shadow": "{shadows.2}",
-				"--tag-border": "1px solid {colors.stroke.secondary}",
+				"--tag-bg": "{colors.transparent}",
+				"--tag-border-color": "{colors.stroke.secondary}",
 			},
 			secondary: {
 				"--tag-bg": "{colors.bg.secondary}",

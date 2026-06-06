@@ -21,10 +21,10 @@ export const checkboxRecipe = defineSlotRecipe({
 			},
 		},
 		label: {
-			_focusVisible: {
-				shadow: "none",
-				outline: "none",
-			},
+			// _focusVisible: {
+			// 	shadow: "none",
+			// 	outline: "none",
+			// },
 		},
 		group: {
 			display: "flex",
@@ -40,6 +40,7 @@ export const checkboxRecipe = defineSlotRecipe({
 			rounded: "full",
 			overflow: "clip",
 			cursor: "pointer",
+			border: "1px solid",
 			position: "relative",
 			alignItems: "center",
 			display: "inline-flex",
@@ -47,8 +48,13 @@ export const checkboxRecipe = defineSlotRecipe({
 			bgColor: "var(--checkbox-control-bg)",
 			color: "var(--checkbox-control-color)",
 			boxSize: "var(--checkbox-control-size)",
-			shadow: "var(--checkbox-control-shadow)",
-			border: "var(--checkbox-control-border)",
+			shadow: "var(--checkbox-control-shadow, none)",
+			borderColor: "var(--checkbox-control-border-color, {colors.transparent})",
+
+			_focusVisible: {
+				outlineOffset: "-1px",
+				outline: "2px solid {colors.accent.primary}",
+			},
 
 			_before: {
 				scale: "0.5",
@@ -130,8 +136,8 @@ export const checkboxRecipe = defineSlotRecipe({
 					"--checkbox-control-shadow": "{shadows.2}",
 					"--checkbox-control-bg": "{colors.transparent}",
 					"--checkbox-control-color": "{colors.colorPalette.tertiary}",
+					"--checkbox-control-border-color": "{colors.stroke.secondary}",
 					"--checkbox-control-bg-checked": "{colors.colorPalette.primary}",
-					"--checkbox-control-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 			secondary: {

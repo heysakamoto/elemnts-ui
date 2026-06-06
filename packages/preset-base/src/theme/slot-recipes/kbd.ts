@@ -28,6 +28,7 @@ export const kbdRecipe = defineSlotRecipe({
 			flexShrink: "0",
 			fontWeight: "500",
 			fontSize: "inherit",
+			border: "1px solid",
 			h: "var(--kbd-size)",
 			rounded: "{radii.8}",
 			alignItems: "center",
@@ -35,9 +36,9 @@ export const kbdRecipe = defineSlotRecipe({
 			display: "inline-flex",
 			bgColor: "var(--kbd-bg)",
 			justifyContent: "center",
-			border: "var(--kbd-border, none)",
 			shadow: "var(--kbd-shadow, none)",
 			px: "calc(var(--kbd-size) * 0.3)",
+			borderColor: "var(--kbd-border-color, {colors.transparent})",
 		},
 	},
 
@@ -88,7 +89,7 @@ export const kbdRecipe = defineSlotRecipe({
 					"--kbd-shadow": "{shadows.2}",
 					"--kbd-bg": "{colors.bg.tertiary}",
 					"--kbd-color": "{colors.colorPalette.primary}",
-					"--kbd-border": "1px solid {colors.stroke.secondary}",
+					"--kbd-border-color": "{colors.stroke.secondary}",
 				},
 			},
 			surface: {
