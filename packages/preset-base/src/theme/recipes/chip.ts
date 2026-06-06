@@ -10,6 +10,7 @@ export const chipRecipe = defineRecipe({
 		h: "var(--size)",
 		fontWeight: "500",
 		gap: "{spacing.4}",
+		border: "1px solid",
 		alignItems: "center",
 		bgColor: "var(--bg)",
 		color: "var(--color)",
@@ -18,8 +19,13 @@ export const chipRecipe = defineRecipe({
 		justifyContent: "center",
 		fontSize: "var(--font-size)",
 		shadow: "var(--shadow, none)",
-		border: "var(--border, none)",
 		lineHeight: "{lineHeights.none}",
+		borderColor: "var(--border-color, {colors.transparent})",
+
+		_focusVisible: {
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.accent.primary}",
+		},
 	},
 	variants: {
 		size: {
@@ -62,7 +68,7 @@ export const chipRecipe = defineRecipe({
 				"--shadow": "{shadows.2}",
 				"--bg": "{colors.bg.tertiary}",
 				"--color": "{colors.colorPalette.primary}",
-				"--border": "1px solid {colors.stroke.secondary}",
+				"--border-color": "{colors.stroke.secondary}",
 			},
 			surface: {
 				"--bg": "{colors.bg.secondary}",

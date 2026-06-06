@@ -8,10 +8,10 @@ export const radiomarkRecipe = defineRecipe({
 		cursor: "pointer",
 		alignItems: "center",
 		position: "relative",
+		shadow: "{shadows.2}",
 		boxSize: "var(--size)",
 		rounded: "{radii.full}",
 		justifyContent: "center",
-		shadow: "{shadows.2}",
 		border: "1px solid {colors.stroke.secondary}",
 		transition: `
       shadow 100ms ease-in-out,

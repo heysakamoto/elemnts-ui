@@ -85,6 +85,7 @@ export const buttonGroupRecipe = defineSlotRecipe({
 				root: {
 					"& > *:not(:first-child)": {
 						marginLeft: "-1px",
+						borderLeft: "none",
 					},
 				},
 			},
@@ -97,6 +98,7 @@ export const buttonGroupRecipe = defineSlotRecipe({
 				root: {
 					"& > *:not(:first-child)": {
 						marginTop: "-1px",
+						borderTop: "none",
 					},
 				},
 			},

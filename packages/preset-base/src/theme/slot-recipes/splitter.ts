@@ -11,8 +11,6 @@ export const splitterRecipe = defineSlotRecipe({
 	],
 	base: {
 		root: {
-			colorPalette: "accent",
-
 			_vertical: {
 				flexDirection: "column",
 			},

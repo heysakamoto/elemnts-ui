@@ -98,7 +98,7 @@ export const badgeRecipe = defineSlotRecipe({
 			},
 			secondary: {
 				root: {
-					"--badge-bg": "{colors.colorPalette.secondary}",
+					"--badge-bg": "{colors.bg.secondary}",
 					"--badge-color": "{colors.colorPalette.primary}",
 				},
 			},
@@ -106,7 +106,7 @@ export const badgeRecipe = defineSlotRecipe({
 				root: {
 					"--badge-bg": "{colors.bg.primary}",
 					"--badge-color": "{colors.colorPalette.primary}",
-					"--badge-border": ".5px solid {colors.stroke.secondary}",
+					"--badge-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 		},

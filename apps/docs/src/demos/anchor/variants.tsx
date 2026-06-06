@@ -34,11 +34,30 @@ export function Variants() {
 						</SegmentGroup.Item>
 					))}
 				</SegmentGroup>
-				{value === "primary" && <Anchor variant="primary">Primary</Anchor>}
-				{value === "secondary" && (
-					<Anchor variant="secondary">Secondary</Anchor>
+				{value === "primary" && (
+					<Anchor
+						fontSize="14"
+						variant="primary"
+					>
+						Primary
+					</Anchor>
 				)}
-				{value === "tertiary" && <Anchor variant="tertiary">Tertiary</Anchor>}
+				{value === "secondary" && (
+					<Anchor
+						fontSize="14"
+						variant="secondary"
+					>
+						Secondary
+					</Anchor>
+				)}
+				{value === "tertiary" && (
+					<Anchor
+						fontSize="14"
+						variant="tertiary"
+					>
+						Tertiary
+					</Anchor>
+				)}
 			</Stack>
 		</Container>
 	);

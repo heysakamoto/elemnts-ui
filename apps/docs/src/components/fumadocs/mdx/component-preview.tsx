@@ -73,9 +73,9 @@ function ComponentPreviewSource(props: ComponentPreviewSourceProps) {
 	const severFn = useServerFn(serverLoader);
 
 	const { data, isLoading } = useQuery({
+		queryKey: ["cp", name],
 		gcTime: 1000 * 60 * 60,
 		staleTime: 1000 * 60 * 60,
-		queryKey: ["cp", name],
 		placeholderData: (previousData) => previousData,
 		queryFn: async () => {
 			const result = await severFn({ data: { name } });
@@ -154,13 +154,15 @@ export function ComponentPreview(props: ComponentPreviewProps) {
 									position="absolute"
 									transform="translateX(-50%)"
 								>
-									<Collapsible.Trigger asChild>
+									<Collapsible.Trigger
+										unstyled
+										asChild
+									>
 										<Button
 											size="sm"
-											rounded="full"
 											fontSize="13"
+											rounded="full"
 											variant="surface"
-											colorPalette="neutral"
 										>
 											{open ? "Hide" : "Expand"} code
 										</Button>

@@ -13,13 +13,13 @@ export const avatarRecipe = defineSlotRecipe({
 			justifyContent: "center",
 			color: "var(--avatar-color)",
 			boxSize: "var(--avatar-size)",
-			shadow: "var(--avatar-shadow)",
-			border: "var(--avatar-border)",
 			bgColor: "var(--avatar-bg-color)",
+			shadow: "var(--avatar-shadow, none)",
+			border: "var(--avatar-border, none)",
 		},
 		image: {
 			objectFit: "cover",
-			objectPosiion: "center",
+			objectPosition: "center",
 			boxSize: "{sizes.full}",
 		},
 		fallback: {

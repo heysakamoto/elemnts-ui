@@ -6,21 +6,22 @@ export const inputRecipe = defineRecipe({
 		"--input-px": "calc(var(--input-size) * 0.325)",
 
 		w: "{sizes.full}",
+		border: "1px solid",
+		alignItems: "center",
 		px: "var(--input-px)",
 		rounded: "{radii.12}",
 		fontFamily: "inherit",
-		alignItems: "center",
 		h: "var(--input-size)",
 		display: "inline-flex",
 		lineHeight: "{lineHeights.none}",
 		fontSize: "var(--input-font-size)",
-		border: "var(--input-border, none)",
-		shadow: "var(--input-shadow, none)",
 		bgColor: "var(--input-bg, transparent)",
-		transition: "background-color 100ms ease-in, box-shadow 100ms ease-in",
+		shadow: "var(--input-shadow), var(--focus-ring)",
+		borderColor: "var(--input-border-color, {colors.transparent})",
 
 		_focusVisible: {
-			outline: "none",
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.accent.primary}",
 		},
 	},
 	variants: {
@@ -50,25 +51,14 @@ export const inputRecipe = defineRecipe({
 			primary: {
 				"--input-shadow": "{shadows.2}",
 				"--input-bg": "{colors.bg.tertiary}",
-				"--input-border": "1px solid {colors.stroke.secondary}",
-				_focusVisible: {
-					bgColor:
-						"color-mix(in oklab, var(--input-bg), 2% {colors.fg.primary})",
-				},
+				"--input-border-color": "{colors.stroke.secondary}",
 			},
 			secondary: {
 				"--input-bg": "{colors.bg.secondary}",
-				_focusVisible: {
-					bgColor:
-						"color-mix(in oklab, var(--input-bg), 2% {colors.fg.primary})",
-				},
 			},
 			tertiary: {
 				"--input-bg": "{colors.bg.tertiary}",
 				"--input-radius": "calc({radii.4} * 0)",
-				_focusVisible: {
-					bgColor: "{colors.bg.secondary}",
-				},
 			},
 		},
 	},

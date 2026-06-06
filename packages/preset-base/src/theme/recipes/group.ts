@@ -41,7 +41,8 @@ export const groupRecipe = defineRecipe({
 			orientation: "horizontal",
 			css: {
 				"& > *:not(:first-child)": {
-					borderLeftWidth: "0px",
+					marginLeft: "-1px",
+					borderLeft: "none",
 				},
 			},
 		},
@@ -50,7 +51,8 @@ export const groupRecipe = defineRecipe({
 			orientation: "vertical",
 			css: {
 				"& > *:not(:first-child)": {
-					borderTopWidth: "0px",
+					borderTop: "none",
+					marginTop: "-1px",
 				},
 			},
 		},
