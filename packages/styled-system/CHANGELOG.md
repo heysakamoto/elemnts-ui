@@ -1,5 +1,16 @@
 # @moto-ui/styled-system
 
+## 0.0.6
+
+### Patch Changes
+
+- Refactor the border system across preset-base components to use a consistent
+  border style
+- Fix avatar recipe with invalid property name `objectPosiion`
+- Remove redundant splitter recipe colorPalette
+- Clean up extract.ts recipe variant combinations.
+  - @moto-ui/preset-base@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes

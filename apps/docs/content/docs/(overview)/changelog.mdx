@@ -4,16 +4,22 @@ description: All previous and current changes can be found here
 status: new
 ---
 
+## [0.0.6] - 2026-06-06
+### Fixed
+- Refactor the border system across preset-base components to use a consistent border style
+- Fix avatar recipe with invalid property name `objectPosiion`
+- Remove redundant splitter recipe colorPalette
+- Clean up extract.ts recipe variant combinations.
+
+
 ## [0.0.5] - 2026-06-03
 ### Fixed
 - refactor: remove onHidden variant and rework focus
-  - Remove the `onHidden` visual variant (hide/disable) from the button
-    recipe and clean up corresponding extract entries
-  - Replace `shadow`-based focus indicators with `outline` for better
-    accessibility and consistency
-  - Add `xs` breakpoint (386px) to the preset theme
-  - Clean up docs config by removing custom page schema
-  - Fix sidebar node key collision by appending the array index
+- Remove the `onHidden` visual variant (hide/disable) from the button recipe and clean up corresponding extract entries
+- Replace `shadow`-based focus indicators with `outline` for better accessibility and consistency
+- Add `xs` breakpoint (386px) to the preset theme
+- Clean up docs config by removing custom page schema
+- Fix sidebar node key collision by appending the array index
 
 ## [0.0.4] - 2026-06-01
 
