@@ -1,11 +1,16 @@
 {
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"],
-			"@.storybook/*": [".storybook/*"]
-		}
-	},
-	"include": ["src"]
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@.storybook/*": [
+        ".storybook/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
 }

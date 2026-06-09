@@ -1,5 +1,12 @@
 # @moto-ui/styled-system
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @moto-ui/preset-base@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes

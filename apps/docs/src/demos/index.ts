@@ -791,6 +791,18 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "format/relative-time.tsx",
 	},
+	"frame:basic": {
+		component: lazy(() =>
+			import("./frame/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "frame/basic.tsx",
+	},
+	"frame:head": {
+		component: lazy(() =>
+			import("./frame/head").then((m) => ({ default: m.Head })),
+		),
+		file: "frame/head.tsx",
+	},
 	"grid:basic": {
 		component: lazy(() =>
 			import("./grid/basic").then((m) => ({ default: m.Basic })),

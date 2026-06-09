@@ -110,7 +110,7 @@ type VirtualListContentBaseProps = Assign<
 	{
 		children: (props: {
 			item: VirtualItem;
-			measureElement: (node: Element | null | undefined) => void;
+			measureElement: (node: Element | null) => void;
 		}) => ReactNode;
 	}
 >;

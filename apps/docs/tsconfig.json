@@ -1,19 +1,27 @@
 {
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"target": "ES2022",
-		"jsx": "react-jsx",
-		"module": "ESNext",
-		"rootDir": ".",
-		"declaration": true,
-		"outDir": "dist/types",
-		"emitDeclarationOnly": true,
-		"types": ["vite/client", "node"],
-		"paths": {
-			"@/*": ["./src/*"],
-			"collections/*": ["./.source/*"]
-		}
-	},
-	"include": ["src"]
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "rootDir": ".",
+    "declaration": true,
+    "outDir": "dist/types",
+    "emitDeclarationOnly": true,
+    "types": [
+      "vite/client",
+      "node"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "collections/*": [
+        "./.source/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
 }

@@ -26,7 +26,7 @@
 		"access": "public"
 	},
 	"license": "MIT",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"type": "module",
 	"scripts": {
 		"clean": "rm -rf dist",
@@ -37,9 +37,9 @@
 		"@moto-ui/preset-base": "workspace:*"
 	},
 	"devDependencies": {
-		"@pandacss/dev": "^1.4.2",
+		"@pandacss/dev": "^1.11.3",
 		"@types/react": "19.2.2",
-		"react": "^18.0.0 || ^19.0.0"
+		"react": "^19.2.7"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0"
