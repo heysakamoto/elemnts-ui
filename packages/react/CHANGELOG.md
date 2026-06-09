@@ -1,5 +1,13 @@
 # @moto-ui/react
 
+## 0.0.7
+
+### Patch Changes
+
+- - Add `Frame` component for rendering content inside an isolated iframe with full style and DOM isolation
+  - Fix `measureElement` callback type in `VirtualList` to remove `undefined` from its parameter type
+  - @moto-ui/styled-system@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes

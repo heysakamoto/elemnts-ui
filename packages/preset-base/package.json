@@ -1,6 +1,6 @@
 {
 	"name": "@moto-ui/preset-base",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "PandaCSS presets for moto-ui with built-in colors and component styles.",
 	"keywords": [
 		"pandacss",
@@ -52,8 +52,7 @@
 		"@moto-ui/colors": "workspace:*"
 	},
 	"devDependencies": {
-		"tsup": "^8.5.1",
-		"@pandacss/dev": "^1.9.1",
-		"@pandacss/preset-base": "^1.8.1"
+		"@pandacss/dev": "^1.11.3",
+		"tsup": "^8.5.1"
 	}
 }

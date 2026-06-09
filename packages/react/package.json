@@ -1,72 +1,72 @@
 {
-	"type": "module",
-	"version": "0.0.6",
-	"description": "An open source react components library, providing 80+ components with a consistent design system.",
-	"keywords": [
-		"react",
-		"component",
-		"ui",
-		"design-system",
-		"moto",
-		"moto-ui"
-	],
-	"author": {
-		"name": "heysakamoto"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/heysakamoto/moto-ui.git",
-		"directory": "packages/react"
-	},
-	"license": "MIT",
-	"name": "@moto-ui/react",
-	"main": "./dist/cjs/index.cjs",
-	"types": "dist/types/index.d.ts",
-	"module": "./dist/esm/index.js",
-	"exports": {
-		".": {
-			"types": "./dist/types/index.d.ts",
-			"import": "./dist/esm/index.js",
-			"require": "./dist/cjs/index.cjs"
-		},
-		"./buildinfo.json": "./dist/buildinfo.json",
-		"./*": {
-			"types": "./dist/types/components/*/index.d.ts",
-			"import": "./dist/esm/components/*/index.js",
-			"require": "./dist/cjs/components/*/index.cjs"
-		}
-	},
-	"files": [
-		"dist",
-		"package.json",
-		"readme.md"
-	],
-	"scripts": {
-		"clean": "rm -rf dist",
-		"dev": "tsc && tsup --watch",
-		"build": "pnpm clean && pnpm panda:ship && tsup && tsc",
-		"panda:ship": "panda ship --outfile dist/buildinfo.json"
-	},
-	"devDependencies": {
-		"tsup": "^8.5.1",
-		"@pandacss/dev": "^1.11.1",
-		"@types/react": "^18.0.0 || ^19.0.0",
-		"@moto-ui/preset-base": "workspace:*",
-		"@types/react-dom": "^18.0.0 || ^19.0.0"
-	},
-	"peerDependencies": {
-		"react": "^18.0.0 || ^19.0.0",
-		"react-dom": "^18.0.0 || ^19.0.0"
-	},
-	"dependencies": {
-		"@ark-ui/react": "^5.18.4",
-		"@dnd-kit/react": "^0.4.0",
-		"@iconify/react": "^6.0.2",
-		"@ncdai/react-wheel-picker": "^1.2.2",
-		"@tanstack/react-virtual": "^3.13.18",
-		"@moto-ui/styled-system": "workspace:*"
-	}
+  "type": "module",
+  "version": "0.0.7",
+  "description": "An open source react components library, providing 80+ components with a consistent design system.",
+  "keywords": [
+    "react",
+    "component",
+    "ui",
+    "design-system",
+    "moto",
+    "moto-ui"
+  ],
+  "author": {
+    "name": "heysakamoto"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heysakamoto/moto-ui.git",
+    "directory": "packages/react"
+  },
+  "license": "MIT",
+  "name": "@moto-ui/react",
+  "main": "./dist/cjs/index.cjs",
+  "types": "dist/types/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./buildinfo.json": "./dist/buildinfo.json",
+    "./*": {
+      "types": "./dist/types/components/*/index.d.ts",
+      "import": "./dist/esm/components/*/index.js",
+      "require": "./dist/cjs/components/*/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "readme.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "tsc && tsup --watch",
+    "build": "pnpm clean && pnpm panda:ship && tsup && tsc",
+    "panda:ship": "panda ship --outfile dist/buildinfo.json"
+  },
+  "devDependencies": {
+    "@moto-ui/preset-base": "workspace:*",
+    "@pandacss/dev": "^1.11.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tsup": "^8.5.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@ark-ui/react": "^5.37.2",
+    "@dnd-kit/react": "^0.4.0",
+    "@iconify/react": "^6.0.2",
+    "@moto-ui/styled-system": "workspace:*",
+    "@ncdai/react-wheel-picker": "^1.2.2",
+    "@tanstack/react-virtual": "^3.14.2"
+  }
 }
