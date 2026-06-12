@@ -60,14 +60,14 @@ export type {
 export { useDialog, useDialogContext } from "@ark-ui/react/dialog";
 
 export {
+	DialogBackdrop,
+	DialogCloseTrigger,
+	DialogContent,
+	DialogContext,
+	DialogDescription,
+	DialogPositioner,
 	DialogRoot,
 	DialogRootProvider,
-	DialogTrigger,
-	DialogBackdrop,
-	DialogPositioner,
-	DialogContent,
 	DialogTitle,
-	DialogDescription,
-	DialogCloseTrigger,
-	DialogContext,
+	DialogTrigger,
 };

@@ -1,7 +1,19 @@
 ---
+status: new
 title: Changelog
 description: All previous and current changes can be found here
 ---
+
+## [0.0.8] - 2026-06-12
+### Added
+- Add `Table` component with support for variants, sizes, pinned headers, alternating rows, interactive rows, column dividers, captions, and footers
+- Add `EmptyState` component with customizable indicator, title, description, and action control
+- Add invalid state styles (destructive outline) to `Input`, `Textarea`, and `InputGroup` components
+### Fixed
+- Remove global invalid state styles
+- Refactor font-size tokens in `Input`, `Textarea`, and `InputGroup` from CSS variables to direct design token references
+- Improve `InputGroup` layout by using flex grow/shrink properties for inputs and textareas
+- Add `colors` package documentation to the project readme
 
 ## [0.0.7] - 2026-06-09
 ### Added

@@ -21,7 +21,6 @@ export const imageCropperRecipe = defineSlotRecipe({
 			display: "flex",
 			gap: "{spacing.12}",
 			position: "relative",
-			colorPalette: "accent",
 			flexDirection: "column",
 		},
 

@@ -1,6 +1,14 @@
-# Read the @agents.md and follow it strictly
+---
+name: generate-changeset-summary
+description: Generate a clear, consumer-facing changeset summary from staged git diffs for release changelogs. Use this when asked to write a changeset summary or generate a changelog entry from staged changes.
+---
+
+# Generate Changeset Summary
+
+Read `agents.md` (project root) and follow it strictly.
 
 ## Role
+
 You are an expert senior front-end developer assistant tasked with generating a clear, consumer-facing changeset summary based on the following git diffs:
 
 ```git
@@ -10,11 +18,25 @@ You are an expert senior front-end developer assistant tasked with generating a 
 ---
 
 ## Objective
+
 Analyze the staged changes provided by the user and generate a changeset summary. The summary will be included in the release changelog for the affected packages, so it must focus on user-facing changes (features, bug fixes, breaking changes) rather than internal refactoring or implementation details.
 
 ---
 
+## Input
+
+### Command
+```sh
+generate-changeset-summary [git-diff-context]
+```
+
+### Variables
+- `[git-diff-context]` — Optional additional context about the changes (e.g., affected package names, related issues). If not provided, the summary is derived solely from the staged git diff.
+
+---
+
 ## Rules & Constraints
+
 1. **Audience Focus:** Write the summary for the developers who consume the packages. Focus on *what* changed and *how* it affects their usage of the components/packages.
 2. **Format:**
    - Output plain Markdown.
@@ -44,7 +66,17 @@ Fix the alignment of the checkbox icon within the Checkbox component.
 
 ---
 
+## Validation
+
+Verify:
+- The summary focuses on consumer-facing impacts, not internal implementation details.
+- The summary conforms to the requested Markdown format.
+- No placeholders, TODOs, or empty lists remain.
+
+---
+
 ## Conclusion
+
 The task is considered done when:
 - The changeset summary is generated.
 - The summary focuses on consumer-facing impacts and conforms to the requested Markdown format.

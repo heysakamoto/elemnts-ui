@@ -59,14 +59,14 @@ export type {
 export { createToaster, useToastContext } from "@ark-ui/react/toast";
 
 export {
-	Toaster,
-	ToastRoot,
 	ToastActionTrigger,
 	ToastCloseTrigger,
 	ToastContext,
 	ToastControl,
 	ToastDescription,
+	Toaster,
 	ToastGroup,
 	ToastIndicator,
+	ToastRoot,
 	ToastTitle,
 };

@@ -18,4 +18,4 @@ export type List = {
 	IndicatorProps: ListIndicatorProps;
 };
 
-export { ListItem, ListIndicator, ListRoot };
+export { ListIndicator, ListItem, ListRoot };

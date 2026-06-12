@@ -61,14 +61,14 @@ export type {
 export { useField, useFieldContext } from "@ark-ui/react/field";
 
 export {
-	FieldRootProvider,
-	FieldRoot,
-	FieldLabel,
-	FieldInput,
-	FieldTextarea,
-	FieldSelect,
-	FieldHelperText,
-	FieldRequiredIndicator,
-	FieldErrorText,
 	FieldContext,
+	FieldErrorText,
+	FieldHelperText,
+	FieldInput,
+	FieldLabel,
+	FieldRequiredIndicator,
+	FieldRoot,
+	FieldRootProvider,
+	FieldSelect,
+	FieldTextarea,
 };

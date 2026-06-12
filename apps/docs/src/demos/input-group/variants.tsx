@@ -12,9 +12,9 @@ export function Variants() {
 					color="icon.secondary"
 				>
 					<Icon
-						icon="tabler:book"
 						width={16}
 						height={16}
+						icon="tabler:search"
 					/>
 				</InputGroup.Addon>
 				<InputGroup.Input

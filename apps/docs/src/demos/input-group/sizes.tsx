@@ -4,7 +4,7 @@ export function Sizes() {
 	return (
 		<Container maxW="16rem">
 			<InputGroup
-				size="sm"
+				size="lg"
 				rounded="24"
 			>
 				<InputGroup.Addon
@@ -12,9 +12,9 @@ export function Sizes() {
 					color="icon.secondary"
 				>
 					<Icon
-						icon="tabler:book"
 						width={16}
 						height={16}
+						icon="tabler:search"
 					/>
 				</InputGroup.Addon>
 				<InputGroup.Input

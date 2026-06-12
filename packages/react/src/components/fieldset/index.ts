@@ -45,10 +45,10 @@ export type {
 export { useFieldset, useFieldsetContext } from "@ark-ui/react/fieldset";
 
 export {
-	FieldsetRoot,
-	FieldsetLegend,
-	FieldsetHelperText,
-	FieldsetErrorText,
 	FieldsetContext,
+	FieldsetErrorText,
+	FieldsetHelperText,
+	FieldsetLegend,
+	FieldsetRoot,
 	FieldsetRootProvider,
 };

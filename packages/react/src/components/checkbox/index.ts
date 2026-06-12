@@ -67,13 +67,13 @@ export {
 } from "@ark-ui/react/checkbox";
 
 export {
-	CheckboxRootProvider,
-	CheckboxGroup,
-	CheckboxRoot,
-	CheckboxLabel,
+	CheckboxContext,
 	CheckboxControl,
-	CheckboxIndicator,
+	CheckboxGroup,
 	CheckboxGroupProvider,
 	CheckboxHiddenInput,
-	CheckboxContext,
+	CheckboxIndicator,
+	CheckboxLabel,
+	CheckboxRoot,
+	CheckboxRootProvider,
 };

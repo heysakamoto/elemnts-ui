@@ -9,9 +9,12 @@ export const globalCss = defineGlobalStyles({
 
 	// Reset & Base Styles
 	"*": {
+		borderWidth: "0px",
 		margin: "{spacing.0}",
+		borderStyle: "solid",
 		padding: "{spacing.0}",
 		boxSizing: "border-box",
+		borderColor: "{colors.stroke.primary}",
 		WebkitTapHighlightColor: "transparent",
 
 		// Typography optimizations
@@ -113,12 +116,6 @@ export const globalCss = defineGlobalStyles({
 			backgroundColor: "inherit",
 		},
 	},
-
-	//  Invalid styles
-	"input[data-invalid], input:invalid, input[aria-invalid=true], textarea[data-invalid], textarea:invalid, textarea[aria-invalid=true]":
-		{
-			boxShadow: "0 0 0 2px {colors.destructive.primary}",
-		},
 
 	// focus
 	":focus, [data-focus]": {

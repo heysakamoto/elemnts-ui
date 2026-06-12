@@ -50,10 +50,10 @@ export {
 
 export {
 	SortableItem,
-	SortableRoot,
-	SortableRootBase,
 	SortableItemBase,
 	SortableItemHandle,
-	SortableRootProvider,
 	SortableItemHandleBase,
+	SortableRoot,
+	SortableRootBase,
+	SortableRootProvider,
 };

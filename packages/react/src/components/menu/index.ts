@@ -112,17 +112,15 @@ export {
 } from "@ark-ui/react/menu";
 
 export {
-	MenuRootProvider,
-	MenuRoot,
 	MenuArrow,
 	MenuArrowTip,
 	MenuCheckboxItem,
 	MenuContent,
 	MenuContext,
 	MenuContextTrigger,
+	MenuIndicator,
 	MenuItem,
 	MenuItemContext,
-	MenuIndicator,
 	MenuItemGroup,
 	MenuItemGroupLabel,
 	MenuItemIndicator,
@@ -130,6 +128,8 @@ export {
 	MenuPositioner,
 	MenuRadioItem,
 	MenuRadioItemGroup,
+	MenuRoot,
+	MenuRootProvider,
 	MenuSeparator,
 	MenuTrigger,
 	MenuTriggerItem,

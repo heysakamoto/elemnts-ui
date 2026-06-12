@@ -659,6 +659,28 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "download/svg.tsx",
 	},
+	"empty-state:basic": {
+		component: lazy(() =>
+			import("./empty-state/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "empty-state/basic.tsx",
+	},
+	"empty-state:custom-icon": {
+		component: lazy(() =>
+			import("./empty-state/custom-icon").then((m) => ({
+				default: m.CustomIcon,
+			})),
+		),
+		file: "empty-state/custom-icon.tsx",
+	},
+	"empty-state:with-action": {
+		component: lazy(() =>
+			import("./empty-state/with-action").then((m) => ({
+				default: m.WithAction,
+			})),
+		),
+		file: "empty-state/with-action.tsx",
+	},
 	"editable:basic": {
 		component: lazy(() =>
 			import("./editable/basic").then((m) => ({ default: m.Basic })),
@@ -1912,6 +1934,68 @@ export const demos: Record<string, DemoItem> = {
 			import("./tabs/vertical").then((m) => ({ default: m.Vertical })),
 		),
 		file: "tabs/vertical.tsx",
+	},
+	"table:alternating-rows": {
+		component: lazy(() =>
+			import("./table/alternating-rows").then((m) => ({
+				default: m.AlternatingRows,
+			})),
+		),
+		file: "table/alternating-rows.tsx",
+	},
+	"table:basic": {
+		component: lazy(() =>
+			import("./table/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "table/basic.tsx",
+	},
+	"table:column-dividers": {
+		component: lazy(() =>
+			import("./table/column-dividers").then((m) => ({
+				default: m.ColumnDividers,
+			})),
+		),
+		file: "table/column-dividers.tsx",
+	},
+	"table:interactive": {
+		component: lazy(() =>
+			import("./table/interactive").then((m) => ({
+				default: m.Interactive,
+			})),
+		),
+		file: "table/interactive.tsx",
+	},
+	"table:pinned-header": {
+		component: lazy(() =>
+			import("./table/pinned-header").then((m) => ({
+				default: m.PinnedHeader,
+			})),
+		),
+		file: "table/pinned-header.tsx",
+	},
+	"table:sizes": {
+		component: lazy(() =>
+			import("./table/sizes").then((m) => ({ default: m.Sizes })),
+		),
+		file: "table/sizes.tsx",
+	},
+	"table:variants": {
+		component: lazy(() =>
+			import("./table/variants").then((m) => ({ default: m.Variants })),
+		),
+		file: "table/variants.tsx",
+	},
+	"table:with-caption": {
+		component: lazy(() =>
+			import("./table/with-caption").then((m) => ({ default: m.WithCaption })),
+		),
+		file: "table/with-caption.tsx",
+	},
+	"table:with-footer": {
+		component: lazy(() =>
+			import("./table/with-footer").then((m) => ({ default: m.WithFooter })),
+		),
+		file: "table/with-footer.tsx",
 	},
 	"tag:basic": {
 		component: lazy(() =>

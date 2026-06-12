@@ -17,6 +17,7 @@ import { dataListRecipe } from "./data-list";
 import { datePickerRecipe } from "./date-picker";
 import { dialogRecipe } from "./dialog";
 import { editableRecipe } from "./editable";
+import { emptyStateRecipe } from "./empty-state";
 import { fieldRecipe } from "./field";
 import { fieldsetRecipe } from "./fieldset";
 import { fileUploadRecipe } from "./file-upload";
@@ -52,6 +53,7 @@ import { stepsRecipe } from "./steps";
 import { surfaceRecipe } from "./surface";
 import { swapRecipe } from "./swap";
 import { switchRecipe } from "./switch";
+import { tableRecipe } from "./table";
 import { tabsRecipe } from "./tabs";
 import { tagsInputRecipe } from "./tags-input";
 import { tileRecipe } from "./tile";
@@ -83,6 +85,7 @@ export const slotRecipes = {
 	dataListRecipe,
 	dialogRecipe,
 	editableRecipe,
+	emptyStateRecipe,
 	inputGroupRecipe,
 	surfaceRecipe,
 	fieldRecipe,
@@ -131,6 +134,7 @@ export const slotRecipes = {
 	wheelPickerRecipe,
 	breadcrumbRecipe,
 	blockquoteRecipe,
+	tableRecipe,
 	timelineRecipe,
 	sortableRecipe,
 	listRecipe,

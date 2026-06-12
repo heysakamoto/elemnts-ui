@@ -33,9 +33,9 @@ export type Blockquote = {
 };
 
 export {
-	BlockquoteRoot,
 	BlockquoteCaption,
 	BlockquoteCite,
 	BlockquoteContent,
 	BlockquoteIndicator,
+	BlockquoteRoot,
 };

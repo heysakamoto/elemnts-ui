@@ -41,9 +41,9 @@ export type Tile = {
 export {
 	TileAddon,
 	TileContent,
+	TileControl,
 	TileDescription,
+	TileIndicator,
 	TileRoot,
 	TileTitle,
-	TileIndicator,
-	TileControl,
 };

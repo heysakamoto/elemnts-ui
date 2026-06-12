@@ -1,11 +1,6 @@
 {
-  "icon": "HomeIcon",
-  "title": "Overview",
-  "root": true,
-  "pages": [
-    "---overview---",
-    "index",
-    "about",
-    "changelog"
-  ]
+	"icon": "HomeIcon",
+	"title": "Overview",
+	"root": true,
+	"pages": ["---overview---", "index", "about", "changelog"]
 }

@@ -15,7 +15,6 @@ const meta = preview.meta({
 	title: "Basic",
 	component: WheelPicker,
 	args: {
-		colorPalette: "neutral",
 		variant: "secondary",
 	},
 });

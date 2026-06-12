@@ -21,4 +21,4 @@ export type Kbd = {
 	Props: KbdRootProps;
 };
 
-export { KbdRoot, KbdItem, KbdItemGroup, KbdItemGroupText };
+export { KbdItem, KbdItemGroup, KbdItemGroupText, KbdRoot };

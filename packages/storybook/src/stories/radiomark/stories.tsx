@@ -9,7 +9,6 @@ const meta = preview.meta({
 		checked: false,
 		disabled: false,
 		size: "sm",
-		colorPalette: "accent",
 	},
 	parameters: {
 		docs: {

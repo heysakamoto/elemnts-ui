@@ -87,14 +87,8 @@ export {
 	useListboxContext,
 	useListboxItemContext,
 } from "@ark-ui/react/listbox";
-
+export type { ListboxRootProps, ListboxRootProviderProps };
 export {
-	ListboxRootProvider,
-	ListboxRoot,
-	ListboxValueText,
-	ListboxLabel,
-	ListboxItemText,
-	ListboxItemIndicator,
 	ListboxContent,
 	ListboxContext,
 	ListboxEmpty,
@@ -103,6 +97,10 @@ export {
 	ListboxItemContext,
 	ListboxItemGroup,
 	ListboxItemGroupLabel,
+	ListboxItemIndicator,
+	ListboxItemText,
+	ListboxLabel,
+	ListboxRoot,
+	ListboxRootProvider,
+	ListboxValueText,
 };
-
-export type { ListboxRootProps, ListboxRootProviderProps };

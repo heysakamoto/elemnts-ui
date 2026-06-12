@@ -29,6 +29,7 @@ import {
 	downloadRecipe,
 	editableRecipe,
 	elevatedRecipe,
+	emptyStateRecipe,
 	fieldRecipe,
 	fieldsetRecipe,
 	fileUploadRecipe,
@@ -82,6 +83,7 @@ import {
 	swapRecipe,
 	swatchRecipe,
 	switchRecipe,
+	tableRecipe,
 	tabsRecipe,
 	tagRecipe,
 	tagsInputRecipe,
@@ -338,7 +340,7 @@ containerRecipe({ fluid: true });
 dataListRecipe({ orientation: "vertical" });
 dataListRecipe({ orientation: "horizontal" });
 
-// ** DatePicker Recipe **
+// **  DatePicker Recipe **
 datePickerRecipe();
 
 // ** DecorativeBox Recipe **
@@ -358,6 +360,9 @@ dialogRecipe({ size: "md", placement: "bottom" });
 
 // ** Download Recipe **
 downloadRecipe();
+
+// ** EmptyState Recipe **
+emptyStateRecipe();
 
 // ** Editable Recipe **
 editableRecipe();
@@ -405,15 +410,14 @@ imageCropperRecipe();
 imageRecipe();
 
 // ** InputGroup Recipe **
-inputGroupRecipe({ size: "auto", variant: "primary", noFocus: false });
-inputGroupRecipe({ size: "xs", variant: "primary", noFocus: false });
-inputGroupRecipe({ size: "sm", variant: "primary", noFocus: false });
-inputGroupRecipe({ size: "md", variant: "primary", noFocus: false });
-inputGroupRecipe({ size: "lg", variant: "primary", noFocus: false });
-inputGroupRecipe({ size: "xl", variant: "primary", noFocus: false });
-inputGroupRecipe({ size: "md", variant: "secondary", noFocus: false });
-inputGroupRecipe({ size: "md", variant: "tertiary", noFocus: false });
-inputGroupRecipe({ size: "md", variant: "primary", noFocus: true });
+inputGroupRecipe({ size: "xs", variant: "primary" });
+inputGroupRecipe({ size: "sm", variant: "primary" });
+inputGroupRecipe({ size: "md", variant: "primary" });
+inputGroupRecipe({ size: "lg", variant: "primary" });
+inputGroupRecipe({ size: "xl", variant: "primary" });
+inputGroupRecipe({ size: "md", variant: "secondary" });
+inputGroupRecipe({ size: "md", variant: "tertiary" });
+inputGroupRecipe({ size: "md", variant: "primary" });
 
 // ** Input Recipe **
 inputRecipe({ size: "xs", variant: "primary" });
@@ -685,6 +689,21 @@ tabsRecipe({ size: "lg", variant: "primary" });
 tabsRecipe({ size: "xl", variant: "primary" });
 tabsRecipe({ size: "md", variant: "secondary" });
 tabsRecipe({ size: "md", variant: "tertiary" });
+
+// Table Recipe
+tableRecipe({ variant: "primary", size: "xs" });
+tableRecipe({ variant: "primary", size: "sm" });
+tableRecipe({ variant: "primary", size: "md" });
+tableRecipe({ variant: "primary", size: "lg" });
+tableRecipe({ variant: "primary", size: "xl" });
+tableRecipe({ interactive: true, size: "md" });
+tableRecipe({ interactive: true, size: "md" });
+tableRecipe({ pinnedHeader: true, size: "md" });
+tableRecipe({ variant: "secondary", size: "md" });
+tableRecipe({ pinnedHeader: false, size: "md" });
+tableRecipe({ alternatingRows: true, size: "md" });
+tableRecipe({ alternatingRows: false, size: "md" });
+tableRecipe({ showColumnDividers: true, size: "md" });
 
 // ** Tag Recipe **
 tagRecipe({ size: "xs", variant: "primary", tone: "primary", iconOnly: false });

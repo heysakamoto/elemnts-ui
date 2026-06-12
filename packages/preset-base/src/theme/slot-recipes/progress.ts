@@ -16,7 +16,6 @@ export const progressRecipe = defineSlotRecipe({
 	base: {
 		root: {
 			gap: "2",
-			colorPalette: "accent",
 			display: "flex",
 			flexDirection: "column",
 		},

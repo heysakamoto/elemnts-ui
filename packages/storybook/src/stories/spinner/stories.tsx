@@ -8,7 +8,6 @@ const meta = preview.meta({
 	args: {
 		size: "md",
 		speed: "normal",
-		colorPalette: "accent",
 	},
 	parameters: {
 		docs: {

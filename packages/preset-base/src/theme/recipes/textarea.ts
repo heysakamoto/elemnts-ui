@@ -4,7 +4,7 @@ export const textareaRecipe = defineRecipe({
 	className: "textarea",
 	base: {
 		"--textarea-py": "calc(var(--textarea-size) / 5)",
-		"--textarea-px": "calc(var(--textarea-size) * 0.25)",
+		"--textarea-px": "calc(var(--textarea-size) * 0.3)",
 
 		w: "{sizes.full}",
 		border: "1px solid",
@@ -13,9 +13,9 @@ export const textareaRecipe = defineRecipe({
 		rounded: "{radii.12}",
 		display: "inline-flex",
 		justifyContent: "start",
+		fontSize: "{fontSizes.14}",
 		lineHeight: "{lineHeights.sm}",
 		minH: "var(--textarea-size, auto)",
-		fontSize: "var(--textarea-font-size)",
 		bgColor: "var(--textarea-bg, transparent)",
 		p: "var(--textarea-py) var(--textarea-px)",
 		shadow: "var(--textarea-shadow), var(--focus-ring)",
@@ -25,42 +25,41 @@ export const textareaRecipe = defineRecipe({
 			outlineOffset: "-1px",
 			outline: "2px solid {colors.accent.primary}",
 		},
+
+		"&:is(:invalid, [data-invalid], [aria-invalid=true])": {
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.destructive.primary}",
+		},
 	},
 	variants: {
 		size: {
 			xs: {
-				"--textarea-size": "calc({sizes.4} * 7)",
-				"--textarea-font-size": "{fontSizes.14}",
+				"--textarea-size": "calc({sizes.4} * 6)",
 			},
 			sm: {
-				"--textarea-size": "calc({sizes.4} * 8)",
-				"--textarea-font-size": "{fontSizes.14}",
+				"--textarea-size": "calc({sizes.4} * 7)",
 			},
 			md: {
-				"--textarea-size": "calc({sizes.4} * 9)",
-				"--textarea-font-size": "{fontSizes.14}",
+				"--textarea-size": "calc({sizes.4} * 8)",
 			},
 			lg: {
-				"--textarea-size": "calc({sizes.4} * 10)",
-				"--textarea-font-size": "{fontSizes.14}",
+				"--textarea-size": "calc({sizes.4} * 9)",
 			},
 			xl: {
-				"--textarea-font-size": "{fontSizes.14}",
-				"--textarea-size": "calc({sizes.4} * 12)",
+				"--textarea-size": "calc({sizes.4} * 10)",
 			},
 		},
 		variant: {
 			primary: {
 				"--textarea-shadow": "{shadows.2}",
 				"--textarea-bg": "{colors.bg.tertiary}",
-				"--textarea-border": "1px solid {colors.stroke.secondary}",
+				"--textarea-border-color": "{colors.stroke.secondary}",
 			},
 			secondary: {
 				"--textarea-bg": "{colors.bg.secondary}",
 			},
 			tertiary: {
 				"--textarea-bg": "{colors.transparent}",
-				"--textarea-radius": "calc({radii.4} * 0)",
 			},
 		},
 	},

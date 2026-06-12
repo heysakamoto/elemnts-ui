@@ -24,7 +24,7 @@ export const ButtonGroup = Object.assign(ButtonGroupRoot, {
 
 export {
 	Button,
+	Button as ButtonGroupItem,
 	ButtonGroupRoot,
 	ButtonGroupSeparator,
-	Button as ButtonGroupItem,
 };

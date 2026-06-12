@@ -46,7 +46,6 @@ export const datePickerRecipe = defineSlotRecipe({
 			"--date-picker-border-radius": "{radii.12}",
 
 			position: "relative",
-			colorPalette: "accent",
 			transformOrigin: "var(--transform-origin, top)",
 			zIndex: "calc(var(--z-index, 9) + var(--layer-index, 0))",
 

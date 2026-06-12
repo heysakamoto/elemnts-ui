@@ -16,7 +16,6 @@ export const alertRecipe = defineSlotRecipe({
 		root: {
 			display: "grid",
 			alignItems: "center",
-			colorPalette: "accent",
 			fontSize: "{fontSizes.14}",
 			columnGap: "calc({spacing.4} * 2)",
 			color: "{colors.colorPalette.primary}",
