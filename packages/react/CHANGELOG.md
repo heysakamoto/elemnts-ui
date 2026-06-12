@@ -1,5 +1,19 @@
 # @moto-ui/react
 
+## 0.0.8
+
+### Patch Changes
+
+- - Add Table component with variants, sizes, pinned headers, alternating rows, interactive rows, column dividers, captions, and footers
+  - Add EmptyState component with customizable indicator, title, description, and action
+  - Add invalid state styles (destructive outline) to Input, Textarea, and InputGroup
+  - Remove global invalid state styles
+  - Refactor font-size tokens in Input, Textarea, and InputGroup to direct design token references
+  - Improve InputGroup layout with flex grow/shrink properties
+  - Migrate agent prompt files to .agents/skills directory
+  - Update documentation meta files and changelog
+  - @moto-ui/styled-system@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes
