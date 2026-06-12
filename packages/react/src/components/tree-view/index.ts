@@ -126,7 +126,11 @@ export {
 	useTreeViewContext,
 	useTreeViewNodeContext,
 } from "@ark-ui/react/tree-view";
-
+export type {
+	TreeViewNodeProviderProps,
+	TreeViewRootProps,
+	TreeViewRootProviderProps,
+};
 export {
 	TreeViewBranch,
 	TreeViewBranchContent,
@@ -148,10 +152,4 @@ export {
 	TreeViewRoot,
 	TreeViewRootProvider,
 	TreeViewTree,
-};
-
-export type {
-	TreeViewRootProps,
-	TreeViewRootProviderProps,
-	TreeViewNodeProviderProps,
 };

@@ -70,7 +70,6 @@ export type {
 export { useProgress, useProgressContext } from "@ark-ui/react/progress";
 
 export {
-	ProgressRootProvider,
 	ProgressCircle,
 	ProgressCircleRange,
 	ProgressCircleTrack,
@@ -78,6 +77,7 @@ export {
 	ProgressLabel,
 	ProgressRange,
 	ProgressRoot,
+	ProgressRootProvider,
 	ProgressTrack,
 	ProgressValueText,
 	ProgressView,

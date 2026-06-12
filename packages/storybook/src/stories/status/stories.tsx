@@ -6,7 +6,6 @@ const meta = preview.meta({
 	component: Status,
 	title: "Feedback/Status",
 	args: {
-		colorPalette: "accent",
 		size: "md",
 	},
 	parameters: {

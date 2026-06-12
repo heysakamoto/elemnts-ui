@@ -5,7 +5,6 @@ const meta = preview.meta({
 	component: Kbd,
 	title: "Typography/Kbd",
 	args: {
-		colorPalette: "accent",
 		variant: "primary",
 	},
 	parameters: {

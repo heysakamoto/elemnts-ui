@@ -40,9 +40,9 @@ export type {
 export { useAvatar, useAvatarContext } from "@ark-ui/react/avatar";
 
 export {
-	AvatarRootProvider,
-	AvatarRoot,
+	AvatarContext,
 	AvatarFallback,
 	AvatarImage,
-	AvatarContext,
+	AvatarRoot,
+	AvatarRootProvider,
 };

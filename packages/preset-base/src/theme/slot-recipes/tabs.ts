@@ -7,7 +7,6 @@ export const tabsRecipe = defineSlotRecipe({
 		root: {
 			display: "flex",
 			w: "{sizes.full}",
-			colorPalette: "accent",
 			flexDirection: "column",
 
 			_vertical: {

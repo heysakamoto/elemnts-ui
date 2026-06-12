@@ -5,6 +5,7 @@
 	"pages": [
 		"---feedback---",
 		"alert",
+		"empty-state",
 		"progress",
 		"progress-circle",
 		"skeleton",

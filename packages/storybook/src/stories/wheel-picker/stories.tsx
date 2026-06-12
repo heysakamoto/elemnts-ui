@@ -7,7 +7,6 @@ const meta = preview.meta({
 	title: "Forms/WheelPicker",
 	args: {
 		variant: "primary",
-		colorPalette: "accent",
 	},
 	parameters: {
 		docs: {

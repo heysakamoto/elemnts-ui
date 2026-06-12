@@ -1,13 +1,14 @@
-# Read the @agents.md and follow it strictly
+---
+name: document-components
+description: Generate Moto UI demos, MDX documentation, and registry updates from a single component input. Use this when documenting a new component or adding examples to an existing one.
+---
 
-## Role
-You are an expert senior front-end developer assistant tasked with generating a clear, consumer-facing changeset summary based on the following git diffs:
+# Document Components
 
-```git
-!{git diff --staged}
-```
+Read `agents.md` (project root) and follow it strictly.
 
 ## Purpose
+
 Generate Moto UI demos, MDX documentation, and registry updates from a single component input.
 
 ---
@@ -16,11 +17,11 @@ Generate Moto UI demos, MDX documentation, and registry updates from a single co
 
 ### Command
 ```sh
-<command> <component-name> [...args]
+document-components <component-name> [...args]
 ```
 
 ### Variables
-- `<component-name>` → `$1`
+- `<component-name>` → The component to document
 - `[...]` → Remaining positional arguments
 
 ---
@@ -38,8 +39,8 @@ Generate Moto UI demos, MDX documentation, and registry updates from a single co
 ## Workflow
 
 ### 1. Analyze Component
-Inspect:
 
+Inspect:
 ```txt
 packages/react/src/components/<component-name>
 ```
@@ -58,8 +59,8 @@ If Ark UI primitives are used:
 ---
 
 ### 2. Generate Demos
-Create:
 
+Create:
 ```txt
 apps/docs/src/demos/<component-name>/
 ```
@@ -68,19 +69,19 @@ Requirements:
 - Always include `basic.tsx`
 - Generate unique demos only
 - Cover:
-	- Variants
-	- Sizes
-	- States
-	- Accessibility
-	- Controlled/uncontrolled patterns
-	- Compound composition
+  - Variants
+  - Sizes
+  - States
+  - Accessibility
+  - Controlled/uncontrolled patterns
+  - Compound composition
 - Create `index.ts` exports
 
 ---
 
 ### 3. Sync Registry
-Update:
 
+Update:
 ```txt
 apps/docs/src/demos/index.ts
 ```
@@ -94,8 +95,8 @@ Requirements:
 ---
 
 ### 4. Generate MDX Docs
-Create:
 
+Create:
 ```txt
 apps/docs/content/docs/components/<category>/<component-name>.mdx
 ```
@@ -113,6 +114,7 @@ Include:
 ---
 
 ## Validation
+
 Verify:
 - Imports resolve correctly
 - Exports are mapped correctly
@@ -126,6 +128,7 @@ packages/react/src/index.ts
 ---
 
 ## Conclusion
+
 The task is considered done when:
 - No type errors
 - No linting errors

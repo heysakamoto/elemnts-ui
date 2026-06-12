@@ -71,11 +71,11 @@ export { useVirtualList, useVirtualListContext } from "./client";
 export {
 	VirtualListContent,
 	VirtualListContentBase,
-	VirtualListRootProvider,
-	VirtualListRootProviderBase,
+	VirtualListItem,
 	VirtualListRoot,
 	VirtualListRootBase,
-	VirtualListItem,
+	VirtualListRootProvider,
+	VirtualListRootProviderBase,
 	VirtualListViewport,
 	VirtualListViewportBase,
 };

@@ -25,4 +25,4 @@ export const DataList = Object.assign(DataListRoot, {
 	ItemValue: DataListItemValue,
 });
 
-export { DataListRoot, DataListItem, DataListItemLabel, DataListItemValue };
+export { DataListItem, DataListItemLabel, DataListItemValue, DataListRoot };

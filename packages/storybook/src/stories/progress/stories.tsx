@@ -6,7 +6,6 @@ const meta = preview.meta({
 	component: Progress,
 	title: "Feedback/Progress",
 	args: {
-		colorPalette: "accent",
 		size: "md",
 		orientation: "horizontal",
 	},

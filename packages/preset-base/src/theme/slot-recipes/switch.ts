@@ -8,7 +8,6 @@ export const switchRecipe = defineSlotRecipe({
 			display: "flex",
 			gap: "{spacing.8}",
 			alignItems: "center",
-			colorPalette: "accent",
 		},
 		control: {
 			cursor: "pointer",

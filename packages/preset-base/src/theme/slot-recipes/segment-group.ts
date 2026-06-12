@@ -15,7 +15,6 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			display: "flex",
 			w: "fit-content",
 			alignItems: "center",
-			colorPalette: "accent",
 			p: "calc({spacing.2} * 0.5)",
 			rounded: "calc(var(--sg-border-radius) + 1px)",
 

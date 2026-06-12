@@ -69,13 +69,13 @@ export type {
 export { usePagination, usePaginationContext } from "@ark-ui/react/pagination";
 
 export {
-	PaginationRootProvider,
-	PaginationRoot,
 	PaginationContext,
 	PaginationEllipsis,
+	PaginationFirstTrigger,
 	PaginationItem,
+	PaginationLastTrigger,
 	PaginationNextTrigger,
 	PaginationPrevTrigger,
-	PaginationFirstTrigger,
-	PaginationLastTrigger,
+	PaginationRoot,
+	PaginationRootProvider,
 };

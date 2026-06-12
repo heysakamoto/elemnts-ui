@@ -6,14 +6,10 @@ import {
 	buttonGroupRecipe,
 	buttonRecipe,
 } from "@moto-ui/styled-system/recipes";
-import type {
-	HTMLStyledProps,
-	SystemStyleObject,
-} from "@moto-ui/styled-system/types";
+import type { HTMLStyledProps } from "@moto-ui/styled-system/types";
 import { createContext, forwardRef, useContext } from "react";
 
-type ButtonGroupContextValue = ButtonRecipeVariantProps &
-	Pick<SystemStyleObject, "colorPalette">;
+type ButtonGroupContextValue = ButtonRecipeVariantProps;
 const ButtonGroupContext = createContext<ButtonGroupContextValue>({});
 
 export function useButtonGroupContext() {
@@ -36,7 +32,6 @@ export const ButtonGroupRoot = forwardRef<HTMLDivElement, ButtonGroupRootProps>(
 
 		const value = {
 			...variantProps,
-			colorPalette: restProps.colorPalette,
 		};
 
 		return (

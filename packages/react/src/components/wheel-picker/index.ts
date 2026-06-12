@@ -24,4 +24,4 @@ export type WheelPicker = {
 
 export type { WheelPickerOption } from "@ncdai/react-wheel-picker";
 
-export { WheelPickerRoot, WheelPickerOptions, WheelPickerControl };
+export { WheelPickerControl, WheelPickerOptions, WheelPickerRoot };

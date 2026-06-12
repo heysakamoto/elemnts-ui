@@ -50,11 +50,11 @@ export type {
 export { useMarquee, useMarqueeContext } from "@ark-ui/react/marquee";
 
 export {
-	MarqueeRootProvider,
-	MarqueeRoot,
-	MarqueeViewport,
 	MarqueeContent,
 	MarqueeContext,
 	MarqueeEdge,
 	MarqueeItem,
+	MarqueeRoot,
+	MarqueeRootProvider,
+	MarqueeViewport,
 };

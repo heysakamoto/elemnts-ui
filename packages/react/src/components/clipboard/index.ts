@@ -58,13 +58,13 @@ export type {
 export { useClipboard, useClipboardContext } from "@ark-ui/react/clipboard";
 
 export {
-	ClipboardRootProvider,
-	ClipboardRoot,
-	ClipboardLabel,
-	ClipboardControl,
-	ClipboardInput,
-	ClipboardTrigger,
-	ClipboardIndicator,
-	ClipboardValueText,
 	ClipboardContext,
+	ClipboardControl,
+	ClipboardIndicator,
+	ClipboardInput,
+	ClipboardLabel,
+	ClipboardRoot,
+	ClipboardRootProvider,
+	ClipboardTrigger,
+	ClipboardValueText,
 };

@@ -1,14 +1,14 @@
 {
-  "title": "Guides",
-  "root": true,
-  "pages": [
-    "---Guides---",
-    "animations",
-    "colors",
-    "composition",
-    "design-principle",
-    "styling",
-    "surfaces",
-    "theming"
-  ]
+	"title": "Guides",
+	"root": true,
+	"pages": [
+		"---Guides---",
+		"animations",
+		"colors",
+		"composition",
+		"design-principle",
+		"styling",
+		"surfaces",
+		"theming"
+	]
 }

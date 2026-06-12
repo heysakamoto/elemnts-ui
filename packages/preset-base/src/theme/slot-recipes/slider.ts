@@ -20,7 +20,6 @@ export const sliderRecipe = defineSlotRecipe({
 			"--slider-bg": "{colors.colorPalette.primary}",
 
 			display: "flex",
-			colorPalette: "accent",
 			flexDirection: "column",
 			gap: "calc({sizes.4} * 2)",
 		},

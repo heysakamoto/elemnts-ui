@@ -21,7 +21,6 @@ export const anchorRecipe = defineRecipe({
 			position: "absolute",
 			bottom: "{spacing.0}",
 			bg: "{colors.current}",
-			colorPalette: "accent",
 			transition: "opacity 150ms ease-out",
 		},
 

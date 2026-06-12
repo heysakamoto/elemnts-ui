@@ -22,7 +22,6 @@ export const carouselRecipe = defineSlotRecipe({
 			display: "flex",
 			w: "{sizes.full}",
 			gap: "{spacing.16}",
-			colorPalette: "accent",
 			flexDirection: "column",
 
 			_vertical: {

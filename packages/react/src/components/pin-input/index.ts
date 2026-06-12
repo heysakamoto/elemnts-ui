@@ -53,11 +53,11 @@ export type {
 export { usePinInput, usePinInputContext } from "@ark-ui/react/pin-input";
 
 export {
-	PinInputRootProvider,
 	PinInputContext,
 	PinInputControl,
 	PinInputHiddenInput,
 	PinInputInput,
 	PinInputLabel,
 	PinInputRoot,
+	PinInputRootProvider,
 };

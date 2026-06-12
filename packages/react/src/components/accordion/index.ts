@@ -72,12 +72,12 @@ export {
 } from "@ark-ui/react/accordion";
 
 export {
+	AccordionItem,
+	AccordionItemContent,
+	AccordionItemContext,
+	AccordionItemIndicator,
+	AccordionItemTrigger,
 	AccordionRoot,
 	AccordionRootProvider,
-	AccordionItem,
-	AccordionItemTrigger,
-	AccordionItemContext,
 	AccordionSeparator,
-	AccordionItemContent,
-	AccordionItemIndicator,
 };

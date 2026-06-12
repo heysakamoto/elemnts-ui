@@ -5,9 +5,7 @@ const meta = preview.meta({
 	tags: ["autodocs"],
 	component: Alert,
 	title: "Feedback/Alert",
-	args: {
-		colorPalette: "accent",
-	},
+	args: {},
 	parameters: {
 		docs: {
 			description: {

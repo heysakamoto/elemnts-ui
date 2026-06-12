@@ -60,9 +60,9 @@ export { useSplitter, useSplitterContext } from "@ark-ui/react/splitter";
 export {
 	SplitterContext,
 	SplitterPanel,
-	SplitterResizeTriggerSeparator,
 	SplitterResizeTrigger,
 	SplitterResizeTriggerIndicator,
+	SplitterResizeTriggerSeparator,
 	SplitterRoot,
 	SplitterRootProvider,
 };

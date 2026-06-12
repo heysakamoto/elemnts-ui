@@ -1,0 +1,129 @@
+---
+status: new
+title: Empty State
+description: A placeholder component used to communicate that there is no content to display, often with an icon, message, and optional action.
+---
+
+<ComponentPreview name="empty-state:basic" />
+
+### Usage
+
+The `EmptyState` component is used to fill empty areas with contextual information. It helps users understand why content is missing and what they can do about it.
+
+- `EmptyState.Root`: The root container for the empty state.
+- `EmptyState.Content`: A flex container that centers the content vertically and horizontally.
+- `EmptyState.Indicator`: A container for an icon or visual indicator.
+- `EmptyState.Title`: The title of the empty state message.
+- `EmptyState.Description`: A supporting description providing additional context.
+- `EmptyState.Control`: A container for action buttons or controls.
+
+```tsx
+import { EmptyState, Icon } from "@moto-ui/react"
+
+<EmptyState.Root>
+  <EmptyState.Content>
+    <EmptyState.Indicator>
+      <Icon icon="tabler:database" width={32} height={32} />
+    </EmptyState.Indicator>
+    <EmptyState.Title>No data available</EmptyState.Title>
+    <EmptyState.Description>
+      There are no records to display at this time.
+    </EmptyState.Description>
+  </EmptyState.Content>
+</EmptyState.Root>
+```
+
+### Custom Icon
+
+The `EmptyState.Indicator` slot accepts any content, allowing you to use different icons for different contexts.
+
+<ComponentPreview name="empty-state:custom-icon" />
+
+### With Action
+
+Use `EmptyState.Control` to provide users with a call to action, such as a button to create new content or retry a failed operation.
+
+<ComponentPreview name="empty-state:with-action" />
+
+### Props
+
+**Root**
+The `EmptyState.Root` component is a styled `div` and accepts all standard HTML `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+The `EmptyState.Content` component is a styled `div` and accepts all standard HTML `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Indicator**
+The `EmptyState.Indicator` component is a styled `div` and accepts all standard HTML `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Title**
+The `EmptyState.Title` component is a styled `h6` and accepts all standard HTML heading props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Description**
+The `EmptyState.Description` component is a styled `p` and accepts all standard HTML paragraph props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Control**
+The `EmptyState.Control` component is a styled `div` and accepts all standard HTML `div` props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+**Root**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-scope="empty-state"]` | The component scope. |
+| `[data-part="root"]` | The root part. |
+
+**Content**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="content"]` | The content part. |
+
+**Indicator**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="indicator"]` | The indicator part. |
+
+**Title**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="title"]` | The title part. |
+
+**Description**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="description"]` | The description part. |
+
+**Control**
+
+| Attribute | Description |
+| :--- | :--- |
+| `[data-part="control"]` | The control part. |

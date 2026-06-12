@@ -34,10 +34,10 @@ export const Stat = Object.assign(StatRoot, {
 });
 
 export {
-	StatRoot,
 	StatHelpText,
 	StatIndicator,
 	StatLabel,
+	StatRoot,
 	StatValueText,
 	StatValueUnit,
 };

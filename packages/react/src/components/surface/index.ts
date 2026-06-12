@@ -39,11 +39,11 @@ export type Surface = {
 };
 
 export {
+	SurfaceAddon,
 	SurfaceContent,
 	SurfaceDescription,
 	SurfaceFooter,
 	SurfaceHeader,
 	SurfaceRoot,
 	SurfaceTitle,
-	SurfaceAddon,
 };

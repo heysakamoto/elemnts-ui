@@ -13,8 +13,8 @@ export const inputRecipe = defineRecipe({
 		fontFamily: "inherit",
 		h: "var(--input-size)",
 		display: "inline-flex",
+		fontSize: "{fontSizes.14}",
 		lineHeight: "{lineHeights.none}",
-		fontSize: "var(--input-font-size)",
 		bgColor: "var(--input-bg, transparent)",
 		shadow: "var(--input-shadow), var(--focus-ring)",
 		borderColor: "var(--input-border-color, {colors.transparent})",
@@ -23,28 +23,28 @@ export const inputRecipe = defineRecipe({
 			outlineOffset: "-1px",
 			outline: "2px solid {colors.accent.primary}",
 		},
+
+		"&:is(:invalid, [data-invalid], [aria-invalid=true])": {
+			outlineOffset: "-1px",
+			outline: "2px solid {colors.destructive.primary}",
+		},
 	},
 	variants: {
 		size: {
 			xs: {
 				"--input-size": "calc({sizes.4} * 6)",
-				"--input-font-size": "{fontSizes.14}",
 			},
 			sm: {
 				"--input-size": "calc({sizes.4} * 7)",
-				"--input-font-size": "{fontSizes.14}",
 			},
 			md: {
 				"--input-size": "calc({sizes.4} * 8)",
-				"--input-font-size": "{fontSizes.14}",
 			},
 			lg: {
 				"--input-size": "calc({sizes.4} * 9)",
-				"--input-font-size": "{fontSizes.14}",
 			},
 			xl: {
 				"--input-size": "calc({sizes.4} * 10)",
-				"--input-font-size": "{fontSizes.14}",
 			},
 		},
 		variant: {
@@ -58,7 +58,6 @@ export const inputRecipe = defineRecipe({
 			},
 			tertiary: {
 				"--input-bg": "{colors.bg.tertiary}",
-				"--input-radius": "calc({radii.4} * 0)",
 			},
 		},
 	},

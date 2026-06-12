@@ -1,20 +1,20 @@
 {
-  "name": "moto-ui",
-  "private": true,
-  "packageManager": "pnpm@10.33.0",
-  "scripts": {
-    "biome:check": "biome check",
-    "biome:fix": "biome check --write",
-    "build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/storybook\" --filter \"!@moto-ui/docs\" build",
-    "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish"
-  },
-  "devDependencies": {
-    "@ark-ui/mcp": "^1.2.1",
-    "@biomejs/biome": "^2.4.16",
-    "@changesets/cli": "^2.31.0"
-  },
-  "dependencies": {
-    "typescript": "^6.0.3"
-  }
+	"name": "moto-ui",
+	"private": true,
+	"packageManager": "pnpm@11.5.3",
+	"scripts": {
+		"biome:check": "biome check",
+		"biome:fix": "biome check --write",
+		"version-packages": "changeset version",
+		"release": "pnpm build && changeset publish",
+		"build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/storybook\" --filter \"!@moto-ui/docs\" build"
+	},
+	"devDependencies": {
+		"@ark-ui/mcp": "^1.2.1",
+		"@biomejs/biome": "^2.4.16",
+		"@changesets/cli": "^2.31.0"
+	},
+	"dependencies": {
+		"typescript": "^6.0.3"
+	}
 }

@@ -80,8 +80,8 @@ export type {
 export { useTour, useTourContext } from "@ark-ui/react/tour";
 
 export {
-	TourActionTrigger,
 	TourActions,
+	TourActionTrigger,
 	TourArrow,
 	TourArrowTip,
 	TourBackdrop,

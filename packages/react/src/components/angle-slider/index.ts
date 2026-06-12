@@ -64,13 +64,13 @@ export {
 } from "@ark-ui/react/angle-slider";
 
 export {
-	AngleSliderRootProvider,
-	AngleSliderRoot,
+	AngleSliderContext,
 	AngleSliderControl,
+	AngleSliderLabel,
 	AngleSliderMarker,
 	AngleSliderMarkerGroup,
+	AngleSliderRoot,
+	AngleSliderRootProvider,
 	AngleSliderThumb,
 	AngleSliderValueText,
-	AngleSliderLabel,
-	AngleSliderContext,
 };

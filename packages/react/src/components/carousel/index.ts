@@ -85,15 +85,15 @@ export type {
 export { useCarousel, useCarouselContext } from "@ark-ui/react/carousel";
 
 export {
-	CarouselRootProvider,
+	CarouselAutoplayIndicator,
+	CarouselAutoplayTrigger,
 	CarouselControl,
-	CarouselProgressText,
-	CarouselItemGroup,
-	CarouselItem,
-	CarouselIndicatorGroup,
 	CarouselIndicator,
+	CarouselIndicatorGroup,
+	CarouselItem,
+	CarouselItemGroup,
 	CarouselNextTrigger,
 	CarouselPrevTrigger,
-	CarouselAutoplayTrigger,
-	CarouselAutoplayIndicator,
+	CarouselProgressText,
+	CarouselRootProvider,
 };

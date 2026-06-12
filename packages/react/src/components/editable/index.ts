@@ -73,15 +73,15 @@ export type {
 export { useEditable, useEditableContext } from "@ark-ui/react/editable";
 
 export {
-	EditableRootProvider,
-	EditableRoot,
 	EditableArea,
-	EditableLabel,
-	EditablePreview,
-	EditableInput,
-	EditableControl,
-	EditableEditTrigger,
-	EditableSubmitTrigger,
 	EditableCancelTrigger,
 	EditableContext,
+	EditableControl,
+	EditableEditTrigger,
+	EditableInput,
+	EditableLabel,
+	EditablePreview,
+	EditableRoot,
+	EditableRootProvider,
+	EditableSubmitTrigger,
 };

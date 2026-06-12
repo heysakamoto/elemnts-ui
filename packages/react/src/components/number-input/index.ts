@@ -75,14 +75,14 @@ export {
 } from "@ark-ui/react/number-input";
 
 export {
-	NumberInputRootProvider,
-	NumberInputRoot,
 	NumberInputContext,
 	NumberInputControl,
 	NumberInputDecrementTrigger,
 	NumberInputIncrementTrigger,
 	NumberInputInput,
 	NumberInputLabel,
+	NumberInputRoot,
+	NumberInputRootProvider,
 	NumberInputScrubber,
 	NumberInputValueText,
 };

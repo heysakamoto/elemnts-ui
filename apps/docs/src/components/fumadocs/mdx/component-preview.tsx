@@ -25,7 +25,7 @@ const rawDemoFiles = import.meta.glob("/src/demos/**/*.tsx", {
 });
 
 const serverLoader = createServerFn({ method: "GET" })
-	.inputValidator((data: Input) => data)
+	.validator((data: Input) => data)
 	.handler(async ({ data }) => {
 		const { name } = data;
 		const demo = getDemo(name);
@@ -73,10 +73,9 @@ function ComponentPreviewSource(props: ComponentPreviewSourceProps) {
 	const severFn = useServerFn(serverLoader);
 
 	const { data, isLoading } = useQuery({
-		queryKey: ["cp", name],
 		gcTime: 1000 * 60 * 60,
 		staleTime: 1000 * 60 * 60,
-		placeholderData: (previousData) => previousData,
+		queryKey: [`component-preview:${name}`],
 		queryFn: async () => {
 			const result = await severFn({ data: { name } });
 			return result;

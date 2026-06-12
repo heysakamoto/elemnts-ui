@@ -35,10 +35,10 @@ export type Timeline = {
 };
 
 export {
-	TimelineRoot,
 	TimelineConnector,
 	TimelineContent,
 	TimelineIndicator,
 	TimelineItem,
+	TimelineRoot,
 	TimelineSeparator,
 };

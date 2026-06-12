@@ -1,0 +1,139 @@
+---
+status: new
+title: Table
+description: Displays structured data in rows and columns with support for headers, footers, captions, and multiple visual variants.
+---
+
+<ComponentPreview name="table:basic" />
+
+### Usage
+The `Table` component is used to organize and display tabular data. It provides a set of compound components for building accessible, styled tables.
+
+```tsx
+import { Table } from "@moto-ui/react"
+
+<Table.Root>
+  <Table.Header>
+    <Table.Row>
+      <Table.ColumnHeader>Name</Table.ColumnHeader>
+      <Table.ColumnHeader>Role</Table.ColumnHeader>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>Alice Chen</Table.Cell>
+      <Table.Cell>Frontend Developer</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table.Root>
+```
+
+### Variants
+The `Table` component offers two visual variants: `primary` (default) and `secondary`.
+
+<ComponentPreview name="table:variants" />
+
+### Sizes
+Control the density of the table using the `size` prop. Supported sizes are `xs`, `sm`, `md`, `lg`, and `xl`.
+
+<ComponentPreview name="table:sizes" />
+
+### Pinned Header
+Use the `pinnedHeader` prop to make the table header sticky when the table content scrolls. Apply `maxH` and `overflow="auto"` to the root element to constrain the table height.
+
+<ComponentPreview name="table:pinned-header" />
+
+### Alternating Rows
+Apply alternating background colors to rows with the `alternatingRows` prop for improved readability in dense datasets.
+
+<ComponentPreview name="table:alternating-rows" />
+
+### Interactive
+Use the `interactive` prop to enable hover styling on table rows, and combine it with state management for clickable, selectable rows.
+
+<ComponentPreview name="table:interactive" />
+
+### Column Dividers
+Display vertical dividers between columns using the `showColumnDividers` prop.
+
+<ComponentPreview name="table:column-dividers" />
+
+### Caption
+Add a caption to describe the table's content using `Table.Caption`. This improves accessibility by providing a summary for screen readers.
+
+<ComponentPreview name="table:with-caption" />
+
+### Footer
+Use `Table.Footer` to display summary information or column totals at the bottom of the table.
+
+<ComponentPreview name="table:with-footer" />
+
+### Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| variant | `"primary" \| "secondary"` | `"primary"` | The visual variant of the table. |
+| size | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | The size (density) of the table. |
+| pinnedHeader | `boolean` | `false` | Whether the header is sticky. |
+| interactive | `boolean` | `false` | Whether rows have hover styling for interactivity. |
+| alternatingRows | `boolean` | `false` | Whether rows have alternating background colors. |
+| showColumnDividers | `boolean` | `false` | Whether columns are separated by dividers. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Header**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Body**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Footer**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Row**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**ColumnHeader**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Cell**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Caption**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+### Data Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `[data-scope="table"]` | The component scope. |
+| `[data-part="root"]` | The root table element. |
+| `[data-part="header"]` | The header (`thead`) element. |
+| `[data-part="body"]` | The body (`tbody`) element. |
+| `[data-part="footer"]` | The footer (`tfoot`) element. |
+| `[data-part="row"]` | The row (`tr`) element. |
+| `[data-part="columnHeader"]` | The column header (`th`) element. |
+| `[data-part="cell"]` | The cell (`td`) element. |
+| `[data-part="caption"]` | The caption element. |

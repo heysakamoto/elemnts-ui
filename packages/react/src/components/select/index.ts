@@ -101,7 +101,7 @@ export {
 	useSelectContext,
 	useSelectItemContext,
 } from "@ark-ui/react/select";
-
+export type { SelectRootProps, SelectRootProviderProps };
 export {
 	SelectClearTrigger,
 	SelectContent,
@@ -122,5 +122,3 @@ export {
 	SelectTrigger,
 	SelectValueText,
 };
-
-export type { SelectRootProps, SelectRootProviderProps };

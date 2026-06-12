@@ -14,7 +14,6 @@ export const signaturePadRecipe = defineSlotRecipe({
 	base: {
 		root: {
 			display: "flex",
-			colorPalette: "accent",
 			flexDirection: "column",
 		},
 		segment: {

@@ -51,10 +51,10 @@ export {
 } from "@ark-ui/react/collapsible";
 
 export {
-	CollapsibleRootProvider,
-	CollapsibleRoot,
-	CollapsibleTrigger,
 	CollapsibleContent,
-	CollapsibleIndicator,
 	CollapsibleContext,
+	CollapsibleIndicator,
+	CollapsibleRoot,
+	CollapsibleRootProvider,
+	CollapsibleTrigger,
 };

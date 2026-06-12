@@ -187,9 +187,10 @@ export default defineConfig({
 
 The Moto UI project is organized into the following packages:
 
+- **`packages/color`**: Provides color definitions for Moto UI base on TailwindCSS v4 colors.
 - **`packages/preset-base`**: The base preset for Moto UI, providing shared design tokens and configurations.
 - **`packages/styled-system`**: Compiles styled tokens, CSS files, and TS definitions into the `dist/` directory.
-- **`packages/react`**: : Provides React components and hooks for building styled UI with Moto UI.
+- **`packages/react`**: Provides React components and hooks for building styled UI with Moto UI.
 - **`packages/storybook`**: Provides Storybook configuration for Moto UI components.
 
 ---

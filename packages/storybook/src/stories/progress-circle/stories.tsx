@@ -6,7 +6,6 @@ const meta = preview.meta({
 	component: Progress,
 	title: "Feedback/ProgressCircle",
 	args: {
-		colorPalette: "accent",
 		size: "md",
 		thickness: "sm",
 		min: 0,

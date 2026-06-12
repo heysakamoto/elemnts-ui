@@ -11,10 +11,11 @@ export const inputGroupRecipe = defineSlotRecipe({
 			border: "1px solid",
 			alignItems: "center",
 			position: "relative",
+			fontSize: "{fontSizes.14}",
 			bg: "var(--input-group-bg)",
-			h: "var(--input-group-height)",
+			h: "var(--input-group-size)",
 			color: "var(--colors-system-fg)",
-			shadow: "var(--input-group-shadow)",
+			shadow: "var(--input-group-shadow, none)",
 			rounded: "var(--input-group-radii, {radii.12})",
 			borderColor: "var(--input-group-border-color, {colors.transparent})",
 
@@ -30,18 +31,27 @@ export const inputGroupRecipe = defineSlotRecipe({
 				outlineOffset: "-1px",
 				outline: "2px solid {colors.accent.primary}",
 			},
+
+			"&:has(:is(input, textarea):is(:invalid, [data-invalid], [aria-invalid=true])), &:is(:invalid, [data-invalid], [aria-invalid=true])":
+				{
+					outlineOffset: "-1px",
+					outline: "2px solid {colors.destructive.primary}",
+				},
 		},
 		addon: {
+			flexShrink: 0,
 			h: "{sizes.full}",
 			alignItems: "center",
 			display: "inline-flex",
 			justifyContent: "center",
 		},
 		input: {
-			w: "{sizes.full}",
-			fontFamily: "inherit",
+			flexGrow: 1,
 			alignItems: "center",
+			fontFamily: "inherit",
 			display: "inline-flex",
+			boxSize: "{sizes.full}",
+			fontSize: "{fontSizes.14}",
 			lineHeight: "{lineHeights.none}",
 
 			_focus: {
@@ -49,11 +59,12 @@ export const inputGroupRecipe = defineSlotRecipe({
 			},
 		},
 		textarea: {
-			w: "{sizes.full}",
-			fontFamily: "inherit",
-			alignItems: "center",
-			display: "inline-flex",
+			flexGrow: 1,
 			resize: "vertical",
+			alignItems: "center",
+			fontFamily: "inherit",
+			display: "inline-flex",
+			boxSize: "{sizes.full}",
 			lineHeight: "{lineHeights.sm}",
 
 			_focus: {
@@ -63,35 +74,29 @@ export const inputGroupRecipe = defineSlotRecipe({
 	},
 	variants: {
 		size: {
-			auto: {
-				root: {
-					"--input-group-height": "auto",
-					flexWrap: "wrap",
-				},
-			},
 			xs: {
 				root: {
-					"--input-group-height": "{sizes.28}",
+					"--input-group-size": "calc({sizes.4} * 6)",
 				},
 			},
 			sm: {
 				root: {
-					"--input-group-height": "{sizes.32}",
+					"--input-group-size": "calc({sizes.4} * 7)",
 				},
 			},
 			md: {
 				root: {
-					"--input-group-height": "{sizes.36}",
+					"--input-group-size": "calc({sizes.4} * 8)",
 				},
 			},
 			lg: {
 				root: {
-					"--input-group-height": "{sizes.40}",
+					"--input-group-size": "calc({sizes.4} * 9)",
 				},
 			},
 			xl: {
 				root: {
-					"--input-group-height": "{sizes.48}",
+					"--input-group-size": "calc({sizes.4} * 10)",
 				},
 			},
 		},
@@ -99,41 +104,25 @@ export const inputGroupRecipe = defineSlotRecipe({
 		variant: {
 			primary: {
 				root: {
-					"--input-group-bg": "{colors.bg.tertiary}",
 					"--input-group-shadow": "{shadows.2}",
+					"--input-group-bg": "{colors.bg.tertiary}",
 					"--input-group-border-color": "{colors.stroke.secondary}",
 				},
 			},
 			secondary: {
 				root: {
-					"--input-group-shadow": "{shadows.none}",
 					"--input-group-bg": "{colors.bg.secondary}",
-					"--input-group-stroke": "{colors.transparent}",
 				},
 			},
 			tertiary: {
 				root: {
-					"--input-group-shadow": "{shadows.none}",
 					"--input-group-bg": "{colors.transparent}",
-					"--input-group-stroke": "{colors.transparent}",
-				},
-			},
-		},
-
-		noFocus: {
-			true: {
-				root: {
-					_focusWithin: {
-						outline: "none",
-						shadow: "{shadows.none}",
-					},
 				},
 			},
 		},
 	},
 	defaultVariants: {
 		size: "md",
-		noFocus: false,
 		variant: "primary",
 	},
 });
