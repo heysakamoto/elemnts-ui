@@ -90,7 +90,7 @@ export const avatarRecipe = defineSlotRecipe({
 					"--avatar-shadow": "{shadows.2}",
 					"--avatar-color": "{colors.colorPalette.primary}",
 					"--avatar-bg-color": "{colors.colorPalette.tertiary}",
-					"--avatar-border": "1px solid {colors.stroke.tertiary}",
+					"--avatar-border": "1px solid {colors.stroke.secondary}",
 				},
 			},
 			surface: {

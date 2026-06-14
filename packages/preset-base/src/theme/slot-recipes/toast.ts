@@ -15,16 +15,16 @@ export const toastRecipe = defineSlotRecipe({
 	base: {
 		root: {
 			display: "grid",
+			shadow: "{shadows.2}",
 			scale: "var(--scale)",
 			zIndex: "var(--z-index)",
 			opacity: "var(--opacity)",
 			p: "calc({spacing.4} * 3)",
 			alignItems: "anchor-center",
-			shadow: "{shadows.2}",
+			bgColor: "{colors.surface.2}",
 			height: "var(--height, auto)",
 			rounded: "calc({radii.4} * 6)",
 			translate: "var(--x) var(--y)",
-			bgColor: "{colors.bg.tertiary}",
 			columnGap: "calc({spacing.4} * 2)",
 			border: "1px solid {colors.stroke.tertiary}",
 			gridTemplateColumns: "auto minmax(0, 1fr) auto",
@@ -54,11 +54,6 @@ export const toastRecipe = defineSlotRecipe({
 				colorPalette: "accent",
 			},
 
-			"&:not([data-type])": {
-				colorPalette: "neutral",
-			},
-
-			// exit (slight move in sign direction + fade)
 			"&[data-state='closed']": {
 				transition: `
           translate "400ms",
@@ -67,7 +62,6 @@ export const toastRecipe = defineSlotRecipe({
 				transitionTimingFunction: "cubic-bezier(0.06, 0.71, 0.55, 1)",
 			},
 
-			// reduced motion support
 			"@media (prefers-reduced-motion: reduce)": {
 				transitionDuration: "0ms, 0ms",
 				transitionDelay: "0ms",

@@ -4,7 +4,6 @@ export const globalCss = defineGlobalStyles({
 	":root": {
 		colorPalette: "accent",
 		colorScheme: "light dark",
-		"--focus-ring": "inset 0 0 0 2px var(--focus-ring-color, transparent)",
 	},
 
 	// Reset & Base Styles

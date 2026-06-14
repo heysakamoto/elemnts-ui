@@ -1,5 +1,4 @@
 {
-	"icon": "",
 	"title": "Internationalization",
 	"defaultOpen": false,
 	"pages": ["---Internationalization---", "format", "locale"]

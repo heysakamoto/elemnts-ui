@@ -81,7 +81,7 @@ const fg = {
 	},
 	secondary: {
 		value: {
-			base: "{colors.neutral.90}",
+			base: "{colors.neutral.80}",
 			_dark: "{colors.neutral.40}",
 		},
 	},
@@ -117,20 +117,126 @@ const stroke = {
 const icon = {
 	primary: {
 		value: {
-			base: "{colors.neutral.95}",
+			base: "{colors.neutral.100}",
 			_dark: "{colors.neutral.20}",
 		},
 	},
 	secondary: {
 		value: {
-			base: "{colors.neutral.50}",
+			base: "{colors.neutral.60}",
 			_dark: "{colors.neutral.50}",
 		},
 	},
 	tertiary: {
 		value: {
-			base: "{colors.neutral.40}",
+			base: "{colors.neutral.50}",
 			_dark: "{colors.neutral.60}",
+		},
+	},
+};
+
+const neutral = {
+	primary: {
+		value: {
+			base: "{colors.neutral.100}",
+			_dark: "{colors.neutral.10}",
+		},
+	},
+	secondary: {
+		value: {
+			base: "color-mix(in oklab, {colors.neutral.primary}, 94% {colors.transparent})",
+			_dark:
+				"color-mix(in oklab, {colors.neutral.primary}, 94% {colors.transparent})",
+		},
+	},
+	tertiary: {
+		value: {
+			base: "{colors.white}",
+			_dark: "{colors.neutral.100}",
+		},
+	},
+};
+
+const accent = {
+	primary: {
+		value: {
+			base: "{colors.blue.80}",
+			_dark: "{colors.blue.60}",
+		},
+	},
+	secondary: {
+		value: {
+			base: "{colors.blue.20}",
+			_dark: "{colors.blue.100}",
+		},
+	},
+	tertiary: {
+		value: {
+			base: "{colors.white}",
+			_dark: "{colors.white}",
+		},
+	},
+};
+
+const success = {
+	primary: {
+		value: {
+			base: "{colors.green.80}",
+			_dark: "{colors.green.60}",
+		},
+	},
+	secondary: {
+		value: {
+			base: "{colors.green.20}",
+			_dark: "{colors.green.100}",
+		},
+	},
+	tertiary: {
+		value: {
+			base: "{colors.white}",
+			_dark: "{colors.white}",
+		},
+	},
+};
+
+const destructive = {
+	primary: {
+		value: {
+			base: "{colors.red.70}",
+			_dark: "{colors.red.60}",
+		},
+	},
+	secondary: {
+		value: {
+			base: "{colors.red.20}",
+			_dark: "{colors.red.100}",
+		},
+	},
+	tertiary: {
+		value: {
+			base: "{colors.white}",
+			_dark: "{colors.white}",
+		},
+	},
+};
+
+const warning = {
+	primary: {
+		value: {
+			base: "{colors.amber.80}",
+			_dark: "{colors.amber.60}",
+		},
+	},
+	secondary: {
+		value: {
+			base: "{colors.amber.20}",
+			_dark: "{colors.amber.100}",
+		},
+	},
+	tertiary: {
+		value: {
+			base: "{colors.white}",
+			_dark: "{colors.white}",
 		},
 	},
 };
@@ -139,108 +245,11 @@ export const colors = defineSemanticTokens.colors({
 	bg,
 	fg,
 	icon,
+	accent,
+	warning,
+	success,
+	destructive,
 	stroke,
 	surface,
-
-	neutral: {
-		primary: {
-			value: {
-				base: "{colors.neutral.100}",
-				_dark: "{colors.neutral.10}",
-			},
-		},
-		secondary: {
-			value: {
-				base: "color-mix(in oklab, {colors.neutral.primary}, 94% {colors.transparent})",
-				_dark:
-					"color-mix(in oklab, {colors.neutral.primary}, 94% {colors.transparent})",
-			},
-		},
-		tertiary: {
-			value: {
-				base: "{colors.white}",
-				_dark: "{colors.neutral.100}",
-			},
-		},
-	},
-	accent: {
-		primary: {
-			value: {
-				base: "{colors.blue.80}",
-				_dark: "{colors.blue.60}",
-			},
-		},
-		secondary: {
-			value: {
-				base: "{colors.blue.20}",
-				_dark: "{colors.blue.100}",
-			},
-		},
-		tertiary: {
-			value: {
-				base: "{colors.white}",
-				_dark: "{colors.white}",
-			},
-		},
-	},
-	destructive: {
-		primary: {
-			value: {
-				base: "{colors.red.70}",
-				_dark: "{colors.red.60}",
-			},
-		},
-		secondary: {
-			value: {
-				base: "{colors.red.20}",
-				_dark: "{colors.red.100}",
-			},
-		},
-		tertiary: {
-			value: {
-				base: "{colors.white}",
-				_dark: "{colors.white}",
-			},
-		},
-	},
-	success: {
-		primary: {
-			value: {
-				base: "{colors.green.80}",
-				_dark: "{colors.green.80}",
-			},
-		},
-		secondary: {
-			value: {
-				base: "{colors.green.20}",
-				_dark: "{colors.green.100}",
-			},
-		},
-		tertiary: {
-			value: {
-				base: "{colors.white}",
-				_dark: "{colors.white}",
-			},
-		},
-	},
-	warning: {
-		primary: {
-			value: {
-				base: "{colors.amber.70}",
-				_dark: "{colors.amber.80}",
-			},
-		},
-		secondary: {
-			value: {
-				base: "{colors.amber.20}",
-				_dark: "{colors.amber.100}",
-			},
-		},
-		tertiary: {
-			value: {
-				base: "{colors.white}",
-				_dark: "{colors.white}",
-			},
-		},
-	},
+	neutral,
 });

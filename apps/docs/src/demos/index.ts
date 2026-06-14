@@ -99,11 +99,11 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "alert/description.tsx",
 	},
-	"alert:palettes": {
+	"alert:status": {
 		component: lazy(() =>
-			import("./alert/palettes").then((m) => ({ default: m.Palettes })),
+			import("./alert/status").then((m) => ({ default: m.Status })),
 		),
-		file: "alert/palettes.tsx",
+		file: "alert/status.tsx",
 	},
 	"anchor:basic": {
 		component: lazy(() =>
@@ -780,6 +780,12 @@ export const demos: Record<string, DemoItem> = {
 			import("./floating-panel/basic").then((m) => ({ default: m.Basic })),
 		),
 		file: "floating-panel/basic.tsx",
+	},
+	"focus-trap:basic": {
+		component: lazy(() =>
+			import("./focus-trap/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "focus-trap/basic.tsx",
 	},
 	"for:basic": {
 		component: lazy(() =>
@@ -1623,6 +1629,22 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "separator/vertical.tsx",
 	},
+	"separator-group:basic": {
+		component: lazy(() =>
+			import("./separator-group/basic").then((m) => ({
+				default: m.Basic,
+			})),
+		),
+		file: "separator-group/basic.tsx",
+	},
+	"separator-group:caption": {
+		component: lazy(() =>
+			import("./separator-group/caption").then((m) => ({
+				default: m.Caption,
+			})),
+		),
+		file: "separator-group/caption.tsx",
+	},
 	"show:basic": {
 		component: lazy(() =>
 			import("./show/basic").then((m) => ({ default: m.Basic })),
@@ -2266,6 +2288,20 @@ export const demos: Record<string, DemoItem> = {
 			})),
 		),
 		file: "virtual-list/variable-height.tsx",
+	},
+	"visually-hidden:basic": {
+		component: lazy(() =>
+			import("./visually-hidden/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "visually-hidden/basic.tsx",
+	},
+	"visually-hidden:with-icon": {
+		component: lazy(() =>
+			import("./visually-hidden/with-icon").then((m) => ({
+				default: m.WithIcon,
+			})),
+		),
+		file: "visually-hidden/with-icon.tsx",
 	},
 	"wheel-picker:basic": {
 		component: lazy(() =>

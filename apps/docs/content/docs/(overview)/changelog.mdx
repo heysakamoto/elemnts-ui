@@ -4,6 +4,27 @@ title: Changelog
 description: All previous and current changes can be found here
 ---
 
+## [0.0.9] - 2026-06-14
+### Added
+- Add `SeparatorGroup` component for grouping separators with optional captions
+- Add `FocusTrap` utility component for trapping keyboard focus within a DOM subtree
+- Add `VisuallyHidden` utility component for screen-reader-only accessible content
+- Add `status` variant (`default`, `accent`, `success`, `warning`, `destructive`) to the Alert component
+- Add `elevated` variant to the Alert component
+- Add `accent`, `warning`, `success`, and `destructive` semantic color token groups
+- Add `SeparatorGroup`, `FocusTrap`, and `VisuallyHidden` components from `@moto-ui/react`
+
+### Fixed
+- Refactor Alert from a Collapsible-based interactive component to a simplified static design; replace `Alert.Media` with `Alert.Indicator` and `Alert.Content`; remove `Alert.Trigger`, `Alert.RootProvider`, and `Alert.Context`
+- Refactor Surface to use the elevated recipe as its base instead of inline elevation data attributes
+- Rename `BaseElevated` to `ElevatedBase` and make `delta` prop optional (defaults to `0`)
+- Update icon and foreground secondary semantic token values for improved contrast
+- Fix success and warning status color values in dark mode for better visibility
+- Fix group and button-group overlapping border issue by removing negative margin overlap between adjacent items
+- Improve checkbox checked-state animation by removing extraneous border transition and adding `inset: 0` to the pseudo-element
+- Remove focus outline from Switch and Segment Group trigger elements on `:focus-visible`
+- Change `Alert.Title`, `Surface.Title`, and `EmptyState.Title` to render as `strong` instead of heading elements
+
 ## [0.0.8] - 2026-06-12
 ### Added
 - Add `Table` component with support for variants, sizes, pinned headers, alternating rows, interactive rows, column dividers, captions, and footers

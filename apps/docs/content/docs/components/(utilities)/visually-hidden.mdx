@@ -1,0 +1,49 @@
+---
+status: new
+title: VisuallyHidden
+description: A utility component that hides content visually while keeping it accessible to screen readers.
+---
+
+<ComponentPreview name="visually-hidden:basic" />
+
+### Usage
+
+The `VisuallyHidden` component renders content that is visually hidden but remains available to assistive technologies like screen readers. This is useful for providing accessible labels to icons, enhancing context for screen reader users, or hiding decorative content.
+
+```tsx
+import { VisuallyHidden } from "@moto-ui/react"
+
+<button type="button">
+  <Icon>
+    <BellIcon />
+  </Icon>
+  <VisuallyHidden>Notifications</VisuallyHidden>
+</button>
+```
+
+### Examples
+
+#### With Icon
+
+Visually hidden text is commonly used to label icon-only buttons and controls, ensuring screen reader users can understand their purpose.
+
+<ComponentPreview name="visually-hidden:with-icon" />
+
+### Props
+
+The `VisuallyHidden` component renders a `span` element and accepts all native HTML span attributes. It does not accept any component-specific props.
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `ReactNode` | - | The content to render. Visually hidden but accessible to screen readers. |
+
+### Accessibility
+
+The `VisuallyHidden` component uses a well-established CSS technique to hide content visually while keeping it in the accessibility tree. The underlying styles ensure the content is:
+
+- Not visible on screen
+- Still read by screen readers
+- Still focusable (for interactive content)
+- Not affecting page layout
+
+This technique is consistent with the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/) techniques for hiding content while preserving accessibility.

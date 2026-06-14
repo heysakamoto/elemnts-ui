@@ -1,32 +1,61 @@
-import { Collapsible } from "@ark-ui/react/collapsible";
 import { ark } from "@ark-ui/react/factory";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { alertRecipe } from "@moto-ui/styled-system/recipes";
+import { ElevatedBase } from "../elevated";
 
 const { withProvider, withContext } = createStyleContext(alertRecipe);
 
-export const AlertRootProvider = withProvider(Collapsible.RootProvider, "root");
-AlertRootProvider.displayName = "AlertRootProvider";
-
-export const AlertRoot = withProvider(Collapsible.Root, "root");
+export const AlertRoot = withProvider(ElevatedBase, "root", {
+	dataAttr: true,
+	defaultProps: {
+		delta: 1,
+		"data-part": "root",
+		"data-scope": "alert",
+	},
+});
 AlertRoot.displayName = "AlertRoot";
 
-export const AlertTitle = withContext(ark.h3, "title");
+export const AlertTitle = withContext(ark.strong, "title", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "title",
+		"data-scope": "alert",
+	},
+});
 AlertTitle.displayName = "AlertTitle";
 
-export const AlertMedia = withContext(ark.div, "media");
-AlertMedia.displayName = "AlertMedia";
-
-export const AlertDescription = withContext(ark.p, "description");
+export const AlertDescription = withContext(ark.p, "description", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "description",
+		"data-scope": "alert",
+	},
+});
 AlertDescription.displayName = "AlertDescription";
 
-export const AlertControl = withContext(ark.div, "control");
+export const AlertControl = withContext(ark.div, "control", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "control",
+		"data-scope": "alert",
+	},
+});
 AlertControl.displayName = "AlertControl";
 
-export const AlertTrigger = withContext(Collapsible.Trigger, "trigger");
-AlertTrigger.displayName = "AlertTrigger";
+export const AlertContent = withContext(ark.div, "content", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "content",
+		"data-scope": "alert",
+	},
+});
+AlertContent.displayName = "AlertContent";
 
-export const AlertIndicator = withContext(Collapsible.Indicator, "indicator");
+export const AlertIndicator = withContext(ark.div, "indicator", {
+	dataAttr: true,
+	defaultProps: {
+		"data-part": "indicator",
+		"data-scope": "alert",
+	},
+});
 AlertIndicator.displayName = "AlertIndicator";
-
-export const AlertContext = Collapsible.Context;

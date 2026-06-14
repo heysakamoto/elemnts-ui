@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
-import { BaseElevated, Elevated } from "./elevated";
+import { Elevated, ElevatedBase } from "./elevated";
 
 export type ElevateProps = ComponentProps<typeof Elevated>;
-export type BaseElevatedProps = ComponentProps<typeof BaseElevated>;
+export type BaseElevatedProps = ComponentProps<typeof ElevatedBase>;
 
-export { BaseElevated, Elevated };
+export { Elevated, ElevatedBase };

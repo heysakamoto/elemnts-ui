@@ -30,6 +30,7 @@ import { swatchRecipe } from "./swatch";
 import { tagRecipe } from "./tag";
 import { textRecipe } from "./text";
 import { textareaRecipe } from "./textarea";
+import { visuallyHiddenRecipe } from "./visually-hidden";
 
 export const recipes = {
 	checkmarkRecipe,
@@ -64,4 +65,5 @@ export const recipes = {
 	markRecipe,
 	codeRecipe,
 	proseRecipe,
+	visuallyHiddenRecipe,
 };

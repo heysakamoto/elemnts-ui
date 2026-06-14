@@ -39,7 +39,7 @@ function Root() {
 				<DocsLayoutSearch>
 					<DocsLayoutSearch.Trigger asChild>
 						<InputGroup
-							size="md"
+							size="lg"
 							minW="12rem"
 							maxW="20rem"
 							rounded="16"

@@ -1,38 +1,33 @@
-import { Alert, Button, Container, Icon, Surface } from "@moto-ui/react";
+import { Alert, Button, Container, Icon } from "@moto-ui/react";
 
 export const Control = () => (
 	<Container maxW="24rem">
-		<Surface
-			py="10"
-			px="12"
-			delta={1}
+		<Alert.Root
+			status="destructive"
+			p="12"
 			rounded="24"
 		>
-			<Alert.Root colorPalette="destructive">
-				<Alert.Media>
-					<Icon
-						icon="tabler:world-x"
-						width={20}
-						height={20}
-					/>
-				</Alert.Media>
+			<Alert.Indicator>
+				<Icon
+					icon="tabler:world-x"
+					width={20}
+					height={20}
+				/>
+			</Alert.Indicator>
+			<Alert.Content>
 				<Alert.Title>Build failed</Alert.Title>
-				<Alert.Description mt="6">
+				<Alert.Description>
 					Something went wrong while building your project. Try again later.
 				</Alert.Description>
-				<Alert.Control
-					mt="12"
-					gridColumn="2/span 1"
+			</Alert.Content>
+			<Alert.Control>
+				<Button
+					size="2xs"
+					rounded="24"
 				>
-					<Button
-						size="xs"
-						rounded="24"
-						colorPalette="destructive"
-					>
-						Summary
-					</Button>
-				</Alert.Control>
-			</Alert.Root>
-		</Surface>
+					Fix
+				</Button>
+			</Alert.Control>
+		</Alert.Root>
 	</Container>
 );

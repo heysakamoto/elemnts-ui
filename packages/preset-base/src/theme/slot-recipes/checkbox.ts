@@ -20,12 +20,7 @@ export const checkboxRecipe = defineSlotRecipe({
 				},
 			},
 		},
-		label: {
-			// _focusVisible: {
-			// 	shadow: "none",
-			// 	outline: "none",
-			// },
-		},
+		label: {},
 		group: {
 			display: "flex",
 			flexDirection: "column",
@@ -62,12 +57,12 @@ export const checkboxRecipe = defineSlotRecipe({
 				content: "''",
 				rounded: "inherit",
 				position: "absolute",
+				inset: "{spacing.0}",
 				boxSize: "{sizes.full}",
 				transformOrigin: "center",
 				bgColor: "var(--checkbox-control-bg-checked)",
 				transition: `
       scale 150ms ease,
-      border 100ms ease-out,
       opacity 100ms ease-out,
       background-color 100ms ease-out
       `,

@@ -1,5 +1,4 @@
 {
-	"icon": "",
 	"title": "Collections",
 	"defaultOpen": false,
 	"pages": ["---collections---", "combobox", "listbox", "select", "tree-view"]
