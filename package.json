@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@ark-ui/mcp": "^1.2.1",
-		"@biomejs/biome": "^2.4.16",
+		"@biomejs/biome": "^2.5.0",
 		"@changesets/cli": "^2.31.0"
 	},
 	"dependencies": {

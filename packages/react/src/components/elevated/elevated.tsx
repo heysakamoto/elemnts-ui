@@ -10,10 +10,10 @@ import { Substrate, useSubstrate } from "../substrate";
  * @property {number} delta - The elevation delta to add to the current substrate level.
  * @property {number} [shadowLevel] - Optional override for the shadow level. Defaults to the computed substrate level.
  */
-type BaseElevatedProps = Assign<
+type ElevatedBaseProps = Assign<
 	HTMLArkProps<"div">,
 	{
-		delta: number;
+		delta?: number;
 		shadowLevel?: number;
 	}
 >;
@@ -36,9 +36,9 @@ type BaseElevatedProps = Assign<
  * @param props - The component props including `delta` and optional `shadowLevel`.
  * @param ref - A forwarded ref to the underlying `div` element.
  */
-export const BaseElevated = forwardRef<HTMLDivElement, BaseElevatedProps>(
+export const ElevatedBase = forwardRef<HTMLDivElement, ElevatedBaseProps>(
 	(props, ref) => {
-		const { delta, shadowLevel, style, children, ...restProps } = props;
+		const { delta = 0, shadowLevel, style, children, ...restProps } = props;
 		const substrate = useSubstrate();
 
 		// Logic: Cap at 8 as per your requirement
@@ -73,7 +73,7 @@ export const BaseElevated = forwardRef<HTMLDivElement, BaseElevatedProps>(
 	},
 );
 
-BaseElevated.displayName = "BaseElevated";
+ElevatedBase.displayName = "ElevatedBase";
 
-export const Elevated = styled(BaseElevated, elevatedRecipe);
+export const Elevated = styled(ElevatedBase, elevatedRecipe);
 Elevated.displayName = "Elevated";

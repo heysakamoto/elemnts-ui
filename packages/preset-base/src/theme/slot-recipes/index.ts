@@ -43,6 +43,7 @@ import { ratingGroupRecipe } from "./rating-group";
 import { scrollAreaRecipe } from "./scroll-area";
 import { segmentGroupRecipe } from "./segment-group";
 import { selectRecipe } from "./select";
+import { separatorGroupRecipe } from "./separator-group";
 import { signaturePadRecipe } from "./signature-pad";
 import { sliderRecipe } from "./slider";
 import { sortableRecipe } from "./sortable";
@@ -137,5 +138,6 @@ export const slotRecipes = {
 	tableRecipe,
 	timelineRecipe,
 	sortableRecipe,
+	separatorGroupRecipe,
 	listRecipe,
 };

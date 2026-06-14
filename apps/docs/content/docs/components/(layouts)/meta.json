@@ -1,5 +1,4 @@
 {
-	"icon": "HomeIcon",
 	"title": "Layouts",
 	"defaultOpen": false,
 	"pages": [
@@ -14,6 +13,7 @@
 		"scroll-shadow",
 		"section",
 		"separator",
+		"separator-group",
 		"splitter",
 		"stack",
 		"virtual-list"

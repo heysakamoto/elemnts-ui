@@ -1,4 +1,4 @@
-import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
+import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
 import { type HTMLStyledProps, styled } from "@moto-ui/styled-system/jsx";
 import {
 	type ButtonRecipeVariantProps,
@@ -7,11 +7,11 @@ import {
 import { forwardRef } from "react";
 import { useButtonGroupContext } from "./button-group";
 
-const Styled = styled(ark.button, buttonRecipe);
+const ButtonBase = styled(ark.button, buttonRecipe);
 
 type ButtonProps = Assign<
-	HTMLArkProps<"div">,
-	HTMLStyledProps<"button"> & ButtonRecipeVariantProps
+	HTMLStyledProps<"button">,
+	ButtonRecipeVariantProps & PolymorphicProps
 >;
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(props, ref) => {
@@ -23,7 +23,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 		};
 
 		return (
-			<Styled
+			<ButtonBase
 				ref={ref}
 				{...mergedProps}
 			/>

@@ -1,11 +1,11 @@
 {
-	"icon": "",
 	"title": "Utilities",
 	"defaultOpen": false,
 	"pages": [
 		"---utilities---",
 		"checkmark",
 		"environment",
+		"focus-trap",
 		"for",
 		"frame",
 		"item",
@@ -17,6 +17,7 @@
 		"substrate",
 		"swap",
 		"swatch",
-		"tag"
+		"tag",
+		"visually-hidden"
 	]
 }

@@ -13,7 +13,7 @@ export const EmptyStateRoot = withProvider(ark.div, "root", {
 });
 EmptyStateRoot.displayName = "EmptyStateRoot";
 
-export const EmptyStateTitle = withContext(ark.h6, "title", {
+export const EmptyStateTitle = withContext(ark.strong, "title", {
 	dataAttr: true,
 	defaultProps: {
 		"data-part": "title",

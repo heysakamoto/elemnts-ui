@@ -76,8 +76,16 @@ function Page({ node, onClick }: PageProps) {
 					activeOptions={{ exact: true }}
 				>
 					{node.name}
-					<Show when={(node as any).status}>
+					<Show when={(node as any).status === "new"}>
 						<Status size="sm">
+							<Status.Indicator ml="8" />
+						</Status>
+					</Show>
+					<Show when={(node as any).status === "updated"}>
+						<Status
+							size="sm"
+							colorPalette="warning"
+						>
 							<Status.Indicator ml="8" />
 						</Status>
 					</Show>

@@ -57,6 +57,10 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			textAlign: "center",
 			fontSize: "var(--sg-font-size)",
 			lineHeight: "{lineHeights.none}",
+
+			_focusVisible: {
+				outline: "none",
+			},
 		},
 		indicator: {
 			zIndex: "-1",

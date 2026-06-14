@@ -201,28 +201,28 @@ export function ComponentPreview(props: ComponentPreviewProps) {
 
 function Empty() {
 	return (
-		<Surface
-			px="12"
-			py="10"
+		<Alert
+			p="12"
 			w="fit"
 			delta={0}
 			rounded="24"
+			status="warning"
 		>
-			<Alert colorPalette="warning">
-				<Alert.Media>
-					<Icon
-						icon="tabler:alert-triangle"
-						width={16}
-						height={16}
-					/>
-				</Alert.Media>
+			<Alert.Indicator>
+				<Icon
+					icon="tabler:alert-triangle"
+					width={16}
+					height={16}
+				/>
+			</Alert.Indicator>
+			<Alert.Content>
 				<Alert.Title
 					fontSize="14"
 					color="colorPalette.primary"
 				>
 					Component not found.
 				</Alert.Title>
-			</Alert>
-		</Surface>
+			</Alert.Content>
+		</Alert>
 	);
 }

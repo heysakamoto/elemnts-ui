@@ -68,6 +68,7 @@ import {
 	sectionRecipe,
 	segmentGroupRecipe,
 	selectRecipe,
+	separatorGroupRecipe,
 	separatorRecipe,
 	signaturePadRecipe,
 	skeletonRecipe,
@@ -99,6 +100,7 @@ import {
 	tourRecipe,
 	treeViewRecipe,
 	virtualListRecipe,
+	visuallyHiddenRecipe,
 	wheelPickerRecipe,
 } from "@moto-ui/styled-system/recipes";
 
@@ -106,7 +108,11 @@ import {
 accordionRecipe();
 
 // ** Alert Recipe **
-alertRecipe();
+alertRecipe({ status: "accent", elevated: true });
+alertRecipe({ status: "default", elevated: false });
+alertRecipe({ status: "success" });
+alertRecipe({ status: "warning" });
+alertRecipe({ status: "destructive" });
 
 // ** Anchor Recipe **
 anchorRecipe({ variant: "primary" });
@@ -608,6 +614,9 @@ separatorRecipe({
 separatorRecipe({ size: "xs", variant: "tertiary", orientation: "horizontal" });
 separatorRecipe({ size: "xs", variant: "primary", orientation: "vertical" });
 
+// ** SeparatorGroup Recipe **
+separatorGroupRecipe({});
+
 // ** SignaturePad Recipe **
 signaturePadRecipe();
 
@@ -846,6 +855,9 @@ treeViewRecipe();
 
 // ** VirtualList Recipe **
 virtualListRecipe();
+
+// ** VisuallyHidden Recipe **
+visuallyHiddenRecipe();
 
 // ** WheelPicker Recipe **
 wheelPickerRecipe({ variant: "primary" });

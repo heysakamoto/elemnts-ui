@@ -1,11 +1,11 @@
 import { ark } from "@ark-ui/react";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { surfaceRecipe } from "@moto-ui/styled-system/recipes";
-import { BaseElevated } from "../elevated";
+import { ElevatedBase } from "../elevated";
 
 const { withProvider, withContext } = createStyleContext(surfaceRecipe);
 
-export const SurfaceRoot = withProvider(BaseElevated, "root");
+export const SurfaceRoot = withProvider(ElevatedBase, "root");
 SurfaceRoot.displayName = "SurfaceRoot";
 
 export const SurfaceHeader = withContext(ark.div, "header");
@@ -17,7 +17,7 @@ SurfaceContent.displayName = "SurfaceContent";
 export const SurfaceFooter = withContext(ark.div, "footer");
 SurfaceFooter.displayName = "SurfaceFooter";
 
-export const SurfaceTitle = withContext(ark.h3, "title");
+export const SurfaceTitle = withContext(ark.strong, "title");
 SurfaceTitle.displayName = "SurfaceTitle";
 
 export const SurfaceDescription = withContext(ark.div, "description");

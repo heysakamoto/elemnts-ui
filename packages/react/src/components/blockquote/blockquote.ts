@@ -2,8 +2,7 @@ import { ark } from "@ark-ui/react";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { blockquoteRecipe } from "@moto-ui/styled-system/recipes";
 
-export const { withProvider, withContext } =
-	createStyleContext(blockquoteRecipe);
+const { withProvider, withContext } = createStyleContext(blockquoteRecipe);
 
 export const BlockquoteRoot = withProvider(ark.figure, "root", {
 	dataAttr: true,
