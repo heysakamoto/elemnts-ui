@@ -1,5 +1,27 @@
 # @moto-ui/react
 
+## 0.0.9
+
+### Patch Changes
+
+- Add SeparatorGroup, VisuallyHidden, FocusTrap components and redesign Alert
+
+  - Add SeparatorGroup, FocusTrap, and VisuallyHidden components to @moto-ui/react
+  - Redesign Alert from a Collapsible-based interactive component to a static
+    design with status (default, accent, success, warning, destructive) and
+    elevated variants; replace Alert.Media with Alert.Indicator and Alert.Content
+  - Add accent, warning, success, and destructive semantic color token groups
+  - Refactor Surface to use the elevated recipe as its base
+  - Rename BaseElevated to ElevatedBase and make delta prop optional (defaults 0)
+  - Update icon and foreground secondary semantic token values for contrast
+  - Fix success and warning status color values in dark mode
+  - Remove negative margin overlap in Group/ButtonGroup to fix border clipping
+  - Improve checkbox animation by removing extraneous border transition
+  - Remove focus outline from Switch and Segment Group triggers on :focus-visible
+  - Change Alert.Title, Surface.Title, EmptyState.Title to render as strong
+  - Remove icon fields from docs meta.json files and update Biome to 2.5.0
+  - @moto-ui/styled-system@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes
