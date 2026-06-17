@@ -5,7 +5,7 @@ description: A component that renders its children into a new element at the end
 
 <ComponentPreview name="portal:basic" />
 
-### Usage
+## Usage
 
 The `Portal` component is used to transport its children to a different part of the DOM tree, typically at the end of the `document.body`. This is particularly useful for UI elements like modals, tooltips, and popovers that need to break out of their parent's overflow and stacking context.
 
@@ -17,22 +17,22 @@ import { Portal } from "@moto-ui/react"
 </Portal>
 ```
 
-### Examples
+## Examples
 
-#### Custom Container
+### Custom Container
 
 By default, the `Portal` renders into `document.body`. You can specify a custom container by passing a ref to the `container` prop.
 
 <ComponentPreview name="portal:custom-container" />
 
-#### Disabled
+### Disabled
 
 You can disable the portal by passing `disabled={true}`. When disabled, the children will be rendered at the location where the `Portal` component is defined.
 
 <ComponentPreview name="portal:disabled" />
 
 
-### Props
+## Props
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |

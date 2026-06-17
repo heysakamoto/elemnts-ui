@@ -5,7 +5,7 @@ description: A component that displays JSON data in a browsable, hierarchical tr
 
 <ComponentPreview name="json-tree-view:basic" />
 
-### Usage
+## Usage
 The `JsonTreeView` component provides a convenient way to visualize complex JSON objects. It supports expanding/collapsing levels, custom rendering for values, and various data types.
 
 - `JsonTreeView.Root`: The root container for the JSON tree.
@@ -31,17 +31,17 @@ const Demo = () => (
 )
 ```
 
-### Expanded Depth
+## Expanded Depth
 Use the `defaultExpandedDepth` prop to specify how many levels should be expanded by default.
 
 <ComponentPreview name="json-tree-view:expanded-depth" />
 
-### Custom Value Rendering
+## Custom Value Rendering
 You can use the `renderValue` prop on `JsonTreeView.Tree` to customize how different values are displayed.
 
 <ComponentPreview name="json-tree-view:custom-value-rendering" />
 
-### Props
+## Props
 
 **Root**
 
@@ -86,7 +86,7 @@ You can use the `renderValue` prop on `JsonTreeView.Tree` to customize how diffe
 | renderValue | `(node: JsonNodeHastElement) => ReactNode` | - | Function to customize value rendering. |
 | asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-### Data Attributes
+## Data Attributes
 
 **Root**
 
@@ -118,7 +118,7 @@ You can use the `renderValue` prop on `JsonTreeView.Tree` to customize how diffe
 | `data-state` | The expansion state: `open` or `closed`. |
 | `data-depth` | The depth level of the branch. |
 
-### CSS Variables
+## CSS Variables
 
 | Variable | Description |
 | :--- | :--- |

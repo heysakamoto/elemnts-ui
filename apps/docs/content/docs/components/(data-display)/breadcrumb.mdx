@@ -7,7 +7,7 @@ description: Shows the user's current location within a hierarchy of pages, with
 <ComponentPreview name="breadcrumb:basic" />
 
 
-### Usage
+## Usage
 Use Breadcrumb to display a navigation trail that helps users understand their current location and navigate back through a hierarchy of pages.
 
 - Use `Breadcrumb.Root` as the outermost wrapper (renders a `<nav>` element with `aria-label="breadcrumb"`).
@@ -32,17 +32,17 @@ import { Breadcrumb } from '@moto-ui/react';
 </Breadcrumb.Root>
 ```
 
-### Collapsed
+## Collapsed
 Use `Breadcrumb.Ellipsis` to hide intermediate items when the breadcrumb trail is long.
 
 <ComponentPreview name="breadcrumb:collapsed" />
 
-### Custom Separator
+## Custom Separator
 Replace the default chevron separator by passing children to `Breadcrumb.Separator`.
 
 <ComponentPreview name="breadcrumb:custom-separator" />
 
-### Props
+## Props
 
 **Root**
 | Prop | Type | Default | Description |
@@ -81,7 +81,7 @@ Replace the default chevron separator by passing children to `Breadcrumb.Separat
 |------|------|---------|-------------|
 | as | `React.ElementType` | `span` | The element to render the ellipsis as |
 
-### Accessibility
+## Accessibility
 - `Breadcrumb.Root` renders a `<nav>` element that can be labeled with an `aria-label` for screen readers.
 - `Breadcrumb.Separator` and `Breadcrumb.Ellipsis` are hidden from assistive technology with `aria-hidden="true"`.
 - `Breadcrumb.CurrentLink` uses `aria-current="page"` to indicate the current page.

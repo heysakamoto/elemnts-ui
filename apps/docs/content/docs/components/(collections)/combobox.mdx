@@ -5,7 +5,7 @@ description: An input with a filterable listbox for selecting one or multiple op
 
 <ComponentPreview name="combobox:basic" />
 
-### Usage
+## Usage
 
 ```tsx
 import { Combobox, Portal } from "@moto-ui/react"
@@ -39,27 +39,27 @@ import { Combobox, Portal } from "@moto-ui/react"
 </Combobox.Root>
 ```
 
-### Disabled
+## Disabled
 Use the `disabled` prop on `Combobox` to disable the entire combobox.
 
 <ComponentPreview name="combobox:disabled" />
 
-### Multiple
+## Multiple
 Use the `multiple` prop on `Combobox` to allow users to select more than one item from the list.
 
 <ComponentPreview name="combobox:multiple" />
 
-### Open on click
+## Open on click
 Set the `openOnClick` prop to open the combobox when a user clicks the input.
 
 <ComponentPreview name="combobox:open-on-click" />
 
-### Highlight
+## Highlight
 This example shows how to compose the `Combobox.Item` and `Highlight` components to emphasize matching text in search results.
 
 <ComponentPreview name="combobox:highlight-matching-text" />
 
-### Guides
+## Guides
 Use `value` and `onValueChange` for controlled mode. When changing the value
 externally (e.g. form reset, sync) with filtering enabled, the input can show
 empty if the selected item is filtered out. Call `reset()` before updating:
@@ -77,7 +77,7 @@ const setValueWithReset = (v: string[]) => {
 }
 ```
 
-### Props
+## Props
 
 **Root**
 

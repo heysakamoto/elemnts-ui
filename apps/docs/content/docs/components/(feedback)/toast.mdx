@@ -5,7 +5,7 @@ description: A brief on-screen notification that delivers feedback about a recen
 
 <ComponentPreview name="toast:basic" />
 
-### Usage
+## Usage
 
 The `Toast` component is used to display temporary notifications. It is built on top of [Ark UI's Toast](https://ark-ui.com/docs/components/toast) logic.
 
@@ -40,7 +40,7 @@ const Demo = () => {
 }
 ```
 
-### Anatomy
+## Anatomy
 
 The `Toast` component is composed of several parts that can be used for custom implementations:
 
@@ -54,33 +54,33 @@ The `Toast` component is composed of several parts that can be used for custom i
 - `Toast.CloseTrigger`: A button that closes the toast.
 - `Toast.Context`: Provides access to the toast's state via a render prop.
 
-### Examples
+## Examples
 
-#### Types
+### Types
 
 Toast supports different semantic types: `info`, `success`, `warning`, `error`, and `loading`. Each type comes with a default icon and color palette.
 
 <ComponentPreview name="toast:type" />
 
-#### Custom Icons
+### Custom Icons
 
 You can customize the icons for each toast type using the `indicator` prop on the `Toaster` component or by providing an icon in the `toaster.create` call.
 
 <ComponentPreview name="toast:custom-icon" />
 
-#### Duration
+### Duration
 
 The duration of the toast can be customized globally in `createToaster` or per toast in `toaster.create`.
 
 <ComponentPreview name="toast:duration" />
 
-#### With Action
+### With Action
 
 Toasts can include action buttons using the `action` property in `toaster.create`.
 
 <ComponentPreview name="toast:dismissable" />
 
-### Props
+## Props
 
 **Toaster**
 
@@ -162,7 +162,7 @@ The `createToaster` function accepts several options to configure global toast b
 | pauseOnPageIdle | `boolean` | `false` | Whether to pause toast when the user leaves the browser tab. |
 | removeDelay | `number` | `200` | The delay in milliseconds before removing the toast from the DOM. |
 
-### Data Attributes
+## Data Attributes
 
 **Root**
 
@@ -203,7 +203,7 @@ The `createToaster` function accepts several options to configure global toast b
 | :--- | :--- |
 | `[data-part="closeTrigger"]` | The close trigger part. |
 
-### CSS Variables
+## CSS Variables
 
 **Root**
 

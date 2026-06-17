@@ -5,7 +5,7 @@ description: Groups multiple separators with optional captions in a consistent l
 
 <ComponentPreview name="separator-group:basic" />
 
-### Usage
+## Usage
 The `SeparatorGroup` component provides a consistent layout for separating sections with horizontal or vertical rules. It consists of a flex container with automatically spaced children.
 
 - `SeparatorGroup.Root`: The flex container that holds the separators.
@@ -21,12 +21,12 @@ import { SeparatorGroup } from "@moto-ui/react"
 ```
 
 
-### Caption
+## Caption
 Use `SeparatorGroup.Caption` to add a label next to a separator for context.
 
 <ComponentPreview name="separator-group:caption" />
 
-### Props
+## Props
 
 **Root**
 
@@ -54,7 +54,7 @@ The `SeparatorGroup.Item` component accepts all props from the `Separator` compo
 | as | `React.ElementType` | `span` | The underlying element to render. |
 | asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-### Data Attributes
+## Data Attributes
 
 **Root**
 
@@ -79,7 +79,7 @@ The `SeparatorGroup.Item` component accepts all props from the `Separator` compo
 | data-scope | `separator-group` |
 | data-part | `caption` |
 
-### Accessibility
+## Accessibility
 - `SeparatorGroup.Root` renders a `div` with `role="separator"`.
 - `SeparatorGroup.Caption` is rendered as a `span` and should be used to provide context when the separator's purpose is not purely visual.
 - Separators are inherently hidden from assistive technology when used in a purely decorative role.

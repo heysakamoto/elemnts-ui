@@ -6,7 +6,7 @@ description: A navigation component that allows keyboard and screen reader users
 
 <ComponentPreview name="skip-nav:basic" />
 
-### Usage
+## Usage
 
 The `SkipNav` component provides a skip navigation link that is visually hidden until focused via keyboard navigation. When activated, it moves focus to the main content area, allowing users to bypass repetitive navigation elements.
 
@@ -21,7 +21,7 @@ import { SkipNav } from "@moto-ui/react"
 </SkipNav.Root>
 ```
 
-### Anatomy
+## Anatomy
 
 The `SkipNav` component consists of three parts:
 
@@ -31,7 +31,7 @@ The `SkipNav` component consists of three parts:
 | `Link` | The skip link rendered as an anchor element. Hidden until focused via keyboard navigation. |
 | `Content` | The target container that receives focus when the skip link is activated. |
 
-### Custom ID
+## Custom ID
 
 Both `Link` and `Content` accept an `id` prop to customize the target identifier. By default, they use `"moto-skip-nav"`. When providing a custom `id`, both components must use the same value for the link to correctly target the content.
 
@@ -44,16 +44,16 @@ Both `Link` and `Content` accept an `id` prop to customize the target identifier
 </SkipNav.Root>
 ```
 
-### Props
+## Props
 
-#### SkipNavRoot
+### SkipNavRoot
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | children | `ReactNode` | - | The content to render within the root wrapper. |
 | as | `ArkComponent` | `div` | The underlying HTML element or component. |
 
-#### SkipNavLink
+### SkipNavLink
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -61,7 +61,7 @@ Both `Link` and `Content` accept an `id` prop to customize the target identifier
 | children | `ReactNode` | - | The link text. |
 | as | `ArkComponent` | `a` | The underlying HTML element or component. |
 
-#### SkipNavContent
+### SkipNavContent
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -69,7 +69,7 @@ Both `Link` and `Content` accept an `id` prop to customize the target identifier
 | children | `ReactNode` | - | The content to render within the target container. |
 | as | `ArkComponent` | `div` | The underlying HTML element or component. |
 
-### Accessibility
+## Accessibility
 
 The `SkipNav` component follows [WCAG 2.1 Technique](https://www.w3.org/WAI/WCAG21/Techniques/general/G1).
 

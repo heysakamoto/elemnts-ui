@@ -6,7 +6,7 @@ description: A utility component for managing color scheme preferences with supp
 
 <ComponentPreview name="color-scheme:basic" />
 
-### Usage
+## Usage
 
 The `ColorScheme` component manages the active color scheme by setting `light` or `dark` classes on the document root element. It provides context so nested components can read and update the current scheme.
 
@@ -27,7 +27,7 @@ function Content() {
 }
 ```
 
-### Persistence
+## Persistence
 
 The component supports optional localStorage persistence through the `storage` prop.
 
@@ -40,23 +40,13 @@ The component supports optional localStorage persistence through the `storage` p
 </ColorScheme.Root>
 ```
 
-### Forcing a Scheme
+## Forcing a Scheme
 
 Use `ColorScheme.Dark` and `ColorScheme.Light` to force a specific scheme for a subsection of your application. These are standalone providers that do not require a parent `ColorScheme.Root`.
 
 <ComponentPreview name="color-scheme:forced" />
 
-```tsx
-import { ColorScheme, Surface, Text } from "@moto-ui/react"
-
-<ColorScheme.Dark>
-  <Surface>
-    <Text>This section always appears in dark mode.</Text>
-  </Surface>
-</ColorScheme.Dark>
-```
-
-### Compound API
+## Compound API
 
 The `ColorScheme` namespace exposes three subcomponents:
 
@@ -65,7 +55,7 @@ The `ColorScheme` namespace exposes three subcomponents:
 - **`ColorScheme.Light`** — Standalone provider that forces light mode for its children.
 - **`ColorScheme.RootProvider`** — Lower-level provider that accepts a pre-computed context value.
 
-### API
+## API
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -74,7 +64,7 @@ The `ColorScheme` namespace exposes three subcomponents:
 | `storage.enabled` | `boolean` | `false` | Enables localStorage persistence. |
 | `storage.key` | `string` | `"theme"` | The localStorage key used for persistence. |
 
-### Hooks
+## Hooks
 
 | Hook | Returns | Description |
 | :--- | :--- | :--- |
@@ -82,6 +72,6 @@ The `ColorScheme` namespace exposes three subcomponents:
 | `useColorSchemeContext` | `{ colorScheme, setColorScheme }` | Reads the current color scheme context. Throws if used outside a provider. |
 | `useColorSchemeValue` | `"light" \| "dark"` | Returns the active resolved color scheme value. |
 
-### Accessibility
+## Accessibility
 
 The `ColorScheme` component sets `light` or `dark` classes on `document.documentElement`, enabling CSS-based color scheme handling. When set to `"system"`, it listens for the `prefers-color-scheme` media query and responds to changes automatically. This ensures the component respects the user's system-level accessibility preferences for light or dark mode.

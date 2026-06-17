@@ -5,7 +5,7 @@ description: A utility component that manages the enter and exit animations of i
 
 <ComponentPreview name="presence:basic" />
 
-### Usage
+## Usage
 
 The `Presence` component is used to manage the mounting and unmounting of components with animations. It tracks the animation and transition states of its children to ensure they are fully animated out before being hidden or unmounted.
 
@@ -17,22 +17,22 @@ import { Presence } from "@moto-ui/react"
 </Presence>
 ```
 
-### Examples
+## Examples
 
-#### Unmount on Exit
+### Unmount on Exit
 
 Use the `unmountOnExit` prop to completely remove the component from the DOM when it's not present.
 
 <ComponentPreview name="presence:unmount" />
 
-#### Lazy Mounting
+### Lazy Mounting
 
 Use the `lazyMount` prop to defer rendering the component until the first time `present` is true.
 
 <ComponentPreview name="presence:lazy-mount" />
 
 
-### Props
+## Props
 
 The `Presence` component accepts all props from the [Ark UI Presence](https://ark-ui.com/docs/utilities/presence) component.
 
@@ -43,7 +43,7 @@ The `Presence` component accepts all props from the [Ark UI Presence](https://ar
 | unmountOnExit | `boolean` | `false` | Whether to unmount the component when `present` is false. |
 | onExitComplete | `() => void` | - | Function called when the exit animation is complete. |
 
-### Data Attributes
+## Data Attributes
 
 | Attribute | Description |
 | :--- | :--- |

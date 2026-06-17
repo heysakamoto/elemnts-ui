@@ -5,7 +5,7 @@ description: A provider that manages locale-specific settings like text directio
 
 <ComponentPreview name="locale:basic" />
 
-### Usage
+## Usage
 
 The `Locale` component (internally `LocaleProvider`) provides localization settings to all child components. This includes the `locale` string (e.g., `en-US`, `ar-EG`) and the text direction (`dir`).
 
@@ -17,15 +17,15 @@ import { Locale } from "@moto-ui/react"
 </Locale>
 ```
 
-### Examples
+## Examples
 
-#### Right-to-Left (RTL)
+### Right-to-Left (RTL)
 
 The `Locale` component can also manage the text direction. This is useful for components that need to adjust their layout or behavior for RTL languages.
 
 <ComponentPreview name="locale:rtl" />
 
-#### useFilter
+### useFilter
 
 The `useFilter` hook provides locale-aware string filtering, which is useful for components like `Combobox` or `Select` when implementing search functionality.
 
@@ -37,7 +37,7 @@ const items = ['Apple', 'Banana', 'Orange']
 const filteredItems = items.filter(item => filter.contains(item, searchQuery))
 ```
 
-### Props
+## Props
 
 The `Locale` component accepts all props from the [Ark UI Locale Provider](https://ark-ui.com/docs/components/locale-provider) component.
 
@@ -45,6 +45,6 @@ The `Locale` component accepts all props from the [Ark UI Locale Provider](https
 | :--- | :--- | :--- | :--- |
 | locale | `string` | `en-US` | The locale to use for formatting and layout. |
 
-### Data Attributes
+## Data Attributes
 
 The `Locale` component is a provider and does not render any DOM elements or have data attributes.

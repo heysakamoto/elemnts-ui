@@ -5,7 +5,7 @@ description: Render large lists efficiently by only rendering items in the viewp
 
 <ComponentPreview name="virtual-list:basic" />
 
-### Usage
+## Usage
 Use `VirtualList` when you need to render thousands of items without compromising performance. It uses virtualization to only render the items currently visible in the viewport.
 
 ```tsx
@@ -22,12 +22,12 @@ import { VirtualList } from "@moto-ui/react"
 </VirtualList.Root>
 ```
 
-### Variable Height
+## Variable Height
 You can provide an `estimateSize` function to handle items with different heights.
 
 <ComponentPreview name="virtual-list:variable-height" />
 
-### Props
+## Props
 
 **Root**
 
@@ -51,7 +51,7 @@ You can provide an `estimateSize` function to handle items with different height
 |------|------|---------|-------------|
 | children | `(index: number) => ReactNode` | - | A render function that provides the index of the item to render. |
 
-### Hooks
+## Hooks
 
 **useVirtualList**
 
