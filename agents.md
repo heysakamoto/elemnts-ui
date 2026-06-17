@@ -1,4 +1,4 @@
-# moto-ui Architecture & Contribution Guide
+# Moto UI
 
 ## Overview
 
@@ -23,11 +23,11 @@ The system is designed around:
 
 ---
 
-# Monorepo Structure
+## Monorepo Structure
 
-## Applications
+### Applications
 
-### `/apps/docs`
+#### `/apps/docs`
 
 Documentation website powered by Fumadocs.
 
@@ -41,9 +41,9 @@ Responsibilities:
 
 ---
 
-## Packages
+### Packages
 
-### `/packages/react`
+#### `/packages/react`
 
 React component implementations built on Ark UI primitives.
 
@@ -60,7 +60,7 @@ This package must remain framework-focused and should not contain design-token s
 
 ---
 
-### `/packages/preset-base`
+#### `/packages/preset-base`
 
 Source-of-truth Panda CSS preset.
 
@@ -80,7 +80,7 @@ This package defines the design system foundation consumed by other packages.
 
 ---
 
-### `/packages/styled-system`
+#### `/packages/styled-system`
 
 Generated Panda CSS artifacts.
 
@@ -99,7 +99,7 @@ Constraints:
 
 ---
 
-### `/packages/colors`
+#### `/packages/colors`
 
 Framework-agnostic color system.
 
@@ -118,11 +118,11 @@ Constraints:
 
 ---
 
-# Package Dependency Rules
+## Package Dependency Rules
 
-## Allowed Dependencies
+### Allowed Dependencies
 
-### `react`
+#### `react`
 
 May depend on:
 
@@ -132,7 +132,7 @@ May depend on:
 
 ---
 
-### `preset-base`
+#### `preset-base`
 
 May depend on:
 
@@ -140,7 +140,7 @@ May depend on:
 
 ---
 
-### `styled-system`
+#### `styled-system`
 
 May depend on:
 
@@ -148,7 +148,7 @@ May depend on:
 
 ---
 
-### `colors`
+#### `colors`
 
 Must not depend on:
 
@@ -159,7 +159,7 @@ Must not depend on:
 
 ---
 
-## Dependency Constraints
+### Dependency Constraints
 
 * Circular dependencies are prohibited
 * Cross-package internal imports are prohibited
@@ -168,13 +168,13 @@ Must not depend on:
 
 ---
 
-# Design System Architecture
+## Design System Architecture
 
-## Token Hierarchy
+### Token Hierarchy
 
 The design system follows a layered token architecture.
 
-### 1. Primitive Tokens
+#### 1. Primitive Tokens
 
 Raw foundational values.
 
@@ -188,7 +188,7 @@ Examples:
 
 ---
 
-### 2. Semantic Tokens
+#### 2. Semantic Tokens
 
 Contextual aliases derived from primitives.
 
@@ -203,7 +203,7 @@ Semantic tokens must never directly expose implementation-specific color values.
 
 ---
 
-### 3. Component Tokens
+#### 3. Component Tokens
 
 Component-scoped token abstractions.
 
@@ -215,7 +215,7 @@ Examples:
 
 ---
 
-### 4. Recipes & Slot Recipes
+#### 4. Recipes & Slot Recipes
 
 Recipes consume semantic and component tokens.
 
@@ -227,9 +227,9 @@ colors → primitive tokens → semantic tokens → recipes → components
 
 ---
 
-# Component Architecture
+## Component Architecture
 
-## Core Principles
+### Core Principles
 
 Every component must:
 
@@ -243,7 +243,7 @@ Every component must:
 
 ---
 
-## Component Anatomy
+### Component Anatomy
 
 Multi-slot components must define:
 
@@ -256,25 +256,25 @@ Multi-slot components must define:
 
 ---
 
-## Compound Component Pattern
+### Compound Component Pattern
 
 Components must expose declarative APIs using namespace composition.
 
 Example:
 
 ```tsx
-<Accordion.Root>
+<Accordion>
 	<Accordion.Item>
 		<Accordion.ItemTrigger />
 	</Accordion.Item>
-</Accordion.Root>
+</Accordion>
 ```
 
 Use `Object.assign` to attach subcomponents to the root namespace.
 
 ---
 
-## Ref Forwarding
+### Ref Forwarding
 
 All public components must support React ref forwarding.
 
@@ -287,7 +287,7 @@ Requirements:
 
 ---
 
-## Display Names
+### Display Names
 
 Every component must define a `displayName`.
 
@@ -299,9 +299,9 @@ Button.displayName = "Button"
 
 ---
 
-# Styling Architecture
+## Styling Architecture
 
-## Zero Runtime CSS
+### Zero Runtime CSS
 
 All styling must be generated at build time.
 
@@ -320,25 +320,43 @@ Disallowed:
 
 ---
 
-## Token Usage
+### Token Usage
 
 Always prefer token references.
 
 Preferred:
 
 ```ts
-bg: "bg.default"
+bgColor: "bg.primary"
 ```
 
 Disallowed:
 
 ```ts
-bg: "#ffffff"
+bgColor: "#ffffff"
 ```
 
 ---
 
-## Slot Recipes
+### Recipes
+
+Recipes must be defined under:
+
+```txt
+/packages/preset-base/src/theme/recipes
+```
+
+Registration must occur in:
+
+```txt
+/packages/preset-base/src/theme/recipes/index.ts
+```
+
+---
+
+---
+
+### Slot Recipes
 
 Slot recipes must be defined under:
 
@@ -354,23 +372,19 @@ Registration must occur in:
 
 ---
 
-## Variant Naming Conventions
+### Variant Naming Conventions
 
 Preferred variant names:
 
 * `size`
 * `variant`
-* `colorPalette`
 * `orientation`
-* `placement`
-* `rounded`
-* `unstyled`
 
 Avoid ambiguous variant names.
 
 ---
 
-## Style Context
+### Style Context
 
 Multi-slot components must use:
 
@@ -387,9 +401,9 @@ To bind slot styles across compound structures.
 
 ---
 
-# TypeScript Standards
+## TypeScript Standards
 
-## Strict Type Safety
+### Strict Type Safety
 
 Requirements:
 
@@ -406,7 +420,7 @@ Disallowed:
 
 ---
 
-## Component Props
+### Component Props
 
 Use Ark UI's `Assign` helper.
 
@@ -421,7 +435,7 @@ export type ButtonProps = Assign<
 
 ---
 
-## Exported Types
+### Exported Types
 
 All public subcomponents must export their prop types.
 
@@ -433,9 +447,9 @@ export type DialogContentProps = ComponentProps<typeof DialogContent>
 
 ---
 
-# React Standards
+## React Standards
 
-## Controlled & Uncontrolled State
+### Controlled & Uncontrolled State
 
 Components must correctly support both controlled and uncontrolled usage.
 
@@ -453,7 +467,7 @@ Examples:
 
 ---
 
-## Context Usage
+### Context Usage
 
 Use React context only when necessary.
 
@@ -465,7 +479,7 @@ Requirements:
 
 ---
 
-## Import Ordering
+### Import Ordering
 
 Imports must remain consistently ordered.
 
@@ -482,7 +496,7 @@ All imports must remain alphabetically sorted within groups.
 
 ---
 
-# Accessibility Standards
+## Accessibility Standards
 
 Accessibility is mandatory.
 
@@ -503,7 +517,7 @@ Every interactive component must:
 
 ---
 
-# Performance Standards
+## Performance Standards
 
 Components must prioritize runtime efficiency.
 
@@ -517,7 +531,7 @@ Requirements:
 
 ---
 
-# SSR & RSC Compatibility
+## SSR & RSC Compatibility
 
 Components must remain SSR-safe.
 
@@ -530,7 +544,7 @@ Requirements:
 
 ---
 
-# Testing Standards
+## Testing Standards
 
 Every component must include:
 
@@ -549,9 +563,9 @@ Recommended tooling:
 
 ---
 
-# Documentation Standards
+## Documentation Standards
 
-## Demo Requirements
+### Demo Requirements
 
 Every component must include:
 
@@ -574,7 +588,7 @@ basic.tsx
 
 ---
 
-## Documentation Requirements
+### Documentation Requirements
 
 Component documentation must include:
 
@@ -594,7 +608,7 @@ Documentation location:
 
 ---
 
-# Storybook Standards
+## Storybook Standards
 
 Stories must:
 
@@ -611,9 +625,9 @@ Stories must exist under:
 
 ---
 
-# Workflow
+## Workflow
 
-## 1. Component Analysis
+### 1. Component Analysis
 
 * Select the Ark UI primitive
 * Inspect upstream types
@@ -622,7 +636,7 @@ Stories must exist under:
 
 ---
 
-## 2. Define Recipes
+### 2. Define Recipes
 
 Create:
 
@@ -638,7 +652,7 @@ Register inside:
 
 ---
 
-## 3. Implement React Components
+### 3. Implement React Components
 
 Create component implementation under:
 
@@ -656,7 +670,7 @@ Requirements:
 
 ---
 
-## 4. Register Exports
+### 4. Register Exports
 
 Update:
 
@@ -672,7 +686,7 @@ Requirements:
 
 ---
 
-## 5. Create Demos
+### 5. Create Demos
 
 Create demos under:
 
@@ -690,7 +704,7 @@ Maintain alphabetical ordering.
 
 ---
 
-## 6. Write Documentation
+### 6. Write Documentation
 
 Create MDX documentation under:
 
@@ -700,7 +714,7 @@ Create MDX documentation under:
 
 ---
 
-## 7. Create Storybook Stories
+### 7. Create Storybook Stories
 
 Add stories under:
 
@@ -710,7 +724,7 @@ Add stories under:
 
 ---
 
-## 8. Validation
+### 8. Validation
 
 Before completion:
 
@@ -723,9 +737,9 @@ Before completion:
 
 ---
 
-# Constraints
+## Constraints
 
-## General Constraints
+### General Constraints
 
 Disallowed:
 
@@ -739,7 +753,7 @@ Disallowed:
 
 ---
 
-## Formatting Constraints
+### Formatting Constraints
 
 Requirements:
 
@@ -750,7 +764,7 @@ Requirements:
 
 ---
 
-## Dependency Constraints
+### Dependency Constraints
 
 Do not:
 
@@ -760,7 +774,7 @@ Do not:
 
 ---
 
-# Operating Rules
+## Operating Rules
 
 Before making changes:
 
@@ -783,7 +797,7 @@ Never:
 
 ---
 
-# Definition of Done
+## Definition of Done
 
 A task is considered complete when:
 
