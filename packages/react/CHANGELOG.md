@@ -1,5 +1,21 @@
 # @moto-ui/react
 
+## 0.0.10
+
+### Patch Changes
+
+- - Add `ColorScheme` component with subcomponents for managing light, dark, and system color scheme preferences with optional localStorage persistence
+  - Add `SkipNav` component with subcomponents to let keyboard and screen reader users skip repetitive navigation
+  - Add `Theme` component with an `appearance` prop (`light`, `dark`) for wrapping content in a specific color scheme
+  - Add `useMediaQuery` hook for tracking CSS media query state in React components
+  - Export `useScrollShadow` hook publicly from the ScrollShadow component
+  - Rename `tone` variant to `surface` on the `item` and `tag` recipes (affects Item, Tag, Tile, and related components)
+  - Update semantic color tokens to use `_light`/`_dark` conditions instead of `base` for improved dark mode handling
+  - Update semantic shadow tokens to use `light`/`dark` conditions instead of `base`
+  - Change breakpoints from pixel values to rem values for better accessibility
+  - Update paragraph global styles to use `fg.secondary` color
+  - @moto-ui/styled-system@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes
