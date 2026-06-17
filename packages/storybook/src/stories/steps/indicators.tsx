@@ -43,7 +43,7 @@ export const Indicators = meta.story({
 											w="64"
 											h="4"
 											rounded="full"
-											tone="secondary"
+											surface="secondary"
 											selected={ctx.current}
 										/>
 									);

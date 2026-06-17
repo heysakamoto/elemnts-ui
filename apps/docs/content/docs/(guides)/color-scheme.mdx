@@ -1,0 +1,87 @@
+---
+status: new
+title: ColorScheme
+description: A utility component for managing color scheme preferences with support for light, dark, and system modes.
+---
+
+<ComponentPreview name="color-scheme:basic" />
+
+### Usage
+
+The `ColorScheme` component manages the active color scheme by setting `light` or `dark` classes on the document root element. It provides context so nested components can read and update the current scheme.
+
+```tsx
+import { ColorScheme, useColorSchemeContext } from "@moto-ui/react"
+
+function App() {
+  return (
+    <ColorScheme.Root defaultScheme="system">
+      <Content />
+    </ColorScheme.Root>
+  )
+}
+
+function Content() {
+  const { colorScheme, setColorScheme } = useColorSchemeContext()
+  return <button onClick={() => setColorScheme("dark")}>Switch to dark</button>
+}
+```
+
+### Persistence
+
+The component supports optional localStorage persistence through the `storage` prop.
+
+```tsx
+<ColorScheme.Root
+  defaultScheme="system"
+  storage={{ enabled: true, key: "app-theme" }}
+>
+  <Content />
+</ColorScheme.Root>
+```
+
+### Forcing a Scheme
+
+Use `ColorScheme.Dark` and `ColorScheme.Light` to force a specific scheme for a subsection of your application. These are standalone providers that do not require a parent `ColorScheme.Root`.
+
+<ComponentPreview name="color-scheme:forced" />
+
+```tsx
+import { ColorScheme, Surface, Text } from "@moto-ui/react"
+
+<ColorScheme.Dark>
+  <Surface>
+    <Text>This section always appears in dark mode.</Text>
+  </Surface>
+</ColorScheme.Dark>
+```
+
+### Compound API
+
+The `ColorScheme` namespace exposes three subcomponents:
+
+- **`ColorScheme.Root`** — Main provider that initializes the color scheme and manages the document class.
+- **`ColorScheme.Dark`** — Standalone provider that forces dark mode for its children.
+- **`ColorScheme.Light`** — Standalone provider that forces light mode for its children.
+- **`ColorScheme.RootProvider`** — Lower-level provider that accepts a pre-computed context value.
+
+### API
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `defaultScheme` | `"light" \| "dark" \| "system"` | `"system"` | The initial color scheme. |
+| `forcedScheme` | `"light" \| "dark" \| "system"` | — | Forces a specific scheme ignoring the user's preference. |
+| `storage.enabled` | `boolean` | `false` | Enables localStorage persistence. |
+| `storage.key` | `string` | `"theme"` | The localStorage key used for persistence. |
+
+### Hooks
+
+| Hook | Returns | Description |
+| :--- | :--- | :--- |
+| `useColorScheme` | `{ colorScheme, setColorScheme }` | Creates a new color scheme instance with the given options. |
+| `useColorSchemeContext` | `{ colorScheme, setColorScheme }` | Reads the current color scheme context. Throws if used outside a provider. |
+| `useColorSchemeValue` | `"light" \| "dark"` | Returns the active resolved color scheme value. |
+
+### Accessibility
+
+The `ColorScheme` component sets `light` or `dark` classes on `document.documentElement`, enabling CSS-based color scheme handling. When set to `"system"`, it listens for the `prefers-color-scheme` media query and responds to changes automatically. This ensures the component respects the user's system-level accessibility preferences for light or dark mode.

@@ -4,6 +4,21 @@ title: Changelog
 description: All previous and current changes can be found here
 ---
 
+## [0.0.10] - 2026-06-15
+### Added
+- Add `ColorScheme` component with subcomponents for managing light, dark, and system color scheme preferences with optional localStorage persistence
+- Add `SkipNav` component with subcomponents to let keyboard and screen reader users skip repetitive navigation
+- Add `Theme` component with an `appearance` prop (`light`, `dark`) for wrapping content in a specific color scheme
+- Add `useMediaQuery` hook for tracking CSS media query state in React components
+- Export `useScrollShadow` hook publicly from the ScrollShadow component
+### Fixed
+- Rename `tone` variant to `surface` on the `item` and `tag` recipes (affects Item, Tag, Tile, and related components)
+### Updated
+- Update semantic color tokens to use `_light`/`_dark` conditions instead of `base` for improved dark mode handling
+- Update semantic shadow tokens to use `light`/`dark` conditions instead of `base`
+- Change breakpoints from pixel values to rem values for better accessibility
+- Update paragraph global styles to use `fg.secondary` color
+
 ## [0.0.9] - 2026-06-14
 ### Added
 - Add `SeparatorGroup` component for grouping separators with optional captions
@@ -13,7 +28,6 @@ description: All previous and current changes can be found here
 - Add `elevated` variant to the Alert component
 - Add `accent`, `warning`, `success`, and `destructive` semantic color token groups
 - Add `SeparatorGroup`, `FocusTrap`, and `VisuallyHidden` components from `@moto-ui/react`
-
 ### Fixed
 - Refactor Alert from a Collapsible-based interactive component to a simplified static design; replace `Alert.Media` with `Alert.Indicator` and `Alert.Content`; remove `Alert.Trigger`, `Alert.RootProvider`, and `Alert.Context`
 - Refactor Surface to use the elevated recipe as its base instead of inline elevation data attributes

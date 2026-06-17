@@ -1,0 +1,42 @@
+---
+status: new
+title: Theme
+description: A utility component for managing color scheme appearance in your application.
+
+---
+
+<ComponentPreview name="theme:basic" />
+
+### Usage
+
+The `Theme` component wraps your content and applies the appropriate color scheme based on the `appearance` prop. It sets the `data-color-scheme` attribute and CSS `color-scheme` property on the wrapper element.
+
+```tsx
+import { Theme, Text } from "@moto-ui/react"
+
+<Theme appearance="dark">
+  <Text>This content is wrapped in a dark color scheme.</Text>
+</Theme>
+```
+
+### Examples
+
+#### Appearance Modes
+
+The `appearance` prop accepts three values:
+
+- `"light"` — Forces a light color scheme.
+- `"dark"` — Forces a dark color scheme.
+- `"auto"` — Defers to the system preference.
+
+<ComponentPreview name="theme:basic" />
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| appearance | `"auto" \| "light" \| "dark"` | — | The color scheme appearance to apply to the wrapped content. |
+
+### Accessibility
+
+The `Theme` component sets the `data-color-scheme` attribute on the wrapper element, which enables CSS-based color scheme handling. When set to `"auto"`, the attribute value is `"system"`, allowing the browser to apply the user's system preference. This ensures that the component respects user preferences for light or dark mode without requiring JavaScript-driven theme detection.

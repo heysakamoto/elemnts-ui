@@ -30,6 +30,8 @@ export function resolveTheme(theme: Theme): Theme {
 
 export function applyTheme(theme: Theme) {
 	const resolved = resolveTheme(theme);
-	document.documentElement.setAttribute("data-theme", resolved);
+	const root = document.documentElement;
+	root.classList.remove("light", "dark");
+	root.classList.add(resolved);
 	localStorage.setItem(THEME_KEY, theme);
 }

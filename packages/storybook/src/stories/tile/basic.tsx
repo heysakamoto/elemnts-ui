@@ -48,7 +48,7 @@ export const Basic = meta.story({
 						return (
 							<Fragment key={key}>
 								<Tile
-									tone="tertiary"
+									surface="tertiary"
 									variant="secondary"
 									colorPalette="neutral"
 									{...args}

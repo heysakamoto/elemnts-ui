@@ -50,7 +50,7 @@ export const Orientation = meta.story({
 							<Fragment key={key}>
 								<Tile
 									gap="12"
-									tone="tertiary"
+									surface="tertiary"
 									variant="secondary"
 									colorPalette="neutral"
 									orientation="horizontal"

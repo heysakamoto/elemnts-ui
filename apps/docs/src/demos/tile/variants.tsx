@@ -18,7 +18,7 @@ export function Variants() {
 					return (
 						<Fragment key={key}>
 							<Tile
-								tone="tertiary"
+								surface="tertiary"
 								variant="primary"
 								colorPalette="neutral"
 								selected={option.value === value}

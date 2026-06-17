@@ -47,7 +47,7 @@ export const Basic = meta.story({
 									>
 										<Tag
 											size="sm"
-											tone="secondary"
+											surface="secondary"
 											variant="secondary"
 											colorPalette="neutral"
 											rounded="calc(24px - 4px)"

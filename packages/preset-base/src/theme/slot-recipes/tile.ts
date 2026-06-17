@@ -121,7 +121,7 @@ export const tileRecipe = defineSlotRecipe({
 			},
 		},
 
-		tone: {
+		surface: {
 			primary: {
 				root: {
 					"--tile-shadow": "{shadows.2}",
@@ -168,7 +168,7 @@ export const tileRecipe = defineSlotRecipe({
 
 	defaultVariants: {
 		size: "sm",
-		tone: "primary",
+		surface: "primary",
 		variant: "primary",
 		orientation: "vertical",
 	},

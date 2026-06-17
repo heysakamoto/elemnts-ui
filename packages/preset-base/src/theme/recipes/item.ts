@@ -69,7 +69,7 @@ export const itemRecipe = defineRecipe({
 			},
 		},
 
-		tone: {
+		surface: {
 			primary: {
 				"--item-bg": "{colors.transparent}",
 			},
@@ -111,7 +111,7 @@ export const itemRecipe = defineRecipe({
 	defaultVariants: {
 		size: "md",
 		iconOnly: false,
-		tone: "primary",
 		variant: "primary",
+		surface: "primary",
 	},
 });

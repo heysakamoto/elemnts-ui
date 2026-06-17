@@ -14,10 +14,12 @@
 		"presence",
 		"radiomark",
 		"show",
+		"skip-nav",
 		"substrate",
 		"swap",
 		"swatch",
 		"tag",
+		"theme",
 		"visually-hidden"
 	]
 }

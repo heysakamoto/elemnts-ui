@@ -1,8 +1,6 @@
 export const conditions = {
 	extend: {
-		svg: "& svg",
 		icon: "& svg",
-		dark: ".dark &,[data-theme=dark] &",
 		notHover: "&:not(:hover, [data-hover])",
 		notFocus: "&:not(:focus, [data-focus])",
 		notValid: "&:not(:valid, [data-valid])",

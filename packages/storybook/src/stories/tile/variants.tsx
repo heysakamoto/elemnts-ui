@@ -48,7 +48,7 @@ export const Variants = meta.story({
 						return (
 							<Fragment key={key}>
 								<Tile
-									tone="tertiary"
+									surface="tertiary"
 									variant="primary"
 									colorPalette="neutral"
 									{...args}

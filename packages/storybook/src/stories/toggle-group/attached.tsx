@@ -29,7 +29,7 @@ export const Attached = meta.story({
 							<Item
 								asChild
 								iconOnly
-								tone="secondary"
+								surface="secondary"
 								roundedStart="24"
 								selected={isActive("bold")}
 							>
@@ -43,7 +43,7 @@ export const Attached = meta.story({
 							<Item
 								asChild
 								iconOnly
-								tone="secondary"
+								surface="secondary"
 								selected={isActive("italic")}
 							>
 								<ToggleGroup.Item
@@ -56,7 +56,7 @@ export const Attached = meta.story({
 							<Item
 								asChild
 								iconOnly
-								tone="secondary"
+								surface="secondary"
 								roundedEnd="24"
 								selected={isActive("underline")}
 							>

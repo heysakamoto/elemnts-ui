@@ -30,7 +30,7 @@ export const Basic = () => {
 									>
 										<Tag
 											size="sm"
-											tone="secondary"
+											surface="secondary"
 											variant="secondary"
 											colorPalette="neutral"
 											rounded="calc(24px - 4px)"
