@@ -12,7 +12,7 @@ export function Attached() {
 							<Item
 								asChild
 								iconOnly
-								tone="secondary"
+								surface="secondary"
 								roundedStart="24"
 								selected={isActive("bold")}
 							>
@@ -26,7 +26,7 @@ export function Attached() {
 							<Item
 								asChild
 								iconOnly
-								tone="secondary"
+								surface="secondary"
 								selected={isActive("italic")}
 							>
 								<ToggleGroup.Item
@@ -39,7 +39,7 @@ export function Attached() {
 							<Item
 								asChild
 								iconOnly
-								tone="secondary"
+								surface="secondary"
 								roundedEnd="24"
 								selected={isActive("underline")}
 							>

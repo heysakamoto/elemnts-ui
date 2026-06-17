@@ -68,7 +68,7 @@ export const tagRecipe = defineRecipe({
 			},
 		},
 
-		tone: {
+		surface: {
 			primary: {
 				"--tag-shadow": "{shadows.2}",
 				"--tag-bg": "{colors.transparent}",
@@ -107,7 +107,7 @@ export const tagRecipe = defineRecipe({
 
 	defaultVariants: {
 		size: "md",
-		tone: "primary",
+		surface: "primary",
 		iconOnly: false,
 		variant: "primary",
 	},

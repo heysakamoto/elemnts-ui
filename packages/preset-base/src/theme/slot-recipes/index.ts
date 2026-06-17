@@ -45,6 +45,7 @@ import { segmentGroupRecipe } from "./segment-group";
 import { selectRecipe } from "./select";
 import { separatorGroupRecipe } from "./separator-group";
 import { signaturePadRecipe } from "./signature-pad";
+import { skipNavRecipe } from "./skip-nav";
 import { sliderRecipe } from "./slider";
 import { sortableRecipe } from "./sortable";
 import { splitterRecipe } from "./splitter";
@@ -138,6 +139,7 @@ export const slotRecipes = {
 	tableRecipe,
 	timelineRecipe,
 	sortableRecipe,
+	skipNavRecipe,
 	separatorGroupRecipe,
 	listRecipe,
 };

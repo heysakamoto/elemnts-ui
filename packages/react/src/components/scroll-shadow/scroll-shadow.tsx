@@ -2,7 +2,7 @@ import { styled } from "@moto-ui/styled-system/jsx";
 import { scrollShadowRecipe } from "@moto-ui/styled-system/recipes";
 import { type ComponentProps, forwardRef } from "react";
 
-import { useScrollShadow } from "../../hooks";
+import { useScrollShadow } from "./client";
 
 const Styled = styled("div", scrollShadowRecipe);
 

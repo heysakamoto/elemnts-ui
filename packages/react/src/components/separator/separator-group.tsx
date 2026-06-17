@@ -4,6 +4,7 @@ import {
 	type HTMLStyledProps,
 } from "@moto-ui/styled-system/jsx";
 import {
+	type SeparatorGroupRecipeVariantProps,
 	type SeparatorRecipeVariantProps,
 	separatorGroupRecipe,
 	separatorRecipe,
@@ -30,7 +31,9 @@ export const useSeparatorGroupContext = () => {
 
 type SeparatorGroupRootProps = Assign<
 	HTMLStyledProps<"div">,
-	SeparatorGroupContextValue & PolymorphicProps
+	SeparatorGroupContextValue &
+		SeparatorGroupRecipeVariantProps &
+		PolymorphicProps
 >;
 export const SeparatorGroupRoot = forwardRef<
 	HTMLDivElement,

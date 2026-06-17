@@ -15,8 +15,8 @@ export const inputRecipe = defineRecipe({
 		display: "inline-flex",
 		fontSize: "{fontSizes.14}",
 		lineHeight: "{lineHeights.none}",
+		shadow: "var(--input-shadow, none)",
 		bgColor: "var(--input-bg, transparent)",
-		shadow: "var(--input-shadow), var(--focus-ring)",
 		borderColor: "var(--input-border-color, {colors.transparent})",
 
 		_focusVisible: {

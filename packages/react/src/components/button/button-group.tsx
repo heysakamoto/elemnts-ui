@@ -4,6 +4,7 @@ import {
 	type HTMLStyledProps,
 } from "@moto-ui/styled-system/jsx";
 import {
+	type ButtonGroupRecipeVariantProps,
 	type ButtonRecipeVariantProps,
 	buttonGroupRecipe,
 	buttonRecipe,
@@ -23,7 +24,7 @@ const ButtonGroupRootBase = withProvider(ark.div, "root");
 
 type ButtonGroupRootProps = Assign<
 	HTMLStyledProps<"div">,
-	ButtonGroupContextValue & PolymorphicProps
+	ButtonGroupContextValue & ButtonGroupRecipeVariantProps & PolymorphicProps
 >;
 export const ButtonGroupRoot = forwardRef<HTMLDivElement, ButtonGroupRootProps>(
 	(props, ref) => {

@@ -95,23 +95,27 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
-					(function(){
-						const STORAGE_KEY = "theme";
+              (function () {
+                const STORAGE_KEY = "theme";
 
-						const saved = localStorage.getItem(STORAGE_KEY);
+                const saved = localStorage.getItem(STORAGE_KEY);
 
-						const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-						? "dark"
-						: "light";
+                const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "dark"
+                  : "light";
 
-						const theme = saved === "system" || !saved
-						? systemTheme
-						: saved;
+                const theme =
+                  saved === "system" || !saved
+                    ? systemTheme
+                    : saved;
 
+                const root = document.documentElement;
 
-						document.documentElement.setAttribute("data-theme", theme);
-					})();
-				`,
+                root.classList.remove("light", "dark");
+
+                root.classList.add(theme === "dark" ? "dark" : "light");
+              })();
+            `,
 					}}
 				/>
 			</body>

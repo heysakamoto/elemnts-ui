@@ -18,7 +18,12 @@ export const Root = (props: RootProps) => {
 
 	return (
 		<DocsLayoutProvider pageTree={pageTree}>
-			<Section bgColor={{ base: "surface.7", _dark: "surface.1" }}>
+			<Section
+				bgColor={{
+					base: "surface.7",
+					_dark: "surface.1",
+				}}
+			>
 				<Container maxW="88rem">
 					<DocsLayoutToc.Mobile />
 					<DocsLayoutHeader.Sub />

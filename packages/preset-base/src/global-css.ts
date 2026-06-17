@@ -54,9 +54,9 @@ export const globalCss = defineGlobalStyles({
 	},
 
 	p: {
-		color: "inherit",
 		textAlign: "start",
 		lineHeight: "{lineHeights.md}",
+		color: "{colors.fg.secondary}",
 	},
 
 	span: {

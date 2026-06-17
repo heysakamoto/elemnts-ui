@@ -429,6 +429,18 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "clipboard/with-input.tsx",
 	},
+	"color-scheme:basic": {
+		component: lazy(() =>
+			import("./color-scheme/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "color-scheme/basic.tsx",
+	},
+	"color-scheme:forced": {
+		component: lazy(() =>
+			import("./color-scheme/forced").then((m) => ({ default: m.Forced })),
+		),
+		file: "color-scheme/forced.tsx",
+	},
 	"code:basic": {
 		component: lazy(() =>
 			import("./code/basic").then((m) => ({ default: m.Basic })),
@@ -1675,6 +1687,12 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "signature-pad/basic.tsx",
 	},
+	"skip-nav:basic": {
+		component: lazy(() =>
+			import("./skip-nav/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "skip-nav/basic.tsx",
+	},
 	"skeleton:basic": {
 		component: lazy(() =>
 			import("./skeleton/basic").then((m) => ({ default: m.Basic })),
@@ -2120,6 +2138,12 @@ export const demos: Record<string, DemoItem> = {
 			import("./textarea/variants").then((m) => ({ default: m.Variants })),
 		),
 		file: "textarea/variants.tsx",
+	},
+	"theme:basic": {
+		component: lazy(() =>
+			import("./theme/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "theme/basic.tsx",
 	},
 	"tile:basic": {
 		component: lazy(() =>

@@ -72,6 +72,7 @@ import {
 	separatorRecipe,
 	signaturePadRecipe,
 	skeletonRecipe,
+	skipNavRecipe,
 	sliderRecipe,
 	sortableRecipe,
 	spinnerRecipe,
@@ -90,6 +91,7 @@ import {
 	tagsInputRecipe,
 	textareaRecipe,
 	textRecipe,
+	themeRecipe,
 	tileRecipe,
 	timelineRecipe,
 	timerRecipe,
@@ -438,58 +440,63 @@ inputRecipe({ size: "md", variant: "tertiary" });
 itemRecipe({
 	size: "xs",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "sm",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "md",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "lg",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "xl",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "md",
 	variant: "secondary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "md",
 	variant: "tertiary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "md",
 	variant: "primary",
-	tone: "secondary",
+	surface: "secondary",
 	iconOnly: false,
 });
 itemRecipe({
 	size: "md",
 	variant: "primary",
-	tone: "tertiary",
+	surface: "tertiary",
 	iconOnly: false,
 });
-itemRecipe({ size: "md", variant: "primary", tone: "primary", iconOnly: true });
+itemRecipe({
+	size: "md",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: true,
+});
 
 // ** JsonTreeView Recipe **
 jsonTreeViewRecipe();
@@ -625,6 +632,9 @@ skeletonRecipe({ effect: "pulse", textOnly: false });
 skeletonRecipe({ effect: "shimmer", textOnly: false });
 skeletonRecipe({ effect: "pulse", textOnly: true });
 
+// ** SkipNav Recipe **
+skipNavRecipe({});
+
 // ** Slider Recipe **
 sliderRecipe({ size: "xs" });
 sliderRecipe({ size: "sm" });
@@ -715,36 +725,66 @@ tableRecipe({ alternatingRows: false, size: "md" });
 tableRecipe({ showColumnDividers: true, size: "md" });
 
 // ** Tag Recipe **
-tagRecipe({ size: "xs", variant: "primary", tone: "primary", iconOnly: false });
-tagRecipe({ size: "sm", variant: "primary", tone: "primary", iconOnly: false });
-tagRecipe({ size: "md", variant: "primary", tone: "primary", iconOnly: false });
-tagRecipe({ size: "lg", variant: "primary", tone: "primary", iconOnly: false });
-tagRecipe({ size: "xl", variant: "primary", tone: "primary", iconOnly: false });
+tagRecipe({
+	size: "xs",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: false,
+});
+tagRecipe({
+	size: "sm",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: false,
+});
+tagRecipe({
+	size: "md",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: false,
+});
+tagRecipe({
+	size: "lg",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: false,
+});
+tagRecipe({
+	size: "xl",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: false,
+});
 tagRecipe({
 	size: "md",
 	variant: "secondary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 tagRecipe({
 	size: "md",
 	variant: "tertiary",
-	tone: "primary",
+	surface: "primary",
 	iconOnly: false,
 });
 tagRecipe({
 	size: "md",
 	variant: "primary",
-	tone: "secondary",
+	surface: "secondary",
 	iconOnly: false,
 });
 tagRecipe({
 	size: "md",
 	variant: "primary",
-	tone: "tertiary",
+	surface: "tertiary",
 	iconOnly: false,
 });
-tagRecipe({ size: "md", variant: "primary", tone: "primary", iconOnly: true });
+tagRecipe({
+	size: "md",
+	variant: "primary",
+	surface: "primary",
+	iconOnly: true,
+});
 
 // ** TagsInput Recipe **
 tagsInputRecipe();
@@ -762,65 +802,68 @@ textareaRecipe({ size: "md", variant: "tertiary" });
 textRecipe({ truncate: false });
 textRecipe({ truncate: true });
 
+// ** Theme Recipe **
+themeRecipe({});
+
 // ** Tile Recipe **
 tileRecipe({
 	size: "xs",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "sm",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "md",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "lg",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "xl",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "sm",
 	variant: "secondary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "sm",
 	variant: "tertiary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "sm",
 	variant: "primary",
-	tone: "secondary",
+	surface: "secondary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "sm",
 	variant: "primary",
-	tone: "tertiary",
+	surface: "tertiary",
 	orientation: "vertical",
 });
 tileRecipe({
 	size: "sm",
 	variant: "primary",
-	tone: "primary",
+	surface: "primary",
 	orientation: "horizontal",
 });
 

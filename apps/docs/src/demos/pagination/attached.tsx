@@ -43,7 +43,7 @@ export function Attached() {
 								>
 									<Item
 										iconOnly
-										tone="tertiary"
+										surface="tertiary"
 										variant="secondary"
 										colorPalette="neutral"
 										selected={page.value === ctx.page}

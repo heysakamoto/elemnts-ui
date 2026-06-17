@@ -16,9 +16,9 @@ export const textareaRecipe = defineRecipe({
 		fontSize: "{fontSizes.14}",
 		lineHeight: "{lineHeights.sm}",
 		minH: "var(--textarea-size, auto)",
+		shadow: "var(--textarea-shadow, none)",
 		bgColor: "var(--textarea-bg, transparent)",
 		p: "var(--textarea-py) var(--textarea-px)",
-		shadow: "var(--textarea-shadow), var(--focus-ring)",
 		borderColor: "var(--textarea-border-color, {colors.transparent})",
 
 		_focusVisible: {

@@ -1,31 +1,31 @@
 import { defineTokens } from "@pandacss/dev";
 
 export const fontWeights = defineTokens.fontWeights({
-	"100": {
+	thin: {
 		value: "100",
 	},
-	"200": {
+	extralight: {
 		value: "200",
 	},
-	"300": {
+	light: {
 		value: "300",
 	},
-	"400": {
+	normal: {
 		value: "400",
 	},
-	"500": {
+	medium: {
 		value: "500",
 	},
-	"600": {
+	semibold: {
 		value: "600",
 	},
-	"700": {
+	bold: {
 		value: "700",
 	},
-	"800": {
+	extrabold: {
 		value: "800",
 	},
-	"900": {
+	black: {
 		value: "900",
 	},
 });
