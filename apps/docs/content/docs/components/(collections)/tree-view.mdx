@@ -5,7 +5,7 @@ description: A component that displays a hierarchical list of items, such as a f
 
 <ComponentPreview name="tree-view:basic" />
 
-### Usage
+## Usage
 
 The `TreeView` component is built using the compound component pattern. You'll need to provide a `collection` created with `createTreeCollection` and recursively render the nodes using `TreeView.NodeProvider`.
 
@@ -68,12 +68,12 @@ const Demo = () => (
 )
 ```
 
-### Checkbox Selection
+## Checkbox Selection
 You can add checkboxes to your tree nodes to allow multiple selection.
 
 <ComponentPreview name="tree-view:checkbox" />
 
-### Controlled Expansion
+## Controlled Expansion
 Use the `expandedValue` and `onExpandedChange` props to control which branches are open.
 
 ```tsx
@@ -88,7 +88,7 @@ const [expanded, setExpanded] = useState(["public"])
 </TreeView.Root>
 ```
 
-### Selection Modes
+## Selection Modes
 `TreeView` supports `single` and `multiple` selection modes via the `selectionMode` prop.
 
 ```tsx
@@ -97,7 +97,7 @@ const [expanded, setExpanded] = useState(["public"])
 </TreeView.Root>
 ```
 
-### Props
+## Props
 
 **Root**
 
@@ -239,7 +239,7 @@ const [expanded, setExpanded] = useState(["public"])
 | --- | --- | --- | --- |
 | asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-### Data Attributes
+## Data Attributes
 
 **Item**
 
@@ -370,7 +370,7 @@ const [expanded, setExpanded] = useState(["public"])
 | data-state | The checked state. `checked`, `unchecked`, or `indeterminate`. |
 | data-disabled | Present when disabled. |
 
-### CSS Variables
+## CSS Variables
 
 **Item**
 

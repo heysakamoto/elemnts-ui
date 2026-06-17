@@ -6,7 +6,7 @@ description: Renders an SVG icon
 <ComponentPreview name="icon:basic" />
 
 
-### Usage
+## Usage
 Use the Icon component to render a scalable SVG glyph that aligns with the design system. Under the hood, it uses [@iconify/react](https://iconify.design/docs/icon-components/react/) to resolve and render icons. Icons are vector-based and typically inherit color from the current text color (currentColor) unless overridden with CSS.
 
 Best practices:
@@ -23,22 +23,22 @@ import { Icon } from "@moto-ui/react"
 <Icon />
 ```
 
-### Custom icon
+## Custom icon
 Provide your own SVG by passing path/shape elements to `icon` prop.
 
 <ComponentPreview name="icon:custom" />
 
-### Add to Storage
+## Add to Storage
 Register the icon globally so it can be referenced by its key:
 
 <ComponentPreview name="icon:storage" />
 
-### Collections
+## Collections
 Group related icons under a shared namespace so you can register and consume many icons at once while avoiding key collisions.
 
 <ComponentPreview name="icon:collections" />
 
-### Props
+## Props
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |

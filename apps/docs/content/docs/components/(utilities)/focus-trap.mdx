@@ -5,7 +5,7 @@ description: A utility component that traps keyboard focus within a specified DO
 
 <ComponentPreview name="focus-trap:basic" />
 
-### Usage
+## Usage
 
 The `FocusTrap` component is used to trap keyboard focus within a designated container. This is essential for modals, dialogs, popovers, and other overlay components where focus should remain constrained to prevent users from tabbing into background content.
 
@@ -23,7 +23,7 @@ import { FocusTrap } from "@moto-ui/react"
 
 When the trap is active, pressing `Tab` or `Shift+Tab` will cycle focus through all focusable elements inside the container, preventing focus from leaving the trapped region.
 
-### Props
+## Props
 
 The `FocusTrap` component accepts all props from the [Ark UI FocusTrap](https://ark-ui.com/docs/utilities/focus-trap) component.
 
@@ -38,7 +38,7 @@ The `FocusTrap` component accepts all props from the [Ark UI FocusTrap](https://
 | returnFocusOnDeactivate | `boolean` | `false` | Default: `true`. If `false`, when the trap is deactivated, focus will *not* return to the element that had focus before activation. |
 
 
-### Accessibility
+## Accessibility
 
 The `FocusTrap` component is a critical accessibility tool for modal interfaces. By trapping keyboard focus, it ensures that:
 

@@ -5,7 +5,7 @@ description: Provides a consistent way to render form fields with labels, helper
 
 <ComponentPreview name="field:basic" />
 
-### Usage
+## Usage
 The `Field` component is used to wrap form elements like `Input`, `Textarea`, or `Select` to provide additional context like labels and status messages.
 
 - `Field.Root`: The root container for the field.
@@ -26,22 +26,22 @@ import { Field } from "@moto-ui/react"
 </Field.Root>
 ```
 
-### Helper Text
+## Helper Text
 Use `Field.HelperText` to provide additional information or instructions for the user.
 
 <ComponentPreview name="field:helper-text" />
 
-### Invalid
+## Invalid
 Set the `invalid` prop on `Field.Root` to show the `Field.ErrorText`. This will also update the styling of the input to reflect the error state.
 
 <ComponentPreview name="field:invalid" />
 
-### Disabled
+## Disabled
 Use the `disabled` prop on `Field.Root` to disable the entire field. This will also apply the disabled styling to all child components, such as the label and input.
 
 <ComponentPreview name="field:disabled" />
 
-### Props
+## Props
 
 **Root**
 
@@ -106,7 +106,7 @@ Use the `disabled` prop on `Field.Root` to disable the entire field. This will a
 | value | `UseFieldReturn` | - | The value returned from `useField`. |
 | asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-### Data Attributes
+## Data Attributes
 
 **Root**
 
@@ -142,5 +142,5 @@ Use the `disabled` prop on `Field.Root` to disable the entire field. This will a
 | data-part | `error-text` |
 | data-disabled | Present when the field is disabled. |
 
-### CSS Variables
+## CSS Variables
 This component does not use any custom CSS variables. It relies on standard Panda CSS tokens for styling.

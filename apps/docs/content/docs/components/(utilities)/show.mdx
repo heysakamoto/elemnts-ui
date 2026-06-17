@@ -6,7 +6,7 @@ description: A utility component for conditionally rendering content based on a 
 
 <ComponentPreview name="show:basic" />
 
-### Usage
+## Usage
 
 The `Show` component provides a declarative way to conditionally render content. When the `when` prop is truthy, the children are rendered. When falsy, the optional `fallback` is shown instead.
 
@@ -18,27 +18,27 @@ import { Show } from "@moto-ui/react"
 </Show>
 ```
 
-### Examples
+## Examples
 
-#### Fallback
+### Fallback
 
 The `fallback` prop allows you to render alternative content when the condition is falsy.
 
 <ComponentPreview name="show:fallback" />
 
-#### Render Function
+### Render Function
 
 Children can be a function that receives the unwrapped truthy value. This avoids intermediate variables and keeps the rendering logic colocated.
 
 <ComponentPreview name="show:render-fn" />
 
-#### Nested Conditions
+### Nested Conditions
 
 `Show` components can be nested to handle complex conditional rendering scenarios.
 
 <ComponentPreview name="show:nested" />
 
-### Props
+## Props
 
 | Prop | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -46,6 +46,6 @@ Children can be a function that receives the unwrapped truthy value. This avoids
 | fallback | `ReactNode` | - | Optional content to render when `when` is falsy. |
 | children | `ReactNode \| ((props: T) => ReactNode)` | - | The content to render when `when` is truthy. Can be a render function that receives the truthy value. |
 
-### Accessibility
+## Accessibility
 
 The `Show` component does not produce any DOM elements of its own. It only returns its children or fallback, so no ARIA attributes or keyboard interaction are required. Semantic structure is preserved by the content passed as children.

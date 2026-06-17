@@ -3,13 +3,13 @@ title: Format
 description: A set of components used to format numbers, bytes, and relative time according to the current locale.
 ---
 
-### Number
+## Number
 
 The `Format.Number` component formats a number based on the current locale and specified options. It uses the `Intl.NumberFormat` API internally.
 
 <ComponentPreview name="format:number" />
 
-#### Usage
+### Usage
 
 ```tsx
 import { Format } from "@moto-ui/react"
@@ -21,13 +21,13 @@ import { Format } from "@moto-ui/react"
 />
 ```
 
-### Byte
+## Byte
 
 The `Format.Byte` component formats a byte value into a human-readable string (e.g., KB, MB, GB).
 
 <ComponentPreview name="format:byte" />
 
-#### Usage
+### Usage
 
 ```tsx
 import { Format } from "@moto-ui/react"
@@ -35,13 +35,13 @@ import { Format } from "@moto-ui/react"
 <Format.Byte value={1024} />
 ```
 
-### Relative Time
+## Relative Time
 
 The `Format.RelativeTime` component formats a date into a relative time string (e.g., "2 days ago", "in 5 minutes"). It uses the `Intl.RelativeTimeFormat` API internally.
 
 <ComponentPreview name="format:relative-time" />
 
-#### Usage
+### Usage
 
 ```tsx
 import { Format } from "@moto-ui/react"
@@ -49,7 +49,7 @@ import { Format } from "@moto-ui/react"
 <Format.RelativeTime value={new Date()} />
 ```
 
-### Props
+## Props
 
 **Format.Number**
 

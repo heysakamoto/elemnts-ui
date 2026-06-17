@@ -5,7 +5,7 @@ description: A two-state button that can be either on or off.
 
 <ComponentPreview name="toggle:basic" />
 
-### Usage
+## Usage
 
 The `Toggle` component is a compound component that allows users to toggle between two states, such as "on" and "off".
 
@@ -19,22 +19,22 @@ import { Toggle } from "@moto-ui/react"
 </Toggle.Root>
 ```
 
-### Controlled
+## Controlled
 Use the `pressed` and `onPressedChange` props to control the state of the toggle.
 
 <ComponentPreview name="toggle:controlled" />
 
-### Indicator
+## Indicator
 Use the `Toggle.Indicator` component to render different content based on the toggle state. The `fallback` prop is rendered when the toggle is not pressed.
 
 <ComponentPreview name="toggle:indicator" />
 
-### Disabled
+## Disabled
 The toggle can be disabled using the `disabled` prop.
 
 <ComponentPreview name="toggle:disabled" />
 
-### Anatomy
+## Anatomy
 
 The `Toggle` component consists of the following subcomponents:
 
@@ -42,9 +42,9 @@ The `Toggle` component consists of the following subcomponents:
 - `Toggle.Indicator`: A component that conditionally renders its children based on the toggle state.
 - `Toggle.Context`: A component that provides access to the toggle's state via a render prop.
 
-### Props
+## Props
 
-#### Root
+### Root
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -54,7 +54,7 @@ The `Toggle` component consists of the following subcomponents:
 | disabled | `boolean` | `false` | Whether the toggle is disabled. |
 | asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-#### Indicator
+### Indicator
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
