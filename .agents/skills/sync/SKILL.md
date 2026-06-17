@@ -1,30 +1,22 @@
 ---
-name: sync-components
-description: Sync Storybook CSF Next stories with demos and MDX documentation for a component. Use this when a component's demos, docs, or stories are out of sync.
+name: sync
+description: Sync Storybook CSF Next stories with demos and MDX documentation for a component. Use this when demos, docs, or stories are out of sync.
 ---
 
-# Sync Components
+# Sync
 
 Read `agents.md` (project root) and follow it strictly.
 
 ## Purpose
 
-Sync Storybook CSF Next stories with demos and MDX documentation for a component.
-
-Ensure:
-- Demo parity
-- Valid component props
-- Accurate MDX-derived descriptions
-- Consistent Storybook structure
+Sync Storybook CSF Next stories with demos and MDX documentation for a component. Ensures demo parity, valid component props, accurate MDX-derived descriptions, and consistent Storybook structure.
 
 ---
 
 ## Input
 
-Specify the target component name. Example:
-
 ```sh
-sync-components <component-name>
+sync <component-name>
 ```
 
 ---
@@ -40,20 +32,9 @@ sync-components <component-name>
 
 ---
 
-## Constraints
-
-- Use CSF Next (Storybook 10+) only
-- No legacy Storybook APIs
-- Maintain 1:1 parity with demo variants
-- Validate all story args against TypeScript props
-- Use MDX as the only source of descriptions
-- Fail on missing or inconsistent documentation
-
----
-
 ## Structure
 
-Create stories under:
+Stories are created under:
 
 ```txt
 packages/storybook/src/stories/<component-name>/
@@ -62,6 +43,17 @@ packages/storybook/src/stories/<component-name>/
 ├── controlled.tsx
 └── ...
 ```
+
+---
+
+## Constraints
+
+- Use CSF Next (Storybook 10+) only
+- No legacy Storybook APIs
+- Maintain 1:1 parity with demo variants
+- Validate all story args against TypeScript props
+- Use MDX as the only source of descriptions
+- Fail on missing or inconsistent documentation
 
 ---
 
@@ -74,13 +66,11 @@ Open `apps/docs/content/docs/**/<component-name>.mdx` and extract:
 - Usage examples
 - Feature sections
 - Accessibility notes
-- API / prop descriptions
+- API and prop descriptions
 
 ### 2. Read Demo Files
 
-Open `apps/docs/src/demos/<component-name>/` and inspect all demo variants.
-
-Catalog every `.tsx` file and note:
+Open `apps/docs/src/demos/<component-name>/` and catalog every `.tsx` file:
 - Demo name
 - Props used
 - Variants shown
@@ -95,13 +85,11 @@ Open `packages/react/src/components/<component-name>/` and inspect:
 
 ### 4. Validate Props
 
-Cross-reference demo args against exported component types.
-Flag mismatches — do not silently correct them.
+Cross-reference demo args against exported component types. Flag mismatches — do not silently correct.
 
 ### 5. Generate Stories
 
 Write stories under `packages/storybook/src/stories/<component-name>/`:
-
 - `stories.tsx` — Meta config and story definitions using CSF Next
 - One file per distinct demo variant (e.g., `basic.tsx`, `controlled.tsx`)
 
@@ -128,7 +116,7 @@ Verify:
 
 ## Conclusion
 
-The task is considered done when:
+The task is done when:
 - Stories mirror all demo variants
 - No type errors in generated stories
 - All story args are valid component props

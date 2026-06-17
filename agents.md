@@ -743,7 +743,7 @@ Disallowed:
 
 Requirements:
 
-* Tabs for indentation
+* Tabs for indentation (actual tab characters, not spaces; tab width is **2** — no 4-space indentation)
 * Double quotes for strings
 * Consistent import ordering
 * Alphabetical export ordering
