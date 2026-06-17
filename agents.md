@@ -606,6 +606,18 @@ Documentation location:
 /apps/docs/content/docs/components/<category>/<component-name>.mdx
 ```
 
+#### Heading Hierarchy Rules
+
+All MDX documentation must follow strict heading hierarchy rules:
+
+1. **No H1 in content** — The page title is the only H1 (from frontmatter `title`). No literal `# ` headings.
+2. **No skipped levels** — Don't skip heading levels (e.g., `##` → `####` without `###` in between).
+3. **Top-level sections are `##`** — Section headings directly under the H1 must be `##`, not `###`.
+4. **Subsections are `###`** — Subsections within a `##` section use `###`.
+5. **Preserve code blocks** — Never modify content inside code blocks or inline code when adjusting heading levels.
+
+If you encounter an existing file that violates these rules (e.g., uses `###` for top-level sections), promote headings to fix the hierarchy: `###` → `##` and `####` → `###` (outside of code blocks and frontmatter).
+
 ---
 
 ## Storybook Standards
@@ -811,3 +823,5 @@ A task is considered complete when:
 * Documentation is updated
 * Public exports are registered
 * No dead code remains
+
+
