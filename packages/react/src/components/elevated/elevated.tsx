@@ -2,6 +2,7 @@ import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
 import { styled } from "@moto-ui/styled-system/jsx";
 import { elevatedRecipe } from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
+
 import { Substrate, useSubstrate } from "../substrate";
 
 /**
@@ -38,7 +39,7 @@ type ElevatedBaseProps = Assign<
  */
 export const ElevatedBase = forwardRef<HTMLDivElement, ElevatedBaseProps>(
 	(props, ref) => {
-		const { delta = 0, shadowLevel, style, children, ...restProps } = props;
+		const { delta = 1, shadowLevel, style, children, ...restProps } = props;
 		const substrate = useSubstrate();
 
 		// Logic: Cap at 8 as per your requirement

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { ColorPicker, parseColor } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Area Channels",

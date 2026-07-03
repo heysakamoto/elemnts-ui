@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	ScrollAreaContent,
 	ScrollAreaContext,
@@ -53,7 +54,6 @@ export type {
 	UseScrollAreaProps,
 	UseScrollAreaReturn,
 } from "@ark-ui/react/scroll-area";
-
 export { useScrollArea, useScrollAreaContext } from "@ark-ui/react/scroll-area";
 
 export {

@@ -3,7 +3,7 @@ import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { virtualListRecipe } from "@moto-ui/styled-system/recipes";
 import type { VirtualItem } from "@tanstack/react-virtual";
 import { forwardRef, type ReactNode } from "react";
-import { mergeRefs } from "../../utils/merge-ref";
+
 import {
 	type UseVirtualListProps,
 	useVirtualList,
@@ -11,6 +11,7 @@ import {
 	VirtualListContext,
 	type VirtualListContextValue,
 } from "./client";
+import { mergeRefs } from "../../utils/merge-ref";
 
 const { withProvider, withContext } = createStyleContext(virtualListRecipe);
 

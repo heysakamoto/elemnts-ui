@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Container, Icon, Separator, Surface, Tile } from "@moto-ui/react";
 import { Fragment, useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const options = [
 	{

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Icon } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const customIcon = {
 	body: `

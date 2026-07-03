@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	CollapsibleContent,
 	CollapsibleContext,
@@ -44,7 +45,6 @@ export type {
 	UseCollapsibleProps,
 	UseCollapsibleReturn,
 } from "@ark-ui/react/collapsible";
-
 export {
 	useCollapsible,
 	useCollapsibleContext,

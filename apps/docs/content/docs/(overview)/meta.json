@@ -2,5 +2,5 @@
 	"icon": "HomeIcon",
 	"title": "Overview",
 	"root": true,
-	"pages": ["---overview---", "index", "about", "changelog"]
+	"pages": ["index", "about", "changelog", "components"]
 }

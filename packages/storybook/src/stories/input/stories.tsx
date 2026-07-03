@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Input } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	tags: ["autodocs"],

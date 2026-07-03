@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, Locale, ScrollArea, Text } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const arabicText = [
 	"مرحباً بكم في نظام التمرير المخصص",

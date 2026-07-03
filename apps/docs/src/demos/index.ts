@@ -33,14 +33,6 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "base/design-principles.tsx",
 	},
-	"base:pro": {
-		component: lazy(() =>
-			import("./base/pro").then((m) => ({
-				default: m.Pro,
-			})),
-		),
-		file: "base/pro.tsx",
-	},
 	"base:surfaces-base": {
 		component: lazy(() =>
 			import("./base/surfaces").then((m) => ({
@@ -403,6 +395,24 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "chip/with-icon.tsx",
 	},
+	"client-only:basic": {
+		component: lazy(() =>
+			import("./client-only/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "client-only/basic.tsx",
+	},
+	"client-only:fallback": {
+		component: lazy(() =>
+			import("./client-only/fallback").then((m) => ({ default: m.Fallback })),
+		),
+		file: "client-only/fallback.tsx",
+	},
+	"client-only:render-fn": {
+		component: lazy(() =>
+			import("./client-only/render-fn").then((m) => ({ default: m.RenderFn })),
+		),
+		file: "client-only/render-fn.tsx",
+	},
 	"clipboard:basic": {
 		component: lazy(() =>
 			import("./clipboard/basic").then((m) => ({ default: m.Basic })),
@@ -588,6 +598,24 @@ export const demos: Record<string, DemoItem> = {
 			import("./data-list/horizontal").then((m) => ({ default: m.Horizontal })),
 		),
 		file: "data-list/horizontal.tsx",
+	},
+	"date-input:basic": {
+		component: lazy(() =>
+			import("./date-input/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "date-input/basic.tsx",
+	},
+	"date-input:disabled": {
+		component: lazy(() =>
+			import("./date-input/disabled").then((m) => ({ default: m.Disabled })),
+		),
+		file: "date-input/disabled.tsx",
+	},
+	"date-input:with-field": {
+		component: lazy(() =>
+			import("./date-input/with-field").then((m) => ({ default: m.WithField })),
+		),
+		file: "date-input/with-field.tsx",
 	},
 	"date-picker:basic": {
 		component: lazy(() =>

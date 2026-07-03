@@ -15,7 +15,7 @@ export const imageCropperRecipe = defineSlotRecipe({
 			"--cropper-selection-border":
 				"var(--cropper-selection-border-width) solid var(--cropper-selection-border-color)",
 
-			"--cropper-handle-size": "calc({sizes.8} + 2px)",
+			"--cropper-handle-size": "calc({sizes.4} * 1.5)",
 			"--cropper-handle-bg": "{colors.colorPalette.primary}",
 
 			display: "flex",

@@ -1,4 +1,5 @@
 import { defineRecipe } from "@pandacss/dev";
+
 import { markRecipe } from "./mark";
 
 const { base, variants, defaultVariants } = markRecipe;

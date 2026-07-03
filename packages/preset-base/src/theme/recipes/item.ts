@@ -48,6 +48,10 @@ export const itemRecipe = defineRecipe({
 				color: "inherit",
 			},
 		},
+
+		_disabled: {
+			opacity: 0.5,
+		},
 	},
 
 	variants: {

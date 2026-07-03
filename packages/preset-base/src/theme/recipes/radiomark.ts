@@ -22,7 +22,7 @@ export const radiomarkRecipe = defineRecipe({
 			scale: "1",
 			content: "''",
 			position: "absolute",
-			bg: "{colors.bg.primary}",
+			bgColor: "{colors.bg.primary}",
 			rounded: "{radii.full}",
 			boxSize: "{sizes.full}",
 			transformOrigin: "center",
@@ -33,12 +33,16 @@ export const radiomarkRecipe = defineRecipe({
 
 		_checked: {
 			shadow: "none",
-			bg: "{colors.colorPalette.primary}",
+			bgColor: "{colors.colorPalette.primary}",
 			borderColor: "{colors.colorPalette.primary}",
 			_before: {
 				scale: "0.5",
-				bg: "{colors.colorPalette.tertiary}",
+				bgColor: "{colors.colorPalette.tertiary}",
 			},
+		},
+
+		_disabled: {
+			opacity: 0.5,
 		},
 	},
 

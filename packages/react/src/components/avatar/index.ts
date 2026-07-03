@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	AvatarContext,
 	AvatarFallback,
@@ -36,7 +37,6 @@ export type {
 	UseAvatarProps,
 	UseAvatarReturn,
 } from "@ark-ui/react/avatar";
-
 export { useAvatar, useAvatarContext } from "@ark-ui/react/avatar";
 
 export {

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { WheelPicker, type WheelPickerOption } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const options: WheelPickerOption[] = [
 	{ label: "Gaming", value: "gaming" },

@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { Icon, InlineIcon } from "./icon";
 
 export type IconProps = ComponentProps<typeof Icon>;

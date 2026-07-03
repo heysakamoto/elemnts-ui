@@ -2,7 +2,6 @@
 	"title": "Pressables",
 	"defaultOpen": false,
 	"pages": [
-		"---pressables---",
 		"button",
 		"button-group",
 		"download",

@@ -22,7 +22,9 @@ const SeparatorGroupRootBase = withProvider(ark.div, "root", {
 });
 
 type SeparatorGroupContextValue = SeparatorRecipeVariantProps;
-const SeperatorGroupContext = createContext<SeparatorGroupContextValue>({});
+const SeperatorGroupContext = createContext<SeparatorGroupContextValue>({
+	orientation: "horizontal",
+});
 
 export const useSeparatorGroupContext = () => {
 	const ctx = useContext(SeperatorGroupContext);

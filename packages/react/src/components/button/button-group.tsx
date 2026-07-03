@@ -12,7 +12,9 @@ import {
 import { createContext, forwardRef, useContext } from "react";
 
 type ButtonGroupContextValue = ButtonRecipeVariantProps;
-const ButtonGroupContext = createContext<ButtonGroupContextValue>({});
+const ButtonGroupContext = createContext<ButtonGroupContextValue>({
+	size: "md",
+});
 
 export function useButtonGroupContext() {
 	return useContext(ButtonGroupContext);

@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	DecorativeBox,
@@ -8,6 +7,8 @@ import {
 	Stack,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 type Size = SeparatorProps["size"];
 

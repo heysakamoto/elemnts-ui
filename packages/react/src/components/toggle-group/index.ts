@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	ToggleGroupContext,
 	ToggleGroupItem,
@@ -34,7 +35,6 @@ export type {
 	UseToggleGroupProps,
 	UseToggleGroupReturn,
 } from "@ark-ui/react/toggle-group";
-
 export {
 	useToggleGroup,
 	useToggleGroupContext,

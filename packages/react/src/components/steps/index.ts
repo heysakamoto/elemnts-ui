@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	StepsCompletedContent,
 	StepsContent,
@@ -75,7 +76,6 @@ export type {
 	UseStepsProps,
 	UseStepsReturn,
 } from "@ark-ui/react/steps";
-
 export {
 	useSteps,
 	useStepsContext,

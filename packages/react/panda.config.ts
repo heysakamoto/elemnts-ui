@@ -7,4 +7,5 @@ export default defineConfig({
 	jsxFramework: "react",
 	outdir: "styled-system",
 	include: ["./src/**/*.{ts,tsx}"],
+	importMap: "@moto-ui/styled-system",
 });

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, createToaster, Icon, Toaster } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const toaster = createToaster({
 	placement: "top",

@@ -52,22 +52,28 @@ export const marqueeRecipe = defineSlotRecipe({
 			w: "var(--marquee-edge-size)",
 
 			"&[data-side=start]": {
-				bg: "linear-gradient(to right, var(--marquee-edge-color), {colors.transparent})",
+				bgColor:
+					"linear-gradient(to right, var(--marquee-edge-color), {colors.transparent})",
 				_rtl: {
-					bg: "linear-gradient(to left, var(--marquee-edge-color), transparent)",
+					bgColor:
+						"linear-gradient(to left, var(--marquee-edge-color), transparent)",
 				},
 			},
 			"&[data-side=end]": {
-				bg: "linear-gradient(to left, var(--marquee-edge-color), {colors.transparent})",
+				bgColor:
+					"linear-gradient(to left, var(--marquee-edge-color), {colors.transparent})",
 				_rtl: {
-					bg: "linear-gradient(to right, var(--marquee-edge-color), transparent)",
+					bgColor:
+						"linear-gradient(to right, var(--marquee-edge-color), transparent)",
 				},
 			},
 			"&[data-side=top]": {
-				bg: "linear-gradient(to bottom, var(--marquee-edge-color), {colors.transparent})",
+				bgColor:
+					"linear-gradient(to bottom, var(--marquee-edge-color), {colors.transparent})",
 			},
 			"&[data-side=bottom]": {
-				bg: "linear-gradient(to top, var(--marquee-edge-color), {colors.transparent})",
+				bgColor:
+					"linear-gradient(to top, var(--marquee-edge-color), {colors.transparent})",
 			},
 		},
 	},

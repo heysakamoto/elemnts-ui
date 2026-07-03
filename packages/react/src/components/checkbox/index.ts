@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	CheckboxContext,
 	CheckboxControl,
@@ -58,7 +59,6 @@ export type {
 	UseCheckboxProps,
 	UseCheckboxReturn,
 } from "@ark-ui/react/checkbox";
-
 export {
 	useCheckbox,
 	useCheckboxContext,

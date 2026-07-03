@@ -1,6 +1,7 @@
 import { ark } from "@ark-ui/react/factory";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { alertRecipe } from "@moto-ui/styled-system/recipes";
+
 import { ElevatedBase } from "../elevated";
 
 const { withProvider, withContext } = createStyleContext(alertRecipe);

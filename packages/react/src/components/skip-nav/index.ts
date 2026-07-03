@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { SkipNavContent, SkipNavLink, SkipNavRoot } from "./skip-nav";
 
 export type SkipNavRootProps = ComponentProps<typeof SkipNavRoot>;

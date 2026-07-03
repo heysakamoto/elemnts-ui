@@ -20,7 +20,7 @@ function Example() {
       rounded="md"
       bg="accent.primary"
       color="white"
-      _hover={{ bg: "blue.90" }}
+      _hover={{ bgColor: "blue.90" }}
     >
       Click Me
     </styled.button>
@@ -51,14 +51,14 @@ Recipes allow you to define multiple visual variants for a component.
 ```tsx
 const Card = styled("div", {
   base: {
-    bg: "bg.primary",
+    bgColor: "bg.primary",
     p: "4",
     rounded: "lg",
   },
   variants: {
     variant: {
       outline: { border: "1px solid", borderColor: "stroke.primary" },
-      ghost: { bg: "transparent", _hover: { bg: "bg.secondary" } },
+      ghost: { bgColor: "transparent", _hover: { bgColor: "bg.secondary" } },
     },
   },
 });
@@ -71,9 +71,9 @@ Panda CSS uses "conditions" to style elements based on their state (e.g., hover,
 ```tsx
 <Button
   bg="blue.50"
-  _hover={{ bg: "blue.60" }}
+  _hover={{ bgColor: "blue.60" }}
   _active={{ transform: "scale(0.98)" }}
-  _dark={{ bg: "blue.200", color: "black" }}
+  _dark={{ bgColor: "blue.200", color: "black" }}
 >
   Themed Button
 </Button>
@@ -121,8 +121,8 @@ export const myMenuRecipe = defineSlotRecipe({
   className: 'menu',
   slots: ['root', 'item', 'trigger'],
   base: {
-    root: { bg: 'bg.primary', shadow: 'md' },
-    item: { p: '2', _hover: { bg: 'bg.secondary' } },
+    root: { bgColor: 'bg.primary', shadow: 'md' },
+    item: { p: '2', _hover: { bgColor: 'bg.secondary' } },
     trigger: { fontWeight: 'bold' }
   }
 })

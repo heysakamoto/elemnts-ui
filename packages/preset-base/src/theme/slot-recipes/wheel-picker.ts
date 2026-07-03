@@ -80,7 +80,7 @@ export const wheelPickerRecipe = defineSlotRecipe({
 				alignItems: "center",
 				justifyContent: "center",
 				fontSize: "{fontSizes.16}",
-				gap: "calc({spacing.4} * 1.5)",
+				gap: "calc({spacing.4} * 3)",
 
 				_disabled: {
 					opacity: 0.5,

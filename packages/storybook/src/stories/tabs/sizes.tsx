@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	SegmentGroup,
@@ -8,6 +7,8 @@ import {
 	Text,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const tabs = [
 	{

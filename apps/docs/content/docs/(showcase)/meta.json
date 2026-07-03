@@ -1,6 +1,0 @@
-{
-	"icon": "",
-	"title": "Showcase",
-	"defaultOpen": false,
-	"pages": ["---showcase---", "components", "pro"]
-}

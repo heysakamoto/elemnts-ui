@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	type ColorSchemeContextValue,
 	ColorSchemeRootProvider,
@@ -13,6 +14,7 @@ import {
 	ColorSchemeDark,
 	ColorSchemeLight,
 	ColorSchemeRoot,
+	ColorSchemeTrigger,
 } from "./color-scheme";
 
 export type ColorSchemeRootProps = ComponentProps<typeof ColorSchemeRoot>;
@@ -22,6 +24,7 @@ export type ColorSchemeContextProps = ComponentProps<typeof ColorSchemeContext>;
 export type ColorSchemeRootProviderProps = ComponentProps<
 	typeof ColorSchemeRootProvider
 >;
+export type ColorSchemeTriggerProps = ComponentProps<typeof ColorSchemeTrigger>;
 
 export const ColorScheme = Object.assign(ColorSchemeRoot, {
 	RootProvider: ColorSchemeRootProvider,
@@ -29,6 +32,7 @@ export const ColorScheme = Object.assign(ColorSchemeRoot, {
 	Dark: ColorSchemeDark,
 	Context: ColorSchemeContext,
 	Light: ColorSchemeLight,
+	Trigger: ColorSchemeTrigger,
 });
 
 export type ColorScheme = {
@@ -36,6 +40,7 @@ export type ColorScheme = {
 	DarkProps: ColorSchemeDarkProps;
 	RootProps: ColorSchemeRootProps;
 	LightProps: ColorSchemeLightProps;
+	TriggerProps: ColorSchemeTriggerProps;
 	RootProviderProps: ColorSchemeRootProviderProps;
 	ContextProps: ColorSchemeContextProps;
 };

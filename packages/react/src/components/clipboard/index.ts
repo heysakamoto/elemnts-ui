@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	ClipboardContext,
 	ClipboardControl,
@@ -54,7 +55,6 @@ export type {
 	UseClipboardProps,
 	UseClipboardReturn,
 } from "@ark-ui/react/clipboard";
-
 export { useClipboard, useClipboardContext } from "@ark-ui/react/clipboard";
 
 export {

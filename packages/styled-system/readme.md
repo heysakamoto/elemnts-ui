@@ -2,7 +2,7 @@
 
 **@moto-ui/styled-system** is the compiled styling engine and static CSS package for Moto UI. It serves as the bridge between design token definitions in `@moto-ui/preset-base` and the components in `@moto-ui/react`.
 
-It utilizes **Panda CSS** to parse preset configurations and output optimized React factory wrappers (`styled.div`, `styled.button`), utility classes, and TypeScript type declarations.
+It utilizes **Panda CSS** to parse preset configurations and output optimized factory wrappers (`styled.div`, `styled.button`), utility classes, and TypeScript type declarations.
 
 ---
 

@@ -1,0 +1,43 @@
+---
+title: Client Only
+description: A utility component that defers rendering its children to the client, preventing SSR mismatches.
+---
+
+<ComponentPreview name="client-only:basic" />
+
+## Usage
+
+The `ClientOnly` component wraps content that should only be rendered on the client after hydration. During server-side rendering the optional `fallback` is shown instead, preventing hydration mismatches caused by browser-only APIs or non-deterministic values.
+
+```tsx
+import { ClientOnly } from "@moto-ui/react"
+
+<ClientOnly>
+  <p>I only render on the client.</p>
+</ClientOnly>
+```
+
+## Examples
+
+### Fallback
+
+Provide a `fallback` prop to show placeholder content during SSR and before hydration completes.
+
+<ComponentPreview name="client-only:fallback" />
+
+### Render Function
+
+Pass a function as children to defer evaluation entirely until the component mounts on the client. This is useful when the children reference browser-only globals such as `window` or `document`.
+
+<ComponentPreview name="client-only:render-fn" />
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| children | `ReactNode \| (() => ReactNode)` | - | Content to render on the client. Can be a render function for deferred evaluation. |
+| fallback | `ReactNode` | `undefined` | Content rendered during SSR and before hydration. |
+
+## Accessibility
+
+`ClientOnly` does not produce any DOM element of its own. It returns only its children or fallback, so semantic structure and ARIA attributes are determined entirely by the content you pass in.

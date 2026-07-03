@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	SegmentGroupContext,
 	SegmentGroupIndicator,
@@ -71,7 +72,6 @@ export type {
 	UseSegmentGroupProps,
 	UseSegmentGroupReturn,
 } from "@ark-ui/react/segment-group";
-
 export {
 	useSegmentGroup,
 	useSegmentGroupContext,

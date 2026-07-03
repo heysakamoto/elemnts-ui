@@ -35,7 +35,7 @@ export function Basic() {
 }
 
 function SchemeButtons() {
-	const { colorScheme, setColorScheme } = useColorSchemeContext();
+	const { colorScheme, onColorSchemeChange } = useColorSchemeContext();
 
 	return (
 		<ButtonGroup
@@ -45,7 +45,7 @@ function SchemeButtons() {
 			{schemes.map((scheme) => (
 				<ButtonGroup.Item
 					key={scheme}
-					onClick={() => setColorScheme(scheme)}
+					onClick={() => onColorSchemeChange(scheme)}
 					variant={colorScheme === scheme ? "primary" : "ghost"}
 				>
 					{scheme.charAt(0).toUpperCase() + scheme.slice(1)}

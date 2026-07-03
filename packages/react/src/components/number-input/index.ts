@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	NumberInputContext,
 	NumberInputControl,
@@ -68,7 +69,6 @@ export type {
 	UseNumberInputProps,
 	UseNumberInputReturn,
 } from "@ark-ui/react/number-input";
-
 export {
 	useNumberInput,
 	useNumberInputContext,

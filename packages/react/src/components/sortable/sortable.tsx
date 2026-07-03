@@ -5,7 +5,7 @@ import {
 } from "@moto-ui/styled-system/jsx";
 import { sortableRecipe } from "@moto-ui/styled-system/recipes";
 import { forwardRef, type ReactElement, type RefAttributes } from "react";
-import { mergeRefs } from "../../utils/merge-ref";
+
 import {
 	SortableItemProvider,
 	SortableRootProvider as SortableRootProviderBase,
@@ -15,6 +15,7 @@ import {
 	useSortableItem,
 	useSortableItemContext,
 } from "./client";
+import { mergeRefs } from "../../utils/merge-ref";
 
 const { withProvider, withRootProvider, withContext } =
 	createStyleContext(sortableRecipe);

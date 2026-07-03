@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	SignaturePadClearTrigger,
 	SignaturePadContext,
@@ -65,7 +66,6 @@ export type {
 	UseSignaturePadProps,
 	UseSignaturePadReturn,
 } from "@ark-ui/react/signature-pad";
-
 export {
 	useSignaturePad,
 	useSignaturePadContext,

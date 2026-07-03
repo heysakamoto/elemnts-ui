@@ -27,7 +27,7 @@ export const angleSliderRecipe = defineSlotRecipe({
 				top: "{spacing.0}",
 				right: "{spacing.0}",
 				position: "absolute",
-				bg: "{colors.blue.fill}",
+				bgColor: "{colors.blue.fill}",
 				rounded: "{radii.full}",
 			},
 		},

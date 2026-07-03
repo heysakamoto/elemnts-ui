@@ -13,7 +13,7 @@ export const qrCodeRecipe = defineSlotRecipe({
 			display: "flex",
 			alignItems: "center",
 			rounded: "{radii.full}",
-			bg: "{colors.bg.primary}",
+			bgColor: "{colors.bg.primary}",
 			justifyContent: "center",
 			boxSize: "calc({sizes.4} * 10)",
 		},

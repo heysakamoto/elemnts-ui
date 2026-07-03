@@ -469,7 +469,7 @@ Examples:
 
 ### Context Usage
 
-Use React context only when necessary.
+Use react context only when necessary.
 
 Requirements:
 
@@ -823,5 +823,3 @@ A task is considered complete when:
 * Documentation is updated
 * Public exports are registered
 * No dead code remains
-
-

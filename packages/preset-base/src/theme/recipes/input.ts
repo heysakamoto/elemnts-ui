@@ -28,6 +28,10 @@ export const inputRecipe = defineRecipe({
 			outlineOffset: "-1px",
 			outline: "2px solid {colors.destructive.primary}",
 		},
+
+		_disabled: {
+			filter: "grayscale(50%)",
+		},
 	},
 	variants: {
 		size: {

@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Anchor, factory } from "@moto-ui/react";
 import type { ComponentProps } from "react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Routers",

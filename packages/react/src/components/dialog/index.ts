@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	DialogBackdrop,
 	DialogCloseTrigger,
@@ -56,7 +57,6 @@ export type {
 	UseDialogProps,
 	UseDialogReturn,
 } from "@ark-ui/react/dialog";
-
 export { useDialog, useDialogContext } from "@ark-ui/react/dialog";
 
 export {

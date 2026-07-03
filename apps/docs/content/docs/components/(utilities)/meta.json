@@ -2,8 +2,8 @@
 	"title": "Utilities",
 	"defaultOpen": false,
 	"pages": [
-		"---utilities---",
 		"checkmark",
+		"client-only",
 		"environment",
 		"focus-trap",
 		"for",

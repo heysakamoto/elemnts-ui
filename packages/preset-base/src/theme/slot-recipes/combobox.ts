@@ -50,8 +50,13 @@ export const comboboxRecipe = defineSlotRecipe({
 				animation: "scale-fade-out 300ms ease-in",
 			},
 		},
+		input: {},
 		item: {
 			display: "flex",
+			"&[data-highlighted]": {
+				color: "{colors.colorPalette.primary}",
+				bgColor: "{colors.colorPalette.secondary}",
+			},
 		},
 		itemText: {
 			flexGrow: 1,

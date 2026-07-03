@@ -7,6 +7,7 @@ const { withProvider, withContext } = createStyleContext(timelineRecipe);
 export const TimelineRoot = withProvider(ark.div, "root", {
 	dataAttr: true,
 	defaultProps: {
+		role: "list",
 		"data-part": "root",
 		"data-scope": "timeline",
 	},
@@ -35,6 +36,7 @@ TimelineItem.displayName = "TimelineItem";
 export const TimelineSeparator = withContext(ark.div, "separator", {
 	dataAttr: true,
 	defaultProps: {
+		"aria-hidden": "true",
 		"data-part": "separator",
 		"data-scope": "timeline",
 	},
@@ -44,6 +46,7 @@ TimelineSeparator.displayName = "TimelineSeparator";
 export const TimelineIndicator = withContext(ark.div, "indicator", {
 	dataAttr: true,
 	defaultProps: {
+		"aria-hidden": "true",
 		"data-part": "indicator",
 		"data-scope": "timeline",
 	},
@@ -53,6 +56,7 @@ TimelineIndicator.displayName = "TimelineIndicator";
 export const TimelineConnector = withContext(ark.div, "connector", {
 	dataAttr: true,
 	defaultProps: {
+		"aria-hidden": "true",
 		"data-part": "connector",
 		"data-scope": "timeline",
 	},

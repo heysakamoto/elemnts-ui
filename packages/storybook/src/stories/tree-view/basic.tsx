@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	createTreeCollection,
@@ -6,6 +5,8 @@ import {
 	Item,
 	TreeView,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 type Node = {
 	id: string;

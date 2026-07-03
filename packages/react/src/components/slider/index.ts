@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	SliderContext,
 	SliderControl,
@@ -73,7 +74,6 @@ export type {
 	UseSliderProps,
 	UseSliderReturn,
 } from "@ark-ui/react/slider";
-
 export { useSlider, useSliderContext } from "@ark-ui/react/slider";
 
 export {

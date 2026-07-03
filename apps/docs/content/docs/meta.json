@@ -1,3 +1,9 @@
 {
-	"pages": ["(overview)", "(guides)", "(showcase)", "components"]
+	"pages": [
+		"---Overview---",
+		"(overview)",
+		"---Guides---",
+		"(guides)",
+		"components"
+	]
 }

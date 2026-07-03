@@ -44,7 +44,7 @@ export const accordionRecipe = defineSlotRecipe({
 			lineHeight: "{lineHeights.none}",
 
 			_hover: {
-				bg: "{colors.bg.secondary}",
+				bgColor: "{colors.bg.secondary}",
 
 				"& svg": {
 					color: "inherit",

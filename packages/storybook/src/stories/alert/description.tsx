@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Alert, Container, Icon, Surface, Text } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Description",

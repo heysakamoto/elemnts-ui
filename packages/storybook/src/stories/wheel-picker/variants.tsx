@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { WheelPicker } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const options = [
 	{ label: "1", value: "1" },

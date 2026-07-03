@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	RadioGroupContext,
 	RadioGroupIndicator,
@@ -67,7 +68,6 @@ export type {
 	UseRadioGroupProps,
 	UseRadioGroupReturn,
 } from "@ark-ui/react/radio-group";
-
 export {
 	useRadioGroup,
 	useRadioGroupContext,

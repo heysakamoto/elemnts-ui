@@ -11,7 +11,7 @@ export function Basic() {
 				<DataList.Item>
 					<DataList.ItemLabel>Description</DataList.ItemLabel>
 					<DataList.ItemValue>
-						A React component library built with Ark UI and Panda CSS.
+						A component library built with Ark UI and Panda CSS.
 					</DataList.ItemValue>
 				</DataList.Item>
 				<DataList.Item>

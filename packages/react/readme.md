@@ -18,7 +18,7 @@ Designed for speed, scalability, and flexibility, it features 90+ primitives cra
 
 ## 📦 Installation
 
-To use Moto UI React components, install the library, preset-base, and styled-system dependencies:
+To use Moto UI components, install the library, preset-base, and styled-system dependencies:
 
 ### Install Dependencies
 

@@ -12,13 +12,9 @@ export const clipboardRecipe = defineSlotRecipe({
 		"valueText",
 	],
 	base: {
-		trigger: {
-			"&[data-copied]": {
-				opacity: 0.5,
-				cursor: "not-allowed !important",
-			},
-		},
+		trigger: {},
 		label: {},
+		input: {},
 		control: {
 			display: "flex",
 			w: "{sizes.full}",

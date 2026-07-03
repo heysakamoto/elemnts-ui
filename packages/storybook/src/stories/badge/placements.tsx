@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Avatar, Badge, Container, SegmentGroup, Stack } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const placements = ["top-left", "top-right"];
 type Placement = Badge["RootProps"]["placement"];

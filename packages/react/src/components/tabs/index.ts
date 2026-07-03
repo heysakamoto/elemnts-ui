@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	TabsContent,
 	TabsContext,
@@ -49,7 +50,6 @@ export type {
 	UseTabsProps,
 	UseTabsReturn,
 } from "@ark-ui/react/tabs";
-
 export { useTabs, useTabsContext } from "@ark-ui/react/tabs";
 
 export {

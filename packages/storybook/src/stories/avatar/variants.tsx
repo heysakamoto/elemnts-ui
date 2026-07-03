@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Avatar, Container, SegmentGroup, Stack } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const variants = ["primary", "secondary", "tertiary", "surface"] as const;
 type Variant = (typeof variants)[number];

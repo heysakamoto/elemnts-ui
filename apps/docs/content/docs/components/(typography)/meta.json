@@ -2,7 +2,6 @@
 	"title": "Typography",
 	"defaultOpen": false,
 	"pages": [
-		"---typography---",
 		"anchor",
 		"blockquote",
 		"code",

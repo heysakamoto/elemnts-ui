@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Container, SegmentGroup, Stack } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const options = [
 	{ label: "React", value: "react" },

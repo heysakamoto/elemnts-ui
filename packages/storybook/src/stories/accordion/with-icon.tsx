@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Accordion, Chip, Container, Icon, Stack, Text } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const items = [
 	{

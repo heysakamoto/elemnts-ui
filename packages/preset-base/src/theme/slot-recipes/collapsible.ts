@@ -33,7 +33,7 @@ export const collapsibleRecipe = defineSlotRecipe({
 			rounded: "calc({radii.4} * 5)",
 			lineHeight: "{lineHeights.none}",
 
-			_hover: {
+			"&:hover:not([data-disabled], :disabled, [aria-disabled=true])": {
 				bgColor: "{colors.bg.secondary}",
 
 				"& svg": {

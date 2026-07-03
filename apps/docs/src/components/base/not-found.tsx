@@ -1,5 +1,6 @@
-import { Button, Container, Group, Surface } from "@moto-ui/react";
+import { Button, ButtonGroup, Container, Surface } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
+
 import { Logo } from "./logo";
 
 export function NotFound() {
@@ -11,12 +12,12 @@ export function NotFound() {
 		>
 			<Container maxW="20rem">
 				<Surface
-					delta={1}
+					delta={0}
 					rounded="0"
 					elevated={false}
 				>
 					<Surface.Header align="center">
-						<Logo type="wordmark" />
+						<Logo />
 					</Surface.Header>
 					<Surface.Content
 						mt="20"
@@ -34,28 +35,27 @@ export function NotFound() {
 							textAlign="center"
 							letterSpacing="sm"
 						>
-							The page you’re looking for does not exist. Browse the
+							The page you’re looking for does not exist. Go home or browse the
 							documentation instead.
 						</Surface.Description>
 					</Surface.Content>
 					<Surface.Footer mt="20">
-						<Group
+						<ButtonGroup
 							gap="8"
 							fullWidth
+							colorPalette="neutral"
 						>
 							<Button
 								asChild
-								rounded="16"
+								rounded="12"
 								variant="secondary"
-								colorPalette="neutral"
 							>
 								<Link to="/">Go home</Link>
 							</Button>
 							<Button
 								asChild
-								rounded="16"
+								rounded="12"
 								variant="primary"
-								colorPalette="neutral"
 							>
 								<Link
 									to="/docs/$"
@@ -64,7 +64,7 @@ export function NotFound() {
 									Explore docs
 								</Link>
 							</Button>
-						</Group>
+						</ButtonGroup>
 					</Surface.Footer>
 				</Surface>
 			</Container>

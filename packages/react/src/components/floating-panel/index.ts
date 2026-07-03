@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	FloatingPanelBody,
 	FloatingPanelCloseTrigger,
@@ -97,7 +98,6 @@ export type {
 	UseFloatingPanelProps,
 	UseFloatingPanelReturn,
 } from "@ark-ui/react/floating-panel";
-
 export {
 	useFloatingPanel,
 	useFloatingPanelContext,

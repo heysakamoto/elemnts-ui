@@ -7,7 +7,7 @@
 - - Add `ColorScheme` component with subcomponents for managing light, dark, and system color scheme preferences with optional localStorage persistence
   - Add `SkipNav` component with subcomponents to let keyboard and screen reader users skip repetitive navigation
   - Add `Theme` component with an `appearance` prop (`light`, `dark`) for wrapping content in a specific color scheme
-  - Add `useMediaQuery` hook for tracking CSS media query state in React components
+  - Add `useMediaQuery` hook for tracking CSS media query state in react components
   - Export `useScrollShadow` hook publicly from the ScrollShadow component
   - Rename `tone` variant to `surface` on the `item` and `tag` recipes (affects Item, Tag, Tile, and related components)
   - Update semantic color tokens to use `_light`/`_dark` conditions instead of `base` for improved dark mode handling

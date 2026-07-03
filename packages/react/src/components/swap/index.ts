@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { SwapIndicator, SwapRoot, SwapRootProvider } from "./swap";
 
 export type SwapIndicatorProps = ComponentProps<typeof SwapIndicator>;

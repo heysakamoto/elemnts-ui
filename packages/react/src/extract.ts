@@ -23,6 +23,7 @@ import {
 	comboboxRecipe,
 	containerRecipe,
 	dataListRecipe,
+	dateInputRecipe,
 	datePickerRecipe,
 	decorativeBoxRecipe,
 	dialogRecipe,
@@ -70,6 +71,7 @@ import {
 	selectRecipe,
 	separatorGroupRecipe,
 	separatorRecipe,
+	sidebarRecipe,
 	signaturePadRecipe,
 	skeletonRecipe,
 	skipNavRecipe,
@@ -348,6 +350,11 @@ containerRecipe({ fluid: true });
 dataListRecipe({ orientation: "vertical" });
 dataListRecipe({ orientation: "horizontal" });
 
+// ** DateInput Recipe **
+dateInputRecipe({ variant: "primary" });
+dateInputRecipe({ variant: "secondary" });
+dateInputRecipe({ variant: "tertiary" });
+
 // **  DatePicker Recipe **
 datePickerRecipe();
 
@@ -607,6 +614,9 @@ segmentGroupRecipe({ size: "md", variant: "primary", fullWidth: true });
 // ** Select Recipe **
 selectRecipe();
 
+// ** Sidebar Recipe **
+sidebarRecipe();
+
 // ** Separator Recipe **
 separatorRecipe({ size: "xs", variant: "primary", orientation: "horizontal" });
 separatorRecipe({ size: "sm", variant: "primary", orientation: "horizontal" });
@@ -620,6 +630,7 @@ separatorRecipe({
 });
 separatorRecipe({ size: "xs", variant: "tertiary", orientation: "horizontal" });
 separatorRecipe({ size: "xs", variant: "primary", orientation: "vertical" });
+separatorRecipe({ size: "xs", variant: "ghost", orientation: "vertical" });
 
 // ** SeparatorGroup Recipe **
 separatorGroupRecipe({});
@@ -868,7 +879,8 @@ tileRecipe({
 });
 
 // ** Timeline Recipe **
-timelineRecipe();
+timelineRecipe({ hideLastSeparator: true });
+timelineRecipe({ hideLastSeparator: false });
 
 // ** Timer Recipe **
 timerRecipe();

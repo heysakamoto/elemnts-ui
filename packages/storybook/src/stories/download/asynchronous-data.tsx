@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, Download, Icon } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const data = async () => {
 	const res = await fetch("https://picsum.photos/200/300");

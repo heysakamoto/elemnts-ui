@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { useScrollShadow } from "./client";
 import { ScrollShadow } from "./scroll-shadow";
 

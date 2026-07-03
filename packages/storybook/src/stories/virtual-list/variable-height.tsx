@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, DecorativeBox, VirtualList } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const rowHeights = Array.from({ length: 1000 }).map(
 	() => 25 + Math.round(Math.random() * 100),

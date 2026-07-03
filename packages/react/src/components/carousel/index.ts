@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	CarouselAutoplayIndicator,
 	CarouselAutoplayTrigger,
@@ -81,7 +82,6 @@ export type {
 	UseCarouselProps,
 	UseCarouselReturn,
 } from "@ark-ui/react/carousel";
-
 export { useCarousel, useCarouselContext } from "@ark-ui/react/carousel";
 
 export {

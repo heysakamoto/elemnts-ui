@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, SegmentGroup } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const options = [
 	{ label: "Daily", value: "daily" },

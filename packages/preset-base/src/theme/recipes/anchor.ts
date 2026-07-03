@@ -20,7 +20,7 @@ export const anchorRecipe = defineRecipe({
 			w: "{sizes.full}",
 			position: "absolute",
 			bottom: "{spacing.0}",
-			bg: "{colors.current}",
+			bgColor: "{colors.current}",
 			transition: "opacity 150ms ease-out",
 		},
 

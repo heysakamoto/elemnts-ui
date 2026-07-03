@@ -87,7 +87,7 @@ export const treeViewRecipe = defineSlotRecipe({
 			zIndex: "1",
 			w: "{sizes.1}",
 			position: "absolute",
-			bg: "{colors.stroke.primary}",
+			bgColor: "{colors.stroke.primary}",
 			h: "calc({sizes.full} - (var(--tree-item-height) / 2))",
 
 			"--tree-depth": "calc(var(--depth) - 1)",

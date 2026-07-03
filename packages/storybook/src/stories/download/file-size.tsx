@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, Download, Format } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const data = "anything";
 

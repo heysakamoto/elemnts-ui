@@ -48,6 +48,10 @@ export const checkmarkRecipe = defineRecipe({
 				color: "inherit",
 			},
 		},
+
+		_disabled: {
+			opacity: 0.5,
+		},
 	},
 
 	variants: {

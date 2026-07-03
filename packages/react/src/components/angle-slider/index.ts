@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	AngleSliderContext,
 	AngleSliderControl,
@@ -57,7 +58,6 @@ export type {
 	UseAngleSliderProps,
 	UseAngleSliderReturn,
 } from "@ark-ui/react/angle-slider";
-
 export {
 	useAngleSlider,
 	useAngleSliderContext,

@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Checkbox,
@@ -9,6 +8,8 @@ import {
 	Surface,
 	Text,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const steps = [
 	{

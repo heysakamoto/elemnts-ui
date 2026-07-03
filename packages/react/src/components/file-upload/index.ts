@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	FileUploadClearTrigger,
 	FileUploadContext,
@@ -94,7 +95,6 @@ export type {
 	UseFileUploadProps,
 	UseFileUploadReturn,
 } from "@ark-ui/react/file-upload";
-
 export { useFileUpload, useFileUploadContext } from "@ark-ui/react/file-upload";
 
 export {

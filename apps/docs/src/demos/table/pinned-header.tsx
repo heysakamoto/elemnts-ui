@@ -15,10 +15,11 @@ export function PinnedHeader() {
 			maxW="40rem"
 			h="20rem"
 			overflow="auto"
+			scrollbar="hidden"
 		>
 			<Table.Root pinnedHeader>
 				<Table.Header>
-					<Table.Row bgColor="bg.tertiary">
+					<Table.Row bgColor="surface.4">
 						{columns.map((col) => (
 							<Table.ColumnHeader key={col}>{col}</Table.ColumnHeader>
 						))}

@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	PasswordInputContext,
 	PasswordInputControl,
@@ -58,7 +59,6 @@ export type {
 	UsePasswordInputProps,
 	UsePasswordInputReturn,
 } from "@ark-ui/react/password-input";
-
 export {
 	usePasswordInput,
 	usePasswordInputContext,

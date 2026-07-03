@@ -45,6 +45,10 @@ export const buttonRecipe = defineRecipe({
 			color: "var(--btn-hover-color, var(--btn-color))",
 			bgColor: "color-mix(in oklab, var(--btn-bg) 96%, {colors.fg.primary})",
 		},
+
+		_disabled: {
+			opacity: 0.5,
+		},
 	},
 
 	variants: {

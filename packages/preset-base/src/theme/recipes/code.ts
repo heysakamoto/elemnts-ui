@@ -1,4 +1,5 @@
 import { defineRecipe } from "@pandacss/dev";
+
 import { chipRecipe } from "./chip";
 
 const { base, variants, defaultVariants } = chipRecipe;

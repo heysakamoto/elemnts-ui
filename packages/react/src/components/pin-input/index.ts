@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	PinInputContext,
 	PinInputControl,
@@ -49,7 +50,6 @@ export type {
 	UsePinInputProps,
 	UsePinInputReturn,
 } from "@ark-ui/react/pin-input";
-
 export { usePinInput, usePinInputContext } from "@ark-ui/react/pin-input";
 
 export {

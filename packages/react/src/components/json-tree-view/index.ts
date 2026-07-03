@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	JsonTreeViewRoot,
 	JsonTreeViewRootProvider,
@@ -27,7 +28,6 @@ export type {
 	UseJsonTreeViewProps,
 	UseJsonTreeViewReturn,
 } from "@ark-ui/react/json-tree-view";
-
 export { useJsonTreeView } from "@ark-ui/react/json-tree-view";
 
 export { JsonTreeViewRoot, JsonTreeViewRootProvider, JsonTreeViewTree };

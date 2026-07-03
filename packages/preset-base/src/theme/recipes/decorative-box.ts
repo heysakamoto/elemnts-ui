@@ -13,7 +13,7 @@ export const decorativeBoxRecipe = defineRecipe({
 	variants: {
 		variant: {
 			secondary: {
-				bg: "{colors.bg.tertiary}",
+				bgColor: "{colors.bg.tertiary}",
 				outline: "1px dashed {colors.stroke.primary}",
 			},
 			primary: {
