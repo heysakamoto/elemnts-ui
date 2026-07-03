@@ -36,10 +36,10 @@ export const tourRecipe = defineSlotRecipe({
 			top: "{spacing.0}",
 			left: "{spacing.0}",
 			boxSize: "{sizes.full}",
-			bg: "{colors.white.a50}",
+			bgColor: "{colors.white.a50}",
 			zIndex: "var(--z-index)",
 			backdropFilter: "blur(8px)",
-			_dark: { bg: "{colors.black.a50}" },
+			_dark: { bgColor: "{colors.black.a50}" },
 		},
 		positioner: {
 			display: "flex",

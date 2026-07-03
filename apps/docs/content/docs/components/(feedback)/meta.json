@@ -2,7 +2,6 @@
 	"title": "Feedback",
 	"defaultOpen": false,
 	"pages": [
-		"---feedback---",
 		"alert",
 		"empty-state",
 		"progress",

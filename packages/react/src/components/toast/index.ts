@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	ToastActionTrigger,
 	ToastCloseTrigger,
@@ -55,7 +56,6 @@ export type {
 	ToastStatusChangeDetails,
 	UseToastContext,
 } from "@ark-ui/react/toast";
-
 export { createToaster, useToastContext } from "@ark-ui/react/toast";
 
 export {

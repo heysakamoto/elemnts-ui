@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Checkmark,
 	Container,
@@ -9,6 +8,8 @@ import {
 	Surface,
 	useListboxItemContext,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const collection = createListCollection({
 	items: [

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Icon, Stat } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Indicator",

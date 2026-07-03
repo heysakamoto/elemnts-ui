@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, Progress } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Indeterminate",

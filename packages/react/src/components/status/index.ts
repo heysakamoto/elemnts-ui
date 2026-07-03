@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { StatusIndicator, StatusRoot, StatusText } from "./status";
 
 export type StatusIndicatorProps = ComponentProps<typeof StatusIndicator>;

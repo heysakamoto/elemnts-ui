@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	SwitchContext,
 	SwitchControl,
@@ -44,7 +45,6 @@ export type {
 	UseSwitchProps,
 	UseSwitchReturn,
 } from "@ark-ui/react/switch";
-
 export { useSwitch, useSwitchContext } from "@ark-ui/react/switch";
 
 export {

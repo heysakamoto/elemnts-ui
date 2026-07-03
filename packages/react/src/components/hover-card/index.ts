@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	HoverCardArrow,
 	HoverCardArrowTip,
@@ -52,7 +53,6 @@ export type {
 	UseHoverCardProps,
 	UseHoverCardReturn,
 } from "@ark-ui/react/hover-card";
-
 export { useHoverCard, useHoverCardContext } from "@ark-ui/react/hover-card";
 
 export {

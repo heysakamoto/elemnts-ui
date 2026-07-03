@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	createListCollection,
@@ -6,6 +5,8 @@ import {
 	Listbox,
 	Surface,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const collection = createListCollection({
 	items: [

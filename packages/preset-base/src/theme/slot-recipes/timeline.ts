@@ -18,10 +18,9 @@ export const timelineRecipe = defineSlotRecipe({
 			alignItems: "flex-start",
 			gap: "calc({spacing.4} * 6)",
 			"--timeline-separator-display": "inline-block",
-			"--timeline-content-gap": "calc({spacing.4} * 6)",
+			"--timeline-content-gap": "calc({spacing.4} * 10)",
 			_last: {
 				"--timeline-content-gap": "0",
-				"--timeline-separator-display": "none",
 			},
 		},
 		separator: {
@@ -46,5 +45,19 @@ export const timelineRecipe = defineSlotRecipe({
 			gap: "calc({spacing.4} * 4)",
 			pb: "var(--timeline-content-gap)",
 		},
+	},
+	variants: {
+		hideLastSeparator: {
+			true: {
+				item: {
+					_last: {
+						"--timeline-separator-display": "none",
+					},
+				},
+			},
+		},
+	},
+	defaultVariants: {
+		hideLastSeparator: false,
 	},
 });

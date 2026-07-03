@@ -2,7 +2,7 @@
 
 First off, thank you for taking the time to contribute to Moto UI! 🎉
 
-Moto UI is a high-performance, accessible React component library built on the foundation of [Ark UI](https://ark-ui.com/) and powered by [Panda CSS](https://panda-css.com/). We appreciate your interest in making it even better.
+Moto UI is a high-performance, accessible component library built on the foundation of [Ark UI](https://ark-ui.com/) and powered by [Panda CSS](https://panda-css.com/). We appreciate your interest in making it even better.
 
 This document provides a set of guidelines and standards for contributing to this repository. Following these instructions helps us review and merge your code faster.
 
@@ -12,7 +12,7 @@ This document provides a set of guidelines and standards for contributing to thi
 
 Moto UI is structured as a monorepo using **pnpm workspaces**:
 
-- **[packages/react](packages/react)**: Core React components, built using Ark UI primitives.
+- **[packages/react](packages/react)**: Core react components, built using Ark UI primitives.
 - **[packages/preset-base](packages/preset-base)**: The Panda CSS base preset containing design tokens, recipes, and slot recipes.
 - **[packages/styled-system](packages/styled-system)**: Generated Panda CSS styling system.
 - **[packages/colors](packages/colors)**: Tailored OKLCH colors, mapped from Tailwind CSS v4 color scales.
@@ -41,7 +41,7 @@ Run these commands from the repository root to start development servers:
 
 | Command | Action |
 |---|---|
-| `pnpm --filter @moto-ui/react dev` | Starts compilation of the React package with watch mode |
+| `pnpm --filter @moto-ui/react dev` | Starts compilation of the react package with watch mode |
 | `pnpm --filter @moto-ui/storybook dev` | Starts Storybook local server (usually at `http://localhost:6006`) |
 | `pnpm run --filter @moto-ui/docs dev` | Starts the docs website development server |
 | `pnpm run biome:check` | Run linter and formatter checks using Biome |
@@ -95,9 +95,9 @@ When implementing or modifying components, please adhere strictly to this 7-step
 
 ### 2. React Components
 - **Compound Pattern**: Group subcomponents on the root namespace using `Object.assign` to expose declarative compound APIs.
-- **Ref Forwarding**: Wrap every sub-component using `forwardRef` to ensure that standard React refs work cleanly down to the underlying DOM elements.
+- **Ref Forwarding**: Wrap every sub-component using `forwardRef` to ensure that standard react refs work cleanly down to the underlying DOM elements.
 - **Display Name**: Every component must define a clear `displayName` property corresponding to its exported name.
-- **Import Ordering**: Keep imports clean and sorted: standard React imports, third-party libraries (e.g., Ark UI), local styled-system layers, and local components/hooks/utils.
+- **Import Ordering**: Keep imports clean and sorted: standard react imports, third-party libraries (e.g., Ark UI), local styled-system layers, and local components/hooks/utils.
 
 ### 3. Zero-Runtime Styling
 - All styling must be defined as build-time slot recipes (`defineSlotRecipe`) or recipes (`defineRecipe`) using Panda CSS. Do not use ad-hoc inline styling utilities.

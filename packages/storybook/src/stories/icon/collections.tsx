@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { addCollection, Icon, Stack } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 addCollection({
 	prefix: "logos",

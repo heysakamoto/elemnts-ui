@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Container,
@@ -9,6 +8,8 @@ import {
 	Surface,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"];
 type Size = Dialog["RootProps"]["size"];

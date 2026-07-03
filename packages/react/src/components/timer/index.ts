@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	TimerActionTrigger,
 	TimerArea,
@@ -56,7 +57,6 @@ export type {
 	UseTimerProps,
 	UseTimerReturn,
 } from "@ark-ui/react/timer";
-
 export { useTimer, useTimerContext } from "@ark-ui/react/timer";
 
 export {

@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { KbdItem, KbdItemGroup, KbdItemGroupText, KbdRoot } from "./kbd";
 
 export type KbdRootProps = ComponentProps<typeof KbdRoot>;

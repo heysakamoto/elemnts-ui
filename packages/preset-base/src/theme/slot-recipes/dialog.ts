@@ -35,11 +35,11 @@ export const dialogRecipe = defineSlotRecipe({
 			h: "100dvh",
 			position: "fixed",
 			inset: "{spacing.0}",
-			bg: "{colors.white.a50}",
+			bgColor: "{colors.white.a50}",
 			backdropFilter: "blur(12px)",
 			zIndex: "calc(var(--z-index, 9) + var(--layer-index, 0) - 1)",
 			_dark: {
-				bg: "{colors.black.a50}",
+				bgColor: "{colors.black.a50}",
 			},
 		},
 		description: {

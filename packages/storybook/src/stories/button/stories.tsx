@@ -1,10 +1,11 @@
-import preview from "@.storybook/preview";
 import { Button } from "@moto-ui/react";
+
 import { Basic } from "./basic";
 import { Disabled } from "./disabled";
 import { Icon } from "./icon";
 import { Sizes } from "./sizes";
 import { Variants } from "./variants";
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	tags: ["autodocs"],

@@ -5,6 +5,7 @@ import {
 	separatorRecipe,
 } from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
+
 import { useSeparatorGroupContext } from "./separator-group";
 
 const SeparatorBase = styled(ark.div, separatorRecipe);

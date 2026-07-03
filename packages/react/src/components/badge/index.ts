@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { BadgeIndicator, BadgeRoot } from "./badge";
 
 export type BadgeIndicatorProps = ComponentProps<typeof BadgeIndicator>;

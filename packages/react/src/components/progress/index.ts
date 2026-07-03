@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	ProgressCircle,
 	ProgressCircleRange,
@@ -66,7 +67,6 @@ export type {
 	UseProgressProps,
 	UseProgressReturn,
 } from "@ark-ui/react/progress";
-
 export { useProgress, useProgressContext } from "@ark-ui/react/progress";
 
 export {

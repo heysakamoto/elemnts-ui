@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	DecorativeBox,
@@ -6,6 +5,8 @@ import {
 	Stack,
 	Surface,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "With Surface",

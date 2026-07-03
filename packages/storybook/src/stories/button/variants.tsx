@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	type ButtonProps,
@@ -7,6 +6,8 @@ import {
 	Stack,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Variants",

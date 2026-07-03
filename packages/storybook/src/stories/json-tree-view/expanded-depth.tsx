@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, Icon, JsonTreeView } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const data = {
 	level1: {

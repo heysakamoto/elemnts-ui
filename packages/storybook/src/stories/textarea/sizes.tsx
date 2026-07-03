@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	SegmentGroup,
@@ -7,6 +6,8 @@ import {
 	type TextareaProps,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"];
 type Size = TextareaProps["size"];

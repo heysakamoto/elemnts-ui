@@ -3,8 +3,9 @@ import { createServerFn } from "@tanstack/react-start";
 import browserCollections from "collections/browser";
 import { useFumadocsLoader } from "fumadocs-core/source/client";
 import { Suspense } from "react";
-import { DocsLayout } from "@/components/fumadocs/layouts";
-import { getMDXComponents } from "@/components/fumadocs/mdx";
+
+import { getMDXComponents } from "@/components/mdx";
+import { DocsLayout } from "@/layouts/docs";
 import { source } from "@/lib/source";
 
 export const Route = createFileRoute("/docs/$")({
@@ -21,12 +22,6 @@ export const Route = createFileRoute("/docs/$")({
 			{ title: `${loaderData?.title || "Not Found"} | Moto UI` },
 			{ name: "description", content: loaderData?.description },
 		],
-		links: [
-			{
-				rel: "icon",
-			},
-		],
-		styles: [],
 	}),
 });
 
@@ -36,6 +31,7 @@ const serverLoader = createServerFn({
 	.validator((slugs: string[]) => slugs)
 	.handler(async ({ data: slugs }) => {
 		const page = source.getPage(slugs);
+
 		if (!page) throw notFound();
 
 		return {
@@ -50,11 +46,14 @@ const clientLoader = browserCollections.docs.createClientLoader({
 	component({ toc, frontmatter, default: MDX }, _props: undefined) {
 		return (
 			<DocsLayout.Page toc={toc}>
-				<DocsLayout.Title>{frontmatter.title}</DocsLayout.Title>
-				<DocsLayout.Description>
-					{frontmatter.description}
-				</DocsLayout.Description>
-				<MDX components={getMDXComponents()} />
+				<DocsLayout.PageBody>
+					<DocsLayout.PageTitle>{frontmatter.title}</DocsLayout.PageTitle>
+					<DocsLayout.PageDescription>
+						{frontmatter.description}
+					</DocsLayout.PageDescription>
+					<MDX components={getMDXComponents()} />
+				</DocsLayout.PageBody>
+				<DocsLayout.PageToc />
 			</DocsLayout.Page>
 		);
 	},
@@ -62,11 +61,13 @@ const clientLoader = browserCollections.docs.createClientLoader({
 
 function Page() {
 	const data = useFumadocsLoader(Route.useLoaderData());
-	const content = clientLoader.useContent(data?.path);
+	const content = clientLoader.useContent(data.path);
 
 	return (
 		<DocsLayout pageTree={data.pageTree}>
-			<Suspense fallback={<DocsLayout.Loader />}>{content}</Suspense>
+			<DocsLayout.Header />
+			<DocsLayout.Sidebar />
+			<Suspense>{content}</Suspense>
 		</DocsLayout>
 	);
 }

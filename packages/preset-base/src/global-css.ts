@@ -18,7 +18,6 @@ export const globalCss = defineGlobalStyles({
 
 		// Typography optimizations
 		fontSynthesis: "none",
-		textRendering: "optimizeLegibility",
 	},
 
 	html: {
@@ -34,7 +33,7 @@ export const globalCss = defineGlobalStyles({
 		textAlign: "start",
 		minHeight: "100dvh",
 		letterSpacing: "sm",
-		bg: "{colors.bg.primary}",
+		bgColor: "{colors.bg.primary}",
 		fontSize: "{fontSizes.16}",
 		color: "{colors.fg.primary}",
 		lineHeight: "{lineHeights.md}",
@@ -127,11 +126,10 @@ export const globalCss = defineGlobalStyles({
 		},
 
 	// Disabled styles
-	"[data-disabled], :disabled, [aria-disabled=true]": {
-		opacity: 0.5,
+	":where([data-disabled], :disabled, [aria-disabled=true])": {
 		userSelect: "none",
+		cursor: "not-allowed",
 		pointerEvents: "none",
-		cursor: "not-allowed !important",
 	},
 
 	// Read only styles

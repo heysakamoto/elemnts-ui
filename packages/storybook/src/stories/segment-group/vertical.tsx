@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { SegmentGroup } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const options = [
 	{ label: "Option 1", value: "1" },

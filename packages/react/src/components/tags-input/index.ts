@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	TagsInputClearTrigger,
 	TagsInputContext,
@@ -87,7 +88,6 @@ export type {
 	UseTagsInputProps,
 	UseTagsInputReturn,
 } from "@ark-ui/react/tags-input";
-
 export {
 	useTagsInput,
 	useTagsInputContext,

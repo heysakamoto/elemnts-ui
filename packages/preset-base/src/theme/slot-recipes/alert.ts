@@ -1,4 +1,5 @@
 import { defineSlotRecipe } from "@pandacss/dev";
+
 import { elevatedRecipe } from "../recipes/elevated";
 
 const { base } = elevatedRecipe;

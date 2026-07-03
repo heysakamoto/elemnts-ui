@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	PopoverAnchor,
 	PopoverArrow,
@@ -73,7 +74,6 @@ export type {
 	UsePopoverProps,
 	UsePopoverReturn,
 } from "@ark-ui/react/popover";
-
 export { usePopover, usePopoverContext } from "@ark-ui/react/popover";
 
 export {

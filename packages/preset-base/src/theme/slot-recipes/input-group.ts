@@ -12,12 +12,20 @@ export const inputGroupRecipe = defineSlotRecipe({
 			alignItems: "center",
 			position: "relative",
 			fontSize: "{fontSizes.14}",
-			bg: "var(--input-group-bg)",
+			bgColor: "var(--input-group-bg)",
 			h: "var(--input-group-size)",
 			color: "var(--colors-system-fg)",
 			shadow: "var(--input-group-shadow, none)",
 			rounded: "var(--input-group-radii, {radii.12})",
 			borderColor: "var(--input-group-border-color, {colors.transparent})",
+
+			_disabled: {
+				filter: "grayscale(100%)",
+			},
+
+			"& * input": {
+				_disabled: {},
+			},
 
 			_vertical: {
 				flexDirection: "column",

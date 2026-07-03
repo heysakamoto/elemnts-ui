@@ -25,6 +25,11 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			_horizontal: {
 				flexDirection: "row",
 			},
+
+			_disabled: {
+				opacity: 0.5,
+				filter: "grayscale(100%)",
+			},
 		},
 
 		item: {
@@ -36,7 +41,7 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			alignItems: "center",
 			display: "inline-flex",
 			justifyContent: "center",
-			color: "{colors.fg.secondary}",
+			color: "{colors.fg.tertiary}",
 			lineHeight: "{lineHeights.none}",
 			rounded: "var(--sg-border-radius)",
 			transition: "color 100ms ease-in-out",

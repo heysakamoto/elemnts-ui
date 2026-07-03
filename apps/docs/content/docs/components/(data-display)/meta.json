@@ -2,7 +2,6 @@
 	"title": "Data Display",
 	"defaultOpen": false,
 	"pages": [
-		"---data-display---",
 		"avatar",
 		"badge",
 		"breadcrumb",

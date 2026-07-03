@@ -21,14 +21,14 @@ export const skeletonRecipe = defineRecipe({
 			},
 			shimmer: {
 				position: "relative",
-				bg: "{colors.bg.secondary}",
+				bgColor: "{colors.bg.secondary}",
 				_after: {
 					content: "''",
 					inset: "{spacing.0}",
 					position: "absolute",
 					translate: "-100% 0%",
 					animation: "2s linear infinite shine",
-					bg: `linear-gradient(to right in oklab, transparent 0%, color-mix(in oklab, {colors.bg.secondary}, {colors.fg.primary} 6%) 50%, transparent 100%)`,
+					bgColor: `linear-gradient(to right in oklab, transparent 0%, color-mix(in oklab, {colors.bg.secondary}, {colors.fg.primary} 6%) 50%, transparent 100%)`,
 				},
 			},
 		},

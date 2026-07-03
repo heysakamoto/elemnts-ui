@@ -2,7 +2,6 @@
 	"icon": "",
 	"defaultOpen": false,
 	"pages": [
-		"---overlays---",
 		"dialog",
 		"floating-panel",
 		"hover-card",

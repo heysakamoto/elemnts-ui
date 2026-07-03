@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	AccordionContext,
 	AccordionItem,
@@ -64,7 +65,6 @@ export type {
 	UseAccordionProps,
 	UseAccordionReturn,
 } from "@ark-ui/react/accordion";
-
 export {
 	useAccordion,
 	useAccordionContext,

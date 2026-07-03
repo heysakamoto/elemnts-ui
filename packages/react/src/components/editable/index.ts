@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	EditableArea,
 	EditableCancelTrigger,
@@ -69,7 +70,6 @@ export type {
 	UseEditableProps,
 	UseEditableReturn,
 } from "@ark-ui/react/editable";
-
 export { useEditable, useEditableContext } from "@ark-ui/react/editable";
 
 export {

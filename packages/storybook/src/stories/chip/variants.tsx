@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Chip,
 	type ChipProps,
@@ -7,6 +6,8 @@ import {
 	Stack,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const variants = ["primary", "secondary", "tertiary"];
 type Variant = ChipProps["variant"];

@@ -118,6 +118,7 @@ function SponsorRoot({ children }: PropsWithChildren) {
 										return (
 											<ToggleGroup.Item
 												asChild
+												w="full"
 												key={option.id}
 												value={option.id}
 											>
@@ -127,8 +128,8 @@ function SponsorRoot({ children }: PropsWithChildren) {
 													align="start"
 													variant="secondary"
 													selected={selected}
-													disabled={option.disabled}
 													orientation="horizontal"
+													disabled={option.disabled}
 												>
 													<Tile.Addon flexShrink="0">
 														<Icon

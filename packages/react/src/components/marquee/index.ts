@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	MarqueeContent,
 	MarqueeContext,
@@ -46,7 +47,6 @@ export type {
 	UseMarqueeProps,
 	UseMarqueeReturn,
 } from "@ark-ui/react/marquee";
-
 export { useMarquee, useMarqueeContext } from "@ark-ui/react/marquee";
 
 export {

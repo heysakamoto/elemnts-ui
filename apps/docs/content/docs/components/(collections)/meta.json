@@ -1,5 +1,5 @@
 {
 	"title": "Collections",
 	"defaultOpen": false,
-	"pages": ["---collections---", "combobox", "listbox", "select", "tree-view"]
+	"pages": ["combobox", "listbox", "select", "tree-view"]
 }

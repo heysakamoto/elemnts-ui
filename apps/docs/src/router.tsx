@@ -1,19 +1,23 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { type QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import type { PropsWithChildren } from "react";
+
+import { getQueryClient } from "./lib/query-client";
 import { routeTree } from "./routeTree.gen";
 
-const queryClient = new QueryClient();
+type ComponentProps = PropsWithChildren<{
+	queryClient: QueryClient;
+}>;
 
-type ComponentProps = PropsWithChildren;
-function Component(props: ComponentProps) {
-	const { children } = props;
+function Component({ children, queryClient }: ComponentProps) {
 	return (
 		<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 	);
 }
 
 export function getRouter() {
+	const queryClient = getQueryClient();
+
 	const router = createTanStackRouter({
 		routeTree,
 		context: { queryClient },
@@ -21,7 +25,9 @@ export function getRouter() {
 		trailingSlash: "never",
 		defaultPreload: "intent",
 		defaultPreloadStaleTime: 0,
-		Wrap: Component,
+		Wrap: ({ children }) => (
+			<Component queryClient={queryClient}>{children}</Component>
+		),
 	});
 
 	return router;

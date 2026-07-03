@@ -1,15 +1,16 @@
 import { createHighlighterCore } from "shiki/core";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
+import bash from "shiki/langs/bash.mjs";
+import ts from "shiki/langs/ts.mjs";
 import tsx from "shiki/langs/tsx.mjs";
-
-import githubDark from "shiki/themes/github-dark.mjs";
-import githubLight from "shiki/themes/github-light.mjs";
+import darkTheme from "shiki/themes/github-dark.mjs";
+import lightTheme from "shiki/themes/github-light.mjs";
 
 const jsEngine = createJavaScriptRegexEngine();
 
 const highlighterInstance = createHighlighterCore({
-	themes: [githubDark, githubLight],
-	langs: [tsx],
+	themes: [darkTheme, lightTheme],
+	langs: [ts, tsx, bash],
 	engine: jsEngine,
 });
 

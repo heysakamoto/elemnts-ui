@@ -11,7 +11,7 @@ export const lineHeights = defineTokens.lineHeights({
 		value: 1.4,
 	},
 	md: {
-		value: 1.6,
+		value: 1.625,
 	},
 	lg: {
 		value: 1.8,

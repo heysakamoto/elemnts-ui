@@ -1,5 +1,5 @@
 {
 	"title": "Colors",
 	"defaultOpen": false,
-	"pages": ["---colors---", "color-picker"]
+	"pages": ["color-picker"]
 }

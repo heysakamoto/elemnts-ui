@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Icon, Item, ToggleGroup } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Controlled",

@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Container,
@@ -9,6 +8,8 @@ import {
 	Surface,
 } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const placements = ["top", "center", "bottom"];
 type Placement = Dialog["RootProps"]["placement"];

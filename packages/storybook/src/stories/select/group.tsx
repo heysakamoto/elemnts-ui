@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	createListCollection,
@@ -9,6 +8,8 @@ import {
 	Select,
 	Surface,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const fruits = createListCollection({
 	items: [

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { css, WheelPicker } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const options = [
 	{ label: "January", value: "jan" },

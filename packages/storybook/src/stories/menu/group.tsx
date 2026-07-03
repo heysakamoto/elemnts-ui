@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Icon, Item, Menu, Separator, Surface } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const groups = {
 	account: [

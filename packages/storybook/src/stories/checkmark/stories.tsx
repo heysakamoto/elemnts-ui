@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Checkmark } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 export const meta = preview.meta({
 	tags: ["autodocs"],

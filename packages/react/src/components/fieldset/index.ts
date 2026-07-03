@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	FieldsetContext,
 	FieldsetErrorText,
@@ -41,7 +42,6 @@ export type {
 	UseFieldsetProps,
 	UseFieldsetReturn,
 } from "@ark-ui/react/fieldset";
-
 export { useFieldset, useFieldsetContext } from "@ark-ui/react/fieldset";
 
 export {

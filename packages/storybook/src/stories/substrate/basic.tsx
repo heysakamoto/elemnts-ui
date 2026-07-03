@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Container,
 	Elevated,
@@ -7,6 +6,8 @@ import {
 	Text,
 	useSubstrate,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Basic",

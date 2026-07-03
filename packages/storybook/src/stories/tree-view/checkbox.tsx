@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Checkmark,
 	Container,
@@ -8,6 +7,8 @@ import {
 	TreeView,
 	useTreeViewNodeContext,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 type Node = {
 	id: string;

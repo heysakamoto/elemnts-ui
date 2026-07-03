@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, Portal, Surface, Tooltip } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Interactive",

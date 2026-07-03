@@ -1,10 +1,10 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-		"rootDir": "src",
+		"rootDir": "../preset-base/colors/src",
 		"declaration": true,
-		"outDir": "dist/types",
+		"outDir": "../preset-base/colors/dist/types",
 		"emitDeclarationOnly": true
 	},
-	"include": ["src"]
+	"include": ["../preset-base/colors/src"]
 }

@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	ColorPicker,
 	Portal,
@@ -7,6 +6,8 @@ import {
 	Surface,
 	Swatch,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Basic",

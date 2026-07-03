@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, Stack, Icon as Svg } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Icon",

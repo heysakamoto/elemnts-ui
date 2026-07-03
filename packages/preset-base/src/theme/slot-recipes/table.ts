@@ -53,7 +53,7 @@ export const tableRecipe = defineSlotRecipe({
 				body: {
 					"& tr": {
 						_hover: {
-							bg: "{colors.colorPalette.secondary}",
+							bgColor: "{colors.colorPalette.secondary}",
 						},
 					},
 				},
@@ -118,7 +118,7 @@ export const tableRecipe = defineSlotRecipe({
 					borderBottomWidth: "1px",
 				},
 				header: {
-					bg: "{colors.bg.secondary}",
+					bgColor: "{colors.bg.secondary}",
 				},
 				row: {
 					"&:not(:last-of-type)": {

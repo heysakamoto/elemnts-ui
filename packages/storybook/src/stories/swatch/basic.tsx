@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Stack, Swatch } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Basic",

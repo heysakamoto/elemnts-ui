@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	ButtonGroup,
@@ -6,6 +5,8 @@ import {
 	Portal,
 	Surface,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 import { Component as StepsBasic } from "../steps/basic";
 
 const meta = preview.meta({

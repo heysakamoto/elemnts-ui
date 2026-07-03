@@ -1,13 +1,15 @@
+import { ColorScheme } from "@moto-ui/react";
 import type { QueryClient } from "@tanstack/react-query";
 import {
 	createRootRouteWithContext,
 	HeadContent,
 	Scripts,
 } from "@tanstack/react-router";
+
 import { NotFound } from "@/components/base/not-found";
 import css from "../styles.css?url";
 
-const baseUrl = import.meta.env.VITE_URL || "https://motoui.com";
+const baseUrl = import.meta.env.VITE_URL || "https://moto-ui.com";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 	{
@@ -27,17 +29,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				{
 					name: "description",
 					content:
-						"Moto UI is a high-performance, accessible React component library engineered for speed and scalability.",
+						"Moto UI is a high-performance, accessible component library engineered for speed and scalability.",
 				},
 				//--- Open Graph Tags
 				{
 					property: "og:title",
-					content: "Moto UI | High-Performance, Accessible React Components",
+					content: "Moto UI | High-Performance, Accessible Components",
 				},
 				{
 					property: "og:description",
 					content:
-						"Moto UI is a high-performance, accessible React component library engineered for speed and scalability, built on Ark UI and Panda CSS.",
+						"Moto UI is a high-performance, accessible component library engineered for speed and scalability, built on Ark UI and Panda CSS.",
 				},
 				{
 					property: "og:type",
@@ -45,7 +47,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				},
 				{
 					property: "og:image",
-					content: `${baseUrl}/og-image.png`,
+					content: `${baseUrl}/posters/og-image.png`,
 				},
 				// --- Twitter Card Tags
 				{
@@ -54,7 +56,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				},
 				{
 					name: "twitter:image",
-					content: `${baseUrl}/og-image.png`,
+					content: `${baseUrl}/posters/og-image.png`,
 				},
 			],
 			links: [
@@ -64,15 +66,44 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				},
 				{
 					rel: "icon",
-					type: "image/png",
-					href: "/favicon/light.png",
+					type: "image/svg+xml",
+					href: "/logo/favicon-light.svg",
 					media: "(prefers-color-scheme: light)",
 				},
 				{
 					rel: "icon",
-					type: "image/png",
-					href: "/favicon/dark.png",
+					type: "image/svg+xml",
+					href: "/logo/favicon-dark.svg",
 					media: "(prefers-color-scheme: dark)",
+				},
+				// --- Font preloads
+				{
+					as: "font",
+					rel: "preload",
+					type: "font/woff2",
+					crossOrigin: "anonymous",
+					href: "/fonts/instrumentserif-regular.woff2",
+				},
+				{
+					as: "font",
+					rel: "preload",
+					type: "font/woff2",
+					crossOrigin: "anonymous",
+					href: "/fonts/inter-regular.woff2",
+				},
+				{
+					as: "font",
+					rel: "preload",
+					type: "font/woff2",
+					crossOrigin: "anonymous",
+					href: "/fonts/inter-medium.woff2",
+				},
+				{
+					as: "font",
+					rel: "preload",
+					type: "font/woff2",
+					crossOrigin: "anonymous",
+					href: "/fonts/jetbrainsmono-regular.woff2",
 				},
 			],
 		}),
@@ -90,34 +121,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				{children}
+				<ColorScheme>{children}</ColorScheme>
 				<Scripts />
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-              (function () {
-                const STORAGE_KEY = "theme";
-
-                const saved = localStorage.getItem(STORAGE_KEY);
-
-                const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "dark"
-                  : "light";
-
-                const theme =
-                  saved === "system" || !saved
-                    ? systemTheme
-                    : saved;
-
-                const root = document.documentElement;
-
-                root.classList.remove("light", "dark");
-
-                root.classList.add(theme === "dark" ? "dark" : "light");
-              })();
-            `,
-					}}
-				/>
 			</body>
 		</html>
 	);

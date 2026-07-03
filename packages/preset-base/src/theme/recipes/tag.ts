@@ -26,7 +26,8 @@ export const tagRecipe = defineRecipe({
 
 		_hover: {
 			color: "var(--tag-color-selected)",
-			bg: "color-mix(in oklab, var(--tag-bg-selected), 10% {colors.transparent})",
+			bgColor:
+				"color-mix(in oklab, var(--tag-bg-selected), 10% {colors.transparent})",
 		},
 
 		_focusVisible: {

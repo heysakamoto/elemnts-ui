@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, Progress, Stack } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "With Label",

@@ -11,7 +11,7 @@ export const statusRecipe = defineSlotRecipe({
 		},
 		indicator: {
 			rounded: "full",
-			bg: "{colors.colorPalette.primary}",
+			bgColor: "{colors.colorPalette.primary}",
 		},
 		text: {
 			fontSize: "14",

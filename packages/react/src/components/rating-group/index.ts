@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	RatingGroupContext,
 	RatingGroupControl,
@@ -62,7 +63,6 @@ export type {
 	UseRatingGroupProps,
 	UseRatingGroupReturn,
 } from "@ark-ui/react/rating-group";
-
 export {
 	useRatingGroup,
 	useRatingGroupContext,

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Checkbox, Icon } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const interests = [
 	{ label: "Coding", value: "coding" },

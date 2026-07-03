@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Container,
@@ -9,6 +8,8 @@ import {
 	Text,
 	Tile,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "Dropzone",

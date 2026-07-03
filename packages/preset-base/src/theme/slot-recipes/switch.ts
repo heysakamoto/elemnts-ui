@@ -22,7 +22,7 @@ export const switchRecipe = defineSlotRecipe({
 			alignItems: "center",
 			display: "inline-flex",
 			justifyContent: "start",
-			bg: "{colors.bg.secondary}",
+			bgColor: "{colors.bg.secondary}",
 			h: "var(--control-height)",
 			w: "var(--switch-control-width)",
 			transition: `
@@ -30,7 +30,11 @@ export const switchRecipe = defineSlotRecipe({
       transform 200ms ease-in-out`,
 
 			_checked: {
-				bg: "{colors.colorPalette.primary}",
+				bgColor: "{colors.colorPalette.primary}",
+			},
+
+			_disabled: {
+				opacity: "0.5",
 			},
 
 			_active: {
@@ -39,8 +43,8 @@ export const switchRecipe = defineSlotRecipe({
 		},
 		thumb: {
 			rounded: "full",
-			bg: "{colors.white}",
 			display: "inline-block",
+			bgColor: "{colors.white}",
 			w: "var(--switch-thumb-width)",
 			h: "var(--switch-thumb-height)",
 			marginInlineStart: "{sizes.2}",
@@ -56,7 +60,7 @@ export const switchRecipe = defineSlotRecipe({
 			},
 
 			_checked: {
-				bg: "{colors.white}",
+				bgColor: "{colors.colorPalette.tertiary}",
 				marginInlineStart:
 					"calc(var(--switch-control-width) - var(--switch-thumb-width) - 2px)",
 			},

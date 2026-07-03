@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	PaginationContext,
 	PaginationEllipsis,
@@ -65,7 +66,6 @@ export type {
 	UsePaginationProps,
 	UsePaginationReturn,
 } from "@ark-ui/react/pagination";
-
 export { usePagination, usePaginationContext } from "@ark-ui/react/pagination";
 
 export {

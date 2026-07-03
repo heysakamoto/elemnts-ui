@@ -34,11 +34,11 @@ export const progressRecipe = defineSlotRecipe({
 			w: "{sizes.full}",
 			overflow: "hidden",
 			rounded: "{radii.full}",
-			bg: "{colors.bg.secondary}",
+			bgColor: "{colors.bg.secondary}",
 		},
 		range: {
 			h: "{sizes.full}",
-			bg: "{colors.colorPalette.primary}",
+			bgColor: "{colors.colorPalette.primary}",
 			transition: "width 0.2s ease-in-out",
 			_indeterminate: {
 				w: "{sizes.full}",

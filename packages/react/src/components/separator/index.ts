@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { Separator } from "./separator";
 import { SeparatorGroupCaption, SeparatorGroupRoot } from "./separator-group";
 

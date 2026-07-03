@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Carousel,
@@ -6,6 +5,8 @@ import {
 	DecorativeBox,
 	Icon,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const items = Array.from({ length: 5 });
 

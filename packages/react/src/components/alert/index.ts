@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	AlertContent,
 	AlertControl,
@@ -39,7 +40,6 @@ export type {
 	UseCollapsibleProps as UseAlertProps,
 	UseCollapsibleReturn as UseAlertReturn,
 } from "@ark-ui/react/collapsible";
-
 export {
 	useCollapsible as useAlert,
 	useCollapsibleContext as useAlertContext,

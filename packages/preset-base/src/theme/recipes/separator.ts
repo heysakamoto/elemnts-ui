@@ -47,6 +47,9 @@ export const separatorRecipe = defineRecipe({
 			tertiary: {
 				bgColor: "{colors.stroke.tertiary}",
 			},
+			ghost: {
+				bgColor: "{colors.transparent}",
+			},
 		},
 	},
 	defaultVariants: {

@@ -1,6 +1,6 @@
 # 🏎️ Moto UI
 
-**Moto UI** is a high-performance, accessible React component library engineered for speed and scalability. Built on the foundation of [Ark UI](https://ark-ui.com/) and powered by [Panda CSS](https://panda-css.com/), it provides a robust toolkit for building modern, themeable design systems.
+**Moto UI** is a high-performance, accessible component library engineered for speed and scalability. Built on the foundation of [Ark UI](https://ark-ui.com/) and powered by [Panda CSS](https://panda-css.com/), it provides a robust toolkit for building modern, themeable design systems.
 
 ---
 

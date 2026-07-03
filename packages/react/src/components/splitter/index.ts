@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	SplitterContext,
 	SplitterPanel,
@@ -54,7 +55,6 @@ export type {
 	UseSplitterProps,
 	UseSplitterReturn,
 } from "@ark-ui/react/splitter";
-
 export { useSplitter, useSplitterContext } from "@ark-ui/react/splitter";
 
 export {

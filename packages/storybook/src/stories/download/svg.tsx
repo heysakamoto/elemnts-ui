@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, Download } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const data = `
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">

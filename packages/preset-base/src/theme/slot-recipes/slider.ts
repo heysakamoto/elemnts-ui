@@ -47,7 +47,7 @@ export const sliderRecipe = defineSlotRecipe({
 		track: {
 			rounded: "full",
 			overflow: "clip",
-			bg: "{colors.bg.secondary}",
+			bgColor: "{colors.bg.secondary}",
 			transition: "scale 200ms ease-in-out",
 
 			_vertical: {
@@ -61,7 +61,7 @@ export const sliderRecipe = defineSlotRecipe({
 			},
 		},
 		range: {
-			bg: "var(--slider-bg)",
+			bgColor: "var(--slider-bg)",
 			alignItems: "center",
 			rounded: "{radii.full}",
 			display: "inline-flex",
@@ -138,12 +138,12 @@ export const sliderRecipe = defineSlotRecipe({
 			_before: {
 				content: "''",
 				rounded: "{radii.full}",
-				bg: "{colors.bg.indicator}",
+				bgColor: "{colors.bg.indicator}",
 			},
 
 			"&[data-state=under-value]": {
 				_before: {
-					bg: "{colors.colorPalette.tertiary}",
+					bgColor: "{colors.colorPalette.tertiary}",
 				},
 			},
 		},

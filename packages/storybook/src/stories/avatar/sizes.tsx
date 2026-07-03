@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Avatar, Container, SegmentGroup, Stack } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const sizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
 type Size = (typeof sizes)[number];

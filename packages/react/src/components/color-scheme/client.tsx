@@ -69,9 +69,23 @@ export function useColorScheme(props?: UseColorSchemeProps) {
 		return () => mediaQuery.removeEventListener("change", handleChange);
 	}, [activeScheme]);
 
+	function toggleColorScheme() {
+		setColorScheme((prev) => {
+			if (prev === "light") return "dark";
+			if (prev === "dark") return "light";
+
+			if (typeof window === "undefined") return "light";
+
+			return window.matchMedia("(prefers-color-scheme: dark)").matches
+				? "light"
+				: "dark";
+		});
+	}
+
 	return {
-		setColorScheme,
+		toggleColorScheme,
 		colorScheme: activeScheme,
+		onColorSchemeChange: setColorScheme,
 	};
 }
 

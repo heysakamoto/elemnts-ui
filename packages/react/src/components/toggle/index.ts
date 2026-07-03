@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { ToggleContext, ToggleIndicator, ToggleRoot } from "./toggle";
 
 export type ToggleContextProps = ComponentProps<typeof ToggleContext>;
@@ -23,7 +24,6 @@ export type {
 	UseToggleProps,
 	UseToggleReturn,
 } from "@ark-ui/react/toggle";
-
 export { useToggle, useToggleContext } from "@ark-ui/react/toggle";
 
 export { ToggleContext, ToggleIndicator, ToggleRoot };

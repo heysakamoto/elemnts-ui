@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { Locale } from "./locale";
 
 export type LocaleProps = ComponentProps<typeof Locale>;

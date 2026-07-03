@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Button, Download } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const data = "The brown fox jumps over the lazy dog.";
 

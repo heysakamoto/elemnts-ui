@@ -1,7 +1,8 @@
-import { ark } from "@ark-ui/react";
+import { ark, type HTMLArkProps } from "@ark-ui/react";
 import { cx } from "@moto-ui/styled-system/css";
 import { type HTMLStyledProps, styled } from "@moto-ui/styled-system/jsx";
-import { forwardRef, type PropsWithChildren } from "react";
+import { forwardRef, type PropsWithChildren, type ReactNode } from "react";
+
 import {
 	type ColorSchemeContextValue,
 	ColorSchemeRootProvider,
@@ -9,6 +10,7 @@ import {
 	useColorScheme,
 	useColorSchemeContext,
 } from "./client";
+import { Show } from "../show";
 
 type ColorSchemeRootProps = PropsWithChildren<UseColorSchemeProps>;
 
@@ -81,3 +83,36 @@ export const ColorSchemeContext = (props: ColorSchemeContextProps) => {
 	return typeof children === "function" ? children(ctx) : children;
 };
 ColorSchemeContext.displayName = "ColorSchemeContext";
+
+type ColorSchemeTriggerProps = HTMLArkProps<"button"> & {
+	fallback?: ReactNode;
+};
+export const ColorSchemeTrigger = forwardRef<
+	HTMLButtonElement,
+	ColorSchemeTriggerProps
+>((props, ref) => {
+	const { children, fallback, onClick, ...restProps } = props;
+	const { toggleColorScheme, colorScheme } = useColorSchemeContext();
+
+	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		// e.preventDefault();
+		toggleColorScheme();
+		onClick?.(e);
+	};
+
+	return (
+		<ark.button
+			ref={ref}
+			{...restProps}
+			onClick={handleClick}
+		>
+			<Show
+				fallback={fallback}
+				when={colorScheme === "light"}
+			>
+				{children}
+			</Show>
+		</ark.button>
+	);
+});
+ColorSchemeTrigger.displayName = "ColorSchemeTrigger";

@@ -1,5 +1,6 @@
-import preview from "@.storybook/preview";
 import { Container, Tabs, Text } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const tabs = [
 	{

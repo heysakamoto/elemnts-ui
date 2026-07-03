@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Clipboard,
@@ -7,6 +6,8 @@ import {
 	Icon,
 	Input,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "With Input",

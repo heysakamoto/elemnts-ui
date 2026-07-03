@@ -45,7 +45,7 @@ When using Moto UI in your project:
 
 1. **Keep dependencies updated** — Regularly run `pnpm outdated` and apply patch/minor updates.
 2. **Review supply chain security** — Use `pnpm audit` to check for known vulnerabilities in your dependency tree.
-3. **Validate user input** — Moto UI components render standard React elements; always sanitize user-provided content (e.g., via `children` or `dangerouslySetInnerHTML`) before passing it to any component.
+3. **Validate user input** — Moto UI components render standard react elements; always sanitize user-provided content (e.g., via `children` or `dangerouslySetInnerHTML`) before passing it to any component.
 4. **Use Subresource Integrity** — If loading Moto UI from a CDN, include integrity hashes on script tags.
 
 ---

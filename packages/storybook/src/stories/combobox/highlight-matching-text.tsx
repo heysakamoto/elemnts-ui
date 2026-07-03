@@ -1,4 +1,3 @@
-import preview from "@.storybook/preview";
 import {
 	Button,
 	Combobox,
@@ -13,6 +12,8 @@ import {
 	useFilter,
 	useListCollection,
 } from "@moto-ui/react";
+
+import preview from "@.storybook/preview";
 
 const items = [
 	{

@@ -35,7 +35,7 @@ export const tabsRecipe = defineSlotRecipe({
 			display: "inline-flex",
 			justifyContent: "center",
 			rounded: "var(--tabs-radius)",
-			color: "{colors.fg.secondary}",
+			color: "{colors.fg.tertiary}",
 			lineHeight: "{lineHeights.none}",
 			fontSize: "var(--tabs-font-size)",
 			px: "calc(var(--tabs-size) * 0.4)",
@@ -49,6 +49,11 @@ export const tabsRecipe = defineSlotRecipe({
 
 			_selected: {
 				color: "var(--tabs-color, {colors.fg.primary})",
+			},
+
+			_disabled: {
+				opacity: 0.5,
+				filter: "grayscale(100%)",
 			},
 		},
 		indicator: {

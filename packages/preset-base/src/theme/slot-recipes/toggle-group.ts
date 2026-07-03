@@ -1,4 +1,5 @@
 import { defineSlotRecipe } from "@pandacss/dev";
+
 import { buttonGroupRecipe } from "./button-group";
 
 const { base, variants, compoundVariants, defaultVariants } = buttonGroupRecipe;

@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Download } from "@moto-ui/react";
 import type { Meta } from "@storybook/react";
+
+import preview from "@.storybook/preview";
 
 const meta: Meta<typeof Download> = preview.meta({
 	tags: ["autodocs"],

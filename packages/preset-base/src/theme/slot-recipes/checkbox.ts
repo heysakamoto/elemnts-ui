@@ -10,6 +10,11 @@ export const checkboxRecipe = defineSlotRecipe({
 			display: "inline-flex",
 			justifyContent: "start",
 
+			_disabled: {
+				opacity: "0.5",
+				filter: "grayscale(100%)",
+			},
+
 			_focusVisible: {
 				shadow: "none",
 				outline: "none",

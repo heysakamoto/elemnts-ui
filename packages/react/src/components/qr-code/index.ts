@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	QrCodeContext,
 	QrCodeDownloadTrigger,
@@ -45,7 +46,6 @@ export type {
 	UseQrCodeProps,
 	UseQrCodeReturn,
 } from "@ark-ui/react/qr-code";
-
 export { useQrCode, useQrCodeContext } from "@ark-ui/react/qr-code";
 
 export {

@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import {
 	TooltipArrow,
 	TooltipArrowTip,
@@ -49,7 +50,6 @@ export type {
 	UseTooltipProps,
 	UseTooltipReturn,
 } from "@ark-ui/react/tooltip";
-
 export { useTooltip, useTooltipContext } from "@ark-ui/react/tooltip";
 
 export {

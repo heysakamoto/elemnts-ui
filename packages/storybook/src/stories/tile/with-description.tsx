@@ -1,6 +1,7 @@
-import preview from "@.storybook/preview";
 import { Checkmark, Icon, Tile } from "@moto-ui/react";
 import { useState } from "react";
+
+import preview from "@.storybook/preview";
 
 const meta = preview.meta({
 	title: "With Description",

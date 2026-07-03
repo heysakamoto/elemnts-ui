@@ -1,5 +1,5 @@
 ---
-status: new
+status: updated
 title: ColorScheme
 description: A utility component for managing color scheme preferences with support for light, dark, and system modes.
 ---
@@ -22,8 +22,8 @@ function App() {
 }
 
 function Content() {
-  const { colorScheme, setColorScheme } = useColorSchemeContext()
-  return <button onClick={() => setColorScheme("dark")}>Switch to dark</button>
+  const { colorScheme, onColorSchemeChange } = useColorSchemeContext()
+  return <button onClick={() => onColorSchemeChange("dark")}>Switch to dark</button>
 }
 ```
 
@@ -68,8 +68,8 @@ The `ColorScheme` namespace exposes three subcomponents:
 
 | Hook | Returns | Description |
 | :--- | :--- | :--- |
-| `useColorScheme` | `{ colorScheme, setColorScheme }` | Creates a new color scheme instance with the given options. |
-| `useColorSchemeContext` | `{ colorScheme, setColorScheme }` | Reads the current color scheme context. Throws if used outside a provider. |
+| `useColorScheme` | `{ colorScheme, onColorSchemeChange }` | Creates a new color scheme instance with the given options. |
+| `useColorSchemeContext` | `{ colorScheme, onColorSchemeChange }` | Reads the current color scheme context. Throws if used outside a provider. |
 | `useColorSchemeValue` | `"light" \| "dark"` | Returns the active resolved color scheme value. |
 
 ## Accessibility

@@ -6,7 +6,7 @@ export const markRecipe = defineRecipe({
 		zIndex: "0",
 		position: "relative",
 		whiteSpace: "nowrap",
-		bg: "{colors.transparent}",
+		bgColor: "{colors.transparent}",
 		px: "calc({spacing.2} * 1)",
 
 		_before: {

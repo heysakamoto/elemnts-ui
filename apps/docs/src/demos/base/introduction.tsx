@@ -6,7 +6,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					icon="tabler:device-gamepad-2"
@@ -23,7 +23,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -40,7 +40,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -57,7 +57,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -74,7 +74,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -91,7 +91,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -108,7 +108,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -125,12 +125,12 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
 					height={18}
-					icon="tabler:hiking"
+					icon="tabler:mountain"
 				/>{" "}
 				Hiking
 			</Stack>
@@ -142,7 +142,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}
@@ -159,7 +159,7 @@ const options = [
 			<Stack
 				direction="row"
 				align="center"
-				gap="2"
+				gap="8"
 			>
 				<Icon
 					width={18}

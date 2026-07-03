@@ -36,6 +36,10 @@ export const tileRecipe = defineSlotRecipe({
 				},
 			},
 
+			_disabled: {
+				opacity: 0.5,
+			},
+
 			"& > svg": {
 				color: "{colors.icon.secondary}",
 			},
