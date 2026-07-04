@@ -1,5 +1,21 @@
 # @moto-ui/preset-base
 
+## 0.0.11
+
+### Patch Changes
+
+- ## Release summary
+
+  ### Features
+  - Added DateInput component
+
+  ### Improvements
+  - Update ColorScheme hook useColorSchemeContext
+  - Update semantic colors to use base conditions instead of \_light
+
+  ### Bug Fixes
+  - Fixed broken recipes and slot recipes styles generation
+
 ## 0.0.10
 
 ### Patch Changes
