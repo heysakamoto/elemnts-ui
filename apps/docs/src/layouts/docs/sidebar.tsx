@@ -5,7 +5,6 @@ import {
 	For,
 	Icon,
 	List,
-	ScrollShadow,
 	Section,
 	Separator,
 	Sidebar,
@@ -21,6 +20,7 @@ export function DocsLayoutSidebar() {
 		<Sidebar.Root
 			top="56px"
 			as="aside"
+			display="flex"
 			hideBelow="md"
 			position="sticky"
 			direction="column"
@@ -69,13 +69,14 @@ export function DocsLayoutSidebar() {
 				</List>
 			</Sidebar.Header>
 			<Separator orientation="horizontal" />
-			<Sidebar.Content as="nav">
-				<ScrollShadow
-					p="12"
-					h="49rem"
-				>
-					<DocsLayoutTree />
-				</ScrollShadow>
+			<Sidebar.Content
+				as="nav"
+				p="12"
+				flexGrow="1"
+				overflow="scroll"
+				scrollbar="hidden"
+			>
+				<DocsLayoutTree />
 			</Sidebar.Content>
 			<Separator orientation="horizontal" />
 			<Sidebar.Footer>
