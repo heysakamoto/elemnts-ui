@@ -31,8 +31,8 @@ export function useSearch() {
 	const [open, setOpen] = useState(false);
 	const navigate = useNavigate();
 	const { search, setSearch, query } = useDocsSearch({
-		type: "fetch",
 		allowEmpty: true,
+		type: open ? "fetch" : "static",
 	});
 
 	useHotkeys([

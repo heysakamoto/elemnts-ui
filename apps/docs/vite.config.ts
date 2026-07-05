@@ -11,8 +11,14 @@ import * as MdxConfig from "./source.config";
 export default defineConfig({
 	plugins: [
 		tsconfigPaths({ projects: ["./tsconfig.json"] }),
-		tanstackStart(),
-		nitro({ preset: "cloudfare" }),
+		tanstackStart({
+			server: {
+				build: {
+					inlineCss: true,
+				},
+			},
+		}),
+		nitro(),
 		viteReact({
 			babel: {
 				plugins: ["babel-plugin-react-compiler"],

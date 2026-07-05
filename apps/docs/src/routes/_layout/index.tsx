@@ -3,7 +3,12 @@ import { Fragment } from "react";
 
 import { LandingFeature } from "@/features/landing/components";
 
-export const Route = createFileRoute("/_layout/")({ component: App });
+export const Route = createFileRoute("/_layout/")({
+	component: App,
+	head: () => ({
+		meta: [{ title: "Moto UI | High-Performance, Accessible Components" }],
+	}),
+});
 
 function App() {
 	return (

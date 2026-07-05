@@ -7,6 +7,7 @@ import {
 	Section,
 	Stack,
 	Surface,
+	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
@@ -34,6 +35,7 @@ export function DocsLayoutHeader() {
 				borderBottom="1px solid {colors.stroke.primary}"
 			>
 				<Link to="/">
+					<VisuallyHidden>Go to homepage</VisuallyHidden>
 					<Logo.Brandmark
 						width={36}
 						height={36}

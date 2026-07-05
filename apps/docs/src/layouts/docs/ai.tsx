@@ -8,6 +8,7 @@ import {
 	Portal,
 	Surface,
 	useClipboard,
+	VisuallyHidden,
 } from "@moto-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "@tanstack/react-router";
@@ -83,6 +84,7 @@ function MenuOptions() {
 						},
 					}}
 				>
+					<VisuallyHidden>Open AI menu</VisuallyHidden>
 					<Icon
 						width={16}
 						height={16}

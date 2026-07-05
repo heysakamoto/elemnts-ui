@@ -9,6 +9,7 @@ import {
 	Portal,
 	Separator,
 	Surface,
+	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
@@ -108,6 +109,7 @@ export function DocsLayoutMobileNav(props: DocsLayoutMobileNavProps) {
 														to={social.url}
 														target="_blank"
 													>
+														<VisuallyHidden>{social.label}</VisuallyHidden>
 														<Icon
 															width={16}
 															height={16}
@@ -135,6 +137,7 @@ export function DocsLayoutMobileNav(props: DocsLayoutMobileNavProps) {
 													/>
 												}
 											>
+												<VisuallyHidden>Toggle color scheme</VisuallyHidden>
 												<Icon
 													width={16}
 													height={16}

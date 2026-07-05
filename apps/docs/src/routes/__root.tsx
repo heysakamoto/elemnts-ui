@@ -60,10 +60,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 				},
 			],
 			links: [
+				// Stylesheets
 				{
 					href: css,
 					rel: "stylesheet",
 				},
+				// Favicons
 				{
 					rel: "icon",
 					type: "image/svg+xml",

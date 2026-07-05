@@ -4,7 +4,6 @@ import { defineConfig } from "@pandacss/dev";
 export default defineConfig({
 	minify: true,
 	outExtension: "js",
-	// lightningcss: true,
 	jsxFramework: "react",
 	presets: [basePreset],
 	outdir: "styled-system",
