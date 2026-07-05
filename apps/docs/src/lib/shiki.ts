@@ -1,17 +1,17 @@
 import { createHighlighterCore } from "shiki/core";
-import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
-import bash from "shiki/langs/bash.mjs";
-import ts from "shiki/langs/ts.mjs";
-import tsx from "shiki/langs/tsx.mjs";
-import darkTheme from "shiki/themes/github-dark.mjs";
-import lightTheme from "shiki/themes/github-light.mjs";
-
-const jsEngine = createJavaScriptRegexEngine();
+import { createOnigurumaEngine } from "shiki/engine/oniguruma";
 
 const highlighterInstance = createHighlighterCore({
-	themes: [darkTheme, lightTheme],
-	langs: [ts, tsx, bash],
-	engine: jsEngine,
+	themes: [
+		await import("shiki/themes/github-dark.mjs"),
+		await import("shiki/themes/github-light.mjs"),
+	],
+	langs: [
+		await import("shiki/langs/ts.mjs"),
+		await import("shiki/langs/tsx.mjs"),
+		await import("shiki/langs/bash.mjs"),
+	],
+	engine: createOnigurumaEngine(import("shiki/wasm")),
 });
 
 export async function codeToHtml(

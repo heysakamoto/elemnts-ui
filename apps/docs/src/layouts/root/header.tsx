@@ -5,6 +5,7 @@ import {
 	Section,
 	Separator,
 	Stack,
+	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
@@ -31,6 +32,7 @@ export function RootLayoutHeader() {
 					justify="space-between"
 				>
 					<Link to="/">
+						<VisuallyHidden>Go to homepage</VisuallyHidden>
 						<Logo.Wordmark
 							width="96"
 							height="96"

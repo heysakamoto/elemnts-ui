@@ -129,6 +129,7 @@ export function DocsLayoutSidebar() {
 									/>
 								}
 							>
+								<VisuallyHidden>Toggle color scheme</VisuallyHidden>
 								<Icon
 									width={16}
 									height={16}
