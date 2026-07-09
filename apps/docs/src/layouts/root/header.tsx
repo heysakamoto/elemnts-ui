@@ -9,7 +9,7 @@ import {
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
-import { urls } from "./constants";
+import { ROOTLAYOUT_URLS } from "./constants";
 import { RootLayoutMobileNav } from "./mobile-nav";
 import { Logo } from "@/components/base/logo";
 
@@ -50,7 +50,7 @@ export function RootLayoutHeader() {
 							hideBelow="lg"
 							variant="ghost"
 						>
-							<For each={urls}>
+							<For each={ROOTLAYOUT_URLS}>
 								{(url) => (
 									<ButtonGroup.Item
 										asChild

@@ -12,7 +12,7 @@ type SeparatorProps = {
 function Label({ node }: SeparatorProps) {
 	return (
 		<Text
-			px="8"
+			px="16"
 			as="span"
 			fontSize="13"
 			letterSpacing="sm"
@@ -32,6 +32,7 @@ type PageProps = {
 function Page({ node, onClick }: PageProps) {
 	return (
 		<List.Item
+			px="8"
 			css={{
 				"&:not(:last-of-type)": {
 					mb: "2",

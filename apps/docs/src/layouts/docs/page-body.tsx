@@ -14,9 +14,10 @@ export function DocsLayoutPageBody(props: PropsWithChildren) {
 
 	return (
 		<Container
+			pt="44"
 			px="16"
 			maxW="40rem"
-			py={{ base: 96, md: 56 }}
+			pb={{ base: 96, md: 44 }}
 		>
 			{children}
 			<ButtonGroup

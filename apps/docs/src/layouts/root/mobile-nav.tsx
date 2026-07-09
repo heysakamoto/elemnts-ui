@@ -6,10 +6,11 @@ import {
 	Icon,
 	Portal,
 	Surface,
+	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
-import { urls } from "./constants";
+import { ROOTLAYOUT_URLS } from "./constants";
 
 export function RootLayoutMobileNav() {
 	return (
@@ -21,6 +22,7 @@ export function RootLayoutMobileNav() {
 					hideFrom="lg"
 					variant="ghost"
 				>
+					<VisuallyHidden>Open mobile menu</VisuallyHidden>
 					<Icon
 						width={16}
 						height={16}
@@ -44,7 +46,7 @@ export function RootLayoutMobileNav() {
 									variant="ghost"
 									orientation="vertical"
 								>
-									<For each={urls}>
+									<For each={ROOTLAYOUT_URLS}>
 										{(url) => (
 											<ButtonGroup.Item
 												asChild

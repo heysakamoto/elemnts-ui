@@ -47,8 +47,9 @@ export function DocsLayoutPagePager() {
 						rounded="full"
 						variant="surface"
 						disabled={!previous}
+						backdropFilter="blur(10px)"
 						aria-label="Go to previous page"
-						style={{ backdropFilter: "blur(10px)" }}
+						_disabled={{ opacity: 1 }}
 					>
 						<Link
 							to={previous?.url}
@@ -86,8 +87,9 @@ export function DocsLayoutPagePager() {
 						rounded="full"
 						variant="surface"
 						disabled={!next}
+						backdropFilter="blur(10px)"
 						aria-label="Go to next page"
-						style={{ backdropFilter: "blur(10px)" }}
+						_disabled={{ opacity: 1 }}
 					>
 						<Link
 							to={next?.url}

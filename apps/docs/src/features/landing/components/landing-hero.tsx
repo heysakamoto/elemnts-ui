@@ -9,45 +9,12 @@ import {
 	Text,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 
-import { Sponsor } from "@/components/base/sponsor";
+import { Sponsor } from "@/features/sponsor";
+import { LANDING_HERO_EXAMPLES } from "../constants";
 
-const SwitchExample = lazy(() =>
-	import("./examples/switch").then((module) => ({
-		default: module.SwitchExample,
-	})),
-);
-const SegmentGroupExample = lazy(() =>
-	import("./examples/segment-group").then((module) => ({
-		default: module.SegmentGroupExample,
-	})),
-);
-const JsonTreeViewExample = lazy(() =>
-	import("./examples/json-tree-view").then((module) => ({
-		default: module.JsonTreeViewExample,
-	})),
-);
-const MenuExample = lazy(() =>
-	import("./examples/menu").then((module) => ({ default: module.MenuExample })),
-);
-
-const examples = [
-	{ id: "switch", title: "Switch", component: SwitchExample },
-	{
-		id: "segment-group",
-		title: "SegmentGroup",
-		component: SegmentGroupExample,
-	},
-	{
-		id: "json-tree-view",
-		title: "JsonTreeView",
-		component: JsonTreeViewExample,
-	},
-	{ id: "menu", title: "Menu", component: MenuExample },
-];
-
-export function LandingFeatureHero() {
+export function LandingHero() {
 	return (
 		<Section
 			pb="80"
@@ -114,7 +81,7 @@ export function LandingFeatureHero() {
 					gap="20"
 					gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
 				>
-					<For each={examples}>
+					<For each={LANDING_HERO_EXAMPLES}>
 						{(example) => (
 							<Surface
 								p="16"
