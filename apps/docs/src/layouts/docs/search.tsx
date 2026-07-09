@@ -5,6 +5,7 @@ import {
 	type ComboboxValueChangeDetails,
 	createListCollection,
 	Dialog,
+	EmptyState,
 	Icon,
 	InputGroup,
 	Item,
@@ -14,98 +15,14 @@ import {
 	Show,
 	Spinner,
 	Surface,
+	useComboboxContext,
 	VirtualList,
 } from "@moto-ui/react";
-import { useHotkeys } from "@tanstack/react-hotkeys";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import type { SortedResult } from "fumadocs-core/search";
-import { useDocsSearch } from "fumadocs-core/search/client";
-import {
-	createContext,
-	type PropsWithChildren,
-	useContext,
-	useState,
-} from "react";
+import { Fragment, useMemo } from "react";
 
-export function useSearch() {
-	const [open, setOpen] = useState(false);
-	const navigate = useNavigate();
-	const { search, setSearch, query } = useDocsSearch({
-		allowEmpty: true,
-		type: open ? "fetch" : "static",
-	});
-
-	useHotkeys([
-		{
-			hotkey: "/",
-			callback: (event) => {
-				event.preventDefault();
-				setOpen(true);
-			},
-		},
-	]);
-
-	const collection = createListCollection({
-		items: Array.isArray(query.data) ? query.data : [],
-		itemToValue: (item) => item.id,
-		itemToString: (item) => item.url,
-	});
-
-	const onInputValueChange = (details: ComboboxInputValueChangeDetails) => {
-		switch (true) {
-			case details.inputValue.length === 0: {
-				return setSearch("");
-			}
-			case details.inputValue.length < 2: {
-				return;
-			}
-			default: {
-				return setSearch(details.inputValue);
-			}
-		}
-	};
-
-	const onValueChange = (details: ComboboxValueChangeDetails) => {
-		const item = collection.items.find((item) => item.id === details.value[0]);
-		if (item) {
-			navigate({ to: item.url });
-		}
-		setTimeout(() => setOpen(false), 0);
-	};
-
-	return {
-		open,
-		query,
-		search,
-		setOpen,
-		setSearch,
-		collection,
-		onValueChange,
-		onInputValueChange,
-	};
-}
-
-const SearchContext = createContext<ReturnType<typeof useSearch> | null>(null);
-
-export function useSearchContext() {
-	const context = useContext(SearchContext);
-	if (!context) {
-		throw new Error("useSearchContext must be used within a SearchProvider");
-	}
-	return context;
-}
-
-type SearchProviderProps = PropsWithChildren<{
-	value: ReturnType<typeof useSearch>;
-}>;
-
-export function SearchProvider(props: SearchProviderProps) {
-	const { children, value } = props;
-
-	return (
-		<SearchContext.Provider value={value}>{children}</SearchContext.Provider>
-	);
-}
+import { useDocsLayoutContext } from "./client";
 
 export function SearchFooter() {
 	return (
@@ -159,7 +76,7 @@ export function SearchFooter() {
 }
 
 export function SearchHeader() {
-	const { query } = useSearchContext();
+	const { query } = useDocsLayoutContext();
 
 	return (
 		<Surface.Header
@@ -169,35 +86,14 @@ export function SearchHeader() {
 			align="center"
 			direction="row"
 		>
-			<Button
-				asChild
-				iconOnly
-				size="xl"
-				flexShrink={0}
-				rounded="full"
-				variant="tertiary"
-				aria-label="storybook"
-				colorPalette="neutral"
-			>
-				<Link
-					target="_blank"
-					to={"https://storybook.moto-ui.app" as any}
-				>
-					<Icon
-						width={16}
-						height={16}
-						icon="devicon-plain:storybook"
-					/>
-				</Link>
-			</Button>
 			<InputGroup
 				size="lg"
 				rounded="20"
 			>
 				<InputGroup.Addon pl="10">
 					<Icon
-						width={20}
-						height={20}
+						width={16}
+						height={16}
 						icon="tabler:search"
 						color="icon.secondary"
 					/>
@@ -212,7 +108,7 @@ export function SearchHeader() {
 				<InputGroup.Addon pr="8">
 					<Show
 						fallback={null}
-						when={query.isLoading}
+						when={query?.isLoading}
 					>
 						<Spinner
 							size="sm"
@@ -259,9 +155,9 @@ function SearchResultItem(props: SearchResultItemProps) {
 	const html = item.content;
 	const icon = iconMap[item.type];
 
-	switch (item.type) {
-		case "page": {
-			return (
+	return (
+		<Fragment>
+			<Show when={item.type === "page"}>
 				<Item
 					h="36"
 					gap="4"
@@ -298,10 +194,8 @@ function SearchResultItem(props: SearchResultItemProps) {
 						}}
 					/>
 				</Item>
-			);
-		}
-		case "heading": {
-			return (
+			</Show>
+			<Show when={item.type === "heading"}>
 				<Item
 					h="36"
 					size="lg"
@@ -343,10 +237,8 @@ function SearchResultItem(props: SearchResultItemProps) {
 						}}
 					/>
 				</Item>
-			);
-		}
-		default: {
-			return (
+			</Show>
+			<Show when={item.type === "text"}>
 				<Item
 					h="36"
 					size="lg"
@@ -388,85 +280,83 @@ function SearchResultItem(props: SearchResultItemProps) {
 						}}
 					/>
 				</Item>
-			);
-		}
-	}
+			</Show>
+		</Fragment>
+	);
 }
 
 export function SearchResults() {
-	const { collection } = useSearchContext();
-
-	if (collection.items.length === 0)
-		return (
-			<Surface
-				flex="1"
-				delta={0}
-				elevated={false}
-				justify="center"
-				align="center"
-			>
-				<Surface.Header>
-					<Icon
-						width={32}
-						height={32}
-						color="icon.secondary"
-						icon="tabler:face-id-error"
-					/>
-				</Surface.Header>
-				<Surface.Content
-					flex="0"
-					mt="12"
-					gap="6"
-				>
-					<Surface.Title
-						fontSize="16"
-						justify="center"
-					>
-						No results found
-					</Surface.Title>
-					<Surface.Description textAlign="center">
-						Try searching for something else.
-					</Surface.Description>
-				</Surface.Content>
-			</Surface>
-		);
+	const { collection } = useComboboxContext();
 
 	return (
-		<Combobox.Content>
-			<VirtualList
-				p="8"
-				estimateSize={() => 36}
-				count={collection.items.length}
-			>
-				<VirtualList.Viewport
-					h="89vh"
-					scrollbar="hidden"
+		<Fragment>
+			<Show when={collection.items.length === 0}>
+				<EmptyState
+					flexGrow="1"
+					display="flex"
+					align="center"
+					justify="center"
+					direction="column"
 				>
-					<VirtualList.Content>
-						{({ item, measureElement }) => {
-							const collectionItem = collection.items[item.index]!;
+					<EmptyState.Content>
+						<Icon
+							width={32}
+							height={32}
+							color="icon.secondary"
+							icon="tabler:face-id-error"
+						/>
+						<EmptyState.Title
+							mt="20"
+							fontSize="16"
+							justify="center"
+						>
+							No results yet
+						</EmptyState.Title>
+						<EmptyState.Description
+							mt="8"
+							textAlign="center"
+						>
+							Try searching for something else.
+						</EmptyState.Description>
+					</EmptyState.Content>
+				</EmptyState>
+			</Show>
+			<Combobox.Content>
+				<VirtualList
+					p="8"
+					estimateSize={() => 36}
+					count={collection.items.length}
+				>
+					<VirtualList.Viewport
+						h="89vh"
+						scrollbar="hidden"
+					>
+						<VirtualList.Content>
+							{({ item, measureElement }) => {
+								const collectionItem = collection.items[item.index]!;
 
-							return (
-								<VirtualList.Item
-									asChild
-									item={item}
-									key={item.key}
-									ref={measureElement}
-								>
-									<Combobox.Item
-										fontSize="14"
-										letterSpacing="sm"
-										item={collectionItem}
+								return (
+									<VirtualList.Item
+										asChild
+										item={item}
+										key={item.key}
+										ref={measureElement}
 									>
-										<SearchResultItem item={collectionItem} />
-									</Combobox.Item>
-								</VirtualList.Item>
-							);
-						}}
-					</VirtualList.Content>
-				</VirtualList.Viewport>
-			</VirtualList>
-		</Combobox.Content>
+										<Combobox.Item
+											fontSize="14"
+											letterSpacing="sm"
+											item={collectionItem}
+										>
+											<SearchResultItem item={collectionItem} />
+										</Combobox.Item>
+									</VirtualList.Item>
+								);
+							}}
+						</VirtualList.Content>
+					</VirtualList.Viewport>
+				</VirtualList>
+			</Combobox.Content>
+		</Fragment>
 	);
 }
 
@@ -475,42 +365,62 @@ type SearchRootProps = {
 };
 
 function SearchRoot({ children }: SearchRootProps) {
-	const search = useSearch();
+	const navigate = useNavigate();
+	const { setOpen, open, setSearch, query } = useDocsLayoutContext();
+	const items = Array.isArray(query?.data) ? query.data : [];
+	const collection = useMemo(
+		() =>
+			createListCollection({
+				items,
+				itemToValue: (item) => item.id,
+				itemToString: (item) => item.url,
+			}),
+		[items],
+	);
+
+	function handleValueChange(details: ComboboxValueChangeDetails) {
+		const item = collection.items.find((item) => item.id === details.value[0]);
+		if (item) {
+			navigate({ to: item.url });
+		}
+		setTimeout(() => setOpen(false), 0);
+	}
+
+	function handleInputValueChange(details: ComboboxInputValueChangeDetails) {
+		setSearch(details.inputValue);
+	}
 
 	return (
-		<SearchProvider value={search}>
-			<Dialog
-				open={search.open}
-				size={{ base: "full" }}
-				onEscapeKeyDown={() => search.setSearch("")}
-				onOpenChange={(details) => search.setOpen(details.open)}
-			>
-				{children}
-				<Portal>
-					<Dialog.Backdrop />
-					<Dialog.Positioner>
-						<Dialog.Content asChild>
-							<Surface
-								asChild
-								delta={1}
+		<Dialog
+			open={open}
+			size={{ base: "full" }}
+			onEscapeKeyDown={() => setSearch("")}
+			onOpenChange={(details) => setOpen(details.open)}
+		>
+			{children}
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content asChild>
+						<Surface
+							asChild
+							delta={1}
+						>
+							<Combobox
+								collection={collection}
+								selectionBehavior="clear"
+								onValueChange={handleValueChange}
+								onInputValueChange={handleInputValueChange}
 							>
-								<Combobox
-									selectionBehavior="clear"
-									inputValue={search.search}
-									collection={search.collection}
-									onValueChange={search.onValueChange}
-									onInputValueChange={search.onInputValueChange}
-								>
-									<SearchHeader />
-									<SearchResults />
-									<SearchFooter />
-								</Combobox>
-							</Surface>
-						</Dialog.Content>
-					</Dialog.Positioner>
-				</Portal>
-			</Dialog>
-		</SearchProvider>
+								<SearchHeader />
+								<SearchResults />
+								<SearchFooter />
+							</Combobox>
+						</Surface>
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
+		</Dialog>
 	);
 }
 

@@ -1,4 +1,4 @@
-export const urls = [
+export const ROOTLAYOUT_URLS = [
 	{
 		id: "storybook",
 		label: "Storybook",

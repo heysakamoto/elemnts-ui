@@ -1,20 +1,26 @@
 import {
 	Button,
 	ButtonGroup,
+	For,
 	Icon,
-	InputGroup,
-	Kbd,
+	Item,
+	Menu,
+	Portal,
 	Section,
+	Separator,
 	Stack,
 	Surface,
 	VisuallyHidden,
 } from "@moto-ui/react";
-import { Link } from "@tanstack/react-router";
 
-import { DocsLayoutBreadcrumb } from "./breadcrumb";
+import { FRAMEWORKS } from "./constant";
+import { DocsLayoutMobileNav } from "./mobile-nav";
 import { DocsLayoutSearch } from "./search";
-import { Logo } from "@/components/base/logo";
-import { Sponsor } from "@/components/base/sponsor";
+import { Sponsor } from "@/features/sponsor";
+
+const selectedFramework = FRAMEWORKS.find(
+	(framework) => framework.id === "react",
+);
 
 export function DocsLayoutHeader() {
 	return (
@@ -24,102 +30,112 @@ export function DocsLayoutHeader() {
 			zIndex="2"
 			gridColumn="1/-1"
 			position="sticky"
+			colorPalette="neutral"
 			backdropFilter="blur(16px)"
 			bgColor="color-mix(in srgb, {colors.surface.1}, {colors.transparent} 90%)"
 		>
 			<Stack
-				h="56"
-				px="16"
+				h="48"
 				align="center"
-				colorPalette="neutral"
-				borderBottom="1px solid {colors.stroke.primary}"
+				justify="space-between"
+				px={{ base: "16", md: "20" }}
 			>
-				<Link to="/">
-					<VisuallyHidden>Go to homepage</VisuallyHidden>
-					<Logo.Brandmark
-						width={36}
-						height={36}
-					/>
-				</Link>
-				<Stack
-					flexGrow="1"
-					justify="center"
-				>
-					<DocsLayoutSearch>
-						<DocsLayoutSearch.Trigger asChild>
-							<InputGroup
-								size="lg"
-								minW="12rem"
-								maxW="28rem"
-								rounded="16"
-								hideBelow="xl"
-							>
-								<InputGroup.Addon pl="10">
-									<Icon
-										width={16}
-										height={16}
-										icon="tabler:search"
-										color="icon.secondary"
-									/>
-								</InputGroup.Addon>
-								<InputGroup.Input
-									px="8"
-									fontSize="14"
-									placeholder="Search the docs"
-								/>
-								<InputGroup.Addon pr="8">
-									<Kbd variant="secondary">
-										<Kbd.Item>/</Kbd.Item>
-									</Kbd>
-								</InputGroup.Addon>
-							</InputGroup>
-						</DocsLayoutSearch.Trigger>
-					</DocsLayoutSearch>
-				</Stack>
-				<ButtonGroup>
-					<DocsLayoutSearch>
-						<DocsLayoutSearch.Trigger asChild>
-							<Button
-								iconOnly
-								hideFrom="xl"
-								rounded="full"
-								variant="ghost"
-								aria-label="search"
+				<Menu>
+					<Menu.Trigger asChild>
+						<Button
+							fontSize="13"
+							rounded="12"
+							variant="surface"
+						>
+							{selectedFramework?.label}
+							<Icon
+								mr="-2"
+								width={16}
+								height={16}
+								icon="tabler:chevron-down"
+							/>
+						</Button>
+					</Menu.Trigger>
+					<Portal>
+						<Menu.Positioner>
+							<Menu.Content asChild>
+								<Surface
+									p="4"
+									rounded="20"
+									w="10rem"
+									colorPalette="neutral"
+								>
+									<For each={FRAMEWORKS}>
+										{(framework) => (
+											<Menu.Item
+												key={framework.id}
+												value={framework.id}
+												disabled={framework.disabled}
+												_disabled={{ opacity: 0.5 }}
+											>
+												<Item
+													size="sm"
+													rounded="16"
+													fontSize="13"
+													variant="secondary"
+												>
+													<Icon
+														width={16}
+														height={16}
+														icon={framework.icon}
+													/>
+													{framework.label}
+												</Item>
+											</Menu.Item>
+										)}
+									</For>
+								</Surface>
+							</Menu.Content>
+						</Menu.Positioner>
+					</Portal>
+				</Menu>
+				<ButtonGroup variant="ghost">
+					<DocsLayoutSearch.Trigger asChild>
+						<Button
+							iconOnly
+							hideFrom="md"
+							rounded="full"
+							_notHover={{ color: "icon.secondary" }}
+						>
+							<VisuallyHidden>Search docs</VisuallyHidden>
+							<Icon
+								width={16}
+								height={16}
+								icon="tabler:search"
+							/>
+						</Button>
+					</DocsLayoutSearch.Trigger>
+					<DocsLayoutMobileNav>
+						<ButtonGroup.Item iconOnly>
+							<VisuallyHidden>Open sidebar</VisuallyHidden>
+							<Icon
+								width={16}
+								height={16}
+								hideFrom="md"
+								icon="tabler:layout-sidebar-right"
 								_notHover={{ color: "icon.secondary" }}
-							>
-								<Icon
-									width={16}
-									height={16}
-									icon="tabler:search"
-								/>
-							</Button>
-						</DocsLayoutSearch.Trigger>
-					</DocsLayoutSearch>
+							/>
+						</ButtonGroup.Item>
+					</DocsLayoutMobileNav>
 					<Sponsor>
 						<Sponsor.Trigger asChild>
-							<Button rounded="14">Sponsor</Button>
+							<Button
+								rounded="12"
+								fontSize="13"
+								variant="surface"
+							>
+								Sponsor
+							</Button>
 						</Sponsor.Trigger>
 					</Sponsor>
 				</ButtonGroup>
 			</Stack>
-			<Surface
-				w="full"
-				top="55"
-				left="0"
-				delta={1}
-				zIndex="2"
-				rounded="0"
-				hideFrom="md"
-				position="fixed"
-			>
-				<Surface.Content
-					h="48"
-					px="16"
-					justify="center"
-				>
-					<DocsLayoutBreadcrumb />
-				</Surface.Content>
-			</Surface>
+			<Separator orientation="horizontal" />
 		</Section>
 	);
 }

@@ -2,39 +2,103 @@ import {
 	Button,
 	ButtonGroup,
 	ColorScheme,
+	Dialog,
 	For,
 	Icon,
 	List,
-	Section,
 	Separator,
+	Show,
 	Sidebar,
+	Stack,
 	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
+import { useInDialogContext } from "./client";
 import { socials, urls } from "./constant";
+import { DocsLayoutSearch } from "./search";
 import { DocsLayoutTree } from "./tree";
+import { Logo } from "@/components/base/logo";
 
 export function DocsLayoutSidebar() {
+	const isInDialog = useInDialogContext();
+
 	return (
 		<Sidebar.Root
-			top="56px"
-			as="aside"
+			h="full"
 			display="flex"
-			hideBelow="md"
-			position="sticky"
 			direction="column"
-			h="calc(100dvh - 56px)"
-			borderRight="1px solid {colors.stroke.primary}"
 		>
 			<Sidebar.Header>
-				<List
-					gap="2"
-					p="12"
+				<Stack
+					p="8"
+					align="center"
+					justify="space-between"
 				>
+					<Stack
+						justify="space-between"
+						flexGrow="1"
+					>
+						<Link
+							to="/"
+							preload="intent"
+						>
+							<Logo
+								width={32}
+								height={32}
+								style={{ marginLeft: 8 }}
+							/>
+						</Link>
+						<Show when={isInDialog}>
+							<Dialog.CloseTrigger asChild>
+								<Button
+									iconOnly
+									rounded="16"
+									hideFrom="md"
+								>
+									<Icon
+										width={16}
+										height={16}
+										icon="tabler:x"
+									/>
+								</Button>
+							</Dialog.CloseTrigger>
+						</Show>
+					</Stack>
+					<DocsLayoutSearch.Trigger asChild>
+						<Button
+							iconOnly
+							size="sm"
+							rounded="16"
+							hideBelow="md"
+							variant="ghost"
+						>
+							<Icon
+								width={16}
+								height={16}
+								icon="tabler:search"
+							/>
+						</Button>
+					</DocsLayoutSearch.Trigger>
+				</Stack>
+			</Sidebar.Header>
+			<Sidebar.Content
+				pt="8"
+				as="nav"
+				flexGrow="1"
+				overflow="scroll"
+				scrollbar="hidden"
+			>
+				<DocsLayoutTree />
+			</Sidebar.Content>
+			<Sidebar.Footer py="8">
+				<List gap="2">
 					<For each={urls}>
 						{(url) => (
-							<List.Item key={url.id}>
+							<List.Item
+								key={url.id}
+								px="8"
+							>
 								<Button
 									asChild
 									size="sm"
@@ -67,78 +131,61 @@ export function DocsLayoutSidebar() {
 						)}
 					</For>
 				</List>
-			</Sidebar.Header>
-			<Separator orientation="horizontal" />
-			<Sidebar.Content
-				as="nav"
-				p="12"
-				flexGrow="1"
-				overflow="scroll"
-				scrollbar="hidden"
-			>
-				<DocsLayoutTree />
-			</Sidebar.Content>
-			<Separator orientation="horizontal" />
-			<Sidebar.Footer>
-				<Section
-					py="4"
-					px="12"
-					rounded="0"
+				<ButtonGroup
+					pt="8"
+					px="8"
+					size="md"
+					iconOnly
+					variant="ghost"
 				>
-					<ButtonGroup
-						size="md"
-						iconOnly
-						variant="ghost"
-					>
-						<For each={socials}>
-							{(social) => (
-								<ButtonGroup.Item
-									asChild
-									rounded="12"
-									key={social.id}
+					<For each={socials}>
+						{(social) => (
+							<ButtonGroup.Item
+								asChild
+								rounded="12"
+								key={social.id}
+							>
+								<Link
+									target="_blank"
+									to={social.url as any}
 								>
-									<Link
-										target="_blank"
-										to={social.url as any}
-									>
-										<VisuallyHidden>{social.label}</VisuallyHidden>
-										<Icon
-											width={16}
-											height={16}
-											icon={social.icon}
-										/>
-									</Link>
-								</ButtonGroup.Item>
-							)}
-						</For>
-						<Separator
-							flex="1"
-							variant="ghost"
-							orientation="horizontal"
-						/>
-						<Button
-							asChild
-							rounded="12"
-						>
-							<ColorScheme.Trigger
-								fallback={
+									<VisuallyHidden>{social.label}</VisuallyHidden>
 									<Icon
 										width={16}
 										height={16}
-										icon="tabler:sun"
+										icon={social.icon}
 									/>
-								}
-							>
-								<VisuallyHidden>Toggle color scheme</VisuallyHidden>
+								</Link>
+							</ButtonGroup.Item>
+						)}
+					</For>
+					<Separator
+						flexGrow="1"
+						variant="ghost"
+						orientation="horizontal"
+					/>
+					<Button
+						asChild
+						rounded="12"
+					>
+						<ColorScheme.Trigger
+							fallback={
 								<Icon
 									width={16}
 									height={16}
-									icon="tabler:moon"
+									icon="tabler:sun"
 								/>
-							</ColorScheme.Trigger>
-						</Button>
-					</ButtonGroup>
-				</Section>
+							}
+						>
+							<VisuallyHidden>Toggle color scheme</VisuallyHidden>
+							<Icon
+								width={16}
+								height={16}
+								icon="tabler:moon"
+							/>
+						</ColorScheme.Trigger>
+					</Button>
+				</ButtonGroup>
 			</Sidebar.Footer>
 		</Sidebar.Root>
 	);

@@ -49,9 +49,7 @@ export const base: MDXComponents = {
 			as="ul"
 			my="24"
 			spaceY="10"
-			listStyle="inside"
-			listStyleType="number"
-			px={{ base: "20" }}
+			listStyle="inside disc"
 			{...props}
 		/>
 	),
@@ -86,10 +84,7 @@ export const base: MDXComponents = {
 		return (
 			<Text
 				as="h2"
-				gap="12"
 				fontSize="20"
-				display="flex"
-				align="center"
 				lineHeight="xs"
 				fontWeight="500"
 				letterSpacing="sm"
@@ -104,10 +99,6 @@ export const base: MDXComponents = {
 				>
 					{props.children}
 				</Link>
-				<Separator
-					flexGrow="1"
-					orientation="horizontal"
-				/>
 			</Text>
 		);
 	},
@@ -115,13 +106,10 @@ export const base: MDXComponents = {
 		return (
 			<Text
 				as="h3"
-				mt="48"
 				gap="12"
 				fontSize="18"
 				lineHeight="xs"
 				fontWeight="500"
-				align="center"
-				display="flex"
 				letterSpacing="sm"
 				color="fg.primary"
 				scrollMarginTop={{ base: "132", lg: "80" }}
@@ -134,10 +122,6 @@ export const base: MDXComponents = {
 				>
 					{props.children}
 				</Link>
-				<Separator
-					flexGrow="1"
-					orientation="horizontal"
-				/>
 			</Text>
 		);
 	},
@@ -145,11 +129,7 @@ export const base: MDXComponents = {
 		return (
 			<Text
 				as="h4"
-				mt="48"
-				gap="12"
 				fontSize="16"
-				align="center"
-				display="flex"
 				lineHeight="xs"
 				fontWeight="500"
 				letterSpacing="sm"
@@ -164,10 +144,6 @@ export const base: MDXComponents = {
 				>
 					{props.children}
 				</Link>
-				<Separator
-					flexGrow="1"
-					orientation="horizontal"
-				/>
 			</Text>
 		);
 	},

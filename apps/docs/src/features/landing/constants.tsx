@@ -1,21 +1,43 @@
-import {
-	Anchor,
-	Chip,
-	Container,
-	For,
-	Section,
-	Separator,
-	Show,
-	Surface,
-	Tabs,
-	Text,
-	Timeline,
-} from "@moto-ui/react";
-import { Fragment } from "react";
+import { Anchor } from "@moto-ui/react";
+import { Fragment, lazy } from "react";
 
-import { DynamicCode } from "@/components/base/dynamic-code";
+const SwitchExample = lazy(() =>
+	import("./components/examples/switch").then((module) => ({
+		default: module.SwitchExample,
+	})),
+);
+const SegmentGroupExample = lazy(() =>
+	import("./components/examples/segment-group").then((module) => ({
+		default: module.SegmentGroupExample,
+	})),
+);
+const JsonTreeViewExample = lazy(() =>
+	import("./components/examples/json-tree-view").then((module) => ({
+		default: module.JsonTreeViewExample,
+	})),
+);
+const MenuExample = lazy(() =>
+	import("./components/examples/menu").then((module) => ({
+		default: module.MenuExample,
+	})),
+);
 
-const timelines = [
+export const LANDING_HERO_EXAMPLES = [
+	{ id: "switch", title: "Switch", component: SwitchExample },
+	{
+		id: "segment-group",
+		title: "SegmentGroup",
+		component: SegmentGroupExample,
+	},
+	{
+		id: "json-tree-view",
+		title: "JsonTreeView",
+		component: JsonTreeViewExample,
+	},
+	{ id: "menu", title: "Menu", component: MenuExample },
+];
+
+export const LANDING_INSTALLATION_TIMELINES = [
 	{
 		id: "1",
 		frontmatter: {
@@ -180,117 +202,3 @@ export default function App() {
 		],
 	},
 ];
-
-export function LandingFeatureInstall() {
-	return (
-		<Section py={["80", "120"]}>
-			<Container
-				fluid
-				px="16"
-				maxW="40rem"
-			>
-				<Text
-					as="h2"
-					maxW="32rem"
-					fontFamily="InstrumentSerif"
-					fontSize={{ base: "32", lg: "44" }}
-				>
-					How to Install
-				</Text>
-				<Text
-					letterSpacing="xs"
-					fontSize={{ base: "16", md: "18" }}
-				>
-					Download the Moto UI packages using your preferred package manager.
-				</Text>
-				<Timeline mt="40">
-					<For each={timelines}>
-						{(timeline) => {
-							return (
-								<Timeline.Item key={timeline.id}>
-									<Timeline.Connector>
-										<Timeline.Separator>
-											<Separator
-												h="full"
-												orientation="vertical"
-											/>
-										</Timeline.Separator>
-										<Timeline.Indicator>
-											<Chip iconOnly>{timeline.id}</Chip>
-										</Timeline.Indicator>
-									</Timeline.Connector>
-									<Timeline.Content gap="0">
-										<Text
-											as="h3"
-											lineHeight="xs"
-											fontSize={["20", "24"]}
-											fontFamily="InstrumentSerif"
-										>
-											{timeline.frontmatter.title}
-										</Text>
-										<Text
-											mt="12"
-											letterSpacing="sm"
-										>
-											{timeline.frontmatter.description}
-										</Text>
-										<Show when={timeline.tabs}>
-											{(tabs) => (
-												<Tabs
-													mt="24"
-													size="sm"
-													fontFamily="mono"
-													defaultValue={tabs[0]?.value}
-												>
-													<Tabs.List w="fit">
-														<Tabs.Indicator />
-														<For each={tabs}>
-															{(tab) => (
-																<Tabs.Trigger
-																	fontSize="13"
-																	key={tab.value}
-																	value={tab.value}
-																	disabled={tab.disabled}
-																>
-																	{tab.label}
-																</Tabs.Trigger>
-															)}
-														</For>
-													</Tabs.List>
-													<Surface
-														mt="16"
-														delta={1}
-														minH="3rem"
-														rounded="20"
-														fontSize="13"
-														justify="start"
-													>
-														<Surface.Content p="16">
-															<For each={tabs}>
-																{(tab) => (
-																	<Tabs.Content
-																		key={tab.value}
-																		value={tab.value}
-																	>
-																		<DynamicCode
-																			lang={tab.lang}
-																			code={tab.content}
-																		/>
-																	</Tabs.Content>
-																)}
-															</For>
-														</Surface.Content>
-													</Surface>
-												</Tabs>
-											)}
-										</Show>
-									</Timeline.Content>
-								</Timeline.Item>
-							);
-						}}
-					</For>
-				</Timeline>
-			</Container>
-		</Section>
-	);
-}

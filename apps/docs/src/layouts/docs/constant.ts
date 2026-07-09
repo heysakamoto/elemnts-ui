@@ -13,6 +13,37 @@ export const socials = [
 	},
 ];
 
+export const FRAMEWORKS = [
+	{
+		id: "react",
+		label: "React",
+		disabled: false,
+		icon: "logos:react",
+		url: "https://reactjs.org/",
+	},
+	{
+		id: "solid",
+		label: "Solid",
+		disabled: true,
+		icon: "devicon:solidjs",
+		url: "https://www.solidjs.com/",
+	},
+	{
+		id: "svelte",
+		label: "Svelte",
+		disabled: true,
+		icon: "logos:svelte-icon",
+		url: "https://svelte.dev/",
+	},
+	{
+		id: "vue",
+		label: "Vue",
+		disabled: true,
+		icon: "logos:vue",
+		url: "https://vuejs.org/",
+	},
+];
+
 export const urls = [
 	{
 		id: "storybook",

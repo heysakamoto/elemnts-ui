@@ -1,43 +1,20 @@
 import {
 	Button,
 	Dialog,
+	For,
 	Icon,
 	Portal,
 	Surface,
 	Tile,
 	ToggleGroup,
+	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import { type PropsWithChildren, useState } from "react";
 
-const options = [
-	{
-		id: "patreon",
-		disabled: false,
-		label: "Patreon",
-		url: "https://patreon.com/motoui",
-		icon: "tabler:brand-patreon-filled",
-		description: "Support the project on Patreon",
-	},
-	{
-		id: "github",
-		disabled: true,
-		label: "Github Sponsors",
-		icon: "radix-icons:github-logo",
-		url: "https://github.com/sponsors/moto-ui",
-		description: "Sponsor this project via GitHub Sponsors",
-	},
-	{
-		disabled: true,
-		id: "open-collective",
-		label: "Open Collective",
-		icon: "logos:opencollective",
-		url: "https://github.com/sponsors/moto-ui",
-		description: "Contribute through Open Collective",
-	},
-];
+import { SPONSOR_OPTIONS } from "../constants";
 
-function SponsorRoot({ children }: PropsWithChildren) {
+export function SponsorRoot({ children }: PropsWithChildren) {
 	const [value, setValue] = useState(["patreon"]);
 
 	return (
@@ -72,10 +49,11 @@ function SponsorRoot({ children }: PropsWithChildren) {
 										flexShrink="0"
 										variant="ghost"
 									>
+										<VisuallyHidden>Close sponsor dialog</VisuallyHidden>
 										<Icon
-											width={20}
-											height={20}
-											icon="tabler:arrow-left"
+											width={16}
+											height={16}
+											icon="tabler:x"
 										/>
 									</Button>
 								</Dialog.CloseTrigger>
@@ -93,11 +71,12 @@ function SponsorRoot({ children }: PropsWithChildren) {
 										target="_blank"
 										to={"https://x.com/hey__sakamoto" as any}
 									>
+										<VisuallyHidden>Creator social profile</VisuallyHidden>
 										<Icon
 											mr="-2"
 											width={18}
 											height={18}
-											icon="tabler:message"
+											icon="tabler:link"
 										/>
 									</Link>
 								</Button>
@@ -112,42 +91,44 @@ function SponsorRoot({ children }: PropsWithChildren) {
 									direction="column"
 									onValueChange={({ value }) => setValue(value ?? [])}
 								>
-									{options.map((option) => {
-										const selected = value.includes(option.id);
+									<For each={SPONSOR_OPTIONS}>
+										{(option) => {
+											const selected = value.includes(option.id);
 
-										return (
-											<ToggleGroup.Item
-												asChild
-												w="full"
-												key={option.id}
-												value={option.id}
-											>
-												<Tile
-													gap="12"
-													rounded="16"
-													align="start"
-													variant="secondary"
-													selected={selected}
-													orientation="horizontal"
-													disabled={option.disabled}
+											return (
+												<ToggleGroup.Item
+													asChild
+													w="full"
+													key={option.id}
+													value={option.id}
 												>
-													<Tile.Addon flexShrink="0">
-														<Icon
-															width={24}
-															height={24}
-															icon={option.icon}
-														/>
-													</Tile.Addon>
-													<Tile.Content>
-														<Tile.Title>{option.label}</Tile.Title>
-														<Tile.Description fontSize="14">
-															{option.description}
-														</Tile.Description>
-													</Tile.Content>
-												</Tile>
-											</ToggleGroup.Item>
-										);
-									})}
+													<Tile
+														gap="12"
+														rounded="16"
+														align="start"
+														variant="secondary"
+														selected={selected}
+														orientation="horizontal"
+														disabled={option.disabled}
+													>
+														<Tile.Addon flexShrink="0">
+															<Icon
+																width={24}
+																height={24}
+																icon={option.icon}
+															/>
+														</Tile.Addon>
+														<Tile.Content>
+															<Tile.Title>{option.label}</Tile.Title>
+															<Tile.Description fontSize="14">
+																{option.description}
+															</Tile.Description>
+														</Tile.Content>
+													</Tile>
+												</ToggleGroup.Item>
+											);
+										}}
+									</For>
 								</ToggleGroup>
 							</Surface.Content>
 							<Surface.Footer p="12">
@@ -161,7 +142,7 @@ function SponsorRoot({ children }: PropsWithChildren) {
 									>
 										<Link
 											target="_blank"
-											to={options.find((o) => o.id === value[0])?.url}
+											to={SPONSOR_OPTIONS.find((o) => o.id === value[0])?.url}
 										>
 											Sponsor
 										</Link>
@@ -175,7 +156,3 @@ function SponsorRoot({ children }: PropsWithChildren) {
 		</Dialog>
 	);
 }
-
-export const Sponsor = Object.assign(SponsorRoot, {
-	Trigger: Dialog.Trigger,
-});
