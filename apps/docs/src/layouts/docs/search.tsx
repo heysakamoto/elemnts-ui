@@ -1,16 +1,14 @@
 import {
-	Button,
 	Combobox,
 	type ComboboxInputValueChangeDetails,
 	type ComboboxValueChangeDetails,
 	createListCollection,
-	Dialog,
+	Drawer,
 	EmptyState,
 	Icon,
 	InputGroup,
 	Item,
 	Kbd,
-	Portal,
 	Separator,
 	Show,
 	Spinner,
@@ -26,51 +24,49 @@ import { useDocsLayoutContext } from "./client";
 
 export function SearchFooter() {
 	return (
-		<Surface.Footer>
-			<Surface
-				py="8"
-				px="12"
-				delta={5}
-				rounded="0"
-				elevated={false}
+		<Surface.Footer
+			py="8"
+			px="16"
+		>
+			<Kbd
+				iconOnly
+				gap="16"
+				size="sm"
+				fontSize="12"
+				variant="tertiary"
+				color="fg.secondary"
 			>
-				<Kbd
-					gap="16"
-					size="sm"
-					fontSize="12"
-					variant="tertiary"
-					colorPalette="neutral"
-					color="fg.secondary"
-				>
-					<Kbd.ItemGroup>
-						<Kbd.Item rounded="8">
-							<Icon
-								width={14}
-								height={14}
-								icon="boxicons:enter"
-							/>
-						</Kbd.Item>
-						<Kbd.ItemGroupText>to select</Kbd.ItemGroupText>
-					</Kbd.ItemGroup>
-					<Kbd.ItemGroup fontSize="14">
-						<Kbd.Item rounded="8">
-							<Icon
-								width={14}
-								height={14}
-								icon="boxicons:arrow-down"
-							/>
-						</Kbd.Item>
-						<Kbd.Item rounded="8">
-							<Icon
-								width={14}
-								height={14}
-								icon="boxicons:arrow-up"
-							/>
-						</Kbd.Item>
-						<Kbd.ItemGroupText>to navigate</Kbd.ItemGroupText>
-					</Kbd.ItemGroup>
-				</Kbd>
-			</Surface>
+				<Kbd.ItemGroup>
+					<Kbd.Item
+						rounded="8"
+						fontSize="13"
+					>
+						<Icon
+							width={14}
+							height={14}
+							icon="boxicons:enter"
+						/>
+					</Kbd.Item>
+					<Kbd.ItemGroupText>to select</Kbd.ItemGroupText>
+				</Kbd.ItemGroup>
+				<Kbd.ItemGroup fontSize="13">
+					<Kbd.Item rounded="8">
+						<Icon
+							width={14}
+							height={14}
+							icon="boxicons:arrow-down"
+						/>
+					</Kbd.Item>
+					<Kbd.Item rounded="8">
+						<Icon
+							width={14}
+							height={14}
+							icon="boxicons:arrow-up"
+						/>
+					</Kbd.Item>
+					<Kbd.ItemGroupText>to navigate</Kbd.ItemGroupText>
+				</Kbd.ItemGroup>
+			</Kbd>
 		</Surface.Footer>
 	);
 }
@@ -80,7 +76,6 @@ export function SearchHeader() {
 
 	return (
 		<Surface.Header
-			py="8"
 			px="12"
 			gap="12"
 			align="center"
@@ -119,23 +114,6 @@ export function SearchHeader() {
 					</Show>
 				</InputGroup.Addon>
 			</InputGroup>
-			<Dialog.CloseTrigger asChild>
-				<Button
-					iconOnly
-					size="xl"
-					flexShrink={0}
-					rounded="full"
-					variant="tertiary"
-					aria-label="close"
-					colorPalette="neutral"
-				>
-					<Icon
-						width={16}
-						height={16}
-						icon="tabler:x"
-					/>
-				</Button>
-			</Dialog.CloseTrigger>
 		</Surface.Header>
 	);
 }
@@ -164,7 +142,6 @@ function SearchResultItem(props: SearchResultItemProps) {
 					size="lg"
 					rounded="16"
 					variant="secondary"
-					colorPalette="neutral"
 					_notHover={{ color: "fg.secondary" }}
 				>
 					<Icon
@@ -201,7 +178,6 @@ function SearchResultItem(props: SearchResultItemProps) {
 					size="lg"
 					rounded="16"
 					variant="secondary"
-					colorPalette="neutral"
 					_notHover={{ color: "fg.secondary" }}
 				>
 					<Separator
@@ -244,7 +220,6 @@ function SearchResultItem(props: SearchResultItemProps) {
 					size="lg"
 					rounded="16"
 					variant="secondary"
-					colorPalette="neutral"
 					_notHover={{ color: "fg.secondary" }}
 				>
 					<Separator
@@ -360,11 +335,7 @@ export function SearchResults() {
 	);
 }
 
-type SearchRootProps = {
-	children: React.ReactNode;
-};
-
-function SearchRoot({ children }: SearchRootProps) {
+function SearchRoot() {
 	const navigate = useNavigate();
 	const { setOpen, open, setSearch, query } = useDocsLayoutContext();
 	const items = Array.isArray(query?.data) ? query.data : [];
@@ -391,39 +362,38 @@ function SearchRoot({ children }: SearchRootProps) {
 	}
 
 	return (
-		<Dialog
+		<Drawer
 			open={open}
-			size={{ base: "full" }}
 			onEscapeKeyDown={() => setSearch("")}
 			onOpenChange={(details) => setOpen(details.open)}
 		>
-			{children}
-			<Portal>
-				<Dialog.Backdrop />
-				<Dialog.Positioner>
-					<Dialog.Content asChild>
-						<Surface
-							asChild
-							delta={1}
+			<Drawer.Backdrop />
+			<Drawer.Positioner>
+				<Drawer.Content asChild>
+					<Surface delta={1}>
+						<Combobox
+							h="full"
+							display="flex"
+							direction="column"
+							colorPalette="neutral"
+							collection={collection}
+							selectionBehavior="clear"
+							onValueChange={handleValueChange}
+							onInputValueChange={handleInputValueChange}
 						>
-							<Combobox
-								collection={collection}
-								selectionBehavior="clear"
-								onValueChange={handleValueChange}
-								onInputValueChange={handleInputValueChange}
-							>
-								<SearchHeader />
-								<SearchResults />
-								<SearchFooter />
-							</Combobox>
-						</Surface>
-					</Dialog.Content>
-				</Dialog.Positioner>
-			</Portal>
-		</Dialog>
+							<Drawer.Grabber>
+								<Drawer.GrabberIndicator />
+							</Drawer.Grabber>
+							<SearchHeader />
+							<SearchResults />
+							<Separator orientation="horizontal" />
+							<SearchFooter />
+						</Combobox>
+					</Surface>
+				</Drawer.Content>
+			</Drawer.Positioner>
+		</Drawer>
 	);
 }
 
-export const DocsLayoutSearch = Object.assign(SearchRoot, {
-	Trigger: Dialog.Trigger,
-});
+export const DocsLayoutSearch = Object.assign(SearchRoot, {});

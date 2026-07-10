@@ -1,13 +1,11 @@
 import {
 	Alert,
-	Box,
 	Button,
 	Collapsible,
 	Icon,
 	Stack,
 	Surface,
 } from "@moto-ui/react";
-import { css } from "@moto-ui/styled-system/css";
 import { useQuery } from "@tanstack/react-query";
 import { createServerFn, useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -15,11 +13,11 @@ import { useState } from "react";
 import { CopyButton } from "./copy-button";
 import { getDemo } from "@/demos";
 import { codeToHtml } from "@/lib/shiki";
+import { DynamicCode } from "../base/dynamic-code";
 
 type Input = { name: string };
 type Output = { code: string; raw: string; file: string };
 
-// Tell Vite to bundle the raw text of all your demo files during the build step.
 const rawDemoFiles = import.meta.glob("/src/demos/**/*.tsx", {
 	query: "?raw",
 	import: "default",
@@ -90,21 +88,6 @@ function ComponentPreviewSource(props: ComponentPreviewSourceProps) {
 	return typeof children === "function" ? children(data) : children;
 }
 
-const styles = css.raw({
-	"& code": {
-		fontSize: "12",
-		lineHeight: "2",
-		display: "block",
-		fontFamily: "mono",
-		"& span > span": {
-			color: "var(--shiki-light)",
-			_dark: {
-				color: "var(--shiki-dark)",
-			},
-		},
-	},
-});
-
 type ComponentPreviewProps = {
 	name: string;
 	hideCode?: boolean;
@@ -132,7 +115,7 @@ export function ComponentPreview(props: ComponentPreviewProps) {
 			</Surface.Content>
 			<Surface.Footer position="relative">
 				<ComponentPreviewSource name={name}>
-					{({ code, raw }) => {
+					{({ raw }) => {
 						return (
 							<Collapsible
 								open={open}
@@ -185,9 +168,9 @@ export function ComponentPreview(props: ComponentPreviewProps) {
 										position="relative"
 										overflow={open ? "auto" : "hidden"}
 									>
-										<Box
-											css={styles}
-											dangerouslySetInnerHTML={{ __html: code }}
+										<DynamicCode
+											code={raw}
+											lang="tsx"
 										/>
 									</Stack>
 								</Collapsible.Content>

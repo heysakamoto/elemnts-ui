@@ -28,6 +28,7 @@ import {
 	decorativeBoxRecipe,
 	dialogRecipe,
 	downloadRecipe,
+	drawerRecipe,
 	editableRecipe,
 	elevatedRecipe,
 	emptyStateRecipe,
@@ -372,6 +373,9 @@ dialogRecipe({ size: "cover", placement: "center" });
 dialogRecipe({ size: "full", placement: "center" });
 dialogRecipe({ size: "md", placement: "top" });
 dialogRecipe({ size: "md", placement: "bottom" });
+
+// ** Drawer Recipe **
+drawerRecipe({});
 
 // ** Download Recipe **
 downloadRecipe();

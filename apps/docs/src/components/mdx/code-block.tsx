@@ -113,6 +113,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 								fontSize="12"
 								fontFamily="mono"
 								css={{
+									tabSize: 2,
 									"& span.line": {
 										whiteSpace,
 										lineHeight: "2",

@@ -673,6 +673,26 @@ export const demos: Record<string, DemoItem> = {
 		),
 		file: "dialog/sizes.tsx",
 	},
+	"drawer:basic": {
+		component: lazy(() =>
+			import("./drawer/basic").then((m) => ({ default: m.Basic })),
+		),
+		file: "drawer/basic.tsx",
+	},
+	"drawer:controlled": {
+		component: lazy(() =>
+			import("./drawer/controlled").then((m) => ({ default: m.Controlled })),
+		),
+		file: "drawer/controlled.tsx",
+	},
+	"drawer:swipe-directions": {
+		component: lazy(() =>
+			import("./drawer/swipe-directions").then((m) => ({
+				default: m.SwipeDirections,
+			})),
+		),
+		file: "drawer/swipe-directions.tsx",
+	},
 	"download:asynchronous-data": {
 		component: lazy(() =>
 			import("./download/asynchronous-data").then((m) => ({

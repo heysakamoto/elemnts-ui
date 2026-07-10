@@ -6,7 +6,9 @@ import { RootLayoutHeader } from "./header";
 import { RootLayoutPage } from "./page";
 
 function RootLayoutRoot(props: PropsWithChildren) {
-	return <Box colorPalette="neutral">{props.children}</Box>;
+	const { children } = props;
+
+	return <Box colorPalette="neutral">{children}</Box>;
 }
 
 export const RootLayout = Object.assign(RootLayoutRoot, {

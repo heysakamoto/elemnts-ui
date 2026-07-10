@@ -7,6 +7,7 @@ import { codeToHtml } from "@/lib/shiki";
 const styles = css.raw({
 	"& pre": {},
 	"& code": {
+		tabSize: 2,
 		w: "auto",
 		fontSize: "13",
 		lineHeight: "2",
@@ -48,14 +49,5 @@ export function DynamicCode(props: DynamicCodeProps) {
 			css={styles}
 			dangerouslySetInnerHTML={{ __html: html }}
 		/>
-	);
-}
-
-export function Maker() {
-	return (
-		<div>
-			<p>Hello world.</p>
-			<span>This is a span.</span>
-		</div>
 	);
 }

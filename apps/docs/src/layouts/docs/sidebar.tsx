@@ -14,14 +14,14 @@ import {
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
-import { useInDialogContext } from "./client";
+import { useDocsLayoutContext, useInDialogContext } from "./client";
 import { socials, urls } from "./constant";
-import { DocsLayoutSearch } from "./search";
 import { DocsLayoutTree } from "./tree";
 import { Logo } from "@/components/base/logo";
 
 export function DocsLayoutSidebar() {
 	const isInDialog = useInDialogContext();
+	const { setOpen } = useDocsLayoutContext();
 
 	return (
 		<Sidebar.Root
@@ -65,21 +65,20 @@ export function DocsLayoutSidebar() {
 							</Dialog.CloseTrigger>
 						</Show>
 					</Stack>
-					<DocsLayoutSearch.Trigger asChild>
-						<Button
-							iconOnly
-							size="sm"
-							rounded="16"
-							hideBelow="md"
-							variant="ghost"
-						>
-							<Icon
-								width={16}
-								height={16}
-								icon="tabler:search"
-							/>
-						</Button>
-					</DocsLayoutSearch.Trigger>
+					<Button
+						iconOnly
+						size="sm"
+						rounded="16"
+						hideBelow="md"
+						variant="ghost"
+						onClick={() => setOpen(true)}
+					>
+						<Icon
+							width={16}
+							height={16}
+							icon="tabler:search"
+						/>
+					</Button>
 				</Stack>
 			</Sidebar.Header>
 			<Sidebar.Content

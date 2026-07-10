@@ -99,6 +99,62 @@ export const keyframes = defineKeyframes({
 		to: { opacity: 0, height: 0 },
 		from: { opacity: 1, height: "var(--height, auto)" },
 	},
+	"slide-in-bottom": {
+		from: { transform: "translate3d(0, 100%, 0)" },
+		to: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+	},
+	"slide-out-bottom": {
+		from: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+		to: { transform: "translate3d(0, 100%, 0)" },
+	},
+	"slide-in-top": {
+		from: { transform: "translate3d(0, -100%, 0)" },
+		to: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+	},
+	"slide-out-top": {
+		from: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+		to: { transform: "translate3d(0, -100%, 0)" },
+	},
+	"slide-in-left": {
+		from: { transform: "translate3d(-100%, 0, 0)" },
+		to: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+	},
+	"slide-out-left": {
+		from: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+		to: { transform: "translate3d(-100%, 0, 0)" },
+	},
+	"slide-in-right": {
+		from: { transform: "translate3d(100%, 0, 0)" },
+		to: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+	},
+	"slide-out-right": {
+		from: {
+			transform:
+				"translate3d(var(--drawer-translate-x, 0), var(--drawer-translate-y, 0), 0)",
+		},
+		to: { transform: "translate3d(100%, 0, 0)" },
+	},
 
 	// scale
 	"scale-in": {

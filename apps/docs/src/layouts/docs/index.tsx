@@ -23,31 +23,30 @@ function DocsLayoutRoot(props: DocsLayoutRootProps) {
 
 	return (
 		<DocsLayoutProvider value={value}>
-			<DocsLayoutSearch>
-				<Grid
-					gap="0"
-					align="start"
-					justify="space-between"
-					colorPalette="neutral"
-					cols={{ base: "minmax(0, 1fr)", md: "16rem 1px 1fr" }}
+			<DocsLayoutSearch />
+			<Grid
+				gap="0"
+				align="start"
+				justify="space-between"
+				colorPalette="neutral"
+				cols={{ base: "minmax(0, 1fr)", md: "16rem 1px 1fr" }}
+			>
+				<GridItem
+					top="0"
+					h="100dvh"
+					as="aside"
+					hideBelow="md"
+					position="sticky"
 				>
-					<GridItem
-						top="0"
-						h="100dvh"
-						as="aside"
-						hideBelow="md"
-						position="sticky"
-					>
-						<DocsLayoutSidebar />
-					</GridItem>
-					<Separator
-						h="100%"
-						hideBelow="md"
-						orientation="horizontal"
-					/>
-					{children}
-				</Grid>
-			</DocsLayoutSearch>
+					<DocsLayoutSidebar />
+				</GridItem>
+				<Separator
+					h="100%"
+					hideBelow="md"
+					orientation="horizontal"
+				/>
+				{children}
+			</Grid>
 		</DocsLayoutProvider>
 	);
 }

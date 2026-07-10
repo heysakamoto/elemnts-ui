@@ -1,0 +1,239 @@
+---
+status: new
+title: Drawer
+description: Displays a slide-in panel for additional content or navigation.
+---
+
+<ComponentPreview name="drawer:basic" />
+
+## Usage
+Use Drawer to present content in a slide-in panel that overlays the main interface.
+
+- `Drawer.Root`: The root container for the drawer.
+- `Drawer.RootProvider`: Provides the drawer context to its children.
+- `Drawer.Trigger`: The button that opens the drawer.
+- `Drawer.Backdrop`: The semi-transparent overlay behind the drawer.
+- `Drawer.Positioner`: Positions the drawer content on the screen.
+- `Drawer.Content`: The container for the drawer's content.
+- `Drawer.Grabber`: A handle for dragging the drawer.
+- `Drawer.GrabberIndicator`: The visual indicator inside the grabber handle.
+- `Drawer.Title`: The title of the drawer, announced by assistive technologies.
+- `Drawer.Description`: A brief description of the drawer's purpose.
+- `Drawer.CloseTrigger`: A button that closes the drawer.
+- `Drawer.Indent`: Adds indentation to the drawer content.
+- `Drawer.IndentBackground`: Background layer for the indented area.
+- `Drawer.Stack`: A stacking container for drawer content.
+- `Drawer.SwipeArea`: The area that responds to swipe gestures.
+- `Drawer.Context`: Access the drawer state and methods via a render prop.
+
+```tsx
+import { Button, Drawer, Surface } from "@moto-ui/react"
+
+<Drawer.Root>
+	<Drawer.Trigger asChild>
+		<Button>Open</Button>
+	</Drawer.Trigger>
+		<Drawer.Backdrop />
+		<Drawer.Positioner>
+			<Drawer.Content asChild>
+				<Surface>
+					<Drawer.Grabber>
+						<Drawer.GrabberIndicator />
+					</Drawer.Grabber>
+					<Surface.Content>
+						<Drawer.Title>Title</Drawer.Title>
+						<Drawer.Description>Description</Drawer.Description>
+					</Surface.Content>
+					<Surface.Addon>
+						<Drawer.CloseTrigger asChild>
+							<Button>Close</Button>
+						</Drawer.CloseTrigger>
+					</Surface.Addon>
+				</Surface>
+			</Drawer.Content>
+		</Drawer.Positioner>
+</Drawer.Root>
+```
+
+## Examples
+
+### Controlled
+Control the drawer's open state using the `open` and `onOpenChange` props.
+
+<ComponentPreview name="drawer:controlled" />
+
+### Swipe directions
+Adjust the drawer's swipe direction using the `swipeDirection` prop.
+
+<ComponentPreview name="drawer:swipe-directions" />
+
+## Props
+
+**Root**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| aria-label | `string` | - | Human readable label for the drawer. |
+| closeOnEscape | `boolean` | `true` | Whether to close the drawer when the escape key is pressed. |
+| closeOnInteractOutside | `boolean` | `true` | Whether to close the drawer when the outside is clicked. |
+| defaultOpen | `boolean` | `false` | The initial open state of the drawer when rendered. |
+| finalFocusEl | `() => MaybeElement` | - | Element to receive focus when the drawer is closed. |
+| id | `string` | - | The unique identifier of the machine. |
+| ids | `Partial<{ trigger: string, positioner: string, backdrop: string, content: string, closeTrigger: string, title: string, description: string }>` | - | The ids of the elements in the drawer. |
+| initialFocusEl | `() => MaybeElement` | - | Element to receive focus when the drawer is opened. |
+| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
+| modal | `boolean` | `true` | Whether to prevent pointer interaction outside the element. |
+| open | `boolean` | - | The controlled open state of the drawer. |
+| preventScroll | `boolean` | `true` | Whether to prevent scrolling behind the drawer when it's opened. |
+| restoreFocus | `boolean` | - | Whether to restore focus to the previous element on close. |
+| trapFocus | `boolean` | `true` | Whether to trap focus inside the drawer when it's opened. |
+| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+| onOpenChange | `(details: OpenChangeDetails) => void` | - | Function to call when the drawer's open state changes. |
+| onEscapeKeyDown | `(event: KeyboardEvent) => void` | - | Function called when the escape key is pressed. |
+| onFocusOutside | `(event: FocusOutsideEvent) => void` | - | Function called when the focus is moved outside. |
+| onInteractOutside | `(event: InteractOutsideEvent) => void` | - | Function called when an interaction happens outside. |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | - | Function called when the pointer is pressed down outside. |
+
+**RootProvider**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| value | `UseDrawerReturn` | - | **Required**. The value returned from `useDrawer`. |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Trigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Backdrop**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Positioner**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Content**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Title**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Description**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**CloseTrigger**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**Grabber**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**GrabberIndicator**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+**SwipeArea**
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+
+## Data Attributes
+
+**Root**
+None (Context only).
+
+**Trigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `trigger` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+**Backdrop**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `backdrop` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+**Content**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `content` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+**Title**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `title` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+**Description**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `description` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+**Positioner**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `positioner` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+**CloseTrigger**
+
+| Attribute | Description |
+| --- | --- |
+| data-scope | `drawer` |
+| data-part | `close-trigger` |
+| data-state | The state of the drawer. `open` or `closed`. |
+
+## CSS Variables
+
+**Content**
+
+| Variable | Description |
+| --- | --- |
+| --layer-index | The index of the dismissable in the layer stack. |
+| --nested-layer-count | The number of nested drawers. |
+
+**Backdrop**
+
+| Variable | Description |
+| --- | --- |
+| --layer-index | The index of the dismissable in the layer stack. |
+| --z-index | The z-index of the content. |

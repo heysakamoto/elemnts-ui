@@ -28,6 +28,7 @@ export * from "./date-picker";
 export * from "./decorative-box";
 export * from "./dialog";
 export * from "./download";
+export * from "./drawer";
 export * from "./editable";
 export * from "./elevated";
 export * from "./empty-state";

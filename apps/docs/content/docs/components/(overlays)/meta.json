@@ -3,6 +3,7 @@
 	"defaultOpen": false,
 	"pages": [
 		"dialog",
+		"drawer",
 		"floating-panel",
 		"hover-card",
 		"menu",
