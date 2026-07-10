@@ -84,11 +84,11 @@ export const base: MDXComponents = {
 		return (
 			<Text
 				as="h2"
-				fontSize="20"
 				lineHeight="xs"
 				fontWeight="500"
 				letterSpacing="sm"
 				color="fg.primary"
+				fontSize={{ base: "20", md: "24" }}
 				scrollMarginTop={{ base: "132", lg: "80" }}
 				css={{ "&:not(:first-child)": { mt: "40" } }}
 				{...props}
@@ -107,11 +107,11 @@ export const base: MDXComponents = {
 			<Text
 				as="h3"
 				gap="12"
-				fontSize="18"
 				lineHeight="xs"
 				fontWeight="500"
 				letterSpacing="sm"
 				color="fg.primary"
+				fontSize={{ base: "18", md: "20" }}
 				scrollMarginTop={{ base: "132", lg: "80" }}
 				css={{ "&:not(:first-child)": { mt: "40" } }}
 				{...props}
@@ -129,11 +129,11 @@ export const base: MDXComponents = {
 		return (
 			<Text
 				as="h4"
-				fontSize="16"
 				lineHeight="xs"
 				fontWeight="500"
 				letterSpacing="sm"
 				color="fg.primary"
+				fontSize={{ base: "16", md: "18" }}
 				scrollMarginTop={{ base: "132", lg: "80" }}
 				css={{ "&:not(:first-child)": { mt: "40" } }}
 				{...props}

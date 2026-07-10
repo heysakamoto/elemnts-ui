@@ -39,7 +39,7 @@ export const CodeBlockTabsList = (props: PropsWithChildren) => {
 			m="8"
 			w="fit"
 			h="auto"
-			delta={6}
+			delta={2}
 			rounded="full"
 			elevated={false}
 		>
