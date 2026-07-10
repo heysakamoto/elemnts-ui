@@ -1,5 +1,11 @@
 # @moto-ui/preset-base
 
+## 0.0.12
+
+### Patch Changes
+
+- Path release: adds Drawer component, adds drawer-slot recipes, upgrades typescript to ^7, and fixes few bug issues - TileRoot component ref prop is properly forwared, removes default border-radius with surface slot-recipe.
+
 ## 0.0.11
 
 ### Patch Changes
