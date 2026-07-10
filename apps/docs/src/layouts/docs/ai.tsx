@@ -21,16 +21,18 @@ import { replaceSlug } from "@/utils/url";
 function CopyButton() {
 	const splat = useParams({
 		from: "/docs/$",
-		select: (p) => p._splat ?? "index",
+		select: (p) => p._splat || "index",
 	});
 	const markdownPath = slugsToMarkdownPath(splat.split("/")).url;
 
 	const { data } = useQuery({
 		queryKey: [`copy-markdown`, splat],
 		queryFn: async () => {
-			const md = await fetch(markdownPath, {
+			const response = await fetch(`${markdownPath}`, {
 				method: "GET",
-			}).then((r) => r.text());
+			});
+
+			const md = await response.text();
 
 			return md;
 		},

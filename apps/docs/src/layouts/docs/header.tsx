@@ -13,9 +13,9 @@ import {
 	VisuallyHidden,
 } from "@moto-ui/react";
 
+import { useDocsLayoutContext } from "./client";
 import { FRAMEWORKS } from "./constant";
 import { DocsLayoutMobileNav } from "./mobile-nav";
-import { DocsLayoutSearch } from "./search";
 import { Sponsor } from "@/features/sponsor";
 
 const selectedFramework = FRAMEWORKS.find(
@@ -23,6 +23,9 @@ const selectedFramework = FRAMEWORKS.find(
 );
 
 export function DocsLayoutHeader() {
+	const sponsor = Sponsor.useContext();
+	const { setOpen } = useDocsLayoutContext();
+
 	return (
 		<Section
 			top="0"
@@ -95,21 +98,20 @@ export function DocsLayoutHeader() {
 					</Portal>
 				</Menu>
 				<ButtonGroup variant="ghost">
-					<DocsLayoutSearch.Trigger asChild>
-						<Button
-							iconOnly
-							hideFrom="md"
-							rounded="full"
-							_notHover={{ color: "icon.secondary" }}
-						>
-							<VisuallyHidden>Search docs</VisuallyHidden>
-							<Icon
-								width={16}
-								height={16}
-								icon="tabler:search"
-							/>
-						</Button>
-					</DocsLayoutSearch.Trigger>
+					<Button
+						iconOnly
+						hideFrom="md"
+						rounded="full"
+						onClick={() => setOpen(true)}
+						_notHover={{ color: "icon.secondary" }}
+					>
+						<VisuallyHidden>Search docs</VisuallyHidden>
+						<Icon
+							width={16}
+							height={16}
+							icon="tabler:search"
+						/>
+					</Button>
 					<DocsLayoutMobileNav>
 						<ButtonGroup.Item iconOnly>
 							<VisuallyHidden>Open sidebar</VisuallyHidden>
@@ -122,17 +124,14 @@ export function DocsLayoutHeader() {
 							/>
 						</ButtonGroup.Item>
 					</DocsLayoutMobileNav>
-					<Sponsor>
-						<Sponsor.Trigger asChild>
-							<Button
-								rounded="12"
-								fontSize="13"
-								variant="surface"
-							>
-								Sponsor
-							</Button>
-						</Sponsor.Trigger>
-					</Sponsor>
+					<Button
+						rounded="12"
+						fontSize="13"
+						variant="surface"
+						onClick={() => sponsor.setOpen(true)}
+					>
+						Sponsor
+					</Button>
 				</ButtonGroup>
 			</Stack>
 			<Separator orientation="horizontal" />

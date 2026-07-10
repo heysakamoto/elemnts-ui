@@ -96,6 +96,7 @@ export const CodeBlockTabsPanel = (props: CodeBlockTabsPanelProps) => {
 					as="code"
 					fontFamily="mono"
 					css={{
+						tabSize: 2,
 						"& span.line": {
 							lineHeight: 2,
 							display: "block",

@@ -17,6 +17,7 @@ import { dataListRecipe } from "./data-list";
 import { dateInputRecipe } from "./date-input";
 import { datePickerRecipe } from "./date-picker";
 import { dialogRecipe } from "./dialog";
+import { drawerRecipe } from "./drawer";
 import { editableRecipe } from "./editable";
 import { emptyStateRecipe } from "./empty-state";
 import { fieldRecipe } from "./field";
@@ -95,6 +96,7 @@ export const slotRecipes = {
 	surfaceRecipe,
 	fieldRecipe,
 	imageCropperRecipe,
+	drawerRecipe,
 	jsonTreeViewRecipe,
 	fieldsetRecipe,
 	floatingPanelRecipe,

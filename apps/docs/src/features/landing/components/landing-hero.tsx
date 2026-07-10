@@ -15,6 +15,8 @@ import { Sponsor } from "@/features/sponsor";
 import { LANDING_HERO_EXAMPLES } from "../constants";
 
 export function LandingHero() {
+	const sponsor = Sponsor.useContext();
+
 	return (
 		<Section
 			pb="80"
@@ -60,16 +62,13 @@ export function LandingHero() {
 							/>
 						</Link>
 					</ButtonGroup.Item>
-					<Sponsor>
-						<Sponsor.Trigger asChild>
-							<ButtonGroup.Item
-								rounded="16"
-								variant="secondary"
-							>
-								Become a Sponsor
-							</ButtonGroup.Item>
-						</Sponsor.Trigger>
-					</Sponsor>
+					<ButtonGroup.Item
+						rounded="16"
+						variant="secondary"
+						onClick={() => sponsor.setOpen(true)}
+					>
+						Become a Sponsor
+					</ButtonGroup.Item>
 				</ButtonGroup>
 			</Container>
 			<Container

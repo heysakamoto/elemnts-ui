@@ -1,8 +1,5 @@
-import {
-	defineConfig,
-	defineDocs,
-	frontmatterSchema,
-} from "fumadocs-mdx/config";
+import { pageSchema } from "fumadocs-core/source/schema";
+import { defineConfig, defineDocs } from "fumadocs-mdx/config";
 import { z } from "zod";
 
 export default defineConfig({});
@@ -13,7 +10,7 @@ export const docs = defineDocs({
 		postprocess: {
 			includeProcessedMarkdown: true,
 		},
-		schema: frontmatterSchema.extend({
+		schema: pageSchema.extend({
 			status: z.enum(["updated", "new"]).optional(),
 			links: z
 				.object({

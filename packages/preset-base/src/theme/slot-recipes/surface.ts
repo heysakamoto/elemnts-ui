@@ -19,7 +19,6 @@ export const surfaceRecipe = defineSlotRecipe({
 		root: {
 			...base,
 			overflow: "clip",
-			rounded: "calc({radii.4} * 3)",
 		},
 		addon: {
 			display: "flex",

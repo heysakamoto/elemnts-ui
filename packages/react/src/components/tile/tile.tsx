@@ -1,21 +1,23 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react/factory";
 import { createStyleContext } from "@moto-ui/styled-system/jsx";
 import { tileRecipe } from "@moto-ui/styled-system/recipes";
+import type { RefAttributes } from "react";
 
 const { withProvider, withContext } = createStyleContext(tileRecipe);
 
 export const TileRoot = withProvider(
 	(
 		props: HTMLArkProps<"div"> &
-			React.RefAttributes<HTMLDivElement> & {
+			RefAttributes<HTMLDivElement> & {
 				selected?: boolean;
 				disabled?: boolean;
 			},
 	) => {
-		const { selected = false, disabled = false, ...rest } = props;
+		const { selected = false, ref, disabled = false, ...rest } = props;
 
 		return (
 			<ark.div
+				ref={ref}
 				data-disabled={disabled ? "" : undefined}
 				data-selected={selected ? "" : undefined}
 				aria-disabled={disabled ? true : undefined}

@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 
 import { NotFound } from "@/components/base/not-found";
+import { Sponsor } from "@/features/sponsor";
 import css from "../styles.css?url";
 
 const baseUrl = import.meta.env.VITE_URL || "https://moto-ui.com";
@@ -123,7 +124,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<ColorScheme>{children}</ColorScheme>
+				<ColorScheme>
+					<Sponsor>{children}</Sponsor>
+				</ColorScheme>
 				<Scripts />
 			</body>
 		</html>

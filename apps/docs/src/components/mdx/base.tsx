@@ -74,7 +74,7 @@ export const base: MDXComponents = {
 			lineHeight="md"
 			letterSpacing="sm"
 			color="fg.secondary"
-			css={{ "&:not(:first-child)": { mt: "24" } }}
+			css={{ "&:not(:first-child)": { mt: 20 } }}
 			{...props}
 		>
 			{props.children}
