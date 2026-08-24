@@ -27,11 +27,4 @@ export default defineConfig({
 		svgr({ include: "**/*.svg?react" }),
 		mdx(MdxConfig),
 	],
-	optimizeDeps: {
-		exclude: [
-			"@moto-ui/react",
-			"@moto-ui/preset-base",
-			"@moto-ui/styled-system",
-		],
-	},
 });

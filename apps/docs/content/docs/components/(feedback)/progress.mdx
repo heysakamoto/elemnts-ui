@@ -3,29 +3,20 @@ title: Progress
 description: An indicator that displays the status of a task or a process.
 ---
 
-<ComponentPreview name="progress:basic" />
+<Example name="progress:basic" />
 
 ## Usage
 
 The `Progress` component is used to show the completion status of a task. It can be displayed as a linear bar or a circular indicator.
 
-- `Progress`: The root container for the progress component.
-- `Progress.Track`: The container for the progress range (linear).
-- `Progress.Range`: The visual indicator of the progress value (linear).
-- `Progress.Label`: The label for the progress component.
-- `Progress.ValueText`: The text representation of the current value.
-- `Progress.View`: Renders its children based on the current progress state.
-- `Progress.Context`: Provides access to the progress state via a render prop.
-- `Progress.RootProvider`: Advanced component for using a custom progress hook.
-
 ```tsx
-import { Progress } from "@moto-ui/react"
+import { Progress } from "@moto-ui/react";
 
 <Progress defaultValue={40}>
   <Progress.Track>
     <Progress.Range />
   </Progress.Track>
-</Progress>
+</Progress>;
 ```
 
 ## Examples
@@ -34,131 +25,105 @@ import { Progress } from "@moto-ui/react"
 
 You can add a label and value text to provide more context about the progress.
 
-<ComponentPreview name="progress:with-label" />
+<Example name="progress:with-label" />
 
 ### Indeterminate
 
 When the progress value is unknown, set `value` to `null` to show an indeterminate state.
 
-<ComponentPreview name="progress:indeterminate" />
+<Example name="progress:indeterminate" />
 
-## Props
+## API Reference
 
-**Root**
+### Progress
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| defaultValue | `number` | `50` | The initial value of the progress bar when rendered. |
-| value | `number \| null` | - | The controlled value of the progress bar. Set to `null` for indeterminate state. |
-| min | `number` | `0` | The minimum allowed value. |
-| max | `number` | `100` | The maximum allowed value. |
-| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the progress bar. |
-| formatOptions | `NumberFormatOptions` | `{ style: "percent" }` | Options for formatting the value text. |
-| locale | `string` | `'en-US'` | The locale to use for formatting the value. |
-| id | `string` | - | The unique identifier of the progress bar. |
-| ids | `Partial<{ root: string; track: string; label: string; circle: string }>` | - | The ids of the elements in the progress bar. |
-| translations | `IntlTranslations` | - | The localized messages to use. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Callback fired when the value changes. |
-| colorPalette | `'accent' \| 'neutral' \| 'success' \| 'warning' \| 'destructive'` | `'accent'` | The color palette of the progress indicator. |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the progress bar. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The root container for the progress component.
 
-**Label**
+| Prop          | Type                                                                      | Default                |
+| ------------- | ------------------------------------------------------------------------- | ---------------------- |
+| value         | `number`                                                                  | -                      |
+| defaultValue  | `number`                                                                  | `50`                   |
+| onValueChange | `(details: ValueChangeDetails) => void`                                   | -                      |
+| min           | `number`                                                                  | `0`                    |
+| max           | `number`                                                                  | `100`                  |
+| orientation   | `"horizontal" \| "vertical"`                                              | `"horizontal"`         |
+| formatOptions | `NumberFormatOptions`                                                     | `{ style: "percent" }` |
+| locale        | `string`                                                                  | `"en-US"`              |
+| translations  | `IntlTranslations`                                                        | -                      |
+| id            | `string`                                                                  | -                      |
+| ids           | `Partial<{ root: string; track: string; label: string; circle: string }>` | -                      |
+| asChild       | `boolean`                                                                 | `false`                |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### ProgressRootProvider
 
-**Track**
+Advanced component for using a custom progress hook.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type                | Default  |
+| ------- | ------------------- | -------- |
+| value   | `UseProgressReturn` | required |
+| asChild | `boolean`           | `false`  |
 
-**Range**
+### ProgressTrack
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The container for the linear progress range.
 
-**ValueText**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### ProgressRange
 
-**View**
+The visual indicator of the linear progress value.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| state | `'determinate' \| 'indeterminate' \| 'complete'` | - | The state of the progress to show this view for. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Context**
-Provides access to the `Progress` API via a render prop.
+### ProgressCircle
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| children | `(api: UseProgressContext) => ReactNode` | - | Render prop to access the component API. |
+The SVG container for circular progress.
 
-**RootProvider**
-Advanced component for using a custom `useProgress` hook.
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `UseProgressReturn` | - | The value returned from the `useProgress` hook. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### ProgressCircleTrack
 
-## Data Attributes
+The background track for circular progress.
 
-**Root**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="progress"]` | The component scope. |
-| `[data-part="root"]` | The root part. |
-| `[data-state]` | The state of the progress. `determinate`, `indeterminate`, or `complete`. |
-| `[data-value]` | The current value. |
-| `[data-orientation]` | The orientation of the progress. |
+### ProgressCircleRange
 
-**Label**
+The visual indicator of the circular progress value.
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="label"]` | The label part. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Track**
+### ProgressLabel
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="track"]` | The track part. |
+The label for the progress component.
 
-**Range**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="range"]` | The range part. |
-| `[data-state]` | The state of the range. |
+### ProgressValueText
 
-**ValueText**
+The text representation of the current progress value.
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="value-text"]` | The value text part. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**View**
+### ProgressView
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="view"]` | The view part. |
-| `[data-state]` | The state that this view represents. |
+Renders its children based on the current progress state.
 
-## CSS Variables
-
-**Root**
-
-| Variable | Description |
-| :--- | :--- |
-| `--percent` | The current progress percentage (0 to 1). |
-| `--radius` | The border radius of the track. |
-| `--thickness` | The thickness of the progress indicator. |
+| Prop    | Type            | Default  |
+| ------- | --------------- | -------- |
+| state   | `ProgressState` | required |
+| asChild | `boolean`       | `false`  |

@@ -3,8 +3,9 @@ import {
 	RatingGroup,
 	useRatingGroupItemContext,
 } from "@ark-ui/react/rating-group";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { ratingGroupRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { ratingGroupRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(ratingGroupRecipe);
 

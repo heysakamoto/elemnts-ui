@@ -1,7 +1,7 @@
 import { ark } from "@ark-ui/react";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { surfaceRecipe } from "@moto-ui/styled-system/recipes";
 
+import { createStyleContext } from "../../../styled-system/jsx";
+import { surfaceRecipe } from "../../../styled-system/recipes";
 import { ElevatedBase } from "../elevated";
 
 const { withProvider, withContext } = createStyleContext(surfaceRecipe);

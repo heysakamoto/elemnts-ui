@@ -1,25 +1,6 @@
 {
-	"title": "Data Display",
-	"defaultOpen": false,
-	"pages": [
-		"avatar",
-		"badge",
-		"breadcrumb",
-		"chip",
-		"clipboard",
-		"data-list",
-		"icon",
-		"image",
-		"list",
-		"image-cropper",
-		"marquee",
-		"qr-code",
-		"sortable",
-		"stat",
-		"surface",
-		"table",
-		"tile",
-		"timeline",
-		"timer"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Data Display",
+  "pages": ["..."]
 }

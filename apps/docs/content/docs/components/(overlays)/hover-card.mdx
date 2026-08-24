@@ -3,141 +3,58 @@ title: HoverCard
 description: Displays additional content when a user hovers over a target element.
 ---
 
-<ComponentPreview name="hover-card:basic" />
+<Example name="hover-card:basic" />
 
 ## Usage
-The `HoverCard` component is used to reveal supplemental information when a user hovers or focuses on a target element.
 
-- `HoverCard.Root`: The root container for the hover card.
-- `HoverCard.RootProvider`: Provides the hover card context to its children.
-- `HoverCard.Trigger`: The target element that triggers the hover card.
-- `HoverCard.Positioner`: Manages the absolute positioning of the hover card.
-- `HoverCard.Content`: The visual container for the hover card's content.
-- `HoverCard.Arrow`: An optional arrow that points to the trigger.
-- `HoverCard.ArrowTip`: The tip of the arrow.
-- `HoverCard.Context`: Access the hover card state and methods.
+Used to reveal supplemental information when a user hovers or focuses on a target element.
 
 ```tsx
-import { HoverCard, Portal, Card } from "@moto-ui/react"
+import { HoverCard, Portal } from "@moto-ui/react";
 
 <HoverCard.Root>
-  <HoverCard.Trigger asChild>
-    <a href="#">@username</a>
-  </HoverCard.Trigger>
+  <HoverCard.Trigger />
   <Portal>
     <HoverCard.Positioner>
-      <HoverCard.Content asChild>
-        <Surface>
-           User profile information...
-        </Surface>
-      </HoverCard.Content>
+      <HoverCard.Content />
     </HoverCard.Positioner>
   </Portal>
-</HoverCard.Root>
+</HoverCard.Root>;
 ```
 
 ## Delays
-Set timing with the `openDelay` and `closeDelay` props: `openDelay` controls how long after hover or focus the card opens, and `closeDelay` controls how long after the pointer leaves the trigger or content it closes.
 
-<ComponentPreview name="hover-card:delays" />
+Control how long after hover or focus the card opens with `openDelay` and otherwise with `closeDelay` props.
 
-## Props
+<Example name="hover-card:delays" />
 
-**Root**
+## API Reference
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| closeDelay | `number` | `300` | The duration from when the mouse leaves the trigger or content until the hover card closes. |
-| defaultOpen | `boolean` | - | The initial open state of the hover card when rendered. |
-| disabled | `boolean` | `false` | Whether the hover card is disabled. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ trigger: string, content: string, positioner: string, arrow: string }>` | - | The ids of the elements in the hover card. |
-| immediate | `boolean` | - | Whether to synchronize the present change immediately. |
-| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
-| open | `boolean` | - | The controlled open state of the hover card. |
-| openDelay | `number` | `600` | The duration from when the mouse enters the trigger until the hover card opens. |
-| positioning | `PositioningOptions` | - | The positioning options for the hover card. |
-| present | `boolean` | - | Whether the node is present (controlled by the user). |
-| skipAnimationOnMount | `boolean` | `false` | Whether to allow the initial presence animation. |
-| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
-| onExitComplete | `VoidFunction` | - | Function called when the animation ends in the closed state. |
-| onFocusOutside | `(event: FocusOutsideEvent) => void` | - | Function called when the focus is moved outside. |
-| onInteractOutside | `(event: InteractOutsideEvent) => void` | - | Function called when an interaction happens outside. |
-| onOpenChange | `(details: OpenChangeDetails) => void` | - | Function called when the hover card opens or closes. |
-| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | - | Function called when the pointer is pressed down outside. |
+### HoverCardRoot
 
-**RootProvider**
+The root component for the hover card.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseHoverCardReturn` | - | **Required**. The value returned from `useHoverCard`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Trigger**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Positioner**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Content**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Arrow**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**ArrowTip**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Trigger**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `hover-card` |
-| data-part | `trigger` |
-| data-state | The state of the hover card. `open` or `closed`. |
-
-**Content**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `hover-card` |
-| data-part | `content` |
-| data-state | The state of the hover card. `open` or `closed`. |
-| data-placement | The placement of the content. |
-
-## CSS Variables
-
-**Positioner**
-
-| Variable | Description |
-| --- | --- |
-| --x | The x position for transform. |
-| --y | The y position for transform. |
-| --z-index | The z-index value. |
-| --transform-origin | The transform origin for animations. |
-| --available-width | The available width in viewport. |
-| --available-height | The available height in viewport. |
-
-**Arrow**
-
-| Variable | Description |
-| --- | --- |
-| --arrow-size | The size of the arrow. |
-| --arrow-background | The background color of the arrow. |
+| Prop | Type | Default |
+| ---- | ---- | --- |
+| closeDelay | `number` | `300` |
+| defaultOpen | `boolean` | `undefined` |
+| defaultTriggerValue | `string` | `undefined` |
+| disabled | `boolean` | `undefined` |
+| hideMode | `HideMode` | `display-none` |
+| id | `string` | `undefined` |
+| ids | `Partial<{trigger: string \| ((value?: string \| undefined) => string) content: string positioner: string arrow: string}>` | `undefined` |
+| immediate | `boolean` | `undefined` |
+| lazyMount | `boolean` | `false` |
+| onExitComplete | `VoidFunction` | `undefined` |
+| onFocusOutside | `(event: FocusOutsideEvent) => void` | `undefined` |
+| onInteractOutside | `(event: InteractOutsideEvent) => void` | `undefined` |
+| onOpenChange | `(details: OpenChangeDetails) => void` | `undefined` |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | `undefined` |
+| onTriggerValueChange | `(details: TriggerValueChangeDetails) => void` | `undefined` |
+| open | `boolean` | `undefined` |
+| openDelay | `number` | `600` |
+| positioning | `PositioningOptions` | `undefined` |
+| present | `boolean` | `undefined` |
+| skipAnimationOnMount | `boolean` | `false` |
+| triggerValue | `string` | `undefined` |
+| unmountOnExit | `boolean` | `false` |

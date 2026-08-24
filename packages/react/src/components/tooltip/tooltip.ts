@@ -1,6 +1,7 @@
 import { Tooltip } from "@ark-ui/react/tooltip";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { tooltipRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { tooltipRecipe } from "../../../styled-system/recipes";
 
 const { withRootProvider, withContext } = createStyleContext(tooltipRecipe);
 

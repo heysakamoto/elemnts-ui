@@ -1,6 +1,7 @@
 import { ark } from "@ark-ui/react";
-import { styled } from "@moto-ui/styled-system/jsx";
-import { swatchRecipe } from "@moto-ui/styled-system/recipes";
+
+import { styled } from "../../../styled-system/jsx";
+import { swatchRecipe } from "../../../styled-system/recipes";
 
 export const Swatch = styled(ark.div, swatchRecipe, {
 	defaultProps: {

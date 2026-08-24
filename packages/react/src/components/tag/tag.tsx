@@ -1,7 +1,8 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react";
-import { styled } from "@moto-ui/styled-system/jsx";
-import { tagRecipe } from "@moto-ui/styled-system/recipes";
 import type React from "react";
+
+import { styled } from "../../../styled-system/jsx";
+import { tagRecipe } from "../../../styled-system/recipes";
 
 export const Tag = styled(
 	(

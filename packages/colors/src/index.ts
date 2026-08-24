@@ -1,2 +1,1 @@
-export * from "./types";
-export * from "./variants";
+export * from "@moto-ui/core/colors";

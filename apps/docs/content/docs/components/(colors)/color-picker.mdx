@@ -3,13 +3,20 @@ title: Color Picker
 description: A component that allows users to select a color from a spectrum or predefined swatches.
 ---
 
-<ComponentPreview name="color-picker:basic" />
+<Example name="color-picker:basic" />
 
 ## Usage
-The `ColorPicker` component is a feature-rich compound component that provides a complete interface for color selection, including color areas, sliders, and swatches.
+
+A feature-rich compound component that provides a complete interface for color selection, including color areas, sliders, and swatches.
 
 ```tsx
-import { ColorPicker, Swatch, Surface, Portal, parseColor } from "@moto-ui/react"
+import {
+  ColorPicker,
+  Swatch,
+  Surface,
+  Portal,
+  parseColor,
+} from "@moto-ui/react";
 
 const color = parseColor("#eb5e41");
 
@@ -39,242 +46,317 @@ const color = parseColor("#eb5e41");
       </ColorPicker.Content>
     </ColorPicker.Positioner>
   </Portal>
-</ColorPicker>
+</ColorPicker>;
 ```
 
 ## Swatch Grid
-You can use `ColorPicker.SwatchGroup` to provide a list of predefined colors for the user to choose from.
 
-<ComponentPreview name="color-picker:swatch-grid" />
+Use the **ColorPicker.SwatchGroup** to provide a list of predefined colors for the user to choose from.
+
+<Example name="color-picker:swatch-grid" />
 
 ## Area Channels
-The color area can be remapped to different channels using the `xChannel` and `yChannel` props.
 
-<ComponentPreview name="color-picker:area-channels" />
+Remap the color area to different channels using the **xChannel** and **yChannel** props.
+
+<Example name="color-picker:area-channels" />
 
 ## Alpha Slider
-Use the `alpha` channel with a `ColorPicker.TransparencyGrid` to allow users to adjust the opacity of a color.
 
-<ComponentPreview name="color-picker:channel-slider-alpha" />
+Use the **alpha** channel with a **ColorPicker.TransparencyGrid** to allow users to adjust the opacity of a color.
+
+<Example name="color-picker:channel-slider-alpha" />
 
 ## RGB Channel Sliders
-You can display multiple channel sliders within a `ColorPicker.View` to allow explicit editing of each color channel.
 
-<ComponentPreview name="color-picker:channel-sliders-rgb" />
+Display multiple channel sliders within a **ColorPicker.View** to allow explicit editing of each color channel.
 
-## Props
+<Example name="color-picker:channel-sliders-rgb" />
 
-**Root**
+## API Reference
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| defaultValue | `Color` | `#000000` | The initial color value when rendered. |
-| value | `Color` | - | The controlled color value of the color picker. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Handler called when the value changes. |
-| onValueChangeEnd | `(details: ValueChangeDetails) => void` | - | Handler called when the user stops dragging. |
-| defaultFormat | `ColorFormat` | `'rgba'` | The initial color format when rendered. |
-| format | `ColorFormat` | - | The controlled color format to use. |
-| onFormatChange | `(details: FormatChangeDetails) => void` | - | Callback fired when the color format changes. |
-| open | `boolean` | - | The controlled open state of the color picker. |
-| defaultOpen | `boolean` | - | The initial open state of the color picker. |
-| onOpenChange | `(details: OpenChangeDetails) => void` | - | Handler called when the user opens or closes. |
-| disabled | `boolean` | - | Whether the color picker is disabled. |
-| readOnly | `boolean` | - | Whether the color picker is read-only. |
-| invalid | `boolean` | - | Whether the color picker is invalid. |
-| required | `boolean` | - | Whether the color picker is required. |
-| name | `string` | - | The name for the form input. |
-| closeOnSelect | `boolean` | `false` | Whether to close when a swatch is selected. |
-| positioning | `PositioningOptions` | - | The positioning options for the color picker. |
-| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
-| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
-| initialFocusEl | `() => HTMLElement` | - | The initial focus element when opened. |
-| openAutoFocus | `boolean` | `true` | Whether to auto focus when opened. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<Ids>` | - | The ids of the elements in the color picker. |
-| immediate | `boolean` | - | Whether to synchronize the present change immediately. |
-| inline | `boolean` | - | Whether to render the color picker inline. |
-| colorPalette | `ColorPalette` | `"gray"` | The color palette of the component |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### ColorPicker
 
-**RootProvider**
+Root element for the color picker.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `UseColorPickerReturn` | - | The color picker instance (Required) |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+| Prop                 | Type                                       | Default          |
+| -------------------- | ------------------------------------------ | ---------------- |
+| closeOnSelect        | `boolean`                                  | `false`          |
+| defaultFormat        | `ColorFormat`                              | `"rgba"`         |
+| defaultOpen          | `boolean`                                  | -                |
+| defaultValue         | `Color`                                    | `#000000`        |
+| disabled             | `boolean`                                  | -                |
+| format               | `ColorFormat`                              | -                |
+| hideMode             | `HideMode`                                 | `"display-none"` |
+| id                   | `string`                                   | -                |
+| ids                  | `Partial<ColorPickerIds>`                  | -                |
+| immediate            | `boolean`                                  | -                |
+| initialFocusEl       | `() => HTMLElement \| null`                | -                |
+| inline               | `boolean`                                  | -                |
+| invalid              | `boolean`                                  | -                |
+| lazyMount            | `boolean`                                  | `false`          |
+| name                 | `string`                                   | -                |
+| onExitComplete       | `VoidFunction`                             | -                |
+| onFocusOutside       | `(event: FocusOutsideEvent) => void`       | -                |
+| onFormatChange       | `(details: FormatChangeDetails) => void`   | -                |
+| onInteractOutside    | `(event: InteractOutsideEvent) => void`    | -                |
+| onOpenChange         | `(details: OpenChangeDetails) => void`     | -                |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | -                |
+| onValueChange        | `(details: ValueChangeDetails) => void`    | -                |
+| onValueChangeEnd     | `(details: ValueChangeDetails) => void`    | -                |
+| open                 | `boolean`                                  | -                |
+| openAutoFocus        | `boolean`                                  | `true`           |
+| positioning          | `PositioningOptions`                       | -                |
+| present              | `boolean`                                  | -                |
+| readOnly             | `boolean`                                  | -                |
+| required             | `boolean`                                  | -                |
+| skipAnimationOnMount | `boolean`                                  | `false`          |
+| unmountOnExit        | `boolean`                                  | `false`          |
+| value                | `Color`                                    | -                |
+| asChild              | `boolean`                                  | `false`          |
 
-**Area**
+### ColorPickerRootProvider
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| xChannel | `ColorChannel` | - | The channel for the x-axis. |
-| yChannel | `ColorChannel` | - | The channel for the y-axis. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+Provides a color picker state machine created with `useColorPicker`.
 
-**AreaBackground**
+| Prop                 | Type                   | Default          |
+| -------------------- | ---------------------- | ---------------- |
+| value                | `UseColorPickerReturn` | required         |
+| hideMode             | `HideMode`             | `"display-none"` |
+| immediate            | `boolean`              | -                |
+| lazyMount            | `boolean`              | `false`          |
+| onExitComplete       | `VoidFunction`         | -                |
+| present              | `boolean`              | -                |
+| skipAnimationOnMount | `boolean`              | `false`          |
+| unmountOnExit        | `boolean`              | `false`          |
+| asChild              | `boolean`              | `false`          |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerArea
 
-**AreaThumb**
+Interactive color area for selecting two color channels.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop     | Type           | Default |
+| -------- | -------------- | ------- |
+| xChannel | `ColorChannel` | -       |
+| yChannel | `ColorChannel` | -       |
+| asChild  | `boolean`      | `false` |
 
-**ChannelInput**
+### ColorPickerAreaBackground
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| channel | `ExtendedColorChannel` | - | The color channel this input controls (Required). |
-| orientation | `Orientation` | - | The orientation of the input. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+Renders the gradient background for the color area.
 
-**ChannelSlider**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| channel | `ColorChannel` | - | The color channel this slider controls (Required). |
-| orientation | `Orientation` | - | The orientation of the slider. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerAreaThumb
 
-**ChannelSliderTrack**
+Renders the draggable thumb within the color area.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**ChannelSliderThumb**
+### ColorPickerChannelSlider
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+A slider for selecting a color channel value.
 
-**ChannelSliderLabel**
+| Prop        | Type           | Default  |
+| ----------- | -------------- | -------- |
+| channel     | `ColorChannel` | required |
+| orientation | `Orientation`  | -        |
+| asChild     | `boolean`      | `false`  |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerChannelSliderControl
 
-**ChannelSliderValueText**
+Wraps the channel slider track and thumb.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Content**
+### ColorPickerChannelSliderLabel
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+Labels a channel slider.
 
-**Control**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerChannelSliderThumb
 
-**EyeDropperTrigger**
+Renders the draggable thumb for a channel slider.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**FormatSelect**
+### ColorPickerChannelSliderTrack
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+Renders the track for a channel slider.
 
-**FormatTrigger**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerChannelSliderValueText
 
-**Label**
+Displays the current channel slider value.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Positioner**
+### ColorPickerChannelInput
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+An input for editing an individual color channel.
 
-**Swatch**
+| Prop        | Type                   | Default  |
+| ----------- | ---------------------- | -------- |
+| channel     | `ExtendedColorChannel` | required |
+| orientation | `Orientation`          | -        |
+| asChild     | `boolean`              | `false`  |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `string \| Color` | - | The color value (Required). |
-| respectAlpha | `boolean` | - | Whether to include the alpha channel. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerContent
 
-**SwatchGroup**
+Contains the picker interface displayed when the picker is open.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**SwatchIndicator**
+### ColorPickerControl
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+Groups the trigger and color value controls.
 
-**SwatchTrigger**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `string \| Color` | - | The color value to select (Required). |
-| disabled | `boolean` | - | Whether the trigger is disabled. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerEyeDropperTrigger
 
-**TransparencyGrid**
+A button that opens the browser eye dropper, where supported.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| size | `string` | - | The size of the grid squares. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Trigger**
+### ColorPickerFormatSelect
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+A native select for changing the color format.
 
-**ValueSwatch**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| respectAlpha | `boolean` | - | Whether to include the alpha channel. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+### ColorPickerFormatTrigger
 
-**ValueText**
+A button that cycles through available color formats.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| format | `ColorStringFormat` | - | The format to display. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**View**
+### ColorPickerHiddenInput
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| format | `ColorFormat` | - | The format to display in this view (Required). |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+A hidden form input containing the selected color value.
 
-**HiddenInput**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### ColorPickerLabel
 
-**Context**
+Labels the color picker.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| children | `(context: UseColorPickerContext) => React.ReactNode` | - | Render prop that provides access to the context |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### ColorPickerPositioner
+
+Positions the color picker content relative to its trigger.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### ColorPickerSwatch
+
+Displays a color swatch.
+
+| Prop         | Type              | Default  |
+| ------------ | ----------------- | -------- |
+| value        | `string \| Color` | required |
+| respectAlpha | `boolean`         | -        |
+| asChild      | `boolean`         | `false`  |
+
+### ColorPickerSwatchGroup
+
+Groups related color swatches.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### ColorPickerSwatchIndicator
+
+Indicates the selected swatch.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### ColorPickerSwatchTrigger
+
+A button that selects its associated swatch color.
+
+| Prop     | Type              | Default  |
+| -------- | ----------------- | -------- |
+| value    | `string \| Color` | required |
+| disabled | `boolean`         | -        |
+| asChild  | `boolean`         | `false`  |
+
+### ColorPickerTransparencyGrid
+
+Renders a checkerboard background for transparent colors.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| size    | `string`  | -       |
+| asChild | `boolean` | `false` |
+
+### ColorPickerTrigger
+
+A button that toggles the color picker.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### ColorPickerValueSwatch
+
+Displays a swatch for the current color value.
+
+| Prop         | Type      | Default |
+| ------------ | --------- | ------- |
+| respectAlpha | `boolean` | -       |
+| asChild      | `boolean` | `false` |
+
+### ColorPickerValueText
+
+Displays the current color value as text.
+
+| Prop    | Type                | Default |
+| ------- | ------------------- | ------- |
+| format  | `ColorStringFormat` | -       |
+| asChild | `boolean`           | `false` |
+
+### ColorPickerView
+
+Renders content for a specific color format.
+
+| Prop    | Type          | Default  |
+| ------- | ------------- | -------- |
+| format  | `ColorFormat` | required |
+| asChild | `boolean`     | `false`  |

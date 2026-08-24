@@ -1,0 +1,44 @@
+---
+title: Item
+description: A versatile primitive component used to create lists, menus, and navigation items.
+---
+
+<Example name="item:basic" />
+
+## Usage
+
+A flexible primitive designed to be used in various contexts such as sidebars, menus, and lists. It provides consistent styling for hover, active, and disabled states.
+
+```tsx
+import { Item } from "@moto-ui/react"
+
+<Item>
+  Profile
+</Item>
+```
+
+## Examples
+
+### Variants
+
+Change the visual apperance of the component using the **variant** prop
+
+<Example name="item:variants" />
+
+### Icon Only
+
+Use the `iconOnly` prop to create compact items that only contain an icon.
+
+<Example name="item:icon-only" />
+
+## API Reference
+The `Item` component is a styled `ark.div` and accepts all standard HTML `div` props in addition to the following:
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the item. |
+| variant | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | The variant style when the item is active or highlighted. |
+| iconOnly | `boolean` | `false` |
+| selected | `boolean` | `false` |
+| disabled | `boolean` | `false` |
+

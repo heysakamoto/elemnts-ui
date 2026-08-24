@@ -1,6 +1,7 @@
 import { Swap } from "@ark-ui/react/swap";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { swapRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { swapRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(swapRecipe);
 

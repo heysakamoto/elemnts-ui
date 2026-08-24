@@ -1,13 +1,6 @@
 {
-	"icon": "",
-	"defaultOpen": false,
-	"pages": [
-		"dialog",
-		"drawer",
-		"floating-panel",
-		"hover-card",
-		"menu",
-		"popover",
-		"tooltip"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Overlays",
+  "pages": ["..."]
 }

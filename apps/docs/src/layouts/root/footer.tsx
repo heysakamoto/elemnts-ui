@@ -42,6 +42,7 @@ export function RootLayoutFooter() {
 							<Image
 								boxSize="24"
 								rounded="full"
+								loading="lazy"
 								alt="profile-picture"
 								src="https://pbs.twimg.com/profile_images/1990437526134231040/GK9squrm_400x400.jpg"
 							/>

@@ -3,10 +3,10 @@ title: Frame
 description: Renders React components inside an isolated iframe document with full style isolation.
 ---
 
-<ComponentPreview name="frame:basic" />
+<Example name="frame:basic" />
 
 ## Usage
-The `Frame` component renders its children inside an isolated `<iframe>`, providing complete style and DOM isolation from the parent page. This is useful for embedded widgets, preview panes, sandboxed content, or any scenario where CSS encapsulation is needed.
+Renders its children inside an isolated **iframe**, providing complete style and DOM isolation from the parent page. This is useful for embedded widgets, preview panes, sandboxed content, or any scenario where CSS encapsulation is needed.
 
 ```tsx
 import { Frame } from "@moto-ui/react"
@@ -18,19 +18,16 @@ import { Frame } from "@moto-ui/react"
 </Frame>
 ```
 
-The component automatically handles portal rendering into the iframe document, environment context, and resizing to match content dimensions.
-
 ## Head prop
 Inject styles, scripts, or meta tags into the iframe's `<head>` using the `head` prop.
 
-<ComponentPreview name="frame:head" />
+<Example name="frame:head" />
 
 
-## Props
-
-| Prop | Type | Description |
+## API Reference
+| Prop | Type | Default |
 |---|---|---|
-| `head` | `ReactNode` | Content to render inside the iframe's `<head>` element |
-| `onMount` | `fn()` | Callback invoked when the iframe document mounts |
-| `onUnmount` | `fn()` | Callback invoked when the iframe document unmounts |
-| `srcDoc` | `string` | Custom HTML document for the iframe (has sensible default) |
+| `head` | `ReactNode` | - |
+| `onMount` | `fn()` | - |
+| `onUnmount` | `fn()` | - |
+| `srcDoc` | `string` | - |

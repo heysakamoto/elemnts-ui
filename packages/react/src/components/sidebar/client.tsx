@@ -1,17 +1,55 @@
 import {
 	createContext,
 	type PropsWithChildren,
+  use,
 	useCallback,
-	useContext,
 	useMemo,
 	useState,
 } from "react";
 
 export type UseSidebarProps = {
-	collapsed?: boolean;
-	defaultCollapsed?: boolean;
-	onCollapsedChange?: (details: { collapsed: boolean }) => void;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (details: { open: boolean }) => void;
 };
+
+export function useSidebar(props?: UseSidebarProps) {
+  const {
+    open: controlledOpen,
+    defaultOpen = true,
+    onOpenChange,
+  } = props || {};
+
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
+
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+
+  const setOpen = useCallback(
+    (details: { open: boolean }) => {
+      const { open } = details;
+      if (!isControlled) {
+        setUncontrolledOpen(open);
+      }
+
+      onOpenChange?.({ open });
+    },
+    [isControlled, onOpenChange],
+  );
+
+  const toggle = useCallback(() => {
+    setOpen({ open: !open });
+  }, [open, setOpen]);
+
+  return useMemo(
+    () => ({
+      open,
+      toggle,
+      onOpenChange: setOpen,
+    }),
+    [open, setOpen, toggle],
+  );
+}
 
 export type SidebarContextValue = ReturnType<typeof useSidebar>;
 
@@ -19,53 +57,11 @@ const SidebarContext = createContext<SidebarContextValue | null>(null);
 
 export const SidebarContextProvider = SidebarContext.Provider;
 
-export function useSidebar(props?: UseSidebarProps) {
-	const {
-		collapsed: controlledCollapsed,
-		defaultCollapsed = false,
-		onCollapsedChange,
-	} = props || {};
-
-	const [uncontrolledCollapsed, setUncontrolledCollapsed] =
-		useState(defaultCollapsed);
-
-	const isControlled = controlledCollapsed !== undefined;
-
-	const collapsed = isControlled ? controlledCollapsed : uncontrolledCollapsed;
-
-	const setCollapsed = useCallback(
-		(details: { collapsed: boolean }) => {
-			const { collapsed } = details;
-			if (!isControlled) {
-				setUncontrolledCollapsed(collapsed);
-			}
-
-			onCollapsedChange?.({ collapsed });
-		},
-		[isControlled, onCollapsedChange],
-	);
-
-	const toggle = useCallback(() => {
-		setCollapsed({ collapsed: !collapsed });
-	}, [collapsed, setCollapsed]);
-
-	return useMemo(
-		() => ({
-			toggle,
-			collapsed,
-			onCollapsedChange: setCollapsed,
-		}),
-		[collapsed, setCollapsed, toggle],
-	);
-}
-
 export function useSidebarContext() {
-	const context = useContext(SidebarContext);
-
+  const context = use(SidebarContext);
 	if (!context) {
 		throw new Error("Sidebar components must be inside SidebarRootProvider");
 	}
-
 	return context;
 }
 

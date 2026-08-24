@@ -1,0 +1,60 @@
+---
+title: Format
+description: A set of components used to format numbers, bytes, and relative time according to the current locale.
+---
+
+## Usage
+
+```tsx
+import { Format } from "@moto-ui/react";
+
+<Format.Number value={1234.56} style="currency" currency="USD" />;
+```
+
+## Number
+
+The component formats a number based on the current locale and specified options. It uses the **Intl.NumberFormat** API internally.
+
+<Example name="format:number" />
+
+
+## Byte
+
+The component formats a byte value into a human-readable string (e.g., KB, MB, GB).
+
+<Example name="format:byte" />
+
+
+## Relative Time
+
+The component formats a date into a relative time string (e.g., "2 days ago", "in 5 minutes"). It uses the **Intl.RelativeTimeFormat** API internally.
+
+<Example name="format:relative-time" />
+
+
+
+## API Reference
+
+### FormatNumber
+Formats a number using the **Intl.NumberFormat** API.
+
+| Prop  | Type     | Default |
+| ----- | -------- | ------- |
+| value | `number` | -       |
+
+### FormatByte
+Formats a byte size into a human-readable string.
+
+| Prop        | Type     | Default     |
+| ----------- | -------- | ----------- |
+| value       | `number` | -           |
+| unit        | `'bit' \| 'byte'` | `'byte'`   |
+| unitDisplay | `'short' \| 'long' \| 'narrow'` | `'short'`   |
+| unitSystem  | `'decimal' \| 'binary'` | `'decimal'` |
+
+### FormatRelativeTime
+Formats a date into a relative time string using the **Intl.RelativeTimeFormat** API.
+
+| Prop  | Type   | Default |
+| ----- | ------ | ------- |
+| value | `Date` | -       |

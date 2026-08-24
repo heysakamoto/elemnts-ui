@@ -3,7 +3,7 @@ title: Colors
 description: Color palette and theming system for Moto UI.
 ---
 
-<ComponentPreview name="base:colors" />
+<Example name="base:colors" />
 
 Colors in Moto UI utilize the **OKLCH** color space. This ensures uniform perceived brightness and much smoother color transitions across our entire palette compared to traditional RGB or HSL models.
 
@@ -34,32 +34,34 @@ blue.a50   /* Blue with 50% opacity */
 
 Semantic tokens map primitive colors to specific design intentions. They abstract away the underlying color values, allowing the UI to automatically adapt to different themes (like Dark Mode).
 
-- **Format**: `{group}.{importance}`
-- **Common Groups**:
-    - `bg`: Background colors
-    - `fg`: Foreground/Text colors
-    - `stroke`: Border and line colors
-    - `icon`: Iconography colors
-- **Functional Groups**:
-    - `accent`: Primary brand/action color
-    - `success`: Positive feedback
-    - `warning`: Cautionary feedback
-    - `destructive`: Error or dangerous actions
+**Format**: `{group}.{importance}`
+
+**1. Common Groups**:
+    - **surface**: Background colors
+    - **fg**: Foreground/Text colors
+    - **stroke**: Border and line colors
+    - **icon**: Iconography colors
+
+**2. Functional Groups**:
+    - **accent**: Primary brand/action color
+    - **success**: Positive feedback
+    - **warning**: Cautionary feedback
+    - **destructive**: Error or dangerous actions
 
 ```css
 /* Semantic token examples */
-bg.primary      /* Main application background */
+surface.1      /* Main application background */
 fg.secondary    /* Secondary text */
 accent.primary  /* Main action color */
 ```
 
 ## Dark Mode
 
-Semantic tokens in Moto UI are "theme-aware." This means `bg.primary` will automatically switch from a light value to a dark value when the dark theme is active, without requiring any manual color overrides in your components.
+Semantic tokens in Moto UI are "theme-aware." This means `surface.1` will automatically switch from a light value to a dark value when the dark theme is active, without requiring any manual color overrides in your components.
 
 | Semantic Token | Light Mode Value | Dark Mode Value |
 | :--- | :--- | :--- |
-| `bg.primary` | `white` | `neutral.95` |
+| `surface.1` | `white` | `neutral.95` |
 | `fg.primary` | `neutral.100` | `neutral.10` |
 | `accent.primary` | `blue.80` | `blue.70` |
 

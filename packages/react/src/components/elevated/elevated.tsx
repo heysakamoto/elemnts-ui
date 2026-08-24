@@ -1,8 +1,8 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
-import { styled } from "@moto-ui/styled-system/jsx";
-import { elevatedRecipe } from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
 
+import { styled } from "../../../styled-system/jsx";
+import { elevatedRecipe } from "../../../styled-system/recipes";
 import { Substrate, useSubstrate } from "../substrate";
 
 /**

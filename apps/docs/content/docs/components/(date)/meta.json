@@ -1,5 +1,6 @@
 {
-	"title": "Date",
-	"defaultOpen": false,
-	"pages": ["date-input", "date-picker"]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Date",
+  "pages": ["..."]
 }

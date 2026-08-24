@@ -1,32 +1,5 @@
 {
 	"title": "Components",
-	"root": true,
-	"pages": [
-		"---Collections---",
-		"(collections)",
-		"---Colors---",
-		"(colors)",
-		"---Data display---",
-		"(data-display)",
-		"---Date---",
-		"(date)",
-		"---Disclosure---",
-		"(disclosure)",
-		"---Feedback---",
-		"(feedback)",
-		"---Forms---",
-		"(forms)",
-		"---Internationalization---",
-		"(internationalization)",
-		"---Layouts---",
-		"(layouts)",
-		"---Overlays---",
-		"(overlays)",
-		"---Pressabeles---",
-		"(pressables)",
-		"---Typography---",
-		"(typography)",
-		"---Utilities---",
-		"(utilities)"
-	]
+  "collapsible": false,
+	"pages": ["primitives", "..."]
 }

@@ -1,6 +1,7 @@
 import { NumberInput } from "@ark-ui/react/number-input";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { numberInputRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { numberInputRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(numberInputRecipe);
 

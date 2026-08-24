@@ -1,12 +1,12 @@
 import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
-import { type HTMLStyledProps, styled } from "@moto-ui/styled-system/jsx";
-import {
-	type ButtonRecipeVariantProps,
-	buttonRecipe,
-} from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
 
 import { useButtonGroupContext } from "./button-group";
+import { type HTMLStyledProps, styled } from "../../../styled-system/jsx";
+import {
+  type ButtonRecipeVariantProps,
+  buttonRecipe,
+} from "../../../styled-system/recipes";
 
 const ButtonBase = styled(ark.button, buttonRecipe);
 

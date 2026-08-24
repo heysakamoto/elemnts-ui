@@ -3,132 +3,113 @@ title: SignaturePad
 description: A component that allows users to draw a signature.
 ---
 
-<ComponentPreview name="signature-pad:basic" />
+<Example name="signature-pad:basic" />
 
 ## Usage
-The `SignaturePad` component provides a canvas for users to draw their signatures, with support for clearing and form integration.
 
-- `SignaturePad.Root`: The root container for the signature pad.
-- `SignaturePad.RootProvider`: Provides the signature pad context to its children.
-- `SignaturePad.Label`: The label for the signature pad.
-- `SignaturePad.Control`: The drawing area container.
-- `SignaturePad.Segment`: The SVG element that renders the drawn signature.
-- `SignaturePad.ClearTrigger`: A button to clear the drawing area.
-- `SignaturePad.Guide`: A visual guide line for the signature.
-- `SignaturePad.HiddenInput`: The native hidden input for form integration.
-- `SignaturePad.Context`: Access the signature pad state and methods.
+Provides a canvas for users to draw their signatures, with support for clearing and form integration.
 
 ```tsx
-import { SignaturePad, Button } from "@moto-ui/react"
+import { SignaturePad, Button } from "@moto-ui/react";
 
 <SignaturePad.Root>
   <SignaturePad.Label>Signature</SignaturePad.Label>
   <SignaturePad.Control>
     <SignaturePad.Segment />
     <SignaturePad.ClearTrigger asChild>
-      <Button variant="tertiary" size="xs">Clear</Button>
+      <Button variant="tertiary" size="xs">
+        Clear
+      </Button>
     </SignaturePad.ClearTrigger>
     <SignaturePad.Guide />
   </SignaturePad.Control>
   <SignaturePad.HiddenInput />
-</SignaturePad.Root>
+</SignaturePad.Root>;
 ```
 
-## Props
+## API Reference
 
-**Root**
+### SignaturePadRoot
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| defaultPaths | `string[]` | - | The default paths of the signature pad. |
-| disabled | `boolean` | `false` | Whether the signature pad is disabled. |
-| drawing | `DrawingOptions` | `{ size: 2, simulatePressure: true }` | The drawing options. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string, control: string, hiddenInput: string, label: string }>` | - | The ids of the signature pad elements. Useful for composition. |
-| name | `string` | - | The name of the signature pad. Useful for form submission. |
-| paths | `string[]` | - | The controlled paths of the signature pad. |
-| readOnly | `boolean` | `false` | Whether the signature pad is read-only. |
-| required | `boolean` | `false` | Whether the signature pad is required. |
-| translations | `IntlTranslations` | - | The translations of the signature pad. |
-| onDraw | `(details: DrawDetails) => void` | - | Callback when the signature pad is drawing. |
-| onDrawEnd | `(details: DrawEndDetails) => void` | - | Callback when the signature pad is done drawing. |
+The root container for the signature pad.
 
-**RootProvider**
+| Prop         | Type                                                                             | Default                               |
+| ------------ | -------------------------------------------------------------------------------- | ------------------------------------- |
+| asChild      | `boolean`                                                                        | `false`                               |
+| defaultPaths | `string[]`                                                                       | -                                     |
+| disabled     | `boolean`                                                                        | -                                     |
+| drawing      | `DrawingOptions`                                                                 | `{ size: 2, simulatePressure: true }` |
+| ids          | `Partial<{ root: string; control: string; hiddenInput: string; label: string }>` | -                                     |
+| name         | `string`                                                                         | -                                     |
+| onDraw       | `(details: DrawDetails) => void`                                                 | -                                     |
+| onDrawEnd    | `(details: DrawEndDetails) => void`                                              | -                                     |
+| paths        | `string[]`                                                                       | -                                     |
+| readOnly     | `boolean`                                                                        | -                                     |
+| required     | `boolean`                                                                        | -                                     |
+| translations | `IntlTranslations`                                                               | -                                     |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseSignaturePadReturn` | - | **Required**. The value returned from `useSignaturePad`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SignaturePadRootProvider
 
-**HiddenInput**
+Provides the signature pad state created with `useSignaturePad` to its child components.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `string` | - | **Required**. The value of the hidden input. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type                    | Default  |
+| ------- | ----------------------- | -------- |
+| value   | `UseSignaturePadReturn` | required |
+| asChild | `boolean`               | `false`  |
 
-**Label**
+### SignaturePadLabel
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The accessible label for the signature pad.
 
-**Control**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SignaturePadControl
 
-**ClearTrigger**
+Contains the signature drawing surface and its controls.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Guide**
+### SignaturePadSegment
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Renders the SVG drawing surface for the signature paths.
 
-**Segment**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SignaturePadClearTrigger
 
-## Data Attributes
+Clears all signature paths.
 
-**Root**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `signature-pad` |
-| data-part | `root` |
-| data-disabled | Present when disabled. |
+### SignaturePadGuide
 
-**Label**
+Renders a visual guide beneath the signature drawing surface.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `signature-pad` |
-| data-part | `label` |
-| data-disabled | Present when disabled. |
-| data-required | Present when required. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Control**
+### SignaturePadHiddenInput
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `signature-pad` |
-| data-part | `control` |
-| data-disabled | Present when disabled. |
+A hidden native input containing the signature value for form submission.
 
-**Guide**
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| value   | `string`  | required |
+| asChild | `boolean` | `false`  |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `signature-pad` |
-| data-part | `guide` |
-| data-disabled | Present when disabled. |
+### SignaturePadContext
+
+Provides the signature pad API to a render function.
+
+| Prop    | Type                    | Default |
+| ------- | ----------------------- | ------- |
+| value   | `(UseSignaturePadReturn) => ReactNode` | required |

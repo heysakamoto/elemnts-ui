@@ -3,7 +3,7 @@ title: Tag
 description: A versatile tag component for categorizing content, displaying status, or labeling items.
 ---
 
-<ComponentPreview name="tag:basic" />
+<Example name="tag:basic" />
 
 ## Usage
 
@@ -19,32 +19,24 @@ import { Tag } from "@moto-ui/react"
 
 ### Variants
 
-The `Tag` component supports multiple tones, sizes, and color palettes.
+Change the visual appearance of the tag by using the **variant** prop.
 
-<ComponentPreview name="tag:variants" />
+<Example name="tag:variants" />
 
 ### With Icon
 
 You can add icon to a tag to provide more context. Use the `iconOnly` prop for tags that only contain an icon.
 
-<ComponentPreview name="tag:with-icon" />
+<Example name="tag:with-icon" />
 
-## Props
+## API Reference
 
-The `Tag` component is a styled `ark.div` and accepts all standard HTML `div` props in addition to the following:
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
+| Prop | Type | Default |
+| --- | --- | --- |
 | size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the tag. |
 | tone | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | The visual tone of the tag. |
 | variant | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | The variant style when the tag is active. |
-| iconOnly | `boolean` | `false` | Whether the tag contains only an icon. |
-| selected | `boolean` | `false` | Whether the tag is in an selected state. |
-| disabled | `boolean` | `false` | Whether the tag is disabled. |
+| iconOnly | `boolean` | `false` |
+| selected | `boolean` | `false` |
+| disabled | `boolean` | `false` |
 
-## Data Attributes
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-selected]` | Present when the tag is active. |
-| `[data-disabled]` | Present when the tag is disabled. |

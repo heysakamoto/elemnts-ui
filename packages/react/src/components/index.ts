@@ -19,7 +19,7 @@ export * from "./code";
 export * from "./collapsible";
 export * from "./collection";
 export * from "./color-picker";
-export * from "./color-scheme";
+export * from "./color-theme";
 export * from "./combobox";
 export * from "./container";
 export * from "./data-list";

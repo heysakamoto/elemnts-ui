@@ -3,7 +3,7 @@ title: Toggle
 description: A two-state button that can be either on or off.
 ---
 
-<ComponentPreview name="toggle:basic" />
+<Example name="toggle:basic" />
 
 ## Usage
 
@@ -22,17 +22,17 @@ import { Toggle } from "@moto-ui/react"
 ## Controlled
 Use the `pressed` and `onPressedChange` props to control the state of the toggle.
 
-<ComponentPreview name="toggle:controlled" />
+<Example name="toggle:controlled" />
 
 ## Indicator
 Use the `Toggle.Indicator` component to render different content based on the toggle state. The `fallback` prop is rendered when the toggle is not pressed.
 
-<ComponentPreview name="toggle:indicator" />
+<Example name="toggle:indicator" />
 
 ## Disabled
 The toggle can be disabled using the `disabled` prop.
 
-<ComponentPreview name="toggle:disabled" />
+<Example name="toggle:disabled" />
 
 ## Anatomy
 
@@ -42,21 +42,23 @@ The `Toggle` component consists of the following subcomponents:
 - `Toggle.Indicator`: A component that conditionally renders its children based on the toggle state.
 - `Toggle.Context`: A component that provides access to the toggle's state via a render prop.
 
-## Props
+## API Reference
 
-### Root
+### Toggle
+Manages the state and appearance of the toggle button.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| defaultPressed | `boolean` | `false` | The default pressed state of the toggle. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| defaultPressed | `boolean` | `false` |
 | onPressedChange | `(pressed: boolean) => void` | | Event handler called when the pressed state of the toggle changes. |
 | pressed | `boolean` | | The pressed state of the toggle. |
-| disabled | `boolean` | `false` | Whether the toggle is disabled. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| disabled | `boolean` | `false` |
+| asChild | `boolean` | `false` |
 
-### Indicator
+### ToggleIndicator
+Renders the indicator of the toggle button.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
+| Prop | Type | Default |
+| --- | --- | --- |
 | fallback | `ReactNode` | | The content to render when the toggle is not pressed. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| asChild | `boolean` | `false` |

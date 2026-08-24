@@ -1,9 +1,10 @@
 {
 	"pages": [
-		"---Overview---",
-		"(overview)",
-		"---Guides---",
-		"(guides)",
-		"components"
-	]
+    "---Overview---",
+    "(overview)",
+    "---Guides---",
+    "(guides)",
+    "---Components---",
+    "components"
+  ]
 }

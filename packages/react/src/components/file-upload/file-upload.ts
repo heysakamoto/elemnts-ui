@@ -1,6 +1,7 @@
 import { FileUpload } from "@ark-ui/react/file-upload";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { fileUploadRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { fileUploadRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(fileUploadRecipe);
 

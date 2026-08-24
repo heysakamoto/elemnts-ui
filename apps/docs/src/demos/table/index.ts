@@ -1,9 +1,0 @@
-export { AlternatingRows } from "./alternating-rows";
-export { Basic } from "./basic";
-export { ColumnDividers } from "./column-dividers";
-export { Interactive } from "./interactive";
-export { PinnedHeader } from "./pinned-header";
-export { Sizes } from "./sizes";
-export { Variants } from "./variants";
-export { WithCaption } from "./with-caption";
-export { WithFooter } from "./with-footer";

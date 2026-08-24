@@ -1,14 +1,5 @@
 {
-	"title": "Guides",
-	"root": true,
-	"pages": [
-		"animations",
-		"color-scheme",
-		"colors",
-		"composition",
-		"design-principle",
-		"styling",
-		"surfaces",
-		"theming"
-	]
+  "title": "Guides",
+  "collapsible": false,
+  "pages": ["..."]
 }

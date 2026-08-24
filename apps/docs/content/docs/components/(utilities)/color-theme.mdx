@@ -1,0 +1,69 @@
+---
+title: ColorTheme
+description: A utility component for managing color theme preferences with support for light, dark, and system modes.
+---
+
+<Example name="color-theme:basic" />
+
+## Usage
+Manages the active color theme by setting **light** or **dark** classes on the document root element. It provides context so nested components can read and update the current theme.
+
+```tsx
+import { ColorTheme } from "@moto-ui/react"
+
+function App() {
+  return (
+    <ColorTheme defaultTheme="system">
+      <Content />
+    </ColorTheme>
+  )
+```
+
+## Forcing a Theme
+
+Force a specific theme for a subsection of your application
+
+<Example name="color-theme:forced" />
+
+## API
+
+### ColorThemeRoot
+The root component that provides the color theme context to its children.
+
+| Prop | Type | Default |
+| :--- | :--- | :--- |
+| defaultTheme | `"light" \| "dark" \| "system"` | `"system"` | 
+| theme | `"light" \| "dark" \| "system"` | `undefined` | 
+| onThemeChange | `(theme: "light" \| "dark" \| "system") => void` | `undefined` | 
+
+### ColorThemeScope
+The scope component that provides the color theme context to its children.
+
+| Prop | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `false` | 
+| theme | `"light" \| "dark" \| "system"` | `undefined` | 
+
+### ColorThemeTrigger
+The trigger component that allows the user to toggle the color theme.
+
+| Prop | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `false` | 
+
+### ColorThemeIndicator
+The indicator component that displays the current color theme.
+
+| Prop | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `false` | 
+| fallback | `ReactNode` | `undefined` | 
+
+## Hooks
+The following hooks are available for use with the color theme component.
+
+| Hook | Returns | Description |
+| :--- | :--- | :--- |
+| `useColorTheme` | `UseColorThemeReturn` | Creates a new color theme instance with the given options. |
+| `useColorThemeContext` | `UseColorThemeReturn` | Reads the current color theme context. Throws if used outside a provider. |
+

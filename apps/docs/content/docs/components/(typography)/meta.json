@@ -1,14 +1,6 @@
 {
-	"title": "Typography",
-	"defaultOpen": false,
-	"pages": [
-		"anchor",
-		"blockquote",
-		"code",
-		"highlight",
-		"kbd",
-		"mark",
-		"prose",
-		"text"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Typography",
+  "pages": ["..."]
 }

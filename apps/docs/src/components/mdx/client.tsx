@@ -12,10 +12,10 @@ export const CodeBlockProvider = ({ children }: PropsWithChildren) => {
 };
 
 const CodeBlockTabsContext = createContext(false);
-export const useCodeBlockTabsContext = () => {
+export function useCodeBlockTabsContext() {
 	const context = useContext(CodeBlockTabsContext);
 	return context;
-};
+}
 
 export const CodeBlockTabsProvider = ({ children }: PropsWithChildren) => {
 	return (

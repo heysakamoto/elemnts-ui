@@ -15,7 +15,7 @@ import {
 
 import { useDocsLayoutContext } from "./client";
 import { FRAMEWORKS } from "./constant";
-import { DocsLayoutMobileNav } from "./mobile-nav";
+import { useSearchContext } from "@/features/search";
 import { Sponsor } from "@/features/sponsor";
 
 const selectedFramework = FRAMEWORKS.find(
@@ -23,8 +23,9 @@ const selectedFramework = FRAMEWORKS.find(
 );
 
 export function DocsLayoutHeader() {
+	const search = useSearchContext();
 	const sponsor = Sponsor.useContext();
-	const { setOpen } = useDocsLayoutContext();
+	const layout = useDocsLayoutContext();
 
 	return (
 		<Section
@@ -47,11 +48,13 @@ export function DocsLayoutHeader() {
 					<Menu.Trigger asChild>
 						<Button
 							fontSize="13"
-							rounded="12"
+							size="sm"
+							rounded="16"
 							variant="surface"
 						>
 							{selectedFramework?.label}
 							<Icon
+								mt="-1"
 								mr="-2"
 								width={16}
 								height={16}
@@ -64,8 +67,8 @@ export function DocsLayoutHeader() {
 							<Menu.Content asChild>
 								<Surface
 									p="4"
-									rounded="20"
 									w="10rem"
+									rounded="20"
 									colorPalette="neutral"
 								>
 									<For each={FRAMEWORKS}>
@@ -83,6 +86,8 @@ export function DocsLayoutHeader() {
 													variant="secondary"
 												>
 													<Icon
+														ml="-2"
+														mb="-1"
 														width={16}
 														height={16}
 														icon={framework.icon}
@@ -102,7 +107,7 @@ export function DocsLayoutHeader() {
 						iconOnly
 						hideFrom="md"
 						rounded="full"
-						onClick={() => setOpen(true)}
+						onClick={() => search.setOpen(true)}
 						_notHover={{ color: "icon.secondary" }}
 					>
 						<VisuallyHidden>Search docs</VisuallyHidden>
@@ -112,18 +117,19 @@ export function DocsLayoutHeader() {
 							icon="tabler:search"
 						/>
 					</Button>
-					<DocsLayoutMobileNav>
-						<ButtonGroup.Item iconOnly>
-							<VisuallyHidden>Open sidebar</VisuallyHidden>
-							<Icon
-								width={16}
-								height={16}
-								hideFrom="md"
-								icon="tabler:layout-sidebar-right"
-								_notHover={{ color: "icon.secondary" }}
-							/>
-						</ButtonGroup.Item>
-					</DocsLayoutMobileNav>
+					<ButtonGroup.Item
+						iconOnly
+						onClick={() => layout.setOpen(true)}
+					>
+						<VisuallyHidden>Open sidebar</VisuallyHidden>
+						<Icon
+							width={16}
+							height={16}
+							hideFrom="md"
+							icon="tabler:layout-sidebar-right"
+							_notHover={{ color: "icon.secondary" }}
+						/>
+					</ButtonGroup.Item>
 					<Button
 						rounded="12"
 						fontSize="13"

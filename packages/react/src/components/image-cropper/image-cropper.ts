@@ -1,6 +1,7 @@
 import { ImageCropper } from "@ark-ui/react/image-cropper";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { imageCropperRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { imageCropperRecipe } from "../../../styled-system/recipes";
 
 const { withContext, withProvider } = createStyleContext(imageCropperRecipe);
 

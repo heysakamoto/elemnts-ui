@@ -1,12 +1,12 @@
 import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
-import { type HTMLStyledProps, styled } from "@moto-ui/styled-system/jsx";
-import {
-	type SeparatorRecipeVariantProps,
-	separatorRecipe,
-} from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
 
 import { useSeparatorGroupContext } from "./separator-group";
+import { type HTMLStyledProps, styled } from "../../../styled-system/jsx";
+import {
+  type SeparatorRecipeVariantProps,
+  separatorRecipe,
+} from "../../../styled-system/recipes";
 
 const SeparatorBase = styled(ark.div, separatorRecipe);
 

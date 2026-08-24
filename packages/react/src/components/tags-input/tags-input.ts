@@ -1,6 +1,7 @@
 import { TagsInput } from "@ark-ui/react/tags-input";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { tagsInputRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { tagsInputRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
 

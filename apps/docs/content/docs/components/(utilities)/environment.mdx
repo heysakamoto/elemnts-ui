@@ -3,11 +3,10 @@ title: Environment
 description: A provider that allows components to access window and document objects in different environments like iframes or Shadow DOM.
 ---
 
-<ComponentPreview name="environment:basic" />
+<Example name="environment:basic" />
 
 ## Usage
-
-The `Environment` component (internally `EnvironmentProvider`) is a utility that provides the current environment's `window`, `document`, and `rootNode` to all child components. This is essential for components that rely on DOM APIs to function correctly when rendered inside an iframe, Shadow DOM, or other isolated environments.
+A utility component that provides the current environment's **window**, **document**, and **rootNode** to all child components. This is essential for components that rely on DOM APIs to function correctly when rendered inside an iframe, Shadow DOM, or other isolated environments.
 
 ```tsx
 import { Environment } from "@moto-ui/react"
@@ -20,11 +19,11 @@ import { Environment } from "@moto-ui/react"
 
 ## Context
 
-Ark UI components use the `useEnvironment` hook to access the correct `document` and `window` objects. By default, they use the global `document` and `window`. The `Environment` provider allows you to override these globals.
+Ark UI components use the **useEnvironment** hook to access the correct **document** and **window** objects. By default, they use the global **document** and **window**.
 
 ## Shadow DOM
 
-When using Shadow DOM, you should provide the `rootNode` to ensure that components like Popover or Dialog can correctly calculate positions and manage focus within the shadow root.
+When using Shadow DOM, you should provide the **rootNode** to ensure that components like Popover or Dialog can correctly calculate positions and manage focus within the shadow root.
 
 ```tsx
 const shadowRoot = myRef.current.shadowRoot
@@ -36,14 +35,10 @@ const shadowRoot = myRef.current.shadowRoot
 </Environment>
 ```
 
-## Props
+## API Reference
+The component accepts all props from the [Ark UI Environment Provider](https://ark-ui.com/docs/utilities/environment).
 
-The `Environment` component accepts all props from the [Ark UI Environment Provider](https://ark-ui.com/docs/utilities/environment).
+| Prop | Type | Default |
+| --- | --- | --- |
+| value | `EnvironmentContext` | - |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `EnvironmentContext` | - | The environment context containing `window`, `document`, and `rootNode`. |
-
-## Data Attributes
-
-The `Environment` component is a provider and does not render any DOM elements or have data attributes.

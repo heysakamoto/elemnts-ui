@@ -6,9 +6,9 @@ const SubstrateContext = createContext(1);
  * Returns the current substrate level from the nearest `Substrate` provider.
  * @returns The current substrate level, a number between 1 and 8.
  */
-export const useSubstrate = () => {
+export function useSubstrate() {
 	return useContext(SubstrateContext);
-};
+}
 
 /**
  * Provides a substrate level to its children via context.

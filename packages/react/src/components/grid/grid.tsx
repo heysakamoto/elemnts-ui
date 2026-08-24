@@ -1,6 +1,7 @@
 import { ark } from "@ark-ui/react";
-import { styled } from "@moto-ui/styled-system/jsx";
-import { gridRecipe } from "@moto-ui/styled-system/recipes";
+
+import { styled } from "../../../styled-system/jsx";
+import { gridRecipe } from "../../../styled-system/recipes";
 
 export const Grid = styled(ark.div, gridRecipe);
 Grid.displayName = "Grid";

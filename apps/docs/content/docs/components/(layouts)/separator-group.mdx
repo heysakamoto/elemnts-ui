@@ -3,7 +3,7 @@ title: SeparatorGroup
 description: Groups multiple separators with optional captions in a consistent layout
 ---
 
-<ComponentPreview name="separator-group:basic" />
+<Example name="separator-group:basic" />
 
 ## Usage
 The `SeparatorGroup` component provides a consistent layout for separating sections with horizontal or vertical rules. It consists of a flex container with automatically spaced children.
@@ -24,60 +24,16 @@ import { SeparatorGroup } from "@moto-ui/react"
 ## Caption
 Use `SeparatorGroup.Caption` to add a label next to a separator for context.
 
-<ComponentPreview name="separator-group:caption" />
+<Example name="separator-group:caption" />
 
-## Props
+## API Reference
+### Root
 
-**Root**
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| orientation | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the separator group. |
-| as | `React.ElementType` | `div` | The underlying element to render. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Item**
-
-The `SeparatorGroup.Item` component accepts all props from the `Separator` component.
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| orientation | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the separator. |
-| size | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"sm"` | The thickness of the separator. |
-| as | `React.ElementType` | `div` | The underlying element to render. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Caption**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | `span` | The underlying element to render. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `separator-group` |
-| data-part | `root` |
-| data-orientation | The orientation of the separator group. |
-
-**Item**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `separator` |
-| data-part | `root` |
-| data-orientation | The orientation of the separator. |
-
-**Caption**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `separator-group` |
-| data-part | `caption` |
+| Prop | Type | Default |
+| --- | --- | --- |
+| as | `React.ElementType` | `span` |
+| asChild | `boolean` | `false` |
 
 ## Accessibility
 - `SeparatorGroup.Root` renders a `div` with `role="separator"`.

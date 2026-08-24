@@ -14,17 +14,10 @@ export const Code = (props: CodeProps) => {
 		}
 		default: {
 			return (
-				<MotoCode
-					size="xs"
-					rounded="8"
-					fontSize="13"
-					letterSpacing="sm"
-					whiteSpace="nowrap"
-					variant="secondary"
-				>
-					{children}
-				</MotoCode>
-			);
+        <MotoCode size="2xs" whiteSpace="nowrap" variant="secondary">
+          {children}
+        </MotoCode>
+      );
 		}
 	}
 };

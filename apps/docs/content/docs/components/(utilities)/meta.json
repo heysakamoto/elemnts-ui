@@ -1,25 +1,6 @@
 {
-	"title": "Utilities",
-	"defaultOpen": false,
-	"pages": [
-		"checkmark",
-		"client-only",
-		"environment",
-		"focus-trap",
-		"for",
-		"frame",
-		"item",
-		"json-tree-view",
-		"portal",
-		"presence",
-		"radiomark",
-		"show",
-		"skip-nav",
-		"substrate",
-		"swap",
-		"swatch",
-		"tag",
-		"theme",
-		"visually-hidden"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Utilities",
+  "pages": ["..."]
 }

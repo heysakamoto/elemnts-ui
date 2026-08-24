@@ -1,25 +1,17 @@
 ---
+status: new
 title: ImageCropper
 description: A component used to crop and transform images.
 ---
 
-<ComponentPreview name="image-cropper:basic" />
+<Example name="image-cropper:basic" />
 
 ## Usage
 
-The `ImageCropper` component is built using the compound component pattern, allowing for full control over the layout and styling of the cropping interface.
-
-- `ImageCropper.Root`: The root container that manages the state and logic of the cropper.
-- `ImageCropper.Viewport`: The container for the image and the selection area.
-- `ImageCropper.Image`: The actual image element to be cropped.
-- `ImageCropper.Selection`: The visual representation of the crop area.
-- `ImageCropper.Handle`: Resizing handles for the selection area.
-- `ImageCropper.Grid`: An optional grid overlay inside the selection.
-- `ImageCropper.Context`: Provides access to the cropper's state and methods via a render prop.
-- `ImageCropper.RootProvider`: Advanced component for using the cropper with a custom hook.
+Gives you full control over the layout and styling of image cropping interface.
 
 ```tsx
-import { ImageCropper } from "@moto-ui/react"
+import { ImageCropper } from "@moto-ui/react";
 
 <ImageCropper.Root aspectRatio={1}>
   <ImageCropper.Viewport>
@@ -32,111 +24,56 @@ import { ImageCropper } from "@moto-ui/react"
       <ImageCropper.Handle position="bottom-right" />
     </ImageCropper.Selection>
   </ImageCropper.Viewport>
-</ImageCropper.Root>
+</ImageCropper.Root>;
 ```
 
 ## Controls
 
-Use the `ImageCropper.Context` or the `useImageCropperContext` hook to access methods like `rotateBy`, `zoomBy`, and `reset` to build custom controls.
+Use the **ImageCropper.Context** or the **useImageCropperContext** hook to access methods like **rotateBy**, **zoomBy**, and **reset** to build custom controls.
 
-<ComponentPreview name="image-cropper:controls" />
+<Example name="image-cropper:controls" />
 
-## Props
+## API Reference
 
-**Root**
+### ImageCropperRoot
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| aspectRatio | `number` | - | The aspect ratio to maintain for the crop area (width / height). |
-| cropShape | `'rectangle' \| 'circle'` | `'rectangle'` | The shape of the crop area. |
-| fixedCropBox | `boolean` | `false` | Whether the crop area is fixed in size and position. |
-| minZoom | `number` | `1` | The minimum zoom factor allowed. |
-| maxZoom | `number` | `3` | The maximum zoom factor allowed. |
-| zoom | `number` | - | The controlled zoom level of the image. |
-| rotation | `number` | - | The controlled rotation of the image in degrees (0 - 360). |
-| flip | `{ h: boolean; v: boolean }` | - | The controlled flip state of the image. |
-| onCropChange | `(details: CropChangeDetails) => void` | - | Callback fired when the crop area changes. |
-| onZoomChange | `(details: ZoomChangeDetails) => void` | - | Callback fired when the zoom level changes. |
-| onRotationChange | `(details: RotationChangeDetails) => void` | - | Callback fired when the rotation changes. |
-| onFlipChange | `(details: FlipChangeDetails) => void` | - | Callback fired when the flip state changes. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The root component for the image cropper.
 
-**Handle**
+| Prop             | Type                                       | Default                                 |
+| ---------------- | ------------------------------------------ | --------------------------------------- |
+| asChild          | `boolean`                                  | `undefined`                             |
+| aspectRatio      | `number`                                   | `undefined`                             |
+| cropShape        | `'circle' \| 'rectangle'`                  | `rectangle`                             |
+| defaultFlip      | `FlipState`                                | `{ horizontal: false, vertical: false ` |
+| defaultRotation  | `number`                                   | `0`                                     |
+| defaultZoom      | `number`                                   | `1`                                     |
+| fixedCropArea    | `boolean`                                  | `false`                                 |
+| flip             | `FlipState`                                | `undefined`                             |
+| initialCrop      | `Rect`                                     | `undefined`                             |
+| maxHeight        | `number`                                   | `Infinity`                              |
+| maxWidth         | `number`                                   | `Infinity`                              |
+| maxZoom          | `number`                                   | `5`                                     |
+| minHeight        | `number`                                   | `40`                                    |
+| minWidth         | `number`                                   | `40`                                    |
+| minZoom          | `number`                                   | `1`                                     |
+| nudgeStep        | `number`                                   | `1`                                     |
+| nudgeStepCtrl    | `number`                                   | `50`                                    |
+| nudgeStepShift   | `number`                                   | `10`                                    |
+| onCropChange     | `(details: CropChangeDetails) => void`     | `undefined`                             |
+| onFlipChange     | `(details: FlipChangeDetails) => void`     | `undefined`                             |
+| onRotationChange | `(details: RotationChangeDetails) => void` | `undefined`                             |
+| onZoomChange     | `(details: ZoomChangeDetails) => void`     | `undefined`                             |
+| rotation         | `number`                                   | `undefined`                             |
+| translations     | `IntlTranslations`                         | `undefined`                             |
+| zoom             | `number`                                   | `undefined`                             |
+| zoomSensitivity  | `number`                                   | `2`                                     |
+| zoomStep         | `number`                                   | `0.1`                                   |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| position | `HandlePosition` | - | The position of the handle. Required. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### ImageCropperHandle
 
-**Selection**
+The handle component for the image cropper.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Viewport**
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Grid**
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Context**
-Provides access to the `ImageCropper` API via a render prop.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| children | `(api: UseImageCropperContext) => ReactNode` | - | Render prop to access the component API. |
-
-**RootProvider**
-Advanced component for using a custom `useImageCropper` hook.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `UseImageCropperReturn` | - | The value returned from the `useImageCropper` hook. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Selection**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="image-cropper"]` | The component scope. |
-| `[data-part="selection"]` | The component part. |
-| `[data-shape]` | The shape of the selection area (`rectangle` or `circle`). |
-| `[data-dragging]` | Present when the selection area is being dragged. |
-
-**Handle**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="image-cropper"]` | The component scope. |
-| `[data-part="handle"]` | The component part. |
-| `[data-position]` | The position of the handle. |
-
-**Grid**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="image-cropper"]` | The component scope. |
-| `[data-part="grid"]` | The component part. |
-| `[data-axis]` | The axis of the grid line (`horizontal` or `vertical`). |
-| `[data-dragging]` | Present when the selection area is being dragged. |
-| `[data-panning]` | Present when the image is being panned. |
-
-## CSS Variables
-
-| Variable | Description |
-| :--- | :--- |
-| `--cropper-grid-border-width` | The width of the grid lines. |
-| `--cropper-grid-border-color` | The color of the grid lines. |
-| `--cropper-selection-border-width` | The width of the selection border. |
-| `--cropper-selection-border-color` | The color of the selection border. |
-| `--cropper-handle-bg` | The background color of the resizing handles. |
-| `--cropper-handle-size` | The size of the resizing handles. |
+| Prop     | Type             | Default     |
+| -------- | ---------------- | ----------- |
+| position | `HandlePosition` | `undefined` |
+| asChild  | `boolean`        | `undefined` |

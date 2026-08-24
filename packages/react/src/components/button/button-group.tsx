@@ -1,15 +1,16 @@
 import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
+import { createContext, forwardRef, useContext } from "react";
+
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "@moto-ui/styled-system/jsx";
+} from "../../../styled-system/jsx";
 import {
 	type ButtonGroupRecipeVariantProps,
 	type ButtonRecipeVariantProps,
 	buttonGroupRecipe,
 	buttonRecipe,
-} from "@moto-ui/styled-system/recipes";
-import { createContext, forwardRef, useContext } from "react";
+} from "../../../styled-system/recipes";
 
 type ButtonGroupContextValue = ButtonRecipeVariantProps;
 const ButtonGroupContext = createContext<ButtonGroupContextValue>({
@@ -35,9 +36,10 @@ export const ButtonGroupRoot = forwardRef<HTMLDivElement, ButtonGroupRootProps>(
 
 		return (
 			<ButtonGroupContext.Provider value={buttonVariantProps}>
-				<ButtonGroupRootBase
-					{...restProps}
+        <ButtonGroupRootBase
 					ref={ref}
+          {...restProps}
+          fullWidth={props.fullWidth}
 				/>
 			</ButtonGroupContext.Provider>
 		);

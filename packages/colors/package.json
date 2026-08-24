@@ -44,6 +44,9 @@
 			"require": "./dist/cjs/variants/*.cjs"
 		}
 	},
+	"dependencies": {
+		"@moto-ui/core": "workspace:*"
+	},
 	"devDependencies": {
 		"tsup": "^8.5.1"
 	},

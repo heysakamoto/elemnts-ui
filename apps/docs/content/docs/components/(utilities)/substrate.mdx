@@ -3,11 +3,11 @@ title: Substrate
 description: A context provider that passes substrate depth levels down to child components to coordinate visual elevation and surface styles.
 ---
 
-<ComponentPreview name="substrate:basic" />
+<Example name="substrate:basic" />
 
 ## Usage
 
-The `Substrate` component is a utility provider that establishes a substrate level context for all its children. This level (a value clamped between 1 and 8) is typically consumed by components like `Elevated` or `Surface` to dynamically adjust background colors, borders, and shadows based on depth.
+A utility provider that establishes a substrate level context for all its children. This level (a value clamped between 1 and 8) is typically consumed by components like **Elevated** or **Surface** to dynamically adjust background colors, borders, and shadows based on depth.
 
 ```tsx
 import { Substrate } from "@moto-ui/react"
@@ -19,7 +19,7 @@ import { Substrate } from "@moto-ui/react"
 
 ## Context Hook
 
-You can access the current substrate level in custom components using the `useSubstrate` hook. This is useful when you need to write custom components whose layouts or rendering logic depend on how deeply nested they are within other layers.
+You can access the current substrate level in custom components using the **useSubstrate** hook. This is useful when you need to write custom components whose layouts or rendering logic depend on how deeply nested they are within other layers.
 
 ```tsx
 import { useSubstrate } from "@moto-ui/react"
@@ -30,12 +30,8 @@ function MyComponent() {
 }
 ```
 
-## Props
+## API Reference
+| Prop | Type | Default |
+| --- | --- | --- |
+| `value` | `number` | — |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `value` | `number` | — | The substrate level to provide. Will be clamped between 1 and 8. |
-
-## Data Attributes
-
-The `Substrate` component is a provider and does not render any DOM elements or have data attributes.

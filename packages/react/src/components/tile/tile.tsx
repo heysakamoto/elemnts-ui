@@ -1,7 +1,8 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react/factory";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { tileRecipe } from "@moto-ui/styled-system/recipes";
 import type { RefAttributes } from "react";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { tileRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(tileRecipe);
 

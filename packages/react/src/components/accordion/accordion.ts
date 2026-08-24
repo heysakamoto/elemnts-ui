@@ -1,7 +1,8 @@
 import { ark } from "@ark-ui/react";
 import { Accordion } from "@ark-ui/react/accordion";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { accordionRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { accordionRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(accordionRecipe);
 

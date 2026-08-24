@@ -3,41 +3,41 @@ title: Anchor
 description: Provides accessible navigation
 ---
 
-<ComponentPreview name="anchor:basic" />
+<Example name="anchor:basic" />
 
 ## Usage
-The `Text` component simplifies styling with design tokens and an ergonomic API for responsive designs.
+
+The component simplifies styling with design tokens and an ergonomic API for responsive designs.
+
 ```tsx
-import { Anchor } from "@moto-ui/react"
+import { Anchor } from "@moto-ui/react";
 ```
 
 ```tsx
-<Anchor>
-  {...content}
-</Anchor>
+<Anchor>{...content}</Anchor>
 ```
 
-## Variants
+## Variant
+
 Use the `variant` prop to customize the component's appearance.
 
-
-<ComponentPreview name="anchor:variants" />
+<Example name="anchor:variants" />
 
 ## Within text
+
 Use the component inline a text to create a hyperlink.
 
-<ComponentPreview name="anchor:within-text" />
+<Example name="anchor:within-text" />
 
 ## Routers
+
 Use the `asChild` prop to compose Anchor with framework router links (e.g., Tanstack router `Link`).
 
-<ComponentPreview name="anchor:routers" />
+<Example name="anchor:routers" />
 
-## Props
+## API Reference
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| colorPalette | `accent \| neutral \| success \| warning \| destructive` | `accent` | The color palette of the anchor. |
-| variant | `primary \| secondary \| tertiary` | `primary` | The visual style of the anchor. |
-| as | `React.ElementType` | `undefined` | The underlying element to render. |
-| asChild | `boolean` | `undefined` | Use the provided child element as the default rendered element, combining their props and behavior. |
+| Prop         | Type                | Default     |
+| ------------ | ------------------- | ----------- | 
+| variant      | `primary` \| `secondary` \| `tertiary` | `primary`   | 
+| asChild      | `boolean` | `undefined` |

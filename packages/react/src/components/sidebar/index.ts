@@ -1,13 +1,14 @@
 import type { ComponentProps } from "react";
 
 import {
-	SidebarContent,
+  SidebarAddon,
 	SidebarContext,
-	SidebarFooter,
 	SidebarGroup,
-	SidebarHeader,
 	SidebarItem,
-	SidebarRoot,
+  SidebarLabel,
+  SidebarList,
+  SidebarNav,
+  SidebarRoot,
 	SidebarRootProvider,
 	SidebarTrigger,
 } from "./sidebar";
@@ -17,47 +18,51 @@ export type SidebarRootProps = ComponentProps<typeof SidebarRoot>;
 export type SidebarRootProviderProps = ComponentProps<
 	typeof SidebarRootProvider
 >;
-export type SidebarContentProps = ComponentProps<typeof SidebarContent>;
-export type SidebarFooterProps = ComponentProps<typeof SidebarFooter>;
+export type SidebarAddonProps = ComponentProps<typeof SidebarAddon>;
+export type SidebarNavProps = ComponentProps<typeof SidebarNav>;
 export type SidebarGroupProps = ComponentProps<typeof SidebarGroup>;
-export type SidebarHeaderProps = ComponentProps<typeof SidebarHeader>;
+export type SidebarLabelProps = ComponentProps<typeof SidebarLabel>;
 export type SidebarItemProps = ComponentProps<typeof SidebarItem>;
+export type SidebarListProps = ComponentProps<typeof SidebarList>;
 export type SidebarTriggerProps = ComponentProps<typeof SidebarTrigger>;
 
 export const Sidebar = Object.assign(SidebarRoot, {
-	Content: SidebarContent,
-	Footer: SidebarFooter,
-	Group: SidebarGroup,
-	Header: SidebarHeader,
-	Item: SidebarItem,
-	RootProvider: SidebarRootProvider,
-	Root: SidebarRoot,
-	Context: SidebarContext,
-	Trigger: SidebarTrigger,
+  Addon: SidebarAddon,
+  Group: SidebarGroup,
+  Label: SidebarLabel,
+  Nav: SidebarNav,
+  Item: SidebarItem,
+  RootProvider: SidebarRootProvider,
+  Root: SidebarRoot,
+  Context: SidebarContext,
+  List: SidebarList,
+  Trigger: SidebarTrigger,
 });
 
 export type Sidebar = {
 	Props: SidebarRootProps;
 	RootProps: SidebarRootProps;
 	RootProviderProps: SidebarRootProviderProps;
-	ContentProps: SidebarContentProps;
-	FooterProps: SidebarFooterProps;
-	GroupProps: SidebarGroupProps;
-	HeaderProps: SidebarHeaderProps;
-	ItemProps: SidebarItemProps;
+  LabelProps: SidebarLabelProps;
+  GroupProps: SidebarGroupProps;
+  AddonProps: SidebarAddonProps;
+  NavProps: SidebarNavProps;
+  ItemProps: SidebarItemProps;
+  ListProps: SidebarListProps;
 	ContextProps: SidebarContextProps;
 	TriggerProps: SidebarTriggerProps;
 };
 
 export { useSidebar, useSidebarContext } from "./client";
 export {
-	SidebarContent,
-	SidebarContext,
-	SidebarFooter,
-	SidebarGroup,
-	SidebarHeader,
-	SidebarItem,
-	SidebarRoot,
-	SidebarRootProvider,
-	SidebarTrigger,
+  SidebarAddon,
+  SidebarContext,
+  SidebarGroup,
+  SidebarItem,
+  SidebarLabel,
+  SidebarList,
+  SidebarNav,
+  SidebarRoot,
+  SidebarRootProvider,
+  SidebarTrigger,
 };

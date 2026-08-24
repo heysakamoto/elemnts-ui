@@ -1,6 +1,7 @@
 import { Field } from "@ark-ui/react/field";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { fieldRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { fieldRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(fieldRecipe);
 

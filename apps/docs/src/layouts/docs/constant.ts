@@ -14,58 +14,69 @@ export const socials = [
 ];
 
 export const FRAMEWORKS = [
-	{
-		id: "react",
-		label: "React",
-		disabled: false,
-		icon: "logos:react",
-		url: "https://reactjs.org/",
-	},
-	{
-		id: "solid",
-		label: "Solid",
-		disabled: true,
-		icon: "devicon:solidjs",
-		url: "https://www.solidjs.com/",
-	},
-	{
-		id: "svelte",
-		label: "Svelte",
-		disabled: true,
-		icon: "logos:svelte-icon",
-		url: "https://svelte.dev/",
-	},
-	{
-		id: "vue",
-		label: "Vue",
-		disabled: true,
-		icon: "logos:vue",
-		url: "https://vuejs.org/",
-	},
+  {
+    id: "react",
+    label: "React",
+    disabled: false,
+    icon: "logos:react",
+    url: "https://reactjs.org/",
+    description: "Use with react apps",
+  },
+  {
+    id: "vue",
+    label: "Vue",
+    disabled: true,
+    icon: "devicon:vuejs",
+    url: "https://www.solidjs.com/",
+    description: "Use with vue apps",
+  },
+  {
+    id: "solid",
+    label: "Solid",
+    disabled: true,
+    icon: "devicon:solidjs",
+    url: "https://www.solidjs.com/",
+    description: "Use with solid apps",
+  },
+  {
+    id: "svelte",
+    label: "Svelte",
+    disabled: true,
+    icon: "logos:svelte-icon",
+    url: "https://svelte.dev/",
+    description: "Use with svelte apps",
+  },
 ];
 
 export const urls = [
-	{
-		id: "storybook",
-		label: "Storybook",
-		disabled: false,
-		url: "https://storybook.moto-ui.app",
-	},
-	{
-		id: "pro",
-		label: "Pro",
-		disabled: true,
-		url: "https://pro.moto-ui.app",
-	},
-	{
-		id: "blocks",
-		label: "Blocks",
-		disabled: true,
-		url: "https://blocks.moto-ui.app",
-	},
+  {
+    id: "doc",
+    label: "Docs",
+    default: true,
+    disabled: false,
+    icon: "tabler:book",
+    url: "https://pro.moto-ui.app",
+    description: "Official documentation",
+  },
+  {
+    id: "storybook",
+    label: "Storybook",
+    disabled: false,
+    icon: "tabler:app-window-bottom-left",
+    url: "https://storybook.moto-ui.app",
+    description: "Preview the components",
+  },
+  {
+    id: "pro",
+    label: "Pro",
+    disabled: true,
+    icon: "tabler:sparkles-2",
+    url: "https://pro.moto-ui.app",
+    description: "Copy and paste blocks",
+  },
 ];
 
-const prompt = `“Read the documentation slug; I'll ask questions about it.”`;
+const prompt = `Read the documentation; I'll ask questions about it.`;
 
 export const AIOptions = [
 	{

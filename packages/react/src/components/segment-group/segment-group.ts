@@ -1,6 +1,7 @@
 import { SegmentGroup } from "@ark-ui/react/segment-group";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { segmentGroupRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { segmentGroupRecipe } from "../../../styled-system/recipes";
 
 const { withContext, withProvider } = createStyleContext(segmentGroupRecipe);
 

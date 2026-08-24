@@ -46,7 +46,6 @@ const clientLoader = browserCollections.docs.createClientLoader({
 	component({ toc, frontmatter, default: MDX }, _props: undefined) {
 		return (
 			<DocsLayout.Page toc={toc}>
-				<DocsLayout.Header />
 				<DocsLayout.PageBody>
 					<DocsLayout.PageTitle>{frontmatter.title}</DocsLayout.PageTitle>
 					<DocsLayout.PageDescription>
@@ -66,7 +65,7 @@ function Page() {
 
 	return (
 		<DocsLayout pageTree={data.pageTree}>
-			<Suspense>{content}</Suspense>
+      <Suspense fallback={null}>{content}</Suspense>
 		</DocsLayout>
 	);
 }

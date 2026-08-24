@@ -1,8 +1,9 @@
 import { Box } from "@moto-ui/react";
-import { css } from "@moto-ui/styled-system/css";
+import { css } from "@/styled-system/css";
 import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 
-import { codeToHtml } from "@/lib/shiki";
+import { highlightCodeServerFn } from "@/server/shiki";
 
 const styles = css.raw({
 	"& pre": {},
@@ -34,12 +35,11 @@ type DynamicCodeProps = {
 
 export function DynamicCode(props: DynamicCodeProps) {
 	const { code, lang = "bash" } = props;
+  const highlightCode = useServerFn(highlightCodeServerFn);
 
 	const { data: html } = useQuery({
-		gcTime: 1000 * 60 * 60,
-		staleTime: 1000 * 60 * 60,
 		queryKey: ["dynamic-code", code, lang],
-		queryFn: () => codeToHtml(code, { lang }),
+    queryFn: () => highlightCode({ data: { code, lang } }),
 	});
 
 	if (!html) return null;

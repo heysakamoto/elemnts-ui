@@ -3,27 +3,14 @@ title: TagsInput
 description: A component that allows users to enter multiple values as tags.
 ---
 
-<ComponentPreview name="tags-input:basic" />
+<Example name="tags-input:basic" />
 
 ## Usage
+
 The `TagsInput` component is a compound component used for entering and managing a list of tags.
 
-- `TagsInput.Root`: The root container for the tags input.
-- `TagsInput.RootProvider`: Provides the tags input context to its children.
-- `TagsInput.Label`: The label for the tags input.
-- `TagsInput.Control`: The container for tags and the input field.
-- `TagsInput.Input`: The input field for adding new tags.
-- `TagsInput.Item`: Represents a single tag.
-- `TagsInput.ItemText`: Displays the text value of the tag.
-- `TagsInput.ItemDeleteTrigger`: A button to remove a specific tag.
-- `TagsInput.ItemPreview`: A container for tag content (text and delete trigger).
-- `TagsInput.ItemInput`: An input for editing an existing tag.
-- `TagsInput.ClearTrigger`: A button to clear all tags.
-- `TagsInput.HiddenInput`: The native hidden input for form integration.
-- `TagsInput.Context`: Access the tags input state and methods.
-
 ```tsx
-import { TagsInput, Button, Icon } from "@moto-ui/react"
+import { TagsInput, Button, Icon } from "@moto-ui/react";
 
 <TagsInput.Root defaultValue={["React", "TypeScript"]}>
   <TagsInput.Label>Frameworks</TagsInput.Label>
@@ -47,208 +34,120 @@ import { TagsInput, Button, Icon } from "@moto-ui/react"
     </TagsInput.Context>
     <TagsInput.Input placeholder="Add tag..." />
   </TagsInput.Control>
-</TagsInput.Root>
+</TagsInput.Root>;
 ```
 
 ## Clearable
+
 Use the `TagsInput.ClearTrigger` to allow users to remove all tags at once.
 
-<ComponentPreview name="tags-input:clearable" />
+<Example name="tags-input:clearable" />
 
-## Props
+## API Reference
 
-**Root**
+### TagsInput
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| addOnPaste | `boolean` | `false` | Whether to add a tag when you paste values into the tag input. |
-| allowOverflow | `boolean` | `false` | Whether to allow tags to exceed max. In this case, we'll attach `data-invalid` to the root. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| autoFocus | `boolean` | `false` | Whether the input should be auto-focused. |
-| blurBehavior | `'clear' \| 'add'` | - | The behavior of the tags input when the input is blurred. |
-| defaultInputValue | `string` | - | The initial tag input value when rendered. |
-| defaultValue | `string[]` | - | The initial tag value when rendered. |
-| delimiter | `string \| RegExp` | `","` | The character that triggers the addition of a new tag or splits tags when pasting. |
-| disabled | `boolean` | `false` | Whether the tags input should be disabled. |
-| editable | `boolean` | `true` | Whether a tag can be edited after creation. |
-| form | `string` | - | The associate form of the underlying input element. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string, input: string, hiddenInput: string, clearBtn: string, label: string, control: string, item: (opts: ItemProps) => string, itemDeleteTrigger: (opts: ItemProps) => string, itemInput: (opts: ItemProps) => string }>` | - | The ids of the elements in the tags input. Useful for composition. |
-| inputValue | `string` | - | The controlled tag input's value. |
-| invalid | `boolean` | `false` | Whether the tags input is invalid. |
-| max | `number` | `Infinity` | The max number of tags. |
-| maxLength | `number` | - | The max length of the input. |
-| name | `string` | - | The name attribute for the input. Useful for form submissions. |
-| readOnly | `boolean` | `false` | Whether the tags input should be read-only. |
-| required | `boolean` | `false` | Whether the tags input is required. |
-| translations | `IntlTranslations` | - | Specifies the localized strings for accessibility. |
-| value | `string[]` | - | The controlled tag value. |
-| validate | `(details: ValidateArgs) => boolean` | - | Returns a boolean that determines whether a tag can be added. |
-| onFocusOutside | `(event: FocusOutsideEvent) => void` | - | Function called when the focus is moved outside the component. |
-| onHighlightChange | `(details: HighlightChangeDetails) => void` | - | Callback fired when a tag is highlighted. |
-| onInputValueChange | `(details: InputValueChangeDetails) => void` | - | Callback fired when the input value is updated. |
-| onInteractOutside | `(event: InteractOutsideEvent) => void` | - | Function called when an interaction happens outside the component. |
-| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | - | Function called when the pointer is pressed down outside the component. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Callback fired when the tag values is updated. |
-| onValueInvalid | `(details: ValidityChangeDetails) => void` | - | Callback fired when the max tag count is reached or validation fails. |
+The root component that manages the tags input state.
 
-**RootProvider**
+| Prop                 | Type                                                                                                                                                                                                                                         | Default                   |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| addOnPaste           | `boolean`                                                                                                                                                                                                                                    | `false`                   |
+| allowDuplicates      | `boolean`                                                                                                                                                                                                                                    | `false`                   |
+| allowOverflow        | `boolean`                                                                                                                                                                                                                                    | -                         |
+| asChild              | `boolean`                                                                                                                                                                                                                                    | `false`                   |
+| autoFocus            | `boolean`                                                                                                                                                                                                                                    | -                         |
+| blurBehavior         | `"clear" \| "add"`                                                                                                                                                                                                                           | -                         |
+| defaultInputValue    | `string`                                                                                                                                                                                                                                     | -                         |
+| defaultValue         | `string[]`                                                                                                                                                                                                                                   | -                         |
+| delimiter            | `string \| RegExp`                                                                                                                                                                                                                           | `","`                     |
+| disabled             | `boolean`                                                                                                                                                                                                                                    | -                         |
+| editable             | `boolean`                                                                                                                                                                                                                                    | `true`                    |
+| form                 | `string`                                                                                                                                                                                                                                     | -                         |
+| id                   | `string`                                                                                                                                                                                                                                     | -                         |
+| ids                  | `Partial<{ root: string; input: string; hiddenInput: string; clearBtn: string; label: string; control: string; item: (opts: ItemProps) => string; itemDeleteTrigger: (opts: ItemProps) => string; itemInput: (opts: ItemProps) => string }>` | -                         |
+| inputValue           | `string`                                                                                                                                                                                                                                     | -                         |
+| invalid              | `boolean`                                                                                                                                                                                                                                    | -                         |
+| max                  | `number`                                                                                                                                                                                                                                     | `Infinity`                |
+| maxLength            | `number`                                                                                                                                                                                                                                     | -                         |
+| name                 | `string`                                                                                                                                                                                                                                     | -                         |
+| onFocusOutside       | `(event: FocusOutsideEvent) => void`                                                                                                                                                                                                         | -                         |
+| onHighlightChange    | `(details: HighlightChangeDetails) => void`                                                                                                                                                                                                  | -                         |
+| onInputValueChange   | `(details: InputValueChangeDetails) => void`                                                                                                                                                                                                 | -                         |
+| onInteractOutside    | `(event: InteractOutsideEvent) => void`                                                                                                                                                                                                      | -                         |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void`                                                                                                                                                                                                   | -                         |
+| onValueChange        | `(details: ValueChangeDetails) => void`                                                                                                                                                                                                      | -                         |
+| onValueInvalid       | `(details: ValidityChangeDetails) => void`                                                                                                                                                                                                   | -                         |
+| placeholder          | `string`                                                                                                                                                                                                                                     | -                         |
+| readOnly             | `boolean`                                                                                                                                                                                                                                    | -                         |
+| required             | `boolean`                                                                                                                                                                                                                                    | -                         |
+| sanitizeValue        | `(value: string) => string`                                                                                                                                                                                                                  | `(value) => value.trim()` |
+| translations         | `IntlTranslations`                                                                                                                                                                                                                           | -                         |
+| validate             | `(details: ValidateArgs) => boolean`                                                                                                                                                                                                         | -                         |
+| value                | `string[]`                                                                                                                                                                                                                                   | -                         |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseTagsInputReturn` | - | **Required**. The value returned from `useTagsInput`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TagsInputLabel
 
-**Label**
+The label for the tags input.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Control**
+### TagsInputControl
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Wraps the tags and input elements.
 
-**Input**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TagsInputInput
 
-**Item**
+The text input used to add tags.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| index | `string \| number` | - | **Required**. The index of the item. |
-| value | `string` | - | **Required**. The value of the item. |
-| disabled | `boolean` | `false` | Whether the item is disabled. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**ItemPreview**
+### TagsInputItem
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Wraps an individual tag.
 
-**ItemText**
+| Prop     | Type               | Default  |
+| -------- | ------------------ | -------- |
+| index    | `string \| number` | required |
+| value    | `string`           | required |
+| asChild  | `boolean`          | `false`  |
+| disabled | `boolean`          | -        |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TagsInputItemPreview
 
-**ItemDeleteTrigger**
+Displays an individual tag when it is not being edited.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**ItemInput**
+### TagsInputItemText
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Displays the value of an individual tag.
 
-**ClearTrigger**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TagsInputItemDeleteTrigger
 
-**HiddenInput**
+Removes an individual tag.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-## Data Attributes
+### TagsInputClearTrigger
 
-**Root**
+Removes all tags.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `root` |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
-| data-disabled | Present when disabled. |
-| data-focus | Present when focused. |
-| data-empty | Present when the content is empty. |
-
-**Label**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `label` |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
-| data-required | Present when required. |
-
-**Control**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `control` |
-| data-disabled | Present when disabled. |
-| data-readonly | Present when read-only. |
-| data-invalid | Present when invalid. |
-| data-focus | Present when focused. |
-
-**Input**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `input` |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
-| data-empty | Present when the content is empty. |
-
-**Item**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `item` |
-| data-value | The value of the item. |
-| data-disabled | Present when disabled. |
-
-**ItemPreview**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `item-preview` |
-| data-value | The value of the item. |
-| data-disabled | Present when disabled. |
-| data-highlighted | Present when highlighted. |
-
-**ItemText**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `item-text` |
-| data-disabled | Present when disabled. |
-| data-highlighted | Present when highlighted. |
-
-**ItemDeleteTrigger**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `item-delete-trigger` |
-| data-disabled | Present when disabled. |
-| data-highlighted | Present when highlighted. |
-
-**ClearTrigger**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tags-input` |
-| data-part | `clear-trigger` |
-| data-readonly | Present when read-only. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

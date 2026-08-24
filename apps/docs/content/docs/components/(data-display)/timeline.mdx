@@ -3,7 +3,7 @@ title: Timeline
 description: Displays a sequence of events or milestones in chronological order.
 ---
 
-<ComponentPreview name="timeline:basic" />
+<Example name="timeline:basic" />
 
 ## Usage
 
@@ -31,104 +31,55 @@ import { Timeline } from "@moto-ui/react"
 
 Use custom icons as timeline indicators to add visual context to each event.
 
-<ComponentPreview name="timeline:with-icon" />
+<Example name="timeline:with-icon" />
 
 ### Outline
 
 Apply an outline style to the indicator for a lighter visual appearance.
 
-<ComponentPreview name="timeline:outline" />
+<Example name="timeline:outline" />
 
-## Props
+## API Reference
 
-**Root**
+### TimelineRoot
+The root element of the Timeline.
 
-The `Timeline.Root` component accepts all standard `div` props.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-**Item**
+### TimelineItem
+The item element of the Timeline.
 
-The `Timeline.Item` component accepts all standard `div` props with the `listitem` role.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TimelineSeparator
+The separator element of the Timeline.
 
-**Separator**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-The `Timeline.Separator` component accepts all standard `div` props.
+### TimelineIndicator
+The indicator element of the Timeline.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-**Indicator**
+### TimelineConnector
+The connector element of the Timeline.
 
-The `Timeline.Indicator` component accepts all standard `div` props.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TimelineContent
+The content element of the Timeline.
 
-**Connector**
-
-The `Timeline.Connector` component accepts all standard `div` props.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Content**
-
-The `Timeline.Content` component accepts all standard `div` props.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="timeline"]` | The component scope. |
-| `[data-part="root"]` | The root part. |
-
-**Item**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="timeline"]` | The component scope. |
-| `[data-part="item"]` | The item part. |
-
-**Separator**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="timeline"]` | The component scope. |
-| `[data-part="separator"]` | The separator part. |
-
-**Indicator**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="timeline"]` | The component scope. |
-| `[data-part="indicator"]` | The indicator part. |
-
-**Connector**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="timeline"]` | The component scope. |
-| `[data-part="connector"]` | The connector part. |
-
-**Content**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="timeline"]` | The component scope. |
-| `[data-part="content"]` | The content part. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |

@@ -3,11 +3,11 @@ title: Tree View
 description: A component that displays a hierarchical list of items, such as a file system or a navigation menu.
 ---
 
-<ComponentPreview name="tree-view:basic" />
+<Example name="tree-view:basic" />
 
 ## Usage
 
-The `TreeView` component is built using the compound component pattern. You'll need to provide a `collection` created with `createTreeCollection` and recursively render the nodes using `TreeView.NodeProvider`.
+The component is built using the compound component pattern. You'll need to provide a **collection** created with **createTreeCollection** and recursively render the nodes using **TreeView.NodeProvider**.
 
 ```tsx
 import { TreeView, createTreeCollection, Item, Icon } from "@moto-ui/react"
@@ -29,15 +29,7 @@ const TreeNode = ({ node, indexPath }) => (
   <TreeView.NodeProvider node={node} indexPath={indexPath}>
     {node.children ? (
       <TreeView.Branch>
-        <TreeView.BranchControl asChild>
-          <Item>
-            <Icon icon="tabler:folder" />
-            <TreeView.BranchText>{node.name}</TreeView.BranchText>
-            <TreeView.BranchIndicator>
-              <Icon icon="tabler:chevron-down" />
-            </TreeView.BranchIndicator>
-          </Item>
-        </TreeView.BranchControl>
+        <TreeView.BranchControl/>
         <TreeView.BranchContent>
           <TreeView.BranchIndentGuide />
           {node.children.map((child, index) => (
@@ -46,12 +38,7 @@ const TreeNode = ({ node, indexPath }) => (
         </TreeView.BranchContent>
       </TreeView.Branch>
     ) : (
-      <TreeView.Item asChild>
-        <Item>
-          <Icon icon="tabler:file" />
-          <TreeView.ItemText>{node.name}</TreeView.ItemText>
-        </Item>
-      </TreeView.Item>
+      <TreeView.Item />
     )}
   </TreeView.NodeProvider>
 )
@@ -71,327 +58,94 @@ const Demo = () => (
 ## Checkbox Selection
 You can add checkboxes to your tree nodes to allow multiple selection.
 
-<ComponentPreview name="tree-view:checkbox" />
-
-## Controlled Expansion
-Use the `expandedValue` and `onExpandedChange` props to control which branches are open.
-
-```tsx
-const [expanded, setExpanded] = useState(["public"])
-
-<TreeView.Root
-  expandedValue={expanded}
-  onExpandedChange={(details) => setExpanded(details.value)}
-  collection={collection}
->
-  {/* ... */}
-</TreeView.Root>
-```
-
-## Selection Modes
-`TreeView` supports `single` and `multiple` selection modes via the `selectionMode` prop.
-
-```tsx
-<TreeView.Root selectionMode="multiple" collection={collection}>
-  {/* ... */}
-</TreeView.Root>
-```
-
-## Props
-
-**Root**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| collection | `TreeCollection<T>` | - | The collection of tree nodes. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| canRename | `(node: T, indexPath: IndexPath) => boolean` | - | Function to determine if a node can be renamed. |
-| checkedValue | `string[]` | - | The controlled checked node value. |
-| defaultCheckedValue | `string[]` | - | The initial checked node value when rendered. |
-| defaultExpandedValue | `string[]` | - | The initial expanded node ids when rendered. |
-| defaultFocusedValue | `string` | - | The initial focused node value when rendered. |
-| defaultSelectedValue | `string[]` | - | The initial selected node value when rendered. |
-| expandedValue | `string[]` | - | The controlled expanded node ids. |
-| expandOnClick | `boolean` | `true` | Whether clicking on a branch should open it or not. |
-| focusedValue | `string` | - | The value of the focused node. |
-| ids | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | - | The ids of the tree elements. Useful for composition. |
-| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
-| loadChildren | `(details: LoadChildrenDetails<T>) => Promise<T[]>` | - | Function to load children for a node asynchronously. |
-| onBeforeRename | `(details: RenameCompleteDetails) => boolean` | - | Called before a rename is completed. Return false to prevent the rename. |
-| onCheckedChange | `(details: CheckedChangeDetails) => void` | - | Called when the checked value changes. |
-| onExpandedChange | `(details: ExpandedChangeDetails<T>) => void` | - | Called when the tree is opened or closed. |
-| onFocusChange | `(details: FocusChangeDetails<T>) => void` | - | Called when the focused node changes. |
-| onLoadChildrenComplete | `(details: LoadChildrenCompleteDetails<T>) => void` | - | Called when a node finishes loading children. |
-| onLoadChildrenError | `(details: LoadChildrenErrorDetails<T>) => void` | - | Called when loading children fails for one or more nodes. |
-| onRenameComplete | `(details: RenameCompleteDetails) => void` | - | Called when a node label rename is completed. |
-| onRenameStart | `(details: RenameStartDetails<T>) => void` | - | Called when a node starts being renamed. |
-| onSelectionChange | `(details: SelectionChangeDetails<T>) => void` | - | Called when the selection changes. |
-| scrollToIndexFn | `(details: ScrollToIndexDetails<T>) => void` | - | Function to scroll to a specific index. |
-| selectedValue | `string[]` | - | The controlled selected node value. |
-| selectionMode | `'multiple' \| 'single'` | `"single"` | Whether the tree supports multiple selection. |
-| typeahead | `boolean` | `true` | Whether the tree supports typeahead search. |
-| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+<Example name="tree-view:checkbox" />
 
-**RootProvider**
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseTreeViewReturn<T>` | - | The value returned from `useTreeView`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
-| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
+## API Reference
 
-**NodeProvider**
+### TreeView
+The root component for the tree view.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| node | `NonNullable<T>` | - | The tree node. |
-| indexPath | `number[]` | - | The index path of the tree node. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| collection | `TreeCollection` | required |
+| fileIcons | `Record<string, React.JSX.ElementType \| null>` | - |
+| selectedValue | `string[]` | - |
+| checkedValue | `string[]` | - |
+| onCheckedChange | `(details: CheckedChangeDetails) => void` | - |
+| canRename | `(details: RenameDetails) => boolean` | - |
+| onRenameComplete | `(details: RenameCompleteDetails) => void` | - |
+| defaultSelectedValue | `string[]` | - |
+| onSelectionChange | `(details: SelectionChangeDetails) => void` | - |
+| expandedValue | `string[]` | - |
+| defaultExpandedValue | `string[]` | - |
+| onExpandedChange | `(details: ExpandedChangeDetails) => void` | - |
+| selectionMode | `"single" \| "multiple"` | `"single"` |
+| lazyMount | `boolean` | `true` |
+| unmountOnExit | `boolean` | `true` |
+| className | `string` | - |
 
-**NodeCheckboxIndicator**
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| fallback | `ReactNode` | - | The fallback element to render. |
-| indeterminate | `ReactNode` | - | The element to render when the node is indeterminate. |
-
-**Branch**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**BranchContent**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**BranchControl**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewLabel
+The label for the tree view.
 
-**BranchIndentGuide**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewTree
+Wraps the root node of the tree view.
 
-**BranchIndicator**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewNode
+Wraps a node in the tree view.
 
-**BranchText**
+| Prop | Type | Default |
+| --- | --- | --- |
+| node | `TreeNodeType` | `undefined` |
+| indexPath | `number[]` | `undefined` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewBranch
+The branch component for the tree view.
 
-**BranchTrigger**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewBranchItem
+The item component for the tree view branch.
 
-**Item**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewBranchContent
+The content component for the tree view branch.
 
-**ItemIndicator**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewContent
+The content component for the tree view.
 
-**ItemText**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### TreeViewItem
+The item component for the tree view.
 
-**Label**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**NodeCheckbox**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**NodeRenameInput**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Tree**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Item**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `item` |
-| data-path | The path of the item. |
-| data-value | The value of the item. |
-| data-focus | Present when focused. |
-| data-selected | Present when selected. |
-| data-disabled | Present when disabled. |
-| data-renaming | Present when renaming. |
-| data-checked | Present when checked. |
-| data-indeterminate | Present when indeterminate. |
-| data-depth | The depth of the item. |
-
-**ItemText**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `item-text` |
-| data-disabled | Present when disabled. |
-| data-selected | Present when selected. |
-| data-focus | Present when focused. |
-
-**ItemIndicator**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `item-indicator` |
-| data-disabled | Present when disabled. |
-| data-selected | Present when selected. |
-| data-focus | Present when focused. |
-
-**Branch**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch` |
-| data-depth | The depth of the item. |
-| data-value | The value of the item. |
-| data-path | The path of the item. |
-| data-selected | Present when selected. |
-| data-state | The expansion state. `open` or `closed`. |
-| data-disabled | Present when disabled. |
-| data-loading | Present when loading. |
-
-**BranchIndicator**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch-indicator` |
-| data-state | The expansion state. `open` or `closed`. |
-| data-disabled | Present when disabled. |
-| data-selected | Present when selected. |
-| data-focus | Present when focused. |
-| data-loading | Present when loading. |
-
-**BranchTrigger**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch-trigger` |
-| data-disabled | Present when disabled. |
-| data-state | The expansion state. `open` or `closed`. |
-| data-value | The value of the item. |
-| data-loading | Present when loading. |
-
-**BranchControl**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch-control` |
-| data-path | The path of the item. |
-| data-state | The expansion state. `open` or `closed`. |
-| data-disabled | Present when disabled. |
-| data-selected | Present when selected. |
-| data-focus | Present when focused. |
-| data-renaming | Present when renaming. |
-| data-checked | Present when checked. |
-| data-indeterminate | Present when indeterminate. |
-| data-value | The value of the item. |
-| data-depth | The depth of the item. |
-| data-loading | Present when loading. |
-
-**BranchText**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch-text` |
-| data-disabled | Present when disabled. |
-| data-state | The expansion state. `open` or `closed`. |
-| data-loading | Present when loading. |
-
-**BranchContent**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch-content` |
-| data-state | The expansion state. `open` or `closed`. |
-| data-depth | The depth of the item. |
-| data-path | The path of the item. |
-| data-value | The value of the item. |
-
-**BranchIndentGuide**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `branch-indent-guide` |
-| data-depth | The depth of the item. |
-
-**NodeCheckbox**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `tree-view` |
-| data-part | `node-checkbox` |
-| data-state | The checked state. `checked`, `unchecked`, or `indeterminate`. |
-| data-disabled | Present when disabled. |
-
-## CSS Variables
-
-**Item**
-
-| Variable | Description |
-| --- | --- |
-| --depth | The depth value for the Item. |
-
-**Branch**
-
-| Variable | Description |
-| --- | --- |
-| --depth | The depth value for the Branch. |
-
-**BranchIndentGuide**
-
-| Variable | Description |
-| --- | --- |
-| --depth | The depth value for the BranchIndentGuide. |
-
-**BranchContent**
-
-| Variable | Description |
-| --- | --- |
-| --height | The height of the branch content, useful for height animations. |
+### TreeViewCheckbox
+The checkbox component for the tree view.
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |

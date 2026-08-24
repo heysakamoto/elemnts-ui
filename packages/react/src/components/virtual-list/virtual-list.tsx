@@ -1,6 +1,4 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { virtualListRecipe } from "@moto-ui/styled-system/recipes";
 import type { VirtualItem } from "@tanstack/react-virtual";
 import { forwardRef, type ReactNode } from "react";
 
@@ -11,6 +9,8 @@ import {
 	VirtualListContext,
 	type VirtualListContextValue,
 } from "./client";
+import { createStyleContext } from "../../../styled-system/jsx";
+import { virtualListRecipe } from "../../../styled-system/recipes";
 import { mergeRefs } from "../../utils/merge-ref";
 
 const { withProvider, withContext } = createStyleContext(virtualListRecipe);

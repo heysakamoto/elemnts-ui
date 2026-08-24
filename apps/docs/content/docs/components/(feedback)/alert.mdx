@@ -1,19 +1,13 @@
 ---
+status: new
 title: Alert
 description: Displays a brief, important message in a way that attracts the user's attention without interrupting their task.
 ---
 
-<ComponentPreview name="alert:basic" />
+<Example name="alert:basic" />
 
 ## Usage
-The `Alert` component is used to communicate a message to the user. It is built on top of the [Collapsible](/docs/components/disclosure/collapsible) component, allowing it to be used for dismissible or togglable messages.
-
-- `Alert`: The root container for the alert.
-- `Alert.Content`: The content of the alert.
-- `Alert.Indicator`: A container for icons or images.
-- `Alert.Control`: A container for action buttons or other controls.
-- `Alert.Title`: The title of the alert.
-- `Alert.Description`: The supporting text for the alert.
+This component is used to communicate a message to the user. Use it to display a brief, important message that attracts the user's attention without interrupting their task.
 
 ```tsx
 import { Alert, Icon } from "@moto-ui/react"
@@ -32,116 +26,53 @@ import { Alert, Icon } from "@moto-ui/react"
 ## With Description
 Supporting descriptive text can be added under the title to provide additional context.
 
-<ComponentPreview name="alert:description" />
+<Example name="alert:description" />
 
 ## Status
-The `Alert` component supports different statuses to convey different meanings.
+The component supports different statuses to convey different meanings.
 
-<ComponentPreview name="alert:status" />
+<Example name="alert:status" />
+
+## Variants
+Style the alert with different variants to convey different meanings.
+
+<Example name="alert:variants" />
 
 ## With Controls
-Action buttons can be added to the alert using `Alert.Control`.
+Add action buttons can be added to the alert.
 
-<ComponentPreview name="alert:control" />
+<Example name="alert:control" />
 
-## Props
+## API Reference
+### AlertRoot
+The root container for the alert.
+| Prop | Type | Default |
+| --- | --- | --- |
+| variant | `primary` \| `secondary` \| `tertiary` \| `surface` | `'secondary'` |
+| status | `default` \| `success` \| `warning` \| `destructive` \| `info` | `'info'` |
+| asChild | `boolean` | `false` |
 
-**Root**
-The `Alert.Root` component accepts all props from the [Ark UI Collapsible](https://ark-ui.com/docs/components/collapsible) component.
+### AlertIndicator
+The indicator container for the alert.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| status | `'default' \| 'accent' \| 'success' \| 'warning' \| 'destructive'` | `'default'` | The color palette of the alert. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
 
-**Title**
-Supports standard `h3` props.
+### AlertControl
+Container for action buttons in the alert.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### AlertTitle
+The title of the alert.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-**Description**
-Supports standard `p` props.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Control**
-Supports standard `div` props.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Content**
-Supports standard `div` props.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Indicator**
-Supports standard `div` props.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="collapsible"]` | The component scope. |
-| `[data-part="root"]` | The root part. |
-| `[data-state]` | The open state of the alert. `open` or `closed`. |
-| `[data-disabled]` | Present when the alert is disabled. |
-
-**Title**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="title"]` | The title part. |
-
-**Description**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="description"]` | The description part. |
-
-**Media**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="media"]` | The media part. |
-
-**Control**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="control"]` | The control part. |
-
-**Trigger**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="trigger"]` | The trigger part. |
-
-**Indicator**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="indicator"]` | The indicator part. |
-| `[data-state]` | The open state of the indicator. `open` or `closed`. |
-
-## CSS Variables
-
-**Root**
-
-| Variable | Description |
-| :--- | :--- |
-| `--height` | The height of the collapsible content. |
-| `--width` | The width of the collapsible content. |
+### AlertDescription
+The description of the alert.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |

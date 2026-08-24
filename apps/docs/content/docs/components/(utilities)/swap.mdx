@@ -3,14 +3,10 @@ title: Swap
 description: A utility component used to toggle between two elements with an animation.
 ---
 
-<ComponentPreview name="swap:basic" />
+<Example name="swap:basic" />
 
 ## Usage
-The `Swap` component is a flexible utility for switching between two different states or indicators, such as a play/pause button, sun/moon for theme toggling, or a checkmark/copy icon.
-
-- `Swap.Root`: The root container for the swap component.
-- `Swap.RootProvider`: Provides the swap context to its children.
-- `Swap.Indicator`: Represents one of the two states (on or off).
+A flexible utility for switching between two different states or indicators, such as a play/pause button, sun/moon for theme toggling, or a checkmark/copy icon.
 
 ```tsx
 import { Swap, Icon, Button } from "@moto-ui/react"
@@ -18,17 +14,14 @@ import { useState } from "react"
 
 export const Demo = () => {
   const [swapped, setSwapped] = useState(false)
-  
+
   return (
     <Button iconOnly onClick={() => setSwapped(!swapped)}>
-      <Swap.Root swap={swapped}>
+      <Swap swap={swapped}>
         <Swap.Indicator type="on">
           <Icon icon="tabler:sun" />
         </Swap.Indicator>
-        <Swap.Indicator type="off">
-          <Icon icon="tabler:moon" />
-        </Swap.Indicator>
-      </Swap.Root>
+      </Swap>
     </Button>
   )
 }
@@ -39,63 +32,38 @@ export const Demo = () => {
 ## Fade
 Toggles between indicators with a smooth opacity transition.
 
-<ComponentPreview name="swap:fade" />
+<Example name="swap:fade" />
 
 ## Rotate
 Swaps indicators by rotating them, ideal for icons like sun/moon or sync.
 
-<ComponentPreview name="swap:rotate" />
+<Example name="swap:rotate" />
 
 ## Scale
 Transitions between states by scaling the indicators up or down.
 
-<ComponentPreview name="swap:scale" />
+<Example name="swap:scale" />
 
 ## Flip
 Provides a card-flipping effect to reveal the alternate indicator.
 
-<ComponentPreview name="swap:flip" />
+<Example name="swap:flip" />
 
-## Props
+## API Reference
 
-**Root**
+### SwapRoot
+The root container for the swap component.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| swap | `boolean` | `false` | Whether the swap is in the "on" state. |
-| mode | `'fade' \| 'rotate' \| 'scale' \| 'flip'` | `'fade'` | The animation mode to use when swapping. |
-| lazyMount | `boolean` | `false` | Whether to enable lazy mounting. |
-| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| mode | `'flip' \| 'scale' \| 'rotate' \| 'fade'` | - |
+| swap | `boolean` | `false` |
 
-**RootProvider**
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `UseSwapReturn` | - | **Required**. The value returned from `useSwap`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SwapIndicator
+Represents one of the two states (on or off).
 
-**Indicator**
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
+| Prop | Type | Default |
+| --- | --- | --- |
 | type | `'on' \| 'off'` | - | **Required**. Specifies which state this indicator represents. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-| :--- | :--- |
-| `data-scope` | `swap` |
-| `data-part` | `root` |
-| `data-state` | The current state: `open` (on) or `closed` (off). |
-
-**Indicator**
-
-| Attribute | Description |
-| :--- | :--- |
-| `data-scope` | `swap` |
-| `data-part` | `indicator` |
-| `data-state` | The current state: `open` (on) or `closed` (off). |
+| asChild | `boolean` | `false` |
