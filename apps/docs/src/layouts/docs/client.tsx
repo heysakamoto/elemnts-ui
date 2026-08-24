@@ -1,6 +1,4 @@
-import { useHotkeys } from "@tanstack/react-hotkeys";
 import type { Root } from "fumadocs-core/page-tree";
-import { useDocsSearch } from "fumadocs-core/search/client";
 import type { TOCItemType } from "fumadocs-core/toc";
 import {
 	createContext,
@@ -14,32 +12,16 @@ export const DocsLayoutContext = createContext<UseDocsLayoutReturnType | null>(
 	null,
 );
 
-type UseDocsLayoutProps = {
+export type UseDocsLayoutProps = {
 	pageTree: Root;
 };
 export function useDocsLayout(props: UseDocsLayoutProps) {
 	const { pageTree } = props;
 	const [open, setOpen] = useState(false);
-	const { search, setSearch, query } = useDocsSearch({
-		type: open ? "fetch" : "static",
-	});
-
-	useHotkeys([
-		{
-			hotkey: "/",
-			callback: (event) => {
-				event.preventDefault();
-				setOpen(!open);
-			},
-		},
-	]);
 
 	return {
 		open,
-		query,
-		search,
 		setOpen,
-		setSearch,
 		pageTree,
 	};
 }

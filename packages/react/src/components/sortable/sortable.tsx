@@ -1,9 +1,4 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
-import {
-	createStyleContext,
-	type HTMLStyledProps,
-} from "@moto-ui/styled-system/jsx";
-import { sortableRecipe } from "@moto-ui/styled-system/recipes";
 import { forwardRef, type ReactElement, type RefAttributes } from "react";
 
 import {
@@ -15,6 +10,11 @@ import {
 	useSortableItem,
 	useSortableItemContext,
 } from "./client";
+import {
+	createStyleContext,
+	type HTMLStyledProps,
+} from "../../../styled-system/jsx";
+import { sortableRecipe } from "../../../styled-system/recipes";
 import { mergeRefs } from "../../utils/merge-ref";
 
 const { withProvider, withRootProvider, withContext } =

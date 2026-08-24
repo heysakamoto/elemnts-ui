@@ -3,7 +3,7 @@
 	"type": "module",
 	"private": true,
 	"dependencies": {
-		"@moto-ui/preset-base": "workspace:*",
+		"@moto-ui/core": "workspace:*",
 		"@moto-ui/react": "workspace:*",
 		"@vitejs/plugin-react": "^5.2.0",
 		"react": "^19.2.7",

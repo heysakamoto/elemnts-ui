@@ -1,13 +1,14 @@
 import { type Assign, Listbox } from "@ark-ui/react";
+import type { ReactElement } from "react";
+
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "@moto-ui/styled-system/jsx";
+} from "../../../styled-system/jsx";
 import {
 	type ListboxRecipeVariantProps,
 	listboxRecipe,
-} from "@moto-ui/styled-system/recipes";
-import type { ReactElement } from "react";
+} from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(listboxRecipe);
 

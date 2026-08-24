@@ -68,7 +68,7 @@ Create `apps/docs/content/docs/components/<category>/<component-name>.mdx` with:
 - Frontmatter
 - Overview
 - Usage
-- `<ComponentPreview />` references
+- `<Example />` references
 - Feature sections
 - Props API tables
 - Accessibility notes

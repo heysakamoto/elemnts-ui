@@ -17,8 +17,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/heysakamoto/moto-ui.git",
-		"directory": "packages/preset-base"
+		"directory": "packages/preset-base",
+		"url": "https://github.com/heysakamoto/moto-ui.git"
 	},
 	"license": "MIT",
 	"type": "module",
@@ -49,10 +49,9 @@
 		"build": "pnpm run clean && tsup && tsc"
 	},
 	"dependencies": {
-		"@moto-ui/colors": "workspace:*"
+		"@moto-ui/core": "workspace:*"
 	},
 	"devDependencies": {
-		"@pandacss/dev": "^1.11.3",
 		"tsup": "^8.5.1"
 	}
 }

@@ -3,46 +3,47 @@ title: Highlight
 description: Highlights specified substrings within text.
 ---
 
-<ComponentPreview name="highlight:basic" />
+<Example name="highlight:basic" />
 
 ## Usage
+
 Use the `Highlight` component to emphasize substrings in text that match the provided query.
+
 ```tsx
-import { Text, Highlight } from "@moto-ui/react"
+import { Text, Highlight } from "@moto-ui/react";
 ```
 
 ```tsx
 <Text>
-  <Highlight
-    query="..."
-    text="..."
-  />
+  <Highlight query="..." text="..." />
 </Text>
 ```
 
 ## Multiple
+
 Set the query prop to an array of strings to highlight multiple substrings.
 
-<ComponentPreview name="highlight:multiple" />
+<Example name="highlight:multiple" />
 
 ## Search Query
+
 Use the `Highlight` component to emphasize terms in search results that match the user's query.
 
-<ComponentPreview name="highlight:search-query" />
+<Example name="highlight:search-query" />
 
 ## Squiggle
+
 This example demonstrates how to wrap highlighted text with a custom squiggle image for a more decorative effect.
 
-<ComponentPreview name="highlight:squiggle" />
+<Example name="highlight:squiggle" />
 
-## Props
+## API Reference
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| variant | `primary \| secondary \| tertiary \| underline` | `primary` | Specifies the components visual style variant |
-| palette | `accent \| neutral \| warning \| success \| destructive` | `accent` | Specifies the color palette used to render the highlight |
-| query | `string \| string[]` | `undefined` | The query to highlight in the text |
-| text | `string` | `undefined` | The text to highlight |
-| ignoreCase | `boolean` | `undefined` | Whether to ignore case while matching |
-| matchAll | `boolean` | `undefined` | Whether to match multiple instances of the query |
-| exactMatch | `boolean` | `undefined` | Whether to match whole words only |
+| Prop       | Type                                            | Default     |
+| ---------- | ----------------------------------------------- | ----------- |
+| variant    | `primary \| secondary \| tertiary \| underline` | `primary`   |
+| query      | `string \| string[]`                            | `undefined` |
+| text       | `string`                                        | `undefined` |
+| ignoreCase | `boolean`                                       | `undefined` |
+| matchAll   | `boolean`                                       | `undefined` |
+| exactMatch | `boolean`                                       | `undefined` |

@@ -5,7 +5,6 @@ import {
 	type DocsLayoutPageContextValue,
 	DocsLayoutPageProvider,
 } from "./client";
-import { DocsLayoutPagePager } from "./page-pager";
 
 type DocsLayoutPageProps = PropsWithChildren<DocsLayoutPageContextValue>;
 
@@ -22,7 +21,6 @@ export function DocsLayoutPage(props: DocsLayoutPageProps) {
 					{children}
 				</Grid>
 			</Section>
-			<DocsLayoutPagePager />
 		</DocsLayoutPageProvider>
 	);
 }

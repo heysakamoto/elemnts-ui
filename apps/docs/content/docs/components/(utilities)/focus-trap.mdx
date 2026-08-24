@@ -3,47 +3,32 @@ title: FocusTrap
 description: A utility component that traps keyboard focus within a specified DOM subtree.
 ---
 
-<ComponentPreview name="focus-trap:basic" />
+<Example name="focus-trap:basic" />
 
 ## Usage
 
-The `FocusTrap` component is used to trap keyboard focus within a designated container. This is essential for modals, dialogs, popovers, and other overlay components where focus should remain constrained to prevent users from tabbing into background content.
+Used to trap keyboard focus within a designated container. This is essential for modals, dialogs, popovers, and other overlay components where focus should remain constrained to prevent users from tabbing into background content.
 
 ```tsx
-import { FocusTrap } from "@moto-ui/react"
+import { FocusTrap, Input } from "@moto-ui/react"
 
-<FocusTrap disabled={!open}>
-  <div>
-    <input placeholder="Name" />
-    <input placeholder="Email" />
-    <button type="button">Submit</button>
-  </div>
+<FocusTrap>
+  <Input placeholder="Name" />
 </FocusTrap>
 ```
 
-When the trap is active, pressing `Tab` or `Shift+Tab` will cycle focus through all focusable elements inside the container, preventing focus from leaving the trapped region.
+When the trap is active, pressing **Tab** or **Shift+Tab** will cycle focus through all focusable elements inside the container, preventing focus from leaving the trapped region.
 
-## Props
+## API Reference
+The component accepts all props from the [Ark UI FocusTrap](https://ark-ui.com/docs/utilities/focus-trap) component.
 
-The `FocusTrap` component accepts all props from the [Ark UI FocusTrap](https://ark-ui.com/docs/utilities/focus-trap) component.
+| Prop | Type | Default |
+| --- | --- | --- |
+| disabled | `boolean` | `false` |
+| children | `ReactNode` | - |
+| fallbackFocus | FocusTarget | - |
+| initialFocus | `VoidFunction \| FocusTargetOrFalse` | `undefined` |
+| onActivate | `VoidFunction` | - |
+| onDeactivate | `VoidFunction` | - |
+| returnFocusOnDeactivate | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| disabled | `boolean` | `false` | Whether the focus trap is disabled. When disabled, focus is not constrained. |
-| children | `ReactNode` | - | The content to trap focus within. |
-| fallbackFocus | FocusTarget | - | Specifies a fallback element to receive focus if no tabbable elements are found in the trap, preventing the default error. The element must have a negative `tabindex`. If `initialFocus` is `false`, this element is not focused on activation. |
-| initialFocus | `VoidFunction \| FocusTargetOrFalse` | By default, focuses the first tabbable element on activation. Set to `false` to disable initial focus. Note: `false` also disables `fallbackFocus`. |
-| onActivate | `VoidFunction` | - | A function that will be called **before** sending focus to the target element upon activation. |
-| onDeactivate | `VoidFunction` | - | A function that will be called **before** sending focus to the trigger element upon deactivation. |
-| returnFocusOnDeactivate | `boolean` | `false` | Default: `true`. If `false`, when the trap is deactivated, focus will *not* return to the element that had focus before activation. |
-
-
-## Accessibility
-
-The `FocusTrap` component is a critical accessibility tool for modal interfaces. By trapping keyboard focus, it ensures that:
-
-- Keyboard users cannot accidentally interact with content behind the modal or overlay
-- Screen reader focus remains within the active dialog context
-- The `Tab` order is predictable and contained
-
-This behavior aligns with the [WAI-ARIA Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) requirements for focus management.

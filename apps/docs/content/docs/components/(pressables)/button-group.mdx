@@ -2,41 +2,80 @@
 title: ButtonGroup
 description: Organize related buttons into a group with consistent styling and spacing
 ---
-<ComponentPreview name="button-group:basic" />
+
+<Example name="button-group:basic" />
+
+## Usage
+
+Group buttons together to create a cohesive set of related actions.
+
+```tsx
+import { ButtonGroup, Button } from "@/components/ui/button-group";
+
+export default function ButtonGroupExample() {
+  return (
+    <ButtonGroup>
+      <Button>Merge</Button>
+      <Button> Fix</Button>
+    </ButtonGroup>
+  );
+}
+```
 
 ## Sizes
+
 Set the `size` on the group to scale all contained buttons consistently.
 
-<ComponentPreview name="button-group:sizes" />
+<Example name="button-group:sizes" />
 
 ## Variants
+
 Use the `variant` prop to set the visual style for all buttons in the group.
 
-<ComponentPreview name="button-group:variants" />
+<Example name="button-group:variants" />
 
 ## Palettes
+
 Use the `colorPalette` prop to apply a consistent color scheme to all buttons in the group.
 
-<ComponentPreview name="button-group:palettes" />
+<Example name="button-group:palettes" />
 
 ## Orientation
+
 Use the `orientation` prop to arrange buttons horizontally or vertically within the group.
 
-<ComponentPreview name="button-group:orientation" />
+<Example name="button-group:orientation" />
 
 ## Full width
+
 Use the `fullWidth` prop to make buttons expand to fill the available space, distributing width evenly across the group.
 
-<ComponentPreview name="button-group:full-width" />
+<Example name="button-group:full-width" />
 
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| colorPalette | `accent \| neutral \| warning \| success \| destructive` | `accent` | The color palette of the buttons |
-| variant | `secondary \| tertiary \| surface \| ghost \| plain` | `primary` | The variant of the buttons |
-| iconOnly | `boolean` | `false` | Renders the buttons as icon-only |
-| attached | `boolean` | `false` | Removes spacing between adjacent buttons and merges borders so they appear as a single connected group. |
-| fullWidth | `boolean` | `false` | Expands the buttons to the full width of its container |
-| orientation | `horizontal \| vertical` | `horizontal` | Arranges buttons horizontally or vertically within the group. |
-| as | `React.ElementType` | `undefined` | The underlying element to render. |
-| asChild | `boolean` | `undefined` | Use the provided child element as the default rendered element, combining their props and behavior. |
+### API Reference
+
+## ButtonGroupRoot
+The root component for the button group.
+
+| Prop         | Type         | Default      |
+| ------------ | ------------- | ------------ |
+| size      | `xs` \| `sm` \| `md` \| `lg` \| `xl` | `md`         |
+| variant   | `primary` \| `secondary` \| `tertiary` \| `surface` \| `ghost` \| `plain` | `primary`   |
+| iconOnly  | `boolean`           | `false`     |
+| fullWidth | `boolean`           | `false`     |
+| attached     | `boolean`    | `false`      |
+| orientation  | `horizontal \| vertical` | `horizontal` |
+| asChild      | `boolean`    | `undefined`  |
+
+
+### ButtonGroupItem
+The individual button component within the group.
+
+| Prop         | Type         | Default      |
+| ------------ | ------------- | ------------ |
+| variant      | `Variant`    | `primary`    |
+| size         | `Size`       | `md`         |
+| iconOnly     | `boolean`    | `false`      |
+| fullWidth    | `boolean`    | `false`      |
+| asChild      | `boolean`    | `undefined`  |

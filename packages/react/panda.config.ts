@@ -1,4 +1,4 @@
-import { basePreset } from "@moto-ui/preset-base";
+import { basePreset } from "@moto-ui/core/presets";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
@@ -6,6 +6,5 @@ export default defineConfig({
 	presets: [basePreset],
 	jsxFramework: "react",
 	outdir: "styled-system",
-	include: ["./src/**/*.{ts,tsx}"],
-	importMap: "@moto-ui/styled-system",
+  include: ["./src/**/*.{ts,tsx}"],
 });

@@ -1,20 +1,6 @@
 {
-	"title": "Layouts",
-	"defaultOpen": false,
-	"pages": [
-		"box",
-		"container",
-		"decorative-box",
-		"elevated",
-		"grid",
-		"group",
-		"scroll-area",
-		"scroll-shadow",
-		"section",
-		"separator",
-		"separator-group",
-		"splitter",
-		"stack",
-		"virtual-list"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Layouts",
+  "pages": ["..."]
 }

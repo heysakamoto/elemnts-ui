@@ -1,13 +1,14 @@
 ---
+status: new
 title: Checkmark
 description: A customizable indicator used to show a checked or indeterminate state.
 ---
 
-<ComponentPreview name="checkmark:basic" />
+<Example name="checkmark:basic" />
 
 ## Usage
 
-The `Checkmark` component is a visual indicator that represents a checked, unchecked, or indeterminate state. It is commonly used as part of checkboxes, radio buttons, or selection lists.
+A visual indicator that represents a checked, unchecked, or indeterminate state. It is commonly used as part of checkboxes, radio buttons, or selection lists.
 
 ```tsx
 import { Checkmark, Icon } from "@moto-ui/react"
@@ -17,40 +18,34 @@ import { Checkmark, Icon } from "@moto-ui/react"
 </Checkmark>
 ```
 
-## Examples
+## Variants
 
-### Variants
+Change the visual style of the checkmark
 
-The `Checkmark` supports multiple sizes, palettes, and border radiuses.
+<Example name="checkmark:variants" />
 
-<ComponentPreview name="checkmark:variants" />
+## Sizes
 
-### Indeterminate State
+Change the size of the checkmark
+
+<Example name="checkmark:sizes" />
+
+## Indeterminate State
 
 Use the `indeterminate` prop and provide a `fallback` element to show a different indicator (e.g., a minus sign) when the state is neither checked nor unchecked.
 
-<ComponentPreview name="checkmark:indeterminate" />
+<Example name="checkmark:indeterminate" />
+
+## API Reference
+The component is a styled `div` and accepts all standard HTML `div` props in addition to the following:
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| checked | `boolean` | `false` |
+| indeterminate | `boolean` | `false` |
+| disabled | `boolean` | `false` |
+| fallback | `ReactNode` | - |
+| size | `xs` \| `sm` \| `md` \| `lg` \| `xl` | `md` |
+| variant | `primary` \| `secondary` \| `tertiary` \| `ghost` | `'primary'` | The visual style of the checkmark. |
 
 
-## Props
-
-The `Checkmark` component is a styled `ark.div` and accepts all standard HTML `div` props in addition to the following:
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| checked | `boolean` | `false` | Whether the checkmark is in a checked state. |
-| indeterminate | `boolean` | `false` | Whether the checkmark is in an indeterminate state. |
-| disabled | `boolean` | `false` | Whether the checkmark is disabled. |
-| fallback | `ReactNode` | - | The element to render when `indeterminate` is true. |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the checkmark. |
-| colorPalette | `'accent' \| 'neutral' \| 'success' \| 'warning' \| 'destructive'` | `'accent'` | The color palette of the checkmark. |
-| variant | `'primary' \| 'secondary'` | `'primary'` | The visual style of the checkmark. |
-
-## Data Attributes
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-state]` | The current state: `checked`, `indeterminate`, or `unchecked`. |
-| `[data-checked]` | Present when the checkmark is checked. |
-| `[data-indeterminate]` | Present when the checkmark is indeterminate or checked. |
-| `[data-disabled]` | Present when the checkmark is disabled. |

@@ -3,7 +3,7 @@ title: Kbd
 description: Displays keyboard shortcuts for an action
 ---
 
-<ComponentPreview name="kbd:basic" />
+<Example name="kbd:basic" />
 
 ## Usage
 The Kbd component displays keyboard keys and shortcuts for an action. Use Kbd.Item to represent individual keys or key combinations.
@@ -20,41 +20,39 @@ import { Kbd } from "@moto-ui/react"
 ## Sizes
 Use the `size` prop to change the visual scale of keys.
 
-<ComponentPreview name="kbd:sizes" />
+<Example name="kbd:sizes" />
 
 ## iconOnly
 Place `Kbd` within text to render keys inline
 
-<ComponentPreview name="kbd:inline" />
+<Example name="kbd:inline" />
 
 ## Variants
 Use the `variant` prop to change the visual style of keys.
 
-<ComponentPreview name="kbd:variants" />
+<Example name="kbd:variants" />
 
 ## Palettes
 Use the `colorPalette` prop to apply different color themes to keys.
 
-<ComponentPreview name="kbd:palettes" />
-
+<Example name="kbd:palettes" />
 
 
 ## Navigation keys
 This example showcase differet navigation keys such as ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Enter, PageUp, and PageDown.
 
-<ComponentPreview name="kbd:navigation-keys" />
+<Example name="kbd:navigation-keys" />
 
 ## Inline
 Place `Kbd` within text to render keys inline
 
-<ComponentPreview name="kbd:inline" />
+<Example name="kbd:inline" />
 
 
-## Props
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
+## API Reference
+| Prop | Type | Default |
+| --- | --- | --- |
 | colorPalette | `'accent' \| 'neutral' \| 'warning' \| 'success' \| 'destructive'` | accent | The color palette of the component |
 | variant | `'primary' \| 'secondary' \| 'tertiary' \| 'surface' \| 'ghost'` | primary | The variant of the component |
-| as | `React.ElementType` | undefined | The underlying element to render. |
-| asChild | `boolean` | undefined | Use the provided child element as the default rendered element, combining their props and behavior. |
+| as | `React.ElementType` | undefined |
+| asChild | `boolean` | undefined |

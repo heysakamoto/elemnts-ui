@@ -1,14 +1,6 @@
 {
-	"title": "Feedback",
-	"defaultOpen": false,
-	"pages": [
-		"alert",
-		"empty-state",
-		"progress",
-		"progress-circle",
-		"skeleton",
-		"spinner",
-		"status",
-		"toast"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Feedback",
+  "pages": ["..."]
 }

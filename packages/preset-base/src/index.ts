@@ -1,1 +1,1 @@
-export { basePreset } from "./preset";
+export * from "@moto-ui/core/presets/base";

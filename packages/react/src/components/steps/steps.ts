@@ -1,6 +1,7 @@
 import { Steps } from "@ark-ui/react/steps";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { stepsRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { stepsRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(stepsRecipe);
 

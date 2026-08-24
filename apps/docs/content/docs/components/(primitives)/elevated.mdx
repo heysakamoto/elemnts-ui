@@ -1,0 +1,46 @@
+---
+title: Elevated
+description: A layout component that raises the elevation level of its children relative to the current substrate.
+---
+
+## Overview
+
+The `Elevated` component acts as a layout boundary that increases the substrate level for its descendants. It computes a new substrate level by adding `delta` to the current substrate level (clamped between 1 and 8), exposing the level through CSS variables and data attributes for contextual styling (such as shifting background color or shadow levels).
+
+<Example name="elevated:basic" />
+
+## Usage
+
+```tsx
+import { Elevated } from "@moto-ui/react";
+```
+
+### Nesting and Delta Accumulation
+
+When nesting **Elevated** components, each layer adds its `delta` to the inherited substrate value from the nearest provider (defaulting to `1` at the root). The computed substrate level determines the background color and shadow level.
+
+<Example name="elevated:basic" />
+
+### Shadow Override
+
+Use the `shadowLevel` prop to override the shadow level of the card independently of the computed substrate level. This is useful for designs where high elevation is needed visually without changing the underlying substrate level context.
+
+<Example name="elevated:shadow-override" />
+
+### Without Borders
+
+The `Elevated` component supports a `withBorder` variant. Setting `withBorder={false}` removes the default border.
+
+<Example name="elevated:no-border" />
+
+## API Reference
+The `Elevated` component extends the standard Ark UI `div` component properties (`HTMLArkProps<"div">`).
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `delta` | `number` | 0 |
+| `shadowLevel` | `number` | — |
+| `withBorder` | `boolean` | `true` |
+## Accessibility
+
+**Elevated** is a semantic-free layout component that maps to a standard `div` element. By default, it does not introduce any interactive roles or ARIA states. If it wraps interactive controls, ensure appropriate focus management and semantic nesting are applied.

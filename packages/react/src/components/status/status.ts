@@ -1,6 +1,7 @@
 import { ark } from "@ark-ui/react/factory";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { statusRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { statusRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(statusRecipe);
 

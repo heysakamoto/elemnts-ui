@@ -1,8 +1,8 @@
-import { styled } from "@moto-ui/styled-system/jsx";
-import { scrollShadowRecipe } from "@moto-ui/styled-system/recipes";
 import { type ComponentProps, forwardRef } from "react";
 
 import { useScrollShadow } from "./client";
+import { styled } from "../../../styled-system/jsx";
+import { scrollShadowRecipe } from "../../../styled-system/recipes";
 
 const Styled = styled("div", scrollShadowRecipe);
 
@@ -14,15 +14,15 @@ export const ScrollShadow = forwardRef<HTMLDivElement, ScrollShadowBaseProps>(
 	(props, forwardedRef) => {
 		const { size = 40, style = {}, ...rest } = props;
 
-		const {
-			ref,
-			atBottom,
-			atTop,
-			atLeft,
-			atRight,
-			hasOverflowY,
-			hasOverflowX,
-		} = useScrollShadow<HTMLDivElement>();
+    const {
+      ref,
+      atTop,
+      atLeft,
+      atRight,
+      atBottom,
+      hasOverflowY,
+      hasOverflowX,
+    } = useScrollShadow<HTMLDivElement>();
 
 		const STYLE = {
 			"--scroll-shadow-size": `${size}px`,

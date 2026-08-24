@@ -3,144 +3,119 @@ title: Field
 description: Provides a consistent way to render form fields with labels, helper text, and error messages.
 ---
 
-<ComponentPreview name="field:basic" />
+<Example name="field:basic" />
 
 ## Usage
-The `Field` component is used to wrap form elements like `Input`, `Textarea`, or `Select` to provide additional context like labels and status messages.
 
-- `Field.Root`: The root container for the field.
-- `Field.Label`: The label for the field.
-- `Field.Input`: A styled input element optimized for use within a field.
-- `Field.Textarea`: A styled textarea element optimized for use within a field.
-- `Field.Select`: A styled select element optimized for use within a field.
-- `Field.HelperText`: Descriptive text providing additional guidance.
-- `Field.ErrorText`: Message displayed when the field is in an invalid state.
+Wrap form elements like **Input**, **Textarea**, or **Select** to provide additional context like labels and status messages.
 
 ```tsx
-import { Field } from "@moto-ui/react"
+import { Field } from "@moto-ui/react";
 
 <Field.Root>
   <Field.Label>Username</Field.Label>
   <Field.Input placeholder="Enter your username" />
   <Field.HelperText>Choose a unique public name.</Field.HelperText>
-</Field.Root>
+</Field.Root>;
 ```
 
 ## Helper Text
+
 Use `Field.HelperText` to provide additional information or instructions for the user.
 
-<ComponentPreview name="field:helper-text" />
+<Example name="field:helper-text" />
 
 ## Invalid
+
 Set the `invalid` prop on `Field.Root` to show the `Field.ErrorText`. This will also update the styling of the input to reflect the error state.
 
-<ComponentPreview name="field:invalid" />
+<Example name="field:invalid" />
 
 ## Disabled
+
 Use the `disabled` prop on `Field.Root` to disable the entire field. This will also apply the disabled styling to all child components, such as the label and input.
 
-<ComponentPreview name="field:disabled" />
+<Example name="field:disabled" />
 
-## Props
+## API Reference
 
-**Root**
+### FieldRoot
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| disabled | `boolean` | `false` | Indicates whether the field is disabled. |
-| ids | `ElementIds` | - | The ids of the field parts. |
-| invalid | `boolean` | `false` | Indicates whether the field is invalid. |
-| readOnly | `boolean` | `false` | Indicates whether the field is read-only. |
-| required | `boolean` | `false` | Indicates whether the field is required. |
+The root component for the **Field**.
 
-**Label**
+| Prop     | Type         | Default |
+| -------- | ------------ | ------- |
+| asChild  | `boolean`    | `false` |
+| disabled | `boolean`    | `false` |
+| ids      | `ElementIds` | -       |
+| invalid  | `boolean`    | `false` |
+| readOnly | `boolean`    | `false` |
+| required | `boolean`    | `false` |
+| target   | `string`     | -       |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FieldProvider
 
-**Input**
+Provides the field context created with `useField`.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type             | Default  |
+| ------- | ---------------- | -------- |
+| value   | `UseFieldReturn` | required |
+| asChild | `boolean`        | `false`  |
 
-**Textarea**
+### FieldLabel
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| autoresize | `boolean` | `false` | Whether the textarea should autoresize. |
+The label for the field.
 
-**Select**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FieldInput
 
-**HelperText**
+The input control for the field.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**ErrorText**
+### FieldTextarea
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The textarea control for the field.
 
-**RequiredIndicator**
+| Prop       | Type      | Default |
+| ---------- | --------- | ------- |
+| asChild    | `boolean` | `false` |
+| autoresize | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| fallback | `ReactNode` | - | The fallback content to render when the field is not required. |
+### FieldSelect
 
+The select control for the field.
 
-**Provider**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseFieldReturn` | - | The value returned from `useField`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FieldHelperText
 
-## Data Attributes
+Additional information or instructions for the field.
 
-**Root**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-part | `root` |
-| data-disabled | Present when the field is disabled. |
-| data-invalid | Present when the field is invalid. |
-| data-readonly | Present when the field is read-only. |
-| data-required | Present when the field is required. |
+### FieldErrorText
 
-**Label**
+The error message for an invalid field.
 
-| Attribute | Description |
-| --- | --- |
-| data-part | `label` |
-| data-disabled | Present when the field is disabled. |
-| data-invalid | Present when the field is invalid. |
-| data-readonly | Present when the field is read-only. |
-| data-required | Present when the field is required. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**HelperText**
+### FieldRequiredIndicator
 
-| Attribute | Description |
-| --- | --- |
-| data-part | `helper-text` |
-| data-disabled | Present when the field is disabled. |
+The indicator that shows the field is required.
 
-**ErrorText**
-
-| Attribute | Description |
-| --- | --- |
-| data-part | `error-text` |
-| data-disabled | Present when the field is disabled. |
-
-## CSS Variables
-This component does not use any custom CSS variables. It relies on standard Panda CSS tokens for styling.
+| Prop     | Type        | Default |
+| -------- | ----------- | ------- |
+| asChild  | `boolean`   | `false` |
+| fallback | `ReactNode` | -       |

@@ -4,15 +4,20 @@ import { base } from "./base";
 import { Code } from "./code";
 import { CodeBlock } from "./code-block";
 import { CodeBlockTabs } from "./code-block-tabs";
-import { ComponentPreview } from "./component-preview";
+import { Example } from "./example";
 import { Table } from "./table";
 
 export function getMDXComponents(components?: MDXComponents) {
 	return {
 		...components,
 		...base,
-		ComponentPreview,
+		Example,
 		table: Table,
+		tr: Table.Row,
+		th: Table.ColumnHeader,
+		td: Table.Cell,
+		tbody: Table.Body,
+		thead: Table.Header,
 		CodeBlockTab: CodeBlockTabs.Panel,
 		CodeBlockTabs: CodeBlockTabs,
 		CodeBlockTabsList: CodeBlockTabs.List,

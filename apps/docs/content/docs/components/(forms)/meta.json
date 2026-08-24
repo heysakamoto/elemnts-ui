@@ -1,26 +1,6 @@
 {
-	"title": "Forms",
-	"defaultOpen": false,
-	"pages": [
-		"checkbox",
-		"editable",
-		"field",
-		"fieldset",
-		"label",
-		"file-upload",
-		"input",
-		"input-group",
-		"number-input",
-		"password-input",
-		"pin-input",
-		"radio-group",
-		"rating-group",
-		"segment-group",
-		"signature-pad",
-		"slider",
-		"switch",
-		"tags-input",
-		"textarea",
-		"wheel-picker"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Forms",
+  "pages": ["..."]
 }

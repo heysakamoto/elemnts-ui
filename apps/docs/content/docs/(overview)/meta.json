@@ -1,6 +1,6 @@
 {
 	"icon": "HomeIcon",
 	"title": "Overview",
-	"root": true,
-	"pages": ["index", "about", "changelog", "components"]
+  "collapsible": false,
+  "pages": ["index", "..."]
 }

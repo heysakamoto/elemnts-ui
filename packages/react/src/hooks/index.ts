@@ -1,1 +1,1 @@
-export { useLockedDisclosure } from "./use-locked-disclosure";
+export { useMediaQuery } from "./use-media-query";

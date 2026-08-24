@@ -3,23 +3,14 @@ title: RadioGroup
 description: A set of checkable buttons, known as radio buttons, where no more than one button can be checked at a time.
 ---
 
-<ComponentPreview name="radio-group:basic" />
+<Example name="radio-group:basic" />
 
 ## Usage
-The `RadioGroup` component allows users to select a single option from a set of mutually exclusive choices.
 
-- `RadioGroup.Root`: The root container for the radio group.
-- `RadioGroup.RootProvider`: Provides the radio group context to its children.
-- `RadioGroup.Label`: The label for the radio group.
-- `RadioGroup.Item`: Represents an individual radio item in the group.
-- `RadioGroup.ItemText`: The text label associated with a radio item.
-- `RadioGroup.ItemControl`: The visual control for the radio item.
-- `RadioGroup.ItemHiddenInput`: The native hidden radio input for accessibility and form submission.
-- `RadioGroup.Indicator`: A visual indicator that can be used to highlight the selected item.
-- `RadioGroup.Context`: Access the radio group state and methods.
+Allows users to select a single option from a set of mutually exclusive choices.
 
 ```tsx
-import { RadioGroup } from "@moto-ui/react"
+import { RadioGroup } from "@moto-ui/react";
 
 <RadioGroup.Root defaultValue="react">
   <RadioGroup.Label>Framework</RadioGroup.Label>
@@ -33,146 +24,99 @@ import { RadioGroup } from "@moto-ui/react"
     <RadioGroup.ItemText>Vue</RadioGroup.ItemText>
     <RadioGroup.ItemHiddenInput />
   </RadioGroup.Item>
-</RadioGroup.Root>
+</RadioGroup.Root>;
 ```
 
 ## Horizontal
+
 Use the `orientation="horizontal"` prop to display the radio group items horizontally.
 
-<ComponentPreview name="radio-group:horizontal" />
+<Example name="radio-group:horizontal" />
 
 ## Disabled
+
 Use the `disabled` prop on the `RadioGroup` or `RadioGroup.Item` to disable the radio group or specific items.
 
-<ComponentPreview name="radio-group:disabled" />
+<Example name="radio-group:disabled" />
 
-## Props
+## API Reference
 
-**Root**
+### RadioGroup
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| defaultValue | `string` | - | The initial value of the checked radio when rendered. |
-| disabled | `boolean` | `false` | If `true`, the radio group will be disabled. |
-| form | `string` | - | The associate form of the underlying input. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string, label: string, indicator: string, item: (value: string) => string, itemLabel: (value: string) => string, itemControl: (value: string) => string, itemHiddenInput: (value: string) => string }>` | - | The ids of the elements in the radio. Useful for composition. |
-| invalid | `boolean` | `false` | If `true`, the radio group is marked as invalid. |
-| name | `string` | - | The name of the input fields in the radio (Useful for form submission). |
-| orientation | `'horizontal' \| 'vertical'` | `'vertical'` | Orientation of the radio group. |
-| readOnly | `boolean` | `false` | Whether the radio group is read-only. |
-| required | `boolean` | `false` | If `true`, the radio group is marked as required. |
-| value | `string` | - | The controlled value of the radio group. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Function called once a radio is checked. |
+The root container for the radio group.
 
-**RootProvider**
+| Prop          | Type                                                                                                                                                                                                                     | Default |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| asChild       | `boolean`                                                                                                                                                                                                                | `false` |
+| defaultValue  | `string`                                                                                                                                                                                                                 | -       |
+| disabled      | `boolean`                                                                                                                                                                                                                | -       |
+| form          | `string`                                                                                                                                                                                                                 | -       |
+| id            | `string`                                                                                                                                                                                                                 | -       |
+| ids           | `Partial<{ root: string; label: string; indicator: string; item: (value: string) => string; itemLabel: (value: string) => string; itemControl: (value: string) => string; itemHiddenInput: (value: string) => string }>` | -       |
+| invalid       | `boolean`                                                                                                                                                                                                                | -       |
+| name          | `string`                                                                                                                                                                                                                 | -       |
+| onValueChange | `(details: ValueChangeDetails) => void`                                                                                                                                                                                  | -       |
+| orientation   | `"horizontal" \| "vertical"`                                                                                                                                                                                             | -       |
+| readOnly      | `boolean`                                                                                                                                                                                                                | -       |
+| required      | `boolean`                                                                                                                                                                                                                | -       |
+| value         | `string`                                                                                                                                                                                                                 | -       |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseRadioGroupReturn` | - | **Required**. The value returned from `useRadioGroup`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### RadioGroupRootProvider
 
-**Label**
+Provides the radio group context to its children.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type                  | Default  |
+| ------- | --------------------- | -------- |
+| value   | `UseRadioGroupReturn` | required |
+| asChild | `boolean`             | `false`  |
 
-**Item**
+### RadioGroupLabel
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `string` | - | **Required**. The value of the radio item. |
-| disabled | `boolean` | `false` | Whether the radio item is disabled. |
-| invalid | `boolean` | `false` | Whether the radio item is invalid. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The label for the radio group.
 
-**ItemControl**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### RadioGroupItem
 
-**ItemText**
+Represents an individual radio item in the group.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop     | Type      | Default  |
+| -------- | --------- | -------- |
+| value    | `string`  | required |
+| asChild  | `boolean` | `false`  |
+| disabled | `boolean` | -        |
+| invalid  | `boolean` | -        |
 
-**ItemHiddenInput**
+### RadioGroupItemText
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The text label associated with a radio item.
 
-**Indicator**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### RadioGroupItemControl
 
-## Data Attributes
+The visual control for a radio item.
 
-**Root**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `radio-group` |
-| data-part | `root` |
-| data-orientation | The orientation of the radio-group. |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+### RadioGroupItemHiddenInput
 
-**Label**
+The native hidden radio input for accessibility and form submission.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `radio-group` |
-| data-part | `label` |
-| data-orientation | The orientation of the label. |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Item**
+### RadioGroupIndicator
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `radio-group` |
-| data-part | `item` |
-| data-state | The state of the item. `checked` or `unchecked`. |
-| data-orientation | The orientation of the item. |
-| data-disabled | Present when the item is disabled. |
-| data-readonly | Present when the item is read-only. |
-| data-invalid | Present when the item is invalid. |
+A visual indicator that can be used to highlight the selected item.
 
-**ItemControl**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `radio-group` |
-| data-part | `item-control` |
-| data-active | Present when active or pressed. |
-
-**Indicator**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `radio-group` |
-| data-part | `indicator` |
-| data-disabled | Present when disabled. |
-| data-orientation | The orientation of the indicator. |
-
-## CSS Variables
-
-**Indicator**
-
-| Variable | Description |
-| --- | --- |
-| --transition-property | The transition property value for the Indicator. |
-| --left | The left position value. |
-| --top | The top position value. |
-| --width | The width of the element. |
-| --height | The height of the element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

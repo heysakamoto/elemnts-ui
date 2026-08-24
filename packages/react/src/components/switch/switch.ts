@@ -1,6 +1,7 @@
 import { Switch } from "@ark-ui/react/switch";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { switchRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { switchRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 

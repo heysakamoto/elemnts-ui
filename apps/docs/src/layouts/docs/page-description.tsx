@@ -5,15 +5,8 @@ export function DocsLayoutPageDescription(props: PropsWithChildren) {
 	const { children } = props;
 
 	return (
-		<Text
-			mt="20"
-			mb="32"
-			lineHeight="md"
-			color="fg.primary"
-			letterSpacing="sm"
-			fontSize={{ base: "16", md: "18" }}
-		>
-			{children}
-		</Text>
-	);
+    <Text mt="20" mb="32" fontSize="18" lineHeight="md" color="fg.primary">
+      {children}
+    </Text>
+  );
 }

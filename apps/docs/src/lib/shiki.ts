@@ -1,31 +1,38 @@
-import { createHighlighterCore } from "shiki/core";
-import { createOnigurumaEngine } from "shiki/engine/oniguruma";
+import { createHighlighterCore, type HighlighterCore } from "shiki/core";
+import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
-const highlighterInstance = createHighlighterCore({
-	themes: [
-		await import("shiki/themes/github-dark.mjs"),
-		await import("shiki/themes/github-light.mjs"),
-	],
-	langs: [
-		await import("shiki/langs/ts.mjs"),
-		await import("shiki/langs/tsx.mjs"),
-		await import("shiki/langs/bash.mjs"),
-	],
-	engine: createOnigurumaEngine(import("shiki/wasm")),
-});
+let highlighterPromise: Promise<HighlighterCore> | null = null;
 
-export async function codeToHtml(
+function getHighlighter() {
+	if (!highlighterPromise) {
+		highlighterPromise = createHighlighterCore({
+			themes: [
+				import("shiki/themes/github-dark.mjs"),
+				import("shiki/themes/github-light.mjs"),
+			],
+			langs: [
+				import("shiki/langs/ts.mjs"),
+				import("shiki/langs/tsx.mjs"),
+				import("shiki/langs/bash.mjs"),
+			],
+			engine: createJavaScriptRegexEngine(),
+		});
+	}
+	return highlighterPromise;
+}
+
+export async function highlightCode(
 	code: string,
 	options: { lang: string },
 ): Promise<string> {
-	const h = await highlighterInstance;
+	const highlightCode = await getHighlighter();
 
-	return h.codeToHtml(code, {
+	return highlightCode.codeToHtml(code, {
 		lang: options.lang,
+		defaultColor: false,
 		themes: {
 			dark: "github-dark",
 			light: "github-light",
 		},
-		defaultColor: false,
 	});
 }

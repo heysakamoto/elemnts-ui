@@ -3,7 +3,7 @@ title: Select
 description: Allows the selection of a value from a set of predefined choices.
 ---
 
-<ComponentPreview name="select:basic" />
+<Example name="select:basic" />
 
 
 ## Usage
@@ -41,171 +41,92 @@ import { Select } from "@moto-ui/react"
 ```
 
 ## With icons
-This example demonstrates how to use the `Select` component with icons to enhance the user interface.
+This example demonstrates how to use the component with icons to enhance the user interface.
 
-<ComponentPreview name="select:with-icons" />
+<Example name="select:with-icons" />
 
 ## Grouping
-The `Select.ItemGroup` component can be used to organize select options into distinct groups, making it easier for users to navigate and choose.
+Use **Select.ItemGroup** to organize select options into distinct groups, making it easier for users to navigate and choose.
 
-<ComponentPreview name="select:group" />
+<Example name="select:group" />
 
 ## Disabled
-The `disabled` prop can be used to make the select component non-interactive.
+Use the **disabled** prop to make the select component non-interactive.
 
-<ComponentPreview name="select:disabled" />
+<Example name="select:disabled" />
 
 
-## Props
+## API Reference
 
-**Root**
+### SelectRoot
+The root component
+| Prop | Type | Default |
+| --- | --- | --- |
+| collection | `ListCollection<T>` | - |
+| value | `string[]` | - |
+| defaultValue | `string[]` | - |
+| onValueChange | `(details: ValueChangeDetails<T>) => void` | - |
+| multiple | `boolean` | `false` |
+| disabled | `boolean` | - |
+| invalid | `boolean` | - |
+| name | `string` | - |
+| required | `boolean` | - |
+| positioning | `PositioningOptions` | - |
+| lazyMount | `boolean` | `true` |
+| unmountOnExit | `boolean` | `true` |
+| className | `string` | - |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| collection | `ListCollection<T>` | - | The collection of items (Required) |
-| defaultValue | `string[]` | - | The initial default value of the select when rendered. |
-| value | `string[]` | - | The controlled keys of the selected items |
-| onValueChange | `(details: ValueChangeDetails<T>) => void` | - | The callback fired when the selected item changes. |
-| multiple | `boolean` | - | Whether to allow multiple selection |
-| closeOnSelect | `boolean` | `true` | Whether the select should close after an item is selected |
-| disabled | `boolean` | - | Whether the select is disabled |
-| invalid | `boolean` | - | Whether the select is invalid |
-| readOnly | `boolean` | - | Whether the select is read-only |
-| required | `boolean` | - | Whether the select is required |
-| name | `string` | - | The `name` attribute of the underlying select. |
-| form | `string` | - | The associate form of the underlying select. |
-| deselectable | `boolean` | - | Whether the value can be cleared by clicking the selected item. |
-| loopFocus | `boolean` | `false` | Whether to loop the keyboard navigation through the options |
-| highlightedValue | `string` | - | The controlled key of the highlighted item |
-| defaultHighlightedValue | `string` | - | The initial value of the highlighted item when opened. |
-| onHighlightChange | `(details: HighlightChangeDetails<T>) => void` | - | The callback fired when the highlighted item changes. |
-| onOpenChange | `(details: OpenChangeDetails) => void` | - | Function called when the popup is opened |
-| open | `boolean` | - | Whether the select menu is open |
-| defaultOpen | `boolean` | - | Whether the select's open state is controlled by the user |
-| positioning | `PositioningOptions` | - | The positioning options of the menu. |
-| lazyMount | `boolean` | `false` | Whether to enable lazy mounting |
-| unmountOnExit | `boolean` | `false` | Whether to unmount on exit. |
-| colorPalette | `ColorPalette` | `"gray"` | The color palette of the component |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-| unstyled | `boolean` | - | Whether to remove the component's style. |
+### SelectTrigger
+Opens the selection list on click.
+| Prop | Type | Default |
+| --- | --- | --- |
+| showClear | `boolean` | `false` |
+| asChild | `boolean` | - |
 
-**RootProvider**
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseSelectReturn<T>` | - | The select instance (Required) |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### SelectValue
+Displays the selected value or placeholder
+| Prop | Type | Default |
+| --- | --- | --- |
+| placeholder | `string` | - |
+| className | `string` | - |
+| asChild | `boolean` | - |
 
-**Label**
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### SelectContent
+Renders the content of the select list.
+| Prop | Type | Default |
+| --- | --- | --- |
+| className | `string` | - |
+| asChild | `boolean` | - |
 
-**Control**
+### SelectClearTrigger
+Clears the selected value.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | - |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### SelectGroup
+Groups items in the select list.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | - |
 
-**Trigger**
+### SelectGroupLabel
+Renders the label for a group of items in the select list.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | - |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### SelectItem
+Renders an item in the select list.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | - |
+| item | `T` | - |
 
-**ValueText**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| placeholder | `string` | - | Text to display when no value is selected. |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**Indicator**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**ClearTrigger**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**Positioner**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**Content**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**Item**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| item | `any` | - | The item to render (Required) |
-| persistFocus | `boolean` | - | Whether hovering outside should clear the highlighted state |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**ItemText**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**ItemIndicator**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**ItemGroup**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**ItemGroupLabel**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**HiddenSelect**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| as | `React.ElementType` | - | The underlying element to render. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
-
-**Context**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| children | `(context: UseSelectContext<T>) => React.ReactNode` | - | Render prop that provides access to the select context |
-
-**ItemContext**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| children | `(context: UseSelectItemContext) => React.ReactNode` | - | Render prop that provides access to the select item context |
+### SelectEmpty
+Renders the empty state of the select list.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | - |

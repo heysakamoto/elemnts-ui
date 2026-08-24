@@ -1,22 +1,19 @@
 import { Dialog, Portal, Surface } from "@moto-ui/react";
 
-import { InDialogContextProvider } from "./client";
+import { InDialogContextProvider, useDocsLayoutContext } from "./client";
 import { DocsLayoutSidebar } from "./sidebar";
 
-type DocsLayoutMobileNavProps = {
-	children?: React.ReactNode;
-};
-
-export function DocsLayoutMobileNav(props: DocsLayoutMobileNavProps) {
-	const { children } = props;
+export function DocsLayoutMobileNav() {
+	const { open, setOpen } = useDocsLayoutContext();
 
 	return (
 		<InDialogContextProvider value={true}>
 			<Dialog
 				modal
 				size="cover"
+				open={open}
+				onOpenChange={(details) => setOpen(details.open)}
 			>
-				<Dialog.Trigger asChild>{children}</Dialog.Trigger>
 				<Portal>
 					<Dialog.Backdrop />
 					<Dialog.Positioner p="8">

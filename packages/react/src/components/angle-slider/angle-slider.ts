@@ -1,6 +1,7 @@
 import { AngleSlider } from "@ark-ui/react/angle-slider";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { angleSliderRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { angleSliderRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(angleSliderRecipe);
 

@@ -1,32 +1,30 @@
-import { Surface, Tabs, Text } from "@moto-ui/react";
-import type { PropsWithChildren, ReactNode } from "react";
+import { Separator, Surface, Tabs, Text } from "@moto-ui/react";
+import { Fragment, type PropsWithChildren, type ReactNode } from "react";
 
 import { CodeBlockTabsProvider } from "./client";
 import { CopyButton } from "./copy-button";
-import { nodeToString } from "@/utils/react-node";
+import { nodeToString } from "@/utils/node";
 
 export const CodeBlockTabsRoot = (
 	props: PropsWithChildren<{ defaultValue?: string }>,
 ) => {
 	const { children, defaultValue } = props;
 
-	return (
-		<CodeBlockTabsProvider>
-			<Surface
-				my="24"
-				delta={1}
-				rounded="24"
-				position="relative"
-			>
-				<Tabs
-					size="xs"
-					defaultValue={defaultValue}
-				>
-					{children}
-				</Tabs>
-			</Surface>
-		</CodeBlockTabsProvider>
-	);
+  return (
+    <CodeBlockTabsProvider>
+      <Surface
+        mt="24"
+        delta={1}
+        rounded="16"
+        shadowLevel={0}
+        position="relative"
+      >
+        <Tabs size="xs" defaultValue={defaultValue}>
+          {children}
+        </Tabs>
+      </Surface>
+    </CodeBlockTabsProvider>
+  );
 };
 
 CodeBlockTabsRoot.displayName = "CodeBlockTabsRoot";
@@ -34,21 +32,25 @@ CodeBlockTabsRoot.displayName = "CodeBlockTabsRoot";
 export const CodeBlockTabsList = (props: PropsWithChildren) => {
 	const { children } = props;
 
-	return (
-		<Surface
-			m="8"
-			w="fit"
-			h="auto"
-			delta={2}
-			rounded="full"
-			elevated={false}
-		>
-			<Tabs.List w="12rem">
-				<Tabs.Indicator />
-				{children}
-			</Tabs.List>
-		</Surface>
-	);
+  return (
+    <Fragment>
+      <Surface
+        py="4"
+        px="4"
+        w="fit"
+        h="auto"
+        delta={2}
+        rounded="full"
+        elevated={false}
+      >
+        <Tabs.List w="12rem">
+          <Tabs.Indicator rounded="12" />
+          {children}
+        </Tabs.List>
+      </Surface>
+      <Separator orientation="horizontal" />
+    </Fragment>
+  );
 };
 
 CodeBlockTabsList.displayName = "CodeBlockTabsList";
@@ -59,18 +61,17 @@ type CodeBlockTabsTriggerProps = {
 };
 
 export const CodeBlockTabsTrigger = (props: CodeBlockTabsTriggerProps) => {
-	const { children, value } = props;
-	return (
-		<Tabs.Trigger
-			value={value}
-			fontSize="12"
-			fontWeight="500"
-			fontFamily="mono"
-			textTransform="lowercase"
-		>
-			{children}
-		</Tabs.Trigger>
-	);
+  const { children, value } = props;
+  return (
+    <Tabs.Trigger
+      value={value}
+      fontSize="13"
+      fontWeight="medium"
+      textTransform="lowercase"
+    >
+      {children}
+    </Tabs.Trigger>
+  );
 };
 
 CodeBlockTabsTrigger.displayName = "CodeBlockTabsTrigger";
@@ -85,38 +86,35 @@ export const CodeBlockTabsPanel = (props: CodeBlockTabsPanelProps) => {
 
 	const code = nodeToString(children);
 
-	return (
-		<Tabs.Content value={value}>
-			<Surface.Content
-				my="8"
-				mx="12"
-				fontSize="12"
-			>
-				<Text
-					as="code"
-					fontFamily="mono"
-					css={{
-						tabSize: 2,
-						"& span.line": {
-							lineHeight: 2,
-							display: "block",
-							whiteSpace: "pre",
-							"& span": {
-								color: "var(--shiki-light)",
-								_dark: {
-									color: "var(--shiki-dark)",
-								},
-							},
-						},
-					}}
-				>
-					{children}
-				</Text>
+  return (
+    <Tabs.Content value={value}>
+      <Surface.Content px="16" py="12" fontSize="12">
+        <Text
+          as="code"
+          fontFamily="mono"
+          css={{
+            tabSize: 2,
+            "& span.line": {
+              lineHeight: 2,
+              display: "block",
+              whiteSpace: "pre",
+              "& span": {
+                color: "var(--shiki-light)",
+                _dark: {
+                  color: "var(--shiki-dark)",
+                },
+              },
+            },
+          }}
+        >
+          {children}
+        </Text>
 
 				<CopyButton
-					value={code}
+          value={code}
+          rounded="12"
 					position="absolute"
-					inset="8px 8px auto auto"
+          inset="3px 4px auto auto"
 				/>
 			</Surface.Content>
 		</Tabs.Content>

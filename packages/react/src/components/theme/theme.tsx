@@ -1,8 +1,9 @@
 import { type Assign, ark } from "@ark-ui/react";
-import { cx } from "@moto-ui/styled-system/css";
-import { type HTMLStyledProps, styled } from "@moto-ui/styled-system/jsx";
-import { themeRecipe } from "@moto-ui/styled-system/recipes";
 import { forwardRef } from "react";
+
+import { cx } from "../../../styled-system/css";
+import { type HTMLStyledProps, styled } from "../../../styled-system/jsx";
+import { themeRecipe } from "../../../styled-system/recipes";
 
 type ThemeAppearance = "light" | "dark";
 

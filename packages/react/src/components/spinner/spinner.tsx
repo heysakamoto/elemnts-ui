@@ -1,9 +1,10 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react/factory";
-import { styled } from "@moto-ui/styled-system/jsx";
-import { spinnerRecipe } from "@moto-ui/styled-system/recipes";
 import type { RefAttributes } from "react";
 
-const DefaultIcon = () => {
+import { styled } from "../../../styled-system/jsx";
+import { spinnerRecipe } from "../../../styled-system/recipes";
+
+function DefaultIcon() {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +22,7 @@ const DefaultIcon = () => {
 			/>
 		</svg>
 	);
-};
+}
 
 export const Spinner = styled(
 	(props: HTMLArkProps<"span"> & RefAttributes<HTMLSpanElement>) => {

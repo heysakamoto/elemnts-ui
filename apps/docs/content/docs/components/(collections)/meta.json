@@ -1,5 +1,6 @@
 {
-	"title": "Collections",
-	"defaultOpen": false,
-	"pages": ["combobox", "listbox", "select", "tree-view"]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Collections",
+  "pages": ["..."]
 }

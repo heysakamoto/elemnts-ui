@@ -1,6 +1,7 @@
 import { Carousel } from "@ark-ui/react/carousel";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { carouselRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { carouselRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(carouselRecipe);
 

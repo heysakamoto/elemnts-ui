@@ -1,191 +1,149 @@
 import {
-	Button,
-	ButtonGroup,
-	ColorScheme,
-	Dialog,
-	For,
-	Icon,
-	List,
-	Separator,
-	Show,
-	Sidebar,
-	Stack,
-	VisuallyHidden,
+  Button,
+  ButtonGroup,
+  ColorTheme,
+  For,
+  Icon,
+  Menu,
+  Separator,
+  Sidebar,
+  Stack,
+  Surface,
+  Text,
+  Tile,
+  VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
-import { useDocsLayoutContext, useInDialogContext } from "./client";
+import { useDocsLayoutContext } from "./client";
 import { socials, urls } from "./constant";
-import { DocsLayoutTree } from "./tree";
+import { DocsLayoutPageTree } from "./page-tree";
 import { Logo } from "@/components/base/logo";
+import { useSearchContext } from "@/features/search";
 
 export function DocsLayoutSidebar() {
-	const isInDialog = useInDialogContext();
-	const { setOpen } = useDocsLayoutContext();
+  return (
+    <Sidebar h="full" display="flex" direction="column">
+      <SidebarHeader />
+      <Separator orientation="horizontal" />
+      <DocsLayoutPageTree />
+      <Separator orientation="horizontal" />
+      <SidebarFooter />
+    </Sidebar>
+  );
+}
 
-	return (
-		<Sidebar.Root
-			h="full"
-			display="flex"
-			direction="column"
-		>
-			<Sidebar.Header>
-				<Stack
-					p="8"
-					align="center"
-					justify="space-between"
-				>
-					<Stack
-						justify="space-between"
-						flexGrow="1"
-					>
-						<Link
-							to="/"
-							preload="intent"
-						>
-							<Logo
-								width={32}
-								height={32}
-								style={{ marginLeft: 8 }}
-							/>
-						</Link>
-						<Show when={isInDialog}>
-							<Dialog.CloseTrigger asChild>
-								<Button
-									iconOnly
-									rounded="16"
-									hideFrom="md"
-								>
-									<Icon
-										width={16}
-										height={16}
-										icon="tabler:x"
-									/>
-								</Button>
-							</Dialog.CloseTrigger>
-						</Show>
-					</Stack>
-					<Button
-						iconOnly
-						size="sm"
-						rounded="16"
-						hideBelow="md"
-						variant="ghost"
-						onClick={() => setOpen(true)}
-					>
-						<Icon
-							width={16}
-							height={16}
-							icon="tabler:search"
-						/>
-					</Button>
-				</Stack>
-			</Sidebar.Header>
-			<Sidebar.Content
-				pt="8"
-				as="nav"
-				flexGrow="1"
-				overflow="scroll"
-				scrollbar="hidden"
-			>
-				<DocsLayoutTree />
-			</Sidebar.Content>
-			<Sidebar.Footer py="8">
-				<List gap="2">
-					<For each={urls}>
-						{(url) => (
-							<List.Item
-								key={url.id}
-								px="8"
-							>
-								<Button
-									asChild
-									size="sm"
-									fullWidth
-									fontSize="13"
-									variant="ghost"
-									justify="space-between"
-									data-disabled={url.disabled ? "" : undefined}
-									css={{
-										_icon: {
-											color: "icon.secondary",
-											_disabled: { bgColor: "red" },
-										},
-									}}
-								>
-									<Link
-										key={url.id}
-										to={url.url}
-										target="_blank"
-									>
-										{url.label}
-										<Icon
-											width={14}
-											height={14}
-											icon="tabler:arrow-up-right"
-										/>
-									</Link>
-								</Button>
-							</List.Item>
-						)}
-					</For>
-				</List>
-				<ButtonGroup
-					pt="8"
-					px="8"
-					size="md"
-					iconOnly
-					variant="ghost"
-				>
-					<For each={socials}>
-						{(social) => (
-							<ButtonGroup.Item
-								asChild
-								rounded="12"
-								key={social.id}
-							>
-								<Link
-									target="_blank"
-									to={social.url as any}
-								>
-									<VisuallyHidden>{social.label}</VisuallyHidden>
-									<Icon
-										width={16}
-										height={16}
-										icon={social.icon}
-									/>
-								</Link>
-							</ButtonGroup.Item>
-						)}
-					</For>
-					<Separator
-						flexGrow="1"
-						variant="ghost"
-						orientation="horizontal"
-					/>
-					<Button
-						asChild
-						rounded="12"
-					>
-						<ColorScheme.Trigger
-							fallback={
-								<Icon
-									width={16}
-									height={16}
-									icon="tabler:sun"
-								/>
-							}
-						>
-							<VisuallyHidden>Toggle color scheme</VisuallyHidden>
-							<Icon
-								width={16}
-								height={16}
-								icon="tabler:moon"
-							/>
-						</ColorScheme.Trigger>
-					</Button>
-				</ButtonGroup>
-			</Sidebar.Footer>
-		</Sidebar.Root>
-	);
+function SidebarHeader() {
+  const search = useSearchContext();
+  const layout = useDocsLayoutContext();
+
+  return (
+    <Sidebar.Addon direction="column" p="12" spaceY="12">
+      <Stack align="center" justify="space-between">
+        <Link to="/" preload="intent">
+          <VisuallyHidden>Home</VisuallyHidden>
+          <Logo width={32} height={32} style={{ marginLeft: 8 }} />
+        </Link>
+        <Button
+          iconOnly
+          hideFrom="sm"
+          variant="surface"
+          onClick={() => layout.setOpen(false)}
+        >
+          <VisuallyHidden>Close</VisuallyHidden>
+          <Icon width={16} height={16} icon="tabler:x" />
+        </Button>
+        <Button
+          iconOnly
+          size="sm"
+          hideBelow="md"
+          variant="surface"
+          onClick={() => search.setOpen(true)}
+        >
+          <VisuallyHidden>Search</VisuallyHidden>
+          <Icon width={16} height={16} icon="tabler:search" />
+        </Button>
+      </Stack>
+      <Menu positioning={{ sameWidth: true }}>
+        <Menu.Trigger asChild>
+          <Button gap="8" fullWidth variant="surface">
+            <Icon ml="-1" width={18} height={18} icon={urls[0]?.icon ?? ""} />
+            <Text as="span" flexGrow={1} textAlign="left">
+              {urls[0]?.label}
+            </Text>
+            <Icon mr="-1" width={16} height={16} icon="tabler:chevron-down" />
+          </Button>
+        </Menu.Trigger>
+        <Menu.Positioner>
+          <Menu.Content asChild>
+            <Surface delta={1} rounded="24">
+              <Surface.Content p="4">
+                <For each={urls}>
+                  {(url, idx) => (
+                    <Menu.Item
+                      asChild
+                      key={url.id}
+                      value={url.id}
+                      disabled={url.disabled}
+                    >
+                      <Tile asChild size="xs" fontSize="13" variant="secondary">
+                        <Link
+                          to={idx === 0 ? "/docs" : url.url}
+                          target={idx !== 0 ? "_blank" : undefined}
+                        >
+                          <Icon
+                            mt="-1"
+                            ml="-1"
+                            width={18}
+                            height={18}
+                            icon={url.icon}
+                          />
+                          <Tile.Content gap="2">
+                            <Tile.Title lineHeight="1">{url.label}</Tile.Title>
+                            <Tile.Description>
+                              {url.description}
+                            </Tile.Description>
+                          </Tile.Content>
+                        </Link>
+                      </Tile>
+                    </Menu.Item>
+                  )}
+                </For>
+              </Surface.Content>
+            </Surface>
+          </Menu.Content>
+        </Menu.Positioner>
+      </Menu>
+    </Sidebar.Addon>
+  );
+}
+
+function SidebarFooter() {
+  return (
+    <Sidebar.Addon p="12">
+      <ButtonGroup size="sm" iconOnly variant="surface">
+        <For each={socials}>
+          {(social) => (
+            <ButtonGroup.Item asChild key={social.id}>
+              <Link target="_blank" to={social.url as any}>
+                <VisuallyHidden>{social.label}</VisuallyHidden>
+                <Icon width={16} height={16} icon={social.icon} />
+              </Link>
+            </ButtonGroup.Item>
+          )}
+        </For>
+        <Separator flexGrow="1" variant="ghost" orientation="horizontal" />
+        <ColorTheme.Trigger asChild>
+          <ButtonGroup.Item>
+            <VisuallyHidden>Toggle color scheme</VisuallyHidden>
+            <ColorTheme.Indicator
+              fallback={<Icon width={16} height={16} icon="tabler:sun" />}
+            >
+              <Icon width={16} height={16} icon="tabler:moon" />
+            </ColorTheme.Indicator>
+          </ButtonGroup.Item>
+        </ColorTheme.Trigger>
+      </ButtonGroup>
+    </Sidebar.Addon>
+  );
 }

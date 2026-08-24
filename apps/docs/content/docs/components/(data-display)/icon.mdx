@@ -3,7 +3,7 @@ title: Icon
 description: Renders an SVG icon
 ---
 
-<ComponentPreview name="icon:basic" />
+<Example name="icon:basic" />
 
 
 ## Usage
@@ -18,7 +18,7 @@ Best practices:
 
 Common placements include inline with text, inside buttons, and within inputs or form controls to clarify actions or statuses.
 
-```tsx 
+```tsx
 import { Icon } from "@moto-ui/react"
 <Icon />
 ```
@@ -26,23 +26,22 @@ import { Icon } from "@moto-ui/react"
 ## Custom icon
 Provide your own SVG by passing path/shape elements to `icon` prop.
 
-<ComponentPreview name="icon:custom" />
+<Example name="icon:custom" />
 
 ## Add to Storage
 Register the icon globally so it can be referenced by its key:
 
-<ComponentPreview name="icon:storage" />
+<Example name="icon:storage" />
 
 ## Collections
 Group related icons under a shared namespace so you can register and consume many icons at once while avoiding key collisions.
 
-<ComponentPreview name="icon:collections" />
+<Example name="icon:collections" />
 
-## Props
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
+## API Reference
+| Prop | Type | Default |
+| --- | --- | --- |
 | icon | `string \| React.ReactNode` | undefined | The icon to render. Provide a registered icon key (e.g., "mdi:home") or custom SVG elements (paths/shapes). |
 | width | `string \| number` | undefined | Explicit width of the icon. If omitted, it follows the current font-size. Accepts numbers (px) or CSS lengths (e.g., "1.25rem"). |
 | height | `string \| number` | undefined | Explicit height of the icon. If omitted, it scales to maintain aspect ratio or inherits from font-size. |
-| color | `string` | undefined | CSS color for the icon. Defaults to currentColor when not set. |
+| color | `string` | undefined |

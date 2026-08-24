@@ -3,7 +3,7 @@ title: ToggleGroup
 description: A set of two-state buttons that can be toggled on or off.
 ---
 
-<ComponentPreview name="toggle-group:basic" />
+<Example name="toggle-group:basic" />
 
 ## Usage
 
@@ -23,59 +23,46 @@ import { ToggleGroup } from "@moto-ui/react"
 ## Attached
 Use the `attached` prop to visually connect the toggle items together into a unified group.
 
-<ComponentPreview name="toggle-group:attached" />
+<Example name="toggle-group:attached" />
 
 ## Multiple
 Allow multiple items to be selected by setting the `multiple` prop to `true`.
 
-<ComponentPreview name="toggle-group:multiple" />
+<Example name="toggle-group:multiple" />
 
 ## Orientation
 The toggle group can be oriented horizontally or vertically.
 
-<ComponentPreview name="toggle-group:orientation" />
+<Example name="toggle-group:orientation" />
 
 ## Controlled
 Use the `value` and `onValueChange` props to control the selected items.
 
-<ComponentPreview name="toggle-group:controlled" />
+<Example name="toggle-group:controlled" />
 
 ## Disabled
 The entire toggle group or individual items can be disabled.
 
-<ComponentPreview name="toggle-group:disabled" />
+<Example name="toggle-group:disabled" />
 
-## Anatomy
+## API Reference
 
-The `ToggleGroup` component consists of the following subcomponents:
+### ToggleGroup
+Manages the state of the toggle group and provides context for the toggle items.
 
-- `ToggleGroup.Root`: The root container for the toggle group.
-- `ToggleGroup.Item`: A toggle item within the group.
-- `ToggleGroup.Context`: A component that provides access to the group's state via a render prop.
+| Prop | Type | Default |
+| --- | --- | --- |
+| value | `string` | | - |
+| disabled | `boolean` | `false` |
+| asChild | `boolean` | `false` |
+| multiple | `boolean` | `false` |
+| onValueChange | `(value: string) => void` | | 
 
-## Props
+### ToggleGroupItem
+The toggle group item component.
 
-**Root**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| defaultValue | `string[]` | | The initial selected value of the toggle group. |
-| value | `string[]` | | The controlled selected value of the toggle group. |
-| onValueChange | `(details: ValueChangeDetails) => void` | | Function to call when the selection changes. |
-| multiple | `boolean` | `false` | Whether to allow multiple toggles to be selected. |
-| deselectable | `boolean` | `true` | Whether the toggle group allows empty selection. |
-| disabled | `boolean` | `false` | Whether the toggle group is disabled. |
-| orientation | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the toggle group. |
-| loopFocus | `boolean` | `true` | Whether to loop focus inside the toggle group. |
-| rovingFocus | `boolean` | `true` | Whether to use roving tab index to manage focus. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| attached | `boolean` | `false` | Use the attached variant to visually connect the toggle items together. |
-| fullWidth | `boolean` | `false` | Whether the toggle group should take up the full width of its container. |
-
-**Item**
-
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
+| Prop | Type | Default |
+| --- | --- | --- |
 | value | `string` | | The unique value of the toggle item. **Required**. |
-| disabled | `boolean` | `false` | Whether the item is disabled. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| disabled | `boolean` | `false` |
+| asChild | `boolean` | `false` |

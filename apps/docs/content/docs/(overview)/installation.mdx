@@ -1,0 +1,117 @@
+---
+title: Installation
+description: Moto UI is a Chakra UI alternative built with Ark UI and Pandacss.
+---
+
+<Example name="base:introduction" />
+
+
+Moto UI is a high-performance component library designed for building modern, polished, and accessible web applications combining the headless logic of **Ark UI** with the build-time styling power of **Panda CSS**.
+
+## Installation
+
+Follow these steps to set up Moto UI and its styling engine, Panda CSS.
+
+### Prerequisites
+
+Before you begin, ensure your project meets the following requirements:
+- **React**: Version 18.0.0 or higher (including React 19).
+- **TypeScript**: Recommended for the best developer experience.
+- **Panda CSS**: Moto UI requires Panda CSS for styling.
+
+### 1. Install Packages
+
+Install the core library along with the Panda CSS presets and development dependencies.
+
+```npm
+npm install @moto-ui/preset-base @moto-ui/react
+npm install -D @pandacss/dev
+```
+
+### 2. Panda CSS Configuration
+
+Initialize Panda CSS in your project if you haven't already.
+
+```npm
+npx panda init --postcss
+```
+
+Then, update your `panda.config.ts` to include the Moto UI base preset. **Crucially**, you must include the Moto UI build info in your `include` path so that Panda can scan the library's components for styles.
+
+```ts title="panda.config.ts"
+import { basePreset } from "@moto-ui/preset-base";
+import { defineConfig } from "@pandacss/dev";
+
+export default defineConfig({
+  
+  // 1. Use the Moto UI preset
+  presets: [basePreset],
+  importMap: "@moto-ui/styled-system",
+
+  // 2. Necessary for Moto UI components
+  preflight: true,
+  jsxFramework: "react",
+
+  // 3. Include your files AND Moto UI's build info
+  include: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@moto-ui/react/dist/panda.buildinfo.json",
+  ],
+
+  // 4. Output directory for the generated CSS-in-JS and output extension
+  outExtension: "js",
+  outdir: "styled-system",
+
+  // 5. Optional: Global variables for default fonts used by presets
+  globalVars: {
+    "--font-sans-default": "Geist, sans-serif",
+    "--font-mono-default": "JetBrains Mono, monospace",
+  },
+});
+```
+For framework specific **Pandacss** Installation, check out [pandacss setup](https://panda-css.com/docs/overview/getting-started) and once you're done, come back to this guide.
+
+### 3. Configure Global CSS
+
+Update your global CSS file (e.g., `src/index.css`) to include the Panda CSS layers. These layers ensure correct CSS specificity and allow Moto UI's recipes to work correctly alongside your own utilities.
+
+```css title="src/index.css"
+@layer reset, base, tokens, recipes, utilities;
+```
+
+### 4. Import Global CSS
+
+Import the CSS file at the root of your application (usually `main.tsx` or `app.tsx`).
+
+```tsx title="src/main.tsx"
+import "./index.css";
+// ... rest of your app imports
+```
+
+### 5. Start Building
+
+You're all set! You can now start using Moto UI components.
+
+```tsx
+import { Button, Stack, Text } from "@moto-ui/react";
+
+export function Welcome() {
+  return (
+    <Stack gap="4" align="start">
+      <Text size="xl" fontWeight="bold">Hello Moto!</Text>
+      <Button variant="primary">Get Started</Button>
+    </Stack>
+  );
+}
+```
+
+## Troubleshooting
+
+### Styles not appearing?
+If you see the components but they have no styling, ensure that:
+1. Your `include` array contains all your `[...paths]` array.
+2. You have run `npx panda` (or your build script).
+3. You have imported your `index.css` file at the root of your project.
+
+### Font Issues
+Moto UI presets use `--font-sans-default` and `--font-mono-default` variables. If your fonts look off, make sure these are defined in your `globalVars`.

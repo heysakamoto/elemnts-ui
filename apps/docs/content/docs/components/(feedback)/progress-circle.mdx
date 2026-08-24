@@ -3,31 +3,21 @@ title: ProgressCircle
 description: A circular indicator that displays the status of a task or a process.
 ---
 
-<ComponentPreview name="progress-circle:basic" />
+<Example name="progress-circle:basic" />
 
 ## Usage
 
 The `ProgressCircle` component is used to show the completion status of a task using a circular indicator. It is built using the `Progress` component parts.
 
-- `Progress`: The root container for the progress component.
-- `Progress.Circle`: The SVG container for circular progress.
-- `Progress.CircleTrack`: The background track for circular progress.
-- `Progress.CircleRange`: The visual indicator for circular progress.
-- `Progress.Label`: The label for the progress component.
-- `Progress.ValueText`: The text representation of the current value.
-- `Progress.View`: Renders its children based on the current progress state.
-- `Progress.Context`: Provides access to the progress state via a render prop.
-- `Progress.RootProvider`: Advanced component for using a custom progress hook.
-
 ```tsx
-import { Progress } from "@moto-ui/react"
+import { Progress } from "@moto-ui/react";
 
 <Progress defaultValue={33}>
   <Progress.Circle>
     <Progress.CircleTrack />
     <Progress.CircleRange />
   </Progress.Circle>
-</Progress>
+</Progress>;
 ```
 
 ## Examples
@@ -36,111 +26,49 @@ import { Progress } from "@moto-ui/react"
 
 When the progress value is unknown, set `value` to `null` to show an indeterminate state.
 
-<ComponentPreview name="progress-circle:indeterminate" />
+<Example name="progress-circle:indeterminate" />
 
+## API Reference
 
-## Props
+### Progress
 
-**Root**
+The root container for the circular progress component.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| defaultValue | `number` | `50` | The initial value of the progress bar when rendered. |
-| value | `number \| null` | - | The controlled value of the progress bar. Set to `null` for indeterminate state. |
-| min | `number` | `0` | The minimum allowed value. |
-| max | `number` | `100` | The maximum allowed value. |
-| colorPalette | `'accent' \| 'neutral' \| 'success' \| 'warning' \| 'destructive'` | `'accent'` | The color palette of the progress indicator. |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the progress circle. |
-| thickness | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'sm'` | The thickness of the circular progress. |
-| id | `string` | - | The unique identifier of the progress bar. |
-| ids | `Partial<{ root: string; track: string; label: string; circle: string }>` | - | The ids of the elements in the progress bar. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop          | Type                                                                      | Default                |
+| ------------- | ------------------------------------------------------------------------- | ---------------------- |
+| value         | `number`                                                                  | -                      |
+| defaultValue  | `number`                                                                  | `50`                   |
+| onValueChange | `(details: ValueChangeDetails) => void`                                   | -                      |
+| min           | `number`                                                                  | `0`                    |
+| max           | `number`                                                                  | `100`                  |
+| orientation   | `"horizontal" \| "vertical"`                                              | `"horizontal"`         |
+| formatOptions | `NumberFormatOptions`                                                     | `{ style: "percent" }` |
+| locale        | `string`                                                                  | `"en-US"`              |
+| translations  | `IntlTranslations`                                                        | -                      |
+| id            | `string`                                                                  | -                      |
+| ids           | `Partial<{ root: string; track: string; label: string; circle: string }>` | -                      |
+| asChild       | `boolean`                                                                 | `false`                |
 
-**Circle**
+### ProgressCircle
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The SVG container for circular progress.
 
-**CircleTrack**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### ProgressCircleTrack
 
-**CircleRange**
+The background track for circular progress.
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**View**
+### ProgressCircleRange
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| state | `'determinate' \| 'indeterminate' \| 'complete'` | - | The state of the progress to show this view for. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The visual indicator of the circular progress value.
 
-**Context**
-Provides access to the `Progress` API via a render prop.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| children | `(api: UseProgressContext) => ReactNode` | - | Render prop to access the component API. |
-
-**RootProvider**
-Advanced component for using a custom `useProgress` hook.
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| value | `UseProgressReturn` | - | The value returned from the `useProgress` hook. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="progress"]` | The component scope. |
-| `[data-part="root"]` | The root part. |
-| `[data-state]` | The state of the progress. `determinate`, `indeterminate`, or `complete`. |
-| `[data-value]` | The current value. |
-
-**Circle**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="circle"]` | The circle part. |
-
-**CircleTrack**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="circle-track"]` | The circular track part. |
-
-**CircleRange**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="circle-range"]` | The circular range part. |
-| `[data-state]` | The state of the circular range. |
-
-**View**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-part="view"]` | The view part. |
-| `[data-state]` | The state that this view represents. |
-
-## CSS Variables
-
-**Root**
-
-| Variable | Description |
-| :--- | :--- |
-| `--percent` | The current progress percentage (0 to 1). |
-| `--circumference` | The circumference for circular progress. |
-| `--offset` | The offset position for circular progress. |
-| `--thickness` | The thickness of the progress indicator. |
-| `--size` | The overall size of the circular progress. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

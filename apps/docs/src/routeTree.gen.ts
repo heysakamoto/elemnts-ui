@@ -9,23 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PreviewRouteImport } from './routes/preview'
-import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
-import { Route as LlmsFullDottxtRouteImport } from './routes/llms-full[.]txt'
 import { Route as RootRouteImport } from './routes/_root'
+import { Route as LlmsFullDottxtRouteImport } from './routes/llms-full[.]txt'
+import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
+import { Route as PreviewRouteImport } from './routes/preview'
 import { Route as RootIndexRouteImport } from './routes/_root/index'
-import { Route as DocsChar123Char125DotmdRouteImport } from './routes/docs/{$}[.]md'
-import { Route as DocsSplatRouteImport } from './routes/docs/$'
 import { Route as ApiSearchRouteImport } from './routes/api/search'
+import { Route as DocsSplatRouteImport } from './routes/docs/$'
+import { Route as DocsChar123Char125DotmdRouteImport } from './routes/docs/{$}[.]md'
 
-const PreviewRoute = PreviewRouteImport.update({
-  id: '/preview',
-  path: '/preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
-  id: '/llms.txt',
-  path: '/llms.txt',
+const RootRoute = RootRouteImport.update({
+  id: '/_root',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LlmsFullDottxtRoute = LlmsFullDottxtRouteImport.update({
@@ -33,8 +27,14 @@ const LlmsFullDottxtRoute = LlmsFullDottxtRouteImport.update({
   path: '/llms-full.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RootRoute = RootRouteImport.update({
-  id: '/_root',
+const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
+  id: '/llms.txt',
+  path: '/llms.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewRoute = PreviewRouteImport.update({
+  id: '/preview',
+  path: '/preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RootIndexRoute = RootIndexRouteImport.update({
@@ -42,9 +42,9 @@ const RootIndexRoute = RootIndexRouteImport.update({
   path: '/',
   getParentRoute: () => RootRoute,
 } as any)
-const DocsChar123Char125DotmdRoute = DocsChar123Char125DotmdRouteImport.update({
-  id: '/docs/{$}.md',
-  path: '/docs/{$}.md',
+const ApiSearchRoute = ApiSearchRouteImport.update({
+  id: '/api/search',
+  path: '/api/search',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocsSplatRoute = DocsSplatRouteImport.update({
@@ -52,9 +52,9 @@ const DocsSplatRoute = DocsSplatRouteImport.update({
   path: '/docs/$',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiSearchRoute = ApiSearchRouteImport.update({
-  id: '/api/search',
-  path: '/api/search',
+const DocsChar123Char125DotmdRoute = DocsChar123Char125DotmdRouteImport.update({
+  id: '/docs/{$}.md',
+  path: '/docs/{$}.md',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -130,18 +130,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/preview': {
-      id: '/preview'
-      path: '/preview'
-      fullPath: '/preview'
-      preLoaderRoute: typeof PreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/llms.txt': {
-      id: '/llms.txt'
-      path: '/llms.txt'
-      fullPath: '/llms.txt'
-      preLoaderRoute: typeof LlmsDottxtRouteImport
+    '/_root': {
+      id: '/_root'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof RootRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/llms-full.txt': {
@@ -151,11 +144,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LlmsFullDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_root': {
-      id: '/_root'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof RootRouteImport
+    '/llms.txt': {
+      id: '/llms.txt'
+      path: '/llms.txt'
+      fullPath: '/llms.txt'
+      preLoaderRoute: typeof LlmsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview': {
+      id: '/preview'
+      path: '/preview'
+      fullPath: '/preview'
+      preLoaderRoute: typeof PreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_root/': {
@@ -165,11 +165,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RootIndexRouteImport
       parentRoute: typeof RootRoute
     }
-    '/docs/{$}.md': {
-      id: '/docs/{$}.md'
-      path: '/docs/{$}.md'
-      fullPath: '/docs/{$}.md'
-      preLoaderRoute: typeof DocsChar123Char125DotmdRouteImport
+    '/api/search': {
+      id: '/api/search'
+      path: '/api/search'
+      fullPath: '/api/search'
+      preLoaderRoute: typeof ApiSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/docs/$': {
@@ -179,11 +179,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/search': {
-      id: '/api/search'
-      path: '/api/search'
-      fullPath: '/api/search'
-      preLoaderRoute: typeof ApiSearchRouteImport
+    '/docs/{$}.md': {
+      id: '/docs/{$}.md'
+      path: '/docs/{$}.md'
+      fullPath: '/docs/{$}.md'
+      preLoaderRoute: typeof DocsChar123Char125DotmdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

@@ -1,6 +1,7 @@
 import { ToggleGroup } from "@ark-ui/react/toggle-group";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { toggleGroupRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { toggleGroupRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(toggleGroupRecipe);
 

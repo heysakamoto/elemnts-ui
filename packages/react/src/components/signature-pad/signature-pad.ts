@@ -1,6 +1,7 @@
 import { SignaturePad } from "@ark-ui/react/signature-pad";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { signaturePadRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { signaturePadRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(signaturePadRecipe);
 

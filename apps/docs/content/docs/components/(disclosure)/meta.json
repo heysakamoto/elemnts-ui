@@ -1,12 +1,6 @@
 {
-	"title": "Disclosure",
-	"defaultOpen": false,
-	"pages": [
-		"accordion",
-		"carousel",
-		"collapsible",
-		"pagination",
-		"steps",
-		"tabs"
-	]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Disclosure",
+  "pages": ["..."]
 }

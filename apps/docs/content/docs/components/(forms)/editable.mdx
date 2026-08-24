@@ -3,21 +3,14 @@ title: Editable
 description: An interface for users to switch between a read-only and an editable state.
 ---
 
-<ComponentPreview name="editable:basic" />
+<Example name="editable:basic" />
 
 ## Usage
 
-The `Editable` component is used for inline editing of text. It consists of a preview state that can be toggled into an edit state.
-
-- `Editable.Root`: The root container for the editable.
-- `Editable.Area`: The container for the preview and input.
-- `Editable.Label`: The label for the editable.
-- `Editable.Preview`: The read-only view of the value.
-- `Editable.Input`: The input field to edit the value.
-- `Editable.Control`: The container for the triggers (edit, submit, cancel).
+Used for inline editing of text. It consists of a preview state that can be toggled into an edit state.
 
 ```tsx
-import { Editable } from "@moto-ui/react"
+import { Editable } from "@moto-ui/react";
 
 <Editable.Root placeholder="Click to edit" defaultValue="Hello World">
   <Editable.Label>Label</Editable.Label>
@@ -25,199 +18,121 @@ import { Editable } from "@moto-ui/react"
     <Editable.Preview />
     <Editable.Input />
   </Editable.Area>
-</Editable.Root>
+</Editable.Root>;
 ```
 
 ## Custom Controls
 
 You can use `Editable.Control` and `Editable.Context` to render custom triggers based on the editing state.
 
-<ComponentPreview name="editable:custom-controls" />
+<Example name="editable:custom-controls" />
 
-```tsx
-import { Editable, Button, Stack } from "@moto-ui/react"
+## API Reference
 
-<Editable.Root defaultValue="Click the edit icon">
-  <Editable.Area>
-    <Editable.Preview />
-    <Editable.Input />
-  </Editable.Area>
-  <Editable.Control>
-    <Editable.Context>
-      {(editable) =>
-        editable.editing ? (
-          <Stack direction="row" gap="8">
-            <Editable.SubmitTrigger asChild>
-              <Button variant="tertiary" size="xs">Save</Button>
-            </Editable.SubmitTrigger>
-            <Editable.CancelTrigger asChild>
-              <Button variant="tertiary" size="xs">Cancel</Button>
-            </Editable.CancelTrigger>
-          </Stack>
-        ) : (
-          <Editable.EditTrigger asChild>
-            <Button variant="tertiary" size="xs">Edit</Button>
-          </Editable.EditTrigger>
-        )
-      }
-    </Editable.Context>
-  </Editable.Control>
-</Editable.Root>
-```
+### EditableRoot
 
-## Props
+The root container for the editable.
 
-**Root**
+| Prop                 | Type                                                                                                                                                                          | Default     |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| activationMode       | `ActivationMode`                                                                                                                                                              | `focus`     |
+| asChild              | `boolean`                                                                                                                                                                     | `undefined` |
+| autoResize           | `boolean`                                                                                                                                                                     | `undefined` |
+| defaultEdit          | `boolean`                                                                                                                                                                     | `undefined` |
+| defaultValue         | `string`                                                                                                                                                                      | `undefined` |
+| disabled             | `boolean`                                                                                                                                                                     | `undefined` |
+| edit                 | `boolean`                                                                                                                                                                     | `undefined` |
+| finalFocusEl         | `() => HTMLElement \| null`                                                                                                                                                   | `undefined` |
+| form                 | `string`                                                                                                                                                                      | `undefined` |
+| id                   | `string`                                                                                                                                                                      | `undefined` |
+| ids                  | `Partial<{ root: string; area: string; label: string; preview: string; input: string; control: string; submitTrigger: string; cancelTrigger: string; editTrigger: string; }>` | `undefined` |
+| invalid              | `boolean`                                                                                                                                                                     | `undefined` |
+| maxLength            | `number`                                                                                                                                                                      | `undefined` |
+| name                 | `string`                                                                                                                                                                      | `undefined` |
+| onEditChange         | `(details: EditChangeDetails) => void`                                                                                                                                        | `undefined` |
+| onFocusOutside       | `(event: FocusOutsideEvent) => void`                                                                                                                                          | `undefined` |
+| onInteractOutside    | `(event: InteractOutsideEvent) => void`                                                                                                                                       | `undefined` |
+| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void`                                                                                                                                    | `undefined` |
+| onValueChange        | `(details: ValueChangeDetails) => void`                                                                                                                                       | `undefined` |
+| onValueCommit        | `(details: ValueChangeDetails) => void`                                                                                                                                       | `undefined` |
+| onValueRevert        | `(details: ValueChangeDetails) => void`                                                                                                                                       | `undefined` |
+| placeholder          | `string \| { edit: string; preview: string }`                                                                                                                                 | `undefined` |
+| readOnly             | `boolean`                                                                                                                                                                     | `undefined` |
+| required             | `boolean`                                                                                                                                                                     | `undefined` |
+| selectOnFocus        | `boolean`                                                                                                                                                                     | `true`      |
+| submitMode           | `SubmitMode`                                                                                                                                                                  | `both`      |
+| translations         | `IntlTranslations`                                                                                                                                                            | `undefined` |
+| value                | `string`                                                                                                                                                                      | `undefined` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| activationMode | `'focus' \| 'dblclick' \| 'click' \| 'none'` | `'focus'` | The activation mode for the preview element. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| autoResize | `boolean` | `false` | Whether the editable should auto-resize to fit the content. |
-| defaultEdit | `boolean` | `false` | Whether the editable is in edit mode by default. |
-| defaultValue | `string` | - | The initial value of the editable when rendered. |
-| disabled | `boolean` | `false` | Whether the editable is disabled. |
-| edit | `boolean` | - | Whether the editable is in edit mode. |
-| finalFocusEl | `() => HTMLElement \| null` | - | The element to receive focus when the editable is closed. |
-| form | `string` | - | The associate form of the underlying input. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string; area: string; label: string; preview: string; input: string; control: string; submitTrigger: string; cancelTrigger: string; editTrigger: string; }>` | - | The ids of the elements in the editable. |
-| invalid | `boolean` | `false` | Whether the input's value is invalid. |
-| maxLength | `number` | - | The maximum number of characters allowed in the editable. |
-| name | `string` | - | The name attribute of the editable component. |
-| onEditChange | `(details: EditChangeDetails) => void` | - | Function to call when the edit mode changes. |
-| onFocusOutside | `(event: FocusOutsideEvent) => void` | - | Function called when the focus is moved outside the component. |
-| onInteractOutside | `(event: InteractOutsideEvent) => void` | - | Function called when an interaction happens outside the component. |
-| onPointerDownOutside | `(event: PointerDownOutsideEvent) => void` | - | Function called when the pointer is pressed down outside the component. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Function to call when the value changes. |
-| onValueCommit | `(details: ValueChangeDetails) => void` | - | Function to call when the value is committed. |
-| onValueRevert | `(details: ValueChangeDetails) => void` | - | Function to call when the value is reverted. |
-| placeholder | `string \| { edit: string; preview: string }` | - | The placeholder text for the editable. |
-| readOnly | `boolean` | `false` | Whether the editable is read-only. |
-| required | `boolean` | `false` | Whether the editable is required. |
-| selectOnFocus | `boolean` | `true` | Whether to select the text in the input when it is focused. |
-| submitMode | `'enter' \| 'blur' \| 'none' \| 'both'` | `'both'` | The action that triggers submit in the edit mode. |
-| translations | `IntlTranslations` | - | The translations for the editable. |
-| value | `string` | - | The controlled value of the editable. |
+### EditableRootProvider
 
-**Area**
+Provides the editable state from `useEditable` to its child components.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type                | Default  |
+| ------- | ------------------- | -------- |
+| value   | `UseEditableReturn` | required |
+| asChild | `boolean`           | `false`  |
 
-**Label**
+### EditableArea
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The container for the editable preview and input.
 
-**Preview**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### EditableLabel
 
-**Input**
+The label for the editable.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Control**
+### EditablePreview
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Displays the editable value when it is not being edited.
 
-**EditTrigger**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### EditableInput
 
-**SubmitTrigger**
+The input for editing the value.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**CancelTrigger**
+### EditableControl
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The container for editable action triggers.
 
-**RootProvider**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseEditableReturn` | - | The value returned from `useEditable`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### EditableEditTrigger
 
-## Data Attributes
+Triggers edit mode.
 
-**Root**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `editable` |
-| data-part | `root` |
-| data-state | The state of the editable. `edit` or `preview`. |
-| data-disabled | Present when the editable is disabled. |
-| data-readonly | Present when the editable is read-only. |
-| data-invalid | Present when the editable is invalid. |
+### EditableSubmitTrigger
 
-**Area**
+Commits the current value and exits edit mode.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `editable` |
-| data-part | `area` |
-| data-focus | Present when focused. |
-| data-disabled | Present when disabled. |
-| data-placeholder-shown | Present when placeholder is shown. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Label**
+### EditableCancelTrigger
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `editable` |
-| data-part | `label` |
-| data-focus | Present when focused. |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+Reverts the current value and exits edit mode.
 
-**Input**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `editable` |
-| data-part | `input` |
-| data-disabled | Present when disabled. |
-| data-readonly | Present when read-only. |
-| data-invalid | Present when invalid. |
-| data-autoresize | Present when auto-resize is enabled. |
-
-**Preview**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `editable` |
-| data-part | `preview` |
-| data-placeholder-shown | Present when placeholder is shown. |
-| data-readonly | Present when read-only. |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-autoresize | Present when auto-resize is enabled. |
-
-**Control**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `editable` |
-| data-part | `control` |
-
-## CSS Variables
-
-This component does not use any custom CSS variables. It relies on standard Panda CSS tokens for styling.
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

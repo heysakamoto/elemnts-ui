@@ -3,7 +3,7 @@ title: Timer
 description: A component used to manage and display time-based counts or countdowns.
 ---
 
-<ComponentPreview name="timer:basic" />
+<Example name="timer:basic" />
 
 ## Usage
 
@@ -33,49 +33,97 @@ import { Timer } from "@moto-ui/react";
     <Timer.ActionTrigger action="start">Start</Timer.ActionTrigger>
     <Timer.ActionTrigger action="pause">Pause</Timer.ActionTrigger>
   </Timer.Control>
-</Timer.Root>
+</Timer.Root>;
 ```
 
 ## Countdown
 
 Set the `countdown` prop on the `Root` component to decrement the timer.
 
-<ComponentPreview name="timer:countdown" />
+<Example name="timer:countdown" />
 
-## Props
+## API Reference
 
-**Root**
+### TimerRoot
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| autoStart | `boolean` | `false` | Whether the timer should start automatically. |
-| countdown | `boolean` | `false` | Whether the timer should countdown. |
-| interval | `number` | `1000` | The interval in milliseconds to update the timer count. |
-| startMs | `number` | - | The initial duration of the timer in milliseconds. |
-| targetMs | `number` | - | The target duration of the timer in milliseconds. |
-| onComplete | `() => void` | - | Function invoked when the timer is completed. |
-| onTick | `(details: TickDetails) => void` | - | Function invoked when the timer ticks. |
+The root component that manages timer state.
 
-**Item**
+| Prop         | Type                                      | Default |
+| ------------ | ----------------------------------------- | ------- |
+| asChild      | `boolean`                                 | `false` |
+| autoStart    | `boolean`                                 | -       |
+| countdown    | `boolean`                                 | -       |
+| ids          | `Partial<{ root: string; area: string }>` | -       |
+| interval     | `number`                                  | `1000`  |
+| onComplete   | `() => void`                              | -       |
+| onTick       | `(details: TickDetails) => void`          | -       |
+| startMs      | `number`                                  | -       |
+| targetMs     | `number`                                  | -       |
+| translations | `IntlTranslations`                        | -       |
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| type | `"days" \| "hours" \| "minutes" \| "seconds" \| "milliseconds"` | - | The type of time unit to display. |
+### TimerRootProvider
 
-**ItemGroup**
+Provides timer state created with `useTimer` to its descendants.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| asChild | `boolean` | `false` | Whether to use the provided child element as the default rendered element. |
+| Prop    | Type             | Default  |
+| ------- | ---------------- | -------- |
+| value   | `UseTimerReturn` | required |
+| asChild | `boolean`        | `false`  |
 
-**ItemLabel**
+### TimerArea
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| asChild | `boolean` | `false` | Whether to use the provided child element as the default rendered element. |
+Wraps the displayed timer items.
 
-**ActionTrigger**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| action | `"start" \| "pause" \| "resume" \| "reset" \| "stop" \| "tick"` | - | The action to perform when triggered. |
+### TimerItem
+
+Displays a formatted unit of time.
+
+| Prop    | Type                 | Default  |
+| ------- | -------------------- | -------- |
+| type    | `keyof Time<number>` | required |
+| asChild | `boolean`            | `false`  |
+
+### TimerItemGroup
+
+Groups a timer item with its label.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TimerItemLabel
+
+Labels a timer item.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TimerSeparator
+
+Separates timer items.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TimerControl
+
+Wraps timer action controls.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TimerActionTrigger
+
+Triggers an action on the timer.
+
+| Prop    | Type          | Default  |
+| ------- | ------------- | -------- |
+| action  | `TimerAction` | required |
+| asChild | `boolean`     | `false`  |

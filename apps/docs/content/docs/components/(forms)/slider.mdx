@@ -3,27 +3,13 @@ title: Slider
 description: A control that allows the user to select a value from a range.
 ---
 
-<ComponentPreview name="slider:basic" />
+<Example name="slider:basic" />
 
 ## Usage
-The `Slider` component is used to select a single value or a range of values from a predefined range.
-
-- `Slider.Root`: The root container for the slider.
-- `Slider.RootProvider`: Provides the slider context to its children.
-- `Slider.Label`: The label for the slider.
-- `Slider.Control`: The container for the slider track and thumb.
-- `Slider.Track`: The track that the thumb slides along.
-- `Slider.Range`: The visual range representing the selected value.
-- `Slider.Thumb`: The draggable handle for adjusting the value.
-- `Slider.ValueText`: Displays the current value as text.
-- `Slider.MarkerGroup`: A container for slider markers.
-- `Slider.Marker`: Individual markers along the track.
-- `Slider.DraggingIndicator`: An indicator that appears while dragging.
-- `Slider.HiddenInput`: The native hidden input for form integration.
-- `Slider.Context`: Access the slider state and methods.
+Used to select a single value or a range of values from a predefined range.
 
 ```tsx
-import { Slider } from "@moto-ui/react"
+import { Slider } from "@moto-ui/react";
 
 <Slider.Root defaultValue={[30]}>
   <Slider.Label>Volume</Slider.Label>
@@ -34,186 +20,153 @@ import { Slider } from "@moto-ui/react"
     </Slider.Track>
     <Slider.Thumb index={0} />
   </Slider.Control>
-</Slider.Root>
+</Slider.Root>;
 ```
 
 ## Range
+
 Use the `defaultValue` or `value` prop with an array of values to enable range selection and render multiple thumbs.
 
-<ComponentPreview name="slider:range" />
+<Example name="slider:range" />
 
 ## Min and Max
+
 Specify the minimum and maximum values for the slider using the `min` and `max` props.
 
-<ComponentPreview name="slider:minmax" />
+<Example name="slider:minmax" />
 
+## API Reference
 
-## Props
+### Slider
 
-**Root**
+The root component for the slider.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| aria-label | `string[]` | - | The aria-label of each slider thumb. |
-| aria-labelledby | `string[]` | - | The `id` of the elements that label each slider thumb. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| defaultValue | `number[]` | - | The initial value of the slider. |
-| disabled | `boolean` | `false` | Whether the slider is disabled. |
-| form | `string` | - | The id of the form that the slider belongs to. |
-| getAriaValueText | `(details: ValueTextDetails) => string` | - | Function that returns a human readable value for the thumb. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string, thumb: (index: number) => string, hiddenInput: (index: number) => string, control: string, track: string, range: string, label: string, valueText: string, marker: (index: number) => string }>` | - | The ids of the elements in the slider. Useful for composition. |
-| invalid | `boolean` | `false` | Whether the slider is invalid. |
-| max | `number` | `100` | The maximum value of the slider. |
-| min | `number` | `0` | The minimum value of the slider. |
-| minStepsBetweenThumbs | `number` | `0` | The minimum permitted steps between multiple thumbs. |
-| name | `string` | - | The name associated with each slider thumb (when used in a form). |
-| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the slider. |
-| origin | `'center' \| 'start' \| 'end'` | `'start'` | The origin of the slider range. |
-| readOnly | `boolean` | `false` | Whether the slider is read-only. |
-| step | `number` | `1` | The step value of the slider. |
-| thumbAlignment | `'center' \| 'contain'` | `'contain'` | The alignment of the slider thumb relative to the track. |
-| thumbCollisionBehavior | `'none' \| 'push' \| 'swap'` | `'none'` | Controls how thumbs behave when they collide. |
-| thumbSize | `{ width: number; height: number }` | - | The slider thumbs dimensions. |
-| value | `number[]` | - | The controlled value of the slider. |
-| onFocusChange | `(details: FocusChangeDetails) => void` | - | Function invoked when the slider's focused index changes. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Function invoked when the value changes. |
-| onValueChangeEnd | `(details: ValueChangeDetails) => void` | - | Function invoked when the slider value change is done. |
+| Prop                   | Type                                                                                                                                                                                                                      | Default        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| aria-label             | `string[]`                                                                                                                                                                                                                | -              |
+| aria-labelledby        | `string[]`                                                                                                                                                                                                                | -              |
+| asChild                | `boolean`                                                                                                                                                                                                                 | `false`        |
+| defaultValue           | `number[]`                                                                                                                                                                                                                | -              |
+| disabled               | `boolean`                                                                                                                                                                                                                 | -              |
+| form                   | `string`                                                                                                                                                                                                                  | -              |
+| getAriaValueText       | `(details: ValueTextDetails) => string`                                                                                                                                                                                   | -              |
+| id                     | `string`                                                                                                                                                                                                                  | -              |
+| ids                    | `Partial<{ root: string; thumb: (index: number) => string; hiddenInput: (index: number) => string; control: string; track: string; range: string; label: string; valueText: string; marker: (index: number) => string }>` | -              |
+| invalid                | `boolean`                                                                                                                                                                                                                 | -              |
+| largeStep              | `number`                                                                                                                                                                                                                  | `10 * step`    |
+| max                    | `number`                                                                                                                                                                                                                  | `100`          |
+| min                    | `number`                                                                                                                                                                                                                  | `0`            |
+| minStepsBetweenThumbs  | `number`                                                                                                                                                                                                                  | `0`            |
+| name                   | `string`                                                                                                                                                                                                                  | -              |
+| onFocusChange          | `(details: FocusChangeDetails) => void`                                                                                                                                                                                   | -              |
+| onValueChange          | `(details: ValueChangeDetails) => void`                                                                                                                                                                                   | -              |
+| onValueChangeEnd       | `(details: ValueChangeDetails) => void`                                                                                                                                                                                   | -              |
+| orientation            | `"horizontal" \| "vertical"`                                                                                                                                                                                              | `"horizontal"` |
+| origin                 | `"center" \| "start" \| "end"`                                                                                                                                                                                            | `"start"`      |
+| readOnly               | `boolean`                                                                                                                                                                                                                 | -              |
+| step                   | `number`                                                                                                                                                                                                                  | `1`            |
+| thumbAlignment         | `"center" \| "contain"`                                                                                                                                                                                                   | `"contain"`    |
+| thumbCollisionBehavior | `"none" \| "push" \| "swap"`                                                                                                                                                                                              | `"none"`       |
+| thumbSize              | `{ width: number; height: number }`                                                                                                                                                                                       | -              |
+| value                  | `number[]`                                                                                                                                                                                                                | -              |
 
-**RootProvider**
+### SliderRootProvider
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseSliderReturn` | - | **Required**. The value returned from `useSlider`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Provides a slider API returned by `useSlider` to its descendants.
 
-**Thumb**
+| Prop    | Type              | Default  |
+| ------- | ----------------- | -------- |
+| value   | `UseSliderReturn` | required |
+| asChild | `boolean`         | `false`  |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| index | `number` | - | **Required**. The index of the thumb. |
-| name | `string` | - | The name of the thumb. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SliderLabel
 
-**Marker**
+The label for the slider.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `number` | - | **Required**. The value of the marker. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Label**
+### SliderControl
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Wraps the slider track and thumbs.
 
-**Track**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SliderHiddenInput
 
-**Range**
+The hidden input used for form submission.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Control**
+### SliderStepGroup
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Groups slider steps.
 
-**ValueText**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SliderStep
 
-**MarkerGroup**
+Represents an individual slider step.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| value   | `number`  | required |
+| asChild | `boolean` | `false`  |
 
-**DraggingIndicator**
+### SliderMarkerGroup
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Groups slider markers.
 
-**HiddenInput**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SliderMarker
 
-## Data Attributes
+Represents an individual slider marker.
 
-**Root**
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| value   | `number`  | required |
+| asChild | `boolean` | `false`  |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `slider` |
-| data-part | `root` |
-| data-disabled | Present when disabled. |
-| data-orientation | The orientation of the slider. |
-| data-dragging | Present when in the dragging state. |
-| data-invalid | Present when invalid. |
-| data-focus | Present when focused. |
+### SliderTrack
 
-**Thumb**
+The track along which the slider thumbs move.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `slider` |
-| data-part | `thumb` |
-| data-index | The index of the thumb. |
-| data-disabled | Present when disabled. |
-| data-orientation | The orientation of the thumb. |
-| data-focus | Present when focused. |
-| data-dragging | Present when in the dragging state. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Track**
+### SliderRange
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `slider` |
-| data-part | `track` |
-| data-disabled | Present when disabled. |
-| data-orientation | The orientation of the track. |
-| data-dragging | Present when dragging. |
+Displays the selected range of the slider.
 
-**Range**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `slider` |
-| data-part | `range` |
-| data-orientation | The orientation of the range. |
-| data-dragging | Present when dragging. |
+### SliderThumb
 
-**Marker**
+The draggable handle used to change a slider value.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `slider` |
-| data-part | `marker` |
-| data-state | `over-value \| under-value \| at-value` |
-| data-disabled | Present when disabled. |
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| index   | `number`  | required |
+| asChild | `boolean` | `false`  |
+| name    | `string`  | -        |
 
-## CSS Variables
+### SliderValueText
 
-**Root**
+Displays the formatted value of the slider.
 
-| Variable | Description |
-| --- | --- |
-| --slider-thumb-width | The thumb width of the slider. |
-| --slider-thumb-height | The thumb height of the slider. |
-| --slider-thumb-transform | The thumb transform of the slider. |
-| --slider-range-start | The range start of the slider. |
-| --slider-range-end | The range end of the slider. |
-| --translate-x | The horizontal translation value. |
-| --translate-y | The vertical translation value. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

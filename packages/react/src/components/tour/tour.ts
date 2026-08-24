@@ -1,6 +1,7 @@
 import { Tour } from "@ark-ui/react/tour";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { tourRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { tourRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(tourRecipe);
 

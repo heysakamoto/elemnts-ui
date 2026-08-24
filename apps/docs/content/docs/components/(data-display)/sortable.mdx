@@ -4,7 +4,7 @@ description: A drag-and-drop sortable list for reordering items
 
 ---
 
-<ComponentPreview name="sortable:basic" />
+<Example name="sortable:basic" />
 
 ## Usage
 Use `Sortable` to create a reorderable list where users can drag items into a new position using a handle.
@@ -31,44 +31,10 @@ import { Sortable } from "@moto-ui/react"
 ### With Handle Icon
 Enhance the drag handle with a grip icon for better visual affordance.
 
-<ComponentPreview name="sortable:with-handle-icon" />
+<Example name="sortable:with-handle-icon" />
 
 ### Horizontal
 Arrange sortable items in a horizontal row using style props.
 
-<ComponentPreview name="sortable:horizontal" />
+<Example name="sortable:horizontal" />
 
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-|-----------|-------------|
-| `[data-scope="sortable"]` | The component scope. |
-| `[data-part="root"]` | The component part. |
-
-**Item**
-
-| Attribute | Description |
-|-----------|-------------|
-| `[data-scope="sortable"]` | The component scope. |
-| `[data-part="item"]` | The component part. |
-| `[data-dragging]` | Present when the item is being dragged. |
-| `[data-dropping]` | Present when an item is being dropped on this target. |
-| `[data-state="dragging" | "dropping" | "idle"]` | Current drag state of the item. |
-
-**ItemHandle**
-
-| Attribute | Description |
-|-----------|-------------|
-| `[data-scope="sortable"]` | The component scope. |
-| `[data-part="item-handle"]` | The component part. |
-| `[data-dragging]` | Present when the item is being dragged. |
-| `[data-dropping]` | Present when an item is being dropped on this target. |
-| `[data-state="dragging" | "dropping" | "idle"]` | Current drag state of the item. |
-
-## Accessibility
-- Each sortable item is rendered as a `listitem` within a `list` region.
-- The drag handle provides a visible affordance for reordering.
-- Items receive `data-state` attributes for styling drag and drop states.
-- Use `aria-label` on icon handles for screen reader support.

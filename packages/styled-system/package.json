@@ -34,7 +34,7 @@
 		"build": "panda"
 	},
 	"dependencies": {
-		"@moto-ui/preset-base": "workspace:*"
+		"@moto-ui/core": "workspace:*"
 	},
 	"devDependencies": {
 		"@pandacss/dev": "^1.11.3",

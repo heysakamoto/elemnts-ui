@@ -3,21 +3,14 @@ title: Pagination
 description: Enables navigation across multiple pages.
 ---
 
-<ComponentPreview name="pagination:basic" />
+<Example name="pagination:basic" />
 
 ## Usage
-Use the Pagination components together to build page navigation:
 
-- `Pagination`: The root container that manages the pagination state.
-- `Pagination.PrevTrigger` / `Pagination.NextTrigger`: Triggers to move to the previous or next page.
-- `Pagination.FirstTrigger` / `Pagination.LastTrigger`: Triggers to move to the first or last page.
-- `Pagination.Item`: Renders an individual page trigger.
-- `Pagination.Ellipsis`: Renders a placeholder for truncated pages.
-- `Pagination.Context`: Provides access to the pagination state via a render prop.
-- `Pagination.RootProvider`: Advanced component for using a custom pagination hook.
+Use the Pagination components together to build page navigation
 
 ```tsx
-import { Pagination, Button, Text } from "@moto-ui/react"
+import { Pagination, Button, Text } from "@moto-ui/react";
 
 <Pagination count={100} pageSize={10}>
   <Pagination.PrevTrigger asChild>
@@ -26,9 +19,9 @@ import { Pagination, Button, Text } from "@moto-ui/react"
   <Pagination.Context>
     {(api) =>
       api.pages.map((page, index) =>
-        page.type === 'page' ? (
+        page.type === "page" ? (
           <Pagination.Item key={index} {...page} asChild>
-            <Button variant={api.page === page.value ? 'solid' : 'ghost'}>
+            <Button variant={api.page === page.value ? "solid" : "ghost"}>
               {page.value}
             </Button>
           </Pagination.Item>
@@ -43,96 +36,110 @@ import { Pagination, Button, Text } from "@moto-ui/react"
   <Pagination.NextTrigger asChild>
     <Button variant="ghost">Next</Button>
   </Pagination.NextTrigger>
-</Pagination>
+</Pagination>;
 ```
 
 ## Attached
+
 This example shows how to use the `Group` component to visually attach pagination items and triggers.
 
-<ComponentPreview name="pagination:attached" />
+<Example name="pagination:attached" />
 
 ## Sibling count
+
 Adjust `siblingCount` to set how many adjacent pages are shown on either side of the current page.
 
-<ComponentPreview name="pagination:sibling-count" />
+<Example name="pagination:sibling-count" />
 
 ## Store
+
 Use `Pagination.Context` or the `usePaginationContext` hook to access pagination state and call helpers like `setPage`, `setPageSize`, `goToNextPage`, `goToPrevPage`, `goToFirstPage`, and `goToLastPage`.
 
-<ComponentPreview name="pagination:store" />
+<Example name="pagination:store" />
 
+## API Reference
 
-## Props
+### Pagination
 
-**Root**
+The root component for the pagination.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| count | `number` | - | Total number of data items. |
-| page | `number` | - | The controlled active page. |
-| defaultPage | `number` | `1` | The initial active page when rendered. |
-| pageSize | `number` | - | The controlled number of data items per page. |
-| defaultPageSize | `number` | `10` | The initial number of data items per page when rendered. |
-| siblingCount | `number` | `1` | Number of pages to show beside active page. |
-| boundaryCount | `number` | `1` | Number of pages to show at the beginning and end. |
-| type | `'button' \| 'link'` | `"button"` | The type of the trigger element. |
-| getPageUrl | `(details: PageUrlDetails) => string` | - | Function to generate href attributes for pagination links. |
-| ids | `Partial<{ root: string; ellipsis: (index: number) => string; firstTrigger: string; prevTrigger: string; nextTrigger: string; lastTrigger: string; item: (page: number) => string; }>` | - | The ids of the elements in the pagination. |
-| onPageChange | `(details: PageChangeDetails) => void` | - | Called when the page number is changed. |
-| onPageSizeChange | `(details: PageSizeChangeDetails) => void` | - | Called when the page size is changed. |
-| translations | `IntlTranslations` | - | Localized strings for accessibility. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop | Type | Default    |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
+| boundaryCount | `number` | `1` |
+| count | `number` | - |
+| defaultPage | `number` | `1` |
+| defaultPageSize | `number` | `10` |
+| getPageUrl | `(details: PaginationPageUrlDetails) => string` | - |
+| ids | `Partial<{ root: string; ellipsis: (index: number) => string; firstTrigger: string; prevTrigger: string; nextTrigger: string; lastTrigger: string; item: (page: number) => string }>` | - |
+| onPageChange | `(details: PaginationPageChangeDetails) => void` | - |
+| onPageSizeChange | `(details: PaginationPageSizeChangeDetails) => void` | - |
+| page | `number` | - |
+| pageSize | `number` | - |
+| siblingCount | `number` | `1` |
+| translations | `IntlTranslations` | - |
+| type | `"button" \| "link"` | `"button"` |
 
-**Item**
+### PaginationRootProvider
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| type | `'page'` | - | The type of the item. **Required**. |
-| value | `number` | - | The page number. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Provides the pagination state created with `usePagination`.
 
-**Ellipsis**
+| Prop    | Type                  | Default  |
+| ------- | --------------------- | -------- |
+| value   | `UsePaginationReturn` | required |
+| asChild | `boolean`             | `false`  |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| index | `number` | - | The index of the ellipsis. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### PaginationContext
 
-**PrevTrigger**
+Provides access to pagination state and helpers.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### PaginationEllipsis
 
-**NextTrigger**
+Renders an ellipsis between pagination items.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| index   | `number`  | required |
+| asChild | `boolean` | `false`  |
 
-**FirstTrigger**
+### PaginationItem
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Renders a page item.
 
-**LastTrigger**
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| type    | `"page"`  | required |
+| value   | `number`  | required |
+| asChild | `boolean` | `false`  |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### PaginationNextTrigger
 
-**Context**
-Provides access to the `Pagination` API via a render prop.
+Renders a trigger that navigates to the next page.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| children | `(api: UsePaginationContext) => ReactNode` | - | Render prop to access the component API. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**RootProvider**
-Advanced component for using a custom `usePagination` hook.
+### PaginationPrevTrigger
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UsePaginationReturn` | - | The value returned from the `usePagination` hook. **Required**. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Renders a trigger that navigates to the previous page.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### PaginationFirstTrigger
+
+Renders a trigger that navigates to the first page.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### PaginationLastTrigger
+
+Renders a trigger that navigates to the last page.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

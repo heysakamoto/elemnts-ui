@@ -4,10 +4,10 @@ description: Displays a list of items with optional indicators and nested struct
 
 ---
 
-<ComponentPreview name="list:basic" />
+<Example name="list:basic" />
 
 ## Usage
-Use `List` to present a collection of items in a structured vertical layout. It supports both unordered and ordered lists, custom indicators, and nested hierarchies.
+Present a collection of items in a structured vertical layout. It supports both unordered and ordered lists, custom indicators, and nested hierarchies.
 
 ```tsx
 import { List } from "@moto-ui/react"
@@ -24,51 +24,26 @@ export function Demo() {
 ```
 
 ## Ordered List
-Use the `as` prop to render an ordered list. Apply custom styles to adjust the list numbering as needed.
+Use the **as** prop to render an ordered list. Apply custom styles to adjust the list numbering as needed.
 
-<ComponentPreview name="list:ordered" />
-
+<Example name="list:ordered" />
 
 
 ## With Indicators
-Use `List.Indicator` to add icons or other visual markers alongside list items.
+Use **List.Indicator** to add icons or other visual markers alongside list items.
 
-<ComponentPreview name="list:with-indicator" />
+<Example name="list:with-indicator" />
 
 ## Nested Lists
 Nest lists to create hierarchical structures such as navigation menus or table of contents.
 
-<ComponentPreview name="list:nested" />
+<Example name="list:nested" />
 
-## Props
+## API Reference
+### Root
 
-**Root**
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| as | `"ul" \| "ol"` | `"ul"` | The underlying HTML element to render. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-**Item**
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-**Indicator**
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-
-## Data Attributes
-
-| Attribute | Description |
-|-----------|-------------|
-| `[data-scope="list"]` | The component scope. |
-| `[data-part="root"]` | The root list element. |
-| `[data-part="item"]` | The list item element. |
-| `[data-part="indicator"]` | The indicator element. |
-| `[data-role="list"]` | Applied to the root element. |
-| `[data-role="listitem"]` | Applied to each item element. |
-| `[data-role="presentation"]` | Applied to the indicator element. |

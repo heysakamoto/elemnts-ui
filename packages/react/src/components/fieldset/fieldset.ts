@@ -1,6 +1,7 @@
 import { Fieldset } from "@ark-ui/react/fieldset";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { fieldsetRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { fieldsetRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(fieldsetRecipe);
 

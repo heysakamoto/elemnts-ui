@@ -3,287 +3,175 @@ title: FileUpload
 description: A component that allows users to select one or more files from their device.
 ---
 
-<ComponentPreview name="file-upload:basic" />
+<Example name="file-upload:basic" />
 
 ## Usage
-The `FileUpload` component provides a way for users to select files. It supports single or multiple file selection, and can be used with a standard trigger or a dropzone.
 
-- `FileUpload.Root`: The root container for the file upload.
-- `FileUpload.Label`: The label for the file upload.
-- `FileUpload.Trigger`: The button that opens the file selection dialog.
-- `FileUpload.Dropzone`: A region where users can drag and drop files.
-- `FileUpload.ItemGroup`: A container for the list of selected files.
-- `FileUpload.Item`: Represents a single selected file.
-- `FileUpload.ItemName`: Displays the name of the file.
-- `FileUpload.ItemSizeText`: Displays the size of the file.
-- `FileUpload.ItemDeleteTrigger`: A button to remove a file from the list.
-- `FileUpload.ItemPreview`: A container for file previews.
-- `FileUpload.ItemPreviewImage`: Displays a preview image for the file.
-- `FileUpload.ClearTrigger`: A button to clear all selected files.
-- `FileUpload.HiddenInput`: The native hidden file input element.
+The component provides a way for users to select files. It supports single or multiple file selection, and can be used with a standard trigger or a dropzone.
 
 ```tsx
-import { FileUpload, Button, Tile, Icon } from "@moto-ui/react"
+import { FileUpload } from "@moto-ui/react";
 
 <FileUpload.Root>
   <FileUpload.Label>Upload File</FileUpload.Label>
-  <FileUpload.Trigger asChild>
-    <Button variant="secondary" size="sm">Select Files</Button>
-  </FileUpload.Trigger>
+  <FileUpload.Trigger />
   <FileUpload.ItemGroup>
     <FileUpload.Context>
       {({ acceptedFiles }) =>
         acceptedFiles.map((file, id) => (
-          <FileUpload.Item key={id} file={file} asChild>
-            <Tile>
-              <FileUpload.ItemName />
-              <FileUpload.ItemSizeText />
-              <FileUpload.ItemDeleteTrigger asChild>
-                <Button variant="tertiary" size="xs">X</Button>
-              </FileUpload.ItemDeleteTrigger>
-            </Tile>
-          </FileUpload.Item>
+          <FileUpload.Item key={id} file={file} />
         ))
       }
     </FileUpload.Context>
   </FileUpload.ItemGroup>
   <FileUpload.HiddenInput />
-</FileUpload.Root>
+</FileUpload.Root>;
 ```
 
 ## Dropzone
-Use the `FileUpload.Dropzone` component to create a drag and drop area for file uploads.
 
-<ComponentPreview name="file-upload:dropzone" />
+Use the **FileUploadDropzone** component to create a drag and drop area for file uploads.
 
-## Props
+<Example name="file-upload:dropzone" />
 
-**Root**
+## API Reference
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| accept | `Record<string, string[]> \| FileMimeType \| FileMimeType[]` | - | The accepted file types. |
-| acceptedFiles | `File[]` | - | The controlled accepted files. |
-| allowDrop | `boolean` | `true` | Whether to allow drag and drop in the dropzone element. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| capture | `'user' \| 'environment'` | - | The default camera to use when capturing media. |
-| defaultAcceptedFiles | `File[]` | - | The default accepted files when rendered. |
-| directory | `boolean` | - | Whether to accept directories, only works in webkit browsers. |
-| disabled | `boolean` | `false` | Whether the file input is disabled. |
-| ids | `Partial<{ root: string; dropzone: string; hiddenInput: string; trigger: string; label: string; item: (id: string) => string; itemName: (id: string) => string; itemSizeText: (id: string) => string; itemPreview: (id: string) => string; itemDeleteTrigger: (id: string) => string; }>` | - | The ids of the elements. |
-| invalid | `boolean` | `false` | Whether the file input is invalid. |
-| locale | `string` | `'en-US'` | The current locale. |
-| maxFiles | `number` | `1` | The maximum number of files. |
-| maxFileSize | `number` | `Infinity` | The maximum file size in bytes. |
-| minFileSize | `number` | `0` | The minimum file size in bytes. |
-| name | `string` | - | The name of the underlying file input. |
-| onFileAccept | `(details: FileAcceptDetails) => void` | - | Function called when the file is accepted. |
-| onFileChange | `(details: FileChangeDetails) => void` | - | Function called when the value changes, whether accepted or rejected. |
-| onFileReject | `(details: FileRejectDetails) => void` | - | Function called when the file is rejected. |
-| preventDocumentDrop | `boolean` | `true` | Whether to prevent the drop event on the document. |
-| readOnly | `boolean` | `false` | Whether the file input is read-only. |
-| required | `boolean` | `false` | Whether the file input is required. |
-| transformFiles | `(files: File[]) => Promise<File[]>` | - | Function to transform the accepted files. |
-| translations | `IntlTranslations` | - | The localized messages to use. |
-| validate | `(file: File, details: FileValidateDetails) => FileError[] \| null` | - | Function to validate a file. |
+### FileUploadRoot
 
-**Dropzone**
+The root component for the file upload.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| disableClick | `boolean` | `false` | Whether to disable the click event on the dropzone. |
+| Prop                 | Type                                                                                                                                                                                                                                                                                     | Default    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| accept               | `Record<string, string[]> \| FileMimeType \| FileMimeType[]`                                                                                                                                                                                                                             | -          |
+| acceptedFiles        | `File[]`                                                                                                                                                                                                                                                                                 | -          |
+| allowDrop            | `boolean`                                                                                                                                                                                                                                                                                | `true`     |
+| asChild              | `boolean`                                                                                                                                                                                                                                                                                | `false`    |
+| capture              | `'user' \| 'environment'`                                                                                                                                                                                                                                                                | -          |
+| defaultAcceptedFiles | `File[]`                                                                                                                                                                                                                                                                                 | -          |
+| directory            | `boolean`                                                                                                                                                                                                                                                                                | -          |
+| disabled             | `boolean`                                                                                                                                                                                                                                                                                | -          |
+| ids                  | `Partial<{ root: string; dropzone: string; hiddenInput: string; trigger: string; label: string; item: (id: string) => string; itemName: (id: string) => string; itemSizeText: (id: string) => string; itemPreview: (id: string) => string; itemDeleteTrigger: (id: string) => string }>` | -          |
+| invalid              | `boolean`                                                                                                                                                                                                                                                                                | -          |
+| locale               | `string`                                                                                                                                                                                                                                                                                 | `"en-US"`  |
+| maxFiles             | `number`                                                                                                                                                                                                                                                                                 | `1`        |
+| maxFileSize          | `number`                                                                                                                                                                                                                                                                                 | `Infinity` |
+| minFileSize          | `number`                                                                                                                                                                                                                                                                                 | `0`        |
+| name                 | `string`                                                                                                                                                                                                                                                                                 | -          |
+| onFileAccept         | `(details: FileAcceptDetails) => void`                                                                                                                                                                                                                                                   | -          |
+| onFileChange         | `(details: FileChangeDetails) => void`                                                                                                                                                                                                                                                   | -          |
+| onFileReject         | `(details: FileRejectDetails) => void`                                                                                                                                                                                                                                                   | -          |
+| preventDocumentDrop  | `boolean`                                                                                                                                                                                                                                                                                | `true`     |
+| readOnly             | `boolean`                                                                                                                                                                                                                                                                                | -          |
+| required             | `boolean`                                                                                                                                                                                                                                                                                | -          |
+| transformFiles       | `(files: File[]) => Promise<File[]>`                                                                                                                                                                                                                                                     | -          |
+| translations         | `IntlTranslations`                                                                                                                                                                                                                                                                       | -          |
+| validate             | `(file: File, details: FileValidateDetails) => FileError[] \| null`                                                                                                                                                                                                                      | -          |
 
-**Label**
+### FileUploadRootProvider
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Provides the file upload state returned by `useFileUpload`.
 
-**Trigger**
+| Prop    | Type                  | Default  |
+| ------- | --------------------- | -------- |
+| value   | `UseFileUploadReturn` | required |
+| asChild | `boolean`             | `false`  |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FileUploadClearTrigger
 
-**ItemGroup**
+Clears all accepted files.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| type | `ItemType` | - | The type of the item group. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Item**
+### FileUploadDropzone
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| file | `File` | - | The file object represented by this item. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The dropzone component for the file upload.
 
-**ItemName**
+| Prop         | Type      | Default |
+| ------------ | --------- | ------- |
+| asChild      | `boolean` | `false` |
+| disableClick | `boolean` | -       |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FileUploadHiddenInput
 
-**ItemSizeText**
+The hidden native file input.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**ItemPreview**
+### FileUploadItem
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| type | `string` | `'.*'` | The file type to match against. |
+Renders an accepted file.
 
-**ItemPreviewImage**
+| Prop    | Type      | Default  |
+| ------- | --------- | -------- |
+| file    | `File`    | required |
+| asChild | `boolean` | `false`  |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FileUploadItemDeleteTrigger
 
-**ItemDeleteTrigger**
+Removes the associated file from the accepted files.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**ClearTrigger**
+### FileUploadItemGroup
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Groups file upload items.
 
-**HiddenInput**
+| Prop    | Type       | Default |
+| ------- | ---------- | ------- |
+| asChild | `boolean`  | `false` |
+| type    | `ItemType` | -       |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### FileUploadItemName
 
-**RootProvider**
+Displays the associated file name.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseFileUploadReturn` | - | The value returned from `useFileUpload`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-## Data Attributes
+### FileUploadItemPreview
 
-**Root**
+Displays a preview for the associated file.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `root` |
-| data-disabled | Present when the file upload is disabled. |
-| data-readonly | Present when the file upload is read-only. |
-| data-dragging | Present when in the dragging state. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+| type    | `string`  | `.*`    |
 
-**Dropzone**
+### FileUploadItemPreviewImage
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `dropzone` |
-| data-invalid | Present when the dropzone is invalid. |
-| data-disabled | Present when the dropzone is disabled. |
-| data-readonly | Present when the dropzone is read-only. |
-| data-dragging | Present when in the dragging state. |
+Displays an image preview for the associated file.
 
-**Trigger**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `trigger` |
-| data-disabled | Present when the trigger is disabled. |
-| data-readonly | Present when the trigger is read-only. |
-| data-invalid | Present when the trigger is invalid. |
+### FileUploadItemSizeText
 
-**ItemGroup**
+Displays the associated file size.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item-group` |
-| data-disabled | Present when the item group is disabled. |
-| data-type | The type of the item. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Item**
+### FileUploadLabel
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item` |
-| data-disabled | Present when the item is disabled. |
-| data-type | The type of the item. |
+The label for the file upload.
 
-**ItemName**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item-name` |
-| data-disabled | Present when the item name is disabled. |
-| data-type | The type of the item. |
+### FileUploadTrigger
 
-**ItemSizeText**
+Opens the file picker.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item-size-text` |
-| data-disabled | Present when the item size text is disabled. |
-| data-type | The type of the item. |
-
-**ItemPreview**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item-preview` |
-| data-disabled | Present when the item preview is disabled. |
-| data-type | The type of the item. |
-
-**ItemPreviewImage**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item-preview-image` |
-| data-disabled | Present when the item preview image is disabled. |
-| data-type | The type of the item. |
-
-**ItemDeleteTrigger**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `item-delete-trigger` |
-| data-disabled | Present when the item delete trigger is disabled. |
-| data-readonly | Present when the item delete trigger is read-only. |
-| data-type | The type of the item. |
-
-**Label**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `label` |
-| data-disabled | Present when the label is disabled. |
-| data-required | Present when the label is required. |
-
-**ClearTrigger**
-
-| Attribute | Description |
-| --- | --- |
-| data-scope | `file-upload` |
-| data-part | `clear-trigger` |
-| data-disabled | Present when the clear trigger is disabled. |
-| data-readonly | Present when the clear trigger is read-only. |
-
-## CSS Variables
-This component does not use any custom CSS variables. It relies on standard Panda CSS tokens for styling.
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |

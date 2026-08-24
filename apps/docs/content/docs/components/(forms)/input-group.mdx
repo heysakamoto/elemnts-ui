@@ -3,15 +3,10 @@ title: InputGroup
 description: A container component to group inputs with icons, buttons, or text addons.
 ---
 
-<ComponentPreview name="input-group:basic" />
+<Example name="input-group:basic" />
 
 ## Usage
 The `InputGroup` component is used to add prefixes or suffixes to input fields, often used for search bars, units, or action buttons.
-
-- `InputGroup.Root`: The main container for the input and its addons.
-- `InputGroup.Input`: The input field.
-- `InputGroup.Addon`: A container for icons, text, or buttons inside the group.
-- `InputGroup.Textarea`: A textarea optimized for use within a group.
 
 ```tsx
 import { InputGroup, Icon } from "@moto-ui/react"
@@ -25,79 +20,47 @@ import { InputGroup, Icon } from "@moto-ui/react"
 ```
 
 ## Variants
-Input groups support different visual styles.
+Use the **variant** prop to change the visual style of the input group.
 
-- **primary**: Default style with a border and subtle shadow.
-- **secondary**: Subtle background without a border.
-- **tertiary**: Transparent background.
-
-<ComponentPreview name="input-group:variants" />
+<Example name="input-group:variants" />
 
 ## Sizes
-Input groups are available in several sizes.
+Use the **size** prop to change the size of the input group.
 
-- **xs**: Extra small size.
-- **sm**: Small size.
-- **md**: Medium size (default).
-- **lg**: Large size.
-- **xl**: Extra large size.
+<Example name="input-group:sizes" />
 
-<ComponentPreview name="input-group:sizes" />
+## API Reference
 
-## Props
+### InputGroupRoot
+The root component for the input group.
 
-**Root**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
+| variant | `'primary' \| 'secondary' \| 'tertiary'` | `primary` |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `default` |
+| disabled | `boolean` | `false` |
+| invalid | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| variant | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` | The visual style of the input group. |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'auto'` | `'md'` | The size of the input group. |
-| noFocus | `boolean` | `false` | Whether to disable the focus-within styling. |
 
-**Input**
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### InputGroupAddon
+The addon component for the input group.
 
-**Textarea**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### InputGroupInput
+The input component for the input group.
 
-**Addon**
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### InputGroupTextarea
+The textarea component for the input group.
+| Prop | Type | Default |
+| --- | --- | --- |
+| asChild | `boolean` | `false` |
 
-## Data Attributes
-
-**Root**
-
-| Attribute | Description |
-| --- | --- |
-| data-part | `root` |
-| data-scope | `input-group` |
-
-**Addon**
-
-| Attribute | Description |
-| --- | --- |
-| data-part | `addon` |
-| data-scope | `input-group` |
-
-**Input**
-
-| Attribute | Description |
-| --- | --- |
-| data-part | `input` |
-| data-scope | `input-group` |
-
-**Textarea**
-
-| Attribute | Description |
-| --- | --- |
-| data-part | `textarea` |
-| data-scope | `input-group` |

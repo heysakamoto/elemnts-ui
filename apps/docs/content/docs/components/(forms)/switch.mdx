@@ -3,21 +3,14 @@ title: Switch
 description: A control that allows the user to toggle between checked and unchecked states.
 ---
 
-<ComponentPreview name="switch:basic" />
+<Example name="switch:basic" />
 
 ## Usage
-The `Switch` component is used to toggle between two states, typically on and off.
 
-- `Switch.Root`: The root container for the switch.
-- `Switch.RootProvider`: Provides the switch context to its children.
-- `Switch.Label`: The label for the switch.
-- `Switch.Control`: The visual track for the switch.
-- `Switch.Thumb`: The visual thumb that slides along the track.
-- `Switch.HiddenInput`: The native hidden input for form integration.
-- `Switch.Context`: Access the switch state and methods.
+Used to toggle between two states, typically on and off.
 
 ```tsx
-import { Switch } from "@moto-ui/react"
+import { Switch } from "@moto-ui/react";
 
 <Switch.Root>
   <Switch.Control>
@@ -25,132 +18,86 @@ import { Switch } from "@moto-ui/react"
   </Switch.Control>
   <Switch.Label>Enable notifications</Switch.Label>
   <Switch.HiddenInput />
-</Switch.Root>
+</Switch.Root>;
 ```
 
-
 ### With label
+
 The `Switch.Label` component is used to provide a descriptive label for the switch, which is essential for accessibility.
 
-<ComponentPreview name="switch:with-label" />
+<Example name="switch:with-label" />
 
 ### Disabled
+
 Set the `disabled` prop on `Switch.Root` to make the switch non-interactive.
 
-<ComponentPreview name="switch:disabled" />
+<Example name="switch:disabled" />
 
-## Props
+## API Reference
 
-**Root**
+### Switch
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| checked | `boolean` | - | The controlled checked state of the switch. |
-| defaultChecked | `boolean` | - | The initial checked state of the switch. |
-| disabled | `boolean` | `false` | Whether the switch is disabled. |
-| ids | `Partial<{ root: string, hiddenInput: string, control: string, label: string, thumb: string }>` | - | The ids of the elements in the switch. Useful for composition. |
-| invalid | `boolean` | `false` | If `true`, the switch is marked as invalid. |
-| label | `string` | - | Specifies the localized strings that identifies the accessibility elements and their states. |
-| name | `string` | - | The name of the input field in a switch. Useful for form submission. |
-| readOnly | `boolean` | `false` | Whether the switch is read-only. |
-| required | `boolean` | `false` | If `true`, the switch input is marked as required. |
-| value | `string \| number` | `"on"` | The value of switch input. Useful for form submission. |
-| onCheckedChange | `(details: CheckedChangeDetails) => void` | - | Function to call when the switch is clicked. |
+The root container that manages the switch state.
 
-**RootProvider**
+| Prop            | Type                                                                                            | Default |
+| --------------- | ----------------------------------------------------------------------------------------------- | ------- |
+| asChild         | `boolean`                                                                                       | `false` |
+| checked         | `boolean`                                                                                       | -       |
+| disabled        | `boolean`                                                                                       | -       |
+| ids             | `Partial<{ root: string; hiddenInput: string; control: string; label: string; thumb: string }>` | -       |
+| invalid         | `boolean`                                                                                       | -       |
+| label           | `string`                                                                                        | -       |
+| name            | `string`                                                                                        | -       |
+| onCheckedChange | `(details: CheckedChangeDetails) => void`                                                       | -       |
+| readOnly        | `boolean`                                                                                       | -       |
+| required        | `boolean`                                                                                       | -       |
+| value           | `string \| number`                                                                              | `"on"`  |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseSwitchReturn` | - | **Required**. The value returned from `useSwitch`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SwitchRootProvider
 
-**Label**
+Provides switch state created with `useSwitch` to its child components.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type              | Default  |
+| ------- | ----------------- | -------- |
+| value   | `UseSwitchReturn` | required |
+| asChild | `boolean`         | `false`  |
 
-**Control**
+### SwitchLabel
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The accessible label for the switch.
 
-**Thumb**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### SwitchControl
 
-**HiddenInput**
+The visual track for the switch.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-## Data Attributes
+### SwitchThumb
 
-**Root**
+The visual thumb that slides along the control.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `switch` |
-| data-part | `root` |
-| data-active | Present when active or pressed. |
-| data-focus | Present when focused. |
-| data-focus-visible | Present when focused with keyboard. |
-| data-readonly | Present when read-only. |
-| data-hover | Present when hovered. |
-| data-disabled | Present when disabled. |
-| data-state | `"checked" \| "unchecked"` |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**Label**
+### SwitchHiddenInput
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `switch` |
-| data-part | `label` |
-| data-active | Present when active or pressed. |
-| data-focus | Present when focused. |
-| data-focus-visible | Present when focused with keyboard. |
-| data-readonly | Present when read-only. |
-| data-hover | Present when hovered. |
-| data-disabled | Present when disabled. |
-| data-state | `"checked" \| "unchecked"` |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+A hidden native input used for form submission.
 
-**Thumb**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `switch` |
-| data-part | `thumb` |
-| data-active | Present when active or pressed. |
-| data-focus | Present when focused. |
-| data-focus-visible | Present when focused with keyboard. |
-| data-readonly | Present when read-only. |
-| data-hover | Present when hovered. |
-| data-disabled | Present when disabled. |
-| data-state | `"checked" \| "unchecked"` |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+### SwitchContext
 
-**Control**
+Provides the switch API to a render function.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `switch` |
-| data-part | `control` |
-| data-active | Present when active or pressed. |
-| data-focus | Present when focused. |
-| data-focus-visible | Present when focused with keyboard. |
-| data-readonly | Present when read-only. |
-| data-hover | Present when hovered. |
-| data-disabled | Present when disabled. |
-| data-state | `"checked" \| "unchecked"` |
-| data-invalid | Present when invalid. |
-| data-required | Present when required. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| children | `(value: UseSwitchReturn) => ReactNode` | - |

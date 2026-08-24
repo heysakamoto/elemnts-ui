@@ -3,126 +3,97 @@ title: QrCode
 description: A component that creates a QR code from the supplied data.
 ---
 
-<ComponentPreview name="qr-code:basic" />
-
+<Example name="qr-code:basic" />
 
 ## Usage
+
 Use QrCode to render a scannable QR code from any string (for example, a URL or identifier). Provide the data you want to encode, and the component will generate the QR image.
 
-```tsx 
-import { QrCode } from "@moto-ui/react"
+```tsx
+import { QrCode } from "@moto-ui/react";
 
 <QrCode.Root value="https://moto-ui.com">
   <QrCode.Frame>
     <QrCode.Pattern />
   </QrCode.Frame>
-</QrCode.Root>
+</QrCode.Root>;
 ```
 
 ## Logo overlay
+
 Add logo or badge on top of the QR by rendering it inside `QrCode.Overlay`.
 
-<ComponentPreview name="qr-code:logo-overlay" />
-
+<Example name="qr-code:logo-overlay" />
 
 ## Fill
+
 Set the QR code’s color by applying style props to `QrCode.Pattern`.
 
-<ComponentPreview name="qr-code:fill" />
+<Example name="qr-code:fill" />
 
 ## Download
+
 Allow users to download the QR code as an image using `QrCode.DownloadTrigger`.
 
-<ComponentPreview name="qr-code:download" />
+<Example name="qr-code:download" />
 
-## Props
+## API Reference
 
-**Root**
+### QrCode
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `string` | - | The controlled value to encode. |
-| defaultValue | `string` | - | The initial value to encode when rendered. |
-| encoding | `QrCodeGenerateOptions` | - | The qr code encoding options. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Callback fired when the value changes. |
-| pixelSize | `number` | - | The pixel size of the qr code. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string; frame: string }>` | - | The element ids. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element. |
+The root component for the QR code.
 
-**RootProvider**
+| Prop          | Type                                                        | Default |
+| ------------- | ----------------------------------------------------------- | ------- |
+| asChild       | `boolean`                                                   | -       |
+| defaultValue  | `string`                                                    | -       |
+| encoding      | `QrCodeGenerateOptions`                                     | -       |
+| id            | `string`                                                    | -       |
+| ids           | `Partial<{ root: string; frame: string; overlay: string }>` | -       |
+| onValueChange | `(details: ValueChangeDetails) => void`                     | -       |
+| pixelSize     | `number`                                                    | -       |
+| value         | `string`                                                    | -       |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseQrCodeReturn` | - | The qr code instance (Required) |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### QrCodeRootProvider
 
-**Frame**
+Provides a QR code machine created with `useQrCode`.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+| Prop    | Type              | Default  |
+| ------- | ----------------- | -------- |
+| value   | `UseQrCodeReturn` | required |
+| asChild | `boolean`         | -        |
 
-**Pattern**
+### QrCodeFrame
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+Wraps the QR code pattern.
 
-**Overlay**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | -       |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+### QrCodePattern
 
-**DownloadTrigger**
+Renders the QR code pattern.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| fileName | `string` | - | The name of the file (Required). |
-| mimeType | `DataUrlType` | - | The mime type of the image (Required). |
-| quality | `number` | - | The quality of the image. |
-| asChild | `boolean` | - | Use the provided child element as the default rendered element |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | -       |
 
-**Context**
+### QrCodeOverlay
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| children | `(context: UseQrCodeContext) => React.ReactNode` | - | Render prop that provides access to the context |
+Renders content over the QR code.
 
-## Data Attributes
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | -       |
 
-**Root**
+### QrCodeDownloadTrigger
 
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="qr-code"]` | The component scope. |
-| `[data-part="root"]` | The component part. |
+Triggers a download of the QR code image.
 
-**Frame**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="qr-code"]` | The component scope. |
-| `[data-part="frame"]` | The component part. |
-
-**Pattern**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="qr-code"]` | The component scope. |
-| `[data-part="pattern"]` | The component part. |
-
-**Overlay**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="qr-code"]` | The component scope. |
-| `[data-part="overlay"]` | The component part. |
-
-**DownloadTrigger**
-
-| Attribute | Description |
-| :--- | :--- |
-| `[data-scope="qr-code"]` | The component scope. |
-| `[data-part="download-trigger"]` | The component part. |
+| Prop     | Type          | Default  |
+| -------- | ------------- | -------- |
+| fileName | `string`      | required |
+| mimeType | `DataUrlType` | required |
+| asChild  | `boolean`     | -        |
+| quality  | `number`      | -        |

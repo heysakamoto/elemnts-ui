@@ -1,25 +1,23 @@
 import type { ComponentProps } from "react";
 
-import { KbdItem, KbdItemGroup, KbdItemGroupText, KbdRoot } from "./kbd";
+import { Kbd } from "./kbd";
+import { KbdGroupRoot, KbdGroupSeparator } from "./kbd-group";
 
-export type KbdRootProps = ComponentProps<typeof KbdRoot>;
-export type KbdItemProps = ComponentProps<typeof KbdItem>;
-export type KbdItemGroupProps = ComponentProps<typeof KbdItemGroup>;
-export type KbdItemGroupTextProps = ComponentProps<typeof KbdItemGroupText>;
+export type KbdGroupRootProps = ComponentProps<typeof KbdGroupRoot>;
+export type KbdGroupSeparatorProps = ComponentProps<typeof KbdGroupSeparator>;
+export type KbdProps = ComponentProps<typeof Kbd>;
 
-export const Kbd = Object.assign(KbdRoot, {
-	Item: KbdItem,
-	Root: KbdRoot,
-	ItemGroup: KbdItemGroup,
-	ItemGroupText: KbdItemGroupText,
+export const KbdGroup = Object.assign(KbdGroupRoot, {
+  Root: KbdGroupRoot,
+  Item: Kbd,
+  Separator: KbdGroupSeparator,
 });
 
-export type Kbd = {
-	RootProps: KbdRootProps;
-	ItemProps: KbdItemProps;
-	ItemGroupProps: KbdItemGroupProps;
-	ItemGroupTextProps: KbdItemGroupTextProps;
-	Props: KbdRootProps;
+export type KbdGroup = {
+  RootProps: KbdGroupRootProps;
+  ItemProps: ComponentProps<typeof Kbd>;
+  SeparatorProps: KbdGroupSeparatorProps;
+  Props: KbdGroupRootProps;
 };
 
-export { KbdItem, KbdItemGroup, KbdItemGroupText, KbdRoot };
+export { Kbd, KbdGroupRoot, KbdGroupSeparator };

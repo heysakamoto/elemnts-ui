@@ -1,10 +1,10 @@
 import { type Assign, ark, Portal } from "@ark-ui/react";
 import { Toast as ArkToast, Toaster as ArkToaster } from "@ark-ui/react/toast";
 import { Icon } from "@iconify/react";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { toastRecipe } from "@moto-ui/styled-system/recipes";
 import type { ComponentProps, ReactNode } from "react";
 
+import { createStyleContext } from "../../../styled-system/jsx";
+import { toastRecipe } from "../../../styled-system/recipes";
 import { Button } from "../button";
 import { Spinner } from "../spinner";
 
@@ -125,37 +125,37 @@ export const Toaster = (props: ToasterProps) => {
 
 					const ToastIcon = ICON_MAP[toast.type as keyof typeof ICON_MAP];
 
-					return (
-						<ToastRoot key={toast.id}>
-							{indicator ? (
-								indicator
-							) : ToastIcon ? (
-								<ToastIndicator>{ToastIcon}</ToastIndicator>
-							) : null}
-							{toast.title ? <ToastTitle>{toast.title}</ToastTitle> : title}
-							{toast.description ? (
-								<ToastDescription>{toast.description}</ToastDescription>
-							) : (
-								description
-							)}
-							<ToastControl>
-								{control ? (
-									control
-								) : toast.action ? (
-									<Button
-										size="xs"
-										rounded="full"
-										variant="surface"
-										onClick={() => toast.action?.onClick()}
-									>
-										{toast.action.label}
-									</Button>
-								) : null}
-							</ToastControl>
-						</ToastRoot>
-					);
-				}}
-			</ToastGroup>
-		</Portal>
-	);
+          return (
+            <ToastRoot key={toast.id}>
+              {indicator ? (
+                indicator
+              ) : ToastIcon ? (
+                <ToastIndicator>{ToastIcon}</ToastIndicator>
+              ) : null}
+              {toast.title ? <ToastTitle>{toast.title}</ToastTitle> : title}
+              {toast.description ? (
+                <ToastDescription>{toast.description}</ToastDescription>
+              ) : (
+                description
+              )}
+              <ToastControl>
+                {control ? (
+                  control
+                ) : toast.action ? (
+                  <Button
+                    size="xs"
+                    rounded="full"
+                    variant="secondary"
+                    onClick={() => toast.action?.onClick()}
+                  >
+                    {toast.action.label}
+                  </Button>
+                ) : null}
+              </ToastControl>
+            </ToastRoot>
+          );
+        }}
+      </ToastGroup>
+    </Portal>
+  );
 };

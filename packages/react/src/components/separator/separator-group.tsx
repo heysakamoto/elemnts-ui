@@ -1,15 +1,16 @@
 import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
+import { createContext, forwardRef, useContext } from "react";
+
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "@moto-ui/styled-system/jsx";
+} from "../../../styled-system/jsx";
 import {
 	type SeparatorGroupRecipeVariantProps,
 	type SeparatorRecipeVariantProps,
 	separatorGroupRecipe,
 	separatorRecipe,
-} from "@moto-ui/styled-system/recipes";
-import { createContext, forwardRef, useContext } from "react";
+} from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(separatorGroupRecipe);
 
@@ -26,10 +27,10 @@ const SeperatorGroupContext = createContext<SeparatorGroupContextValue>({
 	orientation: "horizontal",
 });
 
-export const useSeparatorGroupContext = () => {
+export function useSeparatorGroupContext() {
 	const ctx = useContext(SeperatorGroupContext);
 	return ctx;
-};
+}
 
 type SeparatorGroupRootProps = Assign<
 	HTMLStyledProps<"div">,

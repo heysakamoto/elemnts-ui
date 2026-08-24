@@ -1,6 +1,7 @@
 import { Progress } from "@ark-ui/react/progress";
-import { createStyleContext } from "@moto-ui/styled-system/jsx";
-import { progressRecipe } from "@moto-ui/styled-system/recipes";
+
+import { createStyleContext } from "../../../styled-system/jsx";
+import { progressRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(progressRecipe);
 

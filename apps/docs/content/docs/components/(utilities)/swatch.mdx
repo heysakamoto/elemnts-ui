@@ -3,11 +3,11 @@ title: Swatch
 description: A small preview of a color, often used in color pickers or design tokens documentation.
 ---
 
-<ComponentPreview name="swatch:basic" />
+<Example name="swatch:basic" />
 
 ## Usage
 
-The `Swatch` component is a simple circular indicator used to display a color. It is commonly used within color pickers, palette generators, or to document design tokens.
+A simple circular indicator used to display a color. It is commonly used within color pickers, palette generators, or to document design tokens.
 
 ```tsx
 import { Swatch } from "@moto-ui/react"
@@ -19,15 +19,13 @@ import { Swatch } from "@moto-ui/react"
 
 ### Sizes
 
-The `Swatch` component supports multiple sizes: `xs`, `sm`, `md` (default), `lg`, and `xl`.
+Change the size of the component using the **size** prop.
 
-<ComponentPreview name="swatch:sizes" />
+<Example name="swatch:sizes" />
 
-## Props
+## API Reference
 
-The `Swatch` component is a styled `ark.div` and accepts all standard HTML `div` props, including Panda CSS style props (like `bg`, `borderColor`, etc.), in addition to the following:
-
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the swatch. |
-| asChild | `'boolean' \| 'undefined'` | Use the provided child element as the default rendered element, combining their props and behavior. |
+| Prop | Type | Default |
+| --- | --- | --- |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` |
+| asChild | `'boolean' \| 'undefined'` |

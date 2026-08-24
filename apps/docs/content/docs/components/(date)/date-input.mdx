@@ -4,24 +4,14 @@ title: DateInput
 description: A segmented date input that lets users enter date values field by field.
 ---
 
-<ComponentPreview name="date-input:basic" />
+<Example name="date-input:basic" />
 
 ## Usage
 
-The `DateInput` component is a compound component that provides an accessible, segmented interface for entering dates. Each part of the date (month, day, year) is an independently focusable and editable segment.
-
-- `DateInput`: The root container (alias for `DateInput.Root`).
-- `DateInput.Root`: The root container for the date input.
-- `DateInput.RootProvider`: Provides the date input context to its children.
-- `DateInput.Label`: The label associated with the date input.
-- `DateInput.Control`: The container that wraps the segment group and hidden input.
-- `DateInput.SegmentGroup`: Groups all date segments into a single interactive region.
-- `DateInput.Segment`: An individual editable segment (e.g., month, day, year, or a literal separator).
-- `DateInput.HiddenInput`: A hidden input for native form integration.
-- `DateInput.Context`: Provides access to the date input state and API.
+A compound component that provides an accessible, segmented interface for entering dates. Each part of the date (month, day, year) is an independently focusable and editable segment.
 
 ```tsx
-import { DateInput } from "@moto-ui/react"
+import { DateInput } from "@moto-ui/react";
 
 <DateInput>
   <DateInput.Label>Date</DateInput.Label>
@@ -37,145 +27,119 @@ import { DateInput } from "@moto-ui/react"
     </DateInput.SegmentGroup>
     <DateInput.HiddenInput />
   </DateInput.Control>
-</DateInput>
+</DateInput>;
 ```
 
 ## Disabled
 
-Set the `disabled` prop to prevent interaction with the date input.
+Set the **disabled** prop to prevent interaction with the date input.
 
-<ComponentPreview name="date-input:disabled" />
+<Example name="date-input:disabled" />
 
 ## With Field
 
-Use `DateInput` inside a `Field` component to add a label, helper text, and validation states with proper accessibility wiring.
+Use **DateInput** inside a **Field** component to add a label, helper text, and validation states with proper accessibility wiring.
 
-<ComponentPreview name="date-input:with-field" />
+<Example name="date-input:with-field" />
 
-## Props
+## API Reference
 
-**Root**
+### DateInput
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
-| defaultValue | `DateValue` | - | The initial date value when uncontrolled. |
-| disabled | `boolean` | `false` | Whether the date input is disabled. |
-| form | `string` | - | The id of the associated form element. |
-| id | `string` | - | The unique identifier of the machine. |
-| ids | `Partial<{ root: string, label: string, control: string, segment: (id: string) => string }>` | - | Element ids for composition. |
-| invalid | `boolean` | `false` | Whether the date input is in an invalid state. |
-| locale | `string` | `'en-US'` | The locale for date formatting and segment labels. |
-| max | `DateValue` | - | The maximum allowed date. |
-| min | `DateValue` | - | The minimum allowed date. |
-| name | `string` | - | The name attribute for form submission. |
-| readOnly | `boolean` | `false` | Whether the date input is read-only. |
-| required | `boolean` | `false` | Whether the date input is required. |
-| timeZone | `string` | - | The time zone for the date value. |
-| value | `DateValue` | - | The controlled date value. |
-| onFocusChange | `(details: FocusChangeDetails) => void` | - | Callback fired when focus changes between segments. |
-| onValueChange | `(details: ValueChangeDetails) => void` | - | Callback fired when the date value changes. |
+The root component that manages the date input state and accessibility behavior.
 
-**RootProvider**
+| Prop | Type | Default |
+| --- | --- | --- |
+| allSegments | `Partial<{ year: boolean; month: boolean; day: boolean; hour: boolean; minute: boolean; second: boolean; dayPeriod: boolean; era: boolean; literal: boolean; timeZoneName: boolean; weekday: boolean; unknown: boolean; fractionalSecond: boolean }>` | - |
+| asChild | `boolean` | `false` |
+| createCalendar | `(identifier: CalendarIdentifier) => Calendar` | - |
+| defaultPlaceholderValue | `DateValue` | - |
+| defaultValue | `DateValue[]` | - |
+| dir | `"ltr" \| "rtl"` | `"ltr"` |
+| disabled | `boolean` | `false` |
+| form | `string` | - |
+| format | `(date: DateValue, details: FormatDateDetails) => string` | - |
+| formatter | `DateFormatter` | - |
+| getRootNode | `() => ShadowRoot \| Node \| Document` | - |
+| granularity | `DateGranularity` | `"day"` |
+| hideTimeZone | `boolean` | `false` |
+| hourCycle | `HourCycle` | - |
+| id | `string` | - |
+| ids | `Partial<{ root: string; label: (index: number) => string; control: string; segmentGroup: (index: number) => string; hiddenInput: (index: number) => string }>` | - |
+| invalid | `boolean` | `false` |
+| isDateUnavailable | `(date: DateValue, locale: string) => boolean` | - |
+| locale | `string` | `"en-US"` |
+| max | `DateValue` | - |
+| min | `DateValue` | - |
+| name | `string` | - |
+| onFocusChange | `(details: FocusChangeDetails) => void` | - |
+| onPlaceholderChange | `(details: PlaceholderChangeDetails) => void` | - |
+| onValueChange | `(details: ValueChangeDetails) => void` | - |
+| placeholderValue | `DateValue` | - |
+| readOnly | `boolean` | `false` |
+| required | `boolean` | `false` |
+| selectionMode | `SelectionMode` | `"single"` |
+| shouldForceLeadingZeros | `boolean` | `false` |
+| timeZone | `string` | `"UTC"` |
+| translations | `IntlTranslations` | - |
+| value                   | `DateValue[]`   
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `UseDateInputReturn` | - | **Required**. The value returned from `useDateInput`. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### DateInputRootProvider
 
-**Label**
+Provides an externally created date input API to the component tree.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type                      | Default  |
+| ------- | ------------------------- | -------- |
+| value   | `DateInputApi<PropTypes>` | required |
+| asChild | `boolean`                 | `false`  |
 
-**Control**
+### DateInputLabel
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+The accessible label for the date input.
 
-**SegmentGroup**
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+### DateInputControl
 
-**Segment**
+Wraps the segment group and hidden input.
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| segment | `DateSegment` | - | **Required**. The segment object from the context API. |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
 
-**HiddenInput**
+### DateInputSegmentGroup
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| asChild | `boolean` | `false` | Use the provided child element as the default rendered element. |
+Groups the focusable date segments.
 
-## Data Attributes
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+| index   | `number`  | -       |
 
-**Root**
+### DateInputSegment
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `date-input` |
-| data-part | `root` |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
-| data-required | Present when required. |
+A single editable or literal segment of the formatted date.
 
-**Label**
+| Prop    | Type          | Default  |
+| ------- | ------------- | -------- |
+| segment | `DateSegment` | required |
+| asChild | `boolean`     | `false`  |
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `date-input` |
-| data-part | `label` |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
-| data-required | Present when required. |
+### DateInputHiddenInput
 
-**Control**
+A hidden native input used for form submission.
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `date-input` |
-| data-part | `control` |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+| index   | `number`  | -       |
 
-**SegmentGroup**
+### DateInputContext
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `date-input` |
-| data-part | `segment-group` |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
+Provides the date input API to a render function.
 
-**Segment**
+### DateInputSegmentContext
 
-| Attribute | Description |
-| --- | --- |
-| data-scope | `date-input` |
-| data-part | `segment` |
-| data-type | The segment type (`day`, `month`, `year`, `literal`, etc.). |
-| data-disabled | Present when disabled. |
-| data-invalid | Present when invalid. |
-| data-readonly | Present when read-only. |
-| data-placeholder-shown | Present when the segment shows a placeholder. |
-
-## Accessibility
-
-The `DateInput` uses the spinbutton ARIA pattern for each editable segment, allowing keyboard navigation and value adjustment:
-
-- `Tab` / `Shift+Tab` — Move focus between segments.
-- `Arrow Up` / `Arrow Down` — Increment or decrement the focused segment value.
-- `Arrow Left` / `Arrow Right` — Move focus to the previous or next segment.
-- Typing a digit — Directly enter a value into the focused segment.
-- `Backspace` / `Delete` — Clear the focused segment.
+Provides the current segment API to a render function.

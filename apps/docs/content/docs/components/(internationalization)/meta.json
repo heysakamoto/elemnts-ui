@@ -1,5 +1,6 @@
 {
-	"title": "Internationalization",
-	"defaultOpen": false,
-	"pages": ["format", "locale"]
+  "collapsible": true,
+  "defaultOpen": false,
+  "title": "Internationalization",
+  "pages": ["..."]
 }
