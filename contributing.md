@@ -13,9 +13,7 @@ This document provides a set of guidelines and standards for contributing to thi
 Moto UI is structured as a monorepo using **pnpm workspaces**:
 
 - **[packages/react](packages/react)**: Core react components, built using Ark UI primitives.
-- **[packages/preset-base](packages/preset-base)**: The Panda CSS base preset containing design tokens, recipes, and slot recipes.
-- **[packages/styled-system](packages/styled-system)**: Generated Panda CSS styling system.
-- **[packages/colors](packages/colors)**: Tailored OKLCH colors, mapped from Tailwind CSS v4 color scales.
+- **[packages/core](packages/core)**: The core package containing shared clors, utilities, recipes, and slot recipes.
 - **[packages/storybook](packages/storybook)**: Storybook for component isolation, testing, and demos.
 - **[apps/docs](apps/docs)**: Documentation website built with TanStack Start, TanStack Router, and Fumadocs.
 
@@ -58,8 +56,8 @@ When implementing or modifying components, please adhere strictly to this 7-step
 - Inspect its upstream type definitions and styling requirements.
 
 ### Step 2: Panda CSS Styling
-- Define the component's styling structure in [packages/preset-base/src/theme/slot-recipes/](packages/preset-base/src/theme/slot-recipes) (e.g. `<component-name>.ts`) using Panda CSS's `defineSlotRecipe`.
-- Register the new recipe inside [packages/preset-base/src/theme/slot-recipes/index.ts](packages/preset-base/src/theme/slot-recipes/index.ts).
+- Define the component's styling structure in [packages/core/src/registry/slot-recipes/](packages/core/src/registry/slot-recipes) (e.g. `<component-name>.ts`) using Panda CSS's `defineSlotRecipe`.
+- Register the new recipe inside [packages/core/src/registry/slot-recipes/index.ts](packages/core/src/registry/slot-recipes/index.ts).
 
 ### Step 3: React Implementation
 - Implement the React component under [packages/react/src/components/](packages/react/src/components) (e.g. `<component-name>`) using Ark UI primitives.
@@ -71,8 +69,8 @@ When implementing or modifying components, please adhere strictly to this 7-step
 - **CRITICAL**: Maintain strict alphabetical sorting for all imports and exports in these files.
 
 ### Step 5: Interactive Demos
-- Create visual demo templates under [apps/docs/src/demos/](apps/docs/src/demos) (including a required `basic.tsx` template under `<component-name>`).
-- Register these demos in [apps/docs/src/demos/index.ts](apps/docs/src/demos/index.ts) maintaining strict alphabetical sorting.
+- Create visual demo templates under [packages/framework/examples/](packages/framework/examples/) (including a required `basic.tsx` template under `<component-name>`).
+- Register these demos in [packages/framework/examples/index.ts](packages/framework/examples/index.ts) maintaining strict alphabetical sorting.
 
 ### Step 6: MDX Documentation
 - Write user-facing documentation in [apps/docs/content/docs/components/](apps/docs/content/docs/components) (e.g. `<category>/<component-name>.mdx`).

@@ -1,5 +1,7 @@
 import { defineSlotRecipe } from "@pandacss/dev";
 
+import { radiomarkRecipe } from "../recipes/radiomark";
+
 export const radioGroupRecipe = defineSlotRecipe({
 	className: "radio-group",
 	slots: ["root", "label", "item", "itemText", "itemControl", "indicator"],
@@ -7,59 +9,67 @@ export const radioGroupRecipe = defineSlotRecipe({
 		label: {},
 		root: {
 			display: "flex",
+			gap: "calc({spacing.4} * 2)",
 
 			_vertical: {
 				flexDirection: "column",
 			},
 
-			_horizontal: {
-				flexWrap: "wrap",
-				flexDirection: "row",
+			_disabled: {
+				opacity: ".5",
+				filter: "grayscale(1)",
 			},
-		},
-		indicator: {
-			boxSize: "auto",
+
+			"& > svg": {
+				color: "{colors.icon.secondary}",
+			},
 		},
 		item: {
-			_vertical: {
-				w: "{sizes.full}",
-			},
 			alignItems: "center",
-			position: "relative",
 			display: "inline-flex",
-			rounded: "{radii.full}",
 			gap: "calc({spacing.4} * 2)",
 
 			_disabled: {
 				opacity: ".5",
-				cursor: "not-allowed",
-				pointerEvents: "none",
-			},
-
-			"& > svg": {
-				color: "{colors.icon.secondary}",
 			},
 		},
 		itemText: {
-			flexGrow: 1,
-			textAlign: "start",
+			color: "inherit",
+			userSelect: "none",
+			fontSize: "inherit",
 			alignItems: "center",
-			display: "inline-flex",
-			fontSize: "{fontSizes.14}",
-			gap: "calc({spacing.4} * 2)",
-			lineHeight: "{lineHeights.none}",
-
-			"& > svg": {
-				color: "{colors.icon.secondary}",
-			},
 		},
 		itemControl: {
-			cursor: "pointer",
-			display: "inline-flex",
-			alignItems: "center",
-			position: "relative",
+			...radiomarkRecipe.base,
+			_disabled: {},
+		},
+		indicator: {
+			position: "absolute",
+			rounded: "{radii.full}",
+			boxSize: "calc({sizes.4} * 4)",
+			bgColor: "{colors.colorPalette.primary}",
 		},
 	},
-	variants: {},
-	defaultVariants: {},
+	variants: {
+		size: {
+			xs: {
+				itemControl: radiomarkRecipe.variants?.size?.xs,
+			},
+			sm: {
+				itemControl: radiomarkRecipe.variants?.size?.sm,
+			},
+			md: {
+				itemControl: radiomarkRecipe.variants?.size?.md,
+			},
+			lg: {
+				itemControl: radiomarkRecipe.variants?.size?.lg,
+			},
+			xl: {
+				itemControl: radiomarkRecipe.variants?.size?.xl,
+			},
+		},
+	},
+	defaultVariants: {
+		size: "md",
+	},
 });

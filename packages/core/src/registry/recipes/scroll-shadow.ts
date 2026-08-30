@@ -3,7 +3,7 @@ import { defineRecipe } from "@pandacss/dev";
 export const scrollShadowRecipe = defineRecipe({
 	className: "scroll-shadow",
 	base: {
-		"--scroll-shadow-end-color": "{colors.bg.primary}",
+		"--scroll-shadow-end-color": "{colors.surface.1}",
 		"--scroll-shadow-start-color": "{colors.transparent}",
 
 		w: "{sizes.full}",

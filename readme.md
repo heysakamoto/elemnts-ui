@@ -26,16 +26,16 @@ Moto UI relies on **Panda CSS** for its high-performance styling engine. Follow 
 Install the Moto UI core components and the Panda CSS development dependencies:
 
 ```bash
-pnpm add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+pnpm add @moto-ui/react @moto-ui/core &&
 pnpm add -D @pandacss/dev
 # OR
-npm install @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+npm install @moto-ui/react @moto-ui/core &&
 npm install -D @pandacss/dev
 # OR
-yarn add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+yarn add @moto-ui/react @moto-ui/core &&
 yarn add -D @pandacss/dev
 # OR
-bun add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system &&
+bun add @moto-ui/react @moto-ui/core &&
 bun add -D @pandacss/dev
 ````
 
@@ -76,7 +76,7 @@ Add a `prepare` script to your `package.json`. This ensures that the Panda CSS e
 Create a `panda.config.ts` file in your project root. This configuration imports the **Moto UI base preset** to ensure all component styles are correctly mapped:
 
 ```ts
-import { basePreset } from "@moto-ui/preset-base";
+import { basePreset } from "@moto-ui/core/presets";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
@@ -187,9 +187,7 @@ export default defineConfig({
 
 The Moto UI project is organized into the following packages:
 
-- **`packages/color`**: Provides color definitions for Moto UI base on TailwindCSS v4 colors.
-- **`packages/preset-base`**: The base preset for Moto UI, providing shared design tokens and configurations.
-- **`packages/styled-system`**: Compiles styled tokens, CSS files, and TS definitions into the `dist/` directory.
+- **`packages/core`**: Provides the core presets, colors and design tokens.
 - **`packages/react`**: Provides React components and hooks for building styled UI with Moto UI.
 - **`packages/storybook`**: Provides Storybook configuration for Moto UI components.
 
@@ -197,17 +195,9 @@ The Moto UI project is organized into the following packages:
 
 ## 📦 Role in the Monorepo
 
-```mermaid
-graph TD
-    A["@moto-ui/colors"] -->|Imports| B["@moto-ui/preset-base"]
-    B -->|Presets Configuration| C["@moto-ui/styled-system"]
-    C -->|Styles & Types| D["@moto-ui/react"]
-    D -->|Components| E["apps/docs & apps"]
-```
-
-1. **Preset Input**: Imports design configurations from `@moto-ui/preset-base`.
+1. **Preset Input**: Imports design configurations from `@moto-ui/core/presets`.
 2. **styled-system compilation**: Compiles tokens, keyframes, and recipes into `dist/`.
-3. **React consumption**: `@moto-ui/react` consumes `@moto-ui/styled-system/jsx` and recipes to build styled components.
+3. **React consumption**: `@moto-ui/react` consumes `styled-system` and recipes to build styled components.
 
 ---
 

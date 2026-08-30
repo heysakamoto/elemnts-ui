@@ -47,8 +47,8 @@ import {
 	inputRecipe,
 	itemRecipe,
 	jsonTreeViewRecipe,
-  kbdGroupRecipe,
-  kbdRecipe,
+	kbdGroupRecipe,
+	kbdRecipe,
 	labelRecipe,
 	listboxRecipe,
 	listRecipe,
@@ -100,12 +100,12 @@ import {
 	timelineRecipe,
 	timerRecipe,
 	toastRecipe,
+	tocRecipe,
 	toggleGroupRecipe,
 	toggleRecipe,
 	tooltipRecipe,
 	tourRecipe,
 	treeViewRecipe,
-	virtualListRecipe,
 	visuallyHiddenRecipe,
 	wheelPickerRecipe,
 } from "../styled-system/recipes";
@@ -251,10 +251,10 @@ buttonRecipe({
 	iconOnly: false,
 });
 buttonRecipe({
-  size: "md",
-  variant: "surface",
-  fullWidth: false,
-  iconOnly: false,
+	size: "md",
+	variant: "surface",
+	fullWidth: false,
+	iconOnly: false,
 });
 buttonRecipe({
 	size: "md",
@@ -515,7 +515,6 @@ kbdRecipe({ size: "sm", variant: "surface", iconOnly: false });
 kbdRecipe({ size: "sm", variant: "ghost", iconOnly: false });
 kbdRecipe({ size: "sm", variant: "primary", iconOnly: true });
 
-
 // ** Label Recipe **
 labelRecipe();
 
@@ -570,7 +569,11 @@ proseRecipe();
 qrCodeRecipe();
 
 // ** RadioGroup Recipe **
-radioGroupRecipe();
+radioGroupRecipe({ size: "xs" });
+radioGroupRecipe({ size: "sm" });
+radioGroupRecipe({ size: "md" });
+radioGroupRecipe({ size: "lg" });
+radioGroupRecipe({ size: "xl" });
 
 // ** Radiomark Recipe **
 radiomarkRecipe({ size: "xs" });
@@ -851,11 +854,11 @@ tileRecipe({
 tileRecipe({
 	size: "sm",
 	variant: "primary",
-  orientation: "horizontal",
+	orientation: "horizontal",
 });
 tileRecipe({
-  size: "sm",
-  variant: "surface",
+	size: "sm",
+	variant: "surface",
 	orientation: "horizontal",
 });
 
@@ -868,6 +871,9 @@ timerRecipe();
 
 // ** Toast Recipe **
 toastRecipe();
+
+// ** Toc Recipe **
+tocRecipe();
 
 // ** ToggleGroup Recipe **
 toggleGroupRecipe({
@@ -888,9 +894,6 @@ tourRecipe();
 
 // ** TreeView Recipe **
 treeViewRecipe();
-
-// ** VirtualList Recipe **
-virtualListRecipe();
 
 // ** VisuallyHidden Recipe **
 visuallyHiddenRecipe();

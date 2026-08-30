@@ -1,13 +1,8 @@
 import { defineKeyframes } from "@pandacss/dev";
 export const keyframes = defineKeyframes({
 	pulse: {
-		"0%, 100%": {
-			backgroundColor:
-				"color-mix(in oklab, {colors.bg.secondary}, transparent 0%)",
-		},
 		"50%": {
-			backgroundColor:
-				"color-mix(in oklab, {colors.bg.secondary}, transparent 50%)",
+			opacity: "0.5",
 		},
 	},
 
@@ -39,39 +34,6 @@ export const keyframes = defineKeyframes({
 	"rotate-out": {
 		from: { transform: "rotate(0deg)" },
 		to: { transform: "rotate(90deg)" },
-	},
-	spin: {
-		"0%": { transform: "rotate(0deg)" },
-		"100%": { transform: "rotate(360deg)" },
-	},
-	ping: {
-		"0%": { transform: "scale(1)", opacity: "1" },
-		"75%": { transform: "scale(1.1)", opacity: "0.75" },
-		"100%": { transform: "scale(1)", opacity: "0" },
-	},
-	bounce: {
-		"0%, 100%": { transform: "translateY(0)" },
-		"50%": { transform: "translateY(-15px)" },
-	},
-	shake: {
-		"0%, 100%": { transform: "translateX(0)" },
-		"20%": { transform: "translateX(-4px)" },
-		"40%": { transform: "translateX(4px)" },
-		"60%": { transform: "translateX(-2px)" },
-		"80%": { transform: "translateX(2px)" },
-	},
-	"nudge-up": {
-		"0%": { transform: "translateY(0)" },
-		"50%": { transform: "translateY(-4px)" },
-		"100%": { transform: "translateY(0)" },
-	},
-	press: {
-		"0%": { transform: "scale(1)" },
-		"100%": { transform: "scale(0.97)" },
-	},
-	pop: {
-		"0%": { transform: "scale(0.95)" },
-		"100%": { transform: "scale(1)" },
 	},
 
 	// slide
@@ -184,18 +146,6 @@ export const keyframes = defineKeyframes({
 		to: { transform: "rotateY(180deg)" },
 	},
 
-	shine: {
-		"100%": { transform: "translateX(200%)" },
-	},
-	float: {
-		"0%, 100%": { transform: "translateY(0)" },
-		"50%": { transform: "translateY(-6px)" },
-	},
-	breath: {
-		"0%, 100%": { opacity: 1 },
-		"50%": { opacity: 0.85 },
-	},
-
 	// collapse
 	"expand-height": {
 		from: { height: "var(--collapsed-height, 0)" },
@@ -224,5 +174,54 @@ export const keyframes = defineKeyframes({
 		"0%": { strokeDasharray: "1, 200", strokeDashoffset: "0" },
 		"50%": { strokeDasharray: "89, 200", strokeDashoffset: "-35" },
 		"100%": { strokeDasharray: "89, 200", strokeDashoffset: "-124" },
+	},
+
+	// others
+	spin: {
+		"0%": { transform: "rotate(0deg)" },
+		"100%": { transform: "rotate(360deg)" },
+	},
+	ping: {
+		"0%": { transform: "scale(1)", opacity: "1" },
+		"75%": { transform: "scale(1.1)", opacity: "0.75" },
+		"100%": { transform: "scale(1)", opacity: "0" },
+	},
+	bounce: {
+		"0%, 100%": { transform: "translateY(0)" },
+		"50%": { transform: "translateY(-15px)" },
+	},
+	shake: {
+		"0%, 100%": { transform: "translateX(0)" },
+		"20%": { transform: "translateX(-4px)" },
+		"40%": { transform: "translateX(4px)" },
+		"60%": { transform: "translateX(-2px)" },
+		"80%": { transform: "translateX(2px)" },
+	},
+	"nudge-up": {
+		"0%": { transform: "translateY(0)" },
+		"50%": { transform: "translateY(-4px)" },
+		"100%": { transform: "translateY(0)" },
+	},
+	press: {
+		"0%": { transform: "scale(1)" },
+		"100%": { transform: "scale(0.97)" },
+	},
+	pop: {
+		"0%": { transform: "scale(0.95)" },
+		"100%": { transform: "scale(1)" },
+	},
+	shine: {
+		"100%": { transform: "translateX(200%)" },
+	},
+	float: {
+		"0%, 100%": { transform: "translateY(0)" },
+		"50%": { transform: "translateY(-6px)" },
+	},
+	breath: {
+		"0%, 100%": { opacity: 1 },
+		"50%": { opacity: 0.85 },
+	},
+	shimmer: {
+		"100%": { transform: "translateX(100%)" },
 	},
 });

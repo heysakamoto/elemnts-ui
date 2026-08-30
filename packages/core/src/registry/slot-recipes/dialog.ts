@@ -47,11 +47,12 @@ export const dialogRecipe = defineSlotRecipe({
 			color: "{colors.fg.secondary}",
 		},
 		positioner: {
+			h: "100dvh",
+			w: "100dvw",
 			display: "flex",
 			position: "fixed",
 			inset: "{spacing.0}",
 			alignItems: "center",
-			boxSize: "{sizes.full}",
 			flexDirection: "column",
 			p: "calc({spacing.4} * 3)",
 			zIndex: "calc(var(--z-index, 9) + var(--layer-index, 0))",

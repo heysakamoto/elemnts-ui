@@ -1,5 +1,7 @@
 import { defineSlotRecipe } from "@pandacss/dev";
 
+import { size } from "../constants/size";
+
 export const segmentGroupRecipe = defineSlotRecipe({
 	className: "segment-group",
 	slots: ["root", "label", "item", "indicator", "itemText", "itemControl"],
@@ -9,14 +11,11 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			display: "flex",
 		},
 		root: {
-			"--sg-border-radius": "{radii.full}",
-
 			zIndex: "1",
 			display: "flex",
 			w: "fit-content",
 			alignItems: "center",
 			p: "calc({spacing.2} * 0.5)",
-			rounded: "calc(var(--sg-border-radius) + 1px)",
 
 			_vertical: {
 				flexDirection: "column",
@@ -33,19 +32,17 @@ export const segmentGroupRecipe = defineSlotRecipe({
 		},
 
 		item: {
+			zIndex: 1,
 			w: "{sizes.full}",
-			userSelect: "none",
 			cursor: "pointer",
-			gap: "{spacing.4}",
-			h: "var(--sg-size)",
+			userSelect: "none",
 			alignItems: "center",
 			display: "inline-flex",
 			justifyContent: "center",
+			gap: "calc({spacing.4} * 2)",
 			color: "{colors.fg.tertiary}",
 			lineHeight: "{lineHeights.none}",
-			rounded: "var(--sg-border-radius)",
 			transition: "color 100ms ease-in-out",
-			px: "calc(var(--sg-size) * 0.4)",
 
 			"&:not([data-state=checked])": {
 				_hover: {
@@ -56,27 +53,30 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			_checked: {
 				color: "var(--sg-color)",
 			},
+
+			_disabled: {
+				opacity: 0.5,
+				cursor: "not-allowed",
+			},
+
+			_focusVisible: {
+				outlineOffset: "2px",
+				outline: "2px solid {colors.colorPalette.primary}",
+			},
 		},
 		itemText: {
 			color: "inherit",
 			textAlign: "center",
-			fontSize: "var(--sg-font-size)",
-			lineHeight: "{lineHeights.none}",
-
-			_focusVisible: {
-				outline: "none",
-			},
+			fontSize: "inherit",
+			lineHeight: "inherit",
 		},
 		indicator: {
-			zIndex: "-1",
 			w: "var(--width)",
 			h: "var(--height)",
 			left: "var(--left)",
-			rounded: "var(--sg-border-radius)",
-			border: "var(--sg-indicator-border, none)",
-			shadow: "var(--sg-indicator-shadow, none)",
-			color: "var(--sg-indicator-color, transparent)",
-			bgColor: "var(--sg-indicator-bg-color, transparent)",
+			cornerShape: "squircle",
+			rounded: "calc({radii.4} * 4)",
+			border: "1px solid transparent",
 		},
 	},
 	variants: {
@@ -89,55 +89,76 @@ export const segmentGroupRecipe = defineSlotRecipe({
 		},
 		size: {
 			xs: {
-				root: {
-					"--sg-font-size": "{fontSizes.12}",
-					"--sg-size": "calc({sizes.4} * 6)",
+				item: {
+					h: size.xs.height,
+					px: size.xs.paddingInline,
+					fontSize: size.xs.fontSize,
+					lineHeight: size.xs.lineHeight,
 				},
 			},
 			sm: {
-				root: {
-					"--sg-font-size": "{fontSizes.14}",
-					"--sg-size": "calc({sizes.4} * 7)",
+				item: {
+					h: size.sm.height,
+					px: size.sm.paddingInline,
+					fontSize: size.sm.fontSize,
+					lineHeight: size.sm.lineHeight,
 				},
 			},
 			md: {
-				root: {
-					"--sg-font-size": "{fontSizes.14}",
-					"--sg-size": "calc({sizes.4} * 8)",
+				item: {
+					h: size.md.height,
+					px: size.md.paddingInline,
+					fontSize: size.md.fontSize,
+					lineHeight: size.md.lineHeight,
 				},
 			},
 			lg: {
-				root: {
-					"--sg-font-size": "{fontSizes.14}",
-					"--sg-size": "calc({sizes.4} * 9)",
+				item: {
+					h: size.lg.height,
+					px: size.lg.paddingInline,
+					fontSize: size.lg.fontSize,
+					lineHeight: size.lg.lineHeight,
 				},
 			},
 			xl: {
-				root: {
-					"--sg-font-size": "{fontSizes.14}",
-					"--sg-size": "calc({sizes.4} * 10)",
+				item: {
+					h: size.xl.height,
+					px: size.xl.paddingInline,
+					fontSize: size.xl.fontSize,
+					lineHeight: size.xl.lineHeight,
 				},
 			},
 		},
 		variant: {
 			primary: {
-				root: {
-					"--sg-indicator-shadow": "{shadows.2}",
-					"--sg-color": "{colors.colorPalette.primary}",
-					"--sg-indicator-bg-color": "{colors.bg.tertiary}",
-					"--sg-indicator-border": "1px solid {colors.stroke.secondary}",
+				item: {
+					_checked: {
+						color: "{colors.colorPalette.primary}",
+					},
+				},
+				indicator: {
+					bgColor: "{colors.surface.1}",
+					borderColor: "{colors.stroke.primary}",
 				},
 			},
 			secondary: {
-				root: {
-					"--sg-color": "{colors.colorPalette.tertiary}",
-					"--sg-indicator-bg-color": "{colors.bg.primary}",
+				item: {
+					_checked: {
+						color: "{colors.colorPalette.tertiary}",
+					},
+				},
+				indicator: {
+					bgColor: "{colors.colorPalette.primary}",
 				},
 			},
 			tertiary: {
-				root: {
-					"--sg-color": "{colors.colorPalette.primary}",
-					"--sg-indicator-bg-color": "{colors.colorPalette.secondary}",
+				item: {
+					_checked: {
+						color: "{colors.colorPalette.primary}",
+					},
+				},
+				indicator: {
+					bgColor: "{colors.colorPalette.secondary}",
 				},
 			},
 		},

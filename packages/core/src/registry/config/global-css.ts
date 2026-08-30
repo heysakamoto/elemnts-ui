@@ -1,227 +1,230 @@
 import { defineGlobalStyles } from "@pandacss/dev";
 
 export const globalCss = defineGlobalStyles({
-  ":root": {
-    colorPalette: "accent",
-    colorScheme: "light dark",
+	":root": {
+		colorPalette: "accent",
+		colorScheme: "light dark",
+	},
 
-    "--mix-dark-hover": "rgba(0, 0, 0, 0.08)",
-    "--mix-dark-active": "rgba(0, 0, 0, 0.16)",
-    "--mix-dark-selected": "rgba(0, 0, 0, 0.12)",
+	// Reset & Base Styles
+	"*": {
+		borderWidth: "0px",
+		borderStyle: "solid",
+		margin: "{spacing.0}",
+		padding: "{spacing.0}",
+		boxSizing: "border-box",
+		borderColor: "{colors.stroke.primary}",
+		WebkitTapHighlightColor: "transparent",
 
-    "--mix-light-hover": "rgba(255, 255, 255, 0.08)",
-    "--mix-light-active": "rgba(255, 255, 255, 0.16)",
-    "--mix-light-selected": "rgba(255, 255, 255, 0.12)",
-  },
+		// Typography optimizations
+		fontSynthesis: "none",
 
-  // Reset & Base Styles
-  "*": {
-    borderWidth: "0px",
-    borderStyle: "solid",
-    margin: "{spacing.0}",
-    padding: "{spacing.0}",
-    boxSizing: "border-box",
-    borderColor: "{colors.stroke.primary}",
-    WebkitTapHighlightColor: "transparent",
+		// Mozilla scrollbar customization
+		scrollbarWidth: "thin",
+		scollbarColor: "{colors.neutral.secondary}",
+	},
 
-    // Typography optimizations
-    fontSynthesis: "none",
+	// WebKit scrollbar customization
+	"::-webkit-scrollbar": {
+		width: "8px",
+		height: "8px",
+	},
 
-    // Mozilla scrollbar customization
-    scrollbarWidth: "thin",
-    scollbarColor: "{colors.neutral.secondary}",
-  },
+	// Scrollbar track
+	"::-webkit-scrollbar-track": {
+		bgColor: "{colors.transparent}",
+	},
 
-  // WebKit scrollbar customization
-  "::-webkit-scrollbar": {
-    width: "8px",
-    height: "8px",
-  },
+	// Scrollbar thumb
+	"::-webkit-scrollbar-thumb": {
+		bgColor: "{colors.transparent}",
+		"&:hover": {
+			bgColor: "{colors.neutral.secondary}",
+		},
+	},
 
-  // Scrollbar track
-  "::-webkit-scrollbar-track": {
-    bgColor: "{colors.transparent}",
-  },
+	html: {
+		scrollBehavior: "smooth",
+		fontFamily: "{fonts.sans}",
+		textSizeAdjust: "{sizes.full}",
+		MozOsxFontSmoothing: "antialiased",
+		WebkitFontSmoothing: "antialiased",
+	},
 
-  // Scrollbar thumb
-  "::-webkit-scrollbar-thumb": {
-    bgColor: "{colors.transparent}",
-    "&:hover": {
-      bgColor: "{colors.neutral.secondary}",
-    },
-  },
+	body: {
+		fontWeight: "400",
+		textAlign: "start",
+		minHeight: "100dvh",
+		letterSpacing: "sm",
+		fontSize: "{fontSizes.16}",
+		color: "{colors.fg.primary}",
+		lineHeight: "{lineHeights.md}",
+		bgColor: "{colors.surface.1}",
+		fontVariantNumeric: "tabular-nums",
+	},
 
-  html: {
-    scrollBehavior: "smooth",
-    fontFamily: "{fonts.sans}",
-    textSizeAdjust: "{sizes.full}",
-    MozOsxFontSmoothing: "antialiased",
-    WebkitFontSmoothing: "antialiased",
-  },
+	"body[data-hide-scrollbar]": {
+		overflowY: "hidden",
+		overscrollBehavior: "contain",
+		overscrollBehaviorY: "contain",
+	},
 
-  body: {
-    fontWeight: "400",
-    textAlign: "start",
-    minHeight: "100dvh",
-    letterSpacing: "sm",
-    fontSize: "{fontSizes.16}",
-    color: "{colors.fg.primary}",
-    lineHeight: "{lineHeights.md}",
-    bgColor: "{colors.surface.1}",
-    fontVariantNumeric: "tabular-nums",
-  },
+	"h1, h2, h3, h4, h5, h6": {
+		fontWeight: "500",
+		lineHeight: "{lineHeights.sm}",
+	},
 
-  "body[data-hide-scrollbar]": {
-    overflowY: "hidden",
-    overscrollBehavior: "contain",
-    overscrollBehaviorY: "contain",
-  },
+	p: {
+		textAlign: "start",
+	},
 
-  "h1, h2, h3, h4, h5, h6": {
-    fontWeight: "500",
-    lineHeight: "{lineHeights.sm}",
-  },
+	span: {
+		color: "inherit",
+		lineHeight: "inherit",
+	},
 
-  p: {
-    textAlign: "start",
-  },
+	// Interactive Elements
+	"button, [type='button'], [type='reset'], [type='submit']": {
+		userSelect: "none",
+		border: "none",
+		outline: "none",
+		cursor: "pointer",
+		appearance: "button",
+		fontFamily: "inherit",
+		backgroundImage: "none",
+		backgroundColor: "transparent",
+	},
 
-  span: {
-    color: "inherit",
-    lineHeight: "inherit",
-  },
+	a: {
+		color: "inherit",
+		textDecoration: "none",
+	},
 
-  // Interactive Elements
-  "button, [type='button'], [type='reset'], [type='submit']": {
-    userSelect: "none",
-    border: "none",
-    outline: "none",
-    cursor: "pointer",
-    appearance: "button",
-    fontFamily: "inherit",
-    backgroundImage: "none",
-    backgroundColor: "transparent",
-  },
+	// Form Elements
+	label: {
+		fontSize: "{fontSizes.14}",
+		color: "{colors.fg.primary}",
+		lineHeight: "{lineHeights.xs}",
+	},
 
-  a: {
-    color: "inherit",
-    textDecoration: "none",
-  },
+	"input, textarea, select": {
+		border: "none",
+		font: "inherit",
+		outline: "none",
+		color: "inherit",
+		appearance: "none",
+		overflowY: "hidden",
+		fontFamily: "inherit",
+		backgroundColor: "transparent",
 
-  // Form Elements
-  label: {
-    fontSize: "{fontSizes.14}",
-    color: "{colors.fg.primary}",
-    lineHeight: "{lineHeights.xs}",
-  },
+		"&::-moz-focus-inner": {
+			border: 0,
+			padding: 0,
+		},
 
-  "input, textarea, select": {
-    border: "none",
-    font: "inherit",
-    outline: "none",
-    color: "inherit",
-    appearance: "none",
-    overflowY: "hidden",
-    fontFamily: "inherit",
-    backgroundColor: "transparent",
+		"&:-internal-autofill-selected": {
+			color: "inherit",
+			bgColor: "inherit",
+		},
+	},
 
-    "&::-moz-focus-inner": {
-      border: 0,
-      padding: 0,
-    },
+	// Autofill styles
+	"input:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus":
+		{
+			rounded: "{radii.0}",
+			WebkitTextFillColor: "inherit",
+			transition: "background-color 5000s ease-in-out 0s",
+			WebkitBoxShadow: "0 0 0 1000px {colors.transparent} inset",
+		},
 
-    "&:-internal-autofill-selected": {
-      color: "inherit",
-      bgColor: "inherit",
-    },
-  },
+	// Media Elements
+	"img, picture, video, canvas": {
+		maxWidth: "100%",
+		height: "auto",
+	},
 
-  // Autofill styles
-  "input:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus":
-    {
-      rounded: "{radii.0}",
-      WebkitTextFillColor: "inherit",
-      transition: "background-color 5000s ease-in-out 0s",
-      WebkitBoxShadow: "0 0 0 1000px {colors.transparent} inset",
-    },
+	svg: {
+		display: "inline-block",
+		verticalAlign: "middle",
+	},
 
-  // Media Elements
-  "img, picture, video, canvas": {
-    maxWidth: "100%",
-    height: "auto",
-  },
+	// Lists
+	"ul, ol": {
+		listStyle: "none",
+		margin: "{spacing.0}",
+		padding: "{spacing.0}",
+	},
 
-  svg: {
-    display: "inline-block",
-    verticalAlign: "middle",
-  },
+	// Accessibility
+	":is([dir='rtl'])": {
+		textAlign: "end",
+		direction: "rtl",
+	},
 
-  // Lists
-  "ul, ol": {
-    listStyle: "none",
-    margin: "{spacing.0}",
-    padding: "{spacing.0}",
-  },
+	// Table Elements
+	table: {
+		borderSpacing: 0,
+		borderCollapse: "collapse",
+	},
 
-  // Accessibility
-  ":is([dir='rtl'])": {
-    textAlign: "end",
-    direction: "rtl",
-  },
+	// Selection Styles
+	"::selection": {
+		textShadow: "none",
+		color: "{colors.accent.tertiary}",
+		bgColor: "{colors.accent.primary}",
+	},
 
-  // Table Elements
-  table: {
-    borderSpacing: 0,
-    borderCollapse: "collapse",
-  },
+	// Scrollbar Styles
+	"@media (pointer: fine)": {
+		"::-webkit-scrollbar": {
+			width: "12px",
+			height: "12px",
+		},
 
-  // Selection Styles
-  "::selection": {
-    textShadow: "none",
-    color: "{colors.accent.tertiary}",
-    bgColor: "{colors.accent.primary}",
-  },
+		"::-webkit-scrollbar-track": {
+			bgColor: "{colors.bg.tertiary}",
+		},
 
-  // Scrollbar Styles
-  "@media (pointer: fine)": {
-    "::-webkit-scrollbar": {
-      width: "12px",
-      height: "12px",
-    },
+		"::-webkit-scrollbar-thumb": {
+			borderRadius: "6px",
+			bgColor: "{colors.fg.secondary}",
+			border: "3px solid {colors.bg.tertiary}",
+		},
 
-    "::-webkit-scrollbar-track": {
-      bgColor: "{colors.bg.tertiary}",
-    },
+		"::-webkit-scrollbar-thumb:hover": {
+			bgColor: "{colors.fg.tertiary}",
+		},
+	},
 
-    "::-webkit-scrollbar-thumb": {
-      borderRadius: "6px",
-      bgColor: "{colors.fg.secondary}",
-      border: "3px solid {colors.bg.tertiary}",
-    },
+	"strong, bold": {
+		fontWeight: "500",
+	},
 
-    "::-webkit-scrollbar-thumb:hover": {
-      bgColor: "{colors.fg.tertiary}",
-    },
-  },
+	// Print Styles
+	"@media print": {
+		body: {
+			color: "{colors.black}",
+			bgColor: "{colors.white}",
+		},
 
-  "strong, bold": {
-    fontWeight: "500",
-  },
+		"a[href]::after": {
+			content: '" (" attr(href) ")"',
+		},
+	},
 
-  // Print Styles
-  "@media print": {
-    body: {
-      color: "{colors.black}",
-      bgColor: "{colors.white}",
-    },
+	// Hidden
+	"[hidden]": {
+		display: "none !important",
+	},
 
-    "a[href]::after": {
-      content: '" (" attr(href) ")"',
-    },
-  },
-
-  // Hidden
-  "[hidden]": {
-    display: "none !important",
-  },
+	// Table
+	tr: {
+		display: "table-row",
+		unicodeBidi: "isolate",
+		verticalAlign: "inherit",
+	},
+	td: {
+		display: "table-cell",
+		verticalAlign: "inherit",
+	},
 });

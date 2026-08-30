@@ -1,5 +1,6 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.11/schema.json",
+
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",
@@ -39,25 +40,6 @@
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "double"
-		}
-	},
-	"assist": {
-		"enabled": true,
-		"actions": {
-			"source": {
-				"organizeImports": {
-					"level": "on",
-					"options": {
-						"groups": [
-							":PACKAGE:",
-							":BLANK_LINE:",
-							["@lib/**"],
-							":BLANK_LINE:",
-							["./**"]
-						]
-					}
-				}
-			}
 		}
 	}
 }

@@ -1,6 +1,6 @@
 {
-  "collapsible": true,
-  "defaultOpen": false,
-  "title": "Overlays",
-  "pages": ["..."]
+	"collapsible": true,
+	"defaultOpen": false,
+	"title": "Overlays",
+	"pages": ["..."]
 }

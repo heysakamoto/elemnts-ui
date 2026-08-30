@@ -12,9 +12,9 @@ export const separatorGroupRecipe = defineSlotRecipe({
 			gap: "calc({spacing.4} * 2)",
 		},
 		caption: {
-			fontSize: "{fontSize.14}",
+			flexShrink: 0,
+			fontSize: "{fontSizes.14}",
 			color: "{colors.fg.tertiary}",
-			lineHeight: "{lineHeights.none}",
 		},
 	},
 	variants: {},

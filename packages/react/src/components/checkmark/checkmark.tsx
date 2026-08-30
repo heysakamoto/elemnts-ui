@@ -3,6 +3,7 @@ import type React from "react";
 
 import { styled } from "../../../styled-system/jsx";
 import { checkmarkRecipe } from "../../../styled-system/recipes";
+import { Icon } from "../icon";
 
 export const Checkmark = styled(
 	(
@@ -34,5 +35,23 @@ export const Checkmark = styled(
 		);
 	},
 	checkmarkRecipe,
+	{
+		defaultProps: {
+			fallback: (
+				<Icon
+					icon="tabler:minus"
+					width="12"
+					height="12"
+				/>
+			),
+			children: (
+				<Icon
+					icon="tabler:check"
+					width="12"
+					height="12"
+				/>
+			),
+		},
+	},
 );
 Checkmark.displayName = "Checkmark";

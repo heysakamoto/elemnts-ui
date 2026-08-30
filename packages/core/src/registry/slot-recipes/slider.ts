@@ -47,7 +47,7 @@ export const sliderRecipe = defineSlotRecipe({
 		track: {
 			rounded: "full",
 			overflow: "clip",
-			bgColor: "{colors.bg.secondary}",
+			bgColor: "{colors.surface.8}",
 			transition: "scale 200ms ease-in-out",
 
 			_vertical: {

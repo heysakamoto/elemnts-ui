@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "declaration": true,
-    "outDir": "dist/types",
-    "emitDeclarationOnly": true,
-  },
-  "include": ["src"],
-  "exclude": ["src/extract.ts"],
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "dist",
+		"rootDir": "src",
+		"declaration": true,
+		"types": ["vite/client"],
+		"emitDeclarationOnly": true
+	},
+	"include": ["src/**/*"]
 }

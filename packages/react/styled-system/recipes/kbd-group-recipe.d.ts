@@ -1,31 +1,39 @@
 /* eslint-disable */
-import type { ConditionalValue } from '../types/index';
-import type { DistributiveOmit, Pretty } from '../types/system-types';
+import type { ConditionalValue } from "../types/index";
+import type { DistributiveOmit, Pretty } from "../types/system-types";
 
-interface KbdGroupRecipeVariant {
-  
-}
+type KbdGroupRecipeVariant = {};
 
 type KbdGroupRecipeVariantMap = {
-  [key in keyof KbdGroupRecipeVariant]: Array<KbdGroupRecipeVariant[key]>
-}
+	[key in keyof KbdGroupRecipeVariant]: Array<KbdGroupRecipeVariant[key]>;
+};
 
-type KbdGroupRecipeSlot = "root" | "separator"
+type KbdGroupRecipeSlot = "root" | "separator";
 
 export type KbdGroupRecipeVariantProps = {
-  [key in keyof KbdGroupRecipeVariant]?: ConditionalValue<KbdGroupRecipeVariant[key]> | undefined
-}
+	[key in keyof KbdGroupRecipeVariant]?:
+		| ConditionalValue<KbdGroupRecipeVariant[key]>
+		| undefined;
+};
 
 export interface KbdGroupRecipeRecipe {
-  __slot: KbdGroupRecipeSlot
-  __type: KbdGroupRecipeVariantProps
-  (props?: KbdGroupRecipeVariantProps): Pretty<Record<KbdGroupRecipeSlot, string>>
-  raw: (props?: KbdGroupRecipeVariantProps) => KbdGroupRecipeVariantProps
-  variantMap: KbdGroupRecipeVariantMap
-  variantKeys: Array<keyof KbdGroupRecipeVariant>
-  splitVariantProps<Props extends KbdGroupRecipeVariantProps>(props: Props): [KbdGroupRecipeVariantProps, Pretty<DistributiveOmit<Props, keyof KbdGroupRecipeVariantProps>>]
-  getVariantProps: (props?: KbdGroupRecipeVariantProps) => KbdGroupRecipeVariantProps
+	__slot: KbdGroupRecipeSlot;
+	__type: KbdGroupRecipeVariantProps;
+	(
+		props?: KbdGroupRecipeVariantProps,
+	): Pretty<Record<KbdGroupRecipeSlot, string>>;
+	raw: (props?: KbdGroupRecipeVariantProps) => KbdGroupRecipeVariantProps;
+	variantMap: KbdGroupRecipeVariantMap;
+	variantKeys: Array<keyof KbdGroupRecipeVariant>;
+	splitVariantProps<Props extends KbdGroupRecipeVariantProps>(
+		props: Props,
+	): [
+		KbdGroupRecipeVariantProps,
+		Pretty<DistributiveOmit<Props, keyof KbdGroupRecipeVariantProps>>,
+	];
+	getVariantProps: (
+		props?: KbdGroupRecipeVariantProps,
+	) => KbdGroupRecipeVariantProps;
 }
 
-
-export declare const kbdGroupRecipe: KbdGroupRecipeRecipe
+export declare const kbdGroupRecipe: KbdGroupRecipeRecipe;

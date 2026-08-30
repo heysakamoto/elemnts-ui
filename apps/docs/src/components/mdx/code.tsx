@@ -1,8 +1,7 @@
-import { Code as MotoCode, type TextProps } from "@moto-ui/react";
+import { type CodeProps, Code as MotoCode, Text } from "@moto-ui/react";
 
 import { useCodeBlockContext } from "./client";
 
-type CodeProps = TextProps;
 export const Code = (props: CodeProps) => {
 	const { children } = props;
 
@@ -10,14 +9,41 @@ export const Code = (props: CodeProps) => {
 
 	switch (true) {
 		case inCodeBlock: {
-			return children;
+			return (
+				<Text
+					as="code"
+					fontSize="12"
+					fontFamily="mono"
+					css={{
+						tabSize: 2,
+						"& span.line": {
+							lineHeight: "2",
+							display: "block",
+							whiteSpace: "pre",
+							"& span": {
+								color: "var(--shiki-light)",
+								_dark: {
+									color: "var(--shiki-dark)",
+								},
+							},
+						},
+					}}
+				>
+					{children}
+				</Text>
+			);
 		}
 		default: {
 			return (
-        <MotoCode size="2xs" whiteSpace="nowrap" variant="secondary">
-          {children}
-        </MotoCode>
-      );
+				<MotoCode
+					h="auto"
+					py="4"
+					size="2xs"
+					variant="secondary"
+				>
+					{children}
+				</MotoCode>
+			);
 		}
 	}
 };

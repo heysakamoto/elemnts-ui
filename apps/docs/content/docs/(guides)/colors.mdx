@@ -3,70 +3,76 @@ title: Colors
 description: Color palette and theming system for Moto UI.
 ---
 
-<Example name="base:colors" />
+Moto UI uses the **OKLCH** color space for its palette, ensuring smooth transitions and consistent brightness across all colors. This approach outperforms traditional RGB or HSL models by providing more natural and visually uniform color variations.
 
-Colors in Moto UI utilize the **OKLCH** color space. This ensures uniform perceived brightness and much smoother color transitions across our entire palette compared to traditional RGB or HSL models.
+## How the Color System Works
 
-## How it works
+The color system is inspired by Tailwind CSS v4 but optimized for OKLCH. When you import `@moto-ui/core/colors`, you unlock a comprehensive set of primitive palettes. These palettes are automatically mapped to semantic variables, ensuring a cohesive and adaptable theming experience.
 
-The color system is built on a foundation inspired by Tailwind CSS v4, optimized for OKLCH. By importing `@moto-ui/preset-base`, you get access to a rich set of primitive palettes that are automatically mapped to semantic variables for consistent theming.
+---
 
-## Color Token Types
+### **Primitive Tokens**
 
-The library provides two distinct types of color tokens:
-
-### Primitive Tokens
-
-Primitive tokens are raw color values. They represent the foundational colors available in the design system.
+Primitive tokens are the raw materials of Moto UI’s color system. They provide direct access to the foundational colors used in the design system.
 
 - **Format**: `{color}.{step}`
 - **Steps**: `10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100` (Light to Dark)
-- **Alpha Variants**: Use the `a` prefix for transparency, e.g., `{color}.a10` to `{color}.a100`.
+- **Alpha Variants**: Add an `a` prefix for transparency, e.g., `{color}.a10` to `{color}.a100`.
 
 ```css
 /* Examples */
-green.10   /* Lightest green */
-green.100  /* Darkest green */
-blue.a50   /* Blue with 50% opacity */
+green.10   /* The lightest shade of green */
+green.100  /* The darkest shade of green */
+blue.a50   /* Semi-transparent blue */
 ```
 
-### Semantic Tokens
+---
 
-Semantic tokens map primitive colors to specific design intentions. They abstract away the underlying color values, allowing the UI to automatically adapt to different themes (like Dark Mode).
+### **Semantic Tokens**
+
+Semantic tokens bridge the gap between raw colors and their intended use in the UI. They abstract color values into meaningful categories, making it easier to maintain consistency and adapt to different themes (like Dark Mode).
 
 **Format**: `{group}.{importance}`
 
-**1. Common Groups**:
-    - **surface**: Background colors
-    - **fg**: Foreground/Text colors
-    - **stroke**: Border and line colors
-    - **icon**: Iconography colors
+**Common Groups**
+| Token Group | Description |
+|-------------|-------------|
+| **surface** | Background colors (e.g., page backgrounds, cards) |
+| **fg** | Foreground and text colors (e.g., primary text, secondary text) |
+| **stroke** | Border and divider colors (e.g., dividers, input borders) |
+| **icon** | Icon colors (e.g., icon fills, icon strokes) |
 
-**2. Functional Groups**:
-    - **accent**: Primary brand/action color
-    - **success**: Positive feedback
-    - **warning**: Cautionary feedback
-    - **destructive**: Error or dangerous actions
+**Functional Groups**
+| Token Group | Description |
+|-------------|-------------|
+| **accent** | Primary brand or action colors (e.g., buttons, links) |
+| **success** | Positive feedback (e.g., success messages, confirmations) |
+| **warning** | Cautionary feedback (e.g., warnings, alerts) |
+| **destructive** | Error or dangerous actions (e.g., destructive buttons, errors) |
 
 ```css
-/* Semantic token examples */
-surface.1      /* Main application background */
-fg.secondary    /* Secondary text */
-accent.primary  /* Main action color */
+/* Examples */
+surface.1      /* Main background of the application */
+fg.secondary   /* Secondary text or less prominent elements */
+accent.primary /* Primary action color (e.g., buttons) */
 ```
 
-## Dark Mode
+---
 
-Semantic tokens in Moto UI are "theme-aware." This means `surface.1` will automatically switch from a light value to a dark value when the dark theme is active, without requiring any manual color overrides in your components.
+## **Dark Mode Support**
+
+Semantic tokens in Moto UI are **theme-aware**, meaning they automatically adapt to the active theme. For example, `surface.1` will switch from a light value (like `white`) to a dark value (like `neutral.95`) when Dark Mode is enabled—no manual overrides needed!
 
 | Semantic Token | Light Mode Value | Dark Mode Value |
-| :--- | :--- | :--- |
-| `surface.1` | `white` | `neutral.95` |
-| `fg.primary` | `neutral.100` | `neutral.10` |
-| `accent.primary` | `blue.80` | `blue.70` |
+|---------------|------------------|----------------|
+| `surface.1`   | `white`          | `neutral.95`   |
+| `fg.primary`  | `neutral.100`    | `neutral.10`   |
+| `accent.primary` | `blue.80`     | `blue.70`      |
 
-## When to use
+---
 
-- **Semantic Tokens**: **Always preferred** for component styling. They ensure consistency and make theme switching seamless.
-- **Primitive Tokens**: Use sparingly for unique design cases where a specific color is required that doesn't fit a semantic category.
-- **Alpha Tokens**: Use when you need background overlays, subtle borders, or to layer colors with transparency.
+## **Best Practices**
+
+- **Use Semantic Tokens**: Always prefer semantic tokens for styling components. They ensure consistency and make theme switching effortless.
+- **Use Primitive Tokens Sparingly**: Only use primitive tokens for unique cases where a specific color doesn’t fit a semantic category.
+- **Leverage Alpha Tokens**: Use alpha variants (`a10` to `a100`) for overlays, subtle borders, or layered designs where transparency is needed.

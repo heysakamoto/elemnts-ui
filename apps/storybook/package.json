@@ -1,0 +1,25 @@
+{
+	"name": "@moto-ui/storybook",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"preview": "vite preview",
+		"build": "tsc -b && vite build",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"dependencies": {
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
+		"@moto-ui/core": "workspace:*",
+		"@moto-ui/react": "workspace:*"
+	},
+	"devDependencies": {
+		"@pandacss/dev": "^1.12.0",
+		"@types/react": "^19.2.18",
+		"@types/react-dom": "^19.2.4",
+		"@vitejs/plugin-react": "^6.1.0"
+	}
+}

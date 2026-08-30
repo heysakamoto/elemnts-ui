@@ -5,7 +5,6 @@ import {
 	SplitterPanel,
 	SplitterResizeTrigger,
 	SplitterResizeTriggerIndicator,
-	SplitterResizeTriggerSeparator,
 	SplitterRoot,
 	SplitterRootProvider,
 } from "./splitter";
@@ -22,16 +21,12 @@ export type SplitterResizeTriggerProps = ComponentProps<
 export type SplitterResizeTriggerIndicatorProps = ComponentProps<
 	typeof SplitterResizeTriggerIndicator
 >;
-export type SplitterResizeTriggerSeparatorProps = ComponentProps<
-	typeof SplitterResizeTriggerSeparator
->;
 
 export const Splitter = Object.assign(SplitterRoot, {
 	Context: SplitterContext,
 	Panel: SplitterPanel,
 	ResizeTrigger: SplitterResizeTrigger,
 	ResizeTriggerIndicator: SplitterResizeTriggerIndicator,
-	ResizeTriggerSeparator: SplitterResizeTriggerSeparator,
 	Root: SplitterRoot,
 	RootProvider: SplitterRootProvider,
 });
@@ -42,7 +37,6 @@ export type Splitter = {
 	ContextProps: SplitterContextProps;
 	PanelProps: SplitterPanelProps;
 	ResizeTriggerProps: SplitterResizeTriggerProps;
-	ResizeTriggerSeparatorProps: SplitterResizeTriggerSeparatorProps;
 	ResizeTriggerIndicatorProps: SplitterResizeTriggerIndicatorProps;
 	Props: SplitterRootProps;
 };
@@ -62,7 +56,6 @@ export {
 	SplitterPanel,
 	SplitterResizeTrigger,
 	SplitterResizeTriggerIndicator,
-	SplitterResizeTriggerSeparator,
 	SplitterRoot,
 	SplitterRootProvider,
 };

@@ -6,11 +6,8 @@ description: A wheel-style control for picking values from a list.
 <Example name="wheel-picker:basic" />
 
 ## Usage
-The `WheelPicker` component is used to select a single value from a list of options using a wheel-like interaction.
+Used to select a single value from a list of options using a wheel-like interaction.
 
-- `WheelPicker.Root`: The root container for the wheel picker.
-- `WheelPicker.Control`: The container for the wheel picker options.
-- `WheelPicker.Options`: The component that renders the list of options.
 
 ```tsx
 import { WheelPicker } from "@moto-ui/react"
@@ -29,11 +26,25 @@ const options = [
 ```
 
 ## Variants
-The `WheelPicker` supports different visual variants: `primary`, `secondary`, and `tertiary`.
+Change the visual appearance of the wheelpicker items using the **variant** prop
 
 <Example name="wheel-picker:variants" />
 
-## Radius
-Use the `radius` prop to adjust the border radius of the highlighted area.
+## With Icon
+Compose the **label** prop with an icon to add an icon to the wheelpicker items.
 
-<Example name="wheel-picker:radius" />
+<Example name="wheel-picker:with-icon" />
+
+## ClassNames
+Use the **className** prop to add custom CSS classes to the wheelpicker.
+
+<Example name="wheel-picker:class-names" />
+
+## API Reference
+
+### WheelPicker
+The root component for the wheelpick
+
+| Props | Type | Default |
+| --- | --- | --- |
+| variant | `primary \| secondary` | `primary` |

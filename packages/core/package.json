@@ -1,73 +1,72 @@
 {
-  "name": "@moto-ui/core",
-  "version": "0.0.0",
-  "license": "MIT",
-  "type": "module",
-  "sideEffects": false,
-  "description": "PandaCSS presets for moto-ui with built-in colors and component styles.",
-  "keywords": [
-    "pandacss",
-    "presets",
-    "moto",
-    "moto-ui",
-    "design-system",
-    "ui",
-    "css"
-  ],
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
-    },
-    "./presets": {
-      "types": "./dist/types/presets/index.d.ts",
-      "import": "./dist/esm/presets/index.js",
-      "require": "./dist/cjs/presets/index.cjs"
-    },
-    "./presets/*": {
-      "types": "./dist/types/presets/*/index.d.ts",
-      "import": "./dist/esm/presets/*/index.js",
-      "require": "./dist/cjs/presets/*/index.cjs"
-    },
-    "./colors": {
-      "types": "./dist/types/colors/index.d.ts",
-      "import": "./dist/esm/colors/index.js",
-      "require": "./dist/cjs/colors/index.cjs"
-    },
-    "./registry": {
-      "types": "./dist/types/registry/index.d.ts",
-      "import": "./dist/esm/registry/index.js",
-      "require": "./dist/cjs/registry/index.cjs"
-    }
-  },
-  "author": {
-    "name": "heysakamoto"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "directory": "packages/preset-base",
-    "url": "https://github.com/heysakamoto/moto-ui.git"
-  },
-  "files": [
-    "dist",
-    "readme.md",
-    "package.json"
-  ],
-  "scripts": {
-    "typecheck": "tsc",
-    "dev": "tsup --watch",
-    "clean": "rm -rf dist",
-    "build": "pnpm clean && tsup && pnpm typecheck"
-  },
-  "devDependencies": {
-    "@pandacss/dev": "^1.11.5",
-    "tsup": "^8.5.1"
-  }
+	"name": "@moto-ui/core",
+	"version": "0.0.0",
+	"license": "MIT",
+	"type": "module",
+	"sideEffects": false,
+	"description": "PandaCSS presets for moto-ui with built-in colors and component styles.",
+	"keywords": [
+		"pandacss",
+		"presets",
+		"moto",
+		"moto-ui",
+		"design-system",
+		"ui",
+		"css"
+	],
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./presets": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./presets/*": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./colors": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./registry": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"author": {
+		"name": "heysakamoto"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"directory": "packages/preset-base",
+		"url": "https://github.com/heysakamoto/moto-ui.git"
+	},
+	"files": [
+		"dist",
+		"readme.md",
+		"package.json"
+	],
+	"scripts": {
+		"typecheck": "tsc",
+		"dev": "tsup --watch",
+		"build": "tsdown && pnpm typecheck"
+	},
+	"devDependencies": {
+		"@pandacss/dev": "^1.11.5",
+		"tsdown": "^0.22.14"
+	}
 }

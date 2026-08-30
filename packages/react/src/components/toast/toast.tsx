@@ -125,37 +125,37 @@ export const Toaster = (props: ToasterProps) => {
 
 					const ToastIcon = ICON_MAP[toast.type as keyof typeof ICON_MAP];
 
-          return (
-            <ToastRoot key={toast.id}>
-              {indicator ? (
-                indicator
-              ) : ToastIcon ? (
-                <ToastIndicator>{ToastIcon}</ToastIndicator>
-              ) : null}
-              {toast.title ? <ToastTitle>{toast.title}</ToastTitle> : title}
-              {toast.description ? (
-                <ToastDescription>{toast.description}</ToastDescription>
-              ) : (
-                description
-              )}
-              <ToastControl>
-                {control ? (
-                  control
-                ) : toast.action ? (
-                  <Button
-                    size="xs"
-                    rounded="full"
-                    variant="secondary"
-                    onClick={() => toast.action?.onClick()}
-                  >
-                    {toast.action.label}
-                  </Button>
-                ) : null}
-              </ToastControl>
-            </ToastRoot>
-          );
-        }}
-      </ToastGroup>
-    </Portal>
-  );
+					return (
+						<ToastRoot key={toast.id}>
+							{indicator ? (
+								indicator
+							) : ToastIcon ? (
+								<ToastIndicator>{ToastIcon}</ToastIndicator>
+							) : null}
+							{toast.title ? <ToastTitle>{toast.title}</ToastTitle> : title}
+							{toast.description ? (
+								<ToastDescription>{toast.description}</ToastDescription>
+							) : (
+								description
+							)}
+							<ToastControl>
+								{control ? (
+									control
+								) : toast.action ? (
+									<Button
+										size="xs"
+										rounded="full"
+										variant="secondary"
+										onClick={() => toast.action?.onClick()}
+									>
+										{toast.action.label}
+									</Button>
+								) : null}
+							</ToastControl>
+						</ToastRoot>
+					);
+				}}
+			</ToastGroup>
+		</Portal>
+	);
 };

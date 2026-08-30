@@ -5,7 +5,7 @@ export const wheelPickerRecipe = defineSlotRecipe({
 	slots: ["root"],
 	base: {
 		root: {
-			"--wheel-picker-radius": "calc({radii.4} * 3)",
+			"--wheel-picker-radius": "calc({radii.4} * 4)",
 
 			"& [data-rwp-wrapper]": {
 				display: "flex",
@@ -28,6 +28,10 @@ export const wheelPickerRecipe = defineSlotRecipe({
 
 				_focus: {
 					outline: "none",
+				},
+
+				"& [data-rwp-highlight-wrapper]": {
+					cornerShape: "squircle",
 				},
 
 				"&:first-child": {

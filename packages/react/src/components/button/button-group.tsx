@@ -36,10 +36,10 @@ export const ButtonGroupRoot = forwardRef<HTMLDivElement, ButtonGroupRootProps>(
 
 		return (
 			<ButtonGroupContext.Provider value={buttonVariantProps}>
-        <ButtonGroupRootBase
+				<ButtonGroupRootBase
 					ref={ref}
-          {...restProps}
-          fullWidth={props.fullWidth}
+					{...restProps}
+					fullWidth={props.fullWidth}
 				/>
 			</ButtonGroupContext.Provider>
 		);

@@ -4,13 +4,14 @@ import mdx from "fumadocs-mdx/vite";
 import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 import * as MdxConfig from "./source.config";
 
 export default defineConfig({
+	resolve: {
+		tsconfigPaths: true,
+	},
 	plugins: [
-		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tanstackStart({
 			server: {
 				build: {

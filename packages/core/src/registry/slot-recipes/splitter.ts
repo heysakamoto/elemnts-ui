@@ -2,87 +2,131 @@ import { defineSlotRecipe } from "@pandacss/dev";
 
 export const splitterRecipe = defineSlotRecipe({
 	className: "splitter",
-	slots: [
-		"root",
-		"panel",
-		"resizeTrigger",
-		"resizeTriggerIndicator",
-		"resizeTriggerSeparator",
-	],
+	slots: ["root", "panel", "resizeTrigger", "resizeTriggerIndicator"],
 	base: {
 		root: {
+			position: "relative",
+			display: "flex",
+			flexDirection: "row",
+			_horizontal: {
+				flexDirection: "row",
+				width: "100%",
+			},
 			_vertical: {
 				flexDirection: "column",
+				height: "100%",
 			},
 		},
-		resizeTrigger: {
-			"--splitter-border-size": "1px",
-			"--splitter-thumb-size": "calc({sizes.4} * 1.5)",
-			"--splitter-handle-size": "calc({sizes.4} * 6)",
-			"--splitter-handle-color": "{colors.bg.tertiary}",
-			"--splitter-border-color": "{colors.stroke.primary}",
-			"--splitter-active-color": "{colors.colorPalette.primary}",
 
-			zIndex: "1",
+		panel: {
+			flex: "1",
+			overflow: "hidden",
 			position: "relative",
+
+			_vertical: {
+				minHeight: "var(--min-panel-size, 0)",
+			},
+			_horizontal: {
+				minWidth: "var(--min-panel-size, 0)",
+			},
+		},
+
+		resizeTrigger: {
+			zIndex: "1",
+			all: "unset",
+			display: "flex",
+			border: "none",
 			alignItems: "center",
-			display: "inline-flex",
-			flexDirection: "column",
+			position: "relative",
+			cursor: "col-resize",
 			justifyContent: "center",
+			bgColor: "{colors.transparent}",
 
+			"[data-dragging]": {
+				cursor: "grabbing",
+			},
+
+			_horizontal: {
+				padding: "0",
+				height: "auto",
+				alignSelf: "stretch",
+				cursor: "col-resize",
+				width: "calc({spacing.4} * 2)",
+			},
+
+			_vertical: {
+				width: "100%",
+				padding: "0",
+				cursor: "row-resize",
+				height: "calc({spacing.4} * 2)",
+			},
+
+			// Visual indicator line
 			_before: {
-				top: "0",
 				content: "''",
-				h: "{sizes.full}",
 				position: "absolute",
-				w: "calc({sizes.4} * 10)",
+				bgColor: "{colors.stroke.primary}",
+				transition: "background-color 0.2s ease",
+
+				_horizontal: {
+					top: "0",
+					left: "50%",
+					width: "1px",
+					height: "100%",
+					transform: "translateX(-50%)",
+				},
+
+				_vertical: {
+					top: "50%",
+					left: "0",
+					width: "100%",
+					height: "1px",
+					transform: "translateY(-50%)",
+				},
 			},
 
-			_disabled: {
-				opacity: "0.5",
-				pointerEvents: "none",
-			},
-
+			// Hover and active states
 			_hover: {
-				"& [data-part=resize-trigger-indicator]": {
-					bgColor: "var(--splitter-active-color)",
+				_before: {
+					bgColor: "{colors.colorPalette.primary}",
 				},
 			},
 
 			_dragging: {
-				"& [data-part=resize-trigger-separator]": {
-					bgColor: "var(--splitter-active-color)",
+				_before: {
+					bgColor: "{colors.colorPalette.primary}",
 				},
 			},
 
-			_horizontal: {
-				w: "var(--splitter-thumb-size)",
-				"& [data-part=resize-trigger-separator]": {
-					w: "var(--splitter-border-size)",
-					h: "{sizes.full}",
-				},
+			// Disabled state
+			_disabled: {
+				opacity: "0.5",
+				pointerEvents: "none",
+				cursor: "not-allowed",
 			},
-
-			_vertical: {
-				h: "var(--splitter-thumb-size)",
-				"& [data-part=resize-trigger-separator]": {
-					h: "var(--splitter-border-size)",
-					w: "{sizes.full}",
-				},
-			},
-		},
-		resizeTriggerSeparator: {
-			zIndex: "-1",
-			position: "absolute",
-			bgColor: "var(--splitter-border-color)",
 		},
 
 		resizeTriggerIndicator: {
+			display: "block",
 			position: "relative",
-			rounded: "{radii.full}",
-			shadow: "{shadows.2}",
-			bgColor: "var(--splitter-handle-color)",
-			border: "1px solid var(--splitter-border-color)",
+			cornerShape: "squircle",
+			boxShadow: "{shadows.2}",
+			borderRadius: "{radii.16}",
+			transition: "all 0.2s ease",
+			bgColor: "{colors.surface.1}",
+			border: "1px solid {colors.stroke.secondary}",
+
+			_horizontal: {
+				margin: "0 auto",
+				width: "calc({spacing.4} * 2)",
+				height: "calc({spacing.4} * 5)",
+			},
+
+			_vertical: {
+				margin: "auto 0",
+				width: "calc({spacing.4} * 5)",
+				height: "calc({spacing.4} * 2)",
+			},
 
 			_disabled: {
 				visibility: "hidden",
@@ -90,26 +134,13 @@ export const splitterRecipe = defineSlotRecipe({
 			},
 
 			_hover: {
-				bgColor: "var(--splitter-active-color)",
+				bgColor: "{colors.colorPalette.primary}",
 			},
 
 			_dragging: {
-				bgColor: "var(--splitter-active-color)",
-			},
-
-			_horizontal: {
-				h: "var(--splitter-handle-size)",
-				w: "{sizes.full}",
-			},
-
-			_vertical: {
-				h: "{sizes.full}",
-				w: "var(--splitter-handle-size)",
+				transform: "scale(1.1)",
+				bgColor: "{colors.colorPalette.primary}",
 			},
 		},
 	},
-
-	variants: {},
-
-	defaultVariants: {},
 });

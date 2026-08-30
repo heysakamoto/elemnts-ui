@@ -1,6 +1,6 @@
 {
 	"icon": "HomeIcon",
 	"title": "Overview",
-  "collapsible": false,
-  "pages": ["index", "..."]
+	"collapsible": false,
+	"pages": ["index", "installation", "..."]
 }

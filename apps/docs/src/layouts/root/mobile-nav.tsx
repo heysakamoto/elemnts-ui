@@ -1,9 +1,10 @@
 import {
 	Button,
-	ButtonGroup,
 	Dialog,
 	For,
+	Group,
 	Icon,
+	Item,
 	Portal,
 	Surface,
 	VisuallyHidden,
@@ -19,14 +20,14 @@ export function RootLayoutMobileNav() {
 				<Button
 					size="sm"
 					iconOnly
-					hideFrom="lg"
-					variant="ghost"
+					hideFrom="md"
+					variant="surface"
 				>
 					<VisuallyHidden>Open mobile menu</VisuallyHidden>
 					<Icon
 						width={16}
 						height={16}
-						icon="tabler:layout-sidebar"
+						icon="tabler:menu"
 					/>
 				</Button>
 			</Dialog.Trigger>
@@ -39,22 +40,18 @@ export function RootLayoutMobileNav() {
 							rounded="24"
 							colorPalette="neutral"
 						>
-							<Surface.Content p="12">
-								<ButtonGroup
-									size="xl"
-									fullWidth
-									variant="ghost"
-									orientation="vertical"
-								>
+							<Surface.Content p="8">
+								<Group orientation="vertical">
 									<For each={ROOTLAYOUT_URLS}>
 										{(url) => (
-											<ButtonGroup.Item
+											<Item
 												asChild
-												h="56"
-												rounded="16"
+												size="xl"
 												fontSize="16"
 												key={url.id}
-												justify="start"
+												flexShrink={0}
+												fontWeight="medium"
+												variant="secondary"
 											>
 												<Link
 													to={url.url}
@@ -62,10 +59,10 @@ export function RootLayoutMobileNav() {
 												>
 													{url.label}
 												</Link>
-											</ButtonGroup.Item>
+											</Item>
 										)}
 									</For>
-								</ButtonGroup>
+								</Group>
 							</Surface.Content>
 						</Surface>
 					</Dialog.Content>
