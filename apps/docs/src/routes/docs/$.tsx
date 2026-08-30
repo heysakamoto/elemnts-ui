@@ -65,7 +65,11 @@ function Page() {
 
 	return (
 		<DocsLayout pageTree={data.pageTree}>
-      <Suspense fallback={null}>{content}</Suspense>
+			<DocsLayout.Header />
+			<DocsLayout.Content>
+				<DocsLayout.Sidebar />
+				<Suspense fallback={null}>{content}</Suspense>
+			</DocsLayout.Content>
 		</DocsLayout>
 	);
 }

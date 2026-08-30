@@ -18,8 +18,10 @@ export function SegmentGroupExample() {
 
 	return (
 		<SegmentGroup
-			orientation="horizontal"
+			size="sm"
 			defaultValue="ark"
+			orientation="horizontal"
+			variant="secondary"
 		>
 			<SegmentGroup.Indicator />
 			{values.map((value) => {

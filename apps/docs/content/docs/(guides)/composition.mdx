@@ -3,11 +3,11 @@ title: Composition
 description: Create adaptable user interfaces using component composition techniques.
 ---
 
-Moto UI components are designed with flexibility in mind, offering two primary ways to compose and change their rendered output: the `as` prop and the `asChild` prop. Both are powered by [Ark UI](https://ark-ui.com/).
+Moto UI components are built with flexibility in mind, giving you two powerful ways to customize how components render: the **as** prop and the **asChild** prop. Both are powered by [Ark UI](https://ark-ui.com/).
 
-## The as Prop
+## Changing the HTML Element
 
-The `as` prop allows you to change the underlying HTML element that a component renders while retaining all its styles and behavior.
+The `as` prop lets you swap out the default HTML element while keeping all the component's styles and functionality intact.
 
 ```tsx
 import { Text } from "@moto-ui/react";
@@ -16,11 +16,17 @@ import { Text } from "@moto-ui/react";
 <Text as="span">This renders as a span</Text>
 ```
 
-## The asChild Prop
+**When to use **as**:**
+- Need a different semantic HTML element (e.g., turning a `p` into a `span`)
+- Want to maintain styling while changing the underlying tag
 
-The `asChild` prop is the preferred way to compose a Moto UI component with another custom component or a framework-specific link (like TanStack Router or Next.js `Link`).
+---
 
-When `asChild` is set to `true`, the component will not render its own DOM element. Instead, it will pass its props and behavior to its **immediate** child.
+## Composing Components
+
+The **asChild** prop is perfect when you want to wrap Moto UI components around custom components—like framework-specific links (TanStack Router, Next.js **Link**) or your own UI elements.
+
+When enabled, **asChild** passes all props and behavior to its **direct child**, effectively making the Moto UI component invisible in the DOM.
 
 ```tsx
 import { Button } from "@moto-ui/react";
@@ -31,21 +37,23 @@ import { Link } from "@tanstack/react-router";
 </Button>
 ```
 
-### Important Rules for asChild
+### Key Rules for asChild
 
-1.  **Single Child Only**: You must pass exactly one child element.
-2.  **Prop Merging**: Props from the parent (Moto UI component) and the child are merged. If both have the same prop (like `onClick`), both functions will be executed.
-3.  **Ref Forwarding**: The child component must support ref forwarding to work correctly with Ark UI's logic.
+| Rule | Description |
+|------|-------------|
+| Single Child | Only one child element is allowed inside the component. |
+| Prop Merging | If both parent and child define the same prop (e.g., `onClick`), both functions will execute. |
+| Ref Forwarding | The child component must support ref forwarding to ensure compatibility with Ark UI. |
 
 ---
 
-## Creating Custom Components
+## Building Your Own Components
 
-Moto UI exports `factory` and `styled` to help you build your own polymorphic, styled components.
+Moto UI provides **factory** and **styled** to help you create polymorphic, styled components.
 
 ### Using factory (Ark UI)
 
-The `factory` (aliased from `ark`) provides a way to create HTML elements that support the `asChild` prop natively.
+The **factory** (aliased from **ark**) lets you generate HTML elements that natively support the **asChild** prop.
 
 ```tsx
 import { factory } from "@moto-ui/react";
@@ -57,9 +65,9 @@ const MyComponent = factory.div;
 </MyComponent>
 ```
 
-### Using styled (Panda CSS)
+### Using styled
 
-The `styled` function combines an element (or a factory element) with a Panda CSS recipe or styles.
+The **styled** function combines an element (or factory element) with a Panda CSS recipe or styles.
 
 ```tsx
 import { styled, factory } from "@moto-ui/react";
@@ -68,9 +76,9 @@ import { myRecipe } from "../styled-system/recipes";
 const MyStyledComponent = styled(factory.div, myRecipe);
 ```
 
-### Prop Forwarding
+### Custom Prop Filtering
 
-By default, `styled` filters out style-related props so they don't leak to the DOM. You can customize this behavior using `shouldForwardProp`.
+By default, **styled** excludes style-related props from the DOM. You can override this with **shouldForwardProp**.
 
 ```tsx
 import { styled } from "@moto-ui/react";
@@ -84,6 +92,8 @@ const CustomBox = styled("div", {}, {
 
 ## Best Practices
 
-- **Use `as`** for simple HTML element swaps (e.g., changing a `p` to a `span`).
-- **Use `asChild`** when you need to wrap a component that has its own internal logic or needs to be a specific component type (e.g., a Router `Link`).
-- **Accessibility**: When changing elements (like using `as="button"` on a `div`), ensure you are also providing the necessary ARIA roles and keyboard interactions if the component doesn't already handle them.
+| Use Case | Prop | Why? |
+|----------|------|------|
+| Swapping HTML elements (e.g., `p` → `span`) | `as` | Simple and effective for semantic changes |
+| Wrapping framework-specific components (e.g., Router `Link`) | `asChild` | Ensures compatibility with custom logic |
+| Maintaining accessibility | Both | Always verify ARIA roles and keyboard interactions when changing elements (e.g., `as="button"` on a `div`) |

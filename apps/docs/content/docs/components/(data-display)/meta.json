@@ -1,6 +1,6 @@
 {
-  "collapsible": true,
-  "defaultOpen": false,
-  "title": "Data Display",
-  "pages": ["..."]
+	"collapsible": true,
+	"defaultOpen": false,
+	"title": "Data Display",
+	"pages": ["..."]
 }

@@ -21,7 +21,7 @@ export const drawerRecipe = defineSlotRecipe({
 		backdrop: {
 			inset: 0,
 			w: "100vw",
-			h: "100vh",
+			h: "100dvh",
 			position: "fixed",
 			backdropFilter: "blur(10px)",
 			bgColor: "{colors.white.a50}",
@@ -41,8 +41,10 @@ export const drawerRecipe = defineSlotRecipe({
 		},
 		positioner: {
 			inset: 0,
+			h: "100dvh",
 			display: "flex",
 			position: "fixed",
+			w: "{sizes.full}",
 			alignItems: "flex-end",
 			justifyContent: "center",
 			zIndex: "{zIndex.modal}",

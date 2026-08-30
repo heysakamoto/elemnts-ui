@@ -13,7 +13,6 @@ function App() {
 	return (
 		<Landing>
 			<Landing.Hero />
-			<Landing.Install />
 		</Landing>
 	);
 }

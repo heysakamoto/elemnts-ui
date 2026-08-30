@@ -1,146 +1,145 @@
 import {
 	Button,
-	ButtonGroup,
-	For,
+	Container,
+	Group,
 	Icon,
 	Item,
-	Menu,
-	Portal,
+	Kbd,
+	KbdGroup,
 	Section,
-	Separator,
 	Stack,
-	Surface,
 	VisuallyHidden,
 } from "@moto-ui/react";
-
-import { useDocsLayoutContext } from "./client";
-import { FRAMEWORKS } from "./constant";
-import { useSearchContext } from "@/features/search";
-import { Sponsor } from "@/features/sponsor";
-
-const selectedFramework = FRAMEWORKS.find(
-	(framework) => framework.id === "react",
-);
+import { Link } from "@tanstack/react-router";
+import { Logo } from "@/components/base/logo";
+import {
+	useDocsLayoutCommandMenuContext,
+	useDocsLayoutMobileMenuContext,
+} from "./client";
+import { urls } from "./constant";
 
 export function DocsLayoutHeader() {
-	const search = useSearchContext();
-	const sponsor = Sponsor.useContext();
-	const layout = useDocsLayoutContext();
+	const commandMenu = useDocsLayoutCommandMenuContext();
+	const mobileMenu = useDocsLayoutMobileMenuContext();
 
 	return (
 		<Section
 			top="0"
-			as="header"
 			zIndex="2"
-			gridColumn="1/-1"
+			as="header"
 			position="sticky"
-			colorPalette="neutral"
 			backdropFilter="blur(16px)"
-			bgColor="color-mix(in srgb, {colors.surface.1}, {colors.transparent} 90%)"
+			borderBottom="1px solid {colors.stroke.primary}"
 		>
-			<Stack
-				h="48"
-				align="center"
-				justify="space-between"
-				px={{ base: "16", md: "20" }}
+			<Container
+				px="16"
+				maxW="var(--docs-width)"
 			>
-				<Menu>
-					<Menu.Trigger asChild>
+				<Stack
+					align="center"
+					justify="space-between"
+					h="var(--navbar-height)"
+					gap={{ base: "12", md: "20", lg: "48" }}
+				>
+					<Logo />
+
+					<Group
+						gap="12"
+						hideBelow="md"
+					>
+						{urls.map((url) => (
+							<Item
+								asChild
+								key={url.id}
+								variant="secondary"
+								fontWeight="medium"
+								css={{ "&:not(:hover)": { color: "fg.secondary" } }}
+							>
+								<Link
+									to={url.url}
+									target={url.target}
+								>
+									{url.label}
+								</Link>
+							</Item>
+						))}
+					</Group>
+
+					<Group
+						flex="1"
+						justify="end"
+						gap={{ base: "8", lg: "16" }}
+					>
 						<Button
-							fontSize="13"
 							size="sm"
-							rounded="16"
+							iconOnly
+							hideFrom="md"
 							variant="surface"
+							onClick={() => mobileMenu.setOpen(true)}
 						>
-							{selectedFramework?.label}
+							<VisuallyHidden>Menu</VisuallyHidden>
 							<Icon
-								mt="-1"
-								mr="-2"
-								width={16}
-								height={16}
-								icon="tabler:chevron-down"
+								icon="tabler:menu"
+								width="16"
+								height="16"
 							/>
 						</Button>
-					</Menu.Trigger>
-					<Portal>
-						<Menu.Positioner>
-							<Menu.Content asChild>
-								<Surface
-									p="4"
-									w="10rem"
-									rounded="20"
-									colorPalette="neutral"
+						<Button
+							size="sm"
+							iconOnly
+							hideFrom="sm"
+							variant="surface"
+							onClick={() => commandMenu.setOpen(true)}
+						>
+							<VisuallyHidden>Search</VisuallyHidden>
+							<Icon
+								icon="tabler:search"
+								width="16"
+								height="16"
+							/>
+						</Button>
+						<Button
+							hideBelow="sm"
+							variant="surface"
+							onClick={() => commandMenu.setOpen(true)}
+						>
+							<Icon
+								ml="-2"
+								icon="tabler:search"
+								width="16"
+								height="16"
+							/>
+							Search
+							<KbdGroup
+								ml="12"
+								mr="-4"
+								gap="4"
+							>
+								<Kbd
+									size="2xs"
+									iconOnly
+									variant="surface"
 								>
-									<For each={FRAMEWORKS}>
-										{(framework) => (
-											<Menu.Item
-												key={framework.id}
-												value={framework.id}
-												disabled={framework.disabled}
-												_disabled={{ opacity: 0.5 }}
-											>
-												<Item
-													size="sm"
-													rounded="16"
-													fontSize="13"
-													variant="secondary"
-												>
-													<Icon
-														ml="-2"
-														mb="-1"
-														width={16}
-														height={16}
-														icon={framework.icon}
-													/>
-													{framework.label}
-												</Item>
-											</Menu.Item>
-										)}
-									</For>
-								</Surface>
-							</Menu.Content>
-						</Menu.Positioner>
-					</Portal>
-				</Menu>
-				<ButtonGroup variant="ghost">
-					<Button
-						iconOnly
-						hideFrom="md"
-						rounded="full"
-						onClick={() => search.setOpen(true)}
-						_notHover={{ color: "icon.secondary" }}
-					>
-						<VisuallyHidden>Search docs</VisuallyHidden>
-						<Icon
-							width={16}
-							height={16}
-							icon="tabler:search"
-						/>
-					</Button>
-					<ButtonGroup.Item
-						iconOnly
-						onClick={() => layout.setOpen(true)}
-					>
-						<VisuallyHidden>Open sidebar</VisuallyHidden>
-						<Icon
-							width={16}
-							height={16}
-							hideFrom="md"
-							icon="tabler:layout-sidebar-right"
-							_notHover={{ color: "icon.secondary" }}
-						/>
-					</ButtonGroup.Item>
-					<Button
-						rounded="12"
-						fontSize="13"
-						variant="surface"
-						onClick={() => sponsor.setOpen(true)}
-					>
-						Sponsor
-					</Button>
-				</ButtonGroup>
-			</Stack>
-			<Separator orientation="horizontal" />
+									⌘
+								</Kbd>
+								<Kbd
+									size="2xs"
+									iconOnly
+									variant="surface"
+								>
+									K
+								</Kbd>
+							</KbdGroup>
+						</Button>
+						<Button
+							asChild
+							fontWeight="medium"
+						>
+							<Link to="/sponsor">Sponsor</Link>
+						</Button>
+					</Group>
+				</Stack>
+			</Container>
 		</Section>
 	);
 }

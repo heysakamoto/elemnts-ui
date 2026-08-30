@@ -47,5 +47,9 @@ export const TimerItemGroup = withContext(ark.div, "itemGroup", {
 });
 TimerItemGroup.displayName = "TimerItemGroup";
 
-export const TimerSeparator = withContext(Timer.Separator, "separator");
+export const TimerSeparator = withContext(Timer.Separator, "separator", {
+	defaultProps: {
+		children: ":",
+	},
+});
 TimerSeparator.displayName = "TimerSeparator";

@@ -1,7 +1,8 @@
 /* eslint-disable */
-import type { ConditionalValue } from './conditions';
-import type { CssProperties } from './system-types';
-import type { Tokens } from '../tokens/index';
+
+import type { Tokens } from "../tokens/index";
+import type { ConditionalValue } from "./conditions";
+import type { CssProperties } from "./system-types";
 
 export interface UtilityValues {
 	aspectRatio: Tokens["aspectRatios"];
@@ -20,7 +21,36 @@ export interface UtilityValues {
 	float: "start" | "end" | CssProperties["float"];
 	hideFrom: Tokens["breakpoints"];
 	hideBelow: Tokens["breakpoints"];
-	flexBasis: Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "full" | CssProperties["flexBasis"];
+	flexBasis:
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "full"
+		| CssProperties["flexBasis"];
 	flex: "1" | "auto" | "initial" | "none";
 	flexDirection: CssProperties["flexDirection"];
 	flexGrow: CssProperties["flexGrow"];
@@ -78,19 +108,348 @@ export interface UtilityValues {
 	focusRingStyle: CssProperties["outlineStyle"];
 	divideColor: Tokens["colors"];
 	divideStyle: CssProperties["borderStyle"];
-	width: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
-	inlineSize: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
-	minWidth: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
-	minInlineSize: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
-	maxWidth: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
-	maxInlineSize: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
-	height: "auto" | Tokens["sizes"] | "svh" | "lvh" | "dvh" | "screen" | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6";
-	blockSize: "auto" | Tokens["sizes"] | "svh" | "lvh" | "dvh" | "screen" | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6";
-	minHeight: "auto" | Tokens["sizes"] | "svh" | "lvh" | "dvh" | "screen" | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6";
-	minBlockSize: "auto" | Tokens["sizes"] | "svh" | "lvh" | "dvh" | "screen" | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6";
-	maxHeight: "auto" | Tokens["sizes"] | "svh" | "lvh" | "dvh" | "screen" | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6";
-	maxBlockSize: "auto" | Tokens["sizes"] | "svh" | "lvh" | "dvh" | "screen" | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6";
-	boxSize: "auto" | Tokens["sizes"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "1/5" | "2/5" | "3/5" | "4/5" | "1/6" | "2/6" | "3/6" | "4/6" | "5/6" | "1/12" | "2/12" | "3/12" | "4/12" | "5/12" | "6/12" | "7/12" | "8/12" | "9/12" | "10/12" | "11/12" | "screen";
+	width:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
+	inlineSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
+	minWidth:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
+	minInlineSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
+	maxWidth:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
+	maxInlineSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
+	height:
+		| "auto"
+		| Tokens["sizes"]
+		| "svh"
+		| "lvh"
+		| "dvh"
+		| "screen"
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6";
+	blockSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "svh"
+		| "lvh"
+		| "dvh"
+		| "screen"
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6";
+	minHeight:
+		| "auto"
+		| Tokens["sizes"]
+		| "svh"
+		| "lvh"
+		| "dvh"
+		| "screen"
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6";
+	minBlockSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "svh"
+		| "lvh"
+		| "dvh"
+		| "screen"
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6";
+	maxHeight:
+		| "auto"
+		| Tokens["sizes"]
+		| "svh"
+		| "lvh"
+		| "dvh"
+		| "screen"
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6";
+	maxBlockSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "svh"
+		| "lvh"
+		| "dvh"
+		| "screen"
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6";
+	boxSize:
+		| "auto"
+		| Tokens["sizes"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "1/5"
+		| "2/5"
+		| "3/5"
+		| "4/5"
+		| "1/6"
+		| "2/6"
+		| "3/6"
+		| "4/6"
+		| "5/6"
+		| "1/12"
+		| "2/12"
+		| "3/12"
+		| "4/12"
+		| "5/12"
+		| "6/12"
+		| "7/12"
+		| "8/12"
+		| "9/12"
+		| "10/12"
+		| "11/12"
+		| "screen";
 	color: Tokens["colors"];
 	fontFamily: Tokens["fonts"];
 	fontSize: Tokens["fontSizes"];
@@ -108,9 +467,33 @@ export interface UtilityValues {
 	truncate: boolean;
 	background: Tokens["colors"];
 	backgroundColor: Tokens["colors"];
-	backgroundGradient: "to-t" | "to-tr" | "to-r" | "to-br" | "to-b" | "to-bl" | "to-l" | "to-tl";
-	backgroundLinear: "to-t" | "to-tr" | "to-r" | "to-br" | "to-b" | "to-bl" | "to-l" | "to-tl";
-	textGradient: "to-t" | "to-tr" | "to-r" | "to-br" | "to-b" | "to-bl" | "to-l" | "to-tl";
+	backgroundGradient:
+		| "to-t"
+		| "to-tr"
+		| "to-r"
+		| "to-br"
+		| "to-b"
+		| "to-bl"
+		| "to-l"
+		| "to-tl";
+	backgroundLinear:
+		| "to-t"
+		| "to-tr"
+		| "to-r"
+		| "to-br"
+		| "to-b"
+		| "to-bl"
+		| "to-l"
+		| "to-tl";
+	textGradient:
+		| "to-t"
+		| "to-tr"
+		| "to-r"
+		| "to-br"
+		| "to-b"
+		| "to-bl"
+		| "to-l"
+		| "to-tl";
 	gradientFrom: Tokens["colors"];
 	gradientTo: Tokens["colors"];
 	gradientVia: Tokens["colors"];
@@ -164,9 +547,62 @@ export interface UtilityValues {
 	transitionDelay: Tokens["durations"];
 	transitionDuration: Tokens["durations"];
 	transitionProperty: "common" | "colors" | "size" | "position" | "background";
-	transition: "all" | "common" | "size" | "position" | "background" | "colors" | "opacity" | "shadow" | "transform";
+	transition:
+		| "all"
+		| "common"
+		| "size"
+		| "position"
+		| "background"
+		| "colors"
+		| "opacity"
+		| "shadow"
+		| "transform";
 	animation: Tokens["animations"];
-	animationName: "pulse" | "marquee-x" | "marquee-y" | "fade-in" | "fade-out" | "rotate-in" | "rotate-out" | "spin" | "ping" | "bounce" | "shake" | "nudge-up" | "press" | "pop" | "slide-up" | "slide-down" | "slide-left" | "slide-right" | "slide-down-fade" | "slide-up-fade" | "slide-in-bottom" | "slide-out-bottom" | "slide-in-top" | "slide-out-top" | "slide-in-left" | "slide-out-left" | "slide-in-right" | "slide-out-right" | "scale-in" | "scale-out" | "scale-fade-in" | "scale-fade-out" | "flip-in" | "flip-out" | "shine" | "float" | "breath" | "expand-height" | "collapse-height" | "expand-width" | "collapse-width" | "progress-linear" | "progress-circular";
+	animationName:
+		| "pulse"
+		| "marquee-x"
+		| "marquee-y"
+		| "fade-in"
+		| "fade-out"
+		| "rotate-in"
+		| "rotate-out"
+		| "slide-up"
+		| "slide-down"
+		| "slide-left"
+		| "slide-right"
+		| "slide-down-fade"
+		| "slide-up-fade"
+		| "slide-in-bottom"
+		| "slide-out-bottom"
+		| "slide-in-top"
+		| "slide-out-top"
+		| "slide-in-left"
+		| "slide-out-left"
+		| "slide-in-right"
+		| "slide-out-right"
+		| "scale-in"
+		| "scale-out"
+		| "scale-fade-in"
+		| "scale-fade-out"
+		| "flip-in"
+		| "flip-out"
+		| "expand-height"
+		| "collapse-height"
+		| "expand-width"
+		| "collapse-width"
+		| "progress-linear"
+		| "progress-circular"
+		| "spin"
+		| "ping"
+		| "bounce"
+		| "shake"
+		| "nudge-up"
+		| "press"
+		| "pop"
+		| "shine"
+		| "float"
+		| "breath"
+		| "shimmer";
 	animationTimingFunction: Tokens["easings"];
 	animationDuration: Tokens["durations"];
 	animationDelay: Tokens["durations"];
@@ -176,9 +612,54 @@ export interface UtilityValues {
 	rotateZ: CssProperties["rotate"];
 	scale: "auto" | CssProperties["scale"];
 	translate: "auto" | "auto-3d" | CssProperties["translate"];
-	translateX: Tokens["spacing"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "full" | "-1/2" | "-1/3" | "-2/3" | "-1/4" | "-2/4" | "-3/4" | "-full";
-	translateY: Tokens["spacing"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "full" | "-1/2" | "-1/3" | "-2/3" | "-1/4" | "-2/4" | "-3/4" | "-full";
-	translateZ: Tokens["spacing"] | "1/2" | "1/3" | "2/3" | "1/4" | "2/4" | "3/4" | "full" | "-1/2" | "-1/3" | "-2/3" | "-1/4" | "-2/4" | "-3/4" | "-full";
+	translateX:
+		| Tokens["spacing"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "full"
+		| "-1/2"
+		| "-1/3"
+		| "-2/3"
+		| "-1/4"
+		| "-2/4"
+		| "-3/4"
+		| "-full";
+	translateY:
+		| Tokens["spacing"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "full"
+		| "-1/2"
+		| "-1/3"
+		| "-2/3"
+		| "-1/4"
+		| "-2/4"
+		| "-3/4"
+		| "-full";
+	translateZ:
+		| Tokens["spacing"]
+		| "1/2"
+		| "1/3"
+		| "2/3"
+		| "1/4"
+		| "2/4"
+		| "3/4"
+		| "full"
+		| "-1/2"
+		| "-1/3"
+		| "-2/3"
+		| "-1/4"
+		| "-2/4"
+		| "-3/4"
+		| "-full";
 	accentColor: Tokens["colors"];
 	caretColor: Tokens["colors"];
 	scrollbar: "visible" | "hidden";
@@ -222,17 +703,38 @@ export interface UtilityValues {
 	flexWrap: CssProperties["flexWrap"];
 	gridRowEnd: CssProperties["gridRowEnd"];
 	gridRowStart: CssProperties["gridRowStart"];
-	colorPalette: "current" | "transparent" | "white" | "black" | "amber" | "blue" | "green" | "neutral" | "orange" | "red" | "fg" | "icon" | "accent" | "warning" | "success" | "destructive" | "stroke" | "surface";
+	colorPalette:
+		| "current"
+		| "transparent"
+		| "white"
+		| "black"
+		| "amber"
+		| "blue"
+		| "green"
+		| "neutral"
+		| "orange"
+		| "red"
+		| "fg"
+		| "icon"
+		| "accent"
+		| "warning"
+		| "success"
+		| "destructive"
+		| "stroke"
+		| "surface"
+		| "mix";
 }
 
+type WithColorOpacityModifier<T> = [T] extends [string]
+	? `${T}/${string}` & { __colorOpacityModifier?: true }
+	: never;
 
-
-type WithColorOpacityModifier<T> = [T] extends [string] ? `${T}/${string}` & { __colorOpacityModifier?: true } : never
-
-type ImportantMark = "!" | "!important"
-type WhitespaceImportant = ` ${ImportantMark}`
-type Important = ImportantMark | WhitespaceImportant
-type WithImportant<T> = [T] extends [string] ? `${T}${Important}` & { __important?: true } : never
+type ImportantMark = "!" | "!important";
+type WhitespaceImportant = ` ${ImportantMark}`;
+type Important = ImportantMark | WhitespaceImportant;
+type WithImportant<T> = [T] extends [string]
+	? `${T}${Important}` & { __important?: true }
+	: never;
 
 /**
  * Only relevant when using `strictTokens` or `strictPropertyValues` in your config.
@@ -250,7 +752,11 @@ type WithImportant<T> = [T] extends [string] ? `${T}${Important}` & { __importan
  * @see https://panda-css.com/docs/concepts/writing-styles#stricttokens
  * @see https://panda-css.com/docs/concepts/writing-styles#strictpropertyvalues
  */
-export type WithEscapeHatch<T> = T | `[${string}]` | WithColorOpacityModifier<T> | WithImportant<T>
+export type WithEscapeHatch<T> =
+	| T
+	| `[${string}]`
+	| WithColorOpacityModifier<T>
+	| WithImportant<T>;
 
 /**
  * Will restrict the value of properties that have predefined values to those values only.
@@ -263,5 +769,7 @@ export type WithEscapeHatch<T> = T | `[${string}]` | WithColorOpacityModifier<T>
  * @see https://panda-css.com/docs/concepts/writing-styles#strictpropertyvalues
  */
 export type OnlyKnown<Key, Value> = Value extends boolean
-  ? Value
-  : Value extends `${infer _}` ? Value : never
+	? Value
+	: Value extends `${infer _}`
+		? Value
+		: never;

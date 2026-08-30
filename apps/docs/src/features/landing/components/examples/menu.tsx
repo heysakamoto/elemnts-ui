@@ -12,9 +12,9 @@ export function MenuExample() {
 			<Menu.Trigger asChild>
 				<Button
 					variant="surface"
-					rounded="24"
+					size="sm"
 				>
-					View
+					Options
 				</Button>
 			</Menu.Trigger>
 			<Portal>
@@ -23,15 +23,17 @@ export function MenuExample() {
 						<Surface
 							w="8rem"
 							delta={1}
-							rounded="24"
+							rounded="20"
+							colorPalette="neutral"
 						>
 							<Surface.Content p="4">
 								{options.map((option) => (
 									<Menu.Item
+										asChild
 										key={option.value}
 										value={option.value}
 									>
-										<Item rounded="20">
+										<Item size="sm">
 											<Menu.ItemText>{option.label}</Menu.ItemText>
 										</Item>
 									</Menu.Item>

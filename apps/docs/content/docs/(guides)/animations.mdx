@@ -3,78 +3,117 @@ title: Animations
 description: Add smooth animations and transitions to Moto UI components.
 ---
 
-<Example name="base:animations" />
+Moto UI makes it easy to bring your interfaces to life with smooth, polished animations. Whether you're adding subtle transitions or eye-catching effects, our built-in animations help you create engaging experiences without writing complex CSS.
 
-Moto UI provides a comprehensive set of built-in keyframes and animation tokens to help you create engaging and smooth user interfaces. Leveraging Panda CSS, you can apply animations directly via props or define reusable animation styles.
+## Built-in Animations
 
-## Built-in Keyframes
-
-Moto UI includes a variety of predefined keyframes that you can use with the `animation` prop.
+We’ve grouped animations by their purpose to help you find the perfect effect for your use case.
 
 ### Fades & Scales
-- `fade-in` / `fade-out`
-- `scale-in` / `scale-out`
-- `scale-fade-in` / `scale-fade-out`
+Add smooth opacity or size transitions for elements entering or leaving the screen.
+- `fade-in` / `fade-out` – Gradually fade elements in or out.
+- `scale-in` / `scale-out` – Grow or shrink elements smoothly.
+- `scale-fade-in` / `scale-fade-out` – Combine scaling and fading for a polished effect.
 
 ### Slides
-- `slide-up` / `slide-down`
-- `slide-left` / `slide-right`
-- `slide-down-fade` / `slide-up-fade`
+Move elements in or out of view with directional transitions.
+- `slide-up` / `slide-down` – Vertical movement.
+- `slide-left` / `slide-right` – Horizontal movement.
+- `slide-down-fade` / `slide-up-fade` – Slide while fading for a natural feel.
 
 ### Attention & Feedback
-- `pulse`: Soft background color pulse.
-- `spin`: Linear rotation.
-- `ping`: Scaling effect for notifications.
-- `bounce`: Vertical bounce.
-- `shake`: Horizontal shake.
-- `float`: Gentle vertical floating.
-- `breath`: Soft opacity breathing.
+Use these to highlight actions, draw attention, or provide feedback.
+- `pulse` – A gentle background color pulse for subtle emphasis.
+- `spin` – A smooth, continuous rotation.
+- `ping` – A scaling “notification” effect, great for alerts.
+- `bounce` – A playful vertical bounce.
+- `shake` – A quick horizontal shake to indicate an error or warning.
+- `float` – A gentle, floating motion for decorative or status elements.
+- `breath` – A soft, rhythmic opacity change for breathing effects.
 
 ### Specialized
-- `rotate-in` / `rotate-out`
-- `flip-in` / `flip-out`
-- `marquee-x` / `marquee-y`
-- `expand-height` / `collapse-height`
+Unique animations for specific interactions.
+- `rotate-in` / `rotate-out` – Rotate elements into or out of view.
+- `flip-in` / `flip-out` – Flip effects for cards or panels.
+- `marquee-x` / `marquee-y` – Horizontal or vertical scrolling text.
+- `expand-height` / `collapse-height` – Animate height changes smoothly.
 
-## Usage
+---
 
-### Standard Animation Prop
-You can use the `animation` prop to apply any keyframe. It supports the standard CSS animation shorthand.
+## Quick Start
+
+Apply animations in seconds using the `animation` prop. Just pick an animation and customize its speed and easing.
 
 ```tsx
 import { Box } from "@moto-ui/react";
 
+// Fade in a box over half a second
 <Box animation="fade-in 0.5s ease-out" />
+
+// Spin an icon continuously
+<Icon animation="spin" />
+
+// Pulse a button for attention
+<Button animation="pulse">Click Me</Button>
 ```
 
-### Animation Tokens
-We provide pre-composed animation tokens for common use cases:
+---
 
-- `animation="spin"`: `spin 1s linear infinite`
-- `animation="pulse"`: `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite`
-- `animation="ping"`: `ping 1s cubic-bezier(0, 0, 0.2, 1) infinite`
-- `animation="bounce"`: `bounce 1s infinite`
+## Animation Presets
 
-### Durations & Easings
-Use tokens for consistent timing and feel:
+For common use cases, we’ve created pre-configured animation presets. These include timing, easing, and repetition so you don’t have to.
+
+| Preset | Example | Use Case |
+|--------|--------|----------|
+| `spin` | `spin 1s linear infinite` | Loading indicators, rotating icons |
+| `pulse` | `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite` | Subtle emphasis, status indicators |
+| `ping` | `ping 1s cubic-bezier(0, 0, 0.2, 1) infinite` | Notifications, alerts |
+| `bounce` | `bounce 1s infinite` | Playful feedback, success states |
+
+```tsx
+<Box animation="pulse" />  {/* Pulsing background */}
+<Spinner animation="spin" />  {/* Spinning loader */}
+```
+
+---
+
+## Custom Timing & Easing
+
+Control the speed and feel of animations with built-in timing tokens and easing functions.
+
+### Durations
+Choose from a range of standard durations to keep your animations consistent.
+
+| Token | Duration |
+|-------|----------|
+| `fastest` | 50ms |
+| `faster` | 100ms |
+| `fast` | 150ms |
+| `moderate` | 200ms |
+| `slow` | 300ms |
+| `slower` | 400ms |
+| `slowest` | 500ms |
+
+### Easing Functions
+Pick an easing curve to control acceleration and deceleration.
 
 ```tsx
 <Box
   animationName="fade-in"
-  animationDuration="moderate" // 200ms
-  animationTimingFunction="ease-in-smooth"
+  animationDuration="moderate"  // 200ms
+  animationTimingFunction="ease-in-smooth"  // Smooth start
 />
 ```
 
-Available durations: `fastest` (50ms), `faster` (100ms), `fast` (150ms), `moderate` (200ms), `slow` (300ms), `slower` (400ms), `slowest` (500ms).
-
 ---
 
-## Animation Styles (Advanced)
+## Reusable Animation Styles
 
-`animationStyles` allow you to create high-level, reusable animation presets. These are defined in your Panda config and can be applied via the `animationStyle` prop.
+For complex or reusable animations, define **animation styles** in your Panda CSS config. These let you create named presets that can be applied across your app with a single prop.
 
-### Defining Animation Styles
+### Define a Style
+Add a reusable animation style in your config:
+
 ```ts
 import { defineAnimationStyles } from '@pandacss/dev'
 
@@ -85,19 +124,32 @@ export const animationStyles = defineAnimationStyles({
       animationDuration: 'fast',
       animationTimingFunction: 'ease-out'
     }
+  },
+  'toast-in': {
+    value: {
+      animationName: 'slide-up',
+      animationDuration: 'moderate',
+      animationTimingFunction: 'ease-out'
+    }
   }
 })
 ```
 
-### Using Animation Styles
+### Use It Anywhere
+Apply your custom style with the `animationStyle` prop:
+
 ```tsx
-<Button animationStyle="slide-fade-in">
-  Click Me
-</Button>
+<Toast animationStyle="toast-in">
+  Your message here
+</Toast>
+
+<Card animationStyle="slide-fade-in">
+  Content
+</Card>
 ```
 
-### Nested Styles
-You can define variants with a `DEFAULT` fallback:
+### Create Variants
+Define multiple versions of a style (e.g., fast/slow):
 
 ```ts
 animationStyles: {
@@ -108,18 +160,65 @@ animationStyles: {
 }
 ```
 
-## Keyframes vs Animation Styles
+Use them like this:
+```tsx
+<Box animationStyle="fade.fast">Quick fade</Box>
+<Box animationStyle="fade">Standard fade</Box>
+```
+
+---
+
+## Keyframes vs. Animation Styles
 
 | Feature | Keyframes | Animation Styles |
-| :--- | :--- | :--- |
+|--------|-----------|------------------|
 | **Level** | Low-level building blocks | High-level reusable presets |
-| **Purpose** | Defines the "how" (steps) | Defines the "what" (preset) |
-| **Prop** | `animation` / `animationName` | `animationStyle` |
-| **Composition** | Manual per component | Pre-composed in theme |
+| **Purpose** | Define *how* an animation runs (steps, timing) | Define *what* animation to use (preset) |
+| **Prop** | `animation` or `animationName` | `animationStyle` |
+| **Flexibility** | High (you control every detail) | Low (pre-configured) |
+| **Reusability** | Per-component | Global, reusable |
+
+💡 **Tip**: Use **keyframes** for one-off animations. Use **animation styles** for patterns you reuse often.
+
+---
 
 ## Best Practices
 
-- **Judicious Use**: Avoid over-animating. Use motion to guide attention or provide feedback, not to distract.
-- **Accessibility**: Respect user preferences for reduced motion. Use `_motionReduce` modifiers or check `prefers-reduced-motion`.
-- **Consistency**: Stick to the built-in durations and easings to maintain a cohesive feel across your application.
-- **Performance**: Prefer `transform` and `opacity` animations as they are GPU-accelerated and don't trigger layout shifts.
+✅ **Use animations purposefully** – Guide attention, confirm actions, or delight users—don’t animate just to animate.
+
+✅ **Respect user preferences** – Some users prefer reduced motion. Moto UI supports this automatically. You can also use `_motionReduce` modifiers or check `prefers-reduced-motion` in your app.
+
+✅ **Keep it consistent** – Stick to built-in durations and easings to maintain a cohesive feel across your app.
+
+✅ **Prioritize performance** – Prefer animations that use `transform` and `opacity`, as they’re GPU-accelerated and don’t cause layout shifts.
+
+🚫 **Avoid overdoing it** – Too many animations can overwhelm users and slow down your app.
+
+---
+
+## Examples
+
+### Fade In on Mount
+```tsx
+<Box animation="fade-in 0.3s ease-out">
+  This appears when the component loads
+</Box>
+```
+
+### Slide-Up Modal
+```tsx
+<Modal animationStyle="slide-fade-in">
+  Modal content
+</Modal>
+```
+
+### Pulsing CTA Button
+```tsx
+<Button
+  animation="pulse"
+  animationDuration="slow"
+  animationTimingFunction="ease-in-out"
+>
+  Get Started
+</Button>
+```

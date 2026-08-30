@@ -17,7 +17,7 @@ export const timerRecipe = defineSlotRecipe({
 			display: "flex",
 			alignItems: "center",
 			fontSize: "{fontSizes.16}",
-			lineHeight: "{lineHeights.none}",
+			gap: "calc({spacing.4} * 1)",
 		},
 		control: {
 			display: "flex",
@@ -31,15 +31,15 @@ export const timerRecipe = defineSlotRecipe({
 			fontVariantNumeric: "tabular-nums lining-nums",
 		},
 		item: {
-			fontWeight: "500",
-			fontSize: "inherit",
+			fontSize: "28px",
+			lineHeight: "1.2",
 			fontVariantNumeric: "inherit",
 			fontFeatureSettings: "inherit",
-			lineHeight: "{lineHeights.none}",
 		},
 		separator: {
-			fontSize: "inherit",
-			lineHeight: "inherit",
+			fontWeight: "500",
+			lineHeight: "1.33",
+			fontSize: "{fontSizes.24}",
 		},
 	},
 });

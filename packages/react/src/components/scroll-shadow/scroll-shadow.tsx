@@ -1,8 +1,7 @@
 import { type ComponentProps, forwardRef } from "react";
-
-import { useScrollShadow } from "./client";
 import { styled } from "../../../styled-system/jsx";
 import { scrollShadowRecipe } from "../../../styled-system/recipes";
+import { useScrollShadow } from "./client";
 
 const Styled = styled("div", scrollShadowRecipe);
 
@@ -14,15 +13,15 @@ export const ScrollShadow = forwardRef<HTMLDivElement, ScrollShadowBaseProps>(
 	(props, forwardedRef) => {
 		const { size = 40, style = {}, ...rest } = props;
 
-    const {
-      ref,
-      atTop,
-      atLeft,
-      atRight,
-      atBottom,
-      hasOverflowY,
-      hasOverflowX,
-    } = useScrollShadow<HTMLDivElement>();
+		const {
+			ref,
+			atTop,
+			atLeft,
+			atRight,
+			atBottom,
+			hasOverflowY,
+			hasOverflowX,
+		} = useScrollShadow<HTMLDivElement>();
 
 		const STYLE = {
 			"--scroll-shadow-size": `${size}px`,

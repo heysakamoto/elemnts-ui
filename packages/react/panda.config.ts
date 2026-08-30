@@ -6,5 +6,9 @@ export default defineConfig({
 	presets: [basePreset],
 	jsxFramework: "react",
 	outdir: "styled-system",
-  include: ["./src/**/*.{ts,tsx}"],
+	include: [
+		".storybook/preview.tsx",
+		"src/components/**/*.tsx",
+		"dist/buildinfo.json",
+	],
 });

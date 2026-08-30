@@ -1,69 +1,54 @@
 import { defineRecipe } from "@pandacss/dev";
+import { size } from "../constants/size";
+import { inputRecipe } from "./input";
 
 export const textareaRecipe = defineRecipe({
 	className: "textarea",
 	base: {
-		"--textarea-py": "calc(var(--textarea-size) / 5)",
-		"--textarea-px": "calc(var(--textarea-size) * 0.3)",
-
-		w: "{sizes.full}",
-		border: "1px solid",
-		alignItems: "start",
-		fontFamily: "inherit",
-		rounded: "{radii.12}",
-		display: "inline-flex",
-		justifyContent: "start",
-		fontSize: "{fontSizes.14}",
-		lineHeight: "{lineHeights.sm}",
-		minH: "var(--textarea-size, auto)",
-		shadow: "var(--textarea-shadow, none)",
-		bgColor: "var(--textarea-bg, transparent)",
-		p: "var(--textarea-py) var(--textarea-px)",
-		borderColor: "var(--textarea-border-color, {colors.transparent})",
-
-		_focusVisible: {
-			outlineOffset: "-1px",
-			outline: "2px solid {colors.accent.primary}",
-		},
-
-		"&:is(:invalid, [data-invalid], [aria-invalid=true])": {
-			outlineOffset: "-1px",
-			outline: "2px solid {colors.destructive.primary}",
-		},
-
-		_disabled: {
-			filter: "grayscale(50%)",
-		},
+		...inputRecipe.base,
 	},
 	variants: {
 		size: {
 			xs: {
-				"--textarea-size": "calc({sizes.4} * 6)",
+				py: size.xs.paddingBlock,
+				px: size.xs.paddingInline,
+				fontSize: size.xs.fontSize,
+				lineHeight: size.xs.lineHeight,
 			},
 			sm: {
-				"--textarea-size": "calc({sizes.4} * 7)",
+				py: size.sm.paddingBlock,
+				px: size.sm.paddingInline,
+				fontSize: size.sm.fontSize,
+				lineHeight: size.sm.lineHeight,
 			},
 			md: {
-				"--textarea-size": "calc({sizes.4} * 8)",
+				py: size.md.paddingBlock,
+				px: size.md.paddingInline,
+				fontSize: size.md.fontSize,
+				lineHeight: size.md.lineHeight,
 			},
 			lg: {
-				"--textarea-size": "calc({sizes.4} * 9)",
+				py: size.lg.paddingBlock,
+				px: size.lg.paddingInline,
+				fontSize: size.lg.fontSize,
+				lineHeight: size.lg.lineHeight,
 			},
 			xl: {
-				"--textarea-size": "calc({sizes.4} * 10)",
+				py: size.xl.paddingBlock,
+				px: size.xl.paddingInline,
+				fontSize: size.xl.fontSize,
+				lineHeight: size.xl.lineHeight,
 			},
 		},
 		variant: {
 			primary: {
-				"--textarea-shadow": "{shadows.2}",
-				"--textarea-bg": "{colors.bg.tertiary}",
-				"--textarea-border-color": "{colors.stroke.secondary}",
+				...inputRecipe.variants?.variant?.primary,
 			},
 			secondary: {
-				"--textarea-bg": "{colors.bg.secondary}",
+				...inputRecipe.variants?.variant?.secondary,
 			},
 			tertiary: {
-				"--textarea-bg": "{colors.transparent}",
+				...inputRecipe.variants?.variant?.tertiary,
 			},
 		},
 	},

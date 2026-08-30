@@ -50,9 +50,30 @@ Place `Kbd` within text to render keys inline
 
 
 ## API Reference
+
+### KbdGroup
+Groups multiple kbd component together
+
 | Prop | Type | Default |
 | --- | --- | --- |
-| colorPalette | `'accent' \| 'neutral' \| 'warning' \| 'success' \| 'destructive'` | accent | The color palette of the component |
-| variant | `'primary' \| 'secondary' \| 'tertiary' \| 'surface' \| 'ghost'` | primary | The variant of the component |
-| as | `React.ElementType` | undefined |
-| asChild | `boolean` | undefined |
+| variant | `'primary' \| 'secondary' \| 'tertiary' \| 'surface' \| 'ghost'` | `primary` |
+| as | `React.ElementType` | `undefined` |
+| asChild | `boolean` | `undefined` |
+
+### KbdGroupSeparator
+Separates kbd within a group
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| variant | `'primary' \| 'secondary' \| 'tertiary' \| 'surface' \| 'ghost'` | `primary` |
+| as | `React.ElementType` | `undefined` |
+| asChild | `boolean` | `undefined` |
+
+### Kbd
+Renders a kbd component
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| variant | `'primary' \| 'secondary' \| 'tertiary' \| 'surface' \| 'ghost'` | `primary` |
+| as | `React.ElementType` | `undefined` |
+| asChild | `boolean` | `undefined` |

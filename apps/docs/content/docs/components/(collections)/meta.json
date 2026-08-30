@@ -1,6 +1,6 @@
 {
-  "collapsible": true,
-  "defaultOpen": false,
-  "title": "Collections",
-  "pages": ["..."]
+	"collapsible": true,
+	"defaultOpen": false,
+	"title": "Collections",
+	"pages": ["..."]
 }

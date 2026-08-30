@@ -1,4 +1,0 @@
-name = "moto-ui-storybook"
-compatibility_date = "2026-05-21"
-
-pages_build_output_dir = "./storybook-static"

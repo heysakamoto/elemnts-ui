@@ -5,13 +5,11 @@ import {
 	Section,
 	Separator,
 	Stack,
-	VisuallyHidden,
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
-
+import { Logo } from "@/components/base/logo";
 import { ROOTLAYOUT_URLS } from "./constants";
 import { RootLayoutMobileNav } from "./mobile-nav";
-import { Logo } from "@/components/base/logo";
 
 export function RootLayoutHeader() {
 	return (
@@ -31,31 +29,27 @@ export function RootLayoutHeader() {
 					align="center"
 					justify="space-between"
 				>
-					<Link to="/">
-						<VisuallyHidden>Go to homepage</VisuallyHidden>
-						<Logo.Wordmark
-							width="96"
-							height="96"
-							style={{ marginLeft: -8 }}
-						/>
-					</Link>
+					<Logo />
 					<Stack
 						align="center"
 						justify="end"
 					>
 						<RootLayoutMobileNav />
 						<ButtonGroup
-							gap="4"
-							size="lg"
-							hideBelow="lg"
+							hideBelow="md"
 							variant="ghost"
 						>
 							<For each={ROOTLAYOUT_URLS}>
 								{(url) => (
 									<ButtonGroup.Item
 										asChild
-										fontSize="13"
 										key={url.id}
+										fontWeight="500"
+										css={{
+											"&:not(:hover)": {
+												color: "fg.secondary",
+											},
+										}}
 									>
 										<Link
 											to={url.url}

@@ -8,215 +8,237 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as RootRouteImport } from './routes/_root'
-import { Route as LlmsFullDottxtRouteImport } from './routes/llms-full[.]txt'
-import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
-import { Route as PreviewRouteImport } from './routes/preview'
-import { Route as RootIndexRouteImport } from './routes/_root/index'
-import { Route as ApiSearchRouteImport } from './routes/api/search'
-import { Route as DocsSplatRouteImport } from './routes/docs/$'
-import { Route as DocsChar123Char125DotmdRouteImport } from './routes/docs/{$}[.]md'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as RootRouteImport } from "./routes/_root";
+import { Route as RootIndexRouteImport } from "./routes/_root/index";
+import { Route as RootSponsorRouteImport } from "./routes/_root/sponsor";
+import { Route as ApiSearchRouteImport } from "./routes/api/search";
+import { Route as DocsSplatRouteImport } from "./routes/docs/$";
+import { Route as DocsChar123Char125DotmdRouteImport } from "./routes/docs/{$}[.]md";
+import { Route as LlmsFullDottxtRouteImport } from "./routes/llms-full[.]txt";
+import { Route as LlmsDottxtRouteImport } from "./routes/llms[.]txt";
+import { Route as PreviewRouteImport } from "./routes/preview";
 
 const RootRoute = RootRouteImport.update({
-  id: '/_root',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/_root",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const LlmsFullDottxtRoute = LlmsFullDottxtRouteImport.update({
-  id: '/llms-full.txt',
-  path: '/llms-full.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/llms-full.txt",
+	path: "/llms-full.txt",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
-  id: '/llms.txt',
-  path: '/llms.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/llms.txt",
+	path: "/llms.txt",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const PreviewRoute = PreviewRouteImport.update({
-  id: '/preview',
-  path: '/preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/preview",
+	path: "/preview",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const RootIndexRoute = RootIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => RootRoute,
-} as any)
+	id: "/",
+	path: "/",
+	getParentRoute: () => RootRoute,
+} as any);
+const RootSponsorRoute = RootSponsorRouteImport.update({
+	id: "/sponsor",
+	path: "/sponsor",
+	getParentRoute: () => RootRoute,
+} as any);
 const ApiSearchRoute = ApiSearchRouteImport.update({
-  id: '/api/search',
-  path: '/api/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/api/search",
+	path: "/api/search",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const DocsSplatRoute = DocsSplatRouteImport.update({
-  id: '/docs/$',
-  path: '/docs/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/docs/$",
+	path: "/docs/$",
+	getParentRoute: () => rootRouteImport,
+} as any);
 const DocsChar123Char125DotmdRoute = DocsChar123Char125DotmdRouteImport.update({
-  id: '/docs/{$}.md',
-  path: '/docs/{$}.md',
-  getParentRoute: () => rootRouteImport,
-} as any)
+	id: "/docs/{$}.md",
+	path: "/docs/{$}.md",
+	getParentRoute: () => rootRouteImport,
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof RootIndexRoute
-  '/llms-full.txt': typeof LlmsFullDottxtRoute
-  '/llms.txt': typeof LlmsDottxtRoute
-  '/preview': typeof PreviewRoute
-  '/api/search': typeof ApiSearchRoute
-  '/docs/$': typeof DocsSplatRoute
-  '/docs/{$}.md': typeof DocsChar123Char125DotmdRoute
+	"/": typeof RootIndexRoute;
+	"/llms-full.txt": typeof LlmsFullDottxtRoute;
+	"/llms.txt": typeof LlmsDottxtRoute;
+	"/preview": typeof PreviewRoute;
+	"/sponsor": typeof RootSponsorRoute;
+	"/api/search": typeof ApiSearchRoute;
+	"/docs/$": typeof DocsSplatRoute;
+	"/docs/{$}.md": typeof DocsChar123Char125DotmdRoute;
 }
 export interface FileRoutesByTo {
-  '/llms-full.txt': typeof LlmsFullDottxtRoute
-  '/llms.txt': typeof LlmsDottxtRoute
-  '/preview': typeof PreviewRoute
-  '/api/search': typeof ApiSearchRoute
-  '/docs/$': typeof DocsSplatRoute
-  '/docs/{$}.md': typeof DocsChar123Char125DotmdRoute
-  '/': typeof RootIndexRoute
+	"/llms-full.txt": typeof LlmsFullDottxtRoute;
+	"/llms.txt": typeof LlmsDottxtRoute;
+	"/preview": typeof PreviewRoute;
+	"/sponsor": typeof RootSponsorRoute;
+	"/api/search": typeof ApiSearchRoute;
+	"/docs/$": typeof DocsSplatRoute;
+	"/docs/{$}.md": typeof DocsChar123Char125DotmdRoute;
+	"/": typeof RootIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/_root': typeof RootRouteWithChildren
-  '/llms-full.txt': typeof LlmsFullDottxtRoute
-  '/llms.txt': typeof LlmsDottxtRoute
-  '/preview': typeof PreviewRoute
-  '/api/search': typeof ApiSearchRoute
-  '/docs/$': typeof DocsSplatRoute
-  '/docs/{$}.md': typeof DocsChar123Char125DotmdRoute
-  '/_root/': typeof RootIndexRoute
+	__root__: typeof rootRouteImport;
+	"/_root": typeof RootRouteWithChildren;
+	"/llms-full.txt": typeof LlmsFullDottxtRoute;
+	"/llms.txt": typeof LlmsDottxtRoute;
+	"/preview": typeof PreviewRoute;
+	"/_root/sponsor": typeof RootSponsorRoute;
+	"/api/search": typeof ApiSearchRoute;
+	"/docs/$": typeof DocsSplatRoute;
+	"/docs/{$}.md": typeof DocsChar123Char125DotmdRoute;
+	"/_root/": typeof RootIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/llms-full.txt'
-    | '/llms.txt'
-    | '/preview'
-    | '/api/search'
-    | '/docs/$'
-    | '/docs/{$}.md'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/llms-full.txt'
-    | '/llms.txt'
-    | '/preview'
-    | '/api/search'
-    | '/docs/$'
-    | '/docs/{$}.md'
-    | '/'
-  id:
-    | '__root__'
-    | '/_root'
-    | '/llms-full.txt'
-    | '/llms.txt'
-    | '/preview'
-    | '/api/search'
-    | '/docs/$'
-    | '/docs/{$}.md'
-    | '/_root/'
-  fileRoutesById: FileRoutesById
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths:
+		| "/"
+		| "/llms-full.txt"
+		| "/llms.txt"
+		| "/preview"
+		| "/sponsor"
+		| "/api/search"
+		| "/docs/$"
+		| "/docs/{$}.md";
+	fileRoutesByTo: FileRoutesByTo;
+	to:
+		| "/llms-full.txt"
+		| "/llms.txt"
+		| "/preview"
+		| "/sponsor"
+		| "/api/search"
+		| "/docs/$"
+		| "/docs/{$}.md"
+		| "/";
+	id:
+		| "__root__"
+		| "/_root"
+		| "/llms-full.txt"
+		| "/llms.txt"
+		| "/preview"
+		| "/_root/sponsor"
+		| "/api/search"
+		| "/docs/$"
+		| "/docs/{$}.md"
+		| "/_root/";
+	fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  RootRoute: typeof RootRouteWithChildren
-  LlmsFullDottxtRoute: typeof LlmsFullDottxtRoute
-  LlmsDottxtRoute: typeof LlmsDottxtRoute
-  PreviewRoute: typeof PreviewRoute
-  ApiSearchRoute: typeof ApiSearchRoute
-  DocsSplatRoute: typeof DocsSplatRoute
-  DocsChar123Char125DotmdRoute: typeof DocsChar123Char125DotmdRoute
+	RootRoute: typeof RootRouteWithChildren;
+	LlmsFullDottxtRoute: typeof LlmsFullDottxtRoute;
+	LlmsDottxtRoute: typeof LlmsDottxtRoute;
+	PreviewRoute: typeof PreviewRoute;
+	ApiSearchRoute: typeof ApiSearchRoute;
+	DocsSplatRoute: typeof DocsSplatRoute;
+	DocsChar123Char125DotmdRoute: typeof DocsChar123Char125DotmdRoute;
 }
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/_root': {
-      id: '/_root'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof RootRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/llms-full.txt': {
-      id: '/llms-full.txt'
-      path: '/llms-full.txt'
-      fullPath: '/llms-full.txt'
-      preLoaderRoute: typeof LlmsFullDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/llms.txt': {
-      id: '/llms.txt'
-      path: '/llms.txt'
-      fullPath: '/llms.txt'
-      preLoaderRoute: typeof LlmsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/preview': {
-      id: '/preview'
-      path: '/preview'
-      fullPath: '/preview'
-      preLoaderRoute: typeof PreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_root/': {
-      id: '/_root/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof RootIndexRouteImport
-      parentRoute: typeof RootRoute
-    }
-    '/api/search': {
-      id: '/api/search'
-      path: '/api/search'
-      fullPath: '/api/search'
-      preLoaderRoute: typeof ApiSearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/$': {
-      id: '/docs/$'
-      path: '/docs/$'
-      fullPath: '/docs/$'
-      preLoaderRoute: typeof DocsSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/{$}.md': {
-      id: '/docs/{$}.md'
-      path: '/docs/{$}.md'
-      fullPath: '/docs/{$}.md'
-      preLoaderRoute: typeof DocsChar123Char125DotmdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
+declare module "@tanstack/react-router" {
+	interface FileRoutesByPath {
+		"/_root": {
+			id: "/_root";
+			path: "";
+			fullPath: "/";
+			preLoaderRoute: typeof RootRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/llms-full.txt": {
+			id: "/llms-full.txt";
+			path: "/llms-full.txt";
+			fullPath: "/llms-full.txt";
+			preLoaderRoute: typeof LlmsFullDottxtRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/llms.txt": {
+			id: "/llms.txt";
+			path: "/llms.txt";
+			fullPath: "/llms.txt";
+			preLoaderRoute: typeof LlmsDottxtRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/preview": {
+			id: "/preview";
+			path: "/preview";
+			fullPath: "/preview";
+			preLoaderRoute: typeof PreviewRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/_root/": {
+			id: "/_root/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof RootIndexRouteImport;
+			parentRoute: typeof RootRoute;
+		};
+		"/_root/sponsor": {
+			id: "/_root/sponsor";
+			path: "/sponsor";
+			fullPath: "/sponsor";
+			preLoaderRoute: typeof RootSponsorRouteImport;
+			parentRoute: typeof RootRoute;
+		};
+		"/api/search": {
+			id: "/api/search";
+			path: "/api/search";
+			fullPath: "/api/search";
+			preLoaderRoute: typeof ApiSearchRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/docs/$": {
+			id: "/docs/$";
+			path: "/docs/$";
+			fullPath: "/docs/$";
+			preLoaderRoute: typeof DocsSplatRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+		"/docs/{$}.md": {
+			id: "/docs/{$}.md";
+			path: "/docs/{$}.md";
+			fullPath: "/docs/{$}.md";
+			preLoaderRoute: typeof DocsChar123Char125DotmdRouteImport;
+			parentRoute: typeof rootRouteImport;
+		};
+	}
 }
 
 interface RootRouteChildren {
-  RootIndexRoute: typeof RootIndexRoute
+	RootSponsorRoute: typeof RootSponsorRoute;
+	RootIndexRoute: typeof RootIndexRoute;
 }
 
 const RootRouteChildren: RootRouteChildren = {
-  RootIndexRoute: RootIndexRoute,
-}
+	RootSponsorRoute: RootSponsorRoute,
+	RootIndexRoute: RootIndexRoute,
+};
 
-const RootRouteWithChildren = RootRoute._addFileChildren(RootRouteChildren)
+const RootRouteWithChildren = RootRoute._addFileChildren(RootRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
-  RootRoute: RootRouteWithChildren,
-  LlmsFullDottxtRoute: LlmsFullDottxtRoute,
-  LlmsDottxtRoute: LlmsDottxtRoute,
-  PreviewRoute: PreviewRoute,
-  ApiSearchRoute: ApiSearchRoute,
-  DocsSplatRoute: DocsSplatRoute,
-  DocsChar123Char125DotmdRoute: DocsChar123Char125DotmdRoute,
-}
+	RootRoute: RootRouteWithChildren,
+	LlmsFullDottxtRoute: LlmsFullDottxtRoute,
+	LlmsDottxtRoute: LlmsDottxtRoute,
+	PreviewRoute: PreviewRoute,
+	ApiSearchRoute: ApiSearchRoute,
+	DocsSplatRoute: DocsSplatRoute,
+	DocsChar123Char125DotmdRoute: DocsChar123Char125DotmdRoute,
+};
 export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+	._addFileChildren(rootRouteChildren)
+	._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
+import type { createStart } from "@tanstack/react-start";
+import type { getRouter } from "./router.tsx";
+
+declare module "@tanstack/react-start" {
+	interface Register {
+		ssr: true;
+		router: Awaited<ReturnType<typeof getRouter>>;
+	}
 }

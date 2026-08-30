@@ -34,7 +34,7 @@ export const progressRecipe = defineSlotRecipe({
 			w: "{sizes.full}",
 			overflow: "hidden",
 			rounded: "{radii.full}",
-			bgColor: "{colors.bg.secondary}",
+			bgColor: "{colors.stroke.primary}",
 		},
 		range: {
 			h: "{sizes.full}",

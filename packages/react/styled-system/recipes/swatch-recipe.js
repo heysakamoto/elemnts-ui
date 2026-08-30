@@ -1,34 +1,35 @@
-import { memo, splitProps } from '../helpers.js';
-import { createRecipe, mergeRecipes } from './create-recipe.js';
+import { memo, splitProps } from "../helpers.js";
+import { createRecipe, mergeRecipes } from "./create-recipe.js";
 
-const swatchRecipeFn = /* @__PURE__ */ createRecipe('color-swatch', {
-  "size": "md"
-}, [])
+const swatchRecipeFn = /* @__PURE__ */ createRecipe(
+	"color-swatch",
+	{
+		size: "md",
+	},
+	[],
+);
 
 const swatchRecipeVariantMap = {
-  "size": [
-    "xs",
-    "sm",
-    "md",
-    "lg",
-    "xl"
-  ]
-}
+	size: ["xs", "sm", "md", "lg", "xl"],
+};
 
-const swatchRecipeVariantKeys = Object.keys(swatchRecipeVariantMap)
+const swatchRecipeVariantKeys = Object.keys(swatchRecipeVariantMap);
 
-export const swatchRecipe = /* @__PURE__ */ Object.assign(memo(swatchRecipeFn.recipeFn), {
-  __recipe__: true,
-  __name__: 'swatchRecipe',
-  __getCompoundVariantCss__: swatchRecipeFn.__getCompoundVariantCss__,
-  raw: (props) => props,
-  variantKeys: swatchRecipeVariantKeys,
-  variantMap: swatchRecipeVariantMap,
-  merge(recipe) {
-    return mergeRecipes(this, recipe)
-  },
-  splitVariantProps(props) {
-    return splitProps(props, swatchRecipeVariantKeys)
-  },
-  getVariantProps: swatchRecipeFn.getVariantProps,
-})
+export const swatchRecipe = /* @__PURE__ */ Object.assign(
+	memo(swatchRecipeFn.recipeFn),
+	{
+		__recipe__: true,
+		__name__: "swatchRecipe",
+		__getCompoundVariantCss__: swatchRecipeFn.__getCompoundVariantCss__,
+		raw: (props) => props,
+		variantKeys: swatchRecipeVariantKeys,
+		variantMap: swatchRecipeVariantMap,
+		merge(recipe) {
+			return mergeRecipes(this, recipe);
+		},
+		splitVariantProps(props) {
+			return splitProps(props, swatchRecipeVariantKeys);
+		},
+		getVariantProps: swatchRecipeFn.getVariantProps,
+	},
+);

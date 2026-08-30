@@ -7,8 +7,8 @@ import { collapsibleRecipe } from "../../../styled-system/recipes";
 const { withProvider, withContext } = createStyleContext(collapsibleRecipe);
 
 export const CollapsibleRootProvider = withProvider(
-  Collapsible.RootProvider,
-  "root",
+	Collapsible.RootProvider,
+	"root",
 );
 CollapsibleRootProvider.displayName = "CollapsibleProvider";
 
@@ -22,13 +22,19 @@ export const CollapsibleContent = withContext(Collapsible.Content, "content");
 CollapsibleContent.displayName = "CollapsibleContent";
 
 export const CollapsibleIndicator = withContext(
-  Collapsible.Indicator,
-  "indicator",
-  {
-    defaultProps: {
-      children: <Icon icon="tabler:chevron-down" width={16} height={16} />,
-    },
-  },
+	Collapsible.Indicator,
+	"indicator",
+	{
+		defaultProps: {
+			children: (
+				<Icon
+					icon="tabler:chevron-down"
+					width={16}
+					height={16}
+				/>
+			),
+		},
+	},
 );
 CollapsibleIndicator.displayName = "CollapsibleIndicator";
 

@@ -10,8 +10,8 @@ export const CheckboxRootProvider = withProvider(Checkbox.RootProvider, "root");
 CheckboxRootProvider.displayName = "CheckboxProvider";
 
 export const CheckboxGroupProvider = withProvider(
-  Checkbox.GroupProvider,
-  "root",
+	Checkbox.GroupProvider,
+	"root",
 );
 CheckboxGroupProvider.displayName = "CheckboxGroupProvider";
 
@@ -28,9 +28,15 @@ export const CheckboxControl = withContext(Checkbox.Control, "control");
 CheckboxControl.displayName = "CheckboxControl";
 
 export const CheckboxIndicator = withContext(Checkbox.Indicator, "indicator", {
-  defaultProps: {
-    children: <Icon icon="tabler-check" width={12} height={12} />,
-  },
+	defaultProps: {
+		children: (
+			<Icon
+				icon="tabler-check"
+				width={12}
+				height={12}
+			/>
+		),
+	},
 });
 CheckboxIndicator.displayName = "CheckboxIndicator";
 

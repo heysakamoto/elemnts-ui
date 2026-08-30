@@ -11,16 +11,13 @@ import {
 import { Link } from "@tanstack/react-router";
 import { Suspense } from "react";
 
-import { Sponsor } from "@/features/sponsor";
 import { LANDING_HERO_EXAMPLES } from "../constants";
 
 export function LandingHero() {
-	const sponsor = Sponsor.useContext();
-
 	return (
 		<Section
 			pb="80"
-			pt={["80", "120"]}
+			pt={["80", "96"]}
 		>
 			<Container
 				px="16"
@@ -29,20 +26,24 @@ export function LandingHero() {
 				<Text
 					as="h1"
 					lineHeight="xs"
-					letterSpacing="sm"
-					fontSize={["36", "48"]}
-					fontFamily="InstrumentSerif"
+					letterSpacing="-0.04em"
+					fontSize={["32", "36", "40"]}
 				>
-					Engineered for speed. Made to scale.
+					The ultimate UI toolkit for high-velocity teams.
 				</Text>
 				<Text
 					mt="12"
-					letterSpacing="sm"
 					color="fg.secondary"
 					fontSize={{ base: "16", md: "18" }}
 				>
-					Build fast, accessible interfaces with beautiful 100+ components —
-					powered by Ark UI and PandaCSS.
+					Accessible components for building high-quality web applications and
+					design systems faster.{" "}
+					<Text
+						as="span"
+						color="fg.primary"
+					>
+						Works with all major frameworks.
+					</Text>
 				</Text>
 				<ButtonGroup
 					mt="20"
@@ -63,11 +64,11 @@ export function LandingHero() {
 						</Link>
 					</ButtonGroup.Item>
 					<ButtonGroup.Item
+						asChild
 						rounded="16"
 						variant="secondary"
-						onClick={() => sponsor.setOpen(true)}
 					>
-						Become a Sponsor
+						<Link to="/sponsor">Become a Sponsor</Link>
 					</ButtonGroup.Item>
 				</ButtonGroup>
 			</Container>

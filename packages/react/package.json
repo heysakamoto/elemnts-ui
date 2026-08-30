@@ -29,19 +29,14 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./*": {
-      "types": "./dist/types/components/*/index.d.ts",
-      "import": "./dist/esm/components/*/index.js",
-      "require": "./dist/cjs/components/*/index.cjs"
-    },
-    "./styled/css": {
-      "types": "./dist/styled/css/index.d.ts",
-      "import": "./dist/styled/css/index.js",
-      "require": "./dist/styled/css/index.js"
+      "types": "./dist/components/*/index.d.ts",
+      "import": "./dist/components/*/index.js",
+      "require": "./dist/components/*/index.cjs"
     },
     "./styled/tokens": {
       "types": "./dist/styled/tokens/index.d.ts",
@@ -63,7 +58,7 @@
       "import": "./dist/styled/jsx/index.js",
       "require": "./dist/styled/jsx/index.js"
     },
-    "./styled/buildinfo.json": "./dist/styled/buildinfo.json"
+    "./buildinfo.json": "./dist/buildinfo.json"
   },
   "files": [
     "dist",
@@ -71,32 +66,31 @@
     "readme.md"
   ],
   "scripts": {
-    "typecheck": "tsc",
-    "dev": "tsup --watch",
-    "clean": "rm -rf dist",
     "panda:build": "panda",
-    "build": "tsup && pnpm typecheck",
-    "postbuild": "pnpm copy:styled-system",
-    "panda:ship": "panda ship --outfile dist/buildinfo.json",
-    "copy:styled-system": "cp -r styled-system dist/styled-system",
-    "prebuild": "pnpm clean && pnpm panda:build && pnpm panda:ship"
+    "dev": "tsdown --watch",
+    "postbuild": "pnpm panda:ship",
+    "prebuild": "pnpm panda:build",
+    "build": "tsdown && pnpm typecheck",
+    "storybook": "storybook dev -p 6007",
+    "typecheck": "tsc -p tsconfig.build.json",
+    "build:storybook": "storybook build -o dist-storybook",
+    "panda:ship": "panda ship --outfile dist/buildinfo.json"
   },
   "devDependencies": {
     "@pandacss/dev": "^1.11.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "tsup": "^8.5.1"
+    "tsdown": "^0.22.14"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.37.2",
+    "@ark-ui/react": "^5.39.0",
     "@dnd-kit/react": "^0.4.0",
     "@iconify/react": "^6.0.2",
     "@moto-ui/core": "workspace:*",
-    "@ncdai/react-wheel-picker": "^1.2.2",
-    "@tanstack/react-virtual": "^3.14.2"
+    "@ncdai/react-wheel-picker": "^1.2.2"
   }
 }

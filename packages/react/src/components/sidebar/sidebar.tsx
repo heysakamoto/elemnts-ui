@@ -1,17 +1,15 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react";
 import { forwardRef, type ReactNode } from "react";
-
+import { createStyleContext } from "../../../styled-system/jsx";
+import { sidebarRecipe } from "../../../styled-system/recipes";
 import {
 	SidebarContextProvider,
 	type UseSidebarProps,
 	useSidebar,
 	useSidebarContext,
 } from "./client";
-import { createStyleContext } from "../../../styled-system/jsx";
-import { sidebarRecipe } from "../../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(sidebarRecipe);
-
 
 type SidebarRootProviderProps = Omit<HTMLArkProps<"div">, "value"> & {
 	value: ReturnType<typeof useSidebarContext>;
@@ -25,10 +23,10 @@ const SidebarRootProviderBase = forwardRef<
 
 	return (
 		<SidebarContextProvider value={value}>
-      <ark.aside
-        ref={ref}
-        hidden={!value.open}
-        data-open={value.open ? "open" : "closed"}
+			<ark.aside
+				ref={ref}
+				hidden={!value.open}
+				data-open={value.open ? "open" : "closed"}
 				{...restProps}
 			/>
 		</SidebarContextProvider>
@@ -43,21 +41,26 @@ SidebarRootProvider.displayName = "SidebarRootProvider";
 type SidebarRootBaseProps = HTMLArkProps<"div"> & UseSidebarProps;
 const SidebarRootBase = forwardRef<HTMLDivElement, SidebarRootBaseProps>(
 	(props, ref) => {
-    const { open, defaultOpen, onOpenChange, ...restProps } = props;
+		const { open, defaultOpen, onOpenChange, ...restProps } = props;
 
 		const value = useSidebar({
-      open,
-      defaultOpen,
-      onOpenChange,
+			open,
+			defaultOpen,
+			onOpenChange,
 		});
 
-    return <SidebarRootProviderBase ref={ref} value={value} {...restProps} />;
-  },
+		return (
+			<SidebarRootProviderBase
+				ref={ref}
+				value={value}
+				{...restProps}
+			/>
+		);
+	},
 );
 
 export const SidebarRoot = withProvider(SidebarRootBase, "root");
 SidebarRoot.displayName = "SidebarRoot";
-
 
 type SidebarTriggerProps = HTMLArkProps<"button">;
 const SidebarTriggerBase = forwardRef<HTMLButtonElement, SidebarTriggerProps>(

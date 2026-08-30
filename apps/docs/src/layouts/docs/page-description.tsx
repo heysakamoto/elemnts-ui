@@ -5,8 +5,11 @@ export function DocsLayoutPageDescription(props: PropsWithChildren) {
 	const { children } = props;
 
 	return (
-    <Text mt="20" mb="32" fontSize="18" lineHeight="md" color="fg.primary">
-      {children}
-    </Text>
-  );
+		<Text
+			mt="20"
+			fontSize="18"
+		>
+			{children}
+		</Text>
+	);
 }

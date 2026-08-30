@@ -1,9 +1,9 @@
-import { Grid, Section } from "@moto-ui/react";
+import { Grid } from "@moto-ui/react";
 import type { PropsWithChildren } from "react";
 
 import {
+	DocsLayoutPageContext,
 	type DocsLayoutPageContextValue,
-	DocsLayoutPageProvider,
 } from "./client";
 
 type DocsLayoutPageProps = PropsWithChildren<DocsLayoutPageContextValue>;
@@ -12,15 +12,15 @@ export function DocsLayoutPage(props: DocsLayoutPageProps) {
 	const { toc, children } = props;
 
 	return (
-		<DocsLayoutPageProvider value={{ toc }}>
-			<Section as="main">
-				<Grid
-					gap="0"
-					cols={{ base: "minmax(0, 1fr)", lg: "1fr 14rem" }}
-				>
-					{children}
-				</Grid>
-			</Section>
-		</DocsLayoutPageProvider>
+		<DocsLayoutPageContext.Provider value={{ toc }}>
+			<Grid
+				gridTemplateColumns={{
+					base: "minmax(0, 1fr)",
+					lg: "minmax(0, 1fr) var(--toc-width)",
+				}}
+			>
+				{children}
+			</Grid>
+		</DocsLayoutPageContext.Provider>
 	);
 }

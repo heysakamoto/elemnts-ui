@@ -18,46 +18,33 @@ export const paginationRecipe = defineSlotRecipe({
 			gap: "calc({spacing.4} * 1)",
 		},
 		ellipsis: {
-			color: "{colors.fg.tertiary}",
-
-			"& svg": {
-				color: "{colors.fg.tertiary}",
-			},
+			display: "inline-flex",
+			alignItems: "center",
 		},
 		item: {
 			cursor: "pointer",
-			position: "relative",
 			alignItems: "center",
 			display: "inline-flex",
-			lineHeight: "{lineHeights.none}",
 		},
 		nextTrigger: {
 			cursor: "pointer",
-			position: "relative",
 			alignItems: "center",
 			display: "inline-flex",
-			lineHeight: "{lineHeights.none}",
 		},
 		prevTrigger: {
 			cursor: "pointer",
-			position: "relative",
 			alignItems: "center",
 			display: "inline-flex",
-			lineHeight: "{lineHeights.none}",
 		},
 		firstTrigger: {
 			cursor: "pointer",
-			position: "relative",
 			alignItems: "center",
 			display: "inline-flex",
-			lineHeight: "{lineHeights.none}",
 		},
 		lastTrigger: {
 			cursor: "pointer",
-			position: "relative",
 			alignItems: "center",
 			display: "inline-flex",
-			lineHeight: "{lineHeights.none}",
 		},
 	},
 });

@@ -7,8 +7,8 @@ import { Icon } from "../icon";
 const { withProvider, withContext } = createStyleContext(clipboardRecipe);
 
 export const ClipboardRootProvider = withProvider(
-  Clipboard.RootProvider,
-  "root",
+	Clipboard.RootProvider,
+	"root",
 );
 ClipboardRootProvider.displayName = "ClipboardRootProvider";
 
@@ -28,14 +28,26 @@ export const ClipboardTrigger = withContext(Clipboard.Trigger, "trigger");
 ClipboardTrigger.displayName = "ClipboardTrigger";
 
 export const ClipboardIndicator = withContext(
-  Clipboard.Indicator,
-  "indicator",
-  {
-    defaultProps: {
-      copied: <Icon icon="tabler:check" width={14} height={14} />,
-      children: <Icon icon="tabler:copy" width={14} height={14} />,
-    },
-  },
+	Clipboard.Indicator,
+	"indicator",
+	{
+		defaultProps: {
+			copied: (
+				<Icon
+					icon="tabler:check"
+					width={14}
+					height={14}
+				/>
+			),
+			children: (
+				<Icon
+					icon="tabler:copy"
+					width={14}
+					height={14}
+				/>
+			),
+		},
+	},
 );
 ClipboardIndicator.displayName = "ClipboardIndicator";
 

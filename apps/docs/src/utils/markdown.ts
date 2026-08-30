@@ -20,3 +20,8 @@ export function slugsToMarkdownPath(slugs: string[]) {
 		url: `/docs/${segments.join("/")}`,
 	};
 }
+
+export function stripMarkdown(text: string = ""): string {
+	// Remove markdown bold (**), italic (* or _), code (`), etc.
+	return text.replace(/(\*\*|__|[*_`~])/g, "");
+}

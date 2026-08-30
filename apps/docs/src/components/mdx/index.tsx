@@ -6,24 +6,27 @@ import { CodeBlock } from "./code-block";
 import { CodeBlockTabs } from "./code-block-tabs";
 import { Example } from "./example";
 import { Table } from "./table";
+import { TimelineItem, TimelineRoot } from "./timeline";
 
 export function getMDXComponents(components?: MDXComponents) {
 	return {
 		...components,
 		...base,
 		Example,
+		code: Code,
 		table: Table,
 		tr: Table.Row,
-		th: Table.ColumnHeader,
+		pre: CodeBlock,
 		td: Table.Cell,
 		tbody: Table.Body,
 		thead: Table.Header,
-		CodeBlockTab: CodeBlockTabs.Panel,
+		th: Table.ColumnHeader,
+		Timeline: TimelineRoot,
+		TimelineItem: TimelineItem,
 		CodeBlockTabs: CodeBlockTabs,
+		CodeBlockTab: CodeBlockTabs.Panel,
 		CodeBlockTabsList: CodeBlockTabs.List,
 		CodeBlockTabsTrigger: CodeBlockTabs.Trigger,
-		code: (props) => <Code {...props} />,
-		pre: ({ ref: _ref, ...props }) => <CodeBlock {...props} />,
 	} satisfies MDXComponents;
 }
 

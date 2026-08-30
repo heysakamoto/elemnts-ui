@@ -3,216 +3,249 @@ status: new
 title: Changelog
 description: All previous and current changes can be found here
 ---
-## [0.0.12] 2026-07-03
-### Installation
-```npm
-npm i @moto-ui/{react,preset-base,styled-system}@latest
-```
+## 0.0.12
 
-### Features
-#### Drawer
-Added drawer component - a slide-in panel that slides in from the edge of the screen, used for displaying contextual information or navigation.
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    A sleek slide-in panel that emerges from the edge of the screen, perfect for displaying contextual information or navigation options.
+    <Example name="drawer:basic" />
+  </TimelineItem>
+  <TimelineItem index={2} title="Bug Fixes">
+    1. **Tile**: Fixed an issue where the root ref prop was not being forwarded properly.
+    2. **Surface**: Updated the default border radius to `0` for a cleaner look.
+  </TimelineItem>
+  <TimelineItem index={3} title="Dependencies">
+    1. **Ark UI**: Upgraded to `@ark-ui/react@5.37.2` for improved performance and stability.
+  </TimelineItem>
+</Timeline>
 
-<Example name="drawer:basic" />
-### Bug Fixes
-- **Tile**: Root ref prop forwarded properly
-- **Surface**: Default border radius is now `0`
+## 0.0.11
 
-### Dependencies
-- Ark UI: Upgrade to `@ark-ui/react@5.37.2`
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    **DateInput Component**: A user-friendly date picker that lets users select dates from an interactive calendar.
+    <Example name="date-input:basic" />
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    1. Updated the `useColorSchemeContext` hook for better reliability.
+    2. Refactored semantic colors to use base conditions instead of `_light` for consistency.
+    3. Fixed issues with broken recipes and slot recipe style generation.
+  </TimelineItem>
+</Timeline>
 
+## 0.0.10
 
-## [0.0.11] 2026-07-03
-### Features
-#### DateInput
-Added date input component - a date picker that allows users to select a date from a calendar.
-<Example name="date-input:basic" />
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    - **ColorScheme**: A new component with subcomponents to manage light, dark, and system color scheme preferences. Includes optional `localStorage` persistence for user preferences.
+    - **SkipNav**: Helps keyboard and screen reader users skip repetitive navigation, improving accessibility.
+    - **Theme**: Wrap content in a specific color scheme (`light` or `dark`) using the `appearance` prop.
+    - **useMediaQuery**: A new hook to track CSS media query states in React components.
+    - **useScrollShadow**: Publicly exported the `useScrollShadow` hook from the ScrollShadow component for easier access.
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    1. Renamed the `tone` variant to `surface` in the `item` and `tag` recipes (affects components like Item, Tag, Tile, and more).
+    2. Updated semantic color tokens to use `_light`/`_dark` conditions instead of `base` for better dark mode handling.
+    3. Refactored semantic shadow tokens to use `light`/`dark` conditions instead of `base`.
+    4. Changed breakpoints from pixel values to `rem` values for better accessibility.
+    5. Updated paragraph global styles to use the `fg.secondary` color for improved readability.
+  </TimelineItem>
+</Timeline>
 
+## 0.0.9
 
-### Fixed
-- Update ColorScheme hook useColorSchemeContext
-- Update semantic colors to use base conditions instead of \_light
-- Fixed broken recipes and slot recipes styles generations
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    - **SeparatorGroup**: Group separators with optional captions for better organization.
+    - **FocusTrap**: A utility component to trap keyboard focus within a DOM subtree, improving accessibility.
+    - **VisuallyHidden**: A utility component for screen-reader-only accessible content.
+    - **Alert Component Updates**:
+      - Added new `status` variants (`default`, `accent`, `success`, `warning`, `destructive`).
+      - Added an `elevated` variant for enhanced visual hierarchy.
+    - **Semantic Color Tokens**: Added new `accent`, `warning`, `success`, and `destructive` semantic color token groups.
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    1. Refactored the **Alert** component from a Collapsible-based interactive design to a simplified static design. Replaced `Alert.Media` with `Alert.Indicator` and `Alert.Content`. Removed `Alert.Trigger`, `Alert.RootProvider`, and `Alert.Context`.
+    2. Refactored the **Surface** component to use the elevated recipe as its base instead of inline elevation data attributes.
+    3. Renamed `BaseElevated` to `ElevatedBase` and made the `delta` prop optional (defaults to `0`).
+    4. Updated icon and foreground secondary semantic token values for improved contrast.
+    5. Fixed success and warning status color values in dark mode for better visibility.
+    6. Resolved group and button-group overlapping border issues by removing negative margin overlaps between adjacent items.
+    7. Improved checkbox checked-state animation by removing extraneous border transitions and adding `inset: 0` to the pseudo-element.
+    8. Removed focus outlines from Switch and Segment Group trigger elements on `:focus-visible`.
+    9. Changed `Alert.Title`, `Surface.Title`, and `EmptyState.Title` to render as `strong` instead of heading elements.
+  </TimelineItem>
+</Timeline>
 
-## [0.0.10] - 2026-06-15
-### Added
-- Add `ColorScheme` component with subcomponents for managing light, dark, and system color scheme preferences with optional localStorage persistence
-- Add `SkipNav` component with subcomponents to let keyboard and screen reader users skip repetitive navigation
-- Add `Theme` component with an `appearance` prop (`light`, `dark`) for wrapping content in a specific color scheme
-- Add `useMediaQuery` hook for tracking CSS media query state in React components
-- Export `useScrollShadow` hook publicly from the ScrollShadow component
-### Fixed
-- Rename `tone` variant to `surface` on the `item` and `tag` recipes (affects Item, Tag, Tile, and related components)
-### Updated
-- Update semantic color tokens to use `_light`/`_dark` conditions instead of `base` for improved dark mode handling
-- Update semantic shadow tokens to use `light`/`dark` conditions instead of `base`
-- Change breakpoints from pixel values to rem values for better accessibility
-- Update paragraph global styles to use `fg.secondary` color
+## 0.0.8
 
-## [0.0.9] - 2026-06-14
-### Added
-- Add `SeparatorGroup` component for grouping separators with optional captions
-- Add `FocusTrap` utility component for trapping keyboard focus within a DOM subtree
-- Add `VisuallyHidden` utility component for screen-reader-only accessible content
-- Add `status` variant (`default`, `accent`, `success`, `warning`, `destructive`) to the Alert component
-- Add `elevated` variant to the Alert component
-- Add `accent`, `warning`, `success`, and `destructive` semantic color token groups
-- Add `SeparatorGroup`, `FocusTrap`, and `VisuallyHidden` components from `@moto-ui/react`
-### Fixed
-- Refactor Alert from a Collapsible-based interactive component to a simplified static design; replace `Alert.Media` with `Alert.Indicator` and `Alert.Content`; remove `Alert.Trigger`, `Alert.RootProvider`, and `Alert.Context`
-- Refactor Surface to use the elevated recipe as its base instead of inline elevation data attributes
-- Rename `BaseElevated` to `ElevatedBase` and make `delta` prop optional (defaults to `0`)
-- Update icon and foreground secondary semantic token values for improved contrast
-- Fix success and warning status color values in dark mode for better visibility
-- Fix group and button-group overlapping border issue by removing negative margin overlap between adjacent items
-- Improve checkbox checked-state animation by removing extraneous border transition and adding `inset: 0` to the pseudo-element
-- Remove focus outline from Switch and Segment Group trigger elements on `:focus-visible`
-- Change `Alert.Title`, `Surface.Title`, and `EmptyState.Title` to render as `strong` instead of heading elements
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    - **Table Component**: A highly customizable table with support for variants, sizes, pinned headers, alternating rows, interactive rows, column dividers, captions, and footers.
+    - **EmptyState Component**: A flexible component for displaying empty states with customizable indicators, titles, descriptions, and action controls.
+    - **Invalid State Styles**: Added destructive outline styles to `Input`, `Textarea`, and `InputGroup` components.
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    1. Removed global invalid state styles for a cleaner design.
+    2. Refactored font-size tokens in `Input`, `Textarea`, and `InputGroup` from CSS variables to direct design token references.
+    3. Improved `InputGroup` layout by using flex grow/shrink properties for inputs and textareas.
+    4. Added `colors` package documentation to the project readme.
+  </TimelineItem>
+</Timeline>
 
-## [0.0.8] - 2026-06-12
-### Added
-- Add `Table` component with support for variants, sizes, pinned headers, alternating rows, interactive rows, column dividers, captions, and footers
-- Add `EmptyState` component with customizable indicator, title, description, and action control
-- Add invalid state styles (destructive outline) to `Input`, `Textarea`, and `InputGroup` components
-### Fixed
-- Remove global invalid state styles
-- Refactor font-size tokens in `Input`, `Textarea`, and `InputGroup` from CSS variables to direct design token references
-- Improve `InputGroup` layout by using flex grow/shrink properties for inputs and textareas
-- Add `colors` package documentation to the project readme
+## 0.0.7
 
-## [0.0.7] - 2026-06-09
-### Added
-- Add `Frame` component for rendering content inside an isolated iframe with full style and DOM isolation
-### Fixed
-- Fix `measureElement` callback type in `VirtualList` to remove `undefined` from its parameter type
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    **Frame Component**: Render content inside an isolated iframe with full style and DOM isolation for enhanced security and encapsulation.
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    Fixed the `measureElement` callback type in `VirtualList` to remove `undefined` from its parameter type.
+  </TimelineItem>
+</Timeline>
 
+## 0.0.6
 
+<Timeline>
+  <TimelineItem index={1} title="Improvements">
+    1. Refactored the border system across preset-base components to ensure a consistent border style.
+    2. Fixed an issue in the avatar recipe where the property name `objectPosiion` was invalid.
+    3. Removed redundant `splitter` recipe colorPalette.
+    4. Cleaned up `extract.ts` recipe variant combinations.
+  </TimelineItem>
+</Timeline>
 
-## [0.0.6] - 2026-06-06
-### Fixed
-- Refactor the border system across preset-base components to use a consistent border style
-- Fix avatar recipe with invalid property name `objectPosiion`
-- Remove redundant splitter recipe colorPalette
-- Clean up extract.ts recipe variant combinations.
+## 0.0.5
 
+<Timeline>
+  <TimelineItem index={1} title="Improvements">
+    1. Refactored the button recipe by removing the `onHidden` variant and reworking focus states.
+    2. Removed the `onHidden` visual variant (hide/disable) from the button recipe and cleaned up corresponding extract entries.
+    3. Replaced `shadow`-based focus indicators with `outline` for better accessibility and consistency.
+    4. Added the `xs` breakpoint (386px) to the preset theme.
+    5. Cleaned up the docs config by removing the custom page schema.
+    6. Fixed sidebar node key collisions by appending the array index.
+  </TimelineItem>
+</Timeline>
 
-## [0.0.5] - 2026-06-03
-### Fixed
-- refactor: remove onHidden variant and rework focus
-- Remove the `onHidden` visual variant (hide/disable) from the button recipe and clean up corresponding extract entries
-- Replace `shadow`-based focus indicators with `outline` for better accessibility and consistency
-- Add `xs` breakpoint (386px) to the preset theme
-- Clean up docs config by removing custom page schema
-- Fix sidebar node key collision by appending the array index
+## 0.0.4
 
-## [0.0.4] - 2026-06-01
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    **Show**: A utility component for conditionally rendering content based on a truthy condition.
 
-### Added
-- **Show**: A utility component for conditionally rendering content based on a truthy condition.
-```tsx
-import { Show } from "@moto-ui/react";
+    ```tsx
+    import { Show } from "@moto-ui/react";
 
-export function App() {
-  return (
-    <Show when={condition}>
-      <ComponentToRender />
-    </Show>
-  )
-}
-```
-- **List**: A compound component for rendering ordered and unordered lists with customizable item indicators.
+    export function App() {
+      return (
+        <Show when={condition}>
+          <ComponentToRender />
+        </Show>
+      )
+    }
+    ```
+    ---
 
-  ```tsx
-  import { List } from "@moto-ui/react";
+    **List**: A compound component for rendering ordered and unordered lists with customizable item indicators.
 
-  export function App() {
-    return (
-      <List.Root>
-        <List.Item>
-          <List.Indicator />
-          Semantic color system
-        </List.Item>
-        <List.Item>
-          <List.Indicator />
-          Build-time CSS-in-JS
-        </List.Item>
-      </List.Root>
-    );
-  }
-  ```
+    ```tsx
+    import { List } from "@moto-ui/react";
 
-- **Code**: An inline code element with recipe-based styling, ideal for rendering code snippets within text.
+    export function App() {
+      return (
+        <List.Root>
+          <List.Item>
+            <List.Indicator />
+            Semantic color system
+          </List.Item>
+          <List.Item>
+            <List.Indicator />
+            Build-time CSS-in-JS
+          </List.Item>
+        </List.Root>
+      );
+    }
+    ```
+    ---
 
-  ```tsx
-  import { Code } from "@moto-ui/react";
+    **Code**: An inline code element with recipe-based styling, ideal for rendering code snippets within text.
 
-  export function App() {
-    return (
-      <p>
-        Use the <Code>Code</Code> component for inline code.
-      </p>
-    );
-  }
-  ```
+    ```tsx
+    import { Code } from "@moto-ui/react";
 
-- **Prose**: A styled container for rendering rich text and markdown content with typographic defaults.
+    export function App() {
+      return (
+        <p>
+          Use the <Code>Code</Code> component for inline code.
+        </p>
+      );
+    }
+    ```
+    ---
 
-  ```tsx
-  import { Prose } from "@moto-ui/react";
+    **Prose**: A styled container for rendering rich text and markdown content with typographic defaults.
 
-  export function App() {
-    return (
-      <Prose>
-        <h1>Article Title</h1>
-        <p>Beautifully styled typography out of the box.</p>
-      </Prose>
-    );
-  }
-  ```
+    ```tsx
+    import { Prose } from "@moto-ui/react";
 
-- **Blockquote**: A compound component for displaying quoted content with citation and caption support.
+    export function App() {
+      return (
+        <Prose>
+          <h1>Article Title</h1>
+          <p>Beautifully styled typography out of the box.</p>
+        </Prose>
+      );
+    }
+    ```
+    ---
 
-  ```tsx
-  import { Blockquote } from "@moto-ui/react";
+    **Blockquote**: A compound component for displaying quoted content with citation and caption support.
 
-  export function App() {
-    return (
-      <Blockquote.Root>
-        <Blockquote.Indicator />
-        <Blockquote.Content>
-          The best way to predict the future is to create it.
-        </Blockquote.Content>
-        <Blockquote.Cite>Peter Drucker</Blockquote.Cite>
-        <Blockquote.Caption>
-          Management consultant and educator
-        </Blockquote.Caption>
-      </Blockquote.Root>
-    );
-  }
-  ```
+    ```tsx
+    import { Blockquote } from "@moto-ui/react";
 
-- **Breadcrumb**: A compound navigation component that provides a trail of links for users to track their location.
+    export function App() {
+      return (
+        <Blockquote.Root>
+          <Blockquote.Indicator />
+          <Blockquote.Content>
+            The best way to predict the future is to create it.
+          </Blockquote.Content>
+          <Blockquote.Cite>Peter Drucker</Blockquote.Cite>
+          <Blockquote.Caption>
+            Management consultant and educator
+          </Blockquote.Caption>
+        </Blockquote.Root>
+      );
+    }
+    ```
+    ---
+    
+    **Breadcrumb**: A compound navigation component that provides a trail of links for users to track their location.
 
-  ```tsx
-  import { Breadcrumb } from "@moto-ui/react";
+    ```tsx
+    import { Breadcrumb } from "@moto-ui/react";
 
-  export function App() {
-    return (
-      <Breadcrumb.Root>
-        <Breadcrumb.List>
-          <Breadcrumb.Item>
-            <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Separator />
-          <Breadcrumb.Item>
-            <Breadcrumb.Link href="/docs">Docs</Breadcrumb.Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Separator />
-          <Breadcrumb.Item>
-            <Breadcrumb.CurrentLink>Installation</Breadcrumb.CurrentLink>
-          </Breadcrumb.Item>
-        </Breadcrumb.List>
-      </Breadcrumb.Root>
-    );
-  }
-  ```
+    export function App() {
+      return (
+        <Breadcrumb.Root>
+          <Breadcrumb.List>
+            <Breadcrumb.Item>
+              <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Separator />
+            <Breadcrumb.Item>
+              <Breadcrumb.Link href="/docs">Docs</Breadcrumb.Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Separator />
+            <Breadcrumb.Item>
+              <Breadcrumb.CurrentLink>Installation</Breadcrumb.CurrentLink>
+            </Breadcrumb.Item>
+          </Breadcrumb.List>
+        </Breadcrumb.Root>
+      );
+    }
+    ```
+  </TimelineItem>
+</Timeline>

@@ -1,36 +1,19 @@
 ---
 title: Theming
-description: A guide for customizing and extending Moto UI's design system.
+description: A step-by-step guide to customizing and extending Moto UI's design system to match your brand.
 ---
-
-Moto UI is built on a highly extensible architecture powered by [Panda CSS](https://panda-css.com). The entire theme—including colors, spacing, typography, and component recipes—can be customized or extended to fit your brand.
-
-## The Base Preset
-
-To get started, you must include the Moto UI base preset in your `panda.config.ts`. This preset contains all the core tokens, semantic variables, and component recipes.
-
-```ts
-import { basePreset } from "@moto-ui/preset-base";
-import { defineConfig } from "@pandacss/dev";
-
-export default defineConfig({
-  preflight: true,
-  presets: [basePreset],
-  include: ["./src/**/*.{js,jsx,ts,tsx}"],
-  outdir: "styled-system",
-  jsxFramework: "react",
-});
-```
 
 ---
 
-## Extending the Theme
+## Customizing the Theme
 
-You can extend Moto UI by adding your own design tokens or overriding existing ones within the `theme.extend` section of your configuration.
+Moto UI allows you to extend or override the default theme by adding your own design tokens, semantic tokens, and text styles in the `theme.extend` section of your configuration.
 
-### Design Tokens
+### Modifying Design Tokens
 
-Tokens are the atomic values of your design system (e.g., specific colors, font sizes).
+Design tokens are the smallest building blocks of your design system, such as colors, font sizes, and spacing. You can define new tokens or override existing ones.
+
+For example, to add a custom brand color palette:
 
 ```ts
 export default defineConfig({
@@ -54,7 +37,9 @@ export default defineConfig({
 
 ### Semantic Tokens
 
-Semantic tokens map primitive tokens to specific contexts (e.g., `danger`, `success`, `bg.primary`). They are theme-aware, meaning they can have different values for light and dark modes.
+Semantic tokens map primitive tokens to specific contexts (e.g., `danger`, `success`, `bg.primary`). They are theme-aware, meaning they can adapt to light or dark modes automatically.
+
+Here’s how to define semantic tokens for a `danger` color that changes between modes:
 
 ```ts
 export default defineConfig({
@@ -78,9 +63,11 @@ export default defineConfig({
 });
 ```
 
-### Text Styles
+### Reusable Text Styles
 
-Text styles allow you to group multiple typography properties into a single reusable style.
+Text styles let you group typography properties (e.g., font family, size, weight) into reusable styles like `hero`, `body`, or `caption`.
+
+Define your text styles in a separate file:
 
 ```ts
 import { defineTextStyles } from '@pandacss/dev'
@@ -94,8 +81,19 @@ export const textStyles = defineTextStyles({
       lineHeight: "tight",
     },
   },
+  body: {
+    value: {
+      fontFamily: "{fonts.body}",
+      fontSize: "md",
+      lineHeight: "relaxed",
+    },
+  },
 })
+```
 
+Then, include them in your configuration:
+
+```ts
 export default defineConfig({
   theme: {
     extend: { textStyles },
@@ -105,13 +103,13 @@ export default defineConfig({
 
 ---
 
-## Component Customization
+## Customizing Components
 
-Moto UI components are styled using **Recipes** and **Slot Recipes**. You can override these in your configuration to change the default appearance of any component.
+Moto UI components are styled using **Recipes** and **Slot Recipes**. You can override these to change the default appearance of any component, such as a `Button` or `Card`.
 
-### Overriding Recipes
+### Overriding Component Recipes
 
-To change the styling of a component like `Button`, you can redefine its recipe:
+To customize a component’s styling, redefine its recipe in your configuration. For example, to style a `Button` with a bold font and rounded corners:
 
 ```ts
 export default defineConfig({
@@ -132,9 +130,18 @@ export default defineConfig({
 
 ---
 
-## Best Practices
+## Best Practices for Theming
 
-- **Use `extend`**: Always place your customizations inside `theme.extend` to ensure you don't accidentally wipe out the entire Moto UI base theme.
-- **Reference Tokens**: Use the `{category.name}` syntax to reference other tokens within your configuration.
-- **Theme Awareness**: Use semantic tokens for any colors that should change between light and dark modes.
-- **Consistency**: Stick to the provided duration and easing tokens to maintain the "Moto" feel, even when changing colors or typography.
+Follow these best practices to ensure a consistent and maintainable design system:
+
+| Best Practice | Description |
+|--------------|-------------|
+| Use extend | Always place your customizations inside `theme.extend` to avoid accidentally overwriting the base Moto UI theme. |
+| Reference Tokens Properly | Use the `{category.name}` syntax to reference tokens (e.g., `{colors.red.50}` or `{surface.1}`). |
+| Leverage Theme Awareness | Use semantic tokens for colors or styles that should adapt to light/dark modes. |
+| Maintain Consistency | Stick to the provided duration and easing tokens to preserve the "Moto" feel across your design system. |
+| Organize Your Tokens | Group related tokens (e.g., colors, fonts) logically to make your configuration easier to maintain. |
+
+---
+
+Need help? Check out the [Panda CSS documentation](https://panda-css.com/docs) or reach out to the Moto UI community for support!

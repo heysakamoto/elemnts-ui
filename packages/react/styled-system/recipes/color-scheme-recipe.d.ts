@@ -1,31 +1,39 @@
 /* eslint-disable */
-import type { ConditionalValue } from '../types/index';
-import type { DistributiveOmit, Pretty } from '../types/system-types';
+import type { ConditionalValue } from "../types/index";
+import type { DistributiveOmit, Pretty } from "../types/system-types";
 
-interface ColorSchemeRecipeVariant {
-  
-}
+type ColorSchemeRecipeVariant = {};
 
 type ColorSchemeRecipeVariantMap = {
-  [key in keyof ColorSchemeRecipeVariant]: Array<ColorSchemeRecipeVariant[key]>
-}
+	[key in keyof ColorSchemeRecipeVariant]: Array<ColorSchemeRecipeVariant[key]>;
+};
 
-type ColorSchemeRecipeSlot = "root" | "trigger" | "indicator"
+type ColorSchemeRecipeSlot = "root" | "trigger" | "indicator";
 
 export type ColorSchemeRecipeVariantProps = {
-  [key in keyof ColorSchemeRecipeVariant]?: ConditionalValue<ColorSchemeRecipeVariant[key]> | undefined
-}
+	[key in keyof ColorSchemeRecipeVariant]?:
+		| ConditionalValue<ColorSchemeRecipeVariant[key]>
+		| undefined;
+};
 
 export interface ColorSchemeRecipeRecipe {
-  __slot: ColorSchemeRecipeSlot
-  __type: ColorSchemeRecipeVariantProps
-  (props?: ColorSchemeRecipeVariantProps): Pretty<Record<ColorSchemeRecipeSlot, string>>
-  raw: (props?: ColorSchemeRecipeVariantProps) => ColorSchemeRecipeVariantProps
-  variantMap: ColorSchemeRecipeVariantMap
-  variantKeys: Array<keyof ColorSchemeRecipeVariant>
-  splitVariantProps<Props extends ColorSchemeRecipeVariantProps>(props: Props): [ColorSchemeRecipeVariantProps, Pretty<DistributiveOmit<Props, keyof ColorSchemeRecipeVariantProps>>]
-  getVariantProps: (props?: ColorSchemeRecipeVariantProps) => ColorSchemeRecipeVariantProps
+	__slot: ColorSchemeRecipeSlot;
+	__type: ColorSchemeRecipeVariantProps;
+	(
+		props?: ColorSchemeRecipeVariantProps,
+	): Pretty<Record<ColorSchemeRecipeSlot, string>>;
+	raw: (props?: ColorSchemeRecipeVariantProps) => ColorSchemeRecipeVariantProps;
+	variantMap: ColorSchemeRecipeVariantMap;
+	variantKeys: Array<keyof ColorSchemeRecipeVariant>;
+	splitVariantProps<Props extends ColorSchemeRecipeVariantProps>(
+		props: Props,
+	): [
+		ColorSchemeRecipeVariantProps,
+		Pretty<DistributiveOmit<Props, keyof ColorSchemeRecipeVariantProps>>,
+	];
+	getVariantProps: (
+		props?: ColorSchemeRecipeVariantProps,
+	) => ColorSchemeRecipeVariantProps;
 }
 
-
-export declare const colorSchemeRecipe: ColorSchemeRecipeRecipe
+export declare const colorSchemeRecipe: ColorSchemeRecipeRecipe;

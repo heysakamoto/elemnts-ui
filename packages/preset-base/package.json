@@ -31,27 +31,25 @@
 		"package.json",
 		"readme.md"
 	],
-	"main": "./dist/cjs/index.cjs",
-	"module": "./dist/esm/index.js",
-	"types": "./dist/types/index.d.ts",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/types/index.d.ts",
-			"import": "./dist/esm/index.js",
-			"require": "./dist/cjs/index.cjs"
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
 		}
 	},
 	"scripts": {
-		"clean": "rm -rf dist",
-		"lint": "biome lint .",
+		"build": "tsdown && tsc",
 		"dev": "tsc && tsup --watch",
-		"prepublishOnly": "pnpm run build",
-		"build": "pnpm run clean && tsup && tsc"
+		"prepublishOnly": "pnpm run build"
 	},
 	"dependencies": {
 		"@moto-ui/core": "workspace:*"
 	},
 	"devDependencies": {
-		"tsup": "^8.5.1"
+		"tsdown": "^0.22.14"
 	}
 }

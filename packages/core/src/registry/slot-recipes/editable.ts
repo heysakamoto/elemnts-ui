@@ -19,31 +19,23 @@ export const editableRecipe = defineSlotRecipe({
 			flexDirection: "column",
 		},
 		preview: {
-			"&:not([hidden])": {
-				zIndex: "0",
-				minW: "{sizes.0}",
-				px: "{spacing.8}",
-				position: "relative",
-				rounded: "{radii.8}",
-				display: "inline-flex",
-				fontSize: "{fontSizes.14}",
-				color: "{colors.fg.secondary}",
-				py: "calc({spacing.4} * 0.5)",
-
-				_hover: {
-					bgColor:
-						"color-mix(in oklab, {colors.bg.secondary} 96%, {colors.bg.primary})",
-				},
-			},
+			w: "full",
+			cursor: "text",
+			alignItems: "center",
+			display: "inline-flex",
+			justifyContent: "start",
 		},
 		input: {
-			w: "fit-content",
 			fieldSizing: "content",
+		},
+		area: {
+			flexGrow: 1,
 		},
 		label: {},
 		control: {
 			display: "flex",
 			alignItems: "center",
+			gap: "calc({spacing.4} * 2)",
 		},
 	},
 });

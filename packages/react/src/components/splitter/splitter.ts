@@ -1,4 +1,3 @@
-import { ark } from "@ark-ui/react";
 import { Splitter } from "@ark-ui/react/splitter";
 
 import { createStyleContext } from "../../../styled-system/jsx";
@@ -28,16 +27,3 @@ export const SplitterResizeTriggerIndicator = withContext(
 	"resizeTriggerIndicator",
 );
 SplitterResizeTriggerIndicator.displayName = "SplitterResizeTriggerIndicator";
-
-export const SplitterResizeTriggerSeparator = withContext(
-	ark.div,
-	"resizeTriggerSeparator",
-	{
-		dataAttr: true,
-		defaultProps: {
-			"data-scope": "splitter",
-			"data-part": "resize-trigger-separator",
-		},
-	},
-);
-SplitterResizeTriggerSeparator.displayName = "SplitterResizeTriggerSeparator";

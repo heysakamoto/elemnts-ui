@@ -1,14 +1,14 @@
 import type { ComponentProps } from "react";
 
 import {
-  SidebarAddon,
+	SidebarAddon,
 	SidebarContext,
 	SidebarGroup,
 	SidebarItem,
-  SidebarLabel,
-  SidebarList,
-  SidebarNav,
-  SidebarRoot,
+	SidebarLabel,
+	SidebarList,
+	SidebarNav,
+	SidebarRoot,
 	SidebarRootProvider,
 	SidebarTrigger,
 } from "./sidebar";
@@ -27,42 +27,42 @@ export type SidebarListProps = ComponentProps<typeof SidebarList>;
 export type SidebarTriggerProps = ComponentProps<typeof SidebarTrigger>;
 
 export const Sidebar = Object.assign(SidebarRoot, {
-  Addon: SidebarAddon,
-  Group: SidebarGroup,
-  Label: SidebarLabel,
-  Nav: SidebarNav,
-  Item: SidebarItem,
-  RootProvider: SidebarRootProvider,
-  Root: SidebarRoot,
-  Context: SidebarContext,
-  List: SidebarList,
-  Trigger: SidebarTrigger,
+	Addon: SidebarAddon,
+	Group: SidebarGroup,
+	Label: SidebarLabel,
+	Nav: SidebarNav,
+	Item: SidebarItem,
+	RootProvider: SidebarRootProvider,
+	Root: SidebarRoot,
+	Context: SidebarContext,
+	List: SidebarList,
+	Trigger: SidebarTrigger,
 });
 
 export type Sidebar = {
 	Props: SidebarRootProps;
 	RootProps: SidebarRootProps;
 	RootProviderProps: SidebarRootProviderProps;
-  LabelProps: SidebarLabelProps;
-  GroupProps: SidebarGroupProps;
-  AddonProps: SidebarAddonProps;
-  NavProps: SidebarNavProps;
-  ItemProps: SidebarItemProps;
-  ListProps: SidebarListProps;
+	LabelProps: SidebarLabelProps;
+	GroupProps: SidebarGroupProps;
+	AddonProps: SidebarAddonProps;
+	NavProps: SidebarNavProps;
+	ItemProps: SidebarItemProps;
+	ListProps: SidebarListProps;
 	ContextProps: SidebarContextProps;
 	TriggerProps: SidebarTriggerProps;
 };
 
 export { useSidebar, useSidebarContext } from "./client";
 export {
-  SidebarAddon,
-  SidebarContext,
-  SidebarGroup,
-  SidebarItem,
-  SidebarLabel,
-  SidebarList,
-  SidebarNav,
-  SidebarRoot,
-  SidebarRootProvider,
-  SidebarTrigger,
+	SidebarAddon,
+	SidebarContext,
+	SidebarGroup,
+	SidebarItem,
+	SidebarLabel,
+	SidebarList,
+	SidebarNav,
+	SidebarRoot,
+	SidebarRootProvider,
+	SidebarTrigger,
 };

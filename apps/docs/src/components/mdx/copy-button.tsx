@@ -1,15 +1,15 @@
 import {
-  Button,
-  type ButtonProps,
-  Icon,
-  useClipboard,
-  VisuallyHidden,
+	Button,
+	type ButtonProps,
+	Icon,
+	useClipboard,
+	VisuallyHidden,
 } from "@moto-ui/react";
 
 type Props = ButtonProps & { value: string };
 
 export const CopyButton = (props: Props) => {
-  const { value, children, ...restProps } = props;
+	const { value, children, ...restProps } = props;
 	const api = useClipboard({ value });
 
 	const icons: Record<string, string> = {
@@ -17,20 +17,24 @@ export const CopyButton = (props: Props) => {
 		false: "tabler:copy",
 	};
 
-  return (
-    <Button
-      iconOnly
-      variant="ghost"
-      disabled={!value}
-      aria-label="Copy code"
-      _notHover={{ "& svg": { color: "icon.secondary" } }}
-      {...restProps}
-      {...api.getTriggerProps()}
-    >
-      <VisuallyHidden>Copy code</VisuallyHidden>
-      <Icon width={14} height={14} icon={icons[String(api.copied)] ?? ""} />
-      {children}
-    </Button>
-  );
+	return (
+		<Button
+			iconOnly
+			variant="ghost"
+			disabled={!value}
+			aria-label="Copy code"
+			_notHover={{ "& svg": { color: "icon.secondary" } }}
+			{...restProps}
+			{...api.getTriggerProps()}
+		>
+			<VisuallyHidden>Copy code</VisuallyHidden>
+			<Icon
+				width={14}
+				height={14}
+				icon={icons[String(api.copied)] ?? ""}
+			/>
+			{children}
+		</Button>
+	);
 };
 CopyButton.displayName = "CopyButton";

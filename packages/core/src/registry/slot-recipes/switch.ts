@@ -9,8 +9,9 @@ export const switchRecipe = defineSlotRecipe({
 			gap: "{spacing.8}",
 			alignItems: "center",
 
-			_focusVisible: {
-				outline: "none",
+			_disabled: {
+				opacity: "0.5",
+				filter: "grayscale(100%)",
 			},
 		},
 		control: {
@@ -22,8 +23,8 @@ export const switchRecipe = defineSlotRecipe({
 			alignItems: "center",
 			display: "inline-flex",
 			justifyContent: "start",
-			bgColor: "{colors.bg.secondary}",
 			h: "var(--control-height)",
+			bgColor: "{colors.surface.8}",
 			w: "var(--switch-control-width)",
 			transition: `
       background-color 100ms ease-in-out
@@ -33,8 +34,9 @@ export const switchRecipe = defineSlotRecipe({
 				bgColor: "{colors.colorPalette.primary}",
 			},
 
-			_disabled: {
-				opacity: "0.5",
+			_focusVisible: {
+				outlineOffset: "2px",
+				outline: "2px solid {colors.colorPalette.primary}",
 			},
 
 			_active: {

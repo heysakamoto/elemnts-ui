@@ -1,6 +1,6 @@
 {
-  "collapsible": true,
-  "defaultOpen": false,
-  "title": "Colors",
-  "pages": ["..."]
+	"collapsible": true,
+	"defaultOpen": false,
+	"title": "Colors",
+	"pages": ["..."]
 }
