@@ -1,5 +1,13 @@
 # @moto-ui/react
 
+## 0.0.13
+
+### Patch Changes
+
+- ### Summary of Changes
+- Updated dependencies
+  - @moto-ui/core@0.0.1
+
 ## 0.0.12
 
 ### Patch Changes
