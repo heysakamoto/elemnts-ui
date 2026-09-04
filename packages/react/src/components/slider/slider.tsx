@@ -1,7 +1,6 @@
 import { Slider } from "@ark-ui/react/slider";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { sliderRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { sliderRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(sliderRecipe);
 

@@ -36,10 +36,9 @@ export const Code = (props: CodeProps) => {
 		default: {
 			return (
 				<MotoCode
-					h="auto"
-					py="4"
 					size="2xs"
 					variant="secondary"
+					verticalAlign="bottom"
 				>
 					{children}
 				</MotoCode>

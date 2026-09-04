@@ -12,8 +12,8 @@ export default function Colors() {
 	return (
 		<Container>
 			<Stack
-				direction="row"
 				gap="8"
+				direction="row"
 				align="center"
 				justify="center"
 			>

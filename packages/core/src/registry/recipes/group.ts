@@ -12,16 +12,13 @@ export const groupRecipe = defineRecipe({
 			true: {
 				w: "{sizes.full}",
 				"& > *": {
-					flex: "1 1 0%",
 					w: "{sizes.full}",
 				},
 			},
 		},
 		attached: {
 			true: {
-				"& > *": {
-					rounded: 0,
-				},
+				gap: "calc({sizes.4} * 0)",
 			},
 			false: {
 				gap: "calc({sizes.4} * 2)",
@@ -44,6 +41,15 @@ export const groupRecipe = defineRecipe({
 				"& > *:not(:first-child)": {
 					borderLeft: "none",
 				},
+				"& > *:first-child": {
+					roundedEnd: "0",
+				},
+				"& > *:last-child": {
+					roundedStart: "0",
+				},
+				"& > *:not(:first-child):not(:last-child)": {
+					rounded: "0",
+				},
 			},
 		},
 		{
@@ -52,6 +58,15 @@ export const groupRecipe = defineRecipe({
 			css: {
 				"& > *:not(:first-child)": {
 					borderTop: "none",
+				},
+				"& > *:first-child": {
+					roundedBottom: "0",
+				},
+				"& > *:last-child": {
+					roundedTop: "0",
+				},
+				"& > *:not(:first-child):not(:last-child)": {
+					rounded: "0",
 				},
 			},
 		},

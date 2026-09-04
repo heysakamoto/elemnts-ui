@@ -5,15 +5,14 @@ import {
 	useTreeViewNodeContext,
 } from "@ark-ui/react";
 import type { ReactElement } from "react";
-
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "../../../styled-system/jsx";
+} from "../../styled-system/jsx";
 import {
 	type TreeViewRecipeVariantProps,
 	treeViewRecipe,
-} from "../../../styled-system/recipes";
+} from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(treeViewRecipe);
 

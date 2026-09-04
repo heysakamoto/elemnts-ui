@@ -1,7 +1,6 @@
 import { Checkbox } from "@ark-ui/react/checkbox";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { checkboxRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { checkboxRecipe } from "../../styled-system/recipes";
 import { Icon } from "../icon";
 
 const { withProvider, withContext } = createStyleContext(checkboxRecipe);

@@ -1,16 +1,22 @@
-import { Icon, Toggle } from "@moto-ui/react";
+import { Icon, Item, Toggle } from "@moto-ui/react";
 
 export default function Disabled() {
 	return (
-		<Toggle.Root
+		<Toggle
+			asChild
 			disabled
-			aria-label="Toggle underline"
+			aria-label="Toggle italic"
 		>
-			<Icon
-				icon="tabler:underline"
-				width={16}
-				height={16}
-			/>
-		</Toggle.Root>
+			<Item
+				w="fit"
+				variant="secondary"
+			>
+				<Icon
+					icon="tabler:italic"
+					width={16}
+					height={16}
+				/>
+			</Item>
+		</Toggle>
 	);
 }

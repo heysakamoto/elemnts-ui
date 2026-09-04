@@ -1,6 +1,6 @@
 import { WheelPicker } from "@moto-ui/react";
 
-import { css } from "../../../../styled-system/css";
+import { css } from "../../styled-system/css";
 
 export default function ClassNames() {
 	const options = [
@@ -24,7 +24,7 @@ export default function ClassNames() {
 				<WheelPicker.Options
 					options={options}
 					defaultValue="jan"
-					classNames={{ highlightWrapper: css({ rounded: "24" }) }}
+					classNames={{ highlightItem: css({ fontSize: "14" }) }}
 				/>
 			</WheelPicker.Control>
 		</WheelPicker>

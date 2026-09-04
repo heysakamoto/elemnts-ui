@@ -14,64 +14,55 @@ type CodeBlockProps = {
 export const CodeBlock = (props: CodeBlockProps) => {
 	const { title, lang, children } = props;
 	const inTabs = useCodeBlockTabsContext();
+	const code = nodeToString(children);
 
-	switch (true) {
-		case inTabs: {
-			return children;
-		}
-
-		default: {
-			const code = nodeToString(children);
-
-			return (
-				<CodeBlockProvider>
-					<Surface
-						mt="24"
-						delta={1}
-						rounded="16"
-						shadowLevel={0}
-						position="relative"
-						data-language={lang}
-					>
-						<CopyButton
-							size="sm"
-							top="4"
-							right="4"
-							value={code}
-							position="absolute"
-						/>
-						<Show when={title}>
-							<Surface.Header
-								py="12"
-								px="12"
-								align="center"
-								direction="row"
-								justify="space-between"
-							>
-								<Surface.Description
-									fontSize="12"
-									fontFamily="mono"
-									fontStyle="italic"
-								>
-									{title}
-								</Surface.Description>
-							</Surface.Header>
-							<Separator orientation="horizontal" />
-						</Show>
-						<Surface.Content
-							py="12"
-							px="16"
-							maxH="32rem"
-							overflow="scroll"
-							scrollbar="hidden"
+	return (
+		<CodeBlockProvider>
+			<Surface
+				mt="24"
+				delta={6}
+				rounded="16"
+				shadowLevel={0}
+				data-language={lang}
+			>
+				<Surface.Header
+					py="2"
+					px="16"
+					align="center"
+					direction="row"
+					justify="space-between"
+				>
+					<Surface.Description fontSize="14">
+						<Show
+							when={inTabs}
+							fallback={title}
 						>
-							{children}
-						</Surface.Content>
-					</Surface>
-				</CodeBlockProvider>
-			);
-		}
-	}
+							Terminal
+						</Show>
+					</Surface.Description>
+					<Separator variant="ghost" />
+					<CopyButton
+						size="xs"
+						variant="plain"
+						value={code}
+						mr="-12"
+					/>
+				</Surface.Header>
+				<Surface.Content p="2">
+					<Surface.Addon
+						py="12"
+						px="16"
+						rounded="14"
+						overflow="scroll"
+						scrollbar="hidden"
+						bgColor="surface.2"
+					>
+						{children}
+					</Surface.Addon>
+				</Surface.Content>
+			</Surface>
+		</CodeBlockProvider>
+	);
 };
 
 CodeBlock.displayName = "CodeBlock";

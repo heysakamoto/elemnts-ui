@@ -1,16 +1,15 @@
 import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
 import { createContext, forwardRef, useContext } from "react";
-
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "../../../styled-system/jsx";
+} from "../../styled-system/jsx";
 import {
 	type KbdGroupRecipeVariantProps,
 	type KbdRecipeVariantProps,
 	kbdGroupRecipe,
 	kbdRecipe,
-} from "../../../styled-system/recipes";
+} from "../../styled-system/recipes";
 
 type KbdGroupContextValue = KbdRecipeVariantProps;
 const KbdGroupContext = createContext<KbdGroupContextValue>({

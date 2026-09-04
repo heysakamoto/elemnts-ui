@@ -8,11 +8,10 @@ export default function Delay() {
 		>
 			<Tooltip.Trigger asChild>
 				<Button
-					rounded="24"
-					colorPalette="neutral"
-					variant="secondary"
+					variant="surface"
+					size="sm"
 				>
-					Hover me
+					Hover
 				</Button>
 			</Tooltip.Trigger>
 			<Portal>
@@ -20,13 +19,14 @@ export default function Delay() {
 					<Tooltip.Content asChild>
 						<Surface
 							delta={1}
-							rounded="24"
+							rounded="8"
+							asChild
 						>
 							<Surface.Content
-								px="8"
+								px="10"
 								py="4"
 							>
-								<Surface.Description>Save your changes</Surface.Description>
+								<Surface.Description>Add to library</Surface.Description>
 							</Surface.Content>
 						</Surface>
 					</Tooltip.Content>

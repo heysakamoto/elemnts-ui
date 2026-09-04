@@ -3,8 +3,8 @@ import { forwardRef, type ReactElement, type RefAttributes } from "react";
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "../../../styled-system/jsx";
-import { sortableRecipe } from "../../../styled-system/recipes";
+} from "../../styled-system/jsx";
+import { sortableRecipe } from "../../styled-system/recipes";
 import { mergeRefs } from "../../utils/merge-ref";
 import {
 	SortableItemProvider,

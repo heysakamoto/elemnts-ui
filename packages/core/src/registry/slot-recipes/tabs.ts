@@ -48,25 +48,40 @@ export const tabsRecipe = defineSlotRecipe({
 				trigger: {
 					...segmentGroupRecipe.variants?.size?.xs?.item,
 				},
+				indicator: {
+					...segmentGroupRecipe.variants?.size?.xs?.indicator,
+				},
 			},
 			sm: {
 				trigger: {
 					...segmentGroupRecipe.variants?.size?.sm?.item,
+				},
+				indicator: {
+					...segmentGroupRecipe.variants?.size?.sm?.indicator,
 				},
 			},
 			md: {
 				trigger: {
 					...segmentGroupRecipe.variants?.size?.md?.item,
 				},
+				indicator: {
+					...segmentGroupRecipe.variants?.size?.md?.indicator,
+				},
 			},
 			lg: {
 				trigger: {
 					...segmentGroupRecipe.variants?.size?.lg?.item,
 				},
+				indicator: {
+					...segmentGroupRecipe.variants?.size?.lg?.indicator,
+				},
 			},
 			xl: {
 				trigger: {
 					...segmentGroupRecipe.variants?.size?.xl?.item,
+				},
+				indicator: {
+					...segmentGroupRecipe.variants?.size?.xl?.indicator,
 				},
 			},
 		},

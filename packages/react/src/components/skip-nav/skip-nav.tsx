@@ -1,8 +1,7 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react";
 import { forwardRef } from "react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { skipNavRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { skipNavRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(skipNavRecipe);
 

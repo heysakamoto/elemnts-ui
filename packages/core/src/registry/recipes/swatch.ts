@@ -1,4 +1,5 @@
 import { defineRecipe } from "@pandacss/dev";
+import { size } from "../constants/size";
 
 export const swatchRecipe = defineRecipe({
 	className: "color-swatch",
@@ -6,29 +7,32 @@ export const swatchRecipe = defineRecipe({
 	base: {
 		position: "relative",
 		alignItems: "center",
-		rounded: "{radii.16}",
+		aspectRatio: "1 / 1",
+		rounded: "{radii.full}",
 		display: "inline-flex",
-		cornerShape: "squircle",
 		justifyContent: "center",
 		border: "1px solid {colors.stroke.secondary}",
 	},
 
 	variants: {
 		size: {
+			"2xs": {
+				height: size["2xs"].height,
+			},
 			xs: {
-				boxSize: "calc({sizes.4} * 6)",
+				height: size.xs.height,
 			},
 			sm: {
-				boxSize: "calc({sizes.4} * 7)",
+				height: size.sm.height,
 			},
 			md: {
-				boxSize: "calc({sizes.4} * 8)",
+				height: size.md.height,
 			},
 			lg: {
-				boxSize: "calc({sizes.4} * 9)",
+				height: size.lg.height,
 			},
 			xl: {
-				boxSize: "calc({sizes.4} * 10)",
+				height: size.xl.height,
 			},
 		},
 	},

@@ -1,8 +1,7 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react/factory";
 import type { RefAttributes } from "react";
-
-import { styled } from "../../../styled-system/jsx";
-import { spinnerRecipe } from "../../../styled-system/recipes";
+import { styled } from "../../styled-system/jsx";
+import { spinnerRecipe } from "../../styled-system/recipes";
 
 function DefaultIcon() {
 	return (

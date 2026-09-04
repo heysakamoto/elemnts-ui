@@ -6,7 +6,7 @@ export default function Variants() {
 	return (
 		<Container
 			maxW="20rem"
-			spaceY="8"
+			spaceY="12"
 		>
 			<For each={variants}>
 				{(variant) => (

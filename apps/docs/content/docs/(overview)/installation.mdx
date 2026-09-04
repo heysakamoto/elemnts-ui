@@ -11,8 +11,8 @@ Follow these steps to set up Moto UI and its styling engine, Panda CSS.
   </TimelineItem>
   <TimelineItem index={2} title="Install dependencies">
     Moto UI is built on Ark UI as its headless foundation and uses Panda CSS for styling.
-    ```npm
-    npm install @moto-ui/preset-base @moto-ui/react
+    ```npm title="Terminal"
+    npm install @moto-ui/core @moto-ui/react @moto-ui/styled-system
     npm install -D @pandacss/dev
     ```
   </TimelineItem>
@@ -26,13 +26,10 @@ Follow these steps to set up Moto UI and its styling engine, Panda CSS.
     import { basePreset } from "@moto-ui/core/presets";
     import { defineConfig } from "@pandacss/dev";
     export default defineConfig({          
-      preflight: true,
-      outExtension: "js",
       presets: [basePreset],
-      outdir: "styled-system",
       include: [
-        "./src/**/*.{js,jsx,ts,tsx}",
-        "./node_modules/@moto-ui/react/dist/panda.buildinfo.json",
+        "src/**/*.{js,jsx,ts,tsx}",
+        "node_modules/@moto-ui/react/dist/panda.buildinfo.json",
       ],
     });
     ```

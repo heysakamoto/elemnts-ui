@@ -74,8 +74,6 @@ export const segmentGroupRecipe = defineSlotRecipe({
 			w: "var(--width)",
 			h: "var(--height)",
 			left: "var(--left)",
-			cornerShape: "squircle",
-			rounded: "calc({radii.4} * 4)",
 			border: "1px solid transparent",
 		},
 	},
@@ -95,6 +93,9 @@ export const segmentGroupRecipe = defineSlotRecipe({
 					fontSize: size.xs.fontSize,
 					lineHeight: size.xs.lineHeight,
 				},
+				indicator: {
+					borderRadius: size.xs.borderRadius,
+				},
 			},
 			sm: {
 				item: {
@@ -102,6 +103,9 @@ export const segmentGroupRecipe = defineSlotRecipe({
 					px: size.sm.paddingInline,
 					fontSize: size.sm.fontSize,
 					lineHeight: size.sm.lineHeight,
+				},
+				indicator: {
+					borderRadius: size.sm.borderRadius,
 				},
 			},
 			md: {
@@ -111,6 +115,9 @@ export const segmentGroupRecipe = defineSlotRecipe({
 					fontSize: size.md.fontSize,
 					lineHeight: size.md.lineHeight,
 				},
+				indicator: {
+					borderRadius: size.md.borderRadius,
+				},
 			},
 			lg: {
 				item: {
@@ -119,6 +126,9 @@ export const segmentGroupRecipe = defineSlotRecipe({
 					fontSize: size.lg.fontSize,
 					lineHeight: size.lg.lineHeight,
 				},
+				indicator: {
+					borderRadius: size.lg.borderRadius,
+				},
 			},
 			xl: {
 				item: {
@@ -126,6 +136,9 @@ export const segmentGroupRecipe = defineSlotRecipe({
 					px: size.xl.paddingInline,
 					fontSize: size.xl.fontSize,
 					lineHeight: size.xl.lineHeight,
+				},
+				indicator: {
+					borderRadius: size.xl.borderRadius,
 				},
 			},
 		},

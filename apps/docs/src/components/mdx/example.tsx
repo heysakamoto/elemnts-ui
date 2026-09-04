@@ -1,6 +1,6 @@
 import {
 	Alert,
-	Button,
+	ButtonGroup,
 	Icon,
 	Separator,
 	Show,
@@ -27,7 +27,7 @@ export function Example(props: ExampleProps) {
 
 	return (
 		<Surface
-			my="40"
+			mt="32"
 			delta={1}
 			rounded="16"
 			shadowLevel={0}
@@ -37,6 +37,8 @@ export function Example(props: ExampleProps) {
 				minH="20rem"
 				align="center"
 				justify="center"
+				overflow="scroll"
+				scrollbar="hidden"
 			>
 				<Show when={example.data}>{(Example) => <Example />}</Show>
 				<Show when={!example.data && !example.isLoading}>
@@ -49,72 +51,68 @@ export function Example(props: ExampleProps) {
 					>
 						<Alert.Indicator>
 							<Icon
-								icon="tabler:alert-triangle"
 								width={16}
 								height={16}
+								icon="tabler:alert-triangle"
 							/>
 						</Alert.Indicator>
 						<Alert.Content>
-							<Alert.Title
-								fontSize="14"
-								color="colorPalette.primary"
-							>
-								Component not found.
-							</Alert.Title>
+							<Alert.Title fontSize="14">Component not found.</Alert.Title>
 						</Alert.Content>
 					</Alert>
 				</Show>
 			</Surface.Content>
-			<Separator
-				orientation="horizontal"
-				variant="tertiary"
-			/>
 			<Show when={!hideCode}>
+				<Separator
+					orientation="horizontal"
+					variant="tertiary"
+				/>
 				<Surface.Footer position="relative">
-					<Surface
+					<ButtonGroup
 						p="2"
 						gap="2"
-						delta={1}
+						size="xs"
 						zIndex="1"
+						shadow="2"
 						left="50%"
 						bottom="12"
 						rounded="16"
 						align="center"
 						direction="row"
 						position="absolute"
+						bgColor="surface.1"
 						transform="translateX(-50%)"
+						border="1px solid {colors.stroke.secondary}"
 					>
-						<Button
-							size="xs"
-							fontSize="13"
+						<ButtonGroup.Item
+							rounded="14"
+							fontSize="14"
 							variant="secondary"
 							{...collapsible.getTriggerProps()}
 						>
 							{collapsible.open ? "Hide" : "Expand"} code
-						</Button>
+						</ButtonGroup.Item>
 						<CopyButton
 							size="xs"
+							rounded="14"
 							position="static"
 							value={source.data ?? ""}
 						/>
-					</Surface>
-					<Surface
+					</ButtonGroup>
+					<Surface.Addon
 						px="12"
 						py="12"
-						delta={1}
 						maxH="16rem"
-						border="none"
-						shadowLevel={0}
+						overflow="auto"
 						scrollbar="hidden"
-						position="relative"
-						overflow={collapsible.open ? "auto" : "hidden"}
+						bgColor="surface.7"
 						{...collapsible.getContentProps()}
 					>
 						<DynamicCode
 							code={source.data ?? ""}
 							lang="tsx"
 						/>
-					</Surface>
+					</Surface.Addon>
 				</Surface.Footer>
 			</Show>
 		</Surface>

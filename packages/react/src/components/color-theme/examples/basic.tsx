@@ -23,7 +23,7 @@ export default function Basic() {
 					<Surface
 						delta={5}
 						p="12"
-						rounded="16"
+						rounded="10"
 					>
 						<Text fontSize="14">A toggleable color Theme provider.</Text>
 					</Surface>
@@ -38,10 +38,7 @@ function ThemeButtons() {
 	const { theme, onThemeChange } = useColorThemeContext();
 
 	return (
-		<ButtonGroup
-			gap="8"
-			fullWidth
-		>
+		<ButtonGroup fullWidth>
 			{Themes.map((Theme) => (
 				<ButtonGroup.Item
 					key={Theme}

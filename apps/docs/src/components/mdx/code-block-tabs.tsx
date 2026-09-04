@@ -1,8 +1,6 @@
-import { Surface, Tabs } from "@moto-ui/react";
-import type { PropsWithChildren, ReactNode } from "react";
-import { nodeToString } from "@/utils/node";
+import { Separator, Tabs } from "@moto-ui/react";
+import { Fragment, type PropsWithChildren, type ReactNode } from "react";
 import { CodeBlockTabsProvider } from "./client";
-import { CopyButton } from "./copy-button";
 
 export const CodeBlockTabsRoot = (
 	props: PropsWithChildren<{ defaultValue?: string }>,
@@ -12,10 +10,11 @@ export const CodeBlockTabsRoot = (
 	return (
 		<CodeBlockTabsProvider>
 			<Tabs
-				size="xs"
 				mt="24"
+				gap="0"
+				size="xs"
+				variant="tertiary"
 				defaultValue={defaultValue}
-				position="relative"
 			>
 				{children}
 			</Tabs>
@@ -29,18 +28,13 @@ export const CodeBlockTabsList = (props: PropsWithChildren) => {
 	const { children } = props;
 
 	return (
-		<Surface
-			delta={6}
-			shadowLevel={0}
-			w="full"
-			p="2"
-			roundedTop="16"
-		>
+		<Fragment>
 			<Tabs.List w="12rem">
 				<Tabs.Indicator rounded="12" />
 				{children}
 			</Tabs.List>
-		</Surface>
+			<Separator />
+		</Fragment>
 	);
 };
 
@@ -73,29 +67,7 @@ type CodeBlockTabsPanelProps = {
 
 export const CodeBlockTabsPanel = (props: CodeBlockTabsPanelProps) => {
 	const { children, value } = props;
-
-	const code = nodeToString(children);
-
-	return (
-		<Tabs.Content value={value}>
-			<Surface
-				py="8"
-				px="12"
-				mt="-1"
-				delta={1}
-				shadowLevel={0}
-				roundedBottom="16"
-			>
-				{children}
-				<CopyButton
-					size="sm"
-					value={code}
-					position="absolute"
-					inset="3px 4px auto auto"
-				/>
-			</Surface>
-		</Tabs.Content>
-	);
+	return <Tabs.Content value={value}>{children}</Tabs.Content>;
 };
 
 CodeBlockTabsPanel.displayName = "CodeBlockTabsPanel";

@@ -1,7 +1,7 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react";
 import { forwardRef, type ReactNode } from "react";
-import { createStyleContext } from "../../../styled-system/jsx";
-import { sidebarRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { sidebarRecipe } from "../../styled-system/recipes";
 import {
 	SidebarContextProvider,
 	type UseSidebarProps,

@@ -16,7 +16,10 @@ export default function Placements() {
 			<ButtonGroup justify="center">
 				<For each={placements}>
 					{(placement) => (
-						<Dialog placement={placement}>
+						<Dialog
+							placement={placement}
+							key={placement}
+						>
 							<Dialog.Trigger asChild>
 								<Button
 									size="sm"

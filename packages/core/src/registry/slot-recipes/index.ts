@@ -9,7 +9,6 @@ import { buttonGroupRecipe } from "./button-group";
 import { carouselRecipe } from "./carousel";
 import { checkboxRecipe } from "./checkbox";
 import { clipboardRecipe } from "./clipboard";
-import { codeBlockRecipe } from "./code-block";
 import { collapsibleRecipe } from "./collapsible";
 import { colorPickerRecipe } from "./color-picker";
 import { colorThemeRecipe } from "./color-theme";
@@ -34,6 +33,7 @@ import { listRecipe } from "./list";
 import { listboxRecipe } from "./listbox";
 import { marqueeRecipe } from "./marquee";
 import { menuRecipe } from "./menu";
+import { navigationMenuRecipe } from "./navigation-menu";
 import { numberInputRecipe } from "./number-input";
 import { paginationRecipe } from "./pagination";
 import { passwordInputRecipe } from "./password-input";
@@ -85,7 +85,6 @@ export const slotRecipes = {
 	checkboxRecipe,
 	tagsInputRecipe,
 	collapsibleRecipe,
-	codeBlockRecipe,
 	colorThemeRecipe,
 	clipboardRecipe,
 	comboboxRecipe,
@@ -150,4 +149,5 @@ export const slotRecipes = {
 	separatorGroupRecipe,
 	sidebarRecipe,
 	listRecipe,
+	navigationMenuRecipe,
 };

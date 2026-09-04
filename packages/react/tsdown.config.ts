@@ -1,19 +1,19 @@
+import { cp } from "node:fs";
 import { defineConfig } from "tsdown";
 
-const entry = [
-	"!src/**/*.stories.{ts,tsx,js,jsx,mjs}",
-	"!src/**/*.test.{ts,tsx,js,jsx,mjs}",
-	"!src/**/*.spec.{ts,tsx,js,jsx,mjs}",
-	"!src/**/__tests__/**",
-	"!src/**/__mocks__/**",
-	"!src/extract.ts",
-	"!src/components/**/examples/**",
-	"!src/components/**/stories.tsx",
-	"src/**/*.{ts,tsx}",
-];
-
 export default defineConfig({
-	entry,
+	entry: [
+		"src/**/*.{ts,tsx}",
+		"!src/**/*.stories.{ts,tsx,js,jsx,mjs}",
+		"!src/**/*.test.{ts,tsx,js,jsx,mjs}",
+		"!src/**/*.spec.{ts,tsx,js,jsx,mjs}",
+		"!src/**/__tests__/**",
+		"!src/**/__mocks__/**",
+		"!src/extract.ts",
+		"!src/styled-system",
+		"!src/components/**/examples/**",
+		"!src/components/**/stories.tsx",
+	],
 	dts: false,
 	unbundle: true,
 	outDir: "dist",
@@ -22,4 +22,27 @@ export default defineConfig({
 	outExtensions: ({ format }) => ({
 		js: format === "cjs" ? ".cjs" : ".js",
 	}),
+	deps: {
+		neverBundle: [
+			"react",
+			"react-dom",
+			"@ark-ui/react",
+			"@moto-ui/styled-system",
+		],
+	},
+	onSuccess: () => {
+		cp(
+			"src/styled-system",
+			"dist/styled-system",
+			{
+				force: true,
+				recursive: true,
+			},
+			(err) => {
+				if (err) {
+					console.error(err);
+				}
+			},
+		);
+	},
 });

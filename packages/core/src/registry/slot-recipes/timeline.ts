@@ -8,19 +8,24 @@ export const timelineRecipe = defineSlotRecipe({
 			width: "full",
 			display: "flex",
 			flexDirection: "column",
-			"--timeline-gutter": "4px",
-			"--timeline-thickness": "1px",
 		},
 		item: {
-			flexShrink: 0,
-			display: "flex",
-			position: "relative",
-			alignItems: "flex-start",
-			gap: "calc({spacing.4} * 6)",
 			"--timeline-separator-display": "inline-block",
 			"--timeline-content-gap": "calc({spacing.4} * 10)",
+
+			display: "grid",
+			w: "{sizes.full}",
+			position: "relative",
+			alignItems: "flex-start",
+			gap: "calc({spacing.4} * 4)",
+			gridTemplateColumns: "max-content minmax(0, 1fr)",
+
 			_last: {
 				"--timeline-content-gap": "0",
+			},
+
+			"@media(min-width: 36rem)": {
+				gap: "calc({spacing.4} * 6)",
 			},
 		},
 		separator: {

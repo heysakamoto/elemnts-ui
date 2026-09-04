@@ -1,8 +1,7 @@
 import { ark } from "@ark-ui/react";
 import { WheelPicker, WheelPickerWrapper } from "@ncdai/react-wheel-picker";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { wheelPickerRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { wheelPickerRecipe } from "../../styled-system/recipes";
 
 const { withProvider } = createStyleContext(wheelPickerRecipe);
 

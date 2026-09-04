@@ -1,9 +1,8 @@
 import { type Assign, ark } from "@ark-ui/react";
 import { forwardRef } from "react";
-
-import { cx } from "../../../styled-system/css";
-import { type HTMLStyledProps, styled } from "../../../styled-system/jsx";
-import { themeRecipe } from "../../../styled-system/recipes";
+import { cx } from "../../styled-system/css";
+import { type HTMLStyledProps, styled } from "../../styled-system/jsx";
+import { themeRecipe } from "../../styled-system/recipes";
 
 type ThemeAppearance = "light" | "dark";
 

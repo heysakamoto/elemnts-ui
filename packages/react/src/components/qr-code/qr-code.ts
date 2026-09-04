@@ -1,7 +1,6 @@
 import { QrCode } from "@ark-ui/react/qr-code";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { qrCodeRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { qrCodeRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(qrCodeRecipe);
 

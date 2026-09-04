@@ -3,20 +3,20 @@ import { defineSemanticTokens } from "@pandacss/dev";
 const mix = {
 	hover: {
 		value: {
-			base: "rgba(0, 0, 0, 0.08)",
+			base: "rgba(0, 0, 0, 0.06)",
 			_dark: "rgba(255, 255, 255, 0.08)",
 		},
 	},
 	active: {
 		value: {
-			base: "rgba(0, 0, 0, 0.16)",
+			base: "rgba(0, 0, 0, 0.10)",
 			_dark: "rgba(255, 255, 255, 0.16)",
 		},
 	},
 	selected: {
 		value: {
-			base: "rgba(0, 0, 0, 0.12)",
-			_dark: "rgba(255, 255, 255, 0.12)",
+			base: "rgba(0, 0, 0, 0.08)",
+			_dark: "rgba(255, 255, 255, 0.10)",
 		},
 	},
 };
@@ -97,19 +97,19 @@ const stroke = {
 	primary: {
 		value: {
 			base: "{colors.neutral.30}",
-			_dark: "{colors.neutral.80}",
+			_dark: "{colors.neutral.90}",
 		},
 	},
 	secondary: {
 		value: {
-			base: "color-mix(in oklab, {colors.stroke.primary}, 16% {colors.white})",
-			_dark: "color-mix(in oklab, {colors.stroke.primary}, 6% {colors.black})",
+			base: "color-mix(in oklab, {colors.stroke.primary}, 24% {colors.white})",
+			_dark: "color-mix(in oklab, {colors.stroke.primary}, 12% {colors.black})",
 		},
 	},
 	tertiary: {
 		value: {
-			base: "color-mix(in oklab, {colors.stroke.primary}, 24% {colors.white})",
-			_dark: "color-mix(in oklab, {colors.stroke.primary}, 12% {colors.black})",
+			base: "color-mix(in oklab, {colors.stroke.primary}, 40% {colors.white})",
+			_dark: "color-mix(in oklab, {colors.stroke.primary}, 20% {colors.black})",
 		},
 	},
 };

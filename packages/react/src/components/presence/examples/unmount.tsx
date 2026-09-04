@@ -11,7 +11,6 @@ export default function Unmount() {
 			direction="column"
 		>
 			<Button
-				rounded="24"
 				variant="surface"
 				onClick={() => setPresent(!present)}
 			>
@@ -23,7 +22,8 @@ export default function Unmount() {
 			>
 				<Surface
 					delta={1}
-					p="8"
+					px="12"
+					py="8"
 				>
 					<Surface.Title fontSize="14">
 						This element is removed from DOM when hidden

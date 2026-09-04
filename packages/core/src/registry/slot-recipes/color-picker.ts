@@ -62,7 +62,6 @@ export const colorPickerRecipe = defineSlotRecipe({
 			overflow: "clip",
 			rounded: "{radii.16}",
 			shadow: "{shadows.2}",
-			cornerShape: "squircle",
 			border: "1px solid {colors.stroke.tertiary}",
 		},
 		areaBackground: {
@@ -72,7 +71,6 @@ export const colorPickerRecipe = defineSlotRecipe({
 			rounded: "{radii.16}",
 			boxSize: "{sizes.16}",
 			shadow: "{shadows.2}",
-			cornerShape: "squircle",
 			willChange: "width, height",
 			border: "3px solid {colors.white}",
 			transition: `
@@ -99,8 +97,6 @@ export const colorPickerRecipe = defineSlotRecipe({
 		channelSliderTrack: {
 			overflow: "clip",
 			rounded: "{radii.16}",
-			cornerShape: "squircle",
-
 			_horizontal: {
 				w: "{sizes.full}",
 				h: "{sizes.20}",
@@ -117,7 +113,6 @@ export const colorPickerRecipe = defineSlotRecipe({
 			boxSize: "{sizes.16}",
 			shadow: "{shadows.sm}",
 			rounded: "{radii.16}",
-			cornerShape: "squircle",
 			border: "3px solid {colors.white}",
 
 			_hover: {

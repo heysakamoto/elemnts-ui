@@ -1,18 +1,16 @@
-import { Button, Dialog, Portal, Surface } from "@moto-ui/react";
+import { Button, ButtonGroup, Dialog, Portal, Surface } from "@moto-ui/react";
 
 export default function Fullscreen() {
 	return (
 		<Dialog size="full">
 			<Dialog.Trigger asChild>
 				<Button
-					rounded="24"
 					variant="surface"
-					colorPalette="neutral"
 					size="sm"
 				>
 					Open
 				</Button>
-			</Dialog.Trigger>{" "}
+			</Dialog.Trigger>
 			<Portal>
 				<Dialog.Backdrop />
 				<Dialog.Positioner>
@@ -21,6 +19,7 @@ export default function Fullscreen() {
 							p="16"
 							delta={1}
 							rounded="0"
+							colorPalette="neutral"
 						>
 							<Surface.Content mt="4">
 								<Dialog.Title>Approve</Dialog.Title>
@@ -34,17 +33,14 @@ export default function Fullscreen() {
 								direction="row"
 								gap="8"
 							>
-								<Dialog.CloseTrigger asChild>
-									<Button
-										variant="tertiary"
-										colorPalette="neutral"
-									>
-										Deny
-									</Button>
-								</Dialog.CloseTrigger>
-								<Dialog.CloseTrigger asChild>
-									<Button variant="primary">Allow</Button>
-								</Dialog.CloseTrigger>
+								<ButtonGroup size="sm">
+									<Dialog.CloseTrigger asChild>
+										<ButtonGroup.Item variant="tertiary">Deny</ButtonGroup.Item>
+									</Dialog.CloseTrigger>
+									<Dialog.CloseTrigger asChild>
+										<ButtonGroup.Item variant="primary">Allow</ButtonGroup.Item>
+									</Dialog.CloseTrigger>
+								</ButtonGroup>
 							</Surface.Addon>
 						</Surface>
 					</Dialog.Content>

@@ -1,7 +1,6 @@
 import { Splitter } from "@ark-ui/react/splitter";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { splitterRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { splitterRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(splitterRecipe);
 

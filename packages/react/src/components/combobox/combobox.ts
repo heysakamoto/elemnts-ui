@@ -1,15 +1,14 @@
 import { type Assign, ark } from "@ark-ui/react";
 import { Combobox } from "@ark-ui/react/combobox";
 import type { ReactElement } from "react";
-
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "../../../styled-system/jsx";
+} from "../../styled-system/jsx";
 import {
 	type ComboboxRecipeVariantProps,
 	comboboxRecipe,
-} from "../../../styled-system/recipes";
+} from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(comboboxRecipe);
 

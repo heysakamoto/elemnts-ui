@@ -1,4 +1,5 @@
 import { Icon, Item, Menu, Separator, Surface } from "@moto-ui/react";
+import { Fragment } from "react";
 
 const groups = {
 	account: [
@@ -50,18 +51,15 @@ export default function Group() {
 				<Surface
 					delta={1}
 					w="12rem"
-					rounded="20"
+					rounded="14"
 				>
 					<Surface.Content gap="2">
 						{Object.entries(groups).map(([label, items], index, array) => {
 							const isLastGroup = index === array.length - 1;
 
 							return (
-								<>
-									<Menu.ItemGroup
-										p="4"
-										key={label}
-									>
+								<Fragment key={label}>
+									<Menu.ItemGroup p="4">
 										<Menu.ItemGroupLabel
 											px="12"
 											textTransform="capitalize"
@@ -77,6 +75,7 @@ export default function Group() {
 												>
 													<Item variant="secondary">
 														<Icon
+															ml="-6"
 															icon={item.icon}
 															width={16}
 															height={16}
@@ -88,7 +87,7 @@ export default function Group() {
 										})}
 									</Menu.ItemGroup>
 									{!isLastGroup && <Separator orientation="horizontal" />}
-								</>
+								</Fragment>
 							);
 						})}
 					</Surface.Content>

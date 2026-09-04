@@ -1,8 +1,7 @@
 import { ark, type HTMLProps } from "@ark-ui/react/factory";
 import type React from "react";
-
-import { styled } from "../../../styled-system/jsx";
-import { radiomarkRecipe } from "../../../styled-system/recipes";
+import { styled } from "../../styled-system/jsx";
+import { radiomarkRecipe } from "../../styled-system/recipes";
 
 export const Radiomark = styled(
 	(

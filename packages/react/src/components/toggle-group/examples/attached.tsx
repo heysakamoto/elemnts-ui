@@ -1,59 +1,55 @@
-import { Icon, Item, ToggleGroup } from "@moto-ui/react";
+import { Icon, Item, Surface, ToggleGroup } from "@moto-ui/react";
 
 export default function Attached() {
 	return (
-		<ToggleGroup attached>
-			<ToggleGroup.Context>
-				{(ctx) => {
-					const isActive = (value: string) => ctx.value.includes(value);
-
-					return (
-						<>
-							<Item
-								asChild
-								iconOnly
-								surface="secondary"
-								roundedStart="24"
-								selected={isActive("bold")}
-							>
-								<ToggleGroup.Item
-									value="bold"
-									aria-label="bold"
-								>
-									<Icon icon="tabler:bold" />
-								</ToggleGroup.Item>
-							</Item>
-							<Item
-								asChild
-								iconOnly
-								surface="secondary"
-								selected={isActive("italic")}
-							>
-								<ToggleGroup.Item
-									value="italic"
-									aria-label="Italic"
-								>
-									<Icon icon="tabler:italic" />
-								</ToggleGroup.Item>
-							</Item>
-							<Item
-								asChild
-								iconOnly
-								surface="secondary"
-								roundedEnd="24"
-								selected={isActive("underline")}
-							>
-								<ToggleGroup.Item
-									value="underline"
-									aria-label="Underline"
-								>
-									<Icon icon="tabler:underline" />
-								</ToggleGroup.Item>
-							</Item>
-						</>
-					);
-				}}
-			</ToggleGroup.Context>
-		</ToggleGroup>
+		<Surface rounded="12">
+			<ToggleGroup attached>
+				<ToggleGroup.Item
+					asChild
+					value="bold"
+					aria-label="bold"
+				>
+					<Item variant="secondary">
+						<Icon
+							ml="-6"
+							width={16}
+							height={16}
+							icon="tabler:bold"
+						/>
+						Bold
+					</Item>
+				</ToggleGroup.Item>
+				<ToggleGroup.Item
+					asChild
+					value="italic"
+					aria-label="Italic"
+				>
+					<Item variant="secondary">
+						<Icon
+							ml="-6"
+							width={16}
+							height={16}
+							icon="tabler:italic"
+						/>
+						Italic
+					</Item>
+				</ToggleGroup.Item>
+				<ToggleGroup.Item
+					asChild
+					value="underline"
+					aria-label="Underline"
+				>
+					<Item variant="secondary">
+						<Icon
+							ml="-6"
+							width={16}
+							height={16}
+							icon="tabler:underline"
+						/>
+						Underline
+					</Item>
+				</ToggleGroup.Item>
+			</ToggleGroup>
+		</Surface>
 	);
 }

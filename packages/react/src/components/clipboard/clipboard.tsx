@@ -1,7 +1,6 @@
 import { Clipboard } from "@ark-ui/react/clipboard";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { clipboardRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { clipboardRecipe } from "../../styled-system/recipes";
 import { Icon } from "../icon";
 
 const { withProvider, withContext } = createStyleContext(clipboardRecipe);

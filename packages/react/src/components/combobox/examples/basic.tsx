@@ -70,7 +70,8 @@ export default function Basic() {
 						<Combobox.Content asChild>
 							<Surface
 								delta={1}
-								rounded="16"
+								rounded="14"
+								colorPalette="neutral"
 							>
 								<Surface.Content
 									p="4"
@@ -83,11 +84,7 @@ export default function Basic() {
 												item={item}
 												key={item.id}
 											>
-												<Item
-													variant="secondary"
-													colorPalette="neutral"
-													rounded="calc(16px - 4px)"
-												>
+												<Item variant="secondary">
 													<Combobox.ItemText>{item.label}</Combobox.ItemText>
 												</Item>
 											</Combobox.Item>

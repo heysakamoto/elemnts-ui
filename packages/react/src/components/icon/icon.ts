@@ -2,9 +2,8 @@ import {
 	Icon as UnstyledIcon,
 	InlineIcon as UnstyledInlineIcon,
 } from "@iconify/react";
-
-import { styled } from "../../../styled-system/jsx";
-import { iconRecipe } from "../../../styled-system/recipes";
+import { styled } from "../../styled-system/jsx";
+import { iconRecipe } from "../../styled-system/recipes";
 
 export const Icon = styled(UnstyledIcon, iconRecipe, {
 	forwardProps: ["width", "height", "icon"],

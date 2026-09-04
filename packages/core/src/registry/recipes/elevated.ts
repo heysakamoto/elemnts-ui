@@ -5,8 +5,6 @@ export const elevatedRecipe = defineRecipe({
 	description: "Raises the elevation level of its children by a given `offset`",
 	base: {
 		display: "flex",
-		cornerShape: "squircle",
-
 		"&[data-elevation='1']": {
 			bgColor: "{colors.surface.1}",
 		},

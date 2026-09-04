@@ -3,52 +3,45 @@ import { Icon, Item, ToggleGroup } from "@moto-ui/react";
 export default function Basic() {
 	return (
 		<ToggleGroup>
-			<ToggleGroup.Context>
-				{(ctx) => {
-					const isActive = (value: string) => ctx.value.includes(value);
-
-					return (
-						<>
-							<Item
-								asChild
-								iconOnly
-								selected={isActive("bold")}
-							>
-								<ToggleGroup.Item
-									value="bold"
-									aria-label="bold"
-								>
-									<Icon icon="tabler:bold" />
-								</ToggleGroup.Item>
-							</Item>
-							<Item
-								asChild
-								iconOnly
-								selected={isActive("italic")}
-							>
-								<ToggleGroup.Item
-									value="italic"
-									aria-label="Italic"
-								>
-									<Icon icon="tabler:italic" />
-								</ToggleGroup.Item>
-							</Item>
-							<Item
-								asChild
-								iconOnly
-								selected={isActive("underline")}
-							>
-								<ToggleGroup.Item
-									value="underline"
-									aria-label="Underline"
-								>
-									<Icon icon="tabler:underline" />
-								</ToggleGroup.Item>
-							</Item>
-						</>
-					);
-				}}
-			</ToggleGroup.Context>
+			<ToggleGroup.Item
+				asChild
+				value="bold"
+				aria-label="bold"
+			>
+				<Item variant="secondary">
+					<Icon
+						width={16}
+						height={16}
+						icon="tabler:bold"
+					/>
+				</Item>
+			</ToggleGroup.Item>
+			<ToggleGroup.Item
+				asChild
+				value="italic"
+				aria-label="Italic"
+			>
+				<Item variant="secondary">
+					<Icon
+						width={16}
+						height={16}
+						icon="tabler:italic"
+					/>
+				</Item>
+			</ToggleGroup.Item>
+			<ToggleGroup.Item
+				asChild
+				value="underline"
+				aria-label="Underline"
+			>
+				<Item variant="secondary">
+					<Icon
+						width={16}
+						height={16}
+						icon="tabler:underline"
+					/>
+				</Item>
+			</ToggleGroup.Item>
 		</ToggleGroup>
 	);
 }

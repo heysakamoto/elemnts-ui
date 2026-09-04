@@ -1,7 +1,6 @@
 import { Toc } from "@ark-ui/react/toc";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { tocRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { tocRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(tocRecipe);
 

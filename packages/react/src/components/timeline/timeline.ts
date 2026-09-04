@@ -1,7 +1,6 @@
 import { ark } from "@ark-ui/react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { timelineRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { timelineRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(timelineRecipe);
 

@@ -1,8 +1,7 @@
 import { PinInput } from "@ark-ui/react/pin-input";
 import { forwardRef } from "react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { pinInputRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { pinInputRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(pinInputRecipe);
 

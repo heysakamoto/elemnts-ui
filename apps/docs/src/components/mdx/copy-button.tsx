@@ -22,7 +22,6 @@ export const CopyButton = (props: Props) => {
 			iconOnly
 			variant="ghost"
 			disabled={!value}
-			aria-label="Copy code"
 			_notHover={{ "& svg": { color: "icon.secondary" } }}
 			{...restProps}
 			{...api.getTriggerProps()}

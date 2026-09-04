@@ -7,7 +7,6 @@ export const skeletonRecipe = defineRecipe({
 		overflow: "hidden",
 		userSelect: "none",
 		position: "relative",
-		cornerShape: "squircle",
 		color: "{colors.transparent}",
 		bgColor: "{colors.surface.8}",
 		rounded: "calc({radii.4} * 4)",

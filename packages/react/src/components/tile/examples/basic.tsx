@@ -16,13 +16,12 @@ export default function Basic() {
 					return (
 						<Tile
 							key={key}
+							orientation="vertical"
 							selected={option.value === value}
 							onClick={() => setValue(option.value)}
 						>
-							<Tile.Content>
-								<Tile.Title>{option.title}</Tile.Title>
-								<Tile.Description>{option.description}</Tile.Description>
-							</Tile.Content>
+							<Tile.Title>{option.title}</Tile.Title>
+							<Tile.Description>{option.description}</Tile.Description>
 						</Tile>
 					);
 				}}

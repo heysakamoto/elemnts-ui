@@ -10,10 +10,7 @@ export default function FileSize() {
 			mimeType="text/plain"
 			asChild
 		>
-			<Button
-				rounded="24"
-				variant="tertiary"
-			>
+			<Button variant="surface">
 				Download{" "}
 				<Format.Byte
 					value={data.length}

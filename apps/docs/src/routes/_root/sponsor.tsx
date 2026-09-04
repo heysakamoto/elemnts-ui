@@ -7,11 +7,5 @@ export const Route = createFileRoute("/_root/sponsor")({
 });
 
 function RouteComponent() {
-	return (
-		<Sponsor>
-			<Sponsor.Header />
-			<Sponsor.Content />
-			<Sponsor.Footer />
-		</Sponsor>
-	);
+	return <Sponsor.Hero />;
 }

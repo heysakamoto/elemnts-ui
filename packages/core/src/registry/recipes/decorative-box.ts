@@ -5,11 +5,10 @@ export const decorativeBoxRecipe = defineRecipe({
 	base: {
 		display: "flex",
 		alignItems: "center",
-		rounded: "{radii.16}",
-		cornerShape: "squircle",
 		boxSize: "{sizes.full}",
 		flexDirection: "column",
 		justifyContent: "center",
+		rounded: "calc({radii.4} * 2.5)",
 	},
 	variants: {
 		variant: {

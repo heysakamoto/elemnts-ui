@@ -38,7 +38,7 @@ export function TimelineItem(
 				>
 					{title}
 				</Text>
-				<Text>{children}</Text>
+				{children}
 			</Timeline.Content>
 		</Timeline.Item>
 	);

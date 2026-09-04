@@ -1,7 +1,6 @@
 import { Pagination } from "@ark-ui/react/pagination";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { paginationRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { paginationRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(paginationRecipe);
 

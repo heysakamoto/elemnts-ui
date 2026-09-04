@@ -1,8 +1,8 @@
 import { ark, type HTMLArkProps } from "@ark-ui/react";
 import { forwardRef, type PropsWithChildren, type ReactNode } from "react";
-import { cx } from "../../../styled-system/css";
-import { createStyleContext } from "../../../styled-system/jsx";
-import { colorThemeRecipe } from "../../../styled-system/recipes";
+import { cx } from "../../styled-system/css";
+import { createStyleContext } from "../../styled-system/jsx";
+import { colorThemeRecipe } from "../../styled-system/recipes";
 import { Show } from "../show";
 import {
 	ColorThemeContextProvider,

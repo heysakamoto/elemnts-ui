@@ -7,12 +7,11 @@ export const avatarRecipe = defineSlotRecipe({
 	base: {
 		root: {
 			flexShrink: 0,
-			rounded: "16px",
 			overflow: "hidden",
 			alignItems: "center",
 			boxSize: "var(--size)",
 			display: "inline-flex",
-			cornerShape: "squircle",
+			rounded: "{radii.full}",
 			justifyContent: "center",
 			border: "1px solid transparent",
 		},

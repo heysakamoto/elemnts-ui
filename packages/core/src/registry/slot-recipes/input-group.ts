@@ -14,7 +14,6 @@ export const inputGroupRecipe = defineSlotRecipe({
 			alignItems: "center",
 			position: "relative",
 			rounded: "{radii.16}",
-			cornerShape: "squircle",
 			fontSize: "{fontSizes.14}",
 			border: "1px solid transparent",
 

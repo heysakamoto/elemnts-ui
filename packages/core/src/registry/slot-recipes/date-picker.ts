@@ -104,7 +104,6 @@ export const datePickerRecipe = defineSlotRecipe({
 			alignItems: "center",
 			aspectRatio: "1 / 1",
 			display: "inline-flex",
-			cornerShape: "squircle",
 			justifyContent: "center",
 			fontSize: "{fontSizes.14}",
 			minW: "calc({sizes.4} * 7)",

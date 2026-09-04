@@ -1,8 +1,7 @@
 import { Collapsible } from "@ark-ui/react/collapsible";
 import { Icon } from "@iconify/react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { collapsibleRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { collapsibleRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(collapsibleRecipe);
 

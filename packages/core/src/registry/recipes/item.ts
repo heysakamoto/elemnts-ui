@@ -1,11 +1,16 @@
 import { defineRecipe } from "@pandacss/dev";
-
+import { variant } from "../constants/variant";
 import { buttonRecipe } from "./button";
+
+const selected =
+	"&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-state=checked], [aria-checked=true], [data-highlighted], [data-state=on])";
+
+const hover = "&:not(:disabled, [data-disabled], [aria-disabled=true]):hover";
 
 export const itemRecipe = defineRecipe({
 	className: "item",
+
 	base: {
-		rounded: "16px",
 		w: "{sizes.full}",
 		cursor: "pointer",
 		gap: "{spacing.8}",
@@ -13,7 +18,6 @@ export const itemRecipe = defineRecipe({
 		alignItems: "center",
 		display: "inline-flex",
 		justifyContent: "start",
-		cornerShape: "squircle",
 		color: "{colors.fg.primary}",
 		bgColor: "{colors.transparent}",
 		border: "1px solid transparent",
@@ -27,12 +31,11 @@ export const itemRecipe = defineRecipe({
 			color: "{colors.icon.secondary}",
 		},
 
-		"&:not(:disabled, [aria-disabled=true], [data-disabled]):is([data-selected], [data-state=checked], :hover, [data-highlighted])":
-			{
-				"& *": {
-					color: "inherit",
-				},
+		[selected]: {
+			"& > svg": {
+				color: "inherit",
 			},
+		},
 
 		_disabled: {
 			opacity: 0.5,
@@ -61,45 +64,66 @@ export const itemRecipe = defineRecipe({
 
 		variant: {
 			primary: {
-				"&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-state=checked], :hover, [data-highlighted])":
-					{
-						bgColor: "{colors.colorPalette.primary}",
-						color: "{colors.colorPalette.tertiary}",
-						"& *": {
-							color: "{colors.current}",
-						},
+				[hover]: {
+					color: variant.primary.color,
+					bgColor: variant.primary._hover.backgroundColor,
+				},
+				[selected]: {
+					color: variant.primary.color,
+					bgColor: variant.primary._selected.backgroundColor,
+
+					"& > *": {
+						color: "{colors.current}",
 					},
+				},
 			},
+
 			secondary: {
-				"&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-state=checked], :hover, [data-highlighted])":
-					{
-						bgColor: "{colors.colorPalette.secondary}",
-						color: "{colors.colorPalette.primary}",
-						"& *": {
-							color: "{colors.current}",
-						},
+				[hover]: {
+					color: variant.secondary.color,
+					bgColor: variant.secondary._hover.backgroundColor,
+				},
+				[selected]: {
+					color: variant.secondary.color,
+					bgColor: variant.secondary._selected.backgroundColor,
+
+					"& > svg": {
+						color: "{colors.current}",
 					},
+				},
 			},
+
 			tertiary: {
-				"&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-state=checked], :hover, [data-highlighted])":
-					{
-						bgColor: "{colors.transparent}",
-						color: "{colors.colorPalette.primary}",
-						"& *": {
-							color: "{colors.current}",
-						},
+				[hover]: {
+					color: variant.tertiary.color,
+					borderColor: variant.tertiary.borderColor,
+					bgColor: variant.tertiary._hover.backgroundColor,
+				},
+				[selected]: {
+					color: variant.tertiary.color,
+					borderColor: variant.tertiary.borderColor,
+					bgColor: variant.tertiary.backgroundColor,
+
+					"& > svg": {
+						color: "{colors.current}",
 					},
+				},
 			},
+
 			surface: {
-				"&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-state=checked], :hover, [data-highlighted])":
-					{
-						color: "{colors.colorPalette.primary}",
-						bgColor: "{colors.colorPalette.secondary}",
-						border: "1px solid {colors.colorPalette.stroke}",
-						"& *": {
-							color: "{colors.current}",
-						},
+				[hover]: {
+					color: variant.surface.color,
+					bgColor: variant.surface._hover.backgroundColor,
+				},
+				[selected]: {
+					color: variant.surface.color,
+					borderColor: variant.surface.borderColor,
+					bgColor: variant.surface._selected.backgroundColor,
+
+					"& > svg": {
+						color: "{colors.current}",
 					},
+				},
 			},
 		},
 

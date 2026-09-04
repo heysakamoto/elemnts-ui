@@ -9,6 +9,7 @@ import { containerRecipe } from "./container";
 import { decorativeBoxRecipe } from "./decorative-box";
 import { downloadRecipe } from "./download";
 import { elevatedRecipe } from "./elevated";
+import { focusTrapRecipe } from "./focus-trap";
 import { gridRecipe } from "./grid";
 import { groupRecipe } from "./group";
 import { highlightRecipe } from "./highlight";
@@ -59,6 +60,7 @@ export const recipes = {
 	highlightRecipe,
 	spinnerRecipe,
 	anchorRecipe,
+	focusTrapRecipe,
 	separatorRecipe,
 	skeletonRecipe,
 	tagRecipe,

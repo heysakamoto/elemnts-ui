@@ -1,7 +1,6 @@
 import { ark } from "@ark-ui/react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { breadcrumbRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { breadcrumbRecipe } from "../../styled-system/recipes";
 import { Icon } from "../icon";
 
 const { withProvider, withContext } = createStyleContext(breadcrumbRecipe);

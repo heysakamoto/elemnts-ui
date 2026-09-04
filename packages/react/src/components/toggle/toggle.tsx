@@ -1,7 +1,6 @@
 import { Toggle } from "@ark-ui/react/toggle";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { toggleRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { toggleRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(toggleRecipe);
 

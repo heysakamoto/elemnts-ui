@@ -39,8 +39,7 @@ export default function ContextMenu() {
 			<Menu>
 				<Menu.ContextTrigger
 					h="5rem"
-					rounded="16"
-					color="fg.secondary"
+					rounded="12"
 					border="2px dashed {colors.stroke.tertiary}"
 				>
 					Right-click here
@@ -51,7 +50,7 @@ export default function ContextMenu() {
 							<Surface
 								delta={1}
 								w="12rem"
-								rounded="20"
+								rounded="14"
 								colorPalette="neutral"
 							>
 								<Surface.Content
@@ -67,9 +66,10 @@ export default function ContextMenu() {
 											>
 												<Item variant="secondary">
 													<Icon
-														icon={item.icon}
+														ml="-6"
 														width={16}
 														height={16}
+														icon={item.icon}
 													/>
 													<Menu.ItemText>{item.label}</Menu.ItemText>
 												</Item>

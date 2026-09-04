@@ -14,12 +14,7 @@ export default function Svg() {
 			mimeType="image/svg+xml"
 			asChild
 		>
-			<Button
-				rounded="24"
-				variant="surface"
-			>
-				Download svg
-			</Button>
+			<Button variant="surface">Download svg</Button>
 		</Download>
 	);
 }

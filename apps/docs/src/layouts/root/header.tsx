@@ -1,11 +1,4 @@
-import {
-	ButtonGroup,
-	Container,
-	For,
-	Section,
-	Separator,
-	Stack,
-} from "@moto-ui/react";
+import { ButtonGroup, Container, For, Section, Stack } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/base/logo";
 import { ROOTLAYOUT_URLS } from "./constants";
@@ -19,13 +12,16 @@ export function RootLayoutHeader() {
 			as="header"
 			position="sticky"
 			colorPalette="neutral"
-			backdropFilter="blur(12px)"
-			bgColor="color-mix(in oklab, {colors.surface-1}, 50% {colors.transparent})"
+			backdropFilter="blur(20px)"
+			borderBottom="1px solid {colors.stroke.primary}"
+			bgColor="color-mix(in oklab, {colors.surface-1}, 90% {colors.transparent})"
 		>
-			<Container maxW="40rem">
+			<Container
+				maxW="40rem"
+				px="16"
+			>
 				<Stack
-					h="64"
-					px="20"
+					h="var(--navbar-height)"
 					align="center"
 					justify="space-between"
 				>
@@ -51,12 +47,7 @@ export function RootLayoutHeader() {
 											},
 										}}
 									>
-										<Link
-											to={url.url}
-											target="_blank"
-										>
-											{url.label}
-										</Link>
+										<Link to={url.url}>{url.label}</Link>
 									</ButtonGroup.Item>
 								)}
 							</For>
@@ -64,10 +55,6 @@ export function RootLayoutHeader() {
 					</Stack>
 				</Stack>
 			</Container>
-			<Separator
-				variant="tertiary"
-				orientation="horizontal"
-			/>
 		</Section>
 	);
 }

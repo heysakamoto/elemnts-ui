@@ -23,10 +23,7 @@ export default function Vertical() {
 							key={index.toString()}
 							index={index}
 						>
-							<DecorativeBox
-								rounded="24"
-								h="full"
-							/>
+							<DecorativeBox h="full" />
 						</Carousel.Item>
 					))}
 				</Carousel.ItemGroup>
@@ -34,8 +31,6 @@ export default function Vertical() {
 					<Carousel.PrevTrigger asChild>
 						<Button
 							iconOnly
-							rounded="full"
-							colorPalette="neutral"
 							variant="secondary"
 						>
 							<Icon
@@ -56,8 +51,6 @@ export default function Vertical() {
 					<Carousel.NextTrigger asChild>
 						<Button
 							iconOnly
-							rounded="full"
-							colorPalette="neutral"
 							variant="secondary"
 						>
 							<Icon

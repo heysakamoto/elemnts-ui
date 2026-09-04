@@ -1,27 +1,27 @@
 {
-	"name": "moto-ui",
-	"private": true,
-	"scripts": {
-		"biome:check": "biome check",
-		"biome:fix": "biome check --write",
-		"version-packages": "changeset version",
-		"release": "pnpm build && changeset publish",
-		"build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/storybook\" --filter \"!@moto-ui/docs\" build"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^2.5.11",
-		"@changesets/cli": "^2.31.1",
-		"@storybook/addon-a11y": "10.5.10",
-		"@storybook/addon-docs": "10.5.10",
-		"@storybook/addon-vitest": "10.5.10",
-		"@storybook/react-vite": "^10.5.10",
-		"@types/node": "^24.13.3",
-		"storybook": "^10.5.10",
-		"typescript": "^7.0.2",
-		"vite": "^8.2.2",
-		"vitest": "3.2.7",
-		"playwright": "latest",
-		"@vitest/browser": "3.2.7",
-		"@chromatic-com/storybook": "latest"
-	}
+  "name": "moto-ui",
+  "private": true,
+  "scripts": {
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish",
+    "biome:check": "biome check --max-diagnostics=3000",
+    "biome:fix": "biome check --write --max-diagnostics=3000",
+    "build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/docs\" build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.12",
+    "@changesets/cli": "^2.31.1",
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-a11y": "10.5.10",
+    "@storybook/addon-docs": "10.5.10",
+    "@storybook/addon-vitest": "10.5.10",
+    "@storybook/react-vite": "^10.6.0",
+    "@types/node": "^24.13.3",
+    "@vitest/browser": "3.2.7",
+    "playwright": "latest",
+    "storybook": "^10.6.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "3.2.7"
+  }
 }

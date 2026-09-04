@@ -5,7 +5,7 @@ export default function Basic() {
 		<SignaturePad.Root w="20rem">
 			<Surface
 				delta={1}
-				rounded="24"
+				rounded="16"
 			>
 				<SignaturePad.Control h="12rem">
 					<SignaturePad.Segment />

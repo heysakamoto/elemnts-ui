@@ -60,7 +60,7 @@ export default function Submenu() {
 				<Surface
 					delta={1}
 					w="12rem"
-					rounded="20"
+					rounded="14"
 				>
 					<Surface.Content
 						p="4"
@@ -69,10 +69,14 @@ export default function Submenu() {
 						{items.map((item) => {
 							if (item.items) {
 								return (
-									<Menu positioning={{ placement: "right-start", gutter: 2 }}>
+									<Menu
+										key={item.id}
+										positioning={{ placement: "right-start", gutter: 2 }}
+									>
 										<Menu.TriggerItem asChild>
 											<Item variant="secondary">
 												<Icon
+													ml="-6"
 													icon={item.icon}
 													width={16}
 													height={16}
@@ -93,7 +97,7 @@ export default function Submenu() {
 													<Surface
 														delta={1}
 														w="12rem"
-														rounded="20"
+														rounded="14"
 														colorPalette="neutral"
 													>
 														<Surface.Content
@@ -108,6 +112,7 @@ export default function Submenu() {
 																>
 																	<Item variant="secondary">
 																		<Icon
+																			ml="-6"
 																			width={16}
 																			height={16}
 																			icon={subItem.icon}
@@ -135,6 +140,7 @@ export default function Submenu() {
 								>
 									<Item variant="secondary">
 										<Icon
+											ml="-6"
 											icon={item.icon}
 											width={16}
 											height={16}

@@ -1,5 +1,4 @@
 import Basic from "./examples/basic";
-import Outline from "./examples/outline";
 import WithIcon from "./examples/with-icon";
 
 const meta = {
@@ -9,4 +8,4 @@ const meta = {
 
 export default meta;
 
-export { Basic, Outline, WithIcon };
+export { Basic, WithIcon };

@@ -40,12 +40,12 @@ const items = [
 
 export default function Command() {
 	return (
-		<Menu defaultOpen>
+		<Menu open>
 			<Menu.Content asChild>
 				<Surface
 					delta={1}
 					w="16rem"
-					rounded="20"
+					rounded="14"
 				>
 					<Surface.Content
 						p="4"
@@ -58,24 +58,27 @@ export default function Command() {
 									value={item.value}
 									asChild
 								>
-									<Item
-										variant="secondary"
-										rounded=""
-									>
+									<Item variant="secondary">
 										<Icon
+											ml="-6"
 											icon={item.icon}
 											width={16}
 											height={16}
 										/>
 										<Menu.ItemText>{item.label}</Menu.ItemText>
 										<KbdGroup
-											mr="-4"
+											mr="-6"
 											gap="2"
 											size="2xs"
-											variant="secondary"
+											variant="surface"
 										>
-											{Array.from(item.command).map((char) => (
-												<KbdGroup.Item>{char}</KbdGroup.Item>
+											{item.command.split("").map((char) => (
+												<KbdGroup.Item
+													iconOnly
+													key={char}
+												>
+													{char}
+												</KbdGroup.Item>
 											))}
 										</KbdGroup>
 									</Item>

@@ -62,6 +62,7 @@ export default function Disabled() {
 						<Select.Content asChild>
 							<Surface
 								delta={1}
+								rounded="14"
 								colorPalette="neutral"
 							>
 								<Surface.Content

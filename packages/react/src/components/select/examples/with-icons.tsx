@@ -57,7 +57,7 @@ export default function WithIcons() {
 						<Select.Content asChild>
 							<Surface
 								delta={1}
-								rounded="24"
+								rounded="14"
 								colorPalette="neutral"
 							>
 								<Surface.Content
@@ -72,6 +72,7 @@ export default function WithIcons() {
 										>
 											<Item variant="secondary">
 												<Icon
+													ml="-4"
 													icon={item.icon}
 													width={16}
 													height={16}

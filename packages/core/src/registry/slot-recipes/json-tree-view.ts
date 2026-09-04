@@ -1,4 +1,5 @@
 import { defineSlotRecipe } from "@pandacss/dev";
+import { variant } from "../constants/variant";
 
 export const jsonTreeViewRecipe = defineSlotRecipe({
 	className: "json-tree-view",
@@ -7,6 +8,10 @@ export const jsonTreeViewRecipe = defineSlotRecipe({
 		root: {
 			w: "full",
 			fontFamily: "mono",
+
+			"& [data-part='branch']": {
+				overflow: "clip",
+			},
 
 			"& [data-part='branch-content']": {
 				position: "relative",
@@ -25,19 +30,22 @@ export const jsonTreeViewRecipe = defineSlotRecipe({
 			},
 
 			"& [data-part='branch-control']": {
+				py: "4px",
 				display: "flex",
 				userSelect: "none",
-				rounded: "calc({radii.4} * 3)",
-				paddingInlineStart: "calc((var(--depth) - 1) * 0.75rem)",
+				rounded: "calc({radii.4} * 2)",
+				paddingInlineStart: "calc((var(--depth) - 1) * 1rem)",
+
+				"& [data-part='branch-text']": {
+					truncate: true,
+				},
 
 				"&[data-depth='1']": {
 					paddingInlineStart: "0.25rem",
 				},
 
-				"&:hover": {
-					color: "{colors.fg.primary}",
-					bgColor: "{colors.bg.secondary}",
-
+				_hover: {
+					bgColor: variant.secondary._hover.backgroundColor,
 					"& svg": {
 						color: "{colors.fg.primary}",
 					},

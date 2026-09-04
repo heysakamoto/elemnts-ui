@@ -16,7 +16,10 @@ export default function Sizes() {
 			<ButtonGroup justify="center">
 				<For each={sizes}>
 					{(size) => (
-						<Dialog size={size}>
+						<Dialog
+							size={size}
+							key={size}
+						>
 							<Dialog.Trigger asChild>
 								<Button variant="surface">{size}</Button>
 							</Dialog.Trigger>
@@ -27,7 +30,7 @@ export default function Sizes() {
 										<Surface
 											p="16"
 											delta={1}
-											rounded="24"
+											rounded="16"
 											colorPalette="neutral"
 										>
 											<Surface.Content>
@@ -43,17 +46,18 @@ export default function Sizes() {
 												direction="row"
 												gap="8"
 											>
-												<Dialog.CloseTrigger asChild>
-													<Button
-														variant="tertiary"
-														colorPalette="neutral"
-													>
-														Deny
-													</Button>
-												</Dialog.CloseTrigger>
-												<Dialog.CloseTrigger asChild>
-													<Button variant="primary">Allow</Button>
-												</Dialog.CloseTrigger>
+												<ButtonGroup size="sm">
+													<Dialog.CloseTrigger asChild>
+														<ButtonGroup.Item variant="tertiary">
+															Deny
+														</ButtonGroup.Item>
+													</Dialog.CloseTrigger>
+													<Dialog.CloseTrigger asChild>
+														<ButtonGroup.Item variant="primary">
+															Allow
+														</ButtonGroup.Item>
+													</Dialog.CloseTrigger>
+												</ButtonGroup>
 											</Surface.Footer>
 										</Surface>
 									</Dialog.Content>

@@ -9,7 +9,7 @@ import {
 } from "@moto-ui/react";
 import { Link } from "@tanstack/react-router";
 
-import { socials } from "./constant";
+import { SOCIAL_LINKS } from "./constants";
 import { DocsLayoutPageTree } from "./page-tree";
 
 export function DocsLayoutSidebar() {
@@ -40,21 +40,21 @@ function SidebarFooter() {
 				iconOnly
 				variant="surface"
 			>
-				<For each={socials}>
-					{(social) => (
+				<For each={SOCIAL_LINKS}>
+					{(link) => (
 						<ButtonGroup.Item
 							asChild
-							key={social.id}
+							key={link.id}
 						>
 							<Link
 								target="_blank"
-								to={social.url as any}
+								to={link.url as any}
 							>
-								<VisuallyHidden>{social.label}</VisuallyHidden>
+								<VisuallyHidden>{link.label}</VisuallyHidden>
 								<Icon
 									width={16}
 									height={16}
-									icon={social.icon}
+									icon={link.icon}
 								/>
 							</Link>
 						</ButtonGroup.Item>

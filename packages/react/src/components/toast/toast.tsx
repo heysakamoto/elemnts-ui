@@ -2,9 +2,8 @@ import { type Assign, ark, Portal } from "@ark-ui/react";
 import { Toast as ArkToast, Toaster as ArkToaster } from "@ark-ui/react/toast";
 import { Icon } from "@iconify/react";
 import type { ComponentProps, ReactNode } from "react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { toastRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { toastRecipe } from "../../styled-system/recipes";
 import { Button } from "../button";
 import { Spinner } from "../spinner";
 

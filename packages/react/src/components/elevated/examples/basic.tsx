@@ -1,4 +1,4 @@
-import { Container, Elevated, For, Text } from "@moto-ui/react";
+import { Container, Elevated, For } from "@moto-ui/react";
 
 export default function Basic() {
 	return (
@@ -9,13 +9,13 @@ export default function Basic() {
 			<For each={[1, 2, 3]}>
 				{(delta) => (
 					<Elevated
-						py="12"
+						py="8"
 						px="16"
-						rounded="16"
+						rounded="8"
 						delta={delta}
 						key={String(delta)}
 					>
-						<Text>Elevation Level {delta} (Delta +1)</Text>
+						Level {delta}
 					</Elevated>
 				)}
 			</For>

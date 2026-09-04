@@ -109,7 +109,6 @@ export const splitterRecipe = defineSlotRecipe({
 		resizeTriggerIndicator: {
 			display: "block",
 			position: "relative",
-			cornerShape: "squircle",
 			boxShadow: "{shadows.2}",
 			borderRadius: "{radii.16}",
 			transition: "all 0.2s ease",

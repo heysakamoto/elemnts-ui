@@ -41,7 +41,7 @@ export default function WithCheckmark() {
 				<Listbox.Content asChild>
 					<Surface
 						delta={1}
-						rounded="24"
+						rounded="14"
 					>
 						<Surface.Content
 							p="4"
@@ -85,7 +85,7 @@ function ListboxItemCheckmark() {
 
 	return (
 		<Checkmark
-			ml="-2"
+			ml="-6"
 			size="sm"
 			checked={context.selected}
 			disabled={context.disabled}

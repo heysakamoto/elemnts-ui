@@ -1,6 +1,6 @@
 import { type ComponentProps, forwardRef } from "react";
-import { styled } from "../../../styled-system/jsx";
-import { scrollShadowRecipe } from "../../../styled-system/recipes";
+import { styled } from "../../styled-system/jsx";
+import { scrollShadowRecipe } from "../../styled-system/recipes";
 import { useScrollShadow } from "./client";
 
 const Styled = styled("div", scrollShadowRecipe);

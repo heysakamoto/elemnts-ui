@@ -40,7 +40,7 @@ export default function Basic() {
 				<Surface
 					delta={1}
 					w="12rem"
-					rounded="20"
+					rounded="14"
 				>
 					<Surface.Content
 						p="4"
@@ -55,6 +55,7 @@ export default function Basic() {
 								>
 									<Item variant="secondary">
 										<Icon
+											ml="-6"
 											icon={item.icon}
 											width={16}
 											height={16}

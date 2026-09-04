@@ -1,16 +1,16 @@
-import { Container, Elevated, Text } from "@moto-ui/react";
+import { Container, Elevated } from "@moto-ui/react";
 
 export default function ShadowOverride() {
 	return (
 		<Container maxW="24rem">
 			<Elevated
-				py="12"
+				py="8"
 				px="16"
 				delta={1}
-				rounded="16"
+				rounded="8"
 				shadowLevel={4}
 			>
-				<Text fontSize="14">Elevated component with Shadow Level 4</Text>
+				Elevated component with Shadow Level 4
 			</Elevated>
 		</Container>
 	);

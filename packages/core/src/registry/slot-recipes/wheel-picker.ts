@@ -5,12 +5,12 @@ export const wheelPickerRecipe = defineSlotRecipe({
 	slots: ["root"],
 	base: {
 		root: {
-			"--wheel-picker-radius": "calc({radii.4} * 4)",
+			"--radius": "calc({radii.4} * 2.5)",
 
 			"& [data-rwp-wrapper]": {
 				display: "flex",
+				w: "{sizes.full}",
 				userSelect: "none",
-				width: "{sizes.full}",
 				overflowY: "hidden",
 				overflowX: "visible",
 				position: "relative",
@@ -30,26 +30,28 @@ export const wheelPickerRecipe = defineSlotRecipe({
 					outline: "none",
 				},
 
-				"& [data-rwp-highlight-wrapper]": {
-					cornerShape: "squircle",
-				},
+				"& [data-rwp-highlight-wrapper]": {},
 
 				"&:first-child": {
 					"& [data-rwp-highlight-wrapper]": {
-						roundedTopLeft: "var(--wheel-picker-radius)",
-						roundedBottomLeft: "var(--wheel-picker-radius)",
+						roundedTopLeft: "var(--radius)",
+						roundedBottomLeft: "var(--radius)",
 					},
 				},
 				"&:last-child": {
 					"& [data-rwp-highlight-wrapper]": {
-						roundedTopRight: "var(--wheel-picker-radius)",
-						roundedBottomRight: "var(--wheel-picker-radius)",
+						roundedTopRight: "var(--radius)",
+						roundedBottomRight: "var(--radius)",
 					},
 				},
 				"&:only-child": {
 					"& [data-rwp-highlight-wrapper]": {
-						rounded: "var(--wheel-picker-radius)",
+						rounded: "var(--radius)",
 					},
+				},
+
+				_disabled: {
+					opacity: 0.5,
 				},
 			},
 			"& [data-rwp-options]": {
@@ -99,10 +101,10 @@ export const wheelPickerRecipe = defineSlotRecipe({
 				fontSize: "{fontSizes.16}",
 				transform: "translateY(-50%)",
 				lineHeight: "{lineHeights.none}",
-				color: "var(--wheel-picker-color)",
-				border: "var(--wheel-picker-border, none)",
-				shadow: "var(--wheel-picker-shadow, none)",
-				bgColor: "var(--wheel-picker-bg, {colors.bg.tertiary})",
+				color: "var(--color)",
+				border: "var(--border, none)",
+				shadow: "var(--shadow, none)",
+				bgColor: "var(--bg, {colors.bg.tertiary})",
 
 				"&:is([data-rwp-focused])": {},
 			},
@@ -112,21 +114,14 @@ export const wheelPickerRecipe = defineSlotRecipe({
 		variant: {
 			primary: {
 				root: {
-					"--wheel-picker-bg": "{colors.colorPalette.primary}",
-					"--wheel-picker-color": "{colors.colorPalette.tertiary}",
+					"--bg": "{colors.colorPalette.primary}",
+					"--color": "{colors.colorPalette.tertiary}",
 				},
 			},
 			secondary: {
 				root: {
-					"--wheel-picker-bg": "{colors.colorPalette.secondary}",
-					"--wheel-picker-color": "{colors.colorPalette.primary}",
-				},
-			},
-			tertiary: {
-				root: {
-					"--wheel-picker-shadow": "{shadows.2}",
-					"--wheel-picker-color": "{colors.colorPalette.primary}",
-					"--wheel-picker-border": "1px solid {colors.stroke.tertiary}",
+					"--bg": "{colors.colorPalette.secondary}",
+					"--color": "{colors.colorPalette.primary}",
 				},
 			},
 		},
