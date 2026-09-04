@@ -1,5 +1,12 @@
 # @moto-ui/colors
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @moto-ui/core@0.0.1
+
 ## 0.0.2
 
 ### Patch Changes
