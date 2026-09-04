@@ -1,6 +1,7 @@
 {
   "name": "moto-ui",
   "private": true,
+  "packageManager": "pnpm@11.22.0",
   "scripts": {
     "version-packages": "changeset version",
     "release": "pnpm build && changeset publish",
