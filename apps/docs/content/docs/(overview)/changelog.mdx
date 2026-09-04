@@ -3,6 +3,71 @@ status: new
 title: Changelog
 description: All previous and current changes can be found here
 ---
+
+## 0.0.13
+
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+  We have launched `@moto-ui/core`, a standalone package designed to replace several legacy internal dependencies, including `@moto-ui/colors` and `@moto-ui/preset-base`.
+  
+  ---
+  
+  **Key Reason for the Update**
+  
+  We removed **@moto-ui/styled-system** because its fixed `jsxFramework` setting could conflict with other frameworks packages. We combined **@moto-ui/colors** and **@moto-ui/preset-base** into **@moto-ui/core**, making updates easier and ensuring compatibility with the latest Panda CSS versions.
+  
+  ---
+  
+  **Package Replacement Summary**
+  
+  | Deprecated | Replacement | Path |
+  | :--- | :--- | :--- |
+  | `@moto-ui/colors` | `@moto-ui/core` | `@moto-ui/core/colors` |
+  | `@moto-ui/preset-base` | `@moto-ui/core` | `@moto-ui/core/presets` |
+  | `@moto-ui/styled-system` | `deprecated` | `none` |
+
+  ---
+  **The new panda config**
+  ```ts title="panda.config.ts"
+  import { defineConfig } from "@pandacss/dev";
+  import { basePreset } from "@moto-ui/core/presets";
+  
+  export default defineConfig({
+    presets: [basePreset],
+    include: [
+      "src/**/*.{ts,tsx}",
+      "node_modules/@moto-ui/react/dist/buildinfo.json",
+    ],
+  });
+  ```
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    We have updated our design token architecture to simplify usage and improve component state handling.
+  
+    **Token Deprecations**
+    
+    All `bg` semantic tokens have been removed in favor of `surface` tokens, as both served identical semantic purposes. 
+  
+    **New Interactive State Tokens**
+    
+    We have introduced a new `mix` token category to handle background colors for interactive component states (e.g., buttons, list items).
+    
+    | New Token | Intended Usage |
+    | :--- | :--- |
+    | **`mix.hover`** | Background color for hover states |
+    | **`mix.active`** | Background color for pressed or active states |
+    | **`mix.selected`** | Background color for selected or toggled states |
+
+    --- 
+    **Removed VirtualList component**
+
+   The `VirtualList` component has been deprecated and completely removed from the library. 
+   
+   * **Why:** The component introduced unnecessary bundle bloat and architectural complexity without providing enough flexibility for diverse use cases.
+   * **Recommended Action:** If your application requires virtualization, we recommend integrating a dedicated community library suited to your framework (such as `react-window` or `@tanstack/react-virtual`).
+  </TimelineItem>
+</Timeline>
+
 ## 0.0.12
 
 <Timeline>

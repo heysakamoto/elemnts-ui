@@ -1,7 +1,7 @@
 import { Format } from "@ark-ui/react";
 import { ark } from "@ark-ui/react/factory";
 
-import { styled } from "../../../styled-system/jsx";
+import { styled } from "../../styled-system/jsx";
 
 export const FormatByte = styled(Format.Byte);
 FormatByte.displayName = "FormatByte";

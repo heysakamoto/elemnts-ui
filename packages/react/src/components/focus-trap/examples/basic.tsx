@@ -21,15 +21,9 @@ export default function Basic() {
 					>
 						{active ? "Release" : "Trap"}
 					</Button>
-					<FocusTrap
-						disabled={!active}
-						w="full"
-					>
+					<FocusTrap disabled={!active}>
 						<Field.Input asChild>
-							<Input
-								rounded="24"
-								placeholder="Type here..."
-							/>
+							<Input placeholder="Type here..." />
 						</Field.Input>
 					</FocusTrap>
 				</Group>

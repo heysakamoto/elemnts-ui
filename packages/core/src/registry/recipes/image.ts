@@ -4,6 +4,5 @@ export const imageRecipe = defineRecipe({
 	className: "img",
 	base: {
 		objectFit: "cover",
-		cornerShape: "squircle",
 	},
 });

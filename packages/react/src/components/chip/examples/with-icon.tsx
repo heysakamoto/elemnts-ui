@@ -3,14 +3,14 @@ import { Chip, Icon } from "@moto-ui/react";
 export default function WithIcon() {
 	return (
 		<Chip
-			size="xs"
+			size="sm"
 			colorPalette="success"
 		>
 			<Icon
 				ml="-2"
-				icon="tabler:check"
 				width={14}
 				height={14}
+				icon="tabler:check"
 			/>
 			Completed
 		</Chip>

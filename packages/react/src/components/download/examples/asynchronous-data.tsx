@@ -12,10 +12,7 @@ export default function AsynchronousData() {
 			mimeType="image/jpeg"
 			asChild
 		>
-			<Button
-				rounded="24"
-				variant="surface"
-			>
+			<Button variant="surface">
 				Download
 				<Icon
 					icon="tabler:download"

@@ -71,7 +71,8 @@ export default function Disabled() {
 						<Combobox.Content asChild>
 							<Surface
 								delta={1}
-								rounded="16"
+								rounded="14"
+								colorPalette="neutral"
 							>
 								<Surface.Content
 									p="4"
@@ -84,11 +85,7 @@ export default function Disabled() {
 												key={item.id}
 												item={item}
 											>
-												<Item
-													rounded="calc(16px - 4px)"
-													colorPalette="neutral"
-													variant="secondary"
-												>
+												<Item variant="secondary">
 													<Combobox.ItemText>{item.label}</Combobox.ItemText>
 												</Item>
 											</Combobox.Item>

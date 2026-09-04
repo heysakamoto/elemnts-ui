@@ -1,7 +1,6 @@
 import { Editable } from "@ark-ui/react/editable";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { editableRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { editableRecipe } from "../../styled-system/recipes";
 
 const { withRootProvider, withProvider, withContext } =
 	createStyleContext(editableRecipe);

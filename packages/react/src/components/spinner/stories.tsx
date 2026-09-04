@@ -1,6 +1,6 @@
 import Basic from "./examples/basic";
 import CustomIcon from "./examples/custom-icon";
-import Variants from "./examples/variants";
+import Sizes from "./examples/sizes";
 
 const meta = {
 	title: "Spinner",
@@ -9,4 +9,4 @@ const meta = {
 
 export default meta;
 
-export { Basic, CustomIcon, Variants };
+export { Basic, CustomIcon, Sizes };

@@ -1,7 +1,6 @@
 import { HoverCard } from "@ark-ui/react/hover-card";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { hoverCardRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { hoverCardRecipe } from "../../styled-system/recipes";
 
 const { withRootProvider, withContext } = createStyleContext(hoverCardRecipe);
 

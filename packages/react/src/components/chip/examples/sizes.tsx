@@ -6,7 +6,6 @@ export default function Sizes() {
 	return (
 		<Container>
 			<Stack
-				wrap="wrap"
 				gap="8"
 				justify="center"
 				align="center"

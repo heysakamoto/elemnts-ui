@@ -9,7 +9,6 @@ export default function Sizes() {
 				gap="8"
 				align="center"
 				justify="center"
-				wrap="wrap"
 			>
 				<For each={sizes}>
 					{(size) => (

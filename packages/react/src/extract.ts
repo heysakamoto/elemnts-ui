@@ -36,6 +36,7 @@ import {
 	fieldsetRecipe,
 	fileUploadRecipe,
 	floatingPanelRecipe,
+	focusTrapRecipe,
 	gridRecipe,
 	groupRecipe,
 	highlightRecipe,
@@ -55,6 +56,7 @@ import {
 	markRecipe,
 	marqueeRecipe,
 	menuRecipe,
+	navigationMenuRecipe,
 	numberInputRecipe,
 	paginationRecipe,
 	passwordInputRecipe,
@@ -108,7 +110,7 @@ import {
 	treeViewRecipe,
 	visuallyHiddenRecipe,
 	wheelPickerRecipe,
-} from "../styled-system/recipes";
+} from "../../styled-system/recipes";
 
 // ** Accordion Recipe **
 accordionRecipe();
@@ -404,6 +406,9 @@ fileUploadRecipe();
 // ** FloatingPanel Recipe **
 floatingPanelRecipe();
 
+// ** FocusTrap Recipe **
+focusTrapRecipe();
+
 // ** Grid Recipe **
 gridRecipe({ inline: false });
 gridRecipe({ inline: true });
@@ -495,6 +500,16 @@ itemRecipe({
 	variant: "primary",
 	iconOnly: true,
 });
+itemRecipe({
+	size: "md",
+	variant: "tertiary",
+	iconOnly: true,
+});
+itemRecipe({
+	size: "md",
+	variant: "surface",
+	iconOnly: true,
+});
 
 // ** JsonTreeView Recipe **
 jsonTreeViewRecipe();
@@ -535,6 +550,9 @@ marqueeRecipe();
 
 // ** Menu Recipe **
 menuRecipe();
+
+// ** NavigationMenu Recipe **
+navigationMenuRecipe();
 
 // ** NumberInput Recipe **
 numberInputRecipe();

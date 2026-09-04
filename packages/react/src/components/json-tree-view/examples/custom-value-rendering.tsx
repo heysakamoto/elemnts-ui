@@ -6,14 +6,14 @@ function extractUrl(input: string): string {
 
 export default function CustomValueRendering() {
 	const data = {
-		website: "https://moto-ui.com",
-		documentation: "https://moto-ui.com/docs",
-		repository: "https://github.com/moto-ui/moto-ui",
 		status: "active",
+		website: "https://moto-ui.app",
+		documentation: "https://moto-ui.app/docs",
+		repository: "https://github.com/heysakamoto/moto-ui",
 	};
 
 	return (
-		<Container maxW="24rem">
+		<Container maxW="28rem">
 			<JsonTreeView
 				data={data}
 				defaultExpandedDepth={1}

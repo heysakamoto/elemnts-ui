@@ -21,10 +21,7 @@ export function DocsLayoutPageTitle(props: PropsWithChildren) {
 			>
 				{children}
 			</Text>
-			<DocsLayoutAiButtons>
-				<DocsLayoutAiButtons.CopyTrigger />
-				<DocsLayoutAiButtons.MenuOptions />
-			</DocsLayoutAiButtons>
+			<DocsLayoutAiButtons />
 		</Stack>
 	);
 }

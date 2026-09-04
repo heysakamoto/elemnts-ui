@@ -22,7 +22,6 @@ export default function Basic() {
 					<FileUpload.Trigger asChild>
 						<Button
 							variant="surface"
-							rounded="24"
 							size="sm"
 						>
 							<Icon

@@ -1,6 +1,6 @@
 import { Button, Carousel, Container, Icon, Image } from "@moto-ui/react";
 
-import { css } from "../../../../styled-system/css";
+import { css } from "../../styled-system/css";
 
 const images = [
 	{ src: "https://picsum.photos/seed/6/500/300", alt: "Nature landscape" },

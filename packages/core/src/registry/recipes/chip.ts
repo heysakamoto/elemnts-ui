@@ -7,11 +7,8 @@ export const chipRecipe = defineRecipe({
 	base: {
 		w: "{sizes.fit}",
 		fontWeight: "500",
-		gap: "{spacing.4}",
 		alignItems: "center",
-		rounded: "{radii.16}",
 		display: "inline-flex",
-		cornerShape: "squircle",
 		justifyContent: "center",
 		border: `1px solid {colors.transparent}`,
 

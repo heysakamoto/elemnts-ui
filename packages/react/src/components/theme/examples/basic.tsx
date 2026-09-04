@@ -18,9 +18,10 @@ export default function Basic() {
 		<Container maxW="20rem">
 			<Theme appearance={value}>
 				<Surface
-					p="12"
+					px="16"
+					py="12"
 					delta={5}
-					rounded="16"
+					rounded="10"
 				>
 					<Surface.Description fontSize="14">
 						A toggleable color scheme wrapper.

@@ -12,7 +12,6 @@ export default function Variants() {
 	return (
 		<Container>
 			<Stack
-				wrap="wrap"
 				gap="8"
 				align="center"
 				justify="center"
@@ -21,8 +20,8 @@ export default function Variants() {
 					{(variant) => (
 						<Chip
 							size="sm"
-							variant={variant}
 							key={variant}
+							variant={variant}
 						>
 							Chip
 						</Chip>

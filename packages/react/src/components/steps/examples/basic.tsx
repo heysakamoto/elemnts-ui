@@ -17,7 +17,7 @@ export default function Basic() {
 			>
 				<Surface
 					delta={1}
-					rounded="24"
+					rounded="12"
 					shadowLevel={2}
 				>
 					{steps.map((step, idx) => {

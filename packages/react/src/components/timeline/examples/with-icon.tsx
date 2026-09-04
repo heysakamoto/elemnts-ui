@@ -20,19 +20,17 @@ export default function WithIcon() {
 						>
 							<Timeline.Connector>
 								<Timeline.Separator asChild>
-									<Separator
-										h="full"
-										orientation="vertical"
-									/>
+									<Separator orientation="vertical" />
 								</Timeline.Separator>
-								<Timeline.Indicator>
+								<Timeline.Indicator asChild>
 									<Chip
-										size="2xs"
+										size="xs"
 										iconOnly
+										variant="surface"
 									>
 										<Icon
-											width={16}
-											height={16}
+											width={18}
+											height={18}
 											icon={event.icon}
 										/>
 									</Chip>
@@ -45,8 +43,8 @@ export default function WithIcon() {
 									rounded="0"
 									elevated={false}
 								>
-									<Surface.Content gap="4">
-										<Surface.Title fontSize="14">{event.title}</Surface.Title>
+									<Surface.Content gap="6">
+										<Surface.Title>{event.title}</Surface.Title>
 										<Surface.Description>
 											{event.description}
 										</Surface.Description>

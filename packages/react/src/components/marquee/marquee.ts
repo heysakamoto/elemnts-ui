@@ -1,7 +1,6 @@
 import { Marquee } from "@ark-ui/react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { marqueeRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { marqueeRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(marqueeRecipe);
 

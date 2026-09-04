@@ -1,7 +1,6 @@
 import { PasswordInput } from "@ark-ui/react/password-input";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { passwordInputRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { passwordInputRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(passwordInputRecipe);
 

@@ -38,7 +38,7 @@ export default function Basic() {
 				<Listbox.Content asChild>
 					<Surface
 						delta={1}
-						rounded="24"
+						rounded="14"
 					>
 						<Surface.Content
 							p="4"
@@ -51,11 +51,7 @@ export default function Basic() {
 										item={item}
 										asChild
 									>
-										<Item
-											variant="secondary"
-											colorPalette="neutral"
-											rounded="calc(24px - 4px)"
-										>
+										<Item variant="secondary">
 											<Listbox.ItemText>{item.label}</Listbox.ItemText>
 										</Item>
 									</Listbox.Item>

@@ -6,7 +6,6 @@ export default defineConfig({
 	outExtension: "js",
 	jsxFramework: "react",
 	presets: [basePreset],
-	outdir: "styled-system",
 	include: [
 		"src/**/*.{ts,tsx}",
 		"../../packages/react/src/components/**/*.tsx",

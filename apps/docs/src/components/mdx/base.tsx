@@ -70,9 +70,9 @@ export const base: MDXComponents = {
 	p: (props) => (
 		<Text
 			mt="16"
-			textWrap="auto"
 			fontSize="1rem"
 			lineHeight="md"
+			textWrap="pretty"
 			letterSpacing="md"
 			color="fg.secondary"
 			css={{ ":first-child": { mt: "24" } }}

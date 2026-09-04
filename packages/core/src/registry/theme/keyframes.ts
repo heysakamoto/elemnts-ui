@@ -53,14 +53,6 @@ export const keyframes = defineKeyframes({
 		"0%": { opacity: 0, transform: "translateX(-8px)" },
 		"100%": { opacity: 1, transform: "translateX(0)" },
 	},
-	"slide-down-fade": {
-		from: { height: 0, opacity: 0 },
-		to: { opacity: 1, height: "var(--height, auto)" },
-	},
-	"slide-up-fade": {
-		to: { opacity: 0, height: 0 },
-		from: { opacity: 1, height: "var(--height, auto)" },
-	},
 	"slide-in-bottom": {
 		from: { transform: "translate3d(0, 100%, 0)" },
 		to: {
@@ -120,20 +112,32 @@ export const keyframes = defineKeyframes({
 
 	// scale
 	"scale-in": {
-		"0%": { opacity: 0, transform: "scale(0)" },
-		"100%": { opacity: 1, transform: "scale(1)" },
+		"0%": { opacity: 0, transform: "rotateX(-30deg) scale(0.9)" },
+		"100%": { opacity: 1, transform: "rotateX(0deg) scale(1)" },
 	},
 	"scale-out": {
-		"0%": { opacity: 1, transform: "scale(1)" },
-		"100%": { opacity: 0, transform: "scale(0)" },
+		"0%": { opacity: 1, transform: "rotateX(0deg) scale(1)" },
+		"100%": { opacity: 0, transform: "rotateX(-10deg) scale(0.95)" },
 	},
 	"scale-fade-in": {
-		"0%": { opacity: 0, transform: "scale(0.96)" },
-		"100%": { opacity: 1, transform: "scale(1)" },
+		from: {
+			opacity: 0,
+			transform: "scale(0.96)",
+		},
+		to: {
+			opacity: 1,
+			transform: "scale(1)",
+		},
 	},
 	"scale-fade-out": {
-		"0%": { opacity: 1, transform: "scale(1)" },
-		"100%": { opacity: 0, transform: "scale(0.96)" },
+		from: {
+			opacity: 1,
+			transform: "scale(1)",
+		},
+		to: {
+			opacity: 0,
+			transform: "scale(0.96)",
+		},
 	},
 
 	// flip

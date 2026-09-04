@@ -1,7 +1,6 @@
 import { Dialog } from "@ark-ui/react/dialog";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { dialogRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { dialogRecipe } from "../../styled-system/recipes";
 
 const { withRootProvider, withContext } = createStyleContext(dialogRecipe);
 

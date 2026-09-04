@@ -60,12 +60,14 @@ export function Logo() {
 					<VisuallyHidden>Home</VisuallyHidden>
 					<Image
 						w="104"
+						alt="logo"
 						objectFit="contain"
-						src="/logo/light_wordmark.png"
 						_dark={{ display: "none" }}
+						src="/logo/light_wordmark.png"
 					/>
 					<Image
 						w="104"
+						alt="logo"
 						display="none"
 						objectFit="contain"
 						src="/logo/dark_wordmark.png"

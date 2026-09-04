@@ -1,26 +1,26 @@
 import { defineSlotRecipe } from "@pandacss/dev";
+import { size } from "../constants/size";
+import { variant } from "../constants/variant";
 
 export const collapsibleRecipe = defineSlotRecipe({
 	className: "collapsible",
 	slots: ["root", "trigger", "indicator", "content"],
 	base: {
 		root: {
-			"--collapsible-bg":
-				"color-mix(in oklab, {colors.neutral.secondary} 50%, transparent)",
-
 			display: "flex",
 			overflow: "clip",
 			w: "{sizes.full}",
-			cornerShape: "squircle",
 			flexDirection: "column",
-			rounded: "calc({radii.4} * 4)",
+			borderRadius: size.sm.borderRadius,
 
 			_open: {
-				bgColor: "var(--collapsible-bg)",
+				bgColor:
+					"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
 			},
 
 			"&:has([data-has-collapsed-size])": {
-				bgColor: "var(--collapsible-bg)",
+				bgColor:
+					"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
 			},
 		},
 		trigger: {
@@ -28,15 +28,14 @@ export const collapsibleRecipe = defineSlotRecipe({
 			w: "{sizes.full}",
 			gap: "{spacing.4}",
 			transition: "none",
-			lineHeight: "18px",
 			alignItems: "center",
-			cornerShape: "squircle",
-			fontSize: "{fontSizes.14}",
-			py: "calc({spacing.4} * 2)",
-			px: "calc({spacing.4} * 3)",
+			height: size.sm.height,
+			px: size.sm.paddingInline,
+			fontSize: size.sm.fontSize,
 			color: "{colors.fg.primary}",
-			rounded: "calc({radii.4} * 4)",
+			lineHeight: size.sm.lineHeight,
 			justifyContent: "space-between",
+			borderRadius: size.sm.borderRadius,
 
 			_disabled: {
 				opacity: 0.5,
@@ -44,7 +43,7 @@ export const collapsibleRecipe = defineSlotRecipe({
 			},
 
 			"&:not(:disabled, [data-disabled]):hover": {
-				bgColor: "{colors.neutral.secondary}",
+				...variant.secondary._hover,
 				"& svg": {
 					color: "inherit",
 				},

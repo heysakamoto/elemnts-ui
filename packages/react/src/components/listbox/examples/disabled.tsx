@@ -42,7 +42,7 @@ export default function Disabled() {
 				<Listbox.Content asChild>
 					<Surface
 						delta={1}
-						rounded="24"
+						rounded="14"
 					>
 						<Surface.Content
 							p="4"
@@ -55,11 +55,7 @@ export default function Disabled() {
 										item={item}
 										asChild
 									>
-										<Item
-											rounded="calc(24px - 4px)"
-											colorPalette="neutral"
-											variant="secondary"
-										>
+										<Item variant="secondary">
 											<Listbox.ItemText>{item.label}</Listbox.ItemText>
 										</Item>
 									</Listbox.Item>

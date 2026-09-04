@@ -1,16 +1,15 @@
 import { type Assign, ark, type PolymorphicProps } from "@ark-ui/react";
 import { createContext, forwardRef, useContext } from "react";
-
 import {
 	createStyleContext,
 	type HTMLStyledProps,
-} from "../../../styled-system/jsx";
+} from "../../styled-system/jsx";
 import {
 	type SeparatorGroupRecipeVariantProps,
 	type SeparatorRecipeVariantProps,
 	separatorGroupRecipe,
 	separatorRecipe,
-} from "../../../styled-system/recipes";
+} from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(separatorGroupRecipe);
 

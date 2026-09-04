@@ -1,7 +1,6 @@
 import { Menu } from "@ark-ui/react/menu";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { menuRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { menuRecipe } from "../../styled-system/recipes";
 
 const { withRootProvider, withContext } = createStyleContext(menuRecipe);
 

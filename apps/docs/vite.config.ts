@@ -12,13 +12,7 @@ export default defineConfig({
 		tsconfigPaths: true,
 	},
 	plugins: [
-		tanstackStart({
-			server: {
-				build: {
-					inlineCss: true,
-				},
-			},
-		}),
+		tanstackStart({}),
 		nitro(),
 		viteReact({
 			babel: {

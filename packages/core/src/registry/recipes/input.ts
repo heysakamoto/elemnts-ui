@@ -7,11 +7,8 @@ export const inputRecipe = defineRecipe({
 	base: {
 		w: "{sizes.full}",
 		alignItems: "center",
-		rounded: "{radii.16}",
 		fontFamily: "inherit",
-		h: "var(--input-size)",
 		display: "inline-flex",
-		cornerShape: "squircle",
 		fontSize: "{fontSizes.14}",
 		border: "1px solid transparent",
 		lineHeight: "{lineHeights.none}",

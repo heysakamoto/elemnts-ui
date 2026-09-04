@@ -10,7 +10,6 @@ export default function Duration() {
 	return (
 		<>
 			<Button
-				rounded="full"
 				variant="surface"
 				onClick={() =>
 					toaster.create({

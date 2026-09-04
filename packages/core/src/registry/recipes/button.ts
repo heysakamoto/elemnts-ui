@@ -11,11 +11,8 @@ export const buttonRecipe = defineRecipe({
 		position: "relative",
 		alignItems: "center",
 		display: "inline-flex",
-		cornerShape: "squircle",
 		justifyContent: "center",
 		transformOrigin: "center",
-		gap: "calc({spacing.4} * 2)",
-		rounded: "calc({radii.4} * 4)",
 		border: "1px solid transparent",
 		transition: `
       color 100ms ease-in,
@@ -37,40 +34,52 @@ export const buttonRecipe = defineRecipe({
 	variants: {
 		size: {
 			"2xs": {
+				gap: size["2xs"].gap,
 				height: size["2xs"].height,
 				fontSize: size["2xs"].fontSize,
 				lineHeight: size["2xs"].lineHeight,
 				paddingInline: size["2xs"].paddingInline,
+				borderRadius: size["2xs"].borderRadius,
 			},
 			xs: {
+				gap: size.xs.gap,
 				height: size.xs.height,
 				fontSize: size.xs.fontSize,
 				lineHeight: size.xs.lineHeight,
 				paddingInline: size.xs.paddingInline,
+				borderRadius: size.xs.borderRadius,
 			},
 			sm: {
+				gap: size.sm.gap,
 				fontSize: size.sm.fontSize,
 				lineHeight: size.sm.lineHeight,
 				height: size.sm.height,
 				paddingInline: size.sm.paddingInline,
+				borderRadius: size.sm.borderRadius,
 			},
 			md: {
+				gap: size.md.gap,
 				height: size.md.height,
 				fontSize: size.md.fontSize,
 				lineHeight: size.md.lineHeight,
 				paddingInline: size.md.paddingInline,
+				borderRadius: size.md.borderRadius,
 			},
 			lg: {
+				gap: size.lg.gap,
 				height: size.lg.height,
 				fontSize: size.lg.fontSize,
 				lineHeight: size.lg.lineHeight,
 				paddingInline: size.lg.paddingInline,
+				borderRadius: size.lg.borderRadius,
 			},
 			xl: {
+				gap: size.xl.gap,
 				height: size.xl.height,
 				fontSize: size.xl.fontSize,
 				lineHeight: size.xl.lineHeight,
 				paddingInline: size.xl.paddingInline,
+				borderRadius: size.xl.borderRadius,
 			},
 		},
 
@@ -120,7 +129,6 @@ export const buttonRecipe = defineRecipe({
 
 		fullWidth: {
 			true: {
-				flexShrink: 1,
 				w: "{sizes.full}",
 			},
 		},

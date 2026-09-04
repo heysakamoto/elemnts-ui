@@ -25,9 +25,7 @@ export default function SwipeDirections() {
 							<Drawer.Trigger asChild>
 								<Button
 									size="sm"
-									rounded={"24"}
 									variant="surface"
-									colorPalette="neutral"
 									textTransform="capitalize"
 								>
 									{direction}

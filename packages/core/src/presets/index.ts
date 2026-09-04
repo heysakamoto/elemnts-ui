@@ -1,1 +1,3 @@
-export { basePreset } from "./base";
+import basePreset from "./base";
+
+export { basePreset };

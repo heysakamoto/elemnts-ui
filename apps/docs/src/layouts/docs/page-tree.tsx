@@ -1,4 +1,4 @@
-import { Button, For, Icon, Show, Sidebar, Status } from "@moto-ui/react";
+import { For, Icon, Show, Sidebar, Status } from "@moto-ui/react";
 import { Link, useLocation } from "@tanstack/react-router";
 import type { Folder, Item, Node } from "fumadocs-core/page-tree";
 import { createContext, use, useEffect, useMemo, useState } from "react";
@@ -12,7 +12,7 @@ export function DocsLayoutPageTree() {
 	return (
 		<Sidebar.Nav
 			py="8"
-			px="12"
+			px="14"
 			flex="1"
 			overflow="scroll"
 			scrollbar="hidden"
@@ -87,39 +87,33 @@ function PageTreeItem({ item }: PageTreeItemProps) {
 				}
 			}}
 		>
-			<Button
-				asChild
-				size="sm"
-				fullWidth
-				variant="ghost"
+			<Link
+				to={item.url}
+				preload="intent"
 				className={itemStyles}
-				pl={collapsible ? 24 : undefined}
-				data-in-collapsible={collapsible ? "true" : "false"}
+				activeOptions={{ exact: true }}
 			>
-				<Link
-					to={item.url}
-					preload="intent"
-					activeOptions={{ exact: true }}
-				>
-					{item.name}
-					<Show when={(item as any).status === "new"}>
-						<Status
-							size="sm"
-							colorPalette="accent"
-						>
-							<Status.Indicator ml="8" />
-						</Status>
-					</Show>
-					<Show when={(item as any).status === "updated"}>
-						<Status
-							size="sm"
-							colorPalette="warning"
-						>
-							<Status.Indicator ml="8" />
-						</Status>
-					</Show>
-				</Link>
-			</Button>
+				<Show when={collapsible}>
+					<span data-part="separator"></span>
+				</Show>
+				{item.name}
+				<Show when={(item as any).status === "new"}>
+					<Status
+						size="sm"
+						colorPalette="accent"
+					>
+						<Status.Indicator ml="8" />
+					</Status>
+				</Show>
+				<Show when={(item as any).status === "updated"}>
+					<Status
+						size="sm"
+						colorPalette="warning"
+					>
+						<Status.Indicator ml="8" />
+					</Status>
+				</Show>
+			</Link>
 		</Sidebar.Item>
 	);
 }
@@ -153,11 +147,7 @@ function PageTreeFolder({ folder }: PageTreeFolderProps) {
 			<Show when={folder.collapsible}>
 				<PageTreeFolderContext.Provider value={true}>
 					<Sidebar.Item>
-						<Button
-							size="sm"
-							fullWidth
-							variant="ghost"
-							aria-expanded={open}
+						<div
 							className={itemStyles}
 							onClick={() => toggle()}
 						>
@@ -167,7 +157,7 @@ function PageTreeFolder({ folder }: PageTreeFolderProps) {
 								height={16}
 								icon="tabler:chevron-down"
 							/>
-						</Button>
+						</div>
 					</Sidebar.Item>
 					<Show when={open}>
 						<For each={folder.children}>
@@ -196,13 +186,22 @@ function PageTreeFolder({ folder }: PageTreeFolderProps) {
 }
 
 const itemStyles = css({
-	fontSize: "14",
+	px: 12,
+	height: 32,
+	rounded: 8,
+	fontSize: 14,
+	display: "flex",
 	overflow: "clip",
 	textAlign: "left",
+	cursor: "pointer",
+	alignItems: "center",
 	position: "relative",
 	color: "fg.secondary",
-	display: "inline-flex",
 	justifyContent: "space-between",
+
+	"&:has([data-part=separator])": {
+		pl: "24",
+	},
 
 	"& svg": {
 		color: "icon.secondary",
@@ -213,22 +212,20 @@ const itemStyles = css({
 		bgColor: "neutral.secondary",
 
 		"& svg": {
-			color: "currentColor",
+			color: "current",
 		},
-		_before: {
-			bgColor: "fg.primary",
+
+		"& [data-part=separator]": {
+			bgColor: "current",
 		},
 	},
 
-	"&[data-in-collapsible=true]": {
-		_before: {
-			content: "''",
-			top: "0",
-			left: "14",
-			width: "1px",
-			height: "full",
-			position: "absolute",
-			bgColor: "stroke.primary",
-		},
+	"& > [data-part=separator]": {
+		left: "14",
+		width: "1px",
+		content: "''",
+		height: "full",
+		position: "absolute",
+		bgColor: "stroke.primary",
 	},
 });

@@ -45,8 +45,8 @@ export const sliderRecipe = defineSlotRecipe({
 			},
 		},
 		track: {
-			rounded: "full",
 			overflow: "clip",
+			rounded: "{radii.16}",
 			bgColor: "{colors.surface.8}",
 			transition: "scale 200ms ease-in-out",
 
@@ -86,9 +86,10 @@ export const sliderRecipe = defineSlotRecipe({
 			_before: {
 				content: "''",
 				position: "absolute",
-				rounded: "{radii.full}",
-				bgColor: "{colors.colorPalette.tertiary}",
-				shadow: "{shadows.3}, 0 0 0 1px {colors.stroke.secondary}",
+				shadow: "{shadows.2}",
+				rounded: "{radii.16}",
+				bgColor: "{colors.white}",
+				border: "1px solid {colors.stroke.primary}",
 			},
 
 			_horizontal: {

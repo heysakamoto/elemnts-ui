@@ -21,10 +21,7 @@ export default function Autoplay() {
 							key={index.toString()}
 							index={index}
 						>
-							<DecorativeBox
-								rounded="24"
-								h="16rem"
-							/>
+							<DecorativeBox h="16rem" />
 						</Carousel.Item>
 					))}
 				</Carousel.ItemGroup>
@@ -32,8 +29,6 @@ export default function Autoplay() {
 					<Carousel.PrevTrigger asChild>
 						<Button
 							iconOnly
-							rounded="full"
-							colorPalette="neutral"
 							variant="secondary"
 						>
 							<Icon
@@ -54,8 +49,6 @@ export default function Autoplay() {
 					<Carousel.NextTrigger asChild>
 						<Button
 							iconOnly
-							rounded="full"
-							colorPalette="neutral"
 							variant="secondary"
 						>
 							<Icon

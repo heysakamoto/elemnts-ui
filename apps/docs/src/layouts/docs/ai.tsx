@@ -1,7 +1,6 @@
 import {
 	Button,
 	ButtonGroup,
-	For,
 	Icon,
 	Item,
 	Menu,
@@ -10,14 +9,11 @@ import {
 	VisuallyHidden,
 } from "@moto-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "@tanstack/react-router";
-import type { PropsWithChildren } from "react";
+import { useLocation, useParams } from "@tanstack/react-router";
 import { CopyButton } from "@/components/mdx/copy-button";
 import { slugsToMarkdownPath } from "@/utils/markdown";
-import { replaceSlug } from "@/utils/url";
-import { AIOptions } from "./constant";
 
-function CopyTrigger() {
+function CopyMarkdownButton() {
 	const splat = useParams({
 		from: "/docs/$",
 		select: (p) => p._splat || "index",
@@ -36,15 +32,14 @@ function CopyTrigger() {
 
 	return (
 		<CopyButton
-			rounded="0"
 			iconOnly={false}
-			roundedStart="12"
+			roundedEnd="0"
 			value={data ?? ""}
 			variant="secondary"
 			css={{
 				"& svg": {
-					ml: "-2",
-					mt: "-1",
+					ml: "-1",
+					mb: "-1",
 				},
 			}}
 		>
@@ -54,29 +49,38 @@ function CopyTrigger() {
 }
 
 function MenuOptions() {
-	const splat = useParams({ from: "/docs/$", select: (p) => p._splat ?? "" });
-	const markdownPath = slugsToMarkdownPath(splat ? splat.split("/") : []).url;
+	const pathname = useLocation({ select: (l) => l.pathname });
+
+	const handleMdPath = (path: string) => {
+		let actualPath: string;
+		if (path === "/docs") {
+			actualPath = `/docs/index.md`;
+		} else {
+			actualPath = `${path}.md`;
+		}
+		window.open(actualPath, "_blank", "noreferrer,noopener");
+	};
+
+	const handleAiPath = (path: string) => {
+		const url = window.location.href;
+		const prompt = `Read the documentation at ${url}; I'll ask questions about it.`;
+		const actualPath = `${path}${encodeURIComponent(prompt)}`;
+		window.open(actualPath, "_blank", "noreferrer,noopener");
+	};
 
 	return (
-		<Menu
-			positioning={{
-				strategy: "fixed",
-				placement: "bottom-end",
-				offset: { mainAxis: 0, crossAxis: 40 },
-			}}
-		>
+		<Menu positioning={{ placement: "bottom-end" }}>
 			<Menu.Trigger asChild>
 				<Button
 					iconOnly
-					roundedEnd="12"
-					aria-label="Open AI menu"
+					roundedStart="0"
 					css={{
 						"&:not(:hover)": {
 							color: "icon.secondary",
 						},
 					}}
 				>
-					<VisuallyHidden>Open AI menu</VisuallyHidden>
+					<VisuallyHidden>Open</VisuallyHidden>
 					<Icon
 						width={16}
 						height={16}
@@ -88,57 +92,39 @@ function MenuOptions() {
 				<Menu.Positioner>
 					<Menu.Content asChild>
 						<Surface
-							mt="8"
 							p="4"
 							delta={1}
-							rounded="24"
 							w="12rem"
+							rounded="12"
+							colorPalette="neutral"
 						>
 							<Surface.Content gap="2">
-								<For each={AIOptions}>
-									{(option) => (
-										<Menu.Item
-											key={option.label}
-											value={option.value}
-											asChild
-										>
-											<Item
-												asChild
-												size="xs"
-												rounded="20"
-												fontSize="14"
-												variant="secondary"
-												colorPalette="neutral"
-												css={{
-													"&:not(:hover)": {
-														"& svg": {
-															color: "icon.secondary",
-														},
-													},
-												}}
-											>
-												<Link
-													target="_blank"
-													rel="noopener noreferrer"
-													to={replaceSlug(option.url, {
-														find: "slug",
-														slug: markdownPath,
-													})}
-												>
-													<Menu.ItemIndicator>
-														<Icon
-															ml="-2"
-															width={16}
-															height={16}
-															icon={option.icon}
-														/>
-													</Menu.ItemIndicator>
-													<Menu.ItemText>{option.label}</Menu.ItemText>
-												</Link>
-											</Item>
-										</Menu.Item>
-									)}
-								</For>
+								<MenuItem
+									value="view-mdx"
+									label="View markdown"
+									icon="ph:markdown-logo"
+									onClick={() => handleMdPath(pathname)}
+								/>
+								<MenuItem
+									value="ask-chatgpt"
+									label="Ask ChatGPT"
+									icon="ri:openai-fill"
+									onClick={() => handleAiPath("https://chatgpt.com/?q=")}
+								/>
+								<MenuItem
+									value="ask-claude"
+									label="Ask Claude"
+									icon="ri:claude-fill"
+									onClick={() => handleAiPath("https://claude.ai/new?q=")}
+								/>
+								<MenuItem
+									value="ask-perplexity"
+									label="Ask Perplexity"
+									icon="ri:perplexity-fill"
+									onClick={() =>
+										handleAiPath("https://perplexity.ai/search?q=")
+									}
+								/>
 							</Surface.Content>
 						</Surface>
 					</Menu.Content>
@@ -148,22 +134,54 @@ function MenuOptions() {
 	);
 }
 
-function ButtonsRoot(props: PropsWithChildren) {
-	const { children } = props;
-
+type MenuItemProps = {
+	icon: string;
+	label: string;
+	value: string;
+	onClick: () => void;
+};
+function MenuItem(props: MenuItemProps) {
+	const { icon, label, value, onClick } = props;
 	return (
-		<ButtonGroup
-			size="sm"
-			attached
-			variant="secondary"
-			colorPalette="neutral"
+		<Menu.Item
+			asChild
+			value={value}
+			onClick={onClick}
 		>
-			{children}
-		</ButtonGroup>
+			<Item
+				size="sm"
+				variant="secondary"
+				css={{
+					"&:not(:hover)": {
+						"& svg": {
+							color: "icon.secondary",
+						},
+					},
+				}}
+			>
+				<Menu.ItemIndicator>
+					<Icon
+						ml="-2"
+						width={18}
+						height={18}
+						icon={icon}
+					/>
+				</Menu.ItemIndicator>
+				<Menu.ItemText>{label}</Menu.ItemText>
+			</Item>
+		</Menu.Item>
 	);
 }
 
-export const DocsLayoutAiButtons = Object.assign(ButtonsRoot, {
-	CopyTrigger,
-	MenuOptions,
-});
+export function DocsLayoutAiButtons() {
+	return (
+		<ButtonGroup
+			attached
+			size="sm"
+			variant="secondary"
+		>
+			<CopyMarkdownButton />
+			<MenuOptions />
+		</ButtonGroup>
+	);
+}

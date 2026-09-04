@@ -4,7 +4,7 @@ export default function PseudoProps() {
 	return (
 		<Box
 			p="4"
-			rounded="16"
+			rounded="12"
 			boxSize="48"
 			bgColor="surface.7"
 			border="1px solid {colors.stroke.secondary}"

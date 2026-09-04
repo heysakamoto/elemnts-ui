@@ -4,7 +4,7 @@ export default function Basic() {
 	return (
 		<Box
 			boxSize="48"
-			rounded="24"
+			rounded="12"
 			border="1px solid {colors.stroke.primary}"
 		/>
 	);

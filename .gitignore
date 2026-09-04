@@ -9,6 +9,7 @@ node_modules/
 
 # --- Build Outputs ---
 dist/
+dist-storybook/
 build/
 out/
 .next/

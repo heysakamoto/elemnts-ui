@@ -11,7 +11,7 @@ export default function Forced() {
 					<Surface
 						p="12"
 						delta={5}
-						rounded="16"
+						rounded="10"
 					>
 						<Text
 							fontSize="14"
@@ -25,7 +25,7 @@ export default function Forced() {
 					<Surface
 						p="12"
 						delta={5}
-						rounded="16"
+						rounded="10"
 					>
 						<Text
 							fontSize="14"

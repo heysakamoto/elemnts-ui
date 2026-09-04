@@ -28,7 +28,7 @@ export default function Range() {
 						<DatePicker.Content asChild>
 							<Surface
 								delta={1}
-								rounded="24"
+								rounded="18"
 								colorPalette="neutral"
 							>
 								<Surface.Content p="8">

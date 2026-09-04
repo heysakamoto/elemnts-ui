@@ -6,13 +6,14 @@ export default function Controlled() {
 
 	return (
 		<Toggle
+			asChild
 			pressed={pressed}
 			aria-label="Toggle bold"
 			onPressedChange={setPressed}
 		>
 			<Item
-				iconOnly
-				selected={pressed}
+				w="fit"
+				variant="secondary"
 			>
 				<Icon
 					icon="tabler:bold"

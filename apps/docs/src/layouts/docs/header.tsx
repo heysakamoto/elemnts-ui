@@ -16,7 +16,7 @@ import {
 	useDocsLayoutCommandMenuContext,
 	useDocsLayoutMobileMenuContext,
 } from "./client";
-import { urls } from "./constant";
+import { NAVIGATION_LINKS } from "./constants";
 
 export function DocsLayoutHeader() {
 	const commandMenu = useDocsLayoutCommandMenuContext();
@@ -47,19 +47,19 @@ export function DocsLayoutHeader() {
 						gap="12"
 						hideBelow="md"
 					>
-						{urls.map((url) => (
+						{NAVIGATION_LINKS.map((link) => (
 							<Item
 								asChild
-								key={url.id}
+								key={link.id}
 								variant="secondary"
 								fontWeight="medium"
 								css={{ "&:not(:hover)": { color: "fg.secondary" } }}
 							>
 								<Link
-									to={url.url}
-									target={url.target}
+									to={link.url}
+									target={link.target}
 								>
-									{url.label}
+									{link.label}
 								</Link>
 							</Item>
 						))}

@@ -1,7 +1,6 @@
 import { Drawer } from "@ark-ui/react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { drawerRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { drawerRecipe } from "../../styled-system/recipes";
 
 const { withContext, withRootProvider } = createStyleContext(drawerRecipe);
 

@@ -11,7 +11,6 @@ export default function LazyMount() {
 			direction="column"
 		>
 			<Button
-				rounded="24"
 				variant="surface"
 				onClick={() => setPresent(!present)}
 			>
@@ -24,7 +23,8 @@ export default function LazyMount() {
 			>
 				<Surface
 					delta={1}
-					p="8"
+					px="12"
+					py="8"
 				>
 					<Surface.Title fontSize="14">
 						This element is lazy mounted.

@@ -68,7 +68,7 @@ export default function Group() {
 						<Select.Content asChild>
 							<Surface
 								delta={1}
-								rounded="24"
+								rounded="14"
 								colorPalette="neutral"
 							>
 								<Surface.Content p="4">

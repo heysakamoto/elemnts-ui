@@ -1,10 +1,13 @@
 import {
+	ButtonGroup,
 	Combobox,
 	Container,
+	For,
 	Icon,
 	InputGroup,
 	Item,
 	Portal,
+	Show,
 	Surface,
 	useFilter,
 	useListCollection,
@@ -49,6 +52,25 @@ export default function Multiple() {
 				collection={collection}
 				onInputValueChange={(e) => filter(e.inputValue)}
 			>
+				<Combobox.Context>
+					{(ctx) => (
+						<Show when={ctx.value}>
+							<ButtonGroup mb="12">
+								<For each={ctx.value}>
+									{(value) => (
+										<ButtonGroup.Item
+											key={value}
+											size="sm"
+											variant="secondary"
+										>
+											{value}
+										</ButtonGroup.Item>
+									)}
+								</For>
+							</ButtonGroup>
+						</Show>
+					)}
+				</Combobox.Context>
 				<Combobox.Control>
 					<InputGroup>
 						<Combobox.Input asChild>
@@ -71,7 +93,8 @@ export default function Multiple() {
 						<Combobox.Content asChild>
 							<Surface
 								delta={1}
-								rounded="16"
+								rounded="14"
+								colorPalette="neutral"
 							>
 								<Surface.Content
 									p="4"
@@ -84,12 +107,7 @@ export default function Multiple() {
 												key={item.id}
 												item={item}
 											>
-												<Item
-													variant="secondary"
-													colorPalette="neutral"
-													rounded="calc(16px - 4px)"
-												>
-													{" "}
+												<Item variant="secondary">
 													<Combobox.ItemText>{item.label}</Combobox.ItemText>
 												</Item>
 											</Combobox.Item>

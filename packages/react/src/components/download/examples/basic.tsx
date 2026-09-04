@@ -10,12 +10,7 @@ export default function Basic() {
 			mimeType="text/plain"
 			asChild
 		>
-			<Button
-				rounded="24"
-				variant="surface"
-			>
-				Download
-			</Button>
+			<Button variant="surface">Download</Button>
 		</Download>
 	);
 }

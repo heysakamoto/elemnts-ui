@@ -1,4 +1,4 @@
-import { Button, Dialog, Portal, Surface } from "@moto-ui/react";
+import { Button, ButtonGroup, Dialog, Portal, Surface } from "@moto-ui/react";
 
 export default function Basic() {
 	return (
@@ -18,7 +18,7 @@ export default function Basic() {
 						<Surface
 							p="16"
 							delta={1}
-							rounded="24"
+							rounded="16"
 							colorPalette="neutral"
 						>
 							<Surface.Content>
@@ -33,17 +33,14 @@ export default function Basic() {
 								direction="row"
 								gap="8"
 							>
-								<Dialog.CloseTrigger asChild>
-									<Button
-										variant="tertiary"
-										colorPalette="neutral"
-									>
-										Deny
-									</Button>
-								</Dialog.CloseTrigger>
-								<Dialog.CloseTrigger asChild>
-									<Button variant="primary">Allow</Button>
-								</Dialog.CloseTrigger>
+								<ButtonGroup size="sm">
+									<Dialog.CloseTrigger asChild>
+										<ButtonGroup.Item variant="tertiary">Deny</ButtonGroup.Item>
+									</Dialog.CloseTrigger>
+									<Dialog.CloseTrigger asChild>
+										<ButtonGroup.Item variant="primary">Allow</ButtonGroup.Item>
+									</Dialog.CloseTrigger>
+								</ButtonGroup>
 							</Surface.Footer>
 						</Surface>
 					</Dialog.Content>

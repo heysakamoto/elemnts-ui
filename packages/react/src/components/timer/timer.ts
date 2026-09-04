@@ -1,8 +1,7 @@
 import { ark } from "@ark-ui/react";
 import { Timer } from "@ark-ui/react/timer";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { timerRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { timerRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(timerRecipe);
 

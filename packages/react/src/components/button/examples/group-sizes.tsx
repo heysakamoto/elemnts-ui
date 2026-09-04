@@ -1,31 +1,24 @@
-import { ButtonGroup, Container, For, Stack } from "@moto-ui/react";
-
-const sizes = ["sm", "md", "lg"] as const;
+import { ButtonGroup, Container, For } from "@moto-ui/react";
 
 export default function Sizes() {
 	return (
-		<Container>
-			<Stack
-				direction="column"
-				gap="8"
-				align="center"
-			>
-				<For each={sizes}>
-					{(size) => (
-						<ButtonGroup
-							attached
-							key={size}
-							size={size}
-						>
-							<ButtonGroup.Item roundedStart="16">
-								Good
-								<ButtonGroup.Separator />
-							</ButtonGroup.Item>
-							<ButtonGroup.Item roundedEnd="16">Poor</ButtonGroup.Item>
-						</ButtonGroup>
-					)}
-				</For>
-			</Stack>
+		<Container
+			maxW="fit"
+			spaceY="12"
+		>
+			<For each={["sm", "md", "lg"]}>
+				{(size) => (
+					<ButtonGroup
+						key={size}
+						size={size}
+						variant="secondary"
+					>
+						<ButtonGroup.Item>Excellent</ButtonGroup.Item>
+						<ButtonGroup.Item>Good</ButtonGroup.Item>
+						<ButtonGroup.Item>Poor</ButtonGroup.Item>
+					</ButtonGroup>
+				)}
+			</For>
 		</Container>
 	);
 }

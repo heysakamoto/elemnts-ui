@@ -10,13 +10,12 @@ import {
 
 export default function Basic() {
 	return (
-		<Container maxW="20rem">
+		<Container maxW="24rem">
 			<TagsInput.Root defaultValue={["Mango", "Apple", "Orange"]}>
-				<TagsInput.Label>Fruits</TagsInput.Label>
 				<InputGroup
-					h="auto"
 					p="4"
-					rounded="20"
+					h="auto"
+					rounded="10"
 				>
 					<TagsInput.Control gap="4">
 						<TagsInput.Context>
@@ -28,18 +27,16 @@ export default function Basic() {
 										value={item}
 										key={idx.toString()}
 									>
-										<Surface rounded="16">
+										<Surface asChild>
 											<Tag
 												size="xs"
 												variant="secondary"
 											>
 												<TagsInput.ItemPreview>
-													<TagsInput.ItemText fontSize="14">
-														{item}
-													</TagsInput.ItemText>
+													<TagsInput.ItemText>{item}</TagsInput.ItemText>
 													<TagsInput.ItemDeleteTrigger asChild>
 														<Button
-															mr="-6"
+															mr="-8"
 															iconOnly
 															size="2xs"
 															variant="ghost"

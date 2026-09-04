@@ -16,7 +16,7 @@ export default function Basic() {
 				<Drawer.Content asChild>
 					<Surface
 						delta={1}
-						roundedTop="24"
+						roundedTop="16"
 					>
 						<Drawer.Grabber>
 							<Drawer.GrabberIndicator />

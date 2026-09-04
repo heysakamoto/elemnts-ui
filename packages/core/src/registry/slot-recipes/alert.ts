@@ -9,9 +9,8 @@ export const alertRecipe = defineSlotRecipe({
 			px: "12",
 			display: "flex",
 			alignItems: "center",
-			cornerShape: "squircle",
 			fontSize: "{fontSizes.14}",
-			rounded: "calc({radii.4} * 4)",
+			rounded: "calc({radii.4} * 3)",
 			columnGap: "calc({spacing.4} * 2)",
 
 			"&:has([data-part=description])": {

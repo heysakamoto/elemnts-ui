@@ -1,17 +1,17 @@
 export const ROOTLAYOUT_URLS = [
 	{
-		id: "documentation",
-		label: "Docs",
-		url: "/docs",
+		id: "install",
+		label: "Install",
+		url: "/docs/installation",
 	},
 	{
-		id: "storybook",
-		label: "Storybook",
-		url: "https://storybook.moto-ui.app",
+		id: "changelog",
+		label: "Changelog",
+		url: "/docs/changelog",
 	},
 	{
-		id: "pro",
-		label: "Pro",
-		url: "https://pro.moto-ui.app",
+		id: "composition",
+		label: "Composition",
+		url: "/docs/composition",
 	},
 ];

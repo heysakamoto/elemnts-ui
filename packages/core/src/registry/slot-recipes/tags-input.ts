@@ -70,8 +70,10 @@ export const tagsInputRecipe = defineSlotRecipe({
 			display: "inline-flex",
 			justifyContent: "center",
 
-			_notHover: {
-				_svg: { color: "icon.secondary" },
+			"&:not(:hover)": {
+				"& > svg": {
+					color: "icon.secondary",
+				},
 			},
 		},
 		itemDeleteTrigger: {},

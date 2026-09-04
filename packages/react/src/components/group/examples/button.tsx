@@ -3,18 +3,8 @@ import { Button, Group } from "@moto-ui/react";
 export default function ButtonGroup() {
 	return (
 		<Group>
-			<Button
-				rounded="calc(24px - 8px)"
-				variant="tertiary"
-			>
-				Premium
-			</Button>
-			<Button
-				rounded="calc(24px - 8px)"
-				variant="tertiary"
-			>
-				Free
-			</Button>
+			<Button variant="tertiary">Premium</Button>
+			<Button variant="tertiary">Free</Button>
 		</Group>
 	);
 }

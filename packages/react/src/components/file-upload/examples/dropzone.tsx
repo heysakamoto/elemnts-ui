@@ -16,7 +16,7 @@ export default function Dropzone() {
 				<FileUpload.Dropzone>
 					<Surface
 						delta={1}
-						rounded="16"
+						rounded="12"
 						shadowLevel={2}
 						borderStyle="dashed"
 					>

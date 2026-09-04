@@ -1,7 +1,6 @@
 import { FloatingPanel } from "@ark-ui/react/floating-panel";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { floatingPanelRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { floatingPanelRecipe } from "../../styled-system/recipes";
 
 const { withRootProvider, withProvider, withContext } =
 	createStyleContext(floatingPanelRecipe);

@@ -1,8 +1,7 @@
 import { ark, type HTMLProps } from "@ark-ui/react/factory";
 import type React from "react";
-
-import { styled } from "../../../styled-system/jsx";
-import { checkmarkRecipe } from "../../../styled-system/recipes";
+import { styled } from "../../styled-system/jsx";
+import { checkmarkRecipe } from "../../styled-system/recipes";
 import { Icon } from "../icon";
 
 export const Checkmark = styled(

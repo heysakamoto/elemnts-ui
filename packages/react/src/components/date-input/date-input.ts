@@ -1,7 +1,6 @@
 import { DateInput } from "@ark-ui/react";
-
-import { createStyleContext } from "../../../styled-system/jsx";
-import { dateInputRecipe } from "../../../styled-system/recipes";
+import { createStyleContext } from "../../styled-system/jsx";
+import { dateInputRecipe } from "../../styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(dateInputRecipe);
 

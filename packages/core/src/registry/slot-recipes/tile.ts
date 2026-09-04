@@ -68,30 +68,35 @@ export const tileRecipe = defineSlotRecipe({
 				root: {
 					py: size.xs.paddingBlock,
 					px: size.xs.paddingInline,
+					borderRadius: size.xs.borderRadius,
 				},
 			},
 			sm: {
 				root: {
 					py: size.sm.paddingBlock,
 					px: size.sm.paddingInline,
+					borderRadius: size.sm.borderRadius,
 				},
 			},
 			md: {
 				root: {
 					py: size.md.paddingBlock,
 					px: size.md.paddingInline,
+					borderRadius: size.md.borderRadius,
 				},
 			},
 			lg: {
 				root: {
 					py: size.lg.paddingBlock,
 					px: size.lg.paddingInline,
+					borderRadius: size.lg.borderRadius,
 				},
 			},
 			xl: {
 				root: {
 					py: size.xl.paddingBlock,
 					px: size.xl.paddingInline,
+					borderRadius: size.xl.borderRadius,
 				},
 			},
 		},

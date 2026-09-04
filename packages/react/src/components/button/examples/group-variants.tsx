@@ -1,32 +1,24 @@
-import { ButtonGroup, Container, For, Stack } from "@moto-ui/react";
-
-const variants = ["secondary", "tertiary"] as const;
+import { ButtonGroup, Container, For } from "@moto-ui/react";
 
 export default function Variants() {
 	return (
-		<Container>
-			<Stack
-				direction="column"
-				gap="8"
-				align="center"
-			>
-				<For each={variants}>
-					{(variant) => (
-						<ButtonGroup
-							attached
-							size="sm"
-							key={variant}
-							variant={variant}
-						>
-							<ButtonGroup.Item roundedStart="16">
-								Good
-								<ButtonGroup.Separator />
-							</ButtonGroup.Item>
-							<ButtonGroup.Item roundedEnd="16">Poor</ButtonGroup.Item>
-						</ButtonGroup>
-					)}
-				</For>
-			</Stack>
+		<Container
+			maxW="fit"
+			spaceY="12"
+		>
+			<For each={["primary", "secondary", "tertiary", "surface"]}>
+				{(variant) => (
+					<ButtonGroup
+						size="sm"
+						key={variant}
+						variant={variant}
+					>
+						<ButtonGroup.Item>Excellent</ButtonGroup.Item>
+						<ButtonGroup.Item>Good</ButtonGroup.Item>
+						<ButtonGroup.Item>Poor</ButtonGroup.Item>
+					</ButtonGroup>
+				)}
+			</For>
 		</Container>
 	);
 }

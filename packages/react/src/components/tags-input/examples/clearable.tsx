@@ -10,15 +10,14 @@ import {
 
 export default function Clearable() {
 	return (
-		<Container maxW="20rem">
+		<Container maxW="24rem">
 			<TagsInput.Root defaultValue={["Mango", "Apple", "Orange"]}>
 				<InputGroup
-					h="auto"
-					minH="32"
-					rounded="24"
 					p="4"
+					h="auto"
+					rounded="10"
 				>
-					<TagsInput.Control gap="2">
+					<TagsInput.Control gap="4">
 						<TagsInput.Context>
 							{({ value }) =>
 								value.map((item, idx) => (
@@ -28,7 +27,7 @@ export default function Clearable() {
 										index={idx}
 										value={item}
 									>
-										<Surface rounded="16">
+										<Surface asChild>
 											<Tag
 												size="xs"
 												variant="secondary"
@@ -39,7 +38,7 @@ export default function Clearable() {
 													</TagsInput.ItemText>
 													<TagsInput.ItemDeleteTrigger asChild>
 														<Button
-															mr="-6"
+															mr="-8"
 															iconOnly
 															size="2xs"
 															variant="ghost"

@@ -16,14 +16,14 @@ export default function Variants() {
 				gap="8"
 				align="center"
 				justify="center"
-				wrap="wrap"
 			>
 				<For each={variants}>
 					{(variant) => (
 						<Button
-							key={variant}
 							size="sm"
+							key={variant}
 							variant={variant}
+							flexShrink="0"
 						>
 							Call us
 						</Button>

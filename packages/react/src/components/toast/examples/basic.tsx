@@ -10,7 +10,6 @@ export default function Basic() {
 	return (
 		<>
 			<Button
-				rounded="full"
 				variant="surface"
 				onClick={() =>
 					toaster.create({

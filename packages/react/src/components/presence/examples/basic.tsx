@@ -11,7 +11,6 @@ export default function Basic() {
 			direction="column"
 		>
 			<Button
-				rounded="24"
 				variant="surface"
 				onClick={() => setPresent(!present)}
 			>
@@ -20,7 +19,8 @@ export default function Basic() {
 			<Presence present={present}>
 				<Surface
 					delta={1}
-					p="8"
+					px="12"
+					py="8"
 				>
 					<Surface.Title fontSize="14">
 						The content is rendered when present is true.

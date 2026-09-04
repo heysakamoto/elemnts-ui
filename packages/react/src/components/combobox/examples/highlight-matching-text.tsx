@@ -72,7 +72,8 @@ export default function HighlightMatchingText() {
 						<Combobox.Content asChild>
 							<Surface
 								delta={1}
-								rounded="16"
+								rounded="14"
+								colorPalette="neutral"
 							>
 								<Surface.Content
 									p="4"
@@ -105,11 +106,7 @@ function ComboboxItem(props: { item: (typeof items)[number] }) {
 			asChild
 			item={item}
 		>
-			<Item
-				rounded="calc(16px - 4px)"
-				colorPalette="neutral"
-				variant="secondary"
-			>
+			<Item variant="secondary">
 				<Combobox.ItemText>
 					<Highlight
 						ignoreCase

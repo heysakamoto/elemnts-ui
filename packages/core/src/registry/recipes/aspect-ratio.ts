@@ -6,7 +6,6 @@ export const aspectRatioRecipe = defineRecipe({
 		overflow: "clip",
 		aspectRatio: "16/9",
 		position: "relative",
-		cornerShape: "squircle",
 		boxSize: "{sizes.auto}",
 		rounded: "calc({radii.4} * 4)",
 

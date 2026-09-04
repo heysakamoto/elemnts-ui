@@ -18,6 +18,7 @@ export function DocsLayoutMobileMenu(props: DocsLayoutMobileMenuProps) {
 	return (
 		<DocsLayoutMobileMenuContext.Provider value={value}>
 			<Drawer
+				modal
 				open={value.open}
 				onOpenChange={(details) => value.setOpen(details.open)}
 			>
@@ -27,12 +28,17 @@ export function DocsLayoutMobileMenu(props: DocsLayoutMobileMenuProps) {
 					<Drawer.Content asChild>
 						<Surface
 							delta={1}
+							roundedTop="16"
 							colorPalette="neutral"
 						>
 							<Drawer.Grabber>
 								<Drawer.GrabberIndicator />
 							</Drawer.Grabber>
-							<Surface.Content flexGrow={1}>
+							<Surface.Content
+								flexGrow={1}
+								overflow="scroll"
+								scrollbar="hidden"
+							>
 								<Sidebar>
 									<DocsLayoutPageTree />
 								</Sidebar>

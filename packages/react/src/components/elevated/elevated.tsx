@@ -1,9 +1,29 @@
 import { type Assign, ark, type HTMLArkProps } from "@ark-ui/react";
-import { forwardRef } from "react";
+import {
+	createContext,
+	forwardRef,
+	type PropsWithChildren,
+	useContext,
+} from "react";
+import { styled } from "../../styled-system/jsx";
+import { elevatedRecipe } from "../../styled-system/recipes";
 
-import { styled } from "../../../styled-system/jsx";
-import { elevatedRecipe } from "../../../styled-system/recipes";
-import { Substrate, useSubstrate } from "../substrate";
+const ElevatedContext = createContext(1);
+
+export function useElevatedContext() {
+	const context = useContext(ElevatedContext);
+	return context;
+}
+
+function ElevatedContextProvider(props: PropsWithChildren<{ value: number }>) {
+	const { children, value } = props;
+
+	return (
+		<ElevatedContext.Provider value={Math.max(1, Math.min(8, value))}>
+			{children}
+		</ElevatedContext.Provider>
+	);
+}
 
 /**
  * Props for the `Elevated` component.
@@ -40,10 +60,9 @@ type ElevatedBaseProps = Assign<
 export const ElevatedBase = forwardRef<HTMLDivElement, ElevatedBaseProps>(
 	(props, ref) => {
 		const { delta = 1, shadowLevel, style, children, ...restProps } = props;
-		const substrate = useSubstrate();
+		const ctx = useElevatedContext();
 
-		// Logic: Cap at 8 as per your requirement
-		const level = Math.min(substrate + delta, 8);
+		const level = Math.min(ctx + delta, 8);
 		const shadow = shadowLevel ?? level;
 
 		const dataProps = {
@@ -60,7 +79,7 @@ export const ElevatedBase = forwardRef<HTMLDivElement, ElevatedBaseProps>(
 		};
 
 		return (
-			<Substrate value={level}>
+			<ElevatedContextProvider value={level}>
 				<ark.div
 					ref={ref}
 					style={computedStyle}
@@ -69,11 +88,10 @@ export const ElevatedBase = forwardRef<HTMLDivElement, ElevatedBaseProps>(
 				>
 					{children}
 				</ark.div>
-			</Substrate>
+			</ElevatedContextProvider>
 		);
 	},
 );
-
 ElevatedBase.displayName = "ElevatedBase";
 
 export const Elevated = styled(ElevatedBase, elevatedRecipe);

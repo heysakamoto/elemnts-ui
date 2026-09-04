@@ -4,15 +4,17 @@ export const spinnerRecipe = defineRecipe({
 	className: "spinner",
 	base: {
 		display: "flex",
+		color: "inherit",
 		alignItems: "center",
 		justifyContent: "center",
-		color: "{colors.colorPalette.primary}",
 
 		"& > svg": {
 			color: "inherit",
 			maxW: "max-content",
+			animationName: "spin",
 			boxSize: "{sizes.full}",
-			animation: "spin linear infinite",
+			animationTimingFunction: "linear",
+			animationIterationCount: "infinite",
 		},
 	},
 	variants: {

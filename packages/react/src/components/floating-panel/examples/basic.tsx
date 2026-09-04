@@ -18,12 +18,12 @@ export default function Basic() {
 					<FloatingPanel.Content asChild>
 						<Surface
 							delta={1}
-							rounded="24"
+							rounded="16"
 							colorPalette="neutral"
 						>
 							<FloatingPanel.Header
-								py="8"
-								px="10"
+								py="10"
+								px="16"
 							>
 								<FloatingPanel.DragTrigger>
 									<FloatingPanel.Title>Work information</FloatingPanel.Title>

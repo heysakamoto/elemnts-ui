@@ -5,11 +5,15 @@ export const variant = {
 
 		_hover: {
 			backgroundColor:
-				"color-mix(in oklab, {colors.colorPalette.primary}, {colors.mix.hover})",
+				"color-mix(in oklab, {colors.colorPalette.primary}, 8% {colors.mix.hover})",
 		},
 		_active: {
 			backgroundColor:
-				"color-mix(in oklab, {colors.colorPalette.primary}, {colors.mix.active})",
+				"color-mix(in oklab, {colors.colorPalette.primary}, 8% {colors.mix.active})",
+		},
+		_selected: {
+			backgroundColor:
+				"color-mix(in oklab, {colors.colorPalette.primary}, 8% {colors.mix.selected})",
 		},
 	},
 	secondary: {
@@ -23,6 +27,10 @@ export const variant = {
 		_hover: {
 			backgroundColor:
 				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.hover})",
+		},
+		_selected: {
+			backgroundColor:
+				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
 		},
 	},
 	tertiary: {
@@ -38,6 +46,10 @@ export const variant = {
 			backgroundColor:
 				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.hover})",
 		},
+		_selected: {
+			backgroundColor:
+				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
+		},
 	},
 	ghost: {
 		backgroundColor: "{colors.transparent}",
@@ -50,6 +62,10 @@ export const variant = {
 		_hover: {
 			backgroundColor:
 				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.hover})",
+		},
+		_selected: {
+			backgroundColor:
+				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
 		},
 	},
 	surface: {
@@ -64,6 +80,10 @@ export const variant = {
 		_hover: {
 			backgroundColor:
 				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.hover})",
+		},
+		_selected: {
+			backgroundColor:
+				"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
 		},
 	},
 	plain: {

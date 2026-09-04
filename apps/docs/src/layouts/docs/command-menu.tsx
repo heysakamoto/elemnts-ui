@@ -7,7 +7,10 @@ import {
 	Icon,
 	InputGroup,
 	Item,
+	Portal,
 	Separator,
+	Show,
+	Spinner,
 	Surface,
 } from "@moto-ui/react";
 import { useHotkey } from "@tanstack/react-hotkeys";
@@ -28,7 +31,7 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 	const navigate = useNavigate();
 	const value = useDocsLayoutCommandMenu();
 	const { search, setSearch, query } = useDocsSearch({
-		delayMs: 300,
+		delayMs: 200,
 		allowEmpty: false,
 		type: value.open ? "fetch" : "static",
 	});
@@ -46,11 +49,10 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 
 	const handleSelect = (details: { value: string[] }) => {
 		const selectedValue = details.value[0];
-		if (selectedValue) {
-			const [_, url] = selectedValue.split(":");
-			navigate({ to: url });
-			value.setOpen(false);
-		}
+		if (!selectedValue) return;
+		const [_, url] = selectedValue.split(":");
+		navigate({ to: url });
+		requestAnimationFrame(() => value.setOpen(false));
 	};
 
 	return (
@@ -62,139 +64,153 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 				onOpenChange={(details) => value.setOpen(details.open)}
 			>
 				{children}
-				<Dialog.Positioner>
-					<Dialog.Backdrop />
-					<Dialog.Content asChild>
-						<Surface
-							rounded="24"
-							colorPalette="neutral"
-						>
-							<Combobox
-								autoFocus
-								open={true}
-								inputValue={search}
-								collection={collection}
-								selectionBehavior="replace"
-								onValueChange={handleSelect}
-								inputBehavior="autohighlight"
-								positioning={{ strategy: "fixed", hideWhenDetached: true }}
-								onInputValueChange={(details) => setSearch(details.inputValue)}
+				<Portal>
+					<Dialog.Positioner>
+						<Dialog.Backdrop />
+						<Dialog.Content asChild>
+							<Surface
+								rounded="18"
+								colorPalette="neutral"
 							>
-								<Combobox.Control p="8">
-									<InputGroup>
-										<InputGroup.Addon>
-											<Icon
-												icon="tabler:search"
-												width={16}
-												height={16}
-												color="icon.secondary"
-											/>
-										</InputGroup.Addon>
-										<Combobox.Input asChild>
-											<InputGroup.Input
-												fontSize="16"
-												pl="12"
-												placeholder="Search..."
-											/>
-										</Combobox.Input>
-										<InputGroup.Addon>
-											<Combobox.ClearTrigger asChild>
-												<Button
-													size="xs"
-													iconOnly
-													variant="ghost"
-												>
-													<Icon
-														icon="tabler:close"
-														width={16}
-														height={16}
-													/>
-												</Button>
-											</Combobox.ClearTrigger>
-										</InputGroup.Addon>
-									</InputGroup>
-								</Combobox.Control>
-								<Separator orientation="horizontal" />
-								<Surface.Content
-									p="8"
-									maxH="24rem"
-									overflow="auto"
+								<Combobox
+									open
+									disableLayer
+									loopFocus={false}
+									placeholder="Search..."
+									collection={collection}
+									selectionBehavior="preserve"
+									onValueChange={handleSelect}
+									inputBehavior="autohighlight"
+									positioning={{ strategy: "fixed", hideWhenDetached: true }}
+									onInputValueChange={(details) =>
+										setSearch(details.inputValue)
+									}
 								>
-									<For each={collection.items}>
-										{(item) => {
-											const getIcon = () => {
-												switch (item.type) {
-													case "heading":
-														return "tabler:hash";
-													case "page":
-														return "tabler:file";
-													default:
-														return "tabler:text-caption";
-												}
-											};
-
-											return (
-												<Combobox.Item
-													asChild
-													item={item}
-													data-type={item.type}
-													key={`${item.id}-${item.url}`}
+									<Combobox.Control p="8">
+										<InputGroup>
+											<InputGroup.Addon
+												flexShrink={0}
+												color="icon.secondary"
+											>
+												<Show
+													when={query.isLoading}
+													fallback={
+														<Icon
+															width={16}
+															height={16}
+															icon="tabler:search"
+														/>
+													}
 												>
-													<Item
-														size="md"
-														flexShrink={0}
-														position="relative"
-														variant="secondary"
-														css={{
-															"& mark": {
-																color: "inherit",
-																bgColor: "transparent",
-															},
-															"&:not([data-type=page])": {
-																_before: {
-																	w: 1,
-																	top: 0,
-																	left: 20,
-																	h: "inherit",
-																	content: "''",
-																	position: "absolute",
-																	bgColor: "stroke.secondary",
-																},
-																"& svg": {
-																	ml: 20,
-																},
-															},
-														}}
+													<Spinner size="sm">
+														<Icon icon="tabler:loader-2" />
+													</Spinner>
+												</Show>
+											</InputGroup.Addon>
+											<Combobox.Input asChild>
+												<InputGroup.Input
+													fontSize="16"
+													pl="12"
+												/>
+											</Combobox.Input>
+											<InputGroup.Addon>
+												<Combobox.ClearTrigger asChild>
+													<Button
+														size="xs"
+														iconOnly
+														variant="ghost"
 													>
 														<Icon
-															icon={getIcon()}
+															icon="tabler:close"
 															width={16}
 															height={16}
 														/>
-														<Combobox.ItemText
-															truncate
-															dangerouslySetInnerHTML={{
-																__html: stripMarkdown(item.content),
-															}}
-														/>
-													</Item>
-												</Combobox.Item>
-											);
-										}}
-									</For>
-									<Combobox.Empty
-										flex="1"
-										align="center"
-										justify="center"
-										color="fg.tertiary"
+													</Button>
+												</Combobox.ClearTrigger>
+											</InputGroup.Addon>
+										</InputGroup>
+									</Combobox.Control>
+									<Separator orientation="horizontal" />
+									<Combobox.Content
+										p="8"
+										maxH="24rem"
+										overflow="auto"
 									>
-										No results found.
-									</Combobox.Empty>
-								</Surface.Content>
-							</Combobox>
-						</Surface>
-					</Dialog.Content>
-				</Dialog.Positioner>
+										<For each={collection.items}>
+											{(item) => {
+												const getIcon = () => {
+													switch (item.type) {
+														case "heading":
+															return "tabler:hash";
+														case "page":
+															return "tabler:file";
+														default:
+															return "tabler:text-caption";
+													}
+												};
+												return (
+													<Combobox.Item
+														asChild
+														item={item}
+														data-type={item.type}
+														key={`${item.id}-${item.url}`}
+													>
+														<Item
+															size="md"
+															flexShrink={0}
+															position="relative"
+															variant="secondary"
+															css={{
+																"& mark": {
+																	color: "inherit",
+																	bgColor: "transparent",
+																},
+																"&:not([data-type=page])": {
+																	_before: {
+																		w: 1,
+																		top: 0,
+																		left: 20,
+																		h: "inherit",
+																		content: "''",
+																		position: "absolute",
+																		bgColor: "stroke.secondary",
+																	},
+																	"& svg": {
+																		ml: 20,
+																	},
+																},
+															}}
+														>
+															<Icon
+																icon={getIcon()}
+																width={16}
+																height={16}
+															/>
+															<Combobox.ItemText
+																truncate
+																dangerouslySetInnerHTML={{
+																	__html: stripMarkdown(item.content),
+																}}
+															/>
+														</Item>
+													</Combobox.Item>
+												);
+											}}
+										</For>
+										<Combobox.Empty
+											flex="1"
+											align="center"
+											justify="center"
+											color="fg.tertiary"
+										>
+											No results found.
+										</Combobox.Empty>
+									</Combobox.Content>
+								</Combobox>
+							</Surface>
+						</Dialog.Content>
+					</Dialog.Positioner>
+				</Portal>
 			</Dialog>
 		</DocsLayoutCommandMenuContext.Provider>
 	);
