@@ -1,50 +1,51 @@
 {
-	"name": "@elemnts-ui/docs",
-	"private": true,
-	"type": "module",
-	"imports": {
-		"#/*": "./src/*"
-	},
-	"scripts": {
-		"dev": "vite dev",
-		"test": "vitest run",
-		"build": "vite build",
-		"panda:build": "panda",
-		"preview": "vite preview",
-		"deploy": "NODE_OPTIONS=--max-old-space-size=8192 wrangler deploy"
-	},
-	"dependencies": {
-		"@elemnts-ui/core": "workspace:*",
-		"@elemnts-ui/react": "workspace:*",
-		"@polar-sh/sdk": "^0.49.0",
-		"@tanstack/react-form": "latest",
-		"@tanstack/react-hotkeys": "^0.10.0",
-		"@tanstack/react-query": "latest",
-		"@tanstack/react-router": "latest",
-		"@tanstack/react-router-ssr-query": "latest",
-		"@tanstack/react-start": "latest",
-		"@tanstack/router-plugin": "^1.168.18",
-		"@types/mdx": "^2.0.14",
-		"fumadocs-core": "^16.9.3",
-		"fumadocs-mdx": "^14.3.2",
-		"react": "^19.2.7",
-		"react-dom": "^19.2.7",
-		"shiki": "^4.2.0",
-		"zod": "^4.4.3"
-	},
-	"devDependencies": {
-		"@pandacss/dev": "^1.11.3",
-		"@tanstack/devtools-vite": "latest",
-		"@testing-library/dom": "^10.4.1",
-		"@testing-library/react": "^16.3.2",
-		"@types/react": "^19.2.17",
-		"@types/react-dom": "^19.2.3",
-		"@vitejs/plugin-react": "^5.2.0",
-		"babel-plugin-react-compiler": "^1.0.0",
-		"jsdom": "^28.1.0",
-		"nitro": "3.0.260610-beta",
-		"vite-plugin-svgr": "^5.2.0",
-		"vitest": "^3.2.6",
-		"wrangler": "^4.99.0"
-	}
+  "name": "@elemnts-ui/docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "test": "vitest run",
+    "build": "vite build",
+    "panda:build": "panda",
+    "preview": "vite preview",
+    "deploy": "NODE_OPTIONS=--max-old-space-size=8192 wrangler deploy"
+  },
+  "dependencies": {
+    "@elemnts-ui/core": "workspace:*",
+    "@elemnts-ui/react": "workspace:*",
+    "@polar-sh/sdk": "^0.49.0",
+    "@tanstack/react-form": "latest",
+    "@tanstack/react-hotkeys": "^0.10.0",
+    "@tanstack/react-query": "latest",
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-router-ssr-query": "latest",
+    "@tanstack/react-start": "latest",
+    "@tanstack/router-plugin": "^1.168.18",
+    "@types/mdx": "^2.0.14",
+    "fumadocs-core": "^16.9.3",
+    "fumadocs-mdx": "^14.3.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "shiki": "^4.2.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^1.11.3",
+    "@tanstack/devtools-vite": "latest",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "jsdom": "^28.1.0",
+    "nitro": "3.0.260610-beta",
+    "vite-plugin-svgr": "^5.2.0",
+    "vitest": "^3.2.6",
+    "wrangler": "^4.99.0"
+  }
 }

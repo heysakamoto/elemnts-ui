@@ -1,6 +1,7 @@
 {
   "name": "elemnts-ui",
   "private": true,
+  "version": "0.0.0",
   "packageManager": "pnpm@11.22.0",
   "scripts": {
     "publish": "pnpm build && changeset publish",
