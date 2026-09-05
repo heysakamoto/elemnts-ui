@@ -4,7 +4,7 @@ import {
 	Icon,
 	Item,
 	TreeView,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 type Node = {
 	id: string;
@@ -79,18 +79,10 @@ export default function Basic() {
 								pl="calc(var(--depth) * 8px)"
 							>
 								<TreeView.BranchIndicator>
-									<Icon
-										icon="tabler:chevron-down"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:chevron-down" width={16} height={16} />
 								</TreeView.BranchIndicator>
 								<TreeView.BranchText>
-									<Icon
-										icon="tabler:folder"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:folder" width={16} height={16} />
 									{currentNode.name}
 								</TreeView.BranchText>
 							</Item>

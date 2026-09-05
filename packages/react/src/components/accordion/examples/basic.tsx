@@ -1,4 +1,4 @@
-import { Accordion, Container, Icon, Stack } from "@moto-ui/react";
+import { Accordion, Container, Icon, Stack } from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -39,26 +39,15 @@ export default function Basic(props: Accordion["Props"]) {
 			<Accordion {...props}>
 				{items.map((item) => {
 					return (
-						<Accordion.Item
-							key={item.id}
-							value={item.id}
-						>
+						<Accordion.Item key={item.id} value={item.id}>
 							<Accordion.ItemTrigger>
 								{item.title}
 								<Accordion.ItemIndicator>
-									<Icon
-										icon="tabler:chevron-down"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:chevron-down" width={16} height={16} />
 								</Accordion.ItemIndicator>
 							</Accordion.ItemTrigger>
 							<Accordion.ItemContent>
-								<Stack
-									direction="column"
-									p="12"
-									pt="4"
-								>
+								<Stack direction="column" p="12" pt="4">
 									{item.content}
 								</Stack>
 							</Accordion.ItemContent>

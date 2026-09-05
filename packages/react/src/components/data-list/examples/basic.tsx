@@ -1,4 +1,4 @@
-import { Container, DataList } from "@moto-ui/react";
+import { Container, DataList } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -6,7 +6,7 @@ export default function Basic() {
 			<DataList>
 				<DataList.Item>
 					<DataList.ItemLabel>Name</DataList.ItemLabel>
-					<DataList.ItemValue>Moto UI</DataList.ItemValue>
+					<DataList.ItemValue>Elemnts UI</DataList.ItemValue>
 				</DataList.Item>
 				<DataList.Item>
 					<DataList.ItemLabel>Description</DataList.ItemLabel>

@@ -6,8 +6,7 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab",
-		"attributePosition": "multiline"
+		"indentStyle": "tab"
 	},
 	"linter": {
 		"enabled": true,

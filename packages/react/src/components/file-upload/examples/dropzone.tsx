@@ -7,19 +7,14 @@ import {
 	SeparatorGroup,
 	Surface,
 	Tile,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Dropzone() {
 	return (
 		<Container maxW="20rem">
 			<FileUpload.Root>
 				<FileUpload.Dropzone>
-					<Surface
-						delta={1}
-						rounded="12"
-						shadowLevel={2}
-						borderStyle="dashed"
-					>
+					<Surface delta={1} rounded="12" shadowLevel={2} borderStyle="dashed">
 						<Tile
 							p="16"
 							align="center"
@@ -27,21 +22,10 @@ export default function Dropzone() {
 							direction="column"
 							variant="secondary"
 						>
-							<Chip
-								iconOnly
-								size="sm"
-							>
-								<Icon
-									width="18"
-									height="18"
-									icon="tabler:cloud-upload"
-								/>
+							<Chip iconOnly size="sm">
+								<Icon width="18" height="18" icon="tabler:cloud-upload" />
 							</Chip>
-							<Tile.Title
-								mt="8"
-								fontSize="14"
-								color="fg.muted"
-							>
+							<Tile.Title mt="8" fontSize="14" color="fg.muted">
 								Drag and drop files here
 							</Tile.Title>
 							<SeparatorGroup
@@ -51,23 +35,14 @@ export default function Dropzone() {
 								align="center"
 								justify="center"
 							>
-								<SeparatorGroup.Item
-									w="full"
-									orientation="horizontal"
-								/>
+								<SeparatorGroup.Item w="full" orientation="horizontal" />
 								<SeparatorGroup.Caption fontSize="14">
 									or
 								</SeparatorGroup.Caption>
-								<SeparatorGroup.Item
-									w="full"
-									orientation="horizontal"
-								/>
+								<SeparatorGroup.Item w="full" orientation="horizontal" />
 							</SeparatorGroup>
 							<FileUpload.Trigger asChild>
-								<Button
-									size="sm"
-									variant="surface"
-								>
+								<Button size="sm" variant="surface">
 									Browse
 								</Button>
 							</FileUpload.Trigger>
@@ -78,15 +53,8 @@ export default function Dropzone() {
 					<FileUpload.Context>
 						{({ acceptedFiles: files }) =>
 							files.map((file, idx) => (
-								<FileUpload.Item
-									asChild
-									key={idx.toString()}
-									file={file}
-								>
-									<Surface
-										delta={5}
-										rounded="16"
-									>
+								<FileUpload.Item asChild key={idx.toString()} file={file}>
+									<Surface delta={5} rounded="16">
 										<Tile
 											pr="6"
 											gap="8"
@@ -96,17 +64,9 @@ export default function Dropzone() {
 											variant="secondary"
 											orientation="horizontal"
 										>
-											<Icon
-												icon="tabler:file"
-												width={16}
-												height={16}
-											/>
+											<Icon icon="tabler:file" width={16} height={16} />
 											<Tile.Content gap="2">
-												<Tile.Title
-													asChild
-													truncate
-													w="8rem"
-												>
+												<Tile.Title asChild truncate w="8rem">
 													<FileUpload.ItemName />
 												</Tile.Title>
 												<FileUpload.ItemSizeText fontSize="12" />
@@ -119,11 +79,7 @@ export default function Dropzone() {
 													variant="surface"
 													colorPalette="destructive"
 												>
-													<Icon
-														icon="tabler:x"
-														width={16}
-														height={16}
-													/>
+													<Icon icon="tabler:x" width={16} height={16} />
 												</Button>
 											</FileUpload.ItemDeleteTrigger>
 										</Tile>

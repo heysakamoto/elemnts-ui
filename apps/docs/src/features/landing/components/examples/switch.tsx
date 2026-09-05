@@ -1,4 +1,4 @@
-import { Switch, VisuallyHidden } from "@moto-ui/react";
+import { Switch, VisuallyHidden } from "@elemnts-ui/react";
 
 export function SwitchExample() {
 	return (

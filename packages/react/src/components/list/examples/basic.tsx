@@ -1,7 +1,7 @@
-import { Container, List } from "@moto-ui/react";
+import { Container, List } from "@elemnts-ui/react";
 
 const items = [
-	"Introduction to Moto UI",
+	"Introduction to Elemnts UI",
 	"Installation and Setup",
 	"Component Overview",
 	"Theming and Customization",

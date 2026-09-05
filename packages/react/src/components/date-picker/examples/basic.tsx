@@ -7,7 +7,7 @@ import {
 	Input,
 	Portal,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -23,11 +23,7 @@ export default function Basic() {
 				<Portal>
 					<DatePicker.Positioner>
 						<DatePicker.Content asChild>
-							<Surface
-								delta={1}
-								rounded="18"
-								colorPalette="neutral"
-							>
+							<Surface delta={1} rounded="18" colorPalette="neutral">
 								<Surface.Content p="8">
 									<DatePicker.View view="day">
 										<DatePicker.Context>
@@ -35,11 +31,7 @@ export default function Basic() {
 												<>
 													<DatePicker.ViewControl>
 														<DatePicker.PrevTrigger asChild>
-															<Button
-																iconOnly
-																size="sm"
-																variant="ghost"
-															>
+															<Button iconOnly size="sm" variant="ghost">
 																<Icon
 																	icon="tabler:chevron-left"
 																	width={16}
@@ -49,11 +41,7 @@ export default function Basic() {
 														</DatePicker.PrevTrigger>
 														<DatePicker.RangeText textAlign="center" />
 														<DatePicker.NextTrigger asChild>
-															<Button
-																iconOnly
-																size="sm"
-																variant="ghost"
-															>
+															<Button iconOnly size="sm" variant="ghost">
 																<Icon
 																	icon="tabler:chevron-right"
 																	width={16}

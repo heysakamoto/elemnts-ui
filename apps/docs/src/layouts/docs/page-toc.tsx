@@ -1,4 +1,4 @@
-import { Box } from "@moto-ui/react";
+import { Box } from "@elemnts-ui/react";
 import * as FumadocsToc from "fumadocs-core/toc";
 import { useRef } from "react";
 import { css } from "@/styled-system/css";

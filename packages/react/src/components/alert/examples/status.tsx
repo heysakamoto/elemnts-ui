@@ -1,4 +1,4 @@
-import { Alert, Container, For, Icon } from "@moto-ui/react";
+import { Alert, Container, For, Icon } from "@elemnts-ui/react";
 
 const statuses = [
 	"default",
@@ -10,22 +10,12 @@ const statuses = [
 
 export default function Status() {
 	return (
-		<Container
-			maxW="fit"
-			spaceY="12"
-		>
+		<Container maxW="fit" spaceY="12">
 			<For each={statuses}>
 				{(status) => (
-					<Alert
-						status={status}
-						key={status}
-					>
+					<Alert status={status} key={status}>
 						<Alert.Indicator>
-							<Icon
-								icon="tabler:info-circle"
-								width={20}
-								height={20}
-							/>
+							<Icon icon="tabler:info-circle" width={20} height={20} />
 						</Alert.Indicator>
 						<Alert.Content>
 							<Alert.Title>This is a {status} message</Alert.Title>

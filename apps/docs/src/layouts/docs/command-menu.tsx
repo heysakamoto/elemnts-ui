@@ -12,7 +12,7 @@ import {
 	Show,
 	Spinner,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useHotkey } from "@tanstack/react-hotkeys";
 import { useNavigate } from "@tanstack/react-router";
 import type { SortedResult } from "fumadocs-core/search";
@@ -68,10 +68,7 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 					<Dialog.Positioner>
 						<Dialog.Backdrop />
 						<Dialog.Content asChild>
-							<Surface
-								rounded="18"
-								colorPalette="neutral"
-							>
+							<Surface rounded="18" colorPalette="neutral">
 								<Combobox
 									open
 									disableLayer
@@ -88,18 +85,11 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 								>
 									<Combobox.Control p="8">
 										<InputGroup>
-											<InputGroup.Addon
-												flexShrink={0}
-												color="icon.secondary"
-											>
+											<InputGroup.Addon flexShrink={0} color="icon.secondary">
 												<Show
 													when={query.isLoading}
 													fallback={
-														<Icon
-															width={16}
-															height={16}
-															icon="tabler:search"
-														/>
+														<Icon width={16} height={16} icon="tabler:search" />
 													}
 												>
 													<Spinner size="sm">
@@ -108,34 +98,19 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 												</Show>
 											</InputGroup.Addon>
 											<Combobox.Input asChild>
-												<InputGroup.Input
-													fontSize="16"
-													pl="12"
-												/>
+												<InputGroup.Input fontSize="16" pl="12" />
 											</Combobox.Input>
 											<InputGroup.Addon>
 												<Combobox.ClearTrigger asChild>
-													<Button
-														size="xs"
-														iconOnly
-														variant="ghost"
-													>
-														<Icon
-															icon="tabler:close"
-															width={16}
-															height={16}
-														/>
+													<Button size="xs" iconOnly variant="ghost">
+														<Icon icon="tabler:close" width={16} height={16} />
 													</Button>
 												</Combobox.ClearTrigger>
 											</InputGroup.Addon>
 										</InputGroup>
 									</Combobox.Control>
 									<Separator orientation="horizontal" />
-									<Combobox.Content
-										p="8"
-										maxH="24rem"
-										overflow="auto"
-									>
+									<Combobox.Content p="8" maxH="24rem" overflow="auto">
 										<For each={collection.items}>
 											{(item) => {
 												const getIcon = () => {
@@ -181,11 +156,7 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 																},
 															}}
 														>
-															<Icon
-																icon={getIcon()}
-																width={16}
-																height={16}
-															/>
+															<Icon icon={getIcon()} width={16} height={16} />
 															<Combobox.ItemText
 																truncate
 																dangerouslySetInnerHTML={{

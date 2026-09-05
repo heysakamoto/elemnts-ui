@@ -1,4 +1,4 @@
-import { Chip, Container, For, Stack } from "@moto-ui/react";
+import { Chip, Container, For, Stack } from "@elemnts-ui/react";
 
 const variants = [
 	"primary",
@@ -11,18 +11,10 @@ const variants = [
 export default function Variants() {
 	return (
 		<Container>
-			<Stack
-				gap="8"
-				align="center"
-				justify="center"
-			>
+			<Stack gap="8" align="center" justify="center">
 				<For each={variants}>
 					{(variant) => (
-						<Chip
-							size="sm"
-							key={variant}
-							variant={variant}
-						>
+						<Chip size="sm" key={variant} variant={variant}>
 							Chip
 						</Chip>
 					)}

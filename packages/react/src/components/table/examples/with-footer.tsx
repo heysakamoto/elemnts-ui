@@ -1,4 +1,4 @@
-import { Container, Table } from "@moto-ui/react";
+import { Container, Table } from "@elemnts-ui/react";
 
 const columns = ["Item", "Quantity", "Unit Price", "Total"];
 const rows = [

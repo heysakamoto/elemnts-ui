@@ -80,12 +80,7 @@ export const ElevatedBase = forwardRef<HTMLDivElement, ElevatedBaseProps>(
 
 		return (
 			<ElevatedContextProvider value={level}>
-				<ark.div
-					ref={ref}
-					style={computedStyle}
-					{...dataProps}
-					{...restProps}
-				>
+				<ark.div ref={ref} style={computedStyle} {...dataProps} {...restProps}>
 					{children}
 				</ark.div>
 			</ElevatedContextProvider>

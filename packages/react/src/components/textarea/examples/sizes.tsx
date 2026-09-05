@@ -1,14 +1,11 @@
-import { Container, For, Textarea } from "@moto-ui/react";
+import { Container, For, Textarea } from "@elemnts-ui/react";
 
 export default function Sizes() {
 	return (
 		<Container maxW="20rem">
 			<For each={["xs", "sm", "md", "lg", "xl"]}>
 				{(size) => (
-					<Textarea
-						size={size}
-						placeholder="Type your message here..."
-					/>
+					<Textarea size={size} placeholder="Type your message here..." />
 				)}
 			</For>
 		</Container>

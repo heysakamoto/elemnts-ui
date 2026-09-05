@@ -1,16 +1,16 @@
 ---
 title: Styling 
-description: Easily customize Moto UI components using Panda CSS, recipes, or popular libraries like Tailwind CSS.
+description: Easily customize Elemnts UI components using Panda CSS, recipes, or popular libraries like Tailwind CSS.
 ---
 
-Moto UI leverages [Panda CSS](https://panda-css.com/) to provide a flexible and type-safe approach to styling components directly within your JSX.
+Elemnts UI leverages [Panda CSS](https://panda-css.com/) to provide a flexible and type-safe approach to styling components directly within your JSX.
 
 ## Quick Styling with Style Props
 
-Style props let you apply CSS properties directly to components. Moto UI includes a **styled** factory that enables these props on any HTML element.
+Style props let you apply CSS properties directly to components. Elemnts UI includes a **styled** factory that enables these props on any HTML element.
 
 ```tsx
-import { styled } from "@moto-ui/react";
+import { styled } from "@elemnts-ui/react";
 
 function Example() {
   return (
@@ -37,7 +37,7 @@ The **styled** function helps you create reusable components with built-in style
 Define base styles for any component, such as links or buttons.
 
 ```tsx
-import { styled } from "@moto-ui/react";
+import { styled } from "@elemnts-ui/react";
 
 const Link = styled("a", {
   base: {
@@ -91,10 +91,10 @@ Panda CSS makes it easy to style components based on their state (hover, active,
 
 ## Removing Default Styles
 
-All Moto UI components support the `unstyled` prop. Setting it to `true` removes all default styles, allowing you to apply your own CSS or use a utility framework like Tailwind.
+All Elemnts UI components support the `unstyled` prop. Setting it to `true` removes all default styles, allowing you to apply your own CSS or use a utility framework like Tailwind.
 
 ```tsx
-import { Accordion } from "@moto-ui/react";
+import { Accordion } from "@elemnts-ui/react";
 
 <Accordion.Root unstyled>
   <Accordion.Item value="1" className="custom-border">
@@ -105,7 +105,7 @@ import { Accordion } from "@moto-ui/react";
 
 ## Tailwind CSS Support
 
-Moto UI components seamlessly integrate with Tailwind CSS when using the `unstyled` prop and `className`.
+Elemnts UI components seamlessly integrate with Tailwind CSS when using the `unstyled` prop and `className`.
 
 ```tsx
 <Button
@@ -120,7 +120,7 @@ Moto UI components seamlessly integrate with Tailwind CSS when using the `unstyl
 
 ## Slot Recipes
 
-For complex components like Accordions or Tabs, Moto UI uses **Slot Recipes** to define styles for each internal part in a single configuration.
+For complex components like Accordions or Tabs, Elemnts UI uses **Slot Recipes** to define styles for each internal part in a single configuration.
 
 ```tsx
 import { defineSlotRecipe } from '@pandacss/dev';

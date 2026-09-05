@@ -1,4 +1,4 @@
-import { Checkbox } from "@moto-ui/react";
+import { Checkbox } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

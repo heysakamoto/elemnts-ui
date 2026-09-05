@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@moto-ui/react";
+import { Breadcrumb } from "@elemnts-ui/react";
 
 const items = [
 	{ label: "Docs", href: "/docs" },

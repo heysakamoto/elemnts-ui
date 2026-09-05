@@ -58,13 +58,7 @@ export const BreadcrumbSeparator = withContext(ark.li, "separator", {
 		"aria-hidden": "true",
 		"data-part": "separator",
 		"data-scope": "breadcrumb",
-		children: (
-			<Icon
-				width={14}
-				height={14}
-				icon="tabler:chevron-right"
-			/>
-		),
+		children: <Icon width={14} height={14} icon="tabler:chevron-right" />,
 	},
 });
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
@@ -76,13 +70,7 @@ export const BreadcrumbEllipsis = withContext(ark.span, "ellipsis", {
 		"aria-hidden": "true",
 		"data-part": "ellipsis",
 		"data-scope": "breadcrumb",
-		children: (
-			<Icon
-				width={14}
-				height={14}
-				icon="tabler:dots"
-			/>
-		),
+		children: <Icon width={14} height={14} icon="tabler:dots" />,
 	},
 });
 BreadcrumbEllipsis.displayName = "BreadcrumbEllipsis";

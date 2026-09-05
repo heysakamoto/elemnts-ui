@@ -1,4 +1,4 @@
-import { Container, ScrollArea, SegmentGroup, Text } from "@moto-ui/react";
+import { Container, ScrollArea, SegmentGroup, Text } from "@elemnts-ui/react";
 import { useState } from "react";
 
 type Variant = ScrollArea["RootProps"]["variant"];
@@ -19,25 +19,15 @@ export default function Variants() {
 			>
 				<SegmentGroup.Indicator />
 				{variants.map((v) => (
-					<SegmentGroup.Item
-						value={v}
-						key={v}
-					>
-						<SegmentGroup.ItemText
-							fontFamily="mono"
-							fontSize="12"
-						>
+					<SegmentGroup.Item value={v} key={v}>
+						<SegmentGroup.ItemText fontFamily="mono" fontSize="12">
 							{v}
 						</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>
 				))}
 			</SegmentGroup>
-			<ScrollArea
-				h="8rem"
-				mt="24"
-				variant={value as Variant}
-			>
+			<ScrollArea h="8rem" mt="24" variant={value as Variant}>
 				<ScrollArea.Viewport>
 					<ScrollArea.Content pr="20">
 						<Text fontSize="14">

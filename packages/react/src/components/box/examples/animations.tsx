@@ -1,4 +1,4 @@
-import { Group, Surface } from "@moto-ui/react";
+import { Group, Surface } from "@elemnts-ui/react";
 
 export default function Animations() {
 	return (

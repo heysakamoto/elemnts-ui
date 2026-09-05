@@ -1,4 +1,4 @@
-import { Anchor } from "@moto-ui/react";
+import { Anchor } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return <Anchor>Ark UI</Anchor>;

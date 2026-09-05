@@ -1,4 +1,11 @@
-import { Accordion, Chip, Container, Icon, Stack, Text } from "@moto-ui/react";
+import {
+	Accordion,
+	Chip,
+	Container,
+	Icon,
+	Stack,
+	Text,
+} from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -31,46 +38,21 @@ export default function WithIcon(props: Accordion["Props"]) {
 				{items.map((item, idx) => {
 					const isLastItem = idx === items.length - 1;
 					return (
-						<Accordion.Item
-							key={item.id}
-							value={item.id}
-						>
+						<Accordion.Item key={item.id} value={item.id}>
 							<Accordion.ItemTrigger gap="10">
-								<Chip
-									iconOnly
-									size="2xs"
-									variant="secondary"
-								>
-									<Icon
-										icon={item.icon}
-										width={16}
-										height={16}
-									/>
+								<Chip iconOnly size="2xs" variant="secondary">
+									<Icon icon={item.icon} width={16} height={16} />
 								</Chip>
-								<Text
-									flexGrow={1}
-									textAlign="left"
-								>
+								<Text flexGrow={1} textAlign="left">
 									{item.title}
 								</Text>
 								<Accordion.ItemIndicator>
-									<Icon
-										icon="tabler:chevron-down"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:chevron-down" width={16} height={16} />
 								</Accordion.ItemIndicator>
 							</Accordion.ItemTrigger>
 							<Accordion.ItemContent>
-								<Stack
-									direction="column"
-									p="12"
-									pt="4"
-								>
-									<Text
-										fontSize="14"
-										color="fg.secondary"
-									>
+								<Stack direction="column" p="12" pt="4">
+									<Text fontSize="14" color="fg.secondary">
 										{item.content}
 									</Text>
 								</Stack>

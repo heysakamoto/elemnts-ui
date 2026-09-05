@@ -1,17 +1,10 @@
-import { Kbd, Text } from "@moto-ui/react";
+import { Kbd, Text } from "@elemnts-ui/react";
 
 export default function Inline() {
 	return (
-		<Text
-			fontSize="14"
-			color="fg.secondary"
-		>
+		<Text fontSize="14" color="fg.secondary">
 			Use{" "}
-			<Kbd
-				mx="2"
-				size="2xs"
-				variant="secondary"
-			>
+			<Kbd mx="2" size="2xs" variant="secondary">
 				⌘
 			</Kbd>{" "}
 			to open the command palette.

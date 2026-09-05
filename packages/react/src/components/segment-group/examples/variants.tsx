@@ -1,4 +1,4 @@
-import { Container, SegmentGroup, Stack } from "@moto-ui/react";
+import { Container, SegmentGroup, Stack } from "@elemnts-ui/react";
 import { useState } from "react";
 
 const options = [
@@ -16,11 +16,7 @@ export default function Variants() {
 
 	return (
 		<Container maxW="20rem">
-			<Stack
-				gap="16"
-				align="center"
-				direction="column"
-			>
+			<Stack gap="16" align="center" direction="column">
 				<SegmentGroup.Root
 					defaultValue="react"
 					variant={value as Variant}
@@ -28,10 +24,7 @@ export default function Variants() {
 				>
 					<SegmentGroup.Indicator />
 					{options.map((option) => (
-						<SegmentGroup.Item
-							key={option.value}
-							value={option.value}
-						>
+						<SegmentGroup.Item key={option.value} value={option.value}>
 							<SegmentGroup.ItemText>{option.label}</SegmentGroup.ItemText>
 							<SegmentGroup.ItemHiddenInput />
 						</SegmentGroup.Item>
@@ -48,10 +41,7 @@ export default function Variants() {
 				>
 					<SegmentGroup.Indicator />
 					{variants.map((variant) => (
-						<SegmentGroup.Item
-							key={variant}
-							value={variant}
-						>
+						<SegmentGroup.Item key={variant} value={variant}>
 							<SegmentGroup.ItemText fontSize="12">
 								{variant}
 							</SegmentGroup.ItemText>

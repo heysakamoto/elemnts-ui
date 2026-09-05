@@ -1,4 +1,4 @@
-import { Container, SegmentGroup, Stack, Text } from "@moto-ui/react";
+import { Container, SegmentGroup, Stack, Text } from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Weights() {
@@ -21,52 +21,33 @@ export default function Weights() {
 			>
 				<SegmentGroup.Indicator />
 				{weights.map((weight) => (
-					<SegmentGroup.Item
-						key={weight}
-						value={weight}
-					>
+					<SegmentGroup.Item key={weight} value={weight}>
 						<SegmentGroup.ItemText>{weight}</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>
 				))}
 			</SegmentGroup>
-			<Stack
-				direction="column"
-				align="center"
-				mt="18"
-			>
+			<Stack direction="column" align="center" mt="18">
 				{value === "300" && (
-					<Text
-						fontWeight="300"
-						textAlign="center"
-					>
+					<Text fontWeight="300" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>
 				)}
 				{value === "400" && (
-					<Text
-						fontWeight="400"
-						textAlign="center"
-					>
+					<Text fontWeight="400" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>
 				)}
 				{value === "500" && (
-					<Text
-						fontWeight="500"
-						textAlign="center"
-					>
+					<Text fontWeight="500" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>
 				)}
 				{value === "600" && (
-					<Text
-						fontWeight="600"
-						textAlign="center"
-					>
+					<Text fontWeight="600" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>

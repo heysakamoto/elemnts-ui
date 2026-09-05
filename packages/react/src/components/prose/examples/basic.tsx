@@ -1,4 +1,4 @@
-import { Prose } from "@moto-ui/react";
+import { Prose } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

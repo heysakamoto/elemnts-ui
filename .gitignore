@@ -6,6 +6,7 @@ node_modules/
 # --- pnpm Specific ---
 # If you use a local store (uncommon, but possible)
 .pnpm-store/
+pnpm-lock.yaml
 
 # --- Build Outputs ---
 dist/

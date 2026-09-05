@@ -1,4 +1,11 @@
-import { Container, Icon, Item, Menu, Portal, Surface } from "@moto-ui/react";
+import {
+	Container,
+	Icon,
+	Item,
+	Menu,
+	Portal,
+	Surface,
+} from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -47,23 +54,11 @@ export default function ContextMenu() {
 				<Portal>
 					<Menu.Positioner>
 						<Menu.Content asChild>
-							<Surface
-								delta={1}
-								w="12rem"
-								rounded="14"
-								colorPalette="neutral"
-							>
-								<Surface.Content
-									p="4"
-									gap="2"
-								>
+							<Surface delta={1} w="12rem" rounded="14" colorPalette="neutral">
+								<Surface.Content p="4" gap="2">
 									{items.map((item) => {
 										return (
-											<Menu.Item
-												key={item.id}
-												value={item.value}
-												asChild
-											>
+											<Menu.Item key={item.id} value={item.value} asChild>
 												<Item variant="secondary">
 													<Icon
 														ml="-6"

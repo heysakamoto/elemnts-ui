@@ -5,7 +5,7 @@ import {
 	Separator,
 	type SeparatorProps,
 	Stack,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useState } from "react";
 
 type Size = SeparatorProps["size"];
@@ -26,25 +26,15 @@ export default function Sizes() {
 			>
 				<SegmentGroup.Indicator />
 				{sizes.map((size) => (
-					<SegmentGroup.Item
-						key={size}
-						value={size}
-					>
-						<SegmentGroup.ItemText
-							fontFamily="mono"
-							fontSize="12"
-						>
+					<SegmentGroup.Item key={size} value={size}>
+						<SegmentGroup.ItemText fontFamily="mono" fontSize="12">
 							{size}
 						</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>
 				))}
 			</SegmentGroup>
-			<Stack
-				mt="20"
-				align="center"
-				direction="column"
-			>
+			<Stack mt="20" align="center" direction="column">
 				<DecorativeBox boxSize="64" />
 				<Separator
 					w="12rem"

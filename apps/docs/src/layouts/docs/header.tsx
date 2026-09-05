@@ -9,7 +9,7 @@ import {
 	Section,
 	Stack,
 	VisuallyHidden,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/base/logo";
 import {
@@ -31,10 +31,7 @@ export function DocsLayoutHeader() {
 			backdropFilter="blur(16px)"
 			borderBottom="1px solid {colors.stroke.primary}"
 		>
-			<Container
-				px="16"
-				maxW="var(--docs-width)"
-			>
+			<Container px="16" maxW="var(--docs-width)">
 				<Stack
 					align="center"
 					justify="space-between"
@@ -43,10 +40,7 @@ export function DocsLayoutHeader() {
 				>
 					<Logo />
 
-					<Group
-						gap="12"
-						hideBelow="md"
-					>
+					<Group gap="12" hideBelow="md">
 						{NAVIGATION_LINKS.map((link) => (
 							<Item
 								asChild
@@ -55,21 +49,14 @@ export function DocsLayoutHeader() {
 								fontWeight="medium"
 								css={{ "&:not(:hover)": { color: "fg.secondary" } }}
 							>
-								<Link
-									to={link.url}
-									target={link.target}
-								>
+								<Link to={link.url} target={link.target}>
 									{link.label}
 								</Link>
 							</Item>
 						))}
 					</Group>
 
-					<Group
-						flex="1"
-						justify="end"
-						gap={{ base: "8", lg: "16" }}
-					>
+					<Group flex="1" justify="end" gap={{ base: "8", lg: "16" }}>
 						<Button
 							size="sm"
 							iconOnly
@@ -78,11 +65,7 @@ export function DocsLayoutHeader() {
 							onClick={() => mobileMenu.setOpen(true)}
 						>
 							<VisuallyHidden>Menu</VisuallyHidden>
-							<Icon
-								icon="tabler:menu"
-								width="16"
-								height="16"
-							/>
+							<Icon icon="tabler:menu" width="16" height="16" />
 						</Button>
 						<Button
 							size="sm"
@@ -92,49 +75,25 @@ export function DocsLayoutHeader() {
 							onClick={() => commandMenu.setOpen(true)}
 						>
 							<VisuallyHidden>Search</VisuallyHidden>
-							<Icon
-								icon="tabler:search"
-								width="16"
-								height="16"
-							/>
+							<Icon icon="tabler:search" width="16" height="16" />
 						</Button>
 						<Button
 							hideBelow="sm"
 							variant="surface"
 							onClick={() => commandMenu.setOpen(true)}
 						>
-							<Icon
-								ml="-2"
-								icon="tabler:search"
-								width="16"
-								height="16"
-							/>
+							<Icon ml="-2" icon="tabler:search" width="16" height="16" />
 							Search
-							<KbdGroup
-								ml="12"
-								mr="-4"
-								gap="4"
-							>
-								<Kbd
-									size="2xs"
-									iconOnly
-									variant="surface"
-								>
+							<KbdGroup ml="12" mr="-4" gap="4">
+								<Kbd size="2xs" iconOnly variant="surface">
 									⌘
 								</Kbd>
-								<Kbd
-									size="2xs"
-									iconOnly
-									variant="surface"
-								>
+								<Kbd size="2xs" iconOnly variant="surface">
 									K
 								</Kbd>
 							</KbdGroup>
 						</Button>
-						<Button
-							asChild
-							fontWeight="medium"
-						>
+						<Button asChild fontWeight="medium">
 							<Link to="/sponsor">Sponsor</Link>
 						</Button>
 					</Group>

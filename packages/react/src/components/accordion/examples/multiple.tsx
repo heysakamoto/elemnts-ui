@@ -1,4 +1,4 @@
-import { Accordion, Container, Icon, Stack, Text } from "@moto-ui/react";
+import { Accordion, Container, Icon, Stack, Text } from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -24,37 +24,20 @@ const items = [
 export default function Multiple(props: Accordion["Props"]) {
 	return (
 		<Container maxW="24rem">
-			<Accordion
-				multiple
-				{...props}
-			>
+			<Accordion multiple {...props}>
 				{items.map((item, idx) => {
 					const isLastItem = idx === items.length - 1;
 					return (
-						<Accordion.Item
-							key={item.id}
-							value={item.id}
-						>
+						<Accordion.Item key={item.id} value={item.id}>
 							<Accordion.ItemTrigger>
 								{item.title}
 								<Accordion.ItemIndicator>
-									<Icon
-										icon="tabler:chevron-down"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:chevron-down" width={16} height={16} />
 								</Accordion.ItemIndicator>
 							</Accordion.ItemTrigger>
 							<Accordion.ItemContent>
-								<Stack
-									direction="column"
-									p="12"
-									pt="4"
-								>
-									<Text
-										fontSize="14"
-										color="fg.secondary"
-									>
+								<Stack direction="column" p="12" pt="4">
+									<Text fontSize="14" color="fg.secondary">
 										{item.content}
 									</Text>
 								</Stack>

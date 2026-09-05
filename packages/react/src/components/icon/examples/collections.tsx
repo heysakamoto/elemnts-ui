@@ -1,4 +1,4 @@
-import { addCollection, Icon, Stack } from "@moto-ui/react";
+import { addCollection, Icon, Stack } from "@elemnts-ui/react";
 
 addCollection({
 	prefix: "logos",
@@ -63,16 +63,8 @@ addCollection({
 export default function Collections() {
 	return (
 		<Stack gap="16">
-			<Icon
-				icon="logos:apple"
-				width={24}
-				height={24}
-			/>
-			<Icon
-				icon="logos:spotify"
-				width={24}
-				height={24}
-			/>
+			<Icon icon="logos:apple" width={24} height={24} />
+			<Icon icon="logos:spotify" width={24} height={24} />
 		</Stack>
 	);
 }

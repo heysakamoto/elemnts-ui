@@ -1,4 +1,4 @@
-import { Container, SegmentGroup, Stack } from "@moto-ui/react";
+import { Container, SegmentGroup, Stack } from "@elemnts-ui/react";
 import { useState } from "react";
 
 const options = [
@@ -16,12 +16,7 @@ export default function Sizes() {
 
 	return (
 		<Container maxW="20rem">
-			<Stack
-				gap="16"
-				align="center"
-				direction="column"
-				key={value}
-			>
+			<Stack gap="16" align="center" direction="column" key={value}>
 				<SegmentGroup.Root
 					defaultValue="react"
 					size={value as Size}
@@ -29,10 +24,7 @@ export default function Sizes() {
 				>
 					<SegmentGroup.Indicator />
 					{options.map((option) => (
-						<SegmentGroup.Item
-							key={option.value}
-							value={option.value}
-						>
+						<SegmentGroup.Item key={option.value} value={option.value}>
 							<SegmentGroup.ItemText>{option.label}</SegmentGroup.ItemText>
 							<SegmentGroup.ItemHiddenInput />
 						</SegmentGroup.Item>
@@ -49,10 +41,7 @@ export default function Sizes() {
 				>
 					<SegmentGroup.Indicator />
 					{sizes.map((size) => (
-						<SegmentGroup.Item
-							key={size}
-							value={size}
-						>
+						<SegmentGroup.Item key={size} value={size}>
 							<SegmentGroup.ItemText fontSize="12">
 								{size}
 							</SegmentGroup.ItemText>

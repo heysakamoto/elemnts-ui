@@ -1,4 +1,4 @@
-import { Frame, Text } from "@moto-ui/react";
+import { Frame, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

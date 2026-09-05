@@ -1,4 +1,4 @@
-import { Button, Clipboard, Container, Group, Input } from "@moto-ui/react";
+import { Button, Clipboard, Container, Group, Input } from "@elemnts-ui/react";
 
 export default function WithInput() {
 	return (
@@ -6,16 +6,10 @@ export default function WithInput() {
 			<Clipboard value="2R!@|FAbab1W">
 				<Group>
 					<Clipboard.Input asChild>
-						<Input
-							fontSize="14"
-							px="10"
-						/>
+						<Input fontSize="14" px="10" />
 					</Clipboard.Input>
 					<Clipboard.Trigger asChild>
-						<Button
-							size="sm"
-							variant="surface"
-						>
+						<Button size="sm" variant="surface">
 							<Clipboard.Indicator ml="-2" />
 							Copy
 						</Button>

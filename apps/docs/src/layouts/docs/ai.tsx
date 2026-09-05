@@ -7,7 +7,7 @@ import {
 	Portal,
 	Surface,
 	VisuallyHidden,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, useParams } from "@tanstack/react-router";
 import { CopyButton } from "@/components/mdx/copy-button";
@@ -81,11 +81,7 @@ function MenuOptions() {
 					}}
 				>
 					<VisuallyHidden>Open</VisuallyHidden>
-					<Icon
-						width={16}
-						height={16}
-						icon="tabler:chevron-down"
-					/>
+					<Icon width={16} height={16} icon="tabler:chevron-down" />
 				</Button>
 			</Menu.Trigger>
 			<Portal>
@@ -143,11 +139,7 @@ type MenuItemProps = {
 function MenuItem(props: MenuItemProps) {
 	const { icon, label, value, onClick } = props;
 	return (
-		<Menu.Item
-			asChild
-			value={value}
-			onClick={onClick}
-		>
+		<Menu.Item asChild value={value} onClick={onClick}>
 			<Item
 				size="sm"
 				variant="secondary"
@@ -160,12 +152,7 @@ function MenuItem(props: MenuItemProps) {
 				}}
 			>
 				<Menu.ItemIndicator>
-					<Icon
-						ml="-2"
-						width={18}
-						height={18}
-						icon={icon}
-					/>
+					<Icon ml="-2" width={18} height={18} icon={icon} />
 				</Menu.ItemIndicator>
 				<Menu.ItemText>{label}</Menu.ItemText>
 			</Item>
@@ -175,11 +162,7 @@ function MenuItem(props: MenuItemProps) {
 
 export function DocsLayoutAiButtons() {
 	return (
-		<ButtonGroup
-			attached
-			size="sm"
-			variant="secondary"
-		>
+		<ButtonGroup attached size="sm" variant="secondary">
 			<CopyMarkdownButton />
 			<MenuOptions />
 		</ButtonGroup>

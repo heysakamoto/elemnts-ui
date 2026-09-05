@@ -1,12 +1,9 @@
-import { Container, Portal, Surface } from "@moto-ui/react";
+import { Container, Portal, Surface } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<Container maxW="20rem">
-			<Surface
-				p="12"
-				delta={1}
-			>
+			<Surface p="12" delta={1}>
 				<Surface.Title justify="center">
 					This text is inside the container.
 				</Surface.Title>

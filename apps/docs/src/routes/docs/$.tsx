@@ -19,7 +19,7 @@ export const Route = createFileRoute("/docs/$")({
 	head: ({ loaderData }) => ({
 		meta: [
 			{ description: loaderData?.description },
-			{ title: `${loaderData?.title || "Not Found"} | Moto UI` },
+			{ title: `${loaderData?.title || "Not Found"} | Elemnts UI` },
 			{ name: "description", content: loaderData?.description },
 		],
 	}),

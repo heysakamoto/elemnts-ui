@@ -1,4 +1,4 @@
-import { Container, List } from "@moto-ui/react";
+import { Container, List } from "@elemnts-ui/react";
 
 const steps = [
 	"Create a new project",
@@ -11,11 +11,7 @@ const steps = [
 export default function Ordered() {
 	return (
 		<Container maxW="fit">
-			<List
-				as="ol"
-				fontSize="14"
-				listStyle="decimal"
-			>
+			<List as="ol" fontSize="14" listStyle="decimal">
 				{steps.map((step) => (
 					<List.Item key={step}>{step}</List.Item>
 				))}

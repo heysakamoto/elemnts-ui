@@ -1,4 +1,4 @@
-import { DecorativeBox, ScrollArea, Stack } from "@moto-ui/react";
+import { DecorativeBox, ScrollArea, Stack } from "@elemnts-ui/react";
 
 export default function Horizontal() {
 	return (
@@ -7,11 +7,7 @@ export default function Horizontal() {
 				<ScrollArea.Content pb="12">
 					<Stack gap="8">
 						{Array.from({ length: 8 }).map((_, idx) => (
-							<DecorativeBox
-								w="10rem"
-								h="56"
-								key={idx.toString()}
-							/>
+							<DecorativeBox w="10rem" h="56" key={idx.toString()} />
 						))}
 					</Stack>
 				</ScrollArea.Content>

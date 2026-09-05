@@ -1,12 +1,8 @@
-import { DecorativeBox, Splitter } from "@moto-ui/react";
+import { DecorativeBox, Splitter } from "@elemnts-ui/react";
 
 export default function SeparatorOnly() {
 	return (
-		<Splitter
-			minH="200"
-			maxW="20rem"
-			panels={[{ id: "a" }, { id: "b" }]}
-		>
+		<Splitter minH="200" maxW="20rem" panels={[{ id: "a" }, { id: "b" }]}>
 			<Splitter.Panel id="a">
 				<DecorativeBox h="full" />
 			</Splitter.Panel>

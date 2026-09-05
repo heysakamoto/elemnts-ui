@@ -31,20 +31,8 @@ export const ClipboardIndicator = withContext(
 	"indicator",
 	{
 		defaultProps: {
-			copied: (
-				<Icon
-					icon="tabler:check"
-					width={14}
-					height={14}
-				/>
-			),
-			children: (
-				<Icon
-					icon="tabler:copy"
-					width={14}
-					height={14}
-				/>
-			),
+			copied: <Icon icon="tabler:check" width={14} height={14} />,
+			children: <Icon icon="tabler:copy" width={14} height={14} />,
 		},
 	},
 );

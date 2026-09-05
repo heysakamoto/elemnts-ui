@@ -1,4 +1,4 @@
-import { Chip, Container, List } from "@moto-ui/react";
+import { Chip, Container, List } from "@elemnts-ui/react";
 
 const features = [
 	{
@@ -30,11 +30,7 @@ export default function WithIndicator() {
 				{features.map((feature, idx) => (
 					<List.Item key={feature.text}>
 						<List.Indicator asChild>
-							<Chip
-								iconOnly
-								size="2xs"
-								variant="secondary"
-							>
+							<Chip iconOnly size="2xs" variant="secondary">
 								{idx + 1}
 							</Chip>
 						</List.Indicator>

@@ -1,4 +1,4 @@
-import { Button, Item, Menu, Portal, Surface } from "@moto-ui/react";
+import { Button, Item, Menu, Portal, Surface } from "@elemnts-ui/react";
 
 export function MenuExample() {
 	const options = [
@@ -10,29 +10,17 @@ export function MenuExample() {
 	return (
 		<Menu positioning={{ placement: "bottom" }}>
 			<Menu.Trigger asChild>
-				<Button
-					variant="surface"
-					size="sm"
-				>
+				<Button variant="surface" size="sm">
 					Options
 				</Button>
 			</Menu.Trigger>
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content asChild>
-						<Surface
-							w="8rem"
-							delta={1}
-							rounded="20"
-							colorPalette="neutral"
-						>
+						<Surface w="8rem" delta={1} rounded="20" colorPalette="neutral">
 							<Surface.Content p="4">
 								{options.map((option) => (
-									<Menu.Item
-										asChild
-										key={option.value}
-										value={option.value}
-									>
+									<Menu.Item asChild key={option.value} value={option.value}>
 										<Item size="sm">
 											<Menu.ItemText>{option.label}</Menu.ItemText>
 										</Item>

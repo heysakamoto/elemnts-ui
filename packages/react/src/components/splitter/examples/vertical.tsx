@@ -1,4 +1,4 @@
-import { DecorativeBox, Splitter } from "@moto-ui/react";
+import { DecorativeBox, Splitter } from "@elemnts-ui/react";
 
 export default function Vertical() {
 	return (
@@ -11,10 +11,7 @@ export default function Vertical() {
 			<Splitter.Panel id="a">
 				<DecorativeBox h="full" />
 			</Splitter.Panel>
-			<Splitter.ResizeTrigger
-				id="a:b"
-				aria-label="Resize"
-			>
+			<Splitter.ResizeTrigger id="a:b" aria-label="Resize">
 				<Splitter.ResizeTriggerIndicator />
 			</Splitter.ResizeTrigger>
 			<Splitter.Panel id="b">

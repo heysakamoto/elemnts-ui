@@ -1,4 +1,4 @@
-import { Chip } from "@moto-ui/react";
+import { Chip } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return <Chip>New release</Chip>;

@@ -1,4 +1,4 @@
-import { Container, ImageCropper } from "@moto-ui/react";
+import { Container, ImageCropper } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -11,10 +11,7 @@ export default function Basic() {
 					/>
 					<ImageCropper.Selection>
 						{ImageCropper.handles.map((position) => (
-							<ImageCropper.Handle
-								key={position}
-								position={position}
-							/>
+							<ImageCropper.Handle key={position} position={position} />
 						))}
 						<ImageCropper.Grid axis="horizontal" />
 						<ImageCropper.Grid axis="vertical" />

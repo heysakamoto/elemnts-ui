@@ -28,13 +28,7 @@ CheckboxControl.displayName = "CheckboxControl";
 
 export const CheckboxIndicator = withContext(Checkbox.Indicator, "indicator", {
 	defaultProps: {
-		children: (
-			<Icon
-				icon="tabler-check"
-				width={12}
-				height={12}
-			/>
-		),
+		children: <Icon icon="tabler-check" width={12} height={12} />,
 	},
 });
 CheckboxIndicator.displayName = "CheckboxIndicator";

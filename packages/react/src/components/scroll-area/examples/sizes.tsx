@@ -1,4 +1,4 @@
-import { Container, ScrollArea, SegmentGroup, Text } from "@moto-ui/react";
+import { Container, ScrollArea, SegmentGroup, Text } from "@elemnts-ui/react";
 import { useState } from "react";
 
 type Size = ScrollArea["RootProps"]["size"];
@@ -19,26 +19,15 @@ export default function Sizes() {
 			>
 				<SegmentGroup.Indicator />
 				{variants.map((v) => (
-					<SegmentGroup.Item
-						value={v}
-						key={v}
-					>
-						<SegmentGroup.ItemText
-							fontFamily="mono"
-							fontSize="12"
-						>
+					<SegmentGroup.Item value={v} key={v}>
+						<SegmentGroup.ItemText fontFamily="mono" fontSize="12">
 							{v}
 						</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>
 				))}
 			</SegmentGroup>
-			<ScrollArea
-				h="8rem"
-				mt="24"
-				size={value as Size}
-				variant="always"
-			>
+			<ScrollArea h="8rem" mt="24" size={value as Size} variant="always">
 				<ScrollArea.Viewport>
 					<ScrollArea.Content pr="20">
 						<Text fontSize="14">

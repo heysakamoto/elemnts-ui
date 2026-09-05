@@ -8,26 +8,19 @@ import {
 	Show,
 	Stack,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const directions = ["up", "down", "start", "end"] as const;
 
 export default function SwipeDirections() {
 	return (
 		<Container>
-			<Stack
-				justify="center"
-				gap="8"
-			>
+			<Stack justify="center" gap="8">
 				<For each={directions}>
 					{(direction) => (
 						<Drawer swipeDirection={direction}>
 							<Drawer.Trigger asChild>
-								<Button
-									size="sm"
-									variant="surface"
-									textTransform="capitalize"
-								>
+								<Button size="sm" variant="surface" textTransform="capitalize">
 									{direction}
 								</Button>
 							</Drawer.Trigger>
@@ -35,10 +28,7 @@ export default function SwipeDirections() {
 								<Drawer.Backdrop />
 								<Drawer.Positioner>
 									<Drawer.Content asChild>
-										<Surface
-											delta={1}
-											colorPalette="neutral"
-										>
+										<Surface delta={1} colorPalette="neutral">
 											<Surface.Header>
 												<Show when={direction === "down"}>
 													<Drawer.Grabber>
@@ -57,10 +47,7 @@ export default function SwipeDirections() {
 												<Drawer.Description fontSize="16">
 													The drawer can be swiped in any direction. The
 													direction is controlled by the{" "}
-													<Code
-														size="xs"
-														variant="secondary"
-													>
+													<Code size="xs" variant="secondary">
 														swipeDirection
 													</Code>{" "}
 													prop.

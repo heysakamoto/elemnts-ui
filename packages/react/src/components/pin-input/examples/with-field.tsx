@@ -1,4 +1,4 @@
-import { Container, Field, Input, PinInput } from "@moto-ui/react";
+import { Container, Field, Input, PinInput } from "@elemnts-ui/react";
 
 export default function WithField() {
 	return (
@@ -7,11 +7,7 @@ export default function WithField() {
 				<PinInput>
 					<PinInput.Control justifyContent="start">
 						{Array.from({ length: 4 }).map((_, idx) => (
-							<PinInput.Input
-								asChild
-								key={idx.toString()}
-								index={idx}
-							>
+							<PinInput.Input asChild key={idx.toString()} index={idx}>
 								<Input fontSize="20" />
 							</PinInput.Input>
 						))}

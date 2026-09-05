@@ -1,4 +1,4 @@
-import { basePreset } from "@moto-ui/core/presets";
+import { basePreset } from "@elemnts-ui/core/presets";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
 	include: [
 		"src/**/*.{ts,tsx}",
 		"../../packages/react/src/components/**/*.tsx",
-		"node_modules/@moto-ui/react/dist/buildinfo.json",
+		"node_modules/@elemnts-ui/react/dist/buildinfo.json",
 	],
 	globalVars: {
 		"--font-sans-default": "UntitledSans",

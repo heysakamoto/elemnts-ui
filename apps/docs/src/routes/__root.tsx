@@ -1,4 +1,4 @@
-import { ColorTheme } from "@moto-ui/react";
+import { ColorTheme } from "@elemnts-ui/react";
 import type { QueryClient } from "@tanstack/react-query";
 import {
 	createRootRouteWithContext,
@@ -9,7 +9,7 @@ import {
 import { NotFound } from "@/components/base/not-found";
 import css from "../styles.css?url";
 
-const baseUrl = import.meta.env.VITE_URL || "https://moto-ui.com";
+const baseUrl = import.meta.env.VITE_URL || "https://Elemnts-ui.com";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 	{
@@ -24,22 +24,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 					content: "width=device-width, initial-scale=1",
 				},
 				{
-					title: "Moto UI",
+					title: "Elemnts UI",
 				},
 				{
 					name: "description",
 					content:
-						"Moto UI is a high-performance, accessible component library engineered for speed and scalability.",
+						"Elemnts UI is a high-performance, accessible component library engineered for speed and scalability.",
 				},
 				//--- Open Graph Tags
 				{
 					property: "og:title",
-					content: "Moto UI | High-Performance, Accessible Components",
+					content: "Elemnts UI | High-Performance, Accessible Components",
 				},
 				{
 					property: "og:description",
 					content:
-						"Moto UI is a high-performance, accessible component library engineered for speed and scalability, built on Ark UI and Panda CSS.",
+						"Elemnts UI is a high-performance, accessible component library engineered for speed and scalability, built on Ark UI and Panda CSS.",
 				},
 				{
 					property: "og:type",
@@ -115,10 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html
-			lang="en"
-			suppressHydrationWarning
-		>
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<HeadContent />
 			</head>

@@ -1,4 +1,4 @@
-import { Container, Progress } from "@moto-ui/react";
+import { Container, Progress } from "@elemnts-ui/react";
 
 export default function Indeterminate() {
 	return (

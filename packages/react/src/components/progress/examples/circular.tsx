@@ -1,4 +1,4 @@
-import { Progress } from "@moto-ui/react";
+import { Progress } from "@elemnts-ui/react";
 
 export default function Circular() {
 	return (

@@ -1,4 +1,4 @@
-import { Group, Stack, Surface } from "@moto-ui/react";
+import { Group, Stack, Surface } from "@elemnts-ui/react";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/preview")({

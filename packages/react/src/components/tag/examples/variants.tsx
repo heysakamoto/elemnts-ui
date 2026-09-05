@@ -1,28 +1,15 @@
-import { Stack, Tag } from "@moto-ui/react";
+import { Stack, Tag } from "@elemnts-ui/react";
 
 export default function Variants() {
 	return (
-		<Stack
-			gap="8"
-			direction="row"
-			wrap="wrap"
-		>
-			<Tag
-				selected
-				variant="primary"
-			>
+		<Stack gap="8" direction="row" wrap="wrap">
+			<Tag selected variant="primary">
 				Primary
 			</Tag>
-			<Tag
-				selected
-				variant="secondary"
-			>
+			<Tag selected variant="secondary">
 				Secondary
 			</Tag>
-			<Tag
-				selected
-				variant="tertiary"
-			>
+			<Tag selected variant="tertiary">
 				Tertiary
 			</Tag>
 		</Stack>

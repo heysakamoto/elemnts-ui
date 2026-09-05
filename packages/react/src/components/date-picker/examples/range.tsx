@@ -7,15 +7,12 @@ import {
 	Input,
 	Portal,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Range() {
 	return (
 		<Container maxW="15rem">
-			<DatePicker
-				selectionMode="range"
-				openOnClick
-			>
+			<DatePicker selectionMode="range" openOnClick>
 				<DatePicker.Control>
 					<Group w="full">
 						<DatePicker.Input asChild>
@@ -26,11 +23,7 @@ export default function Range() {
 				<Portal>
 					<DatePicker.Positioner>
 						<DatePicker.Content asChild>
-							<Surface
-								delta={1}
-								rounded="18"
-								colorPalette="neutral"
-							>
+							<Surface delta={1} rounded="18" colorPalette="neutral">
 								<Surface.Content p="8">
 									<DatePicker.View view="day">
 										<DatePicker.Context>

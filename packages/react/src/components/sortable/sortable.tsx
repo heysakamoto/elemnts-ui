@@ -46,10 +46,7 @@ export const SortableRootBase = forwardRef<
 
 	return (
 		<SortableRootProviderBase value={ctx}>
-			<ark.ul
-				ref={ref}
-				{...restProps}
-			/>
+			<ark.ul ref={ref} {...restProps} />
 		</SortableRootProviderBase>
 	);
 }) as SortableRootBaseComponent;

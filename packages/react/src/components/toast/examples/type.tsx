@@ -1,4 +1,4 @@
-import { Button, createToaster, For, Stack, Toaster } from "@moto-ui/react";
+import { Button, createToaster, For, Stack, Toaster } from "@elemnts-ui/react";
 
 const toaster = createToaster({
 	placement: "top",
@@ -27,10 +27,7 @@ const types = [
 
 export default function Type() {
 	return (
-		<Stack
-			direction="row"
-			gap="8"
-		>
+		<Stack direction="row" gap="8">
 			<Toaster toaster={toaster} />
 			<For each={types}>
 				{(type) => (

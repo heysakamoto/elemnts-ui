@@ -1,4 +1,4 @@
-import { Icon } from "@moto-ui/react";
+import { Icon } from "@elemnts-ui/react";
 
 const customIcon = {
 	body: `
@@ -28,11 +28,5 @@ const customIcon = {
 };
 
 export default function Custom() {
-	return (
-		<Icon
-			icon={customIcon}
-			width={32}
-			height={32}
-		/>
-	);
+	return <Icon icon={customIcon} width={32} height={32} />;
 }

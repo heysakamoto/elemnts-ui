@@ -4,7 +4,7 @@ import {
 	Container,
 	Icon,
 	ImageCropper,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Controls() {
 	return (
@@ -17,10 +17,7 @@ export default function Controls() {
 					/>
 					<ImageCropper.Selection>
 						{ImageCropper.handles.map((position) => (
-							<ImageCropper.Handle
-								key={position}
-								position={position}
-							>
+							<ImageCropper.Handle key={position} position={position}>
 								<div />
 							</ImageCropper.Handle>
 						))}
@@ -30,45 +27,21 @@ export default function Controls() {
 				</ImageCropper.Viewport>
 				<ImageCropper.Context>
 					{(api) => (
-						<ButtonGroup
-							size="sm"
-							fullWidth
-							variant="secondary"
-						>
+						<ButtonGroup size="sm" fullWidth variant="secondary">
 							<Button onClick={() => api.reset()}>
-								<Icon
-									icon="tabler:history"
-									width={16}
-									height={16}
-								/>
+								<Icon icon="tabler:history" width={16} height={16} />
 							</Button>
 							<Button onClick={() => api.rotateBy(-90)}>
-								<Icon
-									icon="tabler:rotate"
-									width={16}
-									height={16}
-								/>
+								<Icon icon="tabler:rotate" width={16} height={16} />
 							</Button>
 							<Button onClick={() => api.rotateBy(90)}>
-								<Icon
-									icon="tabler:rotate-clockwise"
-									width={16}
-									height={16}
-								/>
+								<Icon icon="tabler:rotate-clockwise" width={16} height={16} />
 							</Button>
 							<Button onClick={() => api.zoomBy(-0.1)}>
-								<Icon
-									icon="tabler:zoom-out"
-									width={16}
-									height={16}
-								/>
+								<Icon icon="tabler:zoom-out" width={16} height={16} />
 							</Button>
 							<Button onClick={() => api.zoomBy(0.1)}>
-								<Icon
-									icon="tabler:zoom-in"
-									width={16}
-									height={16}
-								/>
+								<Icon icon="tabler:zoom-in" width={16} height={16} />
 							</Button>
 						</ButtonGroup>
 					)}

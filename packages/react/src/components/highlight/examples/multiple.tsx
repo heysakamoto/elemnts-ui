@@ -1,4 +1,4 @@
-import { Container, Highlight, Text } from "@moto-ui/react";
+import { Container, Highlight, Text } from "@elemnts-ui/react";
 
 export default function Multiple() {
 	return (

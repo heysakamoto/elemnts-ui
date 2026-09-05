@@ -1,13 +1,9 @@
-import { Container, Slider, Stack } from "@moto-ui/react";
+import { Container, Slider, Stack } from "@elemnts-ui/react";
 
 export default function MinMax() {
 	return (
 		<Container maxW="16rem">
-			<Slider.Root
-				defaultValue={[5]}
-				min={-10}
-				max={10}
-			>
+			<Slider.Root defaultValue={[5]} min={-10} max={10}>
 				<Stack justify="space-between">
 					<Slider.Label>Label</Slider.Label>
 					<Slider.ValueText />

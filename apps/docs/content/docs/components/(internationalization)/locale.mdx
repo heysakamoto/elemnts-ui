@@ -10,7 +10,7 @@ description: A provider that manages locale-specific settings like text directio
 The `Locale` component (internally `LocaleProvider`) provides localization settings to all child components. This includes the `locale` string (e.g., `en-US`, `ar-EG`) and the text direction (`dir`).
 
 ```tsx
-import { Locale } from "@moto-ui/react"
+import { Locale } from "@elemnts-ui/react"
 
 <Locale locale="de-DE">
   <YourComponent />
@@ -30,7 +30,7 @@ The `Locale` component can also manage the text direction. This is useful for co
 The `useFilter` hook provides locale-aware string filtering, which is useful for components like `Combobox` or `Select` when implementing search functionality.
 
 ```tsx
-import { useFilter } from "@moto-ui/react"
+import { useFilter } from "@elemnts-ui/react"
 
 const filter = useFilter({ sensitivity: 'base' })
 const items = ['Apple', 'Banana', 'Orange']

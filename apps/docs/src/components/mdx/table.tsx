@@ -1,34 +1,28 @@
-import { Table as MotoTable, Surface } from "@moto-ui/react";
+import { Table as ElemntsTable, Surface } from "@elemnts-ui/react";
 
-function TableRoot(props: MotoTable["RootProps"]) {
+function TableRoot(props: ElemntsTable["RootProps"]) {
 	return (
-		<Surface
-			mt="24"
-			delta={1}
-			rounded="16"
-			shadowLevel={0}
-			overflow="auto"
-		>
-			<MotoTable {...props} />
+		<Surface mt="24" delta={1} rounded="16" shadowLevel={0} overflow="auto">
+			<ElemntsTable {...props} />
 		</Surface>
 	);
 }
 
-function TableBody(props: MotoTable["BodyProps"]) {
-	return <MotoTable.Body {...props} />;
+function TableBody(props: ElemntsTable["BodyProps"]) {
+	return <ElemntsTable.Body {...props} />;
 }
 
-function TableHeader(props: MotoTable["HeaderProps"]) {
-	return <MotoTable.Header {...props} />;
+function TableHeader(props: ElemntsTable["HeaderProps"]) {
+	return <ElemntsTable.Header {...props} />;
 }
 
-function TableRow(props: MotoTable["RowProps"]) {
-	return <MotoTable.Row {...props} />;
+function TableRow(props: ElemntsTable["RowProps"]) {
+	return <ElemntsTable.Row {...props} />;
 }
 
-function TableColumnHeader(props: MotoTable["ColumnHeaderProps"]) {
+function TableColumnHeader(props: ElemntsTable["ColumnHeaderProps"]) {
 	return (
-		<MotoTable.ColumnHeader
+		<ElemntsTable.ColumnHeader
 			py="8"
 			px="16"
 			fontSize="13"
@@ -39,9 +33,9 @@ function TableColumnHeader(props: MotoTable["ColumnHeaderProps"]) {
 	);
 }
 
-function TableCell(props: MotoTable["CellProps"]) {
+function TableCell(props: ElemntsTable["CellProps"]) {
 	return (
-		<MotoTable.Cell
+		<ElemntsTable.Cell
 			py="8"
 			px="16"
 			fontSize="13"

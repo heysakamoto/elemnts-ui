@@ -1,4 +1,4 @@
-import { Container, Textarea } from "@moto-ui/react";
+import { Container, Textarea } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

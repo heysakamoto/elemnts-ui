@@ -1,4 +1,4 @@
-import { Container, Table } from "@moto-ui/react";
+import { Container, Table } from "@elemnts-ui/react";
 
 const columns = ["ID", "Department", "Role"];
 
@@ -11,12 +11,7 @@ const rows = Array.from({ length: 20 }, (_, idx) => ({
 
 export default function PinnedHeader() {
 	return (
-		<Container
-			maxW="40rem"
-			h="20rem"
-			overflow="auto"
-			scrollbar="hidden"
-		>
+		<Container maxW="40rem" h="20rem" overflow="auto" scrollbar="hidden">
 			<Table.Root pinnedHeader>
 				<Table.Header>
 					<Table.Row bgColor="surface.4">

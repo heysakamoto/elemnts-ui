@@ -1,4 +1,4 @@
-import { Container, SegmentGroup } from "@moto-ui/react";
+import { Container, SegmentGroup } from "@elemnts-ui/react";
 
 export default function Basic() {
 	const options = [
@@ -9,16 +9,10 @@ export default function Basic() {
 
 	return (
 		<Container maxW="fit">
-			<SegmentGroup.Root
-				defaultValue="daily"
-				orientation="horizontal"
-			>
+			<SegmentGroup.Root defaultValue="daily" orientation="horizontal">
 				<SegmentGroup.Indicator />
 				{options.map((option) => (
-					<SegmentGroup.Item
-						key={option.value}
-						value={option.value}
-					>
+					<SegmentGroup.Item key={option.value} value={option.value}>
 						<SegmentGroup.ItemText>{option.label}</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>

@@ -1,18 +1,18 @@
 ---
 title: Design Principles
-description: Core principles that shape Moto UI's design and development.
+description: Core principles that shape Elemnts UI's design and development.
 ---
 
 ## Our Guiding Principles
 
-Moto UI is designed with a focus on clarity, accessibility, flexibility, and developer joy. These principles ensure that every component is intuitive, powerful, and enjoyable to use.
+Elemnts UI is designed with a focus on clarity, accessibility, flexibility, and developer joy. These principles ensure that every component is intuitive, powerful, and enjoyable to use.
 
 ### Clear and Intentional Naming
 
 We believe in naming things based on their purpose, not just their appearance. Instead of using visual terms like **solid** or **outline**, we use **primary**, **secondary**, and **tertiary** to create a logical hierarchy that aligns with how users interact with your interface. This approach is inspired by [Uber's Base Design System](https://base.uber.com/6d2425e9f/p/756216-button).
 
 ```tsx
-import { Stack, Button } from "@moto-ui/react";
+import { Stack, Button } from "@elemnts-ui/react";
 
 export function App() {
   return (
@@ -27,10 +27,10 @@ export function App() {
 
 ### Built for Everyone
 
-Accessibility isn't an afterthought—it's a foundation. Moto UI leverages [Ark UI](https://ark-ui.com) to ensure all components meet **WCAG 2.1 AA** standards. You get automatic ARIA attributes, seamless keyboard navigation, and managed focus states right out of the box.
+Accessibility isn't an afterthought—it's a foundation. Elemnts UI leverages [Ark UI](https://ark-ui.com) to ensure all components meet **WCAG 2.1 AA** standards. You get automatic ARIA attributes, seamless keyboard navigation, and managed focus states right out of the box.
 
 ```tsx
-import { SegmentGroup, Icon } from "@moto-ui/react";
+import { SegmentGroup, Icon } from "@elemnts-ui/react";
 
 <SegmentGroup defaultValue="list">
   <SegmentGroup.Indicator />
@@ -47,10 +47,10 @@ import { SegmentGroup, Icon } from "@moto-ui/react";
 
 ### Flexibility Without Complexity
 
-Moto UI components are designed to adapt to your needs. Using the **Compound Component** pattern, you retain full control over rendering and element order. Whether you prefer **dot notation** or **named exports**, we support both to fit seamlessly into your workflow.
+Elemnts UI components are designed to adapt to your needs. Using the **Compound Component** pattern, you retain full control over rendering and element order. Whether you prefer **dot notation** or **named exports**, we support both to fit seamlessly into your workflow.
 
 ```tsx
-import { Accordion, Text } from "@moto-ui/react";
+import { Accordion, Text } from "@elemnts-ui/react";
 
 // Using Dot Notation
 <Accordion defaultValue={["1"]}>
@@ -65,7 +65,7 @@ import { Accordion, Text } from "@moto-ui/react";
 
 ### Predictable and Consistent
 
-Consistency reduces cognitive load. Moto UI components share the same API patterns for sizing (`xs` to `xl`), variants, and customization. Whether you're styling a `Button`, `Chip`, or `Avatar`, the experience is familiar and intuitive.
+Consistency reduces cognitive load. Elemnts UI components share the same API patterns for sizing (`xs` to `xl`), variants, and customization. Whether you're styling a `Button`, `Chip`, or `Avatar`, the experience is familiar and intuitive.
 
 ```tsx
 /* Consistent sizing across components */
@@ -76,10 +76,10 @@ Consistency reduces cognitive load. Moto UI components share the same API patter
 
 ### TypeScript for Confidence
 
-Moto UI is built in TypeScript, providing complete type safety. Enjoy robust IntelliSense, autocomplete for variants and tokens, and compile-time error detection to catch mistakes early.
+Elemnts UI is built in TypeScript, providing complete type safety. Enjoy robust IntelliSense, autocomplete for variants and tokens, and compile-time error detection to catch mistakes early.
 
 ```tsx
-import { ButtonProps } from "@moto-ui/react";
+import { ButtonProps } from "@elemnts-ui/react";
 
 /* Type-safe variants and sizes */
 <Button
@@ -95,4 +95,4 @@ interface CustomButtonProps extends ButtonProps {
 
 ### A Joy to Use
 
-Great documentation should empower, not confuse. Moto UI provides clear APIs, helpful error messages, and AI-friendly documentation. Explore our Storybook playground to see components in action and test them in real time.
+Great documentation should empower, not confuse. Elemnts UI provides clear APIs, helpful error messages, and AI-friendly documentation. Explore our Storybook playground to see components in action and test them in real time.

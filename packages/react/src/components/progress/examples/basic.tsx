@@ -1,11 +1,8 @@
-import { Container, Progress } from "@moto-ui/react";
+import { Container, Progress } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
-		<Container
-			maxW="12rem"
-			py="4"
-		>
+		<Container maxW="12rem" py="4">
 			<Progress.Root defaultValue={40}>
 				<Progress.Track>
 					<Progress.Range />

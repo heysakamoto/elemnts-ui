@@ -6,7 +6,7 @@ import {
 	Item,
 	TreeView,
 	useTreeViewNodeContext,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 type Node = {
 	id: string;
@@ -65,11 +65,7 @@ export default function Checkbox() {
 								<TreeViewNodeCheckbox />
 								<TreeView.BranchText>{currentNode.name}</TreeView.BranchText>
 								<TreeView.BranchIndicator>
-									<Icon
-										icon="tabler:chevron-down"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:chevron-down" width={16} height={16} />
 								</TreeView.BranchIndicator>
 							</Item>
 						</TreeView.BranchControl>
@@ -98,10 +94,7 @@ export default function Checkbox() {
 
 	return (
 		<Container maxW="16rem">
-			<TreeView.Root
-				collection={collection as any}
-				selectionMode="multiple"
-			>
+			<TreeView.Root collection={collection as any} selectionMode="multiple">
 				<TreeView.Tree>
 					{collection.rootNode.children?.map((node: any, index: number) =>
 						renderNode(node, [index]),

@@ -1,27 +1,17 @@
-import { Avatar, Container, Surface } from "@moto-ui/react";
+import { Avatar, Container, Surface } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<Container maxW="20rem">
-			<Surface
-				delta={1}
-				py="16"
-				rounded="16"
-			>
+			<Surface delta={1} py="16" rounded="16">
 				<Surface.Header>
 					<Avatar>
 						<Avatar.Image src="https://images.pexels.com/photos/9775435/pexels-photo-9775435.jpeg?w=160&h=160" />
 						<Avatar.Fallback fontSize="14">Sd</Avatar.Fallback>
 					</Avatar>
 				</Surface.Header>
-				<Surface.Content
-					px="16"
-					mt="16"
-				>
-					<Surface.Title
-						justify="center"
-						letterSpacing="xs"
-					>
+				<Surface.Content px="16" mt="16">
+					<Surface.Title justify="center" letterSpacing="xs">
 						Sinclair druke is now a friend
 					</Surface.Title>
 					<Surface.Description

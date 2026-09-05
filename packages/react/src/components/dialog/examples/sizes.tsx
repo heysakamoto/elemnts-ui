@@ -6,7 +6,7 @@ import {
 	For,
 	Portal,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
@@ -16,10 +16,7 @@ export default function Sizes() {
 			<ButtonGroup justify="center">
 				<For each={sizes}>
 					{(size) => (
-						<Dialog
-							size={size}
-							key={size}
-						>
+						<Dialog size={size} key={size}>
 							<Dialog.Trigger asChild>
 								<Button variant="surface">{size}</Button>
 							</Dialog.Trigger>
@@ -41,11 +38,7 @@ export default function Sizes() {
 													other stored items.
 												</Dialog.Description>
 											</Surface.Content>
-											<Surface.Footer
-												mt="16"
-												direction="row"
-												gap="8"
-											>
+											<Surface.Footer mt="16" direction="row" gap="8">
 												<ButtonGroup size="sm">
 													<Dialog.CloseTrigger asChild>
 														<ButtonGroup.Item variant="tertiary">

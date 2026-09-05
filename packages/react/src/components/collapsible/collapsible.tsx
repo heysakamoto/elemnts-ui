@@ -25,13 +25,7 @@ export const CollapsibleIndicator = withContext(
 	"indicator",
 	{
 		defaultProps: {
-			children: (
-				<Icon
-					icon="tabler:chevron-down"
-					width={16}
-					height={16}
-				/>
-			),
+			children: <Icon icon="tabler:chevron-down" width={16} height={16} />,
 		},
 	},
 );

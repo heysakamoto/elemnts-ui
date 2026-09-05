@@ -53,13 +53,7 @@ const ColorThemeScopeBase = forwardRef<
 >((props: ColorThemeScopeBaseProps, ref) => {
 	const { theme, className, ...restProps } = props;
 
-	return (
-		<ark.div
-			ref={ref}
-			className={cx(theme, className)}
-			{...restProps}
-		/>
-	);
+	return <ark.div ref={ref} className={cx(theme, className)} {...restProps} />;
 });
 export const ColorThemeScope = withContext(ColorThemeScopeBase, "scope");
 ColorThemeScope.displayName = "ColorThemeScope";
@@ -79,11 +73,7 @@ const ColorThemeTriggerBase = forwardRef<
 	};
 
 	return (
-		<ark.button
-			ref={ref}
-			onClick={handleClick}
-			{...restProps}
-		>
+		<ark.button ref={ref} onClick={handleClick} {...restProps}>
 			{children}
 		</ark.button>
 	);
@@ -102,14 +92,8 @@ const ColorThemeIndicatorBase = forwardRef<
 	const { children, fallback, ...restProps } = props;
 
 	return (
-		<ark.span
-			ref={ref}
-			{...restProps}
-		>
-			<Show
-				fallback={children}
-				when={theme === "dark"}
-			>
+		<ark.span ref={ref} {...restProps}>
+			<Show fallback={children} when={theme === "dark"}>
 				{fallback}
 			</Show>
 		</ark.span>

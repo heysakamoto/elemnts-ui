@@ -1,4 +1,4 @@
-import { Container, SeparatorGroup } from "@moto-ui/react";
+import { Container, SeparatorGroup } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

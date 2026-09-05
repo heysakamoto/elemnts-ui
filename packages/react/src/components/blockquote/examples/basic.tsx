@@ -1,4 +1,4 @@
-import { Blockquote, Container } from "@moto-ui/react";
+import { Blockquote, Container } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

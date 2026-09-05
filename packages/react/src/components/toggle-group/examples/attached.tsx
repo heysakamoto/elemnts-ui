@@ -1,51 +1,24 @@
-import { Icon, Item, Surface, ToggleGroup } from "@moto-ui/react";
+import { Icon, Item, Surface, ToggleGroup } from "@elemnts-ui/react";
 
 export default function Attached() {
 	return (
 		<Surface rounded="12">
 			<ToggleGroup attached>
-				<ToggleGroup.Item
-					asChild
-					value="bold"
-					aria-label="bold"
-				>
+				<ToggleGroup.Item asChild value="bold" aria-label="bold">
 					<Item variant="secondary">
-						<Icon
-							ml="-6"
-							width={16}
-							height={16}
-							icon="tabler:bold"
-						/>
+						<Icon ml="-6" width={16} height={16} icon="tabler:bold" />
 						Bold
 					</Item>
 				</ToggleGroup.Item>
-				<ToggleGroup.Item
-					asChild
-					value="italic"
-					aria-label="Italic"
-				>
+				<ToggleGroup.Item asChild value="italic" aria-label="Italic">
 					<Item variant="secondary">
-						<Icon
-							ml="-6"
-							width={16}
-							height={16}
-							icon="tabler:italic"
-						/>
+						<Icon ml="-6" width={16} height={16} icon="tabler:italic" />
 						Italic
 					</Item>
 				</ToggleGroup.Item>
-				<ToggleGroup.Item
-					asChild
-					value="underline"
-					aria-label="Underline"
-				>
+				<ToggleGroup.Item asChild value="underline" aria-label="Underline">
 					<Item variant="secondary">
-						<Icon
-							ml="-6"
-							width={16}
-							height={16}
-							icon="tabler:underline"
-						/>
+						<Icon ml="-6" width={16} height={16} icon="tabler:underline" />
 						Underline
 					</Item>
 				</ToggleGroup.Item>

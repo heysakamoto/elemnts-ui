@@ -1,20 +1,13 @@
-import { Icon, RatingGroup } from "@moto-ui/react";
+import { Icon, RatingGroup } from "@elemnts-ui/react";
 
 export default function Palette() {
 	return (
-		<RatingGroup
-			count={5}
-			defaultValue={3}
-			colorPalette="warning"
-		>
+		<RatingGroup count={5} defaultValue={3} colorPalette="warning">
 			<RatingGroup.Control>
 				<RatingGroup.Context>
 					{({ items }) =>
 						items.map((item) => (
-							<RatingGroup.Item
-								key={item}
-								index={item}
-							>
+							<RatingGroup.Item key={item} index={item}>
 								<RatingGroup.Indicator boxSize="24">
 									<Icon icon="tabler:star" />
 									<Icon icon="tabler:star-filled" />

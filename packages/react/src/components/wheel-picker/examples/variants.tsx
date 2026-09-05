@@ -1,4 +1,4 @@
-import { WheelPicker } from "@moto-ui/react";
+import { WheelPicker } from "@elemnts-ui/react";
 
 export default function Variants() {
 	const options = [
@@ -37,10 +37,7 @@ export default function Variants() {
 	return (
 		<WheelPicker w="4rem">
 			<WheelPicker.Control>
-				<WheelPicker.Options
-					options={options}
-					defaultValue="1"
-				/>
+				<WheelPicker.Options options={options} defaultValue="1" />
 			</WheelPicker.Control>
 		</WheelPicker>
 	);

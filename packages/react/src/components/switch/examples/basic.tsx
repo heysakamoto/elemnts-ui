@@ -1,4 +1,4 @@
-import { Switch } from "@moto-ui/react";
+import { Switch } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

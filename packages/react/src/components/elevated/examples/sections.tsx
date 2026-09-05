@@ -1,4 +1,4 @@
-import { Elevated } from "@moto-ui/react";
+import { Elevated } from "@elemnts-ui/react";
 
 export default function Sections() {
 	return (

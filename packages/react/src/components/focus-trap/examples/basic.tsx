@@ -5,7 +5,7 @@ import {
 	FocusTrap,
 	Group,
 	Input,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Basic() {
@@ -15,10 +15,7 @@ export default function Basic() {
 		<Container maxW="28rem">
 			<Field>
 				<Group>
-					<Button
-						variant="surface"
-						onClick={() => setActive(!active)}
-					>
+					<Button variant="surface" onClick={() => setActive(!active)}>
 						{active ? "Release" : "Trap"}
 					</Button>
 					<FocusTrap disabled={!active}>

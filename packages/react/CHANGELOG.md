@@ -1,4 +1,12 @@
-# @moto-ui/react
+# @elemnts-ui/react
+
+## 0.0.1
+
+### Patch Changes
+
+- Initial release of elemnts ui, including core and react packages
+- Updated dependencies
+  - @elemnts-ui/core@0.0.1
 
 ## 0.0.13
 
@@ -6,14 +14,14 @@
 
 - ### Summary of Changes
 - Updated dependencies
-  - @moto-ui/core@0.0.1
+  - @elemnts-ui/core@0.0.1
 
 ## 0.0.12
 
 ### Patch Changes
 
 - Path release: adds Drawer component, adds drawer-slot recipes, upgrades typescript to ^7, and fixes few bug issues - TileRoot component ref prop is properly forwared, removes default border-radius with surface slot-recipe.
-  - @moto-ui/styled-system@0.0.12
+  - @elemnts-ui/styled-system@0.0.12
 
 ## 0.0.11
 
@@ -32,7 +40,7 @@
   - Fixed broken recipes and slot recipes styles generation
 
 - Updated dependencies
-  - @moto-ui/styled-system@0.0.11
+  - @elemnts-ui/styled-system@0.0.11
 
 ## 0.0.10
 
@@ -48,7 +56,7 @@
   - Update semantic shadow tokens to use `light`/`dark` conditions instead of `base`
   - Change breakpoints from pixel values to rem values for better accessibility
   - Update paragraph global styles to use `fg.secondary` color
-  - @moto-ui/styled-system@0.0.10
+  - @elemnts-ui/styled-system@0.0.10
 
 ## 0.0.9
 
@@ -56,7 +64,7 @@
 
 - Add SeparatorGroup, VisuallyHidden, FocusTrap components and redesign Alert
 
-  - Add SeparatorGroup, FocusTrap, and VisuallyHidden components to @moto-ui/react
+  - Add SeparatorGroup, FocusTrap, and VisuallyHidden components to @elemnts-ui/react
   - Redesign Alert from a Collapsible-based interactive component to a static
     design with status (default, accent, success, warning, destructive) and
     elevated variants; replace Alert.Media with Alert.Indicator and Alert.Content
@@ -70,7 +78,7 @@
   - Remove focus outline from Switch and Segment Group triggers on :focus-visible
   - Change Alert.Title, Surface.Title, EmptyState.Title to render as strong
   - Remove icon fields from docs meta.json files and update Biome to 2.5.0
-  - @moto-ui/styled-system@0.0.9
+  - @elemnts-ui/styled-system@0.0.9
 
 ## 0.0.8
 
@@ -84,7 +92,7 @@
   - Improve InputGroup layout with flex grow/shrink properties
   - Migrate agent prompt files to .agents/skills directory
   - Update documentation meta files and changelog
-  - @moto-ui/styled-system@0.0.8
+  - @elemnts-ui/styled-system@0.0.8
 
 ## 0.0.7
 
@@ -92,7 +100,7 @@
 
 - - Add `Frame` component for rendering content inside an isolated iframe with full style and DOM isolation
   - Fix `measureElement` callback type in `VirtualList` to remove `undefined` from its parameter type
-  - @moto-ui/styled-system@0.0.7
+  - @elemnts-ui/styled-system@0.0.7
 
 ## 0.0.6
 
@@ -104,7 +112,7 @@
 - Remove redundant splitter recipe colorPalette
 - Clean up extract.ts recipe variant combinations.
 
-  - @moto-ui/styled-system@0.0.6
+  - @elemnts-ui/styled-system@0.0.6
 
 ## 0.0.5
 
@@ -118,34 +126,34 @@
   - Add `xs` breakpoint (386px) to the preset theme
   - Clean up docs config by removing custom page schema
   - Fix sidebar node key collision by appending the array index
-  - @moto-ui/styled-system@0.0.5
+  - @elemnts-ui/styled-system@0.0.5
 
 ## 0.0.4
 
 ### Patch Changes
 
 - Add 5+ new components List, Show, e.t.c
-  - @moto-ui/styled-system@0.0.4
+  - @elemnts-ui/styled-system@0.0.4
 
 ## 0.0.3
 
 ### Patch Changes
 
 - b15327c: Add Stat, For, DataList and VirtualList components
-  - @moto-ui/styled-system@0.0.3
+  - @elemnts-ui/styled-system@0.0.3
 
 ## 0.0.2
 
 ### Patch Changes
 
-- ae40709: Update setup instructions in @moto-ui/react package README with complete step-by-step Panda CSS
+- ae40709: Update setup instructions in @elemnts-ui/react package README with complete step-by-step Panda CSS
 - Updated dependencies [ae40709]
-  - @moto-ui/styled-system@0.0.2
+  - @elemnts-ui/styled-system@0.0.2
 
 ## 0.0.1
 
 ### Patch Changes
 
-- 3c86717: Initial release of moto-ui component library
+- 3c86717: Initial release of Elemnts-ui component library
 - Updated dependencies [3c86717]
-  - @moto-ui/styled-system@0.0.1
+  - @elemnts-ui/styled-system@0.0.1

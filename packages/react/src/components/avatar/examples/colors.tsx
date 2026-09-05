@@ -1,4 +1,4 @@
-import { Avatar, Container, For, Stack } from "@moto-ui/react";
+import { Avatar, Container, For, Stack } from "@elemnts-ui/react";
 
 const palettes = [
 	"accent",
@@ -11,18 +11,10 @@ const palettes = [
 export default function Colors() {
 	return (
 		<Container>
-			<Stack
-				gap="8"
-				direction="row"
-				align="center"
-				justify="center"
-			>
+			<Stack gap="8" direction="row" align="center" justify="center">
 				<For each={palettes}>
 					{(palette) => (
-						<Avatar
-							key={palette}
-							colorPalette={palette}
-						>
+						<Avatar key={palette} colorPalette={palette}>
 							<Avatar.Fallback fontSize="13">V</Avatar.Fallback>
 						</Avatar>
 					)}

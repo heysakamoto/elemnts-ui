@@ -1,19 +1,19 @@
 ---
 title: Colors
-description: Color palette and theming system for Moto UI.
+description: Color palette and theming system for Elemnts UI.
 ---
 
-Moto UI uses the **OKLCH** color space for its palette, ensuring smooth transitions and consistent brightness across all colors. This approach outperforms traditional RGB or HSL models by providing more natural and visually uniform color variations.
+Elemnts UI uses the **OKLCH** color space for its palette, ensuring smooth transitions and consistent brightness across all colors. This approach outperforms traditional RGB or HSL models by providing more natural and visually uniform color variations.
 
 ## How the Color System Works
 
-The color system is inspired by Tailwind CSS v4 but optimized for OKLCH. When you import `@moto-ui/core/colors`, you unlock a comprehensive set of primitive palettes. These palettes are automatically mapped to semantic variables, ensuring a cohesive and adaptable theming experience.
+The color system is inspired by Tailwind CSS v4 but optimized for OKLCH. When you import `@elemnts-ui/core/colors`, you unlock a comprehensive set of primitive palettes. These palettes are automatically mapped to semantic variables, ensuring a cohesive and adaptable theming experience.
 
 ---
 
 ### **Primitive Tokens**
 
-Primitive tokens are the raw materials of Moto UI’s color system. They provide direct access to the foundational colors used in the design system.
+Primitive tokens are the raw materials of Elemnts UI’s color system. They provide direct access to the foundational colors used in the design system.
 
 - **Format**: `{color}.{step}`
 - **Steps**: `10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100` (Light to Dark)
@@ -61,7 +61,7 @@ accent.primary /* Primary action color (e.g., buttons) */
 
 ## **Dark Mode Support**
 
-Semantic tokens in Moto UI are **theme-aware**, meaning they automatically adapt to the active theme. For example, `surface.1` will switch from a light value (like `white`) to a dark value (like `neutral.95`) when Dark Mode is enabled—no manual overrides needed!
+Semantic tokens in Elemnts UI are **theme-aware**, meaning they automatically adapt to the active theme. For example, `surface.1` will switch from a light value (like `white`) to a dark value (like `neutral.95`) when Dark Mode is enabled—no manual overrides needed!
 
 | Semantic Token | Light Mode Value | Dark Mode Value |
 |---------------|------------------|----------------|

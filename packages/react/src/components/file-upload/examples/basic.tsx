@@ -6,30 +6,16 @@ import {
 	Stack,
 	Surface,
 	Tile,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<Container maxW="20rem">
-			<FileUpload.Root
-				maxW="20rem"
-				allowDrop={false}
-			>
-				<Stack
-					align="center"
-					justify="center"
-				>
+			<FileUpload.Root maxW="20rem" allowDrop={false}>
+				<Stack align="center" justify="center">
 					<FileUpload.Trigger asChild>
-						<Button
-							variant="surface"
-							size="sm"
-						>
-							<Icon
-								ml="-2"
-								icon="tabler:upload"
-								width="16"
-								height="16"
-							/>
+						<Button variant="surface" size="sm">
+							<Icon ml="-2" icon="tabler:upload" width="16" height="16" />
 							Select
 						</Button>
 					</FileUpload.Trigger>
@@ -38,15 +24,8 @@ export default function Basic() {
 					<FileUpload.Context>
 						{({ acceptedFiles: files }) =>
 							files.map((file, idx) => (
-								<FileUpload.Item
-									asChild
-									key={idx.toString()}
-									file={file}
-								>
-									<Surface
-										delta={5}
-										rounded="16"
-									>
+								<FileUpload.Item asChild key={idx.toString()} file={file}>
+									<Surface delta={5} rounded="16">
 										<Tile
 											pr="6"
 											gap="8"
@@ -56,17 +35,9 @@ export default function Basic() {
 											variant="secondary"
 											orientation="horizontal"
 										>
-											<Icon
-												icon="tabler:file"
-												width={16}
-												height={16}
-											/>
+											<Icon icon="tabler:file" width={16} height={16} />
 											<Tile.Content gap="2">
-												<Tile.Title
-													asChild
-													truncate
-													w="8rem"
-												>
+												<Tile.Title asChild truncate w="8rem">
 													<FileUpload.ItemName />
 												</Tile.Title>
 												<FileUpload.ItemSizeText fontSize="12" />
@@ -79,11 +50,7 @@ export default function Basic() {
 													variant="surface"
 													colorPalette="destructive"
 												>
-													<Icon
-														icon="tabler:x"
-														width={16}
-														height={16}
-													/>
+													<Icon icon="tabler:x" width={16} height={16} />
 												</Button>
 											</FileUpload.ItemDeleteTrigger>
 										</Tile>

@@ -1,4 +1,4 @@
-import { Container, Input, PinInput } from "@moto-ui/react";
+import { Container, Input, PinInput } from "@elemnts-ui/react";
 
 export default function Masking() {
 	return (
@@ -6,11 +6,7 @@ export default function Masking() {
 			<PinInput masked>
 				<PinInput.Control>
 					{Array.from({ length: 4 }).map((_, idx) => (
-						<PinInput.Input
-							asChild
-							index={idx}
-							key={idx.toString()}
-						>
+						<PinInput.Input asChild index={idx} key={idx.toString()}>
 							<Input fontSize="20" />
 						</PinInput.Input>
 					))}

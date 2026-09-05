@@ -1,4 +1,4 @@
-import { ButtonGroup, Container, For, Section, Stack } from "@moto-ui/react";
+import { ButtonGroup, Container, For, Section, Stack } from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/base/logo";
 import { ROOTLAYOUT_URLS } from "./constants";
@@ -16,25 +16,12 @@ export function RootLayoutHeader() {
 			borderBottom="1px solid {colors.stroke.primary}"
 			bgColor="color-mix(in oklab, {colors.surface-1}, 90% {colors.transparent})"
 		>
-			<Container
-				maxW="40rem"
-				px="16"
-			>
-				<Stack
-					h="var(--navbar-height)"
-					align="center"
-					justify="space-between"
-				>
+			<Container maxW="40rem" px="16">
+				<Stack h="var(--navbar-height)" align="center" justify="space-between">
 					<Logo />
-					<Stack
-						align="center"
-						justify="end"
-					>
+					<Stack align="center" justify="end">
 						<RootLayoutMobileNav />
-						<ButtonGroup
-							hideBelow="md"
-							variant="ghost"
-						>
+						<ButtonGroup hideBelow="md" variant="ghost">
 							<For each={ROOTLAYOUT_URLS}>
 								{(url) => (
 									<ButtonGroup.Item

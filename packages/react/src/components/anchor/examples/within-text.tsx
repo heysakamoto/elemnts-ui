@@ -1,4 +1,4 @@
-import { Anchor, Text } from "@moto-ui/react";
+import { Anchor, Text } from "@elemnts-ui/react";
 
 export default function WithinText() {
 	return (

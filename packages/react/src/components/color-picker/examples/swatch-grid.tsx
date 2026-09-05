@@ -1,4 +1,4 @@
-import { ColorPicker, Icon, parseColor, Swatch } from "@moto-ui/react";
+import { ColorPicker, Icon, parseColor, Swatch } from "@elemnts-ui/react";
 
 export default function SwatchGrid() {
 	const color = parseColor("#eb5e41");
@@ -8,14 +8,8 @@ export default function SwatchGrid() {
 		<ColorPicker defaultValue={color}>
 			<ColorPicker.SwatchGroup>
 				{swatches.map((swatch) => (
-					<ColorPicker.SwatchTrigger
-						key={swatch}
-						value={swatch}
-					>
-						<ColorPicker.Swatch
-							value={swatch}
-							asChild
-						>
+					<ColorPicker.SwatchTrigger key={swatch} value={swatch}>
+						<ColorPicker.Swatch value={swatch} asChild>
 							<Swatch size="sm">
 								<ColorPicker.SwatchIndicator>
 									<Icon

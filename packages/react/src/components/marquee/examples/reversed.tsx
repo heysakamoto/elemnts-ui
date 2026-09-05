@@ -1,4 +1,4 @@
-import { Container, Icon, Marquee, Surface } from "@moto-ui/react";
+import { Container, Icon, Marquee, Surface } from "@elemnts-ui/react";
 
 const reviews = [
 	{
@@ -46,20 +46,13 @@ const reviews = [
 export default function Reversed() {
 	return (
 		<Container maxW="24rem">
-			<Marquee
-				reverse
-				autoFill
-			>
+			<Marquee reverse autoFill>
 				<Marquee.Viewport>
 					<Marquee.Content py="4">
 						{reviews.map((review) => {
 							return (
 								<Marquee.Item key={review.id}>
-									<Surface
-										delta={1}
-										w="18rem"
-										rounded="24"
-									>
+									<Surface delta={1} w="18rem" rounded="24">
 										<Surface.Header
 											pt="12"
 											px="16"
@@ -81,10 +74,7 @@ export default function Reversed() {
 												{review.username}
 											</Surface.Description>
 										</Surface.Header>
-										<Surface.Content
-											py="12"
-											px="16"
-										>
+										<Surface.Content py="12" px="16">
 											<Surface.Title fontSize="14">
 												{review.title}
 											</Surface.Title>

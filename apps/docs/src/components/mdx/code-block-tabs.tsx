@@ -1,4 +1,4 @@
-import { Separator, Tabs } from "@moto-ui/react";
+import { Separator, Tabs } from "@elemnts-ui/react";
 import { Fragment, type PropsWithChildren, type ReactNode } from "react";
 import { CodeBlockTabsProvider } from "./client";
 
@@ -48,11 +48,7 @@ type CodeBlockTabsTriggerProps = {
 export const CodeBlockTabsTrigger = (props: CodeBlockTabsTriggerProps) => {
 	const { children, value } = props;
 	return (
-		<Tabs.Trigger
-			value={value}
-			fontSize="13"
-			fontWeight="medium"
-		>
+		<Tabs.Trigger value={value} fontSize="13" fontWeight="medium">
 			{children}
 		</Tabs.Trigger>
 	);

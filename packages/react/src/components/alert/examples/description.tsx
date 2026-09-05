@@ -1,15 +1,11 @@
-import { Alert, Container, Icon } from "@moto-ui/react";
+import { Alert, Container, Icon } from "@elemnts-ui/react";
 
 export default function Description() {
 	return (
 		<Container maxW="24rem">
 			<Alert>
 				<Alert.Indicator>
-					<Icon
-						icon="tabler:message-dots"
-						width={20}
-						height={20}
-					/>
+					<Icon icon="tabler:message-dots" width={20} height={20} />
 				</Alert.Indicator>
 				<Alert.Content>
 					<Alert.Title>Emma is typing...</Alert.Title>

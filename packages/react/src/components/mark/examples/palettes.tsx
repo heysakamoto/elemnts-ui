@@ -1,4 +1,4 @@
-import { Mark, Text } from "@moto-ui/react";
+import { Mark, Text } from "@elemnts-ui/react";
 
 export default function Palettes() {
 	return (

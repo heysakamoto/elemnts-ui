@@ -1,12 +1,9 @@
-import { Container, ScrollShadow, Text } from "@moto-ui/react";
+import { Container, ScrollShadow, Text } from "@elemnts-ui/react";
 
 export default function CustomSize() {
 	return (
 		<Container maxW="20rem">
-			<ScrollShadow
-				h="18rem"
-				size={120}
-			>
+			<ScrollShadow h="18rem" size={120}>
 				<Text fontSize="14">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
 					pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet

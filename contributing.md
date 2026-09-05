@@ -1,8 +1,8 @@
-# Contributing to Moto UI
+# Contributing to Elemnts UI
 
-First off, thank you for taking the time to contribute to Moto UI! 🎉
+First off, thank you for taking the time to contribute to Elemnts UI! 🎉
 
-Moto UI is a high-performance, accessible component library built on the foundation of [Ark UI](https://ark-ui.com/) and powered by [Panda CSS](https://panda-css.com/). We appreciate your interest in making it even better.
+Elemnts UI is a high-performance, accessible component library built on the foundation of [Ark UI](https://ark-ui.com/) and powered by [Panda CSS](https://panda-css.com/). We appreciate your interest in making it even better.
 
 This document provides a set of guidelines and standards for contributing to this repository. Following these instructions helps us review and merge your code faster.
 
@@ -10,11 +10,10 @@ This document provides a set of guidelines and standards for contributing to thi
 
 ## 📂 Repository Architecture
 
-Moto UI is structured as a monorepo using **pnpm workspaces**:
+Elemnts UI is structured as a monorepo using **pnpm workspaces**:
 
 - **[packages/react](packages/react)**: Core react components, built using Ark UI primitives.
 - **[packages/core](packages/core)**: The core package containing shared clors, utilities, recipes, and slot recipes.
-- **[packages/storybook](packages/storybook)**: Storybook for component isolation, testing, and demos.
 - **[apps/docs](apps/docs)**: Documentation website built with TanStack Start, TanStack Router, and Fumadocs.
 
 ---
@@ -29,22 +28,21 @@ Ensure you have the following installed on your machine:
 ### 2. Setup
 Clone the repository and install the dependencies:
 ```bash
-git clone https://github.com/your-username/moto-ui.git
-cd moto-ui
+git clone https://github.com/your-username/Elemnts-ui.git
+cd Elemnts-ui
 pnpm install
 ```
 
-### 3. Development Scripts
+### 3. Scripts
 Run these commands from the repository root to start development servers:
 
 | Command | Action |
 |---|---|
-| `pnpm --filter @moto-ui/react dev` | Starts compilation of the react package with watch mode |
-| `pnpm --filter @moto-ui/storybook dev` | Starts Storybook local server (usually at `http://localhost:6006`) |
-| `pnpm run --filter @moto-ui/docs dev` | Starts the docs website development server |
+| `pnpm --filter @elemnts-ui/react build` | Builds the react package |
+| `pnpm --filter @elemnts-ui/core build` | Builds the core package |
+| `pnpm run --filter @elemnts-ui/docs dev` | Starts the docs website development server |
 | `pnpm run biome:check` | Run linter and formatter checks using Biome |
 | `pnpm run biome:fix` | Automatically apply linter and formatter fixes |
-
 ---
 
 ## 🛠️ Component Development Workflow
@@ -138,7 +136,7 @@ pnpm run biome:fix
 ```
 
 ### 3. Versioning & Changesets
-If you are changing packages (e.g., `@moto-ui/react` or `@moto-ui/preset-base`) in a way that requires a version bump, you **must** generate a changeset:
+If you are changing packages (e.g., `@elemnts-ui/react` or `@elemnts-ui/core`) in a way that requires a version bump, you **must** generate a changeset:
 ```bash
 pnpm changeset
 ```

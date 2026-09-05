@@ -3,13 +3,13 @@ export const SOCIAL_LINKS = [
 		id: "github",
 		label: "GitHub",
 		icon: "bi:github",
-		url: "https://github.com/heysakamoto/moto-ui",
+		url: "https://github.com/heysakaElemnts/Elemnts-ui",
 	},
 	{
 		id: "twitter",
 		label: "Twitter",
 		icon: "bi:twitter-x",
-		url: "https://x.com/hey__sakamoto",
+		url: "https://x.com/hey__sakaElemnts",
 	},
 ];
 

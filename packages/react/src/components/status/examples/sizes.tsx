@@ -1,11 +1,8 @@
-import { Stack, Status } from "@moto-ui/react";
+import { Stack, Status } from "@elemnts-ui/react";
 
 export default function Sizes() {
 	return (
-		<Stack
-			gap="8"
-			alignItems="flex-start"
-		>
+		<Stack gap="8" alignItems="flex-start">
 			<Status.Root size="sm">
 				<Status.Indicator />
 				<Status.Text>Small</Status.Text>

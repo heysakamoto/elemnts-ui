@@ -1,6 +1,6 @@
-# 🌐 @moto-ui/docs
+# 🌐 @elemnts-ui/docs
 
-**@moto-ui/docs** is the official documentation website and portal for Moto UI. Built on top of **React 19**, **Vite**, **TanStack Start**, and **Fumadocs**, it provides a high-performance, responsive layout detailing the installation, customization, and usage of all Moto UI component primitives.
+**@elemnts-ui/docs** is the official documentation website and portal for Elemnts UI. Built on top of **React 19**, **Vite**, **TanStack Start**, and **Fumadocs**, it provides a high-performance, responsive layout detailing the installation, customization, and usage of all Elemnts UI component primitives.
 
 ---
 
@@ -10,7 +10,7 @@
 - **⚡ Fumadocs MDX Engine** — Blazing fast MDX renderer supporting interactive components, live styling examples, search indexing, and a custom sidebar structure.
 - **🛠️ Embedded Playgrounds** — Interactive components directly embedded inside MDX files, enabling developers to test and play with props, sizes, and variations in real time.
 - **🌓 Adaptive Themeing** — Supports native dark/light modes using OKLCH colors dynamically mapped via Panda CSS.
-- **🧩 Monorepo Sync** — Directly consumes workspace presets and react packages (`@moto-ui/react` and `@moto-ui/preset-base`) for real-time development previews.
+- **🧩 Monorepo Sync** — Directly consumes workspace presets and react packages (`@elemnts-ui/react` and `@elemnts-ui/preset-base`) for real-time development previews.
 
 ---
 
@@ -20,7 +20,7 @@ Ensure you have run `pnpm install` at the monorepo root. Then start the docs dev
 
 ```bash
 # From the root workspace directory
-pnpm --filter @moto-ui/docs dev
+pnpm --filter @elemnts-ui/docs dev
 ```
 
 The documentation portal will start locally at: **`http://localhost:3000`** (or the next available port).
@@ -33,13 +33,13 @@ Compile a production-ready, optimized static build:
 
 ```bash
 # Run build command
-pnpm --filter @moto-ui/docs build
+pnpm --filter @elemnts-ui/docs build
 ```
 
 Preview the production build locally:
 
 ```bash
-pnpm --filter @moto-ui/docs preview
+pnpm --filter @elemnts-ui/docs preview
 ```
 
 ---
@@ -69,4 +69,4 @@ The following commands are configured for the documentation portal:
 
 ## 📄 License
 
-Part of the Moto UI workspace. Distributed under the MIT License. See root `LICENSE` for details.
+Part of the Elemnts UI workspace. Distributed under the MIT License. See root `LICENSE` for details.

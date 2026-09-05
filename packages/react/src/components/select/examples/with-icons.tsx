@@ -7,7 +7,7 @@ import {
 	Portal,
 	Select,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const fruits = createListCollection({
 	items: [
@@ -42,11 +42,7 @@ export default function WithIcons() {
 							<Select.ValueText placeholder="Select theme" />
 							<InputGroup.Addon>
 								<Select.Indicator>
-									<Icon
-										icon="tabler:chevron-down"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:chevron-down" width={16} height={16} />
 								</Select.Indicator>
 							</InputGroup.Addon>
 						</InputGroup>
@@ -55,28 +51,12 @@ export default function WithIcons() {
 				<Portal>
 					<Select.Positioner>
 						<Select.Content asChild>
-							<Surface
-								delta={1}
-								rounded="14"
-								colorPalette="neutral"
-							>
-								<Surface.Content
-									p="4"
-									gap="2"
-								>
+							<Surface delta={1} rounded="14" colorPalette="neutral">
+								<Surface.Content p="4" gap="2">
 									{fruits.items.map((item) => (
-										<Select.Item
-											key={item.id}
-											item={item}
-											asChild
-										>
+										<Select.Item key={item.id} item={item} asChild>
 											<Item variant="secondary">
-												<Icon
-													ml="-4"
-													icon={item.icon}
-													width={16}
-													height={16}
-												/>
+												<Icon ml="-4" icon={item.icon} width={16} height={16} />
 												<Select.ItemText>{item.label}</Select.ItemText>
 											</Item>
 										</Select.Item>

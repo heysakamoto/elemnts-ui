@@ -1,4 +1,4 @@
-import { Breadcrumb, Icon } from "@moto-ui/react";
+import { Breadcrumb, Icon } from "@elemnts-ui/react";
 
 const items = [
 	{ label: "Docs", href: "/docs" },
@@ -16,11 +16,7 @@ export default function CustomSeparator() {
 							<>
 								<Breadcrumb.Link href={item.href}>{item.label}</Breadcrumb.Link>
 								<Breadcrumb.Separator>
-									<Icon
-										width={14}
-										height={14}
-										icon="tabler:arrow-right"
-									/>
+									<Icon width={14} height={14} icon="tabler:arrow-right" />
 								</Breadcrumb.Separator>
 							</>
 						) : (

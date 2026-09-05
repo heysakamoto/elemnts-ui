@@ -1,4 +1,4 @@
-import { Frame } from "@moto-ui/react";
+import { Frame } from "@elemnts-ui/react";
 
 export default function Head() {
 	return (
