@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "packageManager": "pnpm@11.22.0",
   "scripts": {
-    "publish": "pnpm build && changeset publish",
+    "release": "pnpm build && changeset publish",
     "biome:check": "biome check --max-diagnostics=3000",
     "biome:fix": "biome check --write --max-diagnostics=3000",
     "build": "pnpm --filter \"@elemnts-ui/*\" --filter \"!@elemnts-ui/docs\" build"
