@@ -1,13 +1,13 @@
 ---
 title: Theming
-description: A step-by-step guide to customizing and extending Moto UI's design system to match your brand.
+description: A step-by-step guide to customizing and extending Elemnts UI's design system to match your brand.
 ---
 
 ---
 
 ## Customizing the Theme
 
-Moto UI allows you to extend or override the default theme by adding your own design tokens, semantic tokens, and text styles in the `theme.extend` section of your configuration.
+Elemnts UI allows you to extend or override the default theme by adding your own design tokens, semantic tokens, and text styles in the `theme.extend` section of your configuration.
 
 ### Modifying Design Tokens
 
@@ -105,7 +105,7 @@ export default defineConfig({
 
 ## Customizing Components
 
-Moto UI components are styled using **Recipes** and **Slot Recipes**. You can override these to change the default appearance of any component, such as a `Button` or `Card`.
+Elemnts UI components are styled using **Recipes** and **Slot Recipes**. You can override these to change the default appearance of any component, such as a `Button` or `Card`.
 
 ### Overriding Component Recipes
 
@@ -136,12 +136,12 @@ Follow these best practices to ensure a consistent and maintainable design syste
 
 | Best Practice | Description |
 |--------------|-------------|
-| Use extend | Always place your customizations inside `theme.extend` to avoid accidentally overwriting the base Moto UI theme. |
+| Use extend | Always place your customizations inside `theme.extend` to avoid accidentally overwriting the base Elemnts UI theme. |
 | Reference Tokens Properly | Use the `{category.name}` syntax to reference tokens (e.g., `{colors.red.50}` or `{surface.1}`). |
 | Leverage Theme Awareness | Use semantic tokens for colors or styles that should adapt to light/dark modes. |
-| Maintain Consistency | Stick to the provided duration and easing tokens to preserve the "Moto" feel across your design system. |
+| Maintain Consistency | Stick to the provided duration and easing tokens to preserve the "Elemnts" feel across your design system. |
 | Organize Your Tokens | Group related tokens (e.g., colors, fonts) logically to make your configuration easier to maintain. |
 
 ---
 
-Need help? Check out the [Panda CSS documentation](https://panda-css.com/docs) or reach out to the Moto UI community for support!
+Need help? Check out the [Panda CSS documentation](https://panda-css.com/docs) or reach out to the Elemnts UI community for support!

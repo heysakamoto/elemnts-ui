@@ -1,8 +1,8 @@
-# Moto UI
+# Elemnts UI
 
 ## Overview
 
-moto-ui is a monorepo-based UI component library built around:
+Elemnts-ui is a monorepo-based UI component library built around:
 
 * React
 * Ark UI

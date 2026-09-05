@@ -1,4 +1,4 @@
-import { Container, Section, Stack } from "@moto-ui/react";
+import { Container, Section, Stack } from "@elemnts-ui/react";
 import "../src/index.css";
 import type { Preview } from "@storybook/react-vite";
 

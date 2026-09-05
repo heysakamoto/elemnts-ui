@@ -1,4 +1,4 @@
-import { ButtonGroup } from "@moto-ui/react";
+import { ButtonGroup } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

@@ -15,9 +15,9 @@ Only the latest major release receives security updates. We recommend keeping yo
 
 ## Reporting a Vulnerability
 
-We take the security of Moto UI and its ecosystem seriously. If you believe you have found a security vulnerability, **please do not open a public issue**.
+We take the security of Elemnts UI and its ecosystem seriously. If you believe you have found a security vulnerability, **please do not open a public issue**.
 
-Instead, report it privately by emailing the maintainers at **moto-ui-security@example.com** (replace with the actual maintainer email).
+Instead, report it privately by emailing the maintainers at **Elemnts-ui-security@example.com** (replace with the actual maintainer email).
 
 Please include the following details in your report:
 
@@ -41,15 +41,15 @@ We will acknowledge receipt within **48 hours** and provide an initial assessmen
 
 ## Security Best Practices
 
-When using Moto UI in your project:
+When using Elemnts UI in your project:
 
 1. **Keep dependencies updated** — Regularly run `pnpm outdated` and apply patch/minor updates.
 2. **Review supply chain security** — Use `pnpm audit` to check for known vulnerabilities in your dependency tree.
-3. **Validate user input** — Moto UI components render standard react elements; always sanitize user-provided content (e.g., via `children` or `dangerouslySetInnerHTML`) before passing it to any component.
-4. **Use Subresource Integrity** — If loading Moto UI from a CDN, include integrity hashes on script tags.
+3. **Validate user input** — Elemnts UI components render standard react elements; always sanitize user-provided content (e.g., via `children` or `dangerouslySetInnerHTML`) before passing it to any component.
+4. **Use Subresource Integrity** — If loading Elemnts UI from a CDN, include integrity hashes on script tags.
 
 ---
 
 ## Acknowledgments
 
-We appreciate the community's help in keeping Moto UI secure. Contributors who report valid vulnerabilities will be credited in our release notes (if they wish).
+We appreciate the community's help in keeping Elemnts UI secure. Contributors who report valid vulnerabilities will be credited in our release notes (if they wish).

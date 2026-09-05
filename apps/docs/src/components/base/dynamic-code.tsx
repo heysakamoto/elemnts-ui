@@ -1,4 +1,4 @@
-import { Box } from "@moto-ui/react";
+import { Box } from "@elemnts-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { highlightCodeServerFn } from "@/server/shiki";
@@ -43,10 +43,5 @@ export function DynamicCode(props: DynamicCodeProps) {
 
 	if (!html) return null;
 
-	return (
-		<Box
-			css={styles}
-			dangerouslySetInnerHTML={{ __html: html }}
-		/>
-	);
+	return <Box css={styles} dangerouslySetInnerHTML={{ __html: html }} />;
 }

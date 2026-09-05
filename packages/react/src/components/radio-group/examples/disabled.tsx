@@ -1,4 +1,4 @@
-import { RadioGroup } from "@moto-ui/react";
+import { RadioGroup } from "@elemnts-ui/react";
 
 export default function Disabled() {
 	const options = [

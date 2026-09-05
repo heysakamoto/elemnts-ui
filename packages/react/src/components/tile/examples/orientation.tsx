@@ -1,14 +1,11 @@
-import { Container, For, Icon, Stack, Tile } from "@moto-ui/react";
+import { Container, For, Icon, Stack, Tile } from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Orientation() {
 	const [value, setValue] = useState("");
 
 	return (
-		<Container
-			maxW="24rem"
-			spaceY="8"
-		>
+		<Container maxW="24rem" spaceY="8">
 			<Stack gap="8">
 				<For each={options}>
 					{(option, idx) => {
@@ -23,11 +20,7 @@ export default function Orientation() {
 								onClick={() => setValue(option.value)}
 							>
 								<Tile.Indicator>
-									<Icon
-										icon={option.icon}
-										width={16}
-										height={16}
-									/>
+									<Icon icon={option.icon} width={16} height={16} />
 								</Tile.Indicator>
 								<Tile.Content>
 									<Tile.Title>{option.title}</Tile.Title>

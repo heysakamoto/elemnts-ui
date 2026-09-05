@@ -1,4 +1,4 @@
-import { Format, Stack, Text } from "@moto-ui/react";
+import { Format, Stack, Text } from "@elemnts-ui/react";
 
 export default function RelativeTime() {
 	return (

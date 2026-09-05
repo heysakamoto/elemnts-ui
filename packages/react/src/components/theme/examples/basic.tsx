@@ -5,7 +5,7 @@ import {
 	Surface,
 	Theme,
 	type ThemeProps,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useState } from "react";
 
 type Appearance = ThemeProps["appearance"];
@@ -17,20 +17,12 @@ export default function Basic() {
 	return (
 		<Container maxW="20rem">
 			<Theme appearance={value}>
-				<Surface
-					px="16"
-					py="12"
-					delta={5}
-					rounded="10"
-				>
+				<Surface px="16" py="12" delta={5} rounded="10">
 					<Surface.Description fontSize="14">
 						A toggleable color scheme wrapper.
 					</Surface.Description>
 				</Surface>
-				<ButtonGroup
-					mt="12"
-					fullWidth
-				>
+				<ButtonGroup mt="12" fullWidth>
 					{appearances.map((appearance) => (
 						<ButtonGroup.Item
 							key={appearance}

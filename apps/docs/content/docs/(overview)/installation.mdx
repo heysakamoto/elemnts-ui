@@ -1,18 +1,18 @@
 ---
 title: Installation
-description: Get started quickly with our step-by-step guide to set up Moto UI in your project.
+description: Get started quickly with our step-by-step guide to set up Elemnts UI in your project.
 ---
 
 ## Setup Guide
-Follow these steps to set up Moto UI and its styling engine, Panda CSS.
+Follow these steps to set up Elemnts UI and its styling engine, Panda CSS.
 <Timeline>
   <TimelineItem index={1} title="Prerequisites">
     Before you begin, make sure your Panda project is properly configured. If you haven't set it up yet, follow the [Panda CSS Getting Started Guide](https://panda-css.com/docs/overview/getting-started) to get started, then return here once complete.
   </TimelineItem>
   <TimelineItem index={2} title="Install dependencies">
-    Moto UI is built on Ark UI as its headless foundation and uses Panda CSS for styling.
+    Elemnts UI is built on Ark UI as its headless foundation and uses Panda CSS for styling.
     ```npm title="Terminal"
-    npm install @moto-ui/core @moto-ui/react
+    npm install @elemnts-ui/core @elemnts-ui/react
     npm install -D @pandacss/dev
     ```
   </TimelineItem>
@@ -23,13 +23,13 @@ Follow these steps to set up Moto UI and its styling engine, Panda CSS.
     ```
     Then, update your **panda.config.ts** to include the Elemnts base preset.    
     ```ts title="panda.config.ts"
-    import { basePreset } from "@moto-ui/core/presets";
+    import { basePreset } from "@elemnts-ui/core/presets";
     import { defineConfig } from "@pandacss/dev";
     export default defineConfig({          
       presets: [basePreset],
       include: [
         "src/**/*.{js,jsx,ts,tsx}",
-        "node_modules/@moto-ui/react/dist/panda.buildinfo.json",
+        "node_modules/@elemnts-ui/react/dist/panda.buildinfo.json",
       ],
     });
     ```
@@ -37,7 +37,7 @@ Follow these steps to set up Moto UI and its styling engine, Panda CSS.
   <TimelineItem index={4} title="Add components">
     You can now start adding components to your project.
     ```tsx
-    import { Button } from "@moto-ui/react";
+    import { Button } from "@elemnts-ui/react";
     export function Welcome() {
       return (
         <Button variant="primary">Get Started</Button>

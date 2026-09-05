@@ -1,4 +1,4 @@
-import { Container, Locale, ScrollArea, Text } from "@moto-ui/react";
+import { Container, Locale, ScrollArea, Text } from "@elemnts-ui/react";
 
 const arabicText = [
 	"مرحباً بكم في نظام التمرير المخصص",
@@ -22,10 +22,7 @@ export default function Rtl() {
 					<ScrollArea.Viewport>
 						<ScrollArea.Content pl="12">
 							{arabicText.map((text, idx) => (
-								<Text
-									key={idx.toString()}
-									fontSize="14"
-								>
+								<Text key={idx.toString()} fontSize="14">
 									{text}
 								</Text>
 							))}

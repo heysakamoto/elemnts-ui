@@ -6,28 +6,18 @@ import {
 	Steps,
 	Surface,
 	Text,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<Container maxW="30rem">
-			<Steps
-				defaultStep={0}
-				count={steps.length - 1}
-			>
-				<Surface
-					delta={1}
-					rounded="12"
-					shadowLevel={2}
-				>
+			<Steps defaultStep={0} count={steps.length - 1}>
+				<Surface delta={1} rounded="12" shadowLevel={2}>
 					{steps.map((step, idx) => {
 						const key = idx.toString();
 						const index = idx;
 						return (
-							<Steps.Content
-								key={key}
-								index={index}
-							>
+							<Steps.Content key={key} index={index}>
 								<Surface.Header
 									px="16"
 									pt="12"
@@ -40,14 +30,8 @@ export default function Basic() {
 									</Surface.Description>
 									<Surface.Title>{step.title}</Surface.Title>
 								</Surface.Header>
-								<Surface.Content
-									px="16"
-									pt="24"
-								>
-									<Checkbox.Group
-										gap="16"
-										maxSelectedValues={1}
-									>
+								<Surface.Content px="16" pt="24">
+									<Checkbox.Group gap="16" maxSelectedValues={1}>
 										{step.options.map((option) => {
 											return (
 												<Checkbox
@@ -58,15 +42,9 @@ export default function Basic() {
 													<Checkbox.Control>
 														<Checkbox.Indicator />
 													</Checkbox.Control>
-													<Checkbox.Label
-														fontSize="14"
-														letterSpacing="sm"
-													>
+													<Checkbox.Label fontSize="14" letterSpacing="sm">
 														{option.label}{" "}
-														<Text
-															as="span"
-															color="fg.tertiary"
-														>
+														<Text as="span" color="fg.tertiary">
 															{option.description}
 														</Text>
 													</Checkbox.Label>
@@ -79,11 +57,7 @@ export default function Basic() {
 							</Steps.Content>
 						);
 					})}
-					<Surface.Footer
-						pt="24"
-						pb="12"
-						px="16"
-					>
+					<Surface.Footer pt="24" pb="12" px="16">
 						<Group justify="space-between">
 							<Steps.PrevTrigger asChild>
 								<Button

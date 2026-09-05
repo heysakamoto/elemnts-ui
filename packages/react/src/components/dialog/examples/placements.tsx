@@ -6,7 +6,7 @@ import {
 	For,
 	Portal,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const placements = ["top", "center", "bottom"] as const;
 
@@ -16,16 +16,9 @@ export default function Placements() {
 			<ButtonGroup justify="center">
 				<For each={placements}>
 					{(placement) => (
-						<Dialog
-							placement={placement}
-							key={placement}
-						>
+						<Dialog placement={placement} key={placement}>
 							<Dialog.Trigger asChild>
-								<Button
-									size="sm"
-									variant="surface"
-									textTransform="capitalize"
-								>
+								<Button size="sm" variant="surface" textTransform="capitalize">
 									{placement}
 								</Button>
 							</Dialog.Trigger>
@@ -47,11 +40,7 @@ export default function Placements() {
 													other stored items.
 												</Dialog.Description>
 											</Surface.Content>
-											<Surface.Addon
-												mt="16"
-												direction="row"
-												gap="8"
-											>
+											<Surface.Addon mt="16" direction="row" gap="8">
 												<Dialog.CloseTrigger asChild>
 													<Button variant="tertiary">Deny</Button>
 												</Dialog.CloseTrigger>

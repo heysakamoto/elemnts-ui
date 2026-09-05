@@ -1,13 +1,12 @@
 {
-  "name": "moto-ui",
+  "name": "elemnts-ui",
   "private": true,
   "packageManager": "pnpm@11.22.0",
   "scripts": {
-    "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish",
+    "publish": "pnpm build && changeset publish",
     "biome:check": "biome check --max-diagnostics=3000",
     "biome:fix": "biome check --write --max-diagnostics=3000",
-    "build": "pnpm --filter \"@moto-ui/*\" --filter \"!@moto-ui/docs\" build"
+    "build": "pnpm --filter \"@elemnts-ui/*\" --filter \"!@elemnts-ui/docs\" build"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.12",

@@ -1,4 +1,4 @@
-import { Show, Stack, Text } from "@moto-ui/react";
+import { Show, Stack, Text } from "@elemnts-ui/react";
 
 type User = { name: string } | null;
 
@@ -6,10 +6,7 @@ export default function Fallback() {
 	const user = null as User;
 
 	return (
-		<Stack
-			gap="2"
-			direction="column"
-		>
+		<Stack gap="2" direction="column">
 			<Text>A falsy condition renders the fallback:</Text>
 			<Show
 				when={user}

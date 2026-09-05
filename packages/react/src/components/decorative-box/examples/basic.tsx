@@ -1,4 +1,4 @@
-import { Container, DecorativeBox } from "@moto-ui/react";
+import { Container, DecorativeBox } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

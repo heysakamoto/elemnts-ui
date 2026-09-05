@@ -5,7 +5,7 @@ import {
 	Separator,
 	Surface,
 	Timeline,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function WithIcon() {
 	return (
@@ -14,35 +14,19 @@ export default function WithIcon() {
 				{events.map((event, idx) => {
 					const key = idx.toString();
 					return (
-						<Timeline.Item
-							key={key}
-							gap="24"
-						>
+						<Timeline.Item key={key} gap="24">
 							<Timeline.Connector>
 								<Timeline.Separator asChild>
 									<Separator orientation="vertical" />
 								</Timeline.Separator>
 								<Timeline.Indicator asChild>
-									<Chip
-										size="xs"
-										iconOnly
-										variant="surface"
-									>
-										<Icon
-											width={18}
-											height={18}
-											icon={event.icon}
-										/>
+									<Chip size="xs" iconOnly variant="surface">
+										<Icon width={18} height={18} icon={event.icon} />
 									</Chip>
 								</Timeline.Indicator>
 							</Timeline.Connector>
 							<Timeline.Content>
-								<Surface
-									p="0"
-									delta={0}
-									rounded="0"
-									elevated={false}
-								>
+								<Surface p="0" delta={0} rounded="0" elevated={false}>
 									<Surface.Content gap="6">
 										<Surface.Title>{event.title}</Surface.Title>
 										<Surface.Description>

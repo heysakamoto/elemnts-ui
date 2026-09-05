@@ -5,7 +5,7 @@ import {
 	Icon,
 	Input,
 	VisuallyHidden,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function CustomControls() {
 	return (
@@ -20,43 +20,25 @@ export default function CustomControls() {
 							if (!ctx.editing) {
 								return (
 									<Editable.EditTrigger asChild>
-										<Button
-											iconOnly
-											variant="surface"
-										>
+										<Button iconOnly variant="surface">
 											<VisuallyHidden>Edit</VisuallyHidden>
-											<Icon
-												icon="tabler:pencil"
-												width={16}
-												height={16}
-											/>
+											<Icon icon="tabler:pencil" width={16} height={16} />
 										</Button>
 									</Editable.EditTrigger>
 								);
 							}
 							return (
 								<Editable.CancelTrigger asChild>
-									<Button
-										iconOnly
-										variant="surface"
-									>
+									<Button iconOnly variant="surface">
 										<VisuallyHidden>Cancel</VisuallyHidden>
-										<Icon
-											icon="tabler:x"
-											width={16}
-											height={16}
-										/>
+										<Icon icon="tabler:x" width={16} height={16} />
 									</Button>
 								</Editable.CancelTrigger>
 							);
 						}}
 					</Editable.Context>
 					<Editable.Area>
-						<Button
-							asChild
-							variant="ghost"
-							fontSize="16"
-						>
+						<Button asChild variant="ghost" fontSize="16">
 							<Editable.Preview />
 						</Button>
 						<Editable.Input asChild>
@@ -68,16 +50,9 @@ export default function CustomControls() {
 							if (ctx.editing) {
 								return (
 									<Editable.SubmitTrigger asChild>
-										<Button
-											iconOnly
-											variant="surface"
-										>
+										<Button iconOnly variant="surface">
 											<VisuallyHidden>Done</VisuallyHidden>
-											<Icon
-												icon="tabler:check"
-												width={16}
-												height={16}
-											/>
+											<Icon icon="tabler:check" width={16} height={16} />
 										</Button>
 									</Editable.SubmitTrigger>
 								);

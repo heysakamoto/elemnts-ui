@@ -46,10 +46,7 @@ export const SeparatorGroupRoot = forwardRef<
 
 	return (
 		<SeperatorGroupContext.Provider value={separatorVariantProps}>
-			<SeparatorGroupRootBase
-				{...restProps}
-				ref={ref}
-			/>
+			<SeparatorGroupRootBase {...restProps} ref={ref} />
 		</SeperatorGroupContext.Provider>
 	);
 });

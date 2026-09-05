@@ -1,13 +1,10 @@
-import { For, Stack, Text } from "@moto-ui/react";
+import { For, Stack, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	const items = ["Apple", "Banana", "Cherry"];
 
 	return (
-		<Stack
-			gap="2"
-			direction="column"
-		>
+		<Stack gap="2" direction="column">
 			<For each={items}>
 				{(item, index) => (
 					<Text key={index}>

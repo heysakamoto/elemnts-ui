@@ -1,4 +1,4 @@
-import { Container, Mark, Text } from "@moto-ui/react";
+import { Container, Mark, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

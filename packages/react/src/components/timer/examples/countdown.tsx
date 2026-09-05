@@ -1,14 +1,9 @@
-import { Container, Timer } from "@moto-ui/react";
+import { Container, Timer } from "@elemnts-ui/react";
 
 export default function Countdown() {
 	return (
 		<Container maxW="16rem">
-			<Timer
-				autoStart
-				countdown
-				targetMs={0}
-				startMs={124 * 60 * 1000}
-			>
+			<Timer autoStart countdown targetMs={0} startMs={124 * 60 * 1000}>
 				<Timer.Area justify="center">
 					<Timer.ItemGroup>
 						<Timer.Item type="hours" />

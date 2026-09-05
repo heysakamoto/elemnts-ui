@@ -5,7 +5,7 @@ import {
 	Stack,
 	Surface,
 	Swatch,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	const color = parseColor("hsba(100, 50%, 50%, 100)");
@@ -15,11 +15,7 @@ export default function Basic() {
 			defaultValue={color}
 			positioning={{ placement: "bottom" }}
 		>
-			<ColorPicker.Control
-				gap="8"
-				alignItems="center"
-				justifyContent="center"
-			>
+			<ColorPicker.Control gap="8" alignItems="center" justifyContent="center">
 				<ColorPicker.Trigger>
 					<ColorPicker.ValueSwatch asChild>
 						<Swatch size="sm" />
@@ -29,30 +25,16 @@ export default function Basic() {
 			<Portal>
 				<ColorPicker.Positioner>
 					<ColorPicker.Content asChild>
-						<Surface
-							delta={1}
-							rounded="24"
-						>
+						<Surface delta={1} rounded="24">
 							<Surface.Content p="6">
 								<ColorPicker.Area h="14rem">
 									<ColorPicker.AreaBackground>
 										<ColorPicker.AreaThumb />
 									</ColorPicker.AreaBackground>
 								</ColorPicker.Area>
-								<ColorPicker.View
-									format="hsba"
-									mt="12"
-									px="4"
-									py="4"
-								>
-									<ColorPicker.ChannelSlider
-										channel="hue"
-										gap="4"
-									>
-										<Stack
-											align="center"
-											justify="space-between"
-										>
+								<ColorPicker.View format="hsba" mt="12" px="4" py="4">
+									<ColorPicker.ChannelSlider channel="hue" gap="4">
+										<Stack align="center" justify="space-between">
 											<ColorPicker.ChannelSliderLabel>
 												Hue
 											</ColorPicker.ChannelSliderLabel>

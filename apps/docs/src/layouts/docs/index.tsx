@@ -1,4 +1,4 @@
-import { Container, Grid, Section } from "@moto-ui/react";
+import { Container, Grid, Section } from "@elemnts-ui/react";
 import type { PropsWithChildren } from "react";
 
 import {
@@ -25,10 +25,7 @@ function DocsLayoutRoot(props: DocsLayoutRootProps) {
 		<DocsLayoutContext.Provider value={value}>
 			<DocsLayoutCommandMenu>
 				<DocsLayoutMobileMenu>
-					<Section
-						as="main"
-						colorPalette="neutral"
-					>
+					<Section as="main" colorPalette="neutral">
 						{children}
 					</Section>
 				</DocsLayoutMobileMenu>

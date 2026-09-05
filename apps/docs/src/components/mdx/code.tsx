@@ -1,4 +1,4 @@
-import { type CodeProps, Code as MotoCode, Text } from "@moto-ui/react";
+import { type CodeProps, Code as ElemntsCode, Text } from "@elemnts-ui/react";
 
 import { useCodeBlockContext } from "./client";
 
@@ -35,13 +35,9 @@ export const Code = (props: CodeProps) => {
 		}
 		default: {
 			return (
-				<MotoCode
-					size="2xs"
-					variant="secondary"
-					verticalAlign="bottom"
-				>
+				<ElemntsCode size="2xs" variant="secondary" verticalAlign="bottom">
 					{children}
-				</MotoCode>
+				</ElemntsCode>
 			);
 		}
 	}

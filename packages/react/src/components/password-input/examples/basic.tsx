@@ -5,7 +5,7 @@ import {
 	Icon,
 	Input,
 	PasswordInput,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -24,18 +24,10 @@ export default function Basic() {
 							>
 								<PasswordInput.Indicator
 									fallback={
-										<Icon
-											icon="tabler:eye-off"
-											width={16}
-											height={16}
-										/>
+										<Icon icon="tabler:eye-off" width={16} height={16} />
 									}
 								>
-									<Icon
-										icon="tabler:eye"
-										width={16}
-										height={16}
-									/>
+									<Icon icon="tabler:eye" width={16} height={16} />
 								</PasswordInput.Indicator>
 							</Button>
 						</PasswordInput.VisibilityTrigger>

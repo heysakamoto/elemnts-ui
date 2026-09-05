@@ -28,11 +28,7 @@ export const Spinner = styled(
 		const { children = <DefaultIcon />, ref, ...rest } = props;
 
 		return (
-			<ark.span
-				data-part="root"
-				data-scope="spinner"
-				{...rest}
-			>
+			<ark.span data-part="root" data-scope="spinner" {...rest}>
 				{children}
 			</ark.span>
 		);

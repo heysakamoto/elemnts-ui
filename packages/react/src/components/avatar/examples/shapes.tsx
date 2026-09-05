@@ -1,4 +1,4 @@
-import { Avatar } from "@moto-ui/react";
+import { Avatar } from "@elemnts-ui/react";
 
 export default function Shapes() {
 	return (

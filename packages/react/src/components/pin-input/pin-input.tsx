@@ -16,13 +16,7 @@ const UnstyledPinInputRoot = forwardRef<
 	UnstyledPinInputRootProps
 >((props, ref) => {
 	const { masked, ...rest } = props;
-	return (
-		<PinInput.Root
-			ref={ref}
-			{...rest}
-			mask={masked}
-		/>
-	);
+	return <PinInput.Root ref={ref} {...rest} mask={masked} />;
 });
 
 export const PinInputRoot = withProvider(UnstyledPinInputRoot, "root", {

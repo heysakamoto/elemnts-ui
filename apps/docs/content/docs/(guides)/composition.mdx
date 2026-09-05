@@ -3,14 +3,14 @@ title: Composition
 description: Create adaptable user interfaces using component composition techniques.
 ---
 
-Moto UI components are built with flexibility in mind, giving you two powerful ways to customize how components render: the **as** prop and the **asChild** prop. Both are powered by [Ark UI](https://ark-ui.com/).
+Elemnts UI components are built with flexibility in mind, giving you two powerful ways to customize how components render: the **as** prop and the **asChild** prop. Both are powered by [Ark UI](https://ark-ui.com/).
 
 ## Changing the HTML Element
 
 The `as` prop lets you swap out the default HTML element while keeping all the component's styles and functionality intact.
 
 ```tsx
-import { Text } from "@moto-ui/react";
+import { Text } from "@elemnts-ui/react";
 
 <Text as="h1">This renders as an H1 tag</Text>
 <Text as="span">This renders as a span</Text>
@@ -24,12 +24,12 @@ import { Text } from "@moto-ui/react";
 
 ## Composing Components
 
-The **asChild** prop is perfect when you want to wrap Moto UI components around custom components—like framework-specific links (TanStack Router, Next.js **Link**) or your own UI elements.
+The **asChild** prop is perfect when you want to wrap Elemnts UI components around custom components—like framework-specific links (TanStack Router, Next.js **Link**) or your own UI elements.
 
-When enabled, **asChild** passes all props and behavior to its **direct child**, effectively making the Moto UI component invisible in the DOM.
+When enabled, **asChild** passes all props and behavior to its **direct child**, effectively making the Elemnts UI component invisible in the DOM.
 
 ```tsx
-import { Button } from "@moto-ui/react";
+import { Button } from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 
 <Button asChild>
@@ -49,14 +49,14 @@ import { Link } from "@tanstack/react-router";
 
 ## Building Your Own Components
 
-Moto UI provides **factory** and **styled** to help you create polymorphic, styled components.
+Elemnts UI provides **factory** and **styled** to help you create polymorphic, styled components.
 
 ### Using factory (Ark UI)
 
 The **factory** (aliased from **ark**) lets you generate HTML elements that natively support the **asChild** prop.
 
 ```tsx
-import { factory } from "@moto-ui/react";
+import { factory } from "@elemnts-ui/react";
 
 const MyComponent = factory.div;
 
@@ -70,7 +70,7 @@ const MyComponent = factory.div;
 The **styled** function combines an element (or factory element) with a Panda CSS recipe or styles.
 
 ```tsx
-import { styled, factory } from "@moto-ui/react";
+import { styled, factory } from "@elemnts-ui/react";
 import { myRecipe } from "../styled-system/recipes";
 
 const MyStyledComponent = styled(factory.div, myRecipe);
@@ -81,7 +81,7 @@ const MyStyledComponent = styled(factory.div, myRecipe);
 By default, **styled** excludes style-related props from the DOM. You can override this with **shouldForwardProp**.
 
 ```tsx
-import { styled } from "@moto-ui/react";
+import { styled } from "@elemnts-ui/react";
 
 const CustomBox = styled("div", {}, {
   shouldForwardProp: (prop) => !prop.startsWith("$"),

@@ -11,7 +11,7 @@ import {
 	Popover,
 	Portal,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -22,32 +22,15 @@ export default function Basic() {
 			<Portal>
 				<Popover.Positioner>
 					<Popover.Content asChild>
-						<Surface
-							delta={1}
-							rounded="12"
-							w="24rem"
-							colorPalette="neutral"
-						>
-							<Surface.Header
-								px="12"
-								pt="12"
-							>
+						<Surface delta={1} rounded="12" w="24rem" colorPalette="neutral">
+							<Surface.Header px="12" pt="12">
 								<Surface.Title>Dimensions</Surface.Title>
 							</Surface.Header>
 							<Surface.Content p="12">
-								<DataList
-									orientation="horizontal"
-									gap="6"
-								>
-									<DataListItem
-										label="Width"
-										defaultValue="640"
-									/>
+								<DataList orientation="horizontal" gap="6">
+									<DataListItem label="Width" defaultValue="640" />
 									<DataListItem label="Max. Width" />
-									<DataListItem
-										label="Height"
-										defaultValue="64"
-									/>
+									<DataListItem label="Height" defaultValue="64" />
 									<DataListItem label="Max. Height" />
 								</DataList>
 							</Surface.Content>
@@ -80,51 +63,27 @@ export function DataListItem({
 }: DataListItemProps) {
 	return (
 		<Field>
-			<DataList.Item
-				align="center"
-				gap="0"
-			>
-				<DataList.ItemLabel
-					minW="4rem"
-					asChild
-				>
+			<DataList.Item align="center" gap="0">
+				<DataList.ItemLabel minW="4rem" asChild>
 					<Field.Label>{label}</Field.Label>
 				</DataList.ItemLabel>
 				<DataList.ItemValue asChild>
 					<Group attached>
 						<Field.Input asChild>
-							<Input
-								size="sm"
-								roundedEnd="0"
-								defaultValue={defaultValue}
-							/>
+							<Input size="sm" roundedEnd="0" defaultValue={defaultValue} />
 						</Field.Input>
 						<Menu>
 							<Menu.Trigger asChild>
-								<Button
-									size="sm"
-									variant="surface"
-									roundedStart="0"
-								>
+								<Button size="sm" variant="surface" roundedStart="0">
 									px
-									<Icon
-										icon="tabler:chevron-down"
-										mr="-4"
-									/>
+									<Icon icon="tabler:chevron-down" mr="-4" />
 								</Button>
 							</Menu.Trigger>
 							<Portal>
 								<Menu.Positioner>
 									<Menu.Content asChild>
-										<Surface
-											w="6rem"
-											rounded="12"
-											colorPalette="neutral"
-										>
-											<Surface.Content
-												p="4"
-												gap="2"
-											>
+										<Surface w="6rem" rounded="12" colorPalette="neutral">
+											<Surface.Content p="4" gap="2">
 												<For each={measurements}>
 													{(measurement) => (
 														<Menu.Item
@@ -132,10 +91,7 @@ export function DataListItem({
 															value={measurement.value}
 															asChild
 														>
-															<Item
-																size="sm"
-																variant="secondary"
-															>
+															<Item size="sm" variant="secondary">
 																{measurement.value}
 															</Item>
 														</Menu.Item>

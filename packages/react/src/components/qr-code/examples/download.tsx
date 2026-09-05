@@ -1,11 +1,8 @@
-import { Button, QrCode } from "@moto-ui/react";
+import { Button, QrCode } from "@elemnts-ui/react";
 
 export default function Download() {
 	return (
-		<QrCode.Root
-			align="center"
-			value="https://www.mobbin.com"
-		>
+		<QrCode.Root align="center" value="https://www.mobbin.com">
 			<QrCode.Frame>
 				<QrCode.Pattern />
 			</QrCode.Frame>
@@ -14,11 +11,7 @@ export default function Download() {
 				fileName="qrcode.png"
 				mimeType="image/png"
 			>
-				<Button
-					mt="12"
-					variant="surface"
-					size="sm"
-				>
+				<Button mt="12" variant="surface" size="sm">
 					Download
 				</Button>
 			</QrCode.DownloadTrigger>

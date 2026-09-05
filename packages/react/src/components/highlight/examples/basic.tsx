@@ -1,4 +1,4 @@
-import { Highlight, Text } from "@moto-ui/react";
+import { Highlight, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

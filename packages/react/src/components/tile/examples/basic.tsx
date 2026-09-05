@@ -1,14 +1,11 @@
-import { Container, For, Tile } from "@moto-ui/react";
+import { Container, For, Tile } from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Basic() {
 	const [value, setValue] = useState("");
 
 	return (
-		<Container
-			maxW="20rem"
-			spaceY="8"
-		>
+		<Container maxW="20rem" spaceY="8">
 			<For each={options}>
 				{(option, idx) => {
 					const key = idx.toString();

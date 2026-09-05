@@ -1,4 +1,4 @@
-import { ClientOnly, Text } from "@moto-ui/react";
+import { ClientOnly, Text } from "@elemnts-ui/react";
 
 export default function Fallback() {
 	return (

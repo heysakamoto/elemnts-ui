@@ -1,4 +1,4 @@
-import { Button, createToaster, Icon, Toaster } from "@moto-ui/react";
+import { Button, createToaster, Icon, Toaster } from "@elemnts-ui/react";
 
 const toaster = createToaster({
 	placement: "top",
@@ -23,13 +23,7 @@ export default function Dismissable() {
 					})
 				}
 			>
-				<Icon
-					ml="-2"
-					icon="tabler:paper-bag"
-					width={18}
-					height={18}
-				/>{" "}
-				Order
+				<Icon ml="-2" icon="tabler:paper-bag" width={18} height={18} /> Order
 			</Button>
 			<Toaster toaster={toaster} />
 		</>

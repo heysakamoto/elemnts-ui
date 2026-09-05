@@ -1,4 +1,4 @@
-import { Stack, Text } from "@moto-ui/react";
+import { Stack, Text } from "@elemnts-ui/react";
 import type { PropsWithChildren } from "react";
 
 import { DocsLayoutAiButtons } from "./ai";
@@ -7,10 +7,7 @@ export function DocsLayoutPageTitle(props: PropsWithChildren) {
 	const { children } = props;
 
 	return (
-		<Stack
-			align="center"
-			justify="space-between"
-		>
+		<Stack align="center" justify="space-between">
 			<Text
 				as="h1"
 				lineHeight="none"

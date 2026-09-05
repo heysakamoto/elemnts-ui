@@ -4,7 +4,7 @@ import {
 	Icon,
 	useClipboard,
 	VisuallyHidden,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 type Props = ButtonProps & { value: string };
 
@@ -27,11 +27,7 @@ export const CopyButton = (props: Props) => {
 			{...api.getTriggerProps()}
 		>
 			<VisuallyHidden>Copy code</VisuallyHidden>
-			<Icon
-				width={14}
-				height={14}
-				icon={icons[String(api.copied)] ?? ""}
-			/>
+			<Icon width={14} height={14} icon={icons[String(api.copied)] ?? ""} />
 			{children}
 		</Button>
 	);

@@ -1,15 +1,11 @@
-import { Alert, Container, Icon } from "@moto-ui/react";
+import { Alert, Container, Icon } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<Container maxW="fit">
 			<Alert p="8">
 				<Alert.Indicator>
-					<Icon
-						icon="tabler:rosette-discount-check"
-						width={20}
-						height={20}
-					/>
+					<Icon icon="tabler:rosette-discount-check" width={20} height={20} />
 				</Alert.Indicator>
 				<Alert.Content>
 					<Alert.Title fontSize="14">

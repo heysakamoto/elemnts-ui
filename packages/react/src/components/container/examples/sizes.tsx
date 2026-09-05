@@ -1,12 +1,8 @@
-import { Container, DecorativeBox, Stack } from "@moto-ui/react";
+import { Container, DecorativeBox, Stack } from "@elemnts-ui/react";
 
 export default function Sizes() {
 	return (
-		<Stack
-			w="full"
-			direction="column"
-			gap="12"
-		>
+		<Stack w="full" direction="column" gap="12">
 			<Container maxW="16rem">
 				<DecorativeBox h="64" />
 			</Container>

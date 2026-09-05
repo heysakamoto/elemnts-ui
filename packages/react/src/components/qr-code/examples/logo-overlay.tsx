@@ -1,4 +1,4 @@
-import { Icon, QrCode } from "@moto-ui/react";
+import { Icon, QrCode } from "@elemnts-ui/react";
 
 export default function LogoOverlay() {
 	return (
@@ -7,11 +7,7 @@ export default function LogoOverlay() {
 				<QrCode.Pattern />
 			</QrCode.Frame>
 			<QrCode.Overlay>
-				<Icon
-					icon="logos:apple"
-					width={24}
-					height={24}
-				/>
+				<Icon icon="logos:apple" width={24} height={24} />
 			</QrCode.Overlay>
 		</QrCode.Root>
 	);

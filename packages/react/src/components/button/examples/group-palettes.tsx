@@ -1,4 +1,4 @@
-import { ButtonGroup, Container } from "@moto-ui/react";
+import { ButtonGroup, Container } from "@elemnts-ui/react";
 
 export default function Palettes() {
 	return (

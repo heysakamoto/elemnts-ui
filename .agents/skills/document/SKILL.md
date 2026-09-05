@@ -1,6 +1,6 @@
 ---
 name: document
-description: Generate Moto UI demos, MDX documentation, and registry updates for a component. Use this when documenting a new component or adding examples to an existing one.
+description: Generate Elemnts UI demos, MDX documentation, and registry updates for a component. Use this when documenting a new component or adding examples to an existing one.
 ---
 
 # Document
@@ -9,7 +9,7 @@ Read `agents.md` (project root) and follow it strictly.
 
 ## Purpose
 
-Generate Moto UI demos, MDX documentation, and registry updates from a single component input.
+Generate Elemnts UI demos, MDX documentation, and registry updates from a single component input.
 
 ---
 

@@ -1,4 +1,4 @@
-import { Container, Slider } from "@moto-ui/react";
+import { Container, Slider } from "@elemnts-ui/react";
 
 export default function Range() {
 	return (

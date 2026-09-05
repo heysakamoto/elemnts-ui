@@ -1,4 +1,4 @@
-import { Breadcrumb, Icon, Show } from "@moto-ui/react";
+import { Breadcrumb, Icon, Show } from "@elemnts-ui/react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useBreadcrumb } from "fumadocs-core/breadcrumb";
 
@@ -23,29 +23,16 @@ export function DocsLayoutBreadcrumb() {
 					if (idx === 0) return null;
 
 					return (
-						<Breadcrumb.Item
-							key={key}
-							fontSize="13"
-						>
-							<Breadcrumb.Link
-								asChild
-								hideBelow={last ? "md" : undefined}
-							>
+						<Breadcrumb.Item key={key} fontSize="13">
+							<Breadcrumb.Link asChild hideBelow={last ? "md" : undefined}>
 								<Link to={item.url}>{item.name}</Link>
 							</Breadcrumb.Link>
 							<Show when={idx !== items.length - 1}>
 								<Breadcrumb.Separator mx="4">
-									<Icon
-										width={14}
-										height={14}
-										icon="tabler:chevron-right"
-									/>
+									<Icon width={14} height={14} icon="tabler:chevron-right" />
 								</Breadcrumb.Separator>
 							</Show>
-							<Show
-								when={last}
-								fallback={null}
-							>
+							<Show when={last} fallback={null}>
 								<Breadcrumb.CurrentLink hideFrom="md">
 									<Link to={item.url}>{item.name}</Link>
 								</Breadcrumb.CurrentLink>

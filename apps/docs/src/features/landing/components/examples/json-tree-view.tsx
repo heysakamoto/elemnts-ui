@@ -1,4 +1,4 @@
-import { Icon, JsonTreeView, ScrollShadow } from "@moto-ui/react";
+import { Icon, JsonTreeView, ScrollShadow } from "@elemnts-ui/react";
 
 export function JsonTreeViewExample() {
 	const data = {
@@ -24,19 +24,9 @@ export function JsonTreeViewExample() {
 			display="flex"
 			direction="column"
 		>
-			<JsonTreeView
-				data={data}
-				h="10rem"
-				defaultExpandedDepth={1}
-			>
+			<JsonTreeView data={data} h="10rem" defaultExpandedDepth={1}>
 				<JsonTreeView.Tree
-					arrow={
-						<Icon
-							width={16}
-							height={16}
-							icon="tabler:chevron-right"
-						/>
-					}
+					arrow={<Icon width={16} height={16} icon="tabler:chevron-right" />}
 				/>
 			</JsonTreeView>
 		</ScrollShadow>

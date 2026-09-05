@@ -1,21 +1,10 @@
-import { Anchor, Image, List, Separator, Text } from "@moto-ui/react";
+import { Anchor, Image, List, Separator, Text } from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 import type { MDXComponents } from "mdx/types";
 
 export const base: MDXComponents = {
-	img: (props) => (
-		<Image
-			mt="24"
-			{...props}
-		/>
-	),
-	hr: (props) => (
-		<Separator
-			my="24"
-			{...props}
-			orientation="horizontal"
-		/>
-	),
+	img: (props) => <Image mt="24" {...props} />,
+	hr: (props) => <Separator my="24" {...props} orientation="horizontal" />,
 	a: (props) => (
 		<Anchor
 			target="_blank"
@@ -45,14 +34,7 @@ export const base: MDXComponents = {
 		/>
 	),
 	ul: (props) => (
-		<List
-			px="20"
-			as="ul"
-			mt="16"
-			spaceY="8"
-			listStyleType="disc"
-			{...props}
-		/>
+		<List px="20" as="ul" mt="16" spaceY="8" listStyleType="disc" {...props} />
 	),
 	li: (props) => (
 		<List.Item
@@ -94,10 +76,7 @@ export const base: MDXComponents = {
 				scrollMarginTop={{ base: "132", lg: "80" }}
 				{...props}
 			>
-				<Link
-					to={"."}
-					hash={props.id}
-				>
+				<Link to={"."} hash={props.id}>
 					{props.children}
 				</Link>
 			</Text>
@@ -116,10 +95,7 @@ export const base: MDXComponents = {
 				scrollMarginTop={{ base: "132", lg: "80" }}
 				{...props}
 			>
-				<Link
-					to={"."}
-					hash={props.id}
-				>
+				<Link to={"."} hash={props.id}>
 					{props.children}
 				</Link>
 			</Text>
@@ -138,10 +114,7 @@ export const base: MDXComponents = {
 				scrollMarginTop={{ base: "132", lg: "80" }}
 				{...props}
 			>
-				<Link
-					to={"."}
-					hash={props.id}
-				>
+				<Link to={"."} hash={props.id}>
 					{props.children}
 				</Link>
 			</Text>

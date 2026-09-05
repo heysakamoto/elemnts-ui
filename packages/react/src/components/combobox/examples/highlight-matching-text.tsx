@@ -10,7 +10,7 @@ import {
 	useComboboxContext,
 	useFilter,
 	useListCollection,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -53,39 +53,20 @@ export default function HighlightMatchingText() {
 				<Combobox.Control>
 					<InputGroup>
 						<Combobox.Input asChild>
-							<InputGroup.Input
-								placeholder="Type to search..."
-								fontSize="14"
-							/>
+							<InputGroup.Input placeholder="Type to search..." fontSize="14" />
 						</Combobox.Input>
 						<InputGroup.Addon>
-							<Icon
-								icon="tabler:chevron-down"
-								width={16}
-								height={16}
-							/>
+							<Icon icon="tabler:chevron-down" width={16} height={16} />
 						</InputGroup.Addon>
 					</InputGroup>
 				</Combobox.Control>
 				<Portal>
 					<Combobox.Positioner>
 						<Combobox.Content asChild>
-							<Surface
-								delta={1}
-								rounded="14"
-								colorPalette="neutral"
-							>
-								<Surface.Content
-									p="4"
-									gap="2"
-								>
+							<Surface delta={1} rounded="14" colorPalette="neutral">
+								<Surface.Content p="4" gap="2">
 									{collection.items.map((item) => {
-										return (
-											<ComboboxItem
-												item={item}
-												key={item.id}
-											/>
-										);
+										return <ComboboxItem item={item} key={item.id} />;
 									})}
 								</Surface.Content>
 							</Surface>
@@ -102,10 +83,7 @@ function ComboboxItem(props: { item: (typeof items)[number] }) {
 	const comboboxContext = useComboboxContext();
 
 	return (
-		<Combobox.Item
-			asChild
-			item={item}
-		>
+		<Combobox.Item asChild item={item}>
 			<Item variant="secondary">
 				<Combobox.ItemText>
 					<Highlight

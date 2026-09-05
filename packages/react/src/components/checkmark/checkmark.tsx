@@ -36,20 +36,8 @@ export const Checkmark = styled(
 	checkmarkRecipe,
 	{
 		defaultProps: {
-			fallback: (
-				<Icon
-					icon="tabler:minus"
-					width="12"
-					height="12"
-				/>
-			),
-			children: (
-				<Icon
-					icon="tabler:check"
-					width="12"
-					height="12"
-				/>
-			),
+			fallback: <Icon icon="tabler:minus" width="12" height="12" />,
+			children: <Icon icon="tabler:check" width="12" height="12" />,
 		},
 	},
 );

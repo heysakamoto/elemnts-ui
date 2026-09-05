@@ -1,4 +1,4 @@
-import { Button, Container, EmptyState, Icon } from "@moto-ui/react";
+import { Button, Container, EmptyState, Icon } from "@elemnts-ui/react";
 
 export default function WithAction() {
 	return (
@@ -6,17 +6,10 @@ export default function WithAction() {
 			<EmptyState.Root>
 				<EmptyState.Content>
 					<EmptyState.Indicator>
-						<Icon
-							icon="tabler:inbox"
-							width={32}
-							height={32}
-						/>
+						<Icon icon="tabler:inbox" width={32} height={32} />
 					</EmptyState.Indicator>
 					<EmptyState.Title mt="12">Your inbox is empty</EmptyState.Title>
-					<EmptyState.Description
-						mt="4"
-						textAlign="center"
-					>
+					<EmptyState.Description mt="4" textAlign="center">
 						When you receive messages, they will appear here. Start a
 						conversation to get things going.
 					</EmptyState.Description>

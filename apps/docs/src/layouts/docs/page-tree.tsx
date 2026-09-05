@@ -1,4 +1,4 @@
-import { For, Icon, Show, Sidebar, Status } from "@moto-ui/react";
+import { For, Icon, Show, Sidebar, Status } from "@elemnts-ui/react";
 import { Link, useLocation } from "@tanstack/react-router";
 import type { Folder, Item, Node } from "fumadocs-core/page-tree";
 import { createContext, use, useEffect, useMemo, useState } from "react";
@@ -10,20 +10,11 @@ export function DocsLayoutPageTree() {
 	const { pageTree } = useDocsLayoutContext();
 
 	return (
-		<Sidebar.Nav
-			py="8"
-			px="14"
-			flex="1"
-			overflow="scroll"
-			scrollbar="hidden"
-		>
+		<Sidebar.Nav py="8" px="14" flex="1" overflow="scroll" scrollbar="hidden">
 			<Sidebar.List>
 				<For each={pageTree.children}>
 					{(node, idx) => (
-						<NodeRenderer
-							node={node}
-							key={node.$id ?? String(idx)}
-						/>
+						<NodeRenderer node={node} key={node.$id ?? String(idx)} />
 					)}
 				</For>
 			</Sidebar.List>
@@ -98,18 +89,12 @@ function PageTreeItem({ item }: PageTreeItemProps) {
 				</Show>
 				{item.name}
 				<Show when={(item as any).status === "new"}>
-					<Status
-						size="sm"
-						colorPalette="accent"
-					>
+					<Status size="sm" colorPalette="accent">
 						<Status.Indicator ml="8" />
 					</Status>
 				</Show>
 				<Show when={(item as any).status === "updated"}>
-					<Status
-						size="sm"
-						colorPalette="warning"
-					>
+					<Status size="sm" colorPalette="warning">
 						<Status.Indicator ml="8" />
 					</Status>
 				</Show>
@@ -147,38 +132,21 @@ function PageTreeFolder({ folder }: PageTreeFolderProps) {
 			<Show when={folder.collapsible}>
 				<PageTreeFolderContext.Provider value={true}>
 					<Sidebar.Item>
-						<div
-							className={itemStyles}
-							onClick={() => toggle()}
-						>
+						<div className={itemStyles} onClick={() => toggle()}>
 							{folder.name}
-							<Icon
-								width={16}
-								height={16}
-								icon="tabler:chevron-down"
-							/>
+							<Icon width={16} height={16} icon="tabler:chevron-down" />
 						</div>
 					</Sidebar.Item>
 					<Show when={open}>
 						<For each={folder.children}>
-							{(child) => (
-								<NodeRenderer
-									node={child}
-									key={child.$id}
-								/>
-							)}
+							{(child) => <NodeRenderer node={child} key={child.$id} />}
 						</For>
 					</Show>
 				</PageTreeFolderContext.Provider>
 			</Show>
 			<Show when={!folder.collapsible}>
 				<For each={folder.children}>
-					{(child) => (
-						<NodeRenderer
-							node={child}
-							key={child.$id}
-						/>
-					)}
+					{(child) => <NodeRenderer node={child} key={child.$id} />}
 				</For>
 			</Show>
 		</>

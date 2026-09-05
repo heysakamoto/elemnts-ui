@@ -1,4 +1,4 @@
-import { Mark } from "@moto-ui/react";
+import { Mark } from "@elemnts-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import MarkBasicExample from "./examples/basic";
 import MarkBasicSource from "./examples/basic?raw";

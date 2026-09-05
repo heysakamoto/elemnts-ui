@@ -1,4 +1,4 @@
-import { Icon, Item, Menu, Surface } from "@moto-ui/react";
+import { Icon, Item, Menu, Surface } from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -37,29 +37,13 @@ export default function Basic() {
 	return (
 		<Menu open>
 			<Menu.Content asChild>
-				<Surface
-					delta={1}
-					w="12rem"
-					rounded="14"
-				>
-					<Surface.Content
-						p="4"
-						gap="2"
-					>
+				<Surface delta={1} w="12rem" rounded="14">
+					<Surface.Content p="4" gap="2">
 						{items.map((item) => {
 							return (
-								<Menu.Item
-									key={item.id}
-									value={item.value}
-									asChild
-								>
+								<Menu.Item key={item.id} value={item.value} asChild>
 									<Item variant="secondary">
-										<Icon
-											ml="-6"
-											icon={item.icon}
-											width={16}
-											height={16}
-										/>
+										<Icon ml="-6" icon={item.icon} width={16} height={16} />
 										<Menu.ItemText>{item.label}</Menu.ItemText>
 									</Item>
 								</Menu.Item>

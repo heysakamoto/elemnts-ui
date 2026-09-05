@@ -5,7 +5,7 @@ description: Context-aware elevation system for consistent depth and hierarchy.
 
 <Example name="elevated:sections" hideCode/>
 
-Moto UI’s **Surfaces** use a **smart elevation system** to ensure your UI layers always look distinct and intentional. Instead of manually picking colors like `bg-card` or `bg-modal`, Moto automatically adjusts backgrounds and shadows based on where a component sits in your layout.
+Elemnts UI’s **Surfaces** use a **smart elevation system** to ensure your UI layers always look distinct and intentional. Instead of manually picking colors like `bg-card` or `bg-modal`, Elemnts automatically adjusts backgrounds and shadows based on where a component sits in your layout.
 
 This solves the annoying problem of **elevation collapse**—where nested elements blend into their containers and disappear visually.
 
@@ -15,7 +15,7 @@ This solves the annoying problem of **elevation collapse**—where nested elemen
 
 ### Relative Elevation (Deltas)
 
-No fixed levels like **"Level 3"** or **"Level 5"**. With Moto, you define how much higher a component should sit **relative to its parent** using a **delta** value.
+No fixed levels like **"Level 3"** or **"Level 5"**. With Elemnts, you define how much higher a component should sit **relative to its parent** using a **delta** value.
 
 | Term | Definition |
 |------|------------|
@@ -34,7 +34,7 @@ This keeps your UI consistent, no matter how deeply nested it is.
 
 ## The Eight Levels
 
-Moto uses **eight elevation levels**, each with its own background and shadow:
+Elemnts uses **eight elevation levels**, each with its own background and shadow:
 
 | Level | Purpose                          | Shadow Intensity |
 |-------|----------------------------------|------------------|
@@ -52,7 +52,7 @@ In **Dark Mode**, higher levels subtly lighten their backgrounds using `color-mi
 The building block of the system. Wrap any component to lift it relative to its parent.
 
 ```tsx
-import { Elevated, Text } from "@moto-ui/react";
+import { Elevated, Text } from "@elemnts-ui/react";
 
 <Elevated delta={1}>
   <Text>I’m one level higher than my parent!</Text>
@@ -64,7 +64,7 @@ import { Elevated, Text } from "@moto-ui/react";
 A ready-to-use panel or card with built-in slots for headers, content, and footers. By default, it includes a border and shadow, but you can disable this for a flat look while still maintaining the elevation context.
 
 ```tsx
-import { Surface, Text } from "@moto-ui/react";
+import { Surface, Text } from "@elemnts-ui/react";
 
 <Surface delta={1} p="6">
   <Surface.Header>
@@ -80,7 +80,7 @@ import { Surface, Text } from "@moto-ui/react";
 
 ## Behind the Scenes
 
-Moto’s system relies on **CSS variables and data attributes** to handle styling:
+Elemnts’s system relies on **CSS variables and data attributes** to handle styling:
 
 - `data-elevation`: The absolute level (parent level + delta).
 - `data-elevation-shadow`: The level used for shadows (usually matches `data-elevation`).
@@ -88,7 +88,7 @@ Moto’s system relies on **CSS variables and data attributes** to handle stylin
 
 ### Dark Mode Magic
 
-In dark mode, Moto doesn’t just add shadows—it **simulates light** by lightening backgrounds as levels increase:
+In dark mode, Elemnts doesn’t just add shadows—it **simulates light** by lightening backgrounds as levels increase:
 
 ```css
 /* Simplified Dark Mode Logic */

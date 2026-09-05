@@ -1,4 +1,4 @@
-import { Container, Timer } from "@moto-ui/react";
+import { Container, Timer } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

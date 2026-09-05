@@ -1,4 +1,4 @@
-import { Container, SegmentGroup, Stack, Text } from "@moto-ui/react";
+import { Container, SegmentGroup, Stack, Text } from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Sizes() {
@@ -21,52 +21,33 @@ export default function Sizes() {
 			>
 				<SegmentGroup.Indicator />
 				{sizes.map((size) => (
-					<SegmentGroup.Item
-						key={size}
-						value={size}
-					>
+					<SegmentGroup.Item key={size} value={size}>
 						<SegmentGroup.ItemText>{size}</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>
 				))}
 			</SegmentGroup>
-			<Stack
-				direction="column"
-				align="center"
-				mt="18"
-			>
+			<Stack direction="column" align="center" mt="18">
 				{value === "14" && (
-					<Text
-						fontSize="14"
-						textAlign="center"
-					>
+					<Text fontSize="14" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>
 				)}
 				{value === "20" && (
-					<Text
-						fontSize="20"
-						textAlign="center"
-					>
+					<Text fontSize="20" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>
 				)}
 				{value === "32" && (
-					<Text
-						fontSize="32"
-						textAlign="center"
-					>
+					<Text fontSize="32" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>
 				)}
 				{value === "40" && (
-					<Text
-						fontSize="40"
-						textAlign="center"
-					>
+					<Text fontSize="40" textAlign="center">
 						{" "}
 						Sphinx of black quartz, judge my vow.
 					</Text>

@@ -1,11 +1,8 @@
-import { Container, Elevated, For } from "@moto-ui/react";
+import { Container, Elevated, For } from "@elemnts-ui/react";
 
 export default function Levels() {
 	return (
-		<Container
-			maxW="20rem"
-			spaceY="12"
-		>
+		<Container maxW="20rem" spaceY="12">
 			<For each={[0, 1, 2, 3, 4, 5, 6, 7]}>
 				{(delta) => (
 					<Elevated

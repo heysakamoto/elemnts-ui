@@ -22,12 +22,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			...props,
 		};
 
-		return (
-			<ButtonBase
-				ref={ref}
-				{...mergedProps}
-			/>
-		);
+		return <ButtonBase ref={ref} {...mergedProps} />;
 	},
 );
 Button.displayName = "Button";

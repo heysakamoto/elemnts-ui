@@ -1,23 +1,17 @@
-import { Button, Drawer, Surface } from "@moto-ui/react";
+import { Button, Drawer, Surface } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<Drawer>
 			<Drawer.Trigger asChild>
-				<Button
-					size="sm"
-					variant="surface"
-				>
+				<Button size="sm" variant="surface">
 					Open
 				</Button>
 			</Drawer.Trigger>
 			<Drawer.Backdrop />
 			<Drawer.Positioner>
 				<Drawer.Content asChild>
-					<Surface
-						delta={1}
-						roundedTop="16"
-					>
+					<Surface delta={1} roundedTop="16">
 						<Drawer.Grabber>
 							<Drawer.GrabberIndicator />
 						</Drawer.Grabber>

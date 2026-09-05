@@ -1,4 +1,4 @@
-import { QrCode } from "@moto-ui/react";
+import { QrCode } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

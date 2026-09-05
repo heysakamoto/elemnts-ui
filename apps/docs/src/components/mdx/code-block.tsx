@@ -1,4 +1,4 @@
-import { Separator, Show, Surface } from "@moto-ui/react";
+import { Separator, Show, Surface } from "@elemnts-ui/react";
 import type { ReactElement, ReactNode } from "react";
 import { nodeToString } from "@/utils/node";
 import { CodeBlockProvider, useCodeBlockTabsContext } from "./client";
@@ -33,20 +33,12 @@ export const CodeBlock = (props: CodeBlockProps) => {
 					justify="space-between"
 				>
 					<Surface.Description fontSize="14">
-						<Show
-							when={inTabs}
-							fallback={title}
-						>
+						<Show when={inTabs} fallback={title}>
 							Terminal
 						</Show>
 					</Surface.Description>
 					<Separator variant="ghost" />
-					<CopyButton
-						size="xs"
-						variant="plain"
-						value={code}
-						mr="-12"
-					/>
+					<CopyButton size="xs" variant="plain" value={code} mr="-12" />
 				</Surface.Header>
 				<Surface.Content p="2">
 					<Surface.Addon

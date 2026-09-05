@@ -1,13 +1,10 @@
-import { Show, Stack, Text } from "@moto-ui/react";
+import { Show, Stack, Text } from "@elemnts-ui/react";
 
 export default function Nested() {
 	const session = { user: { name: "Alice", preferences: { theme: "dark" } } };
 
 	return (
-		<Stack
-			gap="2"
-			direction="column"
-		>
+		<Stack gap="2" direction="column">
 			<Text>Nested conditional rendering:</Text>
 			<Show when={session}>
 				{(session) => (
@@ -15,10 +12,7 @@ export default function Nested() {
 						{(user) => (
 							<Stack gap="1">
 								<Text fontWeight="bold">{user.name}</Text>
-								<Text
-									color="fg.muted"
-									fontSize="sm"
-								>
+								<Text color="fg.muted" fontSize="sm">
 									Theme: {user.preferences.theme}
 								</Text>
 							</Stack>

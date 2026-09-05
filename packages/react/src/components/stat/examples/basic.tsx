@@ -1,4 +1,4 @@
-import { Stat } from "@moto-ui/react";
+import { Stat } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

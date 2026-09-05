@@ -34,10 +34,7 @@ export const KbdGroupRoot = forwardRef<HTMLDivElement, KbdGroupRootProps>(
 
 		return (
 			<KbdGroupContext.Provider value={variantsProps}>
-				<KbdGroupRootBase
-					ref={ref}
-					{...restProps}
-				/>
+				<KbdGroupRootBase ref={ref} {...restProps} />
 			</KbdGroupContext.Provider>
 		);
 	},

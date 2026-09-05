@@ -9,7 +9,7 @@ import {
 	Portal,
 	Show,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useState } from "react";
 
 const options = [
@@ -63,23 +63,13 @@ export default function Scrubber() {
 			<NumberInput defaultValue="50">
 				<NumberInput.Control>
 					<NumberInput.Scrubber asChild>
-						<Button
-							iconOnly
-							variant="surface"
-						>
-							<Icon
-								width={20}
-								height={20}
-								icon={scrubberIcon}
-							/>
+						<Button iconOnly variant="surface">
+							<Icon width={20} height={20} icon={scrubberIcon} />
 						</Button>
 					</NumberInput.Scrubber>
 					<InputGroup>
 						<NumberInput.Input asChild>
-							<InputGroup.Input
-								fontSize="16"
-								textAlign="center"
-							/>
+							<InputGroup.Input fontSize="16" textAlign="center" />
 						</NumberInput.Input>
 					</InputGroup>
 					<Menu
@@ -99,10 +89,7 @@ export default function Scrubber() {
 										rounded="20"
 										colorPalette="neutral"
 									>
-										<Surface.Content
-											p="4"
-											gap="2"
-										>
+										<Surface.Content p="4" gap="2">
 											{options.map((option) => {
 												const selected = value === option.value;
 												return (
@@ -118,10 +105,7 @@ export default function Scrubber() {
 															selected={selected}
 														>
 															<Menu.Indicator w="16">
-																<Show
-																	when={selected}
-																	fallback={null}
-																>
+																<Show when={selected} fallback={null}>
 																	<Icon
 																		width={16}
 																		height={16}

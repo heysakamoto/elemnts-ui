@@ -1,4 +1,4 @@
-import { WheelPicker } from "@moto-ui/react";
+import { WheelPicker } from "@elemnts-ui/react";
 
 import { css } from "../../styled-system/css";
 

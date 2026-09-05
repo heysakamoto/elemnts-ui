@@ -1,5 +1,5 @@
 {
-	"name": "@moto-ui/docs",
+	"name": "@elemnts-ui/docs",
 	"private": true,
 	"type": "module",
 	"imports": {
@@ -14,8 +14,8 @@
 		"deploy": "NODE_OPTIONS=--max-old-space-size=8192 wrangler deploy"
 	},
 	"dependencies": {
-		"@moto-ui/core": "workspace:*",
-		"@moto-ui/react": "workspace:*",
+		"@elemnts-ui/core": "workspace:*",
+		"@elemnts-ui/react": "workspace:*",
 		"@polar-sh/sdk": "^0.49.0",
 		"@tanstack/react-form": "latest",
 		"@tanstack/react-hotkeys": "^0.10.0",

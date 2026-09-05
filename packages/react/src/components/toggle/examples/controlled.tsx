@@ -1,4 +1,4 @@
-import { Icon, Item, Toggle } from "@moto-ui/react";
+import { Icon, Item, Toggle } from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Controlled() {
@@ -11,15 +11,8 @@ export default function Controlled() {
 			aria-label="Toggle bold"
 			onPressedChange={setPressed}
 		>
-			<Item
-				w="fit"
-				variant="secondary"
-			>
-				<Icon
-					icon="tabler:bold"
-					width={16}
-					height={16}
-				/>
+			<Item w="fit" variant="secondary">
+				<Icon icon="tabler:bold" width={16} height={16} />
 			</Item>
 		</Toggle>
 	);

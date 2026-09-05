@@ -4,7 +4,7 @@ import {
 	Item,
 	Listbox,
 	Surface,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const collection = createListCollection({
 	items: [
@@ -40,21 +40,11 @@ export default function Disabled() {
 		<Container maxW="10rem">
 			<Listbox collection={collection as any}>
 				<Listbox.Content asChild>
-					<Surface
-						delta={1}
-						rounded="14"
-					>
-						<Surface.Content
-							p="4"
-							gap="2"
-						>
+					<Surface delta={1} rounded="14">
+						<Surface.Content p="4" gap="2">
 							{collection.items.map((item) => {
 								return (
-									<Listbox.Item
-										key={item.id}
-										item={item}
-										asChild
-									>
+									<Listbox.Item key={item.id} item={item} asChild>
 										<Item variant="secondary">
 											<Listbox.ItemText>{item.label}</Listbox.ItemText>
 										</Item>

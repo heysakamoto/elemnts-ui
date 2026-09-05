@@ -1,23 +1,11 @@
-import { Button, Icon, Item, Pagination } from "@moto-ui/react";
+import { Button, Icon, Item, Pagination } from "@elemnts-ui/react";
 
 export default function SiblingCount() {
 	return (
-		<Pagination
-			count={250}
-			pageSize={20}
-			siblingCount={2}
-			defaultPage={6}
-		>
+		<Pagination count={250} pageSize={20} siblingCount={2} defaultPage={6}>
 			<Pagination.PrevTrigger asChild>
-				<Button
-					iconOnly
-					variant="surface"
-				>
-					<Icon
-						icon="tabler:arrow-left"
-						width={16}
-						height={16}
-					/>
+				<Button iconOnly variant="surface">
+					<Icon icon="tabler:arrow-left" width={16} height={16} />
 				</Button>
 			</Pagination.PrevTrigger>
 			<Pagination.Context>
@@ -25,25 +13,15 @@ export default function SiblingCount() {
 					return ctx.pages.map((page, idx) => {
 						if (page.type === "ellipsis") {
 							return (
-								<Pagination.Ellipsis
-									asChild
-									key={idx.toString()}
-									index={idx}
-								>
-									<Item
-										iconOnly
-										variant="secondary"
-									>
+								<Pagination.Ellipsis asChild key={idx.toString()} index={idx}>
+									<Item iconOnly variant="secondary">
 										...
 									</Item>
 								</Pagination.Ellipsis>
 							);
 						}
 						return (
-							<Pagination.Item
-								key={idx.toString()}
-								{...page}
-							>
+							<Pagination.Item key={idx.toString()} {...page}>
 								<Item
 									iconOnly
 									variant="secondary"
@@ -57,15 +35,8 @@ export default function SiblingCount() {
 				}}
 			</Pagination.Context>
 			<Pagination.NextTrigger asChild>
-				<Button
-					iconOnly
-					variant="surface"
-				>
-					<Icon
-						icon="tabler:arrow-right"
-						width={16}
-						height={16}
-					/>
+				<Button iconOnly variant="surface">
+					<Icon icon="tabler:arrow-right" width={16} height={16} />
 				</Button>
 			</Pagination.NextTrigger>
 		</Pagination>

@@ -1,4 +1,4 @@
-import { WheelPicker, type WheelPickerOption } from "@moto-ui/react";
+import { WheelPicker, type WheelPickerOption } from "@elemnts-ui/react";
 
 export default function Basic() {
 	const options: WheelPickerOption[] = [
@@ -12,15 +12,9 @@ export default function Basic() {
 	];
 
 	return (
-		<WheelPicker
-			w="10rem"
-			variant="secondary"
-		>
+		<WheelPicker w="10rem" variant="secondary">
 			<WheelPicker.Control>
-				<WheelPicker.Options
-					options={options}
-					defaultValue="gaming"
-				/>
+				<WheelPicker.Options options={options} defaultValue="gaming" />
 			</WheelPicker.Control>
 		</WheelPicker>
 	);

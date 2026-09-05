@@ -1,4 +1,4 @@
-import { SegmentGroup } from "@moto-ui/react";
+import { SegmentGroup } from "@elemnts-ui/react";
 
 export function SegmentGroupExample() {
 	const values = [
@@ -11,8 +11,8 @@ export function SegmentGroupExample() {
 			value: "pandacss",
 		},
 		{
-			label: "Moto",
-			value: "moto",
+			label: "Elemnts",
+			value: "Elemnts",
 		},
 	];
 
@@ -26,10 +26,7 @@ export function SegmentGroupExample() {
 			<SegmentGroup.Indicator />
 			{values.map((value) => {
 				return (
-					<SegmentGroup.Item
-						key={value.value}
-						value={value.value}
-					>
+					<SegmentGroup.Item key={value.value} value={value.value}>
 						<SegmentGroup.ItemText>{value.label}</SegmentGroup.ItemText>
 						<SegmentGroup.ItemHiddenInput />
 					</SegmentGroup.Item>

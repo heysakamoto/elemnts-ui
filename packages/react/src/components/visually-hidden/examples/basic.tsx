@@ -1,4 +1,4 @@
-import { Container, Text, VisuallyHidden } from "@moto-ui/react";
+import { Container, Text, VisuallyHidden } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

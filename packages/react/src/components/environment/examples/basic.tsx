@@ -1,4 +1,4 @@
-import { Container, Environment, Text } from "@moto-ui/react";
+import { Container, Environment, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

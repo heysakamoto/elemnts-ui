@@ -1,4 +1,4 @@
-import { Container, Field, Input } from "@moto-ui/react";
+import { Container, Field, Input } from "@elemnts-ui/react";
 
 export default function Disabled() {
 	return (

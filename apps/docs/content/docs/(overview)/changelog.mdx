@@ -8,13 +8,19 @@ description: All previous and current changes can be found here
 
 <Timeline>
   <TimelineItem index={1} title="What's New">
-  We have launched `@moto-ui/core`, a standalone package designed to replace several legacy internal dependencies, including `@moto-ui/colors` and `@moto-ui/preset-base`.
-  
+  **Moto UI renamed to Elemnts UI**
+    
+  We are forced to rename to Elements UI to avoid confusion with the official **Moto UI** an interface design system for **Motorola** devices.
+
   ---
-  
+
+  **New packages**
+
+  We have launched `@elemnts-ui/core`, a standalone package designed to replace several legacy internal dependencies, including `@elemnts-ui/colors` and `@elemnts-ui/preset-base`.
+
   **Key Reason for the Update**
   
-  We removed **@moto-ui/styled-system** because its fixed `jsxFramework` setting could conflict with other frameworks packages. We combined **@moto-ui/colors** and **@moto-ui/preset-base** into **@moto-ui/core**, making updates easier and ensuring compatibility with the latest Panda CSS versions.
+  We removed **@moto-ui/styled-system** because its fixed `jsxFramework` setting could conflict with other frameworks packages. We combined **@moto-ui/colors** and **@moto-ui/preset-base** into **@elemnts-ui/core**, making updates easier and ensuring compatibility with the latest Panda CSS versions.
   
   ---
   
@@ -22,21 +28,24 @@ description: All previous and current changes can be found here
   
   | Deprecated | Replacement | Path |
   | :--- | :--- | :--- |
-  | `@moto-ui/colors` | `@moto-ui/core` | `@moto-ui/core/colors` |
-  | `@moto-ui/preset-base` | `@moto-ui/core` | `@moto-ui/core/presets` |
+  | `@moto-ui/colors` | `@elemnts-ui/core` | `@elemnts-ui/core/colors` |
+  | `@moto-ui/preset-base` | `@elemnts-ui/core` | `@elemnts-ui/core/presets` |
   | `@moto-ui/styled-system` | `deprecated` | `none` |
 
   ---
   **The new panda config**
+  
+  Import the preset from the core package and use it in your **panda.config.ts** file.
+  
   ```ts title="panda.config.ts"
   import { defineConfig } from "@pandacss/dev";
-  import { basePreset } from "@moto-ui/core/presets";
+  import { basePreset } from "@elemnts-ui/core/presets";
   
   export default defineConfig({
     presets: [basePreset],
     include: [
       "src/**/*.{ts,tsx}",
-      "node_modules/@moto-ui/react/dist/buildinfo.json",
+      "node_modules/@elemnts-ui/react/dist/buildinfo.json",
     ],
   });
   ```
@@ -200,7 +209,7 @@ description: All previous and current changes can be found here
     **Show**: A utility component for conditionally rendering content based on a truthy condition.
 
     ```tsx
-    import { Show } from "@moto-ui/react";
+    import { Show } from "@elemnts-ui/react";
 
     export function App() {
       return (
@@ -215,7 +224,7 @@ description: All previous and current changes can be found here
     **List**: A compound component for rendering ordered and unordered lists with customizable item indicators.
 
     ```tsx
-    import { List } from "@moto-ui/react";
+    import { List } from "@elemnts-ui/react";
 
     export function App() {
       return (
@@ -237,7 +246,7 @@ description: All previous and current changes can be found here
     **Code**: An inline code element with recipe-based styling, ideal for rendering code snippets within text.
 
     ```tsx
-    import { Code } from "@moto-ui/react";
+    import { Code } from "@elemnts-ui/react";
 
     export function App() {
       return (
@@ -252,7 +261,7 @@ description: All previous and current changes can be found here
     **Prose**: A styled container for rendering rich text and markdown content with typographic defaults.
 
     ```tsx
-    import { Prose } from "@moto-ui/react";
+    import { Prose } from "@elemnts-ui/react";
 
     export function App() {
       return (
@@ -268,7 +277,7 @@ description: All previous and current changes can be found here
     **Blockquote**: A compound component for displaying quoted content with citation and caption support.
 
     ```tsx
-    import { Blockquote } from "@moto-ui/react";
+    import { Blockquote } from "@elemnts-ui/react";
 
     export function App() {
       return (
@@ -290,7 +299,7 @@ description: All previous and current changes can be found here
     **Breadcrumb**: A compound navigation component that provides a trail of links for users to track their location.
 
     ```tsx
-    import { Breadcrumb } from "@moto-ui/react";
+    import { Breadcrumb } from "@elemnts-ui/react";
 
     export function App() {
       return (

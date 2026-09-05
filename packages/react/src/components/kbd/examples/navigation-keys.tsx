@@ -1,33 +1,21 @@
-import { Container, Kbd, KbdGroup } from "@moto-ui/react";
+import { Container, Kbd, KbdGroup } from "@elemnts-ui/react";
 
 export default function NavigationKeys() {
 	return (
-		<Container
-			maxW="24rem"
-			spaceY="8"
-		>
-			<KbdGroup
-				variant="secondary"
-				justify="center"
-			>
+		<Container maxW="24rem" spaceY="8">
+			<KbdGroup variant="secondary" justify="center">
 				<Kbd>↑</Kbd>
 				<Kbd>↓</Kbd>
 				<Kbd>←</Kbd>
 				<Kbd>→</Kbd>
 			</KbdGroup>
-			<KbdGroup
-				variant="secondary"
-				justify="center"
-			>
+			<KbdGroup variant="secondary" justify="center">
 				<Kbd>↵</Kbd>
 				<Kbd>⇧</Kbd>
 				<Kbd>⌥</Kbd>
 				<Kbd>⌘</Kbd>
 			</KbdGroup>
-			<KbdGroup
-				variant="secondary"
-				justify="center"
-			>
+			<KbdGroup variant="secondary" justify="center">
 				<Kbd>⇞</Kbd>
 				<Kbd>⇟</Kbd>
 				<Kbd>↖</Kbd>

@@ -1,4 +1,10 @@
-import { Chip, Container, Separator, Surface, Timeline } from "@moto-ui/react";
+import {
+	Chip,
+	Container,
+	Separator,
+	Surface,
+	Timeline,
+} from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -13,22 +19,13 @@ export default function Basic() {
 									<Separator orientation="vertical" />
 								</Timeline.Separator>
 								<Timeline.Indicator asChild>
-									<Chip
-										size="xs"
-										iconOnly
-										variant="secondary"
-									>
+									<Chip size="xs" iconOnly variant="secondary">
 										{idx + 1}
 									</Chip>
 								</Timeline.Indicator>
 							</Timeline.Connector>
 							<Timeline.Content>
-								<Surface
-									p="0"
-									delta={0}
-									rounded="0"
-									elevated={false}
-								>
+								<Surface p="0" delta={0} rounded="0" elevated={false}>
 									<Surface.Content gap="6">
 										<Surface.Title>{event.title}</Surface.Title>
 										<Surface.Description>

@@ -1,4 +1,4 @@
-import { Container, Table } from "@moto-ui/react";
+import { Container, Table } from "@elemnts-ui/react";
 
 const columns = ["Month", "Visitors", "Conversions", "Revenue"];
 const rows = [
@@ -32,10 +32,7 @@ export default function WithCaption() {
 	return (
 		<Container maxW="40rem">
 			<Table.Root>
-				<Table.Caption
-					textAlign="center"
-					mb="8"
-				>
+				<Table.Caption textAlign="center" mb="8">
 					Q1 2025 Performance Metrics
 				</Table.Caption>
 				<Table.Header>

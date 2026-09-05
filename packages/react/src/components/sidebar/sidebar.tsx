@@ -49,13 +49,7 @@ const SidebarRootBase = forwardRef<HTMLDivElement, SidebarRootBaseProps>(
 			onOpenChange,
 		});
 
-		return (
-			<SidebarRootProviderBase
-				ref={ref}
-				value={value}
-				{...restProps}
-			/>
-		);
+		return <SidebarRootProviderBase ref={ref} value={value} {...restProps} />;
 	},
 );
 
@@ -73,13 +67,7 @@ const SidebarTriggerBase = forwardRef<HTMLButtonElement, SidebarTriggerProps>(
 			onClick?.(e);
 		}
 
-		return (
-			<ark.button
-				ref={ref}
-				{...restProps}
-				onClick={handleClick}
-			/>
-		);
+		return <ark.button ref={ref} {...restProps} onClick={handleClick} />;
 	},
 );
 export const SidebarTrigger = withContext(SidebarTriggerBase, "trigger");

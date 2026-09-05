@@ -19,11 +19,6 @@ export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
 
 		const mergedProps = { ...baseVariantProps, ...props };
 
-		return (
-			<SeparatorBase
-				ref={ref}
-				{...mergedProps}
-			/>
-		);
+		return <SeparatorBase ref={ref} {...mergedProps} />;
 	},
 );

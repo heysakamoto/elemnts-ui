@@ -1,4 +1,4 @@
-import { Container, Tabs, Text } from "@moto-ui/react";
+import { Container, Tabs, Text } from "@elemnts-ui/react";
 
 const tabs = [
 	{
@@ -24,10 +24,7 @@ const tabs = [
 export default function Disabled() {
 	return (
 		<Container maxW="20rem">
-			<Tabs
-				gap="20"
-				defaultValue="overview"
-			>
+			<Tabs gap="20" defaultValue="overview">
 				<Tabs.List w="full">
 					<Tabs.Indicator />
 					{tabs.map((tab) => (
@@ -41,14 +38,8 @@ export default function Disabled() {
 					))}
 				</Tabs.List>
 				{tabs.map((tab) => (
-					<Tabs.Content
-						key={tab.value}
-						value={tab.value}
-					>
-						<Text
-							fontSize="14"
-							color="fg.secondary"
-						>
+					<Tabs.Content key={tab.value} value={tab.value}>
+						<Text fontSize="14" color="fg.secondary">
 							{tab.content}
 						</Text>
 					</Tabs.Content>

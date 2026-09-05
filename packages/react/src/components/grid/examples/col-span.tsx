@@ -1,11 +1,8 @@
-import { DecorativeBox, Grid, GridItem } from "@moto-ui/react";
+import { DecorativeBox, Grid, GridItem } from "@elemnts-ui/react";
 
 export default function ColSpan() {
 	return (
-		<Grid
-			gap="8"
-			cols="repeat(3, 1fr)"
-		>
+		<Grid gap="8" cols="repeat(3, 1fr)">
 			<GridItem column="span 2">
 				<DecorativeBox h="56" />
 			</GridItem>

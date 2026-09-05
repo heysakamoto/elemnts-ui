@@ -1,4 +1,4 @@
-import { Container, Field, Fieldset, Input, Stack } from "@moto-ui/react";
+import { Container, Field, Fieldset, Input, Stack } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -8,21 +8,14 @@ export default function Basic() {
 				<Fieldset.HelperText>
 					Please provide your contact information.
 				</Fieldset.HelperText>
-				<Stack
-					mt="12"
-					gap="12"
-					direction="column"
-				>
+				<Stack mt="12" gap="12" direction="column">
 					<Field>
 						<Field.Label>Name</Field.Label>
 						<Input placeholder="John Doe" />
 					</Field>
 					<Field>
 						<Field.Label>Email</Field.Label>
-						<Input
-							type="email"
-							placeholder="john@example.com"
-						/>
+						<Input type="email" placeholder="john@example.com" />
 					</Field>
 				</Stack>
 			</Fieldset>

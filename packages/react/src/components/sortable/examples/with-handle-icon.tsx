@@ -5,7 +5,7 @@ import {
 	Icon,
 	Sortable,
 	Text,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const items = [
 	{ id: "1", label: "Getting Started" },
@@ -18,10 +18,7 @@ const items = [
 export default function WithHandleIcon() {
 	return (
 		<Container maxW="20rem">
-			<Sortable
-				gap="8"
-				defaultValue={items}
-			>
+			<Sortable gap="8" defaultValue={items}>
 				{items.map((item, idx) => {
 					return (
 						<Sortable.Item
@@ -39,12 +36,7 @@ export default function WithHandleIcon() {
 								direction="row"
 							>
 								<Sortable.ItemHandle asChild>
-									<Button
-										iconOnly
-										size="sm"
-										rounded="full"
-										variant="ghost"
-									>
+									<Button iconOnly size="sm" rounded="full" variant="ghost">
 										<Icon
 											width={16}
 											height={16}
@@ -53,10 +45,7 @@ export default function WithHandleIcon() {
 										/>
 									</Button>
 								</Sortable.ItemHandle>
-								<Text
-									as="span"
-									fontSize="14"
-								>
+								<Text as="span" fontSize="14">
 									{item.label}
 								</Text>
 							</DecorativeBox>

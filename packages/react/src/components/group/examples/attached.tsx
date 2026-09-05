@@ -1,4 +1,4 @@
-import { Button, Group } from "@moto-ui/react";
+import { Button, Group } from "@elemnts-ui/react";
 
 export default function Attached() {
 	return (

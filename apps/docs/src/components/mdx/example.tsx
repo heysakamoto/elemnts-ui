@@ -6,7 +6,7 @@ import {
 	Show,
 	Surface,
 	useCollapsible,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { getExample } from "@/utils/examples";
@@ -26,12 +26,7 @@ export function Example(props: ExampleProps) {
 	const { example, source } = useExample(name);
 
 	return (
-		<Surface
-			mt="32"
-			delta={1}
-			rounded="16"
-			shadowLevel={0}
-		>
+		<Surface mt="32" delta={1} rounded="16" shadowLevel={0}>
 			<Surface.Content
 				p="24"
 				minH="20rem"
@@ -42,19 +37,9 @@ export function Example(props: ExampleProps) {
 			>
 				<Show when={example.data}>{(Example) => <Example />}</Show>
 				<Show when={!example.data && !example.isLoading}>
-					<Alert
-						py="8"
-						px="12"
-						w="fit"
-						delta={0}
-						status="warning"
-					>
+					<Alert py="8" px="12" w="fit" delta={0} status="warning">
 						<Alert.Indicator>
-							<Icon
-								width={16}
-								height={16}
-								icon="tabler:alert-triangle"
-							/>
+							<Icon width={16} height={16} icon="tabler:alert-triangle" />
 						</Alert.Indicator>
 						<Alert.Content>
 							<Alert.Title fontSize="14">Component not found.</Alert.Title>
@@ -63,10 +48,7 @@ export function Example(props: ExampleProps) {
 				</Show>
 			</Surface.Content>
 			<Show when={!hideCode}>
-				<Separator
-					orientation="horizontal"
-					variant="tertiary"
-				/>
+				<Separator orientation="horizontal" variant="tertiary" />
 				<Surface.Footer position="relative">
 					<ButtonGroup
 						p="2"
@@ -108,10 +90,7 @@ export function Example(props: ExampleProps) {
 						bgColor="surface.7"
 						{...collapsible.getContentProps()}
 					>
-						<DynamicCode
-							code={source.data ?? ""}
-							lang="tsx"
-						/>
+						<DynamicCode code={source.data ?? ""} lang="tsx" />
 					</Surface.Addon>
 				</Surface.Footer>
 			</Show>

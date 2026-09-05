@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, Table } from "@moto-ui/react";
+import { Container, Table } from "@elemnts-ui/react";
 import { useState } from "react";
 
 const columns = ["Name", "Role", "Department"];

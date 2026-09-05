@@ -7,7 +7,7 @@ import {
 	Listbox,
 	Surface,
 	useListboxItemContext,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const collection = createListCollection({
 	items: [
@@ -39,21 +39,10 @@ export default function WithCheckmark() {
 		<Container maxW="10rem">
 			<Listbox collection={collection as any}>
 				<Listbox.Content asChild>
-					<Surface
-						delta={1}
-						rounded="14"
-					>
-						<Surface.Content
-							p="4"
-							gap="2"
-						>
+					<Surface delta={1} rounded="14">
+						<Surface.Content p="4" gap="2">
 							{collection.items.map((item) => {
-								return (
-									<ListboxItem
-										key={item.id}
-										item={item}
-									/>
-								);
+								return <ListboxItem key={item.id} item={item} />;
 							})}
 						</Surface.Content>
 					</Surface>
@@ -67,11 +56,7 @@ function ListboxItem(props: { item: (typeof collection.items)[number] }) {
 	const { item } = props;
 
 	return (
-		<Listbox.Item
-			key={item.id}
-			item={item}
-			asChild
-		>
+		<Listbox.Item key={item.id} item={item} asChild>
 			<Item variant="secondary">
 				<ListboxItemCheckmark />
 				<Listbox.ItemText>{item.label}</Listbox.ItemText>
@@ -90,11 +75,7 @@ function ListboxItemCheckmark() {
 			checked={context.selected}
 			disabled={context.disabled}
 		>
-			<Icon
-				icon="tabler:check"
-				width={12}
-				height={12}
-			/>
+			<Icon icon="tabler:check" width={12} height={12} />
 		</Checkmark>
 	);
 }

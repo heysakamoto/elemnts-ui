@@ -1,4 +1,4 @@
-import { Button, Drawer, Portal, Surface } from "@moto-ui/react";
+import { Button, Drawer, Portal, Surface } from "@elemnts-ui/react";
 import { Fragment, useState } from "react";
 
 export default function Controlled() {
@@ -6,25 +6,15 @@ export default function Controlled() {
 
 	return (
 		<Fragment>
-			<Button
-				size="sm"
-				variant="surface"
-				onClick={() => setOpen(true)}
-			>
+			<Button size="sm" variant="surface" onClick={() => setOpen(true)}>
 				Open
 			</Button>
-			<Drawer
-				open={open}
-				onOpenChange={(details) => setOpen(details.open)}
-			>
+			<Drawer open={open} onOpenChange={(details) => setOpen(details.open)}>
 				<Portal>
 					<Drawer.Backdrop />
 					<Drawer.Positioner>
 						<Drawer.Content asChild>
-							<Surface
-								delta={1}
-								roundedTop="16"
-							>
+							<Surface delta={1} roundedTop="16">
 								<Drawer.Grabber>
 									<Drawer.GrabberIndicator />
 								</Drawer.Grabber>

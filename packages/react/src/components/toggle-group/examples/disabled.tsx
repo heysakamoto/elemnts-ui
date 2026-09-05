@@ -1,4 +1,4 @@
-import { Icon, Item, ToggleGroup } from "@moto-ui/react";
+import { Icon, Item, ToggleGroup } from "@elemnts-ui/react";
 
 export default function Disabled() {
 	return (
@@ -9,39 +9,18 @@ export default function Disabled() {
 
 					return (
 						<>
-							<Item
-								asChild
-								iconOnly
-								selected={isActive("bold")}
-							>
-								<ToggleGroup.Item
-									value="bold"
-									aria-label="bold"
-								>
+							<Item asChild iconOnly selected={isActive("bold")}>
+								<ToggleGroup.Item value="bold" aria-label="bold">
 									<Icon icon="tabler:bold" />
 								</ToggleGroup.Item>
 							</Item>
-							<Item
-								asChild
-								iconOnly
-								selected={isActive("italic")}
-							>
-								<ToggleGroup.Item
-									value="italic"
-									aria-label="Italic"
-								>
+							<Item asChild iconOnly selected={isActive("italic")}>
+								<ToggleGroup.Item value="italic" aria-label="Italic">
 									<Icon icon="tabler:italic" />
 								</ToggleGroup.Item>
 							</Item>
-							<Item
-								asChild
-								iconOnly
-								selected={isActive("underline")}
-							>
-								<ToggleGroup.Item
-									value="underline"
-									aria-label="Underline"
-								>
+							<Item asChild iconOnly selected={isActive("underline")}>
+								<ToggleGroup.Item value="underline" aria-label="Underline">
 									<Icon icon="tabler:underline" />
 								</ToggleGroup.Item>
 							</Item>

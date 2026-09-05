@@ -1,4 +1,4 @@
-import { Container, Icon, Item } from "@moto-ui/react";
+import { Container, Icon, Item } from "@elemnts-ui/react";
 import { useState } from "react";
 
 export default function Basic() {
@@ -10,16 +10,8 @@ export default function Basic() {
 
 	return (
 		<Container maxW="20rem">
-			<Item
-				selected={selected}
-				onClick={toggle}
-			>
-				<Icon
-					ml="-6"
-					width={16}
-					height={16}
-					icon="tabler:settings"
-				/>
+			<Item selected={selected} onClick={toggle}>
+				<Icon ml="-6" width={16} height={16} icon="tabler:settings" />
 				Configuration
 			</Item>
 		</Container>

@@ -17,16 +17,9 @@ SkipNavRoot.displayName = "SkipNavRoot";
 type SkipNavLinkProps = HTMLArkProps<"a">;
 export const SkipNavLink = withContext(
 	forwardRef<HTMLAnchorElement, SkipNavLinkProps>((props, ref) => {
-		const { id = "moto-skip-nav", ...restProps } = props;
+		const { id = "Elemnts-skip-nav", ...restProps } = props;
 
-		return (
-			<ark.a
-				id={id}
-				ref={ref}
-				href={`#${id}`}
-				{...restProps}
-			/>
-		);
+		return <ark.a id={id} ref={ref} href={`#${id}`} {...restProps} />;
 	}),
 	"link",
 	{
@@ -42,16 +35,9 @@ SkipNavLink.displayName = "SkipNavLink";
 type SkipNavContentProps = HTMLArkProps<"div">;
 export const SkipNavContent = withContext(
 	forwardRef<HTMLDivElement, SkipNavContentProps>((props, ref) => {
-		const { id = "moto-skip-nav", ...restProps } = props;
+		const { id = "Elemnts-skip-nav", ...restProps } = props;
 
-		return (
-			<ark.div
-				id={id}
-				ref={ref}
-				tabIndex={-1}
-				{...restProps}
-			/>
-		);
+		return <ark.div id={id} ref={ref} tabIndex={-1} {...restProps} />;
 	}),
 	"content",
 	{

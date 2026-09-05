@@ -1,4 +1,4 @@
-import { Container, DateInput, InputGroup } from "@moto-ui/react";
+import { Container, DateInput, InputGroup } from "@elemnts-ui/react";
 
 export default function Disabled() {
 	return (

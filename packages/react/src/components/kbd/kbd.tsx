@@ -21,11 +21,6 @@ export const Kbd = forwardRef<HTMLDivElement, KbdProps>((props, ref) => {
 		...props,
 	};
 
-	return (
-		<KbdBase
-			ref={ref}
-			{...mergedProps}
-		/>
-	);
+	return <KbdBase ref={ref} {...mergedProps} />;
 });
 Kbd.displayName = "Kbd";

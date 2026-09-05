@@ -1,4 +1,4 @@
-import { Container, Locale, Text, useLocaleContext } from "@moto-ui/react";
+import { Container, Locale, Text, useLocaleContext } from "@elemnts-ui/react";
 
 export default function RTL() {
 	return (

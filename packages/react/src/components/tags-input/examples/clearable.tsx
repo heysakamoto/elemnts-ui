@@ -6,17 +6,13 @@ import {
 	Surface,
 	Tag,
 	TagsInput,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 export default function Clearable() {
 	return (
 		<Container maxW="24rem">
 			<TagsInput.Root defaultValue={["Mango", "Apple", "Orange"]}>
-				<InputGroup
-					p="4"
-					h="auto"
-					rounded="10"
-				>
+				<InputGroup p="4" h="auto" rounded="10">
 					<TagsInput.Control gap="4">
 						<TagsInput.Context>
 							{({ value }) =>
@@ -28,26 +24,14 @@ export default function Clearable() {
 										value={item}
 									>
 										<Surface asChild>
-											<Tag
-												size="xs"
-												variant="secondary"
-											>
+											<Tag size="xs" variant="secondary">
 												<TagsInput.ItemPreview>
 													<TagsInput.ItemText fontSize="14">
 														{item}
 													</TagsInput.ItemText>
 													<TagsInput.ItemDeleteTrigger asChild>
-														<Button
-															mr="-8"
-															iconOnly
-															size="2xs"
-															variant="ghost"
-														>
-															<Icon
-																icon="tabler:x"
-																width={14}
-																height={14}
-															/>
+														<Button mr="-8" iconOnly size="2xs" variant="ghost">
+															<Icon icon="tabler:x" width={14} height={14} />
 														</Button>
 													</TagsInput.ItemDeleteTrigger>
 												</TagsInput.ItemPreview>
@@ -59,24 +43,13 @@ export default function Clearable() {
 							}
 						</TagsInput.Context>
 						<TagsInput.Input asChild>
-							<InputGroup.Input
-								fontSize="14"
-								placeholder="Add..."
-							/>
+							<InputGroup.Input fontSize="14" placeholder="Add..." />
 						</TagsInput.Input>
 					</TagsInput.Control>
 				</InputGroup>
 				<TagsInput.ClearTrigger asChild>
-					<Button
-						size="sm"
-						variant="surface"
-						fullWidth
-					>
-						<Icon
-							icon="tabler:clear-all"
-							width={16}
-							height={16}
-						/>
+					<Button size="sm" variant="surface" fullWidth>
+						<Icon icon="tabler:clear-all" width={16} height={16} />
 						Clear
 					</Button>
 				</TagsInput.ClearTrigger>

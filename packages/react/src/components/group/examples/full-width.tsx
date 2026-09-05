@@ -1,4 +1,4 @@
-import { Button, Container, Group } from "@moto-ui/react";
+import { Button, Container, Group } from "@elemnts-ui/react";
 
 export default function FullWidth() {
 	return (

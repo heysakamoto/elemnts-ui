@@ -1,4 +1,4 @@
-import { Container, SegmentGroup, Stack, Tabs, Text } from "@moto-ui/react";
+import { Container, SegmentGroup, Stack, Tabs, Text } from "@elemnts-ui/react";
 import { useState } from "react";
 
 const tabs = [
@@ -27,11 +27,7 @@ export default function Variants() {
 
 	return (
 		<Container maxW="20rem">
-			<Stack
-				direction="column"
-				align="center"
-				gap="20"
-			>
+			<Stack direction="column" align="center" gap="20">
 				<SegmentGroup
 					fontFamily="mono"
 					orientation="horizontal"
@@ -43,42 +39,25 @@ export default function Variants() {
 				>
 					<SegmentGroup.Indicator />
 					{variants.map((variant) => (
-						<SegmentGroup.Item
-							key={variant}
-							value={variant}
-						>
+						<SegmentGroup.Item key={variant} value={variant}>
 							<SegmentGroup.ItemText>{variant}</SegmentGroup.ItemText>
 							<SegmentGroup.ItemHiddenInput />
 						</SegmentGroup.Item>
 					))}
 				</SegmentGroup>
 
-				<Tabs
-					gap="20"
-					defaultValue="overview"
-					variant={value as Variant}
-				>
+				<Tabs gap="20" defaultValue="overview" variant={value as Variant}>
 					<Tabs.List w="full">
 						<Tabs.Indicator />
 						{tabs.map((tab) => (
-							<Tabs.Trigger
-								key={tab.value}
-								value={tab.value}
-							>
+							<Tabs.Trigger key={tab.value} value={tab.value}>
 								{tab.label}
 							</Tabs.Trigger>
 						))}
 					</Tabs.List>
 					{tabs.map((tab) => (
-						<Tabs.Content
-							key={tab.value}
-							value={tab.value}
-						>
-							<Text
-								fontSize="14"
-								color="fg.secondary"
-								textAlign="center"
-							>
+						<Tabs.Content key={tab.value} value={tab.value}>
+							<Text fontSize="14" color="fg.secondary" textAlign="center">
 								{tab.content}
 							</Text>
 						</Tabs.Content>

@@ -1,4 +1,4 @@
-import { Container, Input } from "@moto-ui/react";
+import { Container, Input } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

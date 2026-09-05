@@ -1,4 +1,4 @@
-import { Container, For, Kbd, KbdGroup } from "@moto-ui/react";
+import { Container, For, Kbd, KbdGroup } from "@elemnts-ui/react";
 
 const variants = [
 	"primary",
@@ -14,10 +14,7 @@ export default function Variants() {
 			<KbdGroup justify="center">
 				<For each={variants}>
 					{(variant) => (
-						<Kbd
-							key={variant}
-							variant={variant}
-						>
+						<Kbd key={variant} variant={variant}>
 							⌘ K
 						</Kbd>
 					)}

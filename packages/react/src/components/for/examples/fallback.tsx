@@ -1,4 +1,4 @@
-import { For, Text } from "@moto-ui/react";
+import { For, Text } from "@elemnts-ui/react";
 
 export default function Fallback() {
 	const items: string[] = [];

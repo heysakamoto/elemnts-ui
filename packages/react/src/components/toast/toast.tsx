@@ -57,44 +57,13 @@ export const Toast = Object.assign(ToastRoot, {
 });
 
 const ICON_MAP: Record<string, any> = {
-	info: (
-		<Icon
-			icon="tabler:info-circle-filled"
-			width={20}
-			height={20}
-		/>
-	),
-	error: (
-		<Icon
-			icon="tabler:circle-x-filled"
-			width={20}
-			height={20}
-		/>
-	),
-	success: (
-		<Icon
-			icon="tabler:circle-check-filled"
-			width={20}
-			height={20}
-		/>
-	),
-	warning: (
-		<Icon
-			icon="tabler:alert-hexagon-filled"
-			width={20}
-			height={20}
-		/>
-	),
+	info: <Icon icon="tabler:info-circle-filled" width={20} height={20} />,
+	error: <Icon icon="tabler:circle-x-filled" width={20} height={20} />,
+	success: <Icon icon="tabler:circle-check-filled" width={20} height={20} />,
+	warning: <Icon icon="tabler:alert-hexagon-filled" width={20} height={20} />,
 	loading: (
-		<Spinner
-			size="md"
-			color="icon.secondary"
-		>
-			<Icon
-				icon="tabler:loader-2"
-				width={20}
-				height={20}
-			/>
+		<Spinner size="md" color="icon.secondary">
+			<Icon icon="tabler:loader-2" width={20} height={20} />
 		</Spinner>
 	),
 	custom: null,

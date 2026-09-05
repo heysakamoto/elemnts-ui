@@ -1,4 +1,4 @@
-import { Avatar, Container, For, Stack } from "@moto-ui/react";
+import { Avatar, Container, For, Stack } from "@elemnts-ui/react";
 
 const variants = [
 	"primary",
@@ -11,17 +11,10 @@ const variants = [
 export default function Variants() {
 	return (
 		<Container>
-			<Stack
-				gap="8"
-				align="center"
-				justify="center"
-			>
+			<Stack gap="8" align="center" justify="center">
 				<For each={variants}>
 					{(variant) => (
-						<Avatar
-							key={variant}
-							variant={variant}
-						>
+						<Avatar key={variant} variant={variant}>
 							<Avatar.Fallback fontSize="13">Bo</Avatar.Fallback>
 						</Avatar>
 					)}

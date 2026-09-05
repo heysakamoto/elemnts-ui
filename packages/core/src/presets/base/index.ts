@@ -5,7 +5,7 @@ import { config, theme } from "../../registry";
 const basePreset = definePreset({
 	theme,
 	...config,
-	name: "@moto-ui/preset-base",
+	name: "@elemnts-ui/preset-base",
 	presets: ["@pandacss/preset-base"],
 });
 

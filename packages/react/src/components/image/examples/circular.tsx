@@ -1,4 +1,4 @@
-import { Image } from "@moto-ui/react";
+import { Image } from "@elemnts-ui/react";
 
 export default function Circular() {
 	return (

@@ -1,4 +1,4 @@
-import { Container, Tabs, Text } from "@moto-ui/react";
+import { Container, Tabs, Text } from "@elemnts-ui/react";
 
 const tabs = [
 	{
@@ -21,31 +21,18 @@ const tabs = [
 export default function Vertical() {
 	return (
 		<Container maxW="20rem">
-			<Tabs
-				gap="20"
-				defaultValue="overview"
-				orientation="vertical"
-			>
+			<Tabs gap="20" defaultValue="overview" orientation="vertical">
 				<Tabs.List>
 					<Tabs.Indicator />
 					{tabs.map((tab) => (
-						<Tabs.Trigger
-							key={tab.value}
-							value={tab.value}
-						>
+						<Tabs.Trigger key={tab.value} value={tab.value}>
 							{tab.label}
 						</Tabs.Trigger>
 					))}
 				</Tabs.List>
 				{tabs.map((tab) => (
-					<Tabs.Content
-						key={tab.value}
-						value={tab.value}
-					>
-						<Text
-							fontSize="14"
-							color="fg.secondary"
-						>
+					<Tabs.Content key={tab.value} value={tab.value}>
+						<Text fontSize="14" color="fg.secondary">
 							{tab.content}
 						</Text>
 					</Tabs.Content>

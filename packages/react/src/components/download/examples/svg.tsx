@@ -1,4 +1,4 @@
-import { Button, Download } from "@moto-ui/react";
+import { Button, Download } from "@elemnts-ui/react";
 
 const data = `
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">

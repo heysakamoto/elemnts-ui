@@ -1,4 +1,4 @@
-import { Box } from "@moto-ui/react";
+import { Box } from "@elemnts-ui/react";
 import type { PropsWithChildren } from "react";
 
 import { RootLayoutFooter } from "./footer";

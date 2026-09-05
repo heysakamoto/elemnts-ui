@@ -1,4 +1,4 @@
-import { Avatar, Badge } from "@moto-ui/react";
+import { Avatar, Badge } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

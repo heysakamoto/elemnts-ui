@@ -5,7 +5,7 @@ import { Landing } from "@/features/landing";
 export const Route = createFileRoute("/_root/")({
 	component: App,
 	head: () => ({
-		meta: [{ title: "Moto UI | High-Performance, Accessible Components" }],
+		meta: [{ title: "Elemnts UI | High-Performance, Accessible Components" }],
 	}),
 });
 

@@ -1,4 +1,4 @@
-import { Status } from "@moto-ui/react";
+import { Status } from "@elemnts-ui/react";
 
 export default function OnlyIndicator() {
 	return (

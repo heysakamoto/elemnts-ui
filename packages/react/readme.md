@@ -1,6 +1,6 @@
-# 🏎️ @moto-ui/react
+# 🏎️ @elemnts-ui/react
 
-**@moto-ui/react** is the core component library of the Moto UI design system. It combines headless interactive accessibility powered by **Ark UI** with styling capabilities provided by **Panda CSS** build-time CSS-in-JS.
+**@elemnts-ui/react** is the core component library of the Elemnts UI design system. It combines headless interactive accessibility powered by **Ark UI** with styling capabilities provided by **Panda CSS** build-time CSS-in-JS.
 
 Designed for speed, scalability, and flexibility, it features 90+ primitives crafted to help you construct custom web applications with complete control.
 
@@ -18,21 +18,21 @@ Designed for speed, scalability, and flexibility, it features 90+ primitives cra
 
 ## 📦 Installation
 
-To use Moto UI components, install the library, preset-base, and styled-system dependencies:
+To use Elemnts UI components, install the library, preset-base, and styled-system dependencies:
 
 ### Install Dependencies
 
 ```bash
-pnpm add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
+pnpm add @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
 pnpm add -D @pandacss/dev
 # or
-yarn add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
+yarn add @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
 yarn add -D @pandacss/dev
 # or
-npm install @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
+npm install @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
 npm install -D @pandacss/dev
 # or
-bun add @moto-ui/react @moto-ui/preset-base @moto-ui/styled-system && 
+bun add @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
 bun add -D @pandacss/dev
 ```
 
@@ -52,7 +52,7 @@ Add this to your `panda.config.ts` file:
 
 ```ts
 import { defineConfig } from '@pandacss/dev';
-import { basePreset } from '@moto-ui/preset-base';
+import { basePreset } from '@elemnts-ui/preset-base';
 
 export default defineConfig({
   eject: true,
@@ -63,7 +63,7 @@ export default defineConfig({
    // Path to your source files
   include: [
     "./src/**/*.{ts,tsx}", 
-    "node_modules/@moto-ui/react/dist/buildinfo.json",
+    "node_modules/@elemnts-ui/react/dist/buildinfo.json",
   ],
 });
 ```
@@ -95,7 +95,7 @@ Add the following scripts to your `package.json` file:
 Import and render components with built-in styling recipes:
 
 ```tsx
-import { Button } from '@moto-ui/react';
+import { Button } from '@elemnts-ui/react';
 
 function App() {
   return (
@@ -111,17 +111,17 @@ function App() {
 For complex structures, use compound component children to structure the layout to your exact specification:
 
 ```tsx
-import { Accordion } from '@moto-ui/react';
+import { Accordion } from '@elemnts-ui/react';
 
 function App() {
   return (
     <Accordion defaultValue={['features']}>
       <Accordion.Item value="features">
         <Accordion.ItemTrigger>
-          What makes Moto UI fast?
+          What makes Elemnts UI fast?
         </Accordion.ItemTrigger>
         <Accordion.ItemContent>
-          Moto UI extracts styling definitions into static CSS during compilation,
+          Elemnts UI extracts styling definitions into static CSS during compilation,
           ensuring zero runtime JS execution overhead for CSS styles.
         </Accordion.ItemContent>
       </Accordion.Item>
@@ -134,4 +134,4 @@ function App() {
 
 ## 📄 License
 
-Part of the Moto UI workspace. Distributed under the MIT License. See repository `LICENSE` for details.
+Part of the Elemnts UI workspace. Distributed under the MIT License. See repository `LICENSE` for details.

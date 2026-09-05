@@ -14,7 +14,7 @@ import {
 	Tabs,
 	Text,
 	Tile,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
@@ -39,10 +39,7 @@ export function SponsorHero() {
 
 	return (
 		<Section pt={["3rem", "4rem"]}>
-			<Container
-				maxW="32rem"
-				px="16"
-			>
+			<Container maxW="32rem" px="16">
 				<Text
 					as="h1"
 					textAlign="center"
@@ -51,37 +48,18 @@ export function SponsorHero() {
 				>
 					Sponsor this project
 				</Text>
-				<Text
-					mt="8"
-					textAlign="center"
-				>
+				<Text mt="8" textAlign="center">
 					Sponsors receive prominent homepage visibility, a dedicated mention in
 					our readme.md and sponsors page, and priority, complimentary support
 					directly from the team.
 				</Text>
-				<Tabs
-					mt="32"
-					size="sm"
-					defaultValue={PRODUCTS[0]?.id}
-				>
-					<Tabs.List
-						p="1"
-						w="full"
-						rounded="9"
-						bgColor="neutral.secondary"
-					>
+				<Tabs mt="32" size="sm" defaultValue={PRODUCTS[0]?.id}>
+					<Tabs.List p="1" w="full" rounded="9" bgColor="neutral.secondary">
 						<Tabs.Indicator />
 						<For each={PRODUCTS}>
 							{(category) => (
-								<Tabs.Trigger
-									value={category.id}
-									key={category.id}
-								>
-									<Icon
-										icon={category.icon}
-										width={16}
-										height={16}
-									/>
+								<Tabs.Trigger value={category.id} key={category.id}>
+									<Icon icon={category.icon} width={16} height={16} />
 									{category.label}
 								</Tabs.Trigger>
 							)}
@@ -89,11 +67,7 @@ export function SponsorHero() {
 					</Tabs.List>
 					<For each={PRODUCTS}>
 						{(category) => (
-							<Tabs.Content
-								key={category.id}
-								value={category.id}
-								mt="16"
-							>
+							<Tabs.Content key={category.id} value={category.id} mt="16">
 								<RadioGroup gap="32">
 									<Grid
 										gap="16"
@@ -135,29 +109,20 @@ export function SponsorHero() {
 																<Tile.Title color="fg.secondary">
 																	{product.label}
 																</Tile.Title>
-																<Tile.Title
-																	mt="8"
-																	fontSize={[18, 20]}
-																>
+																<Tile.Title mt="8" fontSize={[18, 20]}>
 																	{product.price} USD
 																</Tile.Title>
 																<Show
 																	when={category.id === "recurring"}
 																	fallback={
-																		<Tile.Description
-																			mt="8"
-																			fontSize="14"
-																		>
+																		<Tile.Description mt="8" fontSize="14">
 																			Pay{" "}
 																			<Format.Number value={product.price} />{" "}
 																			USD
 																		</Tile.Description>
 																	}
 																>
-																	<Tile.Description
-																		mt="8"
-																		fontSize="14"
-																	>
+																	<Tile.Description mt="8" fontSize="14">
 																		<Format.Number value={product.price * 12} />{" "}
 																		USD yearly
 																	</Tile.Description>
@@ -194,11 +159,7 @@ export function SponsorHero() {
 						)}
 					</For>
 					<Show when={isError}>
-						<Alert
-							status="destructive"
-							mt="20"
-							w="full"
-						>
+						<Alert status="destructive" mt="20" w="full">
 							<Alert.Title>Checkout failed. Please try again.</Alert.Title>
 						</Alert>
 					</Show>

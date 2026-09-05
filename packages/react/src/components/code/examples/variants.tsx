@@ -1,4 +1,4 @@
-import { Code, Container, For, Stack } from "@moto-ui/react";
+import { Code, Container, For, Stack } from "@elemnts-ui/react";
 
 const variants = [
 	"primary",
@@ -11,19 +11,10 @@ const variants = [
 export default function Variants() {
 	return (
 		<Container>
-			<Stack
-				wrap="wrap"
-				gap="8"
-				align="center"
-				justify="center"
-			>
+			<Stack wrap="wrap" gap="8" align="center" justify="center">
 				<For each={variants}>
 					{(variant) => (
-						<Code
-							size="sm"
-							variant={variant}
-							key={variant}
-						>
+						<Code size="sm" variant={variant} key={variant}>
 							Code
 						</Code>
 					)}

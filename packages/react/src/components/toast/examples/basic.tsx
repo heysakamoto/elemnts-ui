@@ -1,4 +1,4 @@
-import { Button, createToaster, Toaster } from "@moto-ui/react";
+import { Button, createToaster, Toaster } from "@elemnts-ui/react";
 
 const toaster = createToaster({
 	placement: "top",

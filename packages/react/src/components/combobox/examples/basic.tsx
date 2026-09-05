@@ -8,7 +8,7 @@ import {
 	Surface,
 	useFilter,
 	useListCollection,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 const items = [
 	{
@@ -51,39 +51,21 @@ export default function Basic() {
 				<Combobox.Control>
 					<InputGroup>
 						<Combobox.Input asChild>
-							<InputGroup.Input
-								placeholder="Type to search..."
-								fontSize="14"
-							/>
+							<InputGroup.Input placeholder="Type to search..." fontSize="14" />
 						</Combobox.Input>
 						<InputGroup.Addon>
-							<Icon
-								icon="tabler:chevron-down"
-								width={16}
-								height={16}
-							/>
+							<Icon icon="tabler:chevron-down" width={16} height={16} />
 						</InputGroup.Addon>
 					</InputGroup>
 				</Combobox.Control>
 				<Portal>
 					<Combobox.Positioner>
 						<Combobox.Content asChild>
-							<Surface
-								delta={1}
-								rounded="14"
-								colorPalette="neutral"
-							>
-								<Surface.Content
-									p="4"
-									gap="2"
-								>
+							<Surface delta={1} rounded="14" colorPalette="neutral">
+								<Surface.Content p="4" gap="2">
 									{collection.items.map((item) => {
 										return (
-											<Combobox.Item
-												asChild
-												item={item}
-												key={item.id}
-											>
+											<Combobox.Item asChild item={item} key={item.id}>
 												<Item variant="secondary">
 													<Combobox.ItemText>{item.label}</Combobox.ItemText>
 												</Item>

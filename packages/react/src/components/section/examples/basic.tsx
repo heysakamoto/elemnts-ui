@@ -1,4 +1,4 @@
-import { DecorativeBox, Section } from "@moto-ui/react";
+import { DecorativeBox, Section } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

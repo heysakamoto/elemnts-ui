@@ -1,4 +1,4 @@
-import { SegmentGroup } from "@moto-ui/react";
+import { SegmentGroup } from "@elemnts-ui/react";
 
 export default function Vertical() {
 	const options = [
@@ -8,16 +8,10 @@ export default function Vertical() {
 	];
 
 	return (
-		<SegmentGroup.Root
-			defaultValue="1"
-			orientation="vertical"
-		>
+		<SegmentGroup.Root defaultValue="1" orientation="vertical">
 			<SegmentGroup.Indicator />
 			{options.map((option) => (
-				<SegmentGroup.Item
-					key={option.value}
-					value={option.value}
-				>
+				<SegmentGroup.Item key={option.value} value={option.value}>
 					<SegmentGroup.ItemText>{option.label}</SegmentGroup.ItemText>
 					<SegmentGroup.ItemHiddenInput />
 				</SegmentGroup.Item>

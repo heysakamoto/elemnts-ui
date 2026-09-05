@@ -1,4 +1,4 @@
-import { Collapsible, Container, Stack, Text } from "@moto-ui/react";
+import { Collapsible, Container, Stack, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
@@ -9,14 +9,8 @@ export default function Basic() {
 					<Collapsible.Indicator />
 				</Collapsible.Trigger>
 				<Collapsible.Content>
-					<Stack
-						p="12"
-						pt="4"
-					>
-						<Text
-							fontSize="14"
-							color="fg.secondary"
-						>
+					<Stack p="12" pt="4">
+						<Text fontSize="14" color="fg.secondary">
 							A collapsible with animated expansion, collapse, and chevron
 							rotation.
 						</Text>

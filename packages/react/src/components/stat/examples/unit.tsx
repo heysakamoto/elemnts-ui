@@ -1,11 +1,8 @@
-import { Stat } from "@moto-ui/react";
+import { Stat } from "@elemnts-ui/react";
 
 export default function Unit() {
 	return (
-		<Stat
-			flex="0"
-			align="center"
-		>
+		<Stat flex="0" align="center">
 			<Stat.Label>Storage used</Stat.Label>
 			<Stat.ValueText>
 				12.4

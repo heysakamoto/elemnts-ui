@@ -8,7 +8,7 @@ import {
 	Separator,
 	Surface,
 	VisuallyHidden,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 import { Fragment } from "react";
 
@@ -53,10 +53,7 @@ export function Logo() {
 	return (
 		<Menu>
 			<Menu.ContextTrigger asChild>
-				<Link
-					to="/"
-					className={css({ flexShrink: 0, w: "fit" })}
-				>
+				<Link to="/" className={css({ flexShrink: 0, w: "fit" })}>
 					<VisuallyHidden>Home</VisuallyHidden>
 					<Image
 						w="104"
@@ -78,10 +75,7 @@ export function Logo() {
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content asChild>
-						<Surface
-							colorPalette="neutral"
-							rounded="24"
-						>
+						<Surface colorPalette="neutral" rounded="24">
 							<Surface.Content>
 								<For each={options}>
 									{(option) => (

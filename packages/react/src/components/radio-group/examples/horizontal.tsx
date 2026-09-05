@@ -1,4 +1,4 @@
-import { RadioGroup } from "@moto-ui/react";
+import { RadioGroup } from "@elemnts-ui/react";
 
 export default function Horizontal() {
 	const options = [
@@ -8,15 +8,9 @@ export default function Horizontal() {
 	];
 
 	return (
-		<RadioGroup.Root
-			defaultValue="react"
-			orientation="horizontal"
-		>
+		<RadioGroup.Root defaultValue="react" orientation="horizontal">
 			{options.map((option) => (
-				<RadioGroup.Item
-					key={option.value}
-					value={option.value}
-				>
+				<RadioGroup.Item key={option.value} value={option.value}>
 					<RadioGroup.ItemControl />
 					<RadioGroup.ItemText>{option.label}</RadioGroup.ItemText>
 					<RadioGroup.ItemHiddenInput />

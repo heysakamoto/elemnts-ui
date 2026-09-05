@@ -8,7 +8,7 @@ import {
 	Portal,
 	Surface,
 	VisuallyHidden,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 
 import { ROOTLAYOUT_URLS } from "./constants";
@@ -17,29 +17,16 @@ export function RootLayoutMobileNav() {
 	return (
 		<Dialog placement="bottom">
 			<Dialog.Trigger asChild>
-				<Button
-					size="sm"
-					iconOnly
-					hideFrom="md"
-					variant="surface"
-				>
+				<Button size="sm" iconOnly hideFrom="md" variant="surface">
 					<VisuallyHidden>Open mobile menu</VisuallyHidden>
-					<Icon
-						width={16}
-						height={16}
-						icon="tabler:menu"
-					/>
+					<Icon width={16} height={16} icon="tabler:menu" />
 				</Button>
 			</Dialog.Trigger>
 			<Portal>
 				<Dialog.Positioner>
 					<Dialog.Backdrop />
 					<Dialog.Content asChild>
-						<Surface
-							delta={1}
-							rounded="24"
-							colorPalette="neutral"
-						>
+						<Surface delta={1} rounded="24" colorPalette="neutral">
 							<Surface.Content p="8">
 								<Group orientation="vertical">
 									<For each={ROOTLAYOUT_URLS}>
@@ -53,10 +40,7 @@ export function RootLayoutMobileNav() {
 												fontWeight="medium"
 												variant="secondary"
 											>
-												<Link
-													to={url.url}
-													target="_blank"
-												>
+												<Link to={url.url} target="_blank">
 													{url.label}
 												</Link>
 											</Item>

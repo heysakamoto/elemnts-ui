@@ -1,4 +1,4 @@
-import { Icon, Item, Menu, Separator, Surface } from "@moto-ui/react";
+import { Icon, Item, Menu, Separator, Surface } from "@elemnts-ui/react";
 import { Fragment } from "react";
 
 const groups = {
@@ -48,11 +48,7 @@ export default function Group() {
 	return (
 		<Menu open>
 			<Menu.Content asChild>
-				<Surface
-					delta={1}
-					w="12rem"
-					rounded="14"
-				>
+				<Surface delta={1} w="12rem" rounded="14">
 					<Surface.Content gap="2">
 						{Object.entries(groups).map(([label, items], index, array) => {
 							const isLastGroup = index === array.length - 1;
@@ -60,19 +56,12 @@ export default function Group() {
 							return (
 								<Fragment key={label}>
 									<Menu.ItemGroup p="4">
-										<Menu.ItemGroupLabel
-											px="12"
-											textTransform="capitalize"
-										>
+										<Menu.ItemGroupLabel px="12" textTransform="capitalize">
 											{label}
 										</Menu.ItemGroupLabel>
 										{items.map((item) => {
 											return (
-												<Menu.Item
-													key={item.id}
-													value={item.value}
-													asChild
-												>
+												<Menu.Item key={item.id} value={item.value} asChild>
 													<Item variant="secondary">
 														<Icon
 															ml="-6"

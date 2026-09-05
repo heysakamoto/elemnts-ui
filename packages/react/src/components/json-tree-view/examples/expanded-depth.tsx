@@ -1,4 +1,4 @@
-import { Container, Icon, JsonTreeView } from "@moto-ui/react";
+import { Container, Icon, JsonTreeView } from "@elemnts-ui/react";
 
 export default function ExpandedDepth() {
 	const data = {
@@ -13,18 +13,9 @@ export default function ExpandedDepth() {
 
 	return (
 		<Container maxW="24rem">
-			<JsonTreeView
-				data={data}
-				defaultExpandedDepth={2}
-			>
+			<JsonTreeView data={data} defaultExpandedDepth={2}>
 				<JsonTreeView.Tree
-					arrow={
-						<Icon
-							icon="tabler:chevron-right"
-							width={16}
-							height={16}
-						/>
-					}
+					arrow={<Icon icon="tabler:chevron-right" width={16} height={16} />}
 				/>
 			</JsonTreeView>
 		</Container>

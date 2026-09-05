@@ -1,4 +1,4 @@
-import { Avatar, Button, createToaster, Toaster } from "@moto-ui/react";
+import { Avatar, Button, createToaster, Toaster } from "@elemnts-ui/react";
 
 const toaster = createToaster({
 	placement: "top",
@@ -24,10 +24,7 @@ export default function Duration() {
 			<Toaster
 				toaster={toaster}
 				indicator={
-					<Avatar.Root
-						size="xs"
-						rounded="full"
-					>
+					<Avatar.Root size="xs" rounded="full">
 						<Avatar.Image
 							src="https://img.heroui.chat/image/avatar?w=400&h=400&u=8"
 							alt=""

@@ -1,4 +1,4 @@
-import { Button, Container, For, Stack } from "@moto-ui/react";
+import { Button, Container, For, Stack } from "@elemnts-ui/react";
 
 const variants = [
 	"primary",
@@ -12,19 +12,10 @@ const variants = [
 export default function Variants() {
 	return (
 		<Container>
-			<Stack
-				gap="8"
-				align="center"
-				justify="center"
-			>
+			<Stack gap="8" align="center" justify="center">
 				<For each={variants}>
 					{(variant) => (
-						<Button
-							size="sm"
-							key={variant}
-							variant={variant}
-							flexShrink="0"
-						>
+						<Button size="sm" key={variant} variant={variant} flexShrink="0">
 							Call us
 						</Button>
 					)}

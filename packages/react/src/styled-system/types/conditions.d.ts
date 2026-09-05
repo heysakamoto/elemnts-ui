@@ -1,320 +1,320 @@
 /* eslint-disable */
-import type { AnySelector, Selectors } from "./selectors";
+import type { AnySelector, Selectors } from './selectors';
 
 export interface Conditions {
 	/** `&:is(:hover, [data-hover])` */
-	_hover: string;
+	"_hover": string
 	/** `&:is(:focus, [data-focus])` */
-	_focus: string;
+	"_focus": string
 	/** `&:focus-within` */
-	_focusWithin: string;
+	"_focusWithin": string
 	/** `&:is(:focus-visible, [data-focus-visible])` */
-	_focusVisible: string;
+	"_focusVisible": string
 	/** `&:is(:disabled, [disabled], [data-disabled], [aria-disabled=true])` */
-	_disabled: string;
+	"_disabled": string
 	/** `&:is(:active, [data-active])` */
-	_active: string;
+	"_active": string
 	/** `&:visited` */
-	_visited: string;
+	"_visited": string
 	/** `&:target` */
-	_target: string;
+	"_target": string
 	/** `&:is(:read-only, [data-read-only], [aria-readonly=true])` */
-	_readOnly: string;
+	"_readOnly": string
 	/** `&:read-write` */
-	_readWrite: string;
+	"_readWrite": string
 	/** `&:is(:empty, [data-empty])` */
-	_empty: string;
+	"_empty": string
 	/** `&:is(:checked, [data-checked], [aria-checked=true], [data-state="checked"])` */
-	_checked: string;
+	"_checked": string
 	/** `&:enabled` */
-	_enabled: string;
+	"_enabled": string
 	/** `&:is([aria-expanded=true], [data-expanded], [data-state="expanded"])` */
-	_expanded: string;
+	"_expanded": string
 	/** `&[data-highlighted]` */
-	_highlighted: string;
+	"_highlighted": string
 	/** `&[data-complete]` */
-	_complete: string;
+	"_complete": string
 	/** `&[data-incomplete]` */
-	_incomplete: string;
+	"_incomplete": string
 	/** `&[data-dragging]` */
-	_dragging: string;
+	"_dragging": string
 	/** `&::before` */
-	_before: string;
+	"_before": string
 	/** `&::after` */
-	_after: string;
+	"_after": string
 	/** `&::first-letter` */
-	_firstLetter: string;
+	"_firstLetter": string
 	/** `&::first-line` */
-	_firstLine: string;
+	"_firstLine": string
 	/** `&::marker, &::-webkit-details-marker` */
-	_marker: string;
+	"_marker": string
 	/** `&::selection` */
-	_selection: string;
+	"_selection": string
 	/** `&::file-selector-button` */
-	_file: string;
+	"_file": string
 	/** `&::backdrop` */
-	_backdrop: string;
+	"_backdrop": string
 	/** `&:first-child` */
-	_first: string;
+	"_first": string
 	/** `&:last-child` */
-	_last: string;
+	"_last": string
 	/** `&:only-child` */
-	_only: string;
+	"_only": string
 	/** `&:nth-child(even)` */
-	_even: string;
+	"_even": string
 	/** `&:nth-child(odd)` */
-	_odd: string;
+	"_odd": string
 	/** `&:first-of-type` */
-	_firstOfType: string;
+	"_firstOfType": string
 	/** `&:last-of-type` */
-	_lastOfType: string;
+	"_lastOfType": string
 	/** `&:only-of-type` */
-	_onlyOfType: string;
+	"_onlyOfType": string
 	/** `.peer:is(:focus, [data-focus]) ~ &` */
-	_peerFocus: string;
+	"_peerFocus": string
 	/** `.peer:is(:hover, [data-hover]) ~ &` */
-	_peerHover: string;
+	"_peerHover": string
 	/** `.peer:is(:active, [data-active]) ~ &` */
-	_peerActive: string;
+	"_peerActive": string
 	/** `.peer:focus-within ~ &` */
-	_peerFocusWithin: string;
+	"_peerFocusWithin": string
 	/** `.peer:is(:focus-visible, [data-focus-visible]) ~ &` */
-	_peerFocusVisible: string;
+	"_peerFocusVisible": string
 	/** `.peer:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) ~ &` */
-	_peerDisabled: string;
+	"_peerDisabled": string
 	/** `.peer:is(:checked, [data-checked], [aria-checked=true], [data-state="checked"]) ~ &` */
-	_peerChecked: string;
+	"_peerChecked": string
 	/** `.peer:is(:invalid, [data-invalid], [aria-invalid=true]) ~ &` */
-	_peerInvalid: string;
+	"_peerInvalid": string
 	/** `.peer:is([aria-expanded=true], [data-expanded], [data-state="expanded"]) ~ &` */
-	_peerExpanded: string;
+	"_peerExpanded": string
 	/** `.peer:placeholder-shown ~ &` */
-	_peerPlaceholderShown: string;
+	"_peerPlaceholderShown": string
 	/** `.group:is(:focus, [data-focus]) &` */
-	_groupFocus: string;
+	"_groupFocus": string
 	/** `.group:is(:hover, [data-hover]) &` */
-	_groupHover: string;
+	"_groupHover": string
 	/** `.group:is(:active, [data-active]) &` */
-	_groupActive: string;
+	"_groupActive": string
 	/** `.group:focus-within &` */
-	_groupFocusWithin: string;
+	"_groupFocusWithin": string
 	/** `.group:is(:focus-visible, [data-focus-visible]) &` */
-	_groupFocusVisible: string;
+	"_groupFocusVisible": string
 	/** `.group:is(:disabled, [disabled], [data-disabled], [aria-disabled=true]) &` */
-	_groupDisabled: string;
+	"_groupDisabled": string
 	/** `.group:is(:checked, [data-checked], [aria-checked=true], [data-state="checked"]) &` */
-	_groupChecked: string;
+	"_groupChecked": string
 	/** `.group:is([aria-expanded=true], [data-expanded], [data-state="expanded"]) &` */
-	_groupExpanded: string;
+	"_groupExpanded": string
 	/** `.group:is(:invalid, [data-invalid], [aria-invalid=true]) &` */
-	_groupInvalid: string;
+	"_groupInvalid": string
 	/** `&:is(:indeterminate, [data-indeterminate], [aria-checked=mixed], [data-state="indeterminate"])` */
-	_indeterminate: string;
+	"_indeterminate": string
 	/** `&:is(:required, [data-required], [aria-required=true])` */
-	_required: string;
+	"_required": string
 	/** `&:is(:valid, [data-valid])` */
-	_valid: string;
+	"_valid": string
 	/** `&:is(:invalid, [data-invalid], [aria-invalid=true])` */
-	_invalid: string;
+	"_invalid": string
 	/** `&:autofill` */
-	_autofill: string;
+	"_autofill": string
 	/** `&:is(:in-range, [data-in-range])` */
-	_inRange: string;
+	"_inRange": string
 	/** `&:is(:out-of-range, [data-outside-range])` */
-	_outOfRange: string;
+	"_outOfRange": string
 	/** `&::placeholder, &[data-placeholder]` */
-	_placeholder: string;
+	"_placeholder": string
 	/** `&:is(:placeholder-shown, [data-placeholder-shown])` */
-	_placeholderShown: string;
+	"_placeholderShown": string
 	/** `&:is([aria-pressed=true], [data-pressed])` */
-	_pressed: string;
+	"_pressed": string
 	/** `&:is([aria-selected=true], [data-selected])` */
-	_selected: string;
+	"_selected": string
 	/** `&:is([aria-grabbed=true], [data-grabbed])` */
-	_grabbed: string;
+	"_grabbed": string
 	/** `&[data-state=under-value]` */
-	_underValue: string;
+	"_underValue": string
 	/** `&[data-state=over-value]` */
-	_overValue: string;
+	"_overValue": string
 	/** `&[data-state=at-value]` */
-	_atValue: string;
+	"_atValue": string
 	/** `&:default` */
-	_default: string;
+	"_default": string
 	/** `&:optional` */
-	_optional: string;
+	"_optional": string
 	/** `&:is([open], [data-open], [data-state="open"], :popover-open)` */
-	_open: string;
+	"_open": string
 	/** `&:is([closed], [data-closed], [data-state="closed"])` */
-	_closed: string;
+	"_closed": string
 	/** `&:is(:fullscreen, [data-fullscreen])` */
-	_fullscreen: string;
+	"_fullscreen": string
 	/** `&:is([data-loading], [aria-busy=true])` */
-	_loading: string;
+	"_loading": string
 	/** `&:is([hidden], [data-hidden])` */
-	_hidden: string;
+	"_hidden": string
 	/** `&:is([aria-current=true], [data-current])` */
-	_current: string;
+	"_current": string
 	/** `&[aria-current=page]` */
-	_currentPage: string;
+	"_currentPage": string
 	/** `&[aria-current=step]` */
-	_currentStep: string;
+	"_currentStep": string
 	/** `&[data-today]` */
-	_today: string;
+	"_today": string
 	/** `&[data-unavailable]` */
-	_unavailable: string;
+	"_unavailable": string
 	/** `&[data-range-start]` */
-	_rangeStart: string;
+	"_rangeStart": string
 	/** `&[data-range-end]` */
-	_rangeEnd: string;
+	"_rangeEnd": string
 	/** `&[data-now]` */
-	_now: string;
+	"_now": string
 	/** `&[data-topmost]` */
-	_topmost: string;
+	"_topmost": string
 	/** `@media (prefers-reduced-motion: reduce)` */
-	_motionReduce: string;
+	"_motionReduce": string
 	/** `@media (prefers-reduced-motion: no-preference)` */
-	_motionSafe: string;
+	"_motionSafe": string
 	/** `@media print` */
-	_print: string;
+	"_print": string
 	/** `@media (orientation: landscape)` */
-	_landscape: string;
+	"_landscape": string
 	/** `@media (orientation: portrait)` */
-	_portrait: string;
+	"_portrait": string
 	/** `.dark &` */
-	_dark: string;
+	"_dark": string
 	/** `.light &` */
-	_light: string;
+	"_light": string
 	/** `@media (prefers-color-scheme: dark)` */
-	_osDark: string;
+	"_osDark": string
 	/** `@media (prefers-color-scheme: light)` */
-	_osLight: string;
+	"_osLight": string
 	/** `@media (forced-colors: active)` */
-	_highContrast: string;
+	"_highContrast": string
 	/** `@media (prefers-contrast: less)` */
-	_lessContrast: string;
+	"_lessContrast": string
 	/** `@media (prefers-contrast: more)` */
-	_moreContrast: string;
+	"_moreContrast": string
 	/** `:where([dir=ltr], :dir(ltr)) &` */
-	_ltr: string;
+	"_ltr": string
 	/** `:where([dir=rtl], :dir(rtl)) &` */
-	_rtl: string;
+	"_rtl": string
 	/** `&::-webkit-scrollbar` */
-	_scrollbar: string;
+	"_scrollbar": string
 	/** `&::-webkit-scrollbar-thumb` */
-	_scrollbarThumb: string;
+	"_scrollbarThumb": string
 	/** `&::-webkit-scrollbar-track` */
-	_scrollbarTrack: string;
+	"_scrollbarTrack": string
 	/** `&[data-orientation=horizontal]` */
-	_horizontal: string;
+	"_horizontal": string
 	/** `&[data-orientation=vertical]` */
-	_vertical: string;
+	"_vertical": string
 	/** `& svg` */
-	_icon: string;
+	"_icon": string
 	/** `@starting-style` */
-	_starting: string;
+	"_starting": string
 	/** `@media (scripting: none)` */
-	_noscript: string;
+	"_noscript": string
 	/** `@media (inverted-colors: inverted)` */
-	_invertedColors: string;
+	"_invertedColors": string
 	/** `&:not(:hover, [data-hover])` */
-	_notHover: string;
+	"_notHover": string
 	/** `&:not(:focus, [data-focus])` */
-	_notFocus: string;
+	"_notFocus": string
 	/** `&:not(:valid, [data-valid])` */
-	_notValid: string;
+	"_notValid": string
 	/** `&:not(:active, [data-active])` */
-	_notActive: string;
+	"_notActive": string
 	/** `&:not([hidden], [data-hidden])` */
-	_notHidden: string;
+	"_notHidden": string
 	/** `&:not(:invalid, [data-invalid])` */
-	_notInvalid: string;
+	"_notInvalid": string
 	/** `&:not(:disabled, [data-disabled])` */
-	_notDisabled: string;
+	"_notDisabled": string
 	/** `&:not([data-selected], [aria-selected=true])` */
-	_notSelected: string;
+	"_notSelected": string
 	/** `&:not(:checked, [data-checked], [aria-checked=true])` */
-	_notChecked: string;
+	"_notChecked": string
 	/** `@media screen and (min-width: 30rem)` */
-	xs: string;
+	"xs": string
 	/** `@media screen and (min-width: 30rem) and (max-width: 39.9975rem)` */
-	xsOnly: string;
+	"xsOnly": string
 	/** `@media screen and (max-width: 29.9975rem)` */
-	xsDown: string;
+	"xsDown": string
 	/** `@media screen and (min-width: 40rem)` */
-	sm: string;
+	"sm": string
 	/** `@media screen and (min-width: 40rem) and (max-width: 47.9975rem)` */
-	smOnly: string;
+	"smOnly": string
 	/** `@media screen and (max-width: 39.9975rem)` */
-	smDown: string;
+	"smDown": string
 	/** `@media screen and (min-width: 48rem)` */
-	md: string;
+	"md": string
 	/** `@media screen and (min-width: 48rem) and (max-width: 63.9975rem)` */
-	mdOnly: string;
+	"mdOnly": string
 	/** `@media screen and (max-width: 47.9975rem)` */
-	mdDown: string;
+	"mdDown": string
 	/** `@media screen and (min-width: 64rem)` */
-	lg: string;
+	"lg": string
 	/** `@media screen and (min-width: 64rem) and (max-width: 79.9975rem)` */
-	lgOnly: string;
+	"lgOnly": string
 	/** `@media screen and (max-width: 63.9975rem)` */
-	lgDown: string;
+	"lgDown": string
 	/** `@media screen and (min-width: 80rem)` */
-	xl: string;
+	"xl": string
 	/** `@media screen and (min-width: 80rem) and (max-width: 95.9975rem)` */
-	xlOnly: string;
+	"xlOnly": string
 	/** `@media screen and (max-width: 79.9975rem)` */
-	xlDown: string;
+	"xlDown": string
 	/** `@media screen and (min-width: 96rem)` */
-	"2xl": string;
+	"2xl": string
 	/** `@media screen and (min-width: 96rem)` */
-	"2xlOnly": string;
+	"2xlOnly": string
 	/** `@media screen and (max-width: 95.9975rem)` */
-	"2xlDown": string;
+	"2xlDown": string
 	/** `@media screen and (min-width: 30rem) and (max-width: 39.9975rem)` */
-	xsToSm: string;
+	"xsToSm": string
 	/** `@media screen and (min-width: 30rem) and (max-width: 47.9975rem)` */
-	xsToMd: string;
+	"xsToMd": string
 	/** `@media screen and (min-width: 30rem) and (max-width: 63.9975rem)` */
-	xsToLg: string;
+	"xsToLg": string
 	/** `@media screen and (min-width: 30rem) and (max-width: 79.9975rem)` */
-	xsToXl: string;
+	"xsToXl": string
 	/** `@media screen and (min-width: 30rem) and (max-width: 95.9975rem)` */
-	xsTo2xl: string;
+	"xsTo2xl": string
 	/** `@media screen and (min-width: 40rem) and (max-width: 47.9975rem)` */
-	smToMd: string;
+	"smToMd": string
 	/** `@media screen and (min-width: 40rem) and (max-width: 63.9975rem)` */
-	smToLg: string;
+	"smToLg": string
 	/** `@media screen and (min-width: 40rem) and (max-width: 79.9975rem)` */
-	smToXl: string;
+	"smToXl": string
 	/** `@media screen and (min-width: 40rem) and (max-width: 95.9975rem)` */
-	smTo2xl: string;
+	"smTo2xl": string
 	/** `@media screen and (min-width: 48rem) and (max-width: 63.9975rem)` */
-	mdToLg: string;
+	"mdToLg": string
 	/** `@media screen and (min-width: 48rem) and (max-width: 79.9975rem)` */
-	mdToXl: string;
+	"mdToXl": string
 	/** `@media screen and (min-width: 48rem) and (max-width: 95.9975rem)` */
-	mdTo2xl: string;
+	"mdTo2xl": string
 	/** `@media screen and (min-width: 64rem) and (max-width: 79.9975rem)` */
-	lgToXl: string;
+	"lgToXl": string
 	/** `@media screen and (min-width: 64rem) and (max-width: 95.9975rem)` */
-	lgTo2xl: string;
+	"lgTo2xl": string
 	/** `@media screen and (min-width: 80rem) and (max-width: 95.9975rem)` */
-	xlTo2xl: string;
+	"xlTo2xl": string
 	/** The base (=no conditions) styles to apply  */
-	base: string;
+	"base": string
 }
 
 export type ConditionalValue<V> =
-	| V
-	| Array<V | null>
-	| {
-			[K in keyof Conditions]?: ConditionalValue<V>;
-	  };
+  | V
+  | Array<V | null>
+  | {
+      [K in keyof Conditions]?: ConditionalValue<V>
+    }
 
 export type Nested<P> = P & {
-	[K in Selectors]?: Nested<P>;
+  [K in Selectors]?: Nested<P>
 } & {
-	[K in AnySelector]?: Nested<P>;
+  [K in AnySelector]?: Nested<P>
 } & {
-	[K in keyof Conditions]?: Nested<P>;
-};
+  [K in keyof Conditions]?: Nested<P>
+}

@@ -1,4 +1,4 @@
-import { Drawer, Sidebar, Surface } from "@moto-ui/react";
+import { Drawer, Sidebar, Surface } from "@elemnts-ui/react";
 import type { PropsWithChildren } from "react";
 
 import {
@@ -26,11 +26,7 @@ export function DocsLayoutMobileMenu(props: DocsLayoutMobileMenuProps) {
 				<Drawer.Backdrop />
 				<Drawer.Positioner>
 					<Drawer.Content asChild>
-						<Surface
-							delta={1}
-							roundedTop="16"
-							colorPalette="neutral"
-						>
+						<Surface delta={1} roundedTop="16" colorPalette="neutral">
 							<Drawer.Grabber>
 								<Drawer.GrabberIndicator />
 							</Drawer.Grabber>

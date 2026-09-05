@@ -1,4 +1,4 @@
-import { Skeleton, Text } from "@moto-ui/react";
+import { Skeleton, Text } from "@elemnts-ui/react";
 
 export default function TextOnly() {
 	return (

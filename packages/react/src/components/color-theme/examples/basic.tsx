@@ -6,7 +6,7 @@ import {
 	Surface,
 	Text,
 	useColorThemeContext,
-} from "@moto-ui/react";
+} from "@elemnts-ui/react";
 
 type Theme = "light" | "dark" | "system";
 
@@ -16,15 +16,8 @@ export default function Basic() {
 	return (
 		<Container maxW="24rem">
 			<ColorTheme defaultTheme="light">
-				<Stack
-					gap="12"
-					direction="column"
-				>
-					<Surface
-						delta={5}
-						p="12"
-						rounded="10"
-					>
+				<Stack gap="12" direction="column">
+					<Surface delta={5} p="12" rounded="10">
 						<Text fontSize="14">A toggleable color Theme provider.</Text>
 					</Surface>
 					<ThemeButtons />

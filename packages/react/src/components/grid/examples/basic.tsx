@@ -1,11 +1,8 @@
-import { DecorativeBox, Grid } from "@moto-ui/react";
+import { DecorativeBox, Grid } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
-		<Grid
-			gap="8"
-			cols="repeat(3, 1fr)"
-		>
+		<Grid gap="8" cols="repeat(3, 1fr)">
 			<DecorativeBox h="56" />
 			<DecorativeBox h="56" />
 			<DecorativeBox h="56" />

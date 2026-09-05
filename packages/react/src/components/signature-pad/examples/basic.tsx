@@ -1,12 +1,9 @@
-import { SignaturePad, Surface } from "@moto-ui/react";
+import { SignaturePad, Surface } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (
 		<SignaturePad.Root w="20rem">
-			<Surface
-				delta={1}
-				rounded="16"
-			>
+			<Surface delta={1} rounded="16">
 				<SignaturePad.Control h="12rem">
 					<SignaturePad.Segment />
 					<SignaturePad.Guide />

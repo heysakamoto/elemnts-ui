@@ -1,4 +1,4 @@
-import { Container, ScrollShadow, Text } from "@moto-ui/react";
+import { Container, ScrollShadow, Text } from "@elemnts-ui/react";
 
 export default function Basic() {
 	return (

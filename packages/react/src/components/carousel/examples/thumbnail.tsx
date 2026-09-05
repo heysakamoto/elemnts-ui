@@ -1,4 +1,4 @@
-import { Button, Carousel, Container, Icon, Image } from "@moto-ui/react";
+import { Button, Carousel, Container, Icon, Image } from "@elemnts-ui/react";
 
 import { css } from "../../styled-system/css";
 
@@ -16,10 +16,7 @@ export default function Thumbnail() {
 			<Carousel slideCount={images.length}>
 				<Carousel.ItemGroup>
 					{images.map((image, index) => (
-						<Carousel.Item
-							key={index.toString()}
-							index={index}
-						>
+						<Carousel.Item key={index.toString()} index={index}>
 							<Image
 								rounded="16"
 								boxSize="full"
@@ -37,11 +34,7 @@ export default function Thumbnail() {
 							colorPalette="neutral"
 							variant="secondary"
 						>
-							<Icon
-								icon="tabler:arrow-left"
-								width={18}
-								height={18}
-							/>
+							<Icon icon="tabler:arrow-left" width={18} height={18} />
 						</Button>
 					</Carousel.PrevTrigger>
 					<Carousel.IndicatorGroup>
@@ -51,10 +44,7 @@ export default function Thumbnail() {
 								key={index.toString()}
 								className={thumbnailStyle}
 							>
-								<Image
-									src={image.src}
-									alt={image.alt}
-								/>
+								<Image src={image.src} alt={image.alt} />
 							</Carousel.Indicator>
 						))}
 					</Carousel.IndicatorGroup>
@@ -65,11 +55,7 @@ export default function Thumbnail() {
 							variant="secondary"
 							colorPalette="neutral"
 						>
-							<Icon
-								icon="tabler:arrow-right"
-								width={18}
-								height={18}
-							/>
+							<Icon icon="tabler:arrow-right" width={18} height={18} />
 						</Button>
 					</Carousel.NextTrigger>
 				</Carousel.Control>
