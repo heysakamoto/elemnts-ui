@@ -51,7 +51,7 @@ export function LandingHero() {
         >
           <For each={LANDING_HERO_EXAMPLES}>
             {(example) => (
-              <Surface p="16" delta={1} rounded="24" key={example.id}>
+              <Surface p="12" delta={1} rounded="16" key={example.id}>
                 <Surface.Content h="11.5rem" align="center" justify="center">
                   <Suspense fallback={null}>
                     <example.component />

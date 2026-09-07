@@ -1,6 +1,6 @@
 import type { Root } from "fumadocs-core/page-tree";
 import type { TOCItemType } from "fumadocs-core/toc";
-import { createContext, use, useContext, useState } from "react";
+import { createContext, use, useContext, useMemo, useState } from "react";
 
 export type UseDocsLayoutReturnType = ReturnType<typeof useDocsLayout>;
 export const DocsLayoutContext = createContext<UseDocsLayoutReturnType | null>(
@@ -27,12 +27,26 @@ export function useDocsLayoutContext() {
 	return ctx;
 }
 
-export type DocsLayoutPageContextValue = {
+export type UseDocsLayoutPageProps = {
 	toc: TOCItemType[];
 };
+export function useDocsLayoutPage(props: UseDocsLayoutPageProps) {
+  const { toc } = props;
+  const items = useMemo(() => {
+    return toc.map((t) => ({
+      title: t.title,
+      depth: t.depth,
+      value: t.url.replace("#", ""),
+    }));
+  }, [toc]);
+
+  return { items, toc };
+}
+
+export type UseDocsLayoutPageReturn = ReturnType<typeof useDocsLayoutPage>
 
 export const DocsLayoutPageContext =
-	createContext<DocsLayoutPageContextValue | null>(null);
+  createContext<UseDocsLayoutPageReturn | null>(null);
 
 export function useDocsLayoutPageContext() {
 	const ctx = useContext(DocsLayoutPageContext);

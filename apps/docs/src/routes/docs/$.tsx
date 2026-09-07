@@ -36,26 +36,27 @@ const serverLoader = createServerFn({
 
 		return {
 			path: page.path,
-			title: page.data.title,
+      title: page.data.title,
 			description: page.data.description,
 			pageTree: await source.serializePageTree(source.getPageTree()),
 		};
 	});
 
 const clientLoader = browserCollections.docs.createClientLoader({
-	component({ toc, frontmatter, default: MDX }, _props: undefined) {
+  component({ toc, frontmatter, default: MDX }, _props: undefined) {
 		return (
-			<DocsLayout.Page toc={toc}>
-				<DocsLayout.PageBody>
-					<DocsLayout.PageTitle>{frontmatter.title}</DocsLayout.PageTitle>
-					<DocsLayout.PageDescription>
-						{frontmatter.description}
-					</DocsLayout.PageDescription>
-					<MDX components={getMDXComponents()} />
-				</DocsLayout.PageBody>
-				<DocsLayout.PageToc />
-			</DocsLayout.Page>
-		);
+      <DocsLayout.Page toc={toc}>
+        <DocsLayout.PageBody>
+          <DocsLayout.PageTitle>{frontmatter.title}</DocsLayout.PageTitle>
+          <DocsLayout.PageDescription>
+            {frontmatter.description}
+          </DocsLayout.PageDescription>
+          <DocsLayout.PageLinks links={frontmatter.links} />
+          <MDX components={getMDXComponents()} />
+        </DocsLayout.PageBody>
+        <DocsLayout.PageToc />
+      </DocsLayout.Page>
+    );
 	},
 });
 
@@ -68,7 +69,7 @@ function Page() {
 			<DocsLayout.Header />
 			<DocsLayout.Content>
 				<DocsLayout.Sidebar />
-				<Suspense fallback={null}>{content}</Suspense>
+        <Suspense fallback={null}>{content}</Suspense>
 			</DocsLayout.Content>
 		</DocsLayout>
 	);

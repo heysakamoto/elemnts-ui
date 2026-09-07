@@ -3,7 +3,7 @@ import { variant } from "../constants/variant";
 import { buttonRecipe } from "./button";
 
 const selected =
-	"&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-state=checked], [aria-checked=true], [data-highlighted], [data-state=on])";
+  "&:not(:disabled, [data-disabled], [aria-disabled=true]):is([data-selected], [data-active], [data-active=true], [data-state=checked], [aria-checked=true], [data-highlighted], [data-state=on])";
 
 const hover = "&:not(:disabled, [data-disabled], [aria-disabled=true]):hover";
 

@@ -17,7 +17,6 @@ export const docs = defineDocs({
 					ark: z.string().optional(),
 					recipe: z.string().optional(),
 					source: z.string().optional(),
-					storybook: z.string().optional(),
 				})
 				.optional(),
 		}),

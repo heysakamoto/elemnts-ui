@@ -1,55 +1,36 @@
-import { Box } from "@elemnts-ui/react";
-import * as FumadocsToc from "fumadocs-core/toc";
-import { useRef } from "react";
-import { css } from "@/styled-system/css";
+import { Icon, Toc } from "@elemnts-ui/react";
 import { useDocsLayoutPageContext } from "./client";
 
 export function DocsLayoutPageToc() {
-	const { toc } = useDocsLayoutPageContext();
-	const viewRef = useRef<HTMLDivElement>(null);
+  const { items } = useDocsLayoutPageContext();
 
-	return (
-		<FumadocsToc.AnchorProvider toc={toc}>
-			<Box
-				hideBelow="lg"
-				position="sticky"
-				w="var(--toc-width)"
-				h="var(--toc-height)"
-				top="calc(var(--navbar-height) + var(--page-offset-top))"
-			>
-				<FumadocsToc.ScrollProvider containerRef={viewRef}>
-					{toc.map((node) => (
-						<FumadocsToc.TOCItem
-							key={node.url}
-							href={node.url}
-							className={css({
-								py: "2",
-								fontSize: "14",
-								display: "flex",
-								fontWeight: "400",
-								color: "fg.tertiary",
-								borderLeft: "1px solid {colors.stroke.primary}",
-								_hover: {
-									color: "fg.primary",
-								},
-								"&:is([data-active=true])": {
-									color: "fg.primary",
-								},
-							})}
-							style={{
-								marginLeft: node.depth <= 2 ? 0 : node.depth * 4,
-								paddingLeft: node.depth <= 2 ? 0 : node.depth * 4,
-								borderLeft:
-									node.depth <= 2
-										? "none"
-										: "1px solid {colors.stroke.primary}",
-							}}
-						>
-							{node.title}
-						</FumadocsToc.TOCItem>
-					))}
-				</FumadocsToc.ScrollProvider>
-			</Box>
-		</FumadocsToc.AnchorProvider>
-	);
+  return (
+    <Toc.Nav
+      hideBelow="lg"
+      w="var(--toc-width)"
+      h="var(--toc-height)"
+      top="var(--navbar-height)"
+      pt="var(--page-offset-top)"
+    >
+      <Toc.Title>
+        <Icon width={14} height={14} icon="lucide:list-sort-descending" />
+        On this page
+      </Toc.Title>
+      <Toc.List borderLeft="1px solid {colors.stroke.primary}" pl="12">
+        <Toc.Indicator ml="-1px" />
+        {items.map((item) => (
+          <Toc.Item key={item.value} item={item}>
+            <Toc.Link
+              href={`#${item.value}`}
+              css={{
+                pl: "calc((var(--depth) - 2) * 12px)",
+              }}
+            >
+              {item.title}
+            </Toc.Link>
+          </Toc.Item>
+        ))}
+      </Toc.List>
+    </Toc.Nav>
+  );
 }

@@ -17,44 +17,44 @@ export const CodeBlock = (props: CodeBlockProps) => {
 	const code = nodeToString(children);
 
 	return (
-		<CodeBlockProvider>
-			<Surface
-				mt="24"
-				delta={6}
-				rounded="16"
-				shadowLevel={0}
-				data-language={lang}
-			>
-				<Surface.Header
-					py="2"
-					px="16"
-					align="center"
-					direction="row"
-					justify="space-between"
-				>
-					<Surface.Description fontSize="14">
-						<Show when={inTabs} fallback={title}>
-							Terminal
-						</Show>
-					</Surface.Description>
-					<Separator variant="ghost" />
-					<CopyButton size="xs" variant="plain" value={code} mr="-12" />
-				</Surface.Header>
-				<Surface.Content p="2">
-					<Surface.Addon
-						py="12"
-						px="16"
-						rounded="14"
-						overflow="scroll"
-						scrollbar="hidden"
-						bgColor="surface.2"
-					>
-						{children}
-					</Surface.Addon>
-				</Surface.Content>
-			</Surface>
-		</CodeBlockProvider>
-	);
+    <CodeBlockProvider>
+      <Surface
+        mt="24"
+        delta={6}
+        rounded="12"
+        shadowLevel={0}
+        data-language={lang}
+      >
+        <Surface.Header
+          py="2"
+          px="16"
+          align="center"
+          direction="row"
+          justify="space-between"
+        >
+          <Surface.Description fontSize="14" flexShrink={0}>
+            <Show when={inTabs} fallback={title}>
+              Terminal
+            </Show>
+          </Surface.Description>
+          <Separator variant="ghost" />
+          <CopyButton size="xs" variant="plain" value={code} mr="-12" />
+        </Surface.Header>
+        <Surface.Content p="2">
+          <Surface.Addon
+            py="10"
+            px="16"
+            rounded="10"
+            overflow="scroll"
+            scrollbar="hidden"
+            bgColor="surface.2"
+          >
+            {children}
+          </Surface.Addon>
+        </Surface.Content>
+      </Surface>
+    </CodeBlockProvider>
+  );
 };
 
 CodeBlock.displayName = "CodeBlock";
