@@ -31,22 +31,22 @@ export type UseDocsLayoutPageProps = {
 	toc: TOCItemType[];
 };
 export function useDocsLayoutPage(props: UseDocsLayoutPageProps) {
-  const { toc } = props;
-  const items = useMemo(() => {
-    return toc.map((t) => ({
-      title: t.title,
-      depth: t.depth,
-      value: t.url.replace("#", ""),
-    }));
-  }, [toc]);
+	const { toc } = props;
+	const items = useMemo(() => {
+		return toc.map((t) => ({
+			title: t.title,
+			depth: t.depth,
+			value: t.url.replace("#", ""),
+		}));
+	}, [toc]);
 
-  return { items, toc };
+	return { items, toc };
 }
 
-export type UseDocsLayoutPageReturn = ReturnType<typeof useDocsLayoutPage>
+export type UseDocsLayoutPageReturn = ReturnType<typeof useDocsLayoutPage>;
 
 export const DocsLayoutPageContext =
-  createContext<UseDocsLayoutPageReturn | null>(null);
+	createContext<UseDocsLayoutPageReturn | null>(null);
 
 export function useDocsLayoutPageContext() {
 	const ctx = useContext(DocsLayoutPageContext);

@@ -1,5 +1,13 @@
 # @elemnts-ui/react
 
+## 0.0.2
+
+### Patch Changes
+
+- Added Table of Contents (ToC) component
+- Updated dependencies
+  - @elemnts-ui/core@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

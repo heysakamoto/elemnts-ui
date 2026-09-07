@@ -5,8 +5,8 @@ import WithCollapsible from "./examples/with-collapsible";
 import WithIndicator from "./examples/with-indicator";
 
 const meta = {
-  title: "Toast",
-  tags: ["autodocs"],
+	title: "Toast",
+	tags: ["autodocs"],
 };
 
 export default meta;

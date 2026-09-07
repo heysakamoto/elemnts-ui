@@ -17,23 +17,23 @@ export function SegmentGroupExample() {
 	];
 
 	return (
-    <SegmentGroup
-      size="xs"
-      defaultValue="ark"
-      variant="secondary"
-      orientation="horizontal"
-    >
-      <SegmentGroup.Indicator />
-      {values.map((value) => {
-        return (
-          <SegmentGroup.Item key={value.value} value={value.value}>
-            <SegmentGroup.ItemText fontSize="14">
-              {value.label}
-            </SegmentGroup.ItemText>
-            <SegmentGroup.ItemHiddenInput />
-          </SegmentGroup.Item>
-        );
-      })}
-    </SegmentGroup>
-  );
+		<SegmentGroup
+			size="xs"
+			defaultValue="ark"
+			variant="secondary"
+			orientation="horizontal"
+		>
+			<SegmentGroup.Indicator />
+			{values.map((value) => {
+				return (
+					<SegmentGroup.Item key={value.value} value={value.value}>
+						<SegmentGroup.ItemText fontSize="14">
+							{value.label}
+						</SegmentGroup.ItemText>
+						<SegmentGroup.ItemHiddenInput />
+					</SegmentGroup.Item>
+				);
+			})}
+		</SegmentGroup>
+	);
 }
