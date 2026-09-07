@@ -5,7 +5,7 @@ import { tocRecipe } from "../../styled-system/recipes";
 const { withProvider, withContext } = createStyleContext(tocRecipe);
 
 export const TocRootProvider = withProvider(Toc.RootProvider, "root", {
-  forwardProps: ["scrollBehavior"],
+	forwardProps: ["scrollBehavior"],
 });
 TocRootProvider.displayName = "TocRootProvider";
 

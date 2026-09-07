@@ -19,12 +19,12 @@ export const globalCss = defineGlobalStyles({
 		// Typography optimizations
 		fontSynthesis: "none",
 
-    // Mozilla
+		// Mozilla
 		scrollbarWidth: "thin",
-    scrollbarColor: "{colors.stroke.primary} {colors.transparent}",
+		scrollbarColor: "{colors.stroke.primary} {colors.transparent}",
 	},
 
-  // Chrome, Edge, Safari
+	// Chrome, Edge, Safari
 	"::-webkit-scrollbar": {
 		width: "8px",
 		height: "8px",
@@ -32,16 +32,16 @@ export const globalCss = defineGlobalStyles({
 
 	// Scrollbar track
 	"::-webkit-scrollbar-track": {
-    bgColor: "{colors.transparent}",
+		bgColor: "{colors.transparent}",
 	},
 
 	// Scrollbar thumb
 	"::-webkit-scrollbar-thumb": {
-    bgColor: "{colors.stroke.primary}",
+		bgColor: "{colors.stroke.primary}",
 
-    _hover: {
-      bgColor:
-        "color-mix(in oklab, {colors.stroke.primary}, {colors.mix.hover})",
+		_hover: {
+			bgColor:
+				"color-mix(in oklab, {colors.stroke.primary}, {colors.mix.hover})",
 		},
 	},
 

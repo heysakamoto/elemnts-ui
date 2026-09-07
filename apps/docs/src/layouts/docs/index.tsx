@@ -17,7 +17,6 @@ import { DocsLayoutPageTitle } from "./page-title";
 import { DocsLayoutPageToc } from "./page-toc";
 import { DocsLayoutSidebar } from "./sidebar";
 
-
 type DocsLayoutRootProps = PropsWithChildren<UseDocsLayoutProps>;
 function DocsLayoutRoot(props: DocsLayoutRootProps) {
 	const { pageTree, children } = props;
@@ -63,7 +62,7 @@ export const DocsLayout = Object.assign(DocsLayoutRoot, {
 	Sidebar: DocsLayoutSidebar,
 	PageToc: DocsLayoutPageToc,
 	PageBody: DocsLayoutPageBody,
-  PageTitle: DocsLayoutPageTitle,
-  PageLinks: DocsLayoutPageLinks,
+	PageTitle: DocsLayoutPageTitle,
+	PageLinks: DocsLayoutPageLinks,
 	PageDescription: DocsLayoutPageDescription,
 });
