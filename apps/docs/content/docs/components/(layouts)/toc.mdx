@@ -1,0 +1,127 @@
+---
+status: new
+title: Table of Contents
+description: A navigation component that dynamically highlights the current section as users scroll through document content, improving usability and visual guidance.
+links:
+  ark: https://ark-ui.com/docs/components/toc
+  source: https://github.com/heysakamoto/elemnts-ui/blob/main/packages/react/src/components/toc/toc.ts
+  recipe: https://github.com/heysakamoto/elemnts-ui/blob/main/packages/core/src/registry/slot-recipes/toc.ts
+---
+
+<Example name="toc:preview" hideCode />
+
+## Anatomy
+
+```tsx title="anatomy"
+<Toc items={items} scrollEl={() => scrollContainer}>
+  <Toc.Content />
+  <Toc.Nav>
+    <Toc.Title />
+    <Toc.List>
+      <Toc.Indicator />
+      <Toc.Item item={item}>
+        <Toc.Link />
+      </Toc.Item>
+    </Toc.List>
+  </Toc.Nav>
+</Toc>
+```
+
+## Examples
+
+### Basic
+Define the `items` prop by associating headings with their respective content sections, and ensure the `scrollEl` function points to the scrollable container
+
+<Example name="toc:basic" />
+
+### Nested Headings
+To achieve nested headings, leverage your existing HTML markup by manually indenting sub-headings. This approach ensures full control over the visual hierarchy without relying on automatic indentation.
+
+<Example name="toc:nested-headings" />
+
+### With Collapsible
+Wrap the `Toc.Nav` component inside a **Collapsible** component to allow users to hide the navigation. Utilize the **Toc.Context** to access `activeItems`.
+
+<Example name="toc:with-collapsible" />
+
+### With Indicator
+Add the `Toc.Indicator` component inside the `Toc.List` to create a visual marker that smoothly slides to the currently active item.
+
+<Example name="toc:with-indicator" />
+
+## API Reference
+
+### Toc
+
+The root component that renders the table of contents.
+
+| Prop             | Type                                     | Default              |
+| ---------------- | ---------------------------------------- | -------------------- |
+| items            | `TocItem[]`                              | `undefined`          |
+| scrollEl         | `() => HTMLElement`                      | `undefined`          |
+| activeIds        | `string[]`                               | `undefined`          |
+| autoScroll       | `boolean`                                | `true`               |
+| defaultActiveIds | `string[]`                               | `undefined`          |
+| onActiveChange   | `(details: ActiveChangeDetails) => void` | `undefined`          |
+| rootMargin       | `string`                                 | `-20px 0px -40% 0px` |
+| scrollBehavior   | `ScrollBehavior`                         | `smooth`             |
+| thresold         | `number`                                 | `0`                  |
+
+### TocContent
+
+The content component that renders the table of contents.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TocNav
+
+The navigation component that renders the table of contents.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+| placement | `left \| right` | `undefined` |
+
+### TocTitle
+
+The title component that renders the table of contents title.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TocList
+
+The list component that renders the table of contents.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TocIndicator
+
+The indicator component that highlights the active item in the table of contents.
+
+| Prop    | Type      | Default |
+| ------- | --------- | ------- |
+| asChild | `boolean` | `false` |
+
+### TocItem
+
+The item component that renders a single table of contents item.
+
+| Prop    | Type      | Default     |
+| ------- | --------- | ----------- |
+| asChild | `boolean` | `false`     |
+| item    | `TocItem` | `undefined` |
+
+### TocLink
+
+The link component that renders a single table of contents item.
+
+| Prop    | Type      | Default     |
+| ------- | --------- | ----------- |
+| asChild | `boolean` | `false`     |
+| href    | `string`  | `undefined` |

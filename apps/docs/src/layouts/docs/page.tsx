@@ -1,26 +1,29 @@
-import { Grid } from "@elemnts-ui/react";
+import { Toc } from "@elemnts-ui/react";
 import type { PropsWithChildren } from "react";
 
 import {
-	DocsLayoutPageContext,
-	type DocsLayoutPageContextValue,
+  DocsLayoutPageContext,
+  type UseDocsLayoutPageProps,
+  useDocsLayoutPage,
 } from "./client";
 
-type DocsLayoutPageProps = PropsWithChildren<DocsLayoutPageContextValue>;
+type DocsLayoutPageProps = PropsWithChildren<UseDocsLayoutPageProps>;
 
 export function DocsLayoutPage(props: DocsLayoutPageProps) {
-	const { toc, children } = props;
+  const { toc, children } = props;
+  const value = useDocsLayoutPage({ toc })
 
-	return (
-		<DocsLayoutPageContext.Provider value={{ toc }}>
-			<Grid
-				gridTemplateColumns={{
-					base: "minmax(0, 1fr)",
-					lg: "minmax(0, 1fr) var(--toc-width)",
-				}}
-			>
-				{children}
-			</Grid>
-		</DocsLayoutPageContext.Provider>
-	);
+  return (
+    <DocsLayoutPageContext.Provider value={value}>
+      <Toc
+        items={value.items}
+        gridTemplateColumns={{
+          base: "minmax(0, 1fr)",
+          lg: "minmax(0, 1fr) var(--toc-width)",
+        }}
+      >
+        {children}
+      </Toc>
+    </DocsLayoutPageContext.Provider>
+  );
 }

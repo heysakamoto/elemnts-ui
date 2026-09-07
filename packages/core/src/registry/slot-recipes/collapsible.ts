@@ -18,24 +18,24 @@ export const collapsibleRecipe = defineSlotRecipe({
 					"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
 			},
 
-			"&:has([data-has-collapsed-size])": {
-				bgColor:
-					"color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
-			},
-		},
-		trigger: {
-			display: "flex",
-			w: "{sizes.full}",
-			gap: "{spacing.4}",
-			transition: "none",
-			alignItems: "center",
-			height: size.sm.height,
-			px: size.sm.paddingInline,
-			fontSize: size.sm.fontSize,
-			color: "{colors.fg.primary}",
-			lineHeight: size.sm.lineHeight,
-			justifyContent: "space-between",
-			borderRadius: size.sm.borderRadius,
+      "&:has([data-has-collapsed-size])": {
+        bgColor:
+          "color-mix(in oklab, {colors.colorPalette.secondary}, {colors.mix.selected})",
+      },
+    },
+    trigger: {
+      display: "flex",
+      w: "{sizes.full}",
+      gap: "{spacing.4}",
+      transition: "none",
+      alignItems: "center",
+      height: size.sm.height,
+      justifyContent: "start",
+      px: size.sm.paddingInline,
+      fontSize: size.sm.fontSize,
+      color: "{colors.fg.primary}",
+      lineHeight: size.sm.lineHeight,
+      borderRadius: size.sm.borderRadius,
 
 			_disabled: {
 				opacity: 0.5,
@@ -49,10 +49,13 @@ export const collapsibleRecipe = defineSlotRecipe({
 				},
 			},
 		},
-		indicator: {
+    indicator: {
+      flexGrow: 1,
+      display: "flex",
+      justifyContent: "end",
 			"& > svg": {
 				transformOrigin: "center",
-				transition: "rotate 200ms",
+        transition: "rotate 150ms",
 				color: "{colors.icon.secondary}",
 			},
 

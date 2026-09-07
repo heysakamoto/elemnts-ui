@@ -47,24 +47,3 @@ export const FRAMEWORKS = [
 		description: "Use with svelte apps",
 	},
 ];
-
-export const NAVIGATION_LINKS = [
-	{
-		id: "install",
-		label: "Installation",
-		target: "_self",
-		url: "/docs/installation",
-	},
-	{
-		id: "changelog",
-		label: "Changelog",
-		target: "_self",
-		url: "/docs/changelog",
-	},
-	{
-		id: "composition",
-		label: "Composition",
-		target: "_self",
-		url: "/docs/composition",
-	},
-];

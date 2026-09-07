@@ -570,6 +570,7 @@ pinInputRecipe();
 popoverRecipe();
 
 // ** Progress Recipe **
+progressRecipe({ size: "2xs", thickness: "xs" });
 progressRecipe({ size: "xs", thickness: "xs" });
 progressRecipe({ size: "sm", thickness: "sm" });
 progressRecipe({ size: "md", thickness: "sm" });

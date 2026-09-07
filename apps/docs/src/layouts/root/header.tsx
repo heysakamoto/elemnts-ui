@@ -1,47 +1,45 @@
-import { ButtonGroup, Container, For, Section, Stack } from "@elemnts-ui/react";
+import {
+  ButtonGroup,
+  Container,
+  Icon,
+  Section,
+  Stack,
+} from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/base/logo";
-import { ROOTLAYOUT_URLS } from "./constants";
-import { RootLayoutMobileNav } from "./mobile-nav";
 
 export function RootLayoutHeader() {
 	return (
-		<Section
-			top="0"
-			zIndex="2"
-			as="header"
-			position="sticky"
-			colorPalette="neutral"
-			backdropFilter="blur(20px)"
-			borderBottom="1px solid {colors.stroke.primary}"
-			bgColor="color-mix(in oklab, {colors.surface-1}, 90% {colors.transparent})"
-		>
-			<Container maxW="40rem" px="16">
-				<Stack h="var(--navbar-height)" align="center" justify="space-between">
-					<Logo />
-					<Stack align="center" justify="end">
-						<RootLayoutMobileNav />
-						<ButtonGroup hideBelow="md" variant="ghost">
-							<For each={ROOTLAYOUT_URLS}>
-								{(url) => (
-									<ButtonGroup.Item
-										asChild
-										key={url.id}
-										fontWeight="500"
-										css={{
-											"&:not(:hover)": {
-												color: "fg.secondary",
-											},
-										}}
-									>
-										<Link to={url.url}>{url.label}</Link>
-									</ButtonGroup.Item>
-								)}
-							</For>
-						</ButtonGroup>
-					</Stack>
-				</Stack>
-			</Container>
-		</Section>
-	);
+    <Section
+      top="0"
+      zIndex="2"
+      as="header"
+      position="sticky"
+      colorPalette="neutral"
+      backdropFilter="blur(20px)"
+      borderBottom="1px solid {colors.stroke.primary}"
+      bgColor="color-mix(in oklab, {colors.surface-1}, 90% {colors.transparent})"
+    >
+      <Container fluid px="16">
+        <Stack h="var(--navbar-height)" align="center" justify="space-between">
+          <Logo />
+
+          <ButtonGroup size="xs" variant="secondary">
+            <ButtonGroup.Item asChild fontSize="14">
+              <Link to="/docs/$" params={{ _splat: "/" }}>
+                <Icon icon="lucide:library" />
+                Docs
+              </Link>
+            </ButtonGroup.Item>
+            <ButtonGroup.Item asChild fontSize="14">
+              <Link to="/sponsor">
+                <Icon icon="lucide:heart" />
+                Sponsor
+              </Link>
+            </ButtonGroup.Item>
+          </ButtonGroup>
+        </Stack>
+      </Container>
+    </Section>
+  );
 }

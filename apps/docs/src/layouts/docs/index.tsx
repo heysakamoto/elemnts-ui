@@ -12,9 +12,11 @@ import { DocsLayoutMobileMenu } from "./mobile-menu";
 import { DocsLayoutPage } from "./page";
 import { DocsLayoutPageBody } from "./page-body";
 import { DocsLayoutPageDescription } from "./page-description";
+import { DocsLayoutPageLinks } from "./page-links";
 import { DocsLayoutPageTitle } from "./page-title";
 import { DocsLayoutPageToc } from "./page-toc";
 import { DocsLayoutSidebar } from "./sidebar";
+
 
 type DocsLayoutRootProps = PropsWithChildren<UseDocsLayoutProps>;
 function DocsLayoutRoot(props: DocsLayoutRootProps) {
@@ -61,6 +63,7 @@ export const DocsLayout = Object.assign(DocsLayoutRoot, {
 	Sidebar: DocsLayoutSidebar,
 	PageToc: DocsLayoutPageToc,
 	PageBody: DocsLayoutPageBody,
-	PageTitle: DocsLayoutPageTitle,
+  PageTitle: DocsLayoutPageTitle,
+  PageLinks: DocsLayoutPageLinks,
 	PageDescription: DocsLayoutPageDescription,
 });

@@ -34,30 +34,30 @@ export function DocsLayoutSidebar() {
 
 function SidebarFooter() {
 	return (
-		<Sidebar.Addon p="12">
-			<ButtonGroup size="sm" iconOnly variant="surface">
-				<For each={SOCIAL_LINKS}>
-					{(link) => (
-						<ButtonGroup.Item asChild key={link.id}>
-							<Link target="_blank" to={link.url as any}>
-								<VisuallyHidden>{link.label}</VisuallyHidden>
-								<Icon width={16} height={16} icon={link.icon} />
-							</Link>
-						</ButtonGroup.Item>
-					)}
-				</For>
-				<Separator flexGrow="1" variant="ghost" orientation="horizontal" />
-				<ColorTheme.Trigger asChild>
-					<ButtonGroup.Item>
-						<VisuallyHidden>Toggle color scheme</VisuallyHidden>
-						<ColorTheme.Indicator
-							fallback={<Icon width={16} height={16} icon="tabler:sun" />}
-						>
-							<Icon width={16} height={16} icon="tabler:moon" />
-						</ColorTheme.Indicator>
-					</ButtonGroup.Item>
-				</ColorTheme.Trigger>
-			</ButtonGroup>
-		</Sidebar.Addon>
-	);
+    <Sidebar.Addon py="8" px="12">
+      <ButtonGroup size="sm" iconOnly variant="surface">
+        <For each={SOCIAL_LINKS}>
+          {(link) => (
+            <ButtonGroup.Item asChild key={link.id}>
+              <Link target="_blank" to={link.url as any}>
+                <VisuallyHidden>{link.label}</VisuallyHidden>
+                <Icon width={16} height={16} icon={link.icon} />
+              </Link>
+            </ButtonGroup.Item>
+          )}
+        </For>
+        <Separator flexGrow="1" variant="ghost" orientation="horizontal" />
+        <ColorTheme.Trigger asChild>
+          <ButtonGroup.Item>
+            <VisuallyHidden>Toggle color scheme</VisuallyHidden>
+            <ColorTheme.Indicator
+              fallback={<Icon width={16} height={16} icon="tabler:sun" />}
+            >
+              <Icon width={16} height={16} icon="tabler:moon" />
+            </ColorTheme.Indicator>
+          </ButtonGroup.Item>
+        </ColorTheme.Trigger>
+      </ButtonGroup>
+    </Sidebar.Addon>
+  );
 }

@@ -19,12 +19,12 @@ export const globalCss = defineGlobalStyles({
 		// Typography optimizations
 		fontSynthesis: "none",
 
-		// Mozilla scrollbar customization
+    // Mozilla
 		scrollbarWidth: "thin",
-		scollbarColor: "{colors.neutral.secondary}",
+    scrollbarColor: "{colors.stroke.primary} {colors.transparent}",
 	},
 
-	// WebKit scrollbar customization
+  // Chrome, Edge, Safari
 	"::-webkit-scrollbar": {
 		width: "8px",
 		height: "8px",
@@ -32,14 +32,16 @@ export const globalCss = defineGlobalStyles({
 
 	// Scrollbar track
 	"::-webkit-scrollbar-track": {
-		bgColor: "{colors.transparent}",
+    bgColor: "{colors.transparent}",
 	},
 
 	// Scrollbar thumb
 	"::-webkit-scrollbar-thumb": {
-		bgColor: "{colors.transparent}",
-		"&:hover": {
-			bgColor: "{colors.neutral.secondary}",
+    bgColor: "{colors.stroke.primary}",
+
+    _hover: {
+      bgColor:
+        "color-mix(in oklab, {colors.stroke.primary}, {colors.mix.hover})",
 		},
 	},
 
@@ -172,28 +174,6 @@ export const globalCss = defineGlobalStyles({
 		textShadow: "none",
 		color: "{colors.accent.tertiary}",
 		bgColor: "{colors.accent.primary}",
-	},
-
-	// Scrollbar Styles
-	"@media (pointer: fine)": {
-		"::-webkit-scrollbar": {
-			width: "12px",
-			height: "12px",
-		},
-
-		"::-webkit-scrollbar-track": {
-			bgColor: "{colors.bg.tertiary}",
-		},
-
-		"::-webkit-scrollbar-thumb": {
-			borderRadius: "6px",
-			bgColor: "{colors.fg.secondary}",
-			border: "3px solid {colors.bg.tertiary}",
-		},
-
-		"::-webkit-scrollbar-thumb:hover": {
-			bgColor: "{colors.fg.tertiary}",
-		},
 	},
 
 	"strong, bold": {
