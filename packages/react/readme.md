@@ -1,4 +1,4 @@
-# 🏎️ @elemnts-ui/react
+# @elemnts-ui/react
 
 **@elemnts-ui/react** is the core component library of the Elemnts UI design system. It combines headless interactive accessibility powered by **Ark UI** with styling capabilities provided by **Panda CSS** build-time CSS-in-JS.
 
@@ -23,16 +23,16 @@ To use Elemnts UI components, install the library, preset-base, and styled-syste
 ### Install Dependencies
 
 ```bash
-pnpm add @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
+pnpm add @elemnts-ui/react @elemnts-ui/core && 
 pnpm add -D @pandacss/dev
 # or
-yarn add @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
+yarn add @elemnts-ui/react @elemnts-ui/core && 
 yarn add -D @pandacss/dev
 # or
-npm install @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
+npm install @elemnts-ui/react @elemnts-ui/core && 
 npm install -D @pandacss/dev
 # or
-bun add @elemnts-ui/react @elemnts-ui/preset-base @elemnts-ui/styled-system && 
+bun add @elemnts-ui/react @elemnts-ui/core && 
 bun add -D @pandacss/dev
 ```
 
@@ -52,15 +52,11 @@ Add this to your `panda.config.ts` file:
 
 ```ts
 import { defineConfig } from '@pandacss/dev';
-import { basePreset } from '@elemnts-ui/preset-base';
+import { basePreset } from '@elemnts-ui/core/presets';
 
 export default defineConfig({
-  eject: true,
-  outExtension: "js",
-  jsxFramework: "react",
   presets: [basePreset],
-
-   // Path to your source files
+  jsxFramework: "react",
   include: [
     "./src/**/*.{ts,tsx}", 
     "node_modules/@elemnts-ui/react/dist/buildinfo.json",

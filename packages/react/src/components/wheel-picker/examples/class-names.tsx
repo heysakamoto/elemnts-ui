@@ -1,6 +1,6 @@
 import { WheelPicker } from "@elemnts-ui/react";
 
-import { css } from "../../styled-system/css";
+import { css } from "../../../styled-system/css";
 
 export default function ClassNames() {
 	const options = [

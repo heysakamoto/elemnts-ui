@@ -27,10 +27,11 @@ To use the `@elemnts-ui/core` preset with PandaCSS, add it to your `pandacss.con
 
 ```ts
 import { defineConfig } from 'pandacss'
-import corePreset from '@elemnts-ui/core'
+import { basePreset } from '@elemnts-ui/core/presets'
 
 export default defineConfig({
-  presets: [corePreset],
+  presets: [basePreset],
+  include: ["src/**/*.{ts,tsx}"],
 })
 ```
 
