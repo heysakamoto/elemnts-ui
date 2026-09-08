@@ -1,0 +1,138 @@
+---
+status: new
+title: Navigation Menu
+description: A navigation menu that organizes and renders links and menus for seamless website navigation.
+links: 
+  ark: https://ark-ui.com/docs/components/navigation-menu#indicator
+  source: https://github.com/heysakamoto/elemnts-ui/blob/main/packages/react/src/components/navigation-menu/navigation-menu.ts
+  recipe: https://github.com/heysakamoto/elemnts-ui/blob/main/packages/core/src/registry/slot-recipes/navigation-menu.ts
+---
+
+<Example name="navigation-menu:preview" hideCode />
+
+## Anatomy
+
+Explore the anatomy of the Navigation Menu component.
+
+```tsx title="anatomy"
+<NavigationMenu>
+  <NavigationMenu.List>
+    <NavigationMenu.Item>
+      <NavigationMenu.Trigger />
+      <NavigationMenu.ItemIndicator />
+      <NavigationMenu.Content>
+        <NavigationMenu.Link />
+      </NavigationMenu.Content>
+    </NavigationMenu.Item>
+    <NavigationMenu.Indicator>
+      <NavigationMenu.Arrow />
+    </NavigationMenu.Indicator>
+  </NavigationMenu.List>
+  <NavigationMenu.ViewportPositioner>
+    <NavigationMenu.Viewport />
+  </NavigationMenu.ViewportPositioner>
+</NavigationMenu>
+```
+
+## Examples
+
+### Basic
+
+A basic example of the Navigation Menu component.
+
+<Example name="navigation-menu:basic" />
+
+### Vertical
+
+To create a vertical sidebar navigation, set the `orientation` prop to `vertical`. This will position panels to the side, and the keyboard navigation behavior adapts accordingly:
+
+- **ArrowUp** and **ArrowDown**: Navigate between triggers.
+- **ArrowRight**: Open the selected panel.
+
+This setup is ideal for creating collapsible or expandable sidebar menus.
+
+<Example name="navigation-menu:vertical" />
+
+## API Reference
+
+### NavigationMenu
+
+Provides the navigation menu with a list of items and a viewport for content.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+| closeDelay | `number` | `300` |
+| defaultValue | `string` | `undefined` |
+| disableClickTrigger | `boolean` | `undefined` |
+| disableHoverTrigger | `boolean` | `undefined` |
+| disablePointerLeaveClose | `boolean` | `undefined` |
+| hideMode | `HideMode` | `'display-none'` |
+| id | `string` | `undefined` |
+| ids | `Partial<{ root: string; list: string; item: string; trigger: (value: string) => string; content: (value: string) => string; viewport: string }>` | `undefined` |
+| lazyMount | `boolean` | `false` |
+| onValueChange | `(details: ValueChangeDetails) => void` | `undefined` |
+| openDelay | `number` | `200` |
+| orientation | `'horizontal' \| 'vertical'` | `"horizontal"` |
+| translations | `IntlTranslations` | `undefined` |
+| unmountOnExit | `boolean` | `false` |
+| value | `string` | `undefined` |
+
+### NavigationMenuTrigger
+
+Used to trigger the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuContent
+
+Used to render the content of the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuViewportPositioner
+
+Used to position the viewport of the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuViewport
+
+Used to render the viewport of the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuItem
+
+Used to render an item in the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+| value | `string` | `undefined` |
+
+### NavigationMenuList
+Used to render the list of items in the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuLink
+Used to render a link in the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuIndicator
+Used to render an indicator in the navigation menu.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |
+
+### NavigationMenuItemIndicator
+Used to render an indicator in the navigation menu item.
+| Property | Type | Default |
+| :--- | :--- | :--- |
+| asChild | `boolean` | `undefined` |

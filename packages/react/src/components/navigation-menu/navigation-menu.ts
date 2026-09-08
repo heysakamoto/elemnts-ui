@@ -10,7 +10,7 @@ export const NavigationMenuRootProvider = withProvider(
 );
 NavigationMenuRootProvider.displayName = "NavigationMenuRootProvider";
 
-export const NavigationMenuRoot = withContext(NavigationMenu.Root, "root");
+export const NavigationMenuRoot = withProvider(NavigationMenu.Root, "root");
 NavigationMenuRoot.displayName = "NavigationMenuRoot";
 
 export const NavigationMenuArrow = withContext(NavigationMenu.Arrow, "root");
