@@ -1,5 +1,11 @@
 # @elemnts-ui/core
 
+## 0.0.22
+
+### Patch Changes
+
+- Added NavigationMenu component
+
 ## 0.0.3
 
 ### Patch Changes
