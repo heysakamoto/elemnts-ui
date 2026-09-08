@@ -4,24 +4,25 @@ import { size } from "../constants/size";
 import { itemRecipe } from "../recipes/item";
 
 export const tileRecipe = defineSlotRecipe({
-	className: "tile",
-	slots: [
-		"root",
-		"content",
-		"control",
-		"addon",
-		"title",
-		"description",
-		"indicator",
-	],
-	base: {
-		root: {
-			...itemRecipe.base,
-			alignItems: "start",
-		},
-		indicator: {
-			boxSize: "fit",
-			color: "inherit",
+  className: "tile",
+  slots: [
+    "root",
+    "content",
+    "control",
+    "addon",
+    "title",
+    "description",
+    "indicator",
+  ],
+  base: {
+    root: {
+      ...itemRecipe.base,
+      alignItems: "start",
+    },
+    indicator: {
+      flexShrink: 0,
+      boxSize: "fit",
+      color: "inherit",
 		},
 		control: {
 			boxSize: "fit",
