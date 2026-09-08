@@ -26,76 +26,76 @@ export function Example(props: ExampleProps) {
 	const { example, source } = useExample(name);
 
 	return (
-		<Surface mt="32" delta={1} rounded="16" shadowLevel={0}>
-			<Surface.Content
-				p="24"
-				minH="20rem"
-				align="center"
-				justify="center"
-				overflow="scroll"
-				scrollbar="hidden"
-			>
-				<Show when={example.data}>{(Example) => <Example />}</Show>
-				<Show when={!example.data && !example.isLoading}>
-					<Alert py="8" px="12" w="fit" delta={0} status="warning">
-						<Alert.Indicator>
-							<Icon width={16} height={16} icon="tabler:alert-triangle" />
-						</Alert.Indicator>
-						<Alert.Content>
-							<Alert.Title fontSize="14">Component not found.</Alert.Title>
-						</Alert.Content>
-					</Alert>
-				</Show>
-			</Surface.Content>
-			<Show when={!hideCode}>
-				<Separator orientation="horizontal" variant="tertiary" />
-				<Surface.Footer position="relative">
-					<ButtonGroup
-						p="2"
-						gap="2"
-						size="xs"
-						zIndex="1"
-						shadow="2"
-						left="50%"
-						bottom="12"
-						rounded="16"
-						align="center"
-						direction="row"
-						position="absolute"
-						bgColor="surface.1"
-						transform="translateX(-50%)"
-						border="1px solid {colors.stroke.secondary}"
-					>
-						<ButtonGroup.Item
-							rounded="14"
-							fontSize="14"
-							variant="secondary"
-							{...collapsible.getTriggerProps()}
-						>
-							{collapsible.open ? "Hide" : "Expand"} code
-						</ButtonGroup.Item>
-						<CopyButton
-							size="xs"
-							rounded="14"
-							position="static"
-							value={source.data ?? ""}
-						/>
-					</ButtonGroup>
-					<Surface.Addon
-						px="12"
-						py="12"
-						maxH="16rem"
-						overflow="auto"
-						scrollbar="hidden"
-						bgColor="surface.7"
-						{...collapsible.getContentProps()}
-					>
-						<DynamicCode code={source.data ?? ""} lang="tsx" />
-					</Surface.Addon>
-				</Surface.Footer>
-			</Show>
-		</Surface>
-	);
+    <Surface
+      mt="32"
+      delta={1}
+      rounded="16"
+      shadowLevel={0}
+      overflow="visible"
+      scrollbar="hidden"
+    >
+      <Surface.Content p="24" minH="24rem" align="center" justify="center">
+        <Show when={example.data}>{(Example) => <Example />}</Show>
+        <Show when={!example.data && !example.isLoading}>
+          <Alert py="8" px="12" w="fit" delta={0} status="warning">
+            <Alert.Indicator>
+              <Icon width={16} height={16} icon="tabler:alert-triangle" />
+            </Alert.Indicator>
+            <Alert.Content>
+              <Alert.Title fontSize="14">Component not found.</Alert.Title>
+            </Alert.Content>
+          </Alert>
+        </Show>
+      </Surface.Content>
+      <Show when={!hideCode}>
+        <Separator orientation="horizontal" variant="tertiary" />
+        <Surface.Footer position="relative">
+          <ButtonGroup
+            p="2"
+            gap="2"
+            size="xs"
+            zIndex="1"
+            shadow="2"
+            left="50%"
+            bottom="12"
+            rounded="16"
+            align="center"
+            direction="row"
+            position="absolute"
+            bgColor="surface.1"
+            transform="translateX(-50%)"
+            border="1px solid {colors.stroke.secondary}"
+          >
+            <ButtonGroup.Item
+              rounded="14"
+              fontSize="14"
+              variant="secondary"
+              {...collapsible.getTriggerProps()}
+            >
+              {collapsible.open ? "Hide" : "Expand"} code
+            </ButtonGroup.Item>
+            <CopyButton
+              size="xs"
+              rounded="14"
+              position="static"
+              value={source.data ?? ""}
+            />
+          </ButtonGroup>
+          <Surface.Addon
+            px="12"
+            py="12"
+            maxH="16rem"
+            overflow="auto"
+            scrollbar="hidden"
+            bgColor="surface.7"
+            {...collapsible.getContentProps()}
+          >
+            <DynamicCode code={source.data ?? ""} lang="tsx" />
+          </Surface.Addon>
+        </Surface.Footer>
+      </Show>
+    </Surface>
+  );
 }
 
 function useExample(name: string) {
