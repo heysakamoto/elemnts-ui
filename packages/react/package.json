@@ -1,6 +1,6 @@
 {
   "name": "@elemnts-ui/react",
-  "version": "0.0.21",
+  "version": "0.0.3",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
