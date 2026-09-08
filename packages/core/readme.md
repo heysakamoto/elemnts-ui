@@ -1,6 +1,7 @@
 # @elemnts-ui/core
 
-A PandaCSS preset for elemnts-ui, providing built-in colors and component styles.
+Official core package for elemnts-ui, providing tailored styling solutions with PandaCSS presets and a set of Tailwind CSS V4 color schemes for seamless integration.
+
 
 ## Features
 - Built-in colors for seamless integration with elemnts-ui.
