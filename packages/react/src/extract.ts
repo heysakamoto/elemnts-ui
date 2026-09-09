@@ -110,7 +110,7 @@ import {
 	treeViewRecipe,
 	visuallyHiddenRecipe,
 	wheelPickerRecipe,
-} from "../../styled-system/recipes";
+} from "./styled-system/recipes";
 
 // ** Accordion Recipe **
 accordionRecipe();

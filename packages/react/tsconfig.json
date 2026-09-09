@@ -11,7 +11,7 @@
 	"exclude": [
 		"src/extract.ts",
 		"src/styled-system",
-		"src/components/**/examples",
-		"src/components/**/stories.tsx"
+    "src/*/**/examples",
+    "src/*/**/stories.tsx"
 	]
 }

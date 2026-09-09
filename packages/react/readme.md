@@ -34,7 +34,7 @@ To begin using Elemnts UI components, follow these straightforward steps:
    yarn add @elemnts-ui/react @elemnts-ui/core && yarn add -D @pandacss/dev
 
    # Using npm
-   npm install @elemnts-ui/react @elemnts-ui/core --save-dev
+   npm install @elemnts-ui/react @elemnts-ui/core && npm install -D @pandacss/dev 
 
    # Using bun
    bun add @elemnts-ui/react @elemnts-ui/core && bun add -D @pandacss/dev

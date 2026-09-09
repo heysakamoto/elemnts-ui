@@ -13,6 +13,41 @@
     "component",
     "ui",
     "element",
+    "accordion",
+    "tab",
+    "menu",
+    "dropdown",
+    "button",
+    "badge",
+    "tags-input",
+    "editable",
+    "avatar",
+    "carousel",
+    "collapsible",
+    "color-picker",
+    "date-picker",
+    "dialog",
+    "floating-panel",
+    "pagination",
+    "progress",
+    "radio-group",
+    "popover",
+    "qr-code",
+    "scroll-area",
+    "select",
+    "slider",
+    "steps",
+    "timer",
+    "toast",
+    "toggle",
+    "tour",
+    "listbox",
+    "tooltip",
+    "field",
+    "marquee",
+    "slider",
+    "fieldset",
+    "switch",
     "ark",
     "pandacss",
     "design-system",
@@ -20,14 +55,14 @@
     "elemnts-ui"
   ],
   "author": {
-    "name": "heysakaElemnts"
+    "name": "heysakamoto"
   },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heysakaElemnts/Elemnts-ui.git",
+    "url": "https://github.com/heysakamoto/elemnts-ui",
     "directory": "packages/react"
   },
   "exports": {
@@ -40,6 +75,11 @@
       "types": "./dist/components/*/index.d.ts",
       "import": "./dist/components/*/index.js",
       "require": "./dist/components/*/index.cjs"
+    },
+    "./hotkeys": {
+      "types": "./dist/providers/hotkeys/index.d.ts",
+      "import": "./dist/providers/hotkeys/index.js",
+      "require": "./dist/providers/hotkeys/index.cjs"
     },
     "./buildinfo.json": "./dist/buildinfo.json"
   },
@@ -67,10 +107,10 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.39.0",
+    "@ark-ui/react": "^5.39.1",
     "@dnd-kit/react": "^0.4.0",
-    "@iconify/react": "^6.0.2",
     "@elemnts-ui/core": "workspace:*",
+    "@iconify/react": "^6.0.2",
     "@ncdai/react-wheel-picker": "^1.2.2"
   }
 }
