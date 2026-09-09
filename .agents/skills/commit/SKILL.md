@@ -32,7 +32,7 @@ When the user asks you to generate a commit message, run `git diff --staged` to 
 ## Example
 
 ```text
-feat(preset-base): add semantic tokens for soft backgrounds
+feat(presets): add semantic tokens for soft backgrounds
 
 Implemented the DEFAULT semantic token specifically for soft backgrounds
 across the component library, ensuring contrast ratios are maintained.

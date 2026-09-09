@@ -594,13 +594,13 @@ Stories must exist under:
 Create:
 
 ```txt
-/packages/preset-base/src/theme/slot-recipes/<component>.ts
+/packages/core/src/registry/slot-recipes/<component>.ts
 ```
 
 Register inside:
 
 ```txt
-/packages/preset-base/src/theme/slot-recipes/index.ts
+/packages/core/src/registry/slot-recipes/index.ts
 ```
 
 ---
