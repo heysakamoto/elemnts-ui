@@ -17,8 +17,8 @@ export default defineConfig({
     "!src/**/__tests__/**",
     "!src/**/__mocks__/**",
     "!src/extract.ts",
-    "!src/components/**/examples/**",
-    "!src/components/**/stories.tsx",
+    "!src/**/examples/**",
+    "!src/**/stories.tsx",
   ],
   outExtensions: ({ format }) => ({
     js: format === "cjs" ? ".cjs" : ".js",

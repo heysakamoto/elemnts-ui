@@ -1,4 +1,4 @@
-import { basePreset } from "@elemnts-ui/core/presets";
+import { basePreset } from "@elemnts-ui/core";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
