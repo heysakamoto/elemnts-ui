@@ -1,13 +1,13 @@
 import {
-	Button,
-	Container,
-	Group,
-	Icon,
-	Kbd,
-	KbdGroup,
-	Section,
-	Stack,
-	VisuallyHidden,
+  Button,
+  Container,
+  Group,
+  Icon,
+  Kbd,
+  Section,
+  Stack,
+  useFormatHotkey,
+  VisuallyHidden,
 } from "@elemnts-ui/react";
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/base/logo";
@@ -17,6 +17,7 @@ import {
 } from "./client";
 
 export function DocsLayoutHeader() {
+  const formatHotkey = useFormatHotkey();
 	const commandMenu = useDocsLayoutCommandMenuContext();
 	const mobileMenu = useDocsLayoutMobileMenuContext();
 
@@ -38,24 +39,22 @@ export function DocsLayoutHeader() {
 				>
 					<Logo />
 
-					<Group>
-						<Button
-							w="18rem"
-							size="sm"
-							hideBelow="sm"
-							variant="surface"
-							color="fg.tertiary"
-							onClick={() => commandMenu.setOpen(true)}
-						>
-							<Icon ml="-2" icon="tabler:search" width="14" height="14" />
-							Search
-							<KbdGroup ml="12" mr="-12" gap="4" flex="1" justify="end">
-								<Kbd size="2xs" variant="ghost" color="inherit">
-									⌘ K
-								</Kbd>
-							</KbdGroup>
-						</Button>
-					</Group>
+          <Group>
+            <Button
+              w="18rem"
+              size="sm"
+              hideBelow="sm"
+              variant="surface"
+              color="fg.tertiary"
+              onClick={() => commandMenu.setOpen(true)}
+            >
+              <Icon ml="-2" icon="tabler:search" width="14" height="14" />
+              Search
+              <Kbd size="2xs" variant="surface" color="inherit">
+                {formatHotkey("mod+K")}
+              </Kbd>
+            </Button>
+          </Group>
 
 					<Group justify="end" gap={{ base: "8", lg: "16" }}>
 						<Button

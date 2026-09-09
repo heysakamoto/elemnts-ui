@@ -11,9 +11,9 @@ import {
 	Separator,
 	Show,
 	Spinner,
-	Surface,
+  Surface,
+  useHotkey,
 } from "@elemnts-ui/react";
-import { useHotkey } from "@tanstack/react-hotkeys";
 import { useNavigate } from "@tanstack/react-router";
 import type { SortedResult } from "fumadocs-core/search";
 import { useDocsSearch } from "fumadocs-core/search/client";
@@ -34,9 +34,9 @@ export function DocsLayoutCommandMenu(props: DocsLayoutCommandMenuProps) {
 		delayMs: 200,
 		allowEmpty: false,
 		type: value.open ? "fetch" : "static",
-	});
+  });
 
-	useHotkey("Mod+K", () => value.setOpen(true));
+  useHotkey({ hotkey: "mod+K", action: () => value.setOpen(true) });
 
 	const collection = useMemo(() => {
 		const items = Array.isArray(query.data) ? query.data : emptyItems;
