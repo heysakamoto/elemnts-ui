@@ -24,36 +24,31 @@
       "require": "./dist/index.cjs"
     },
     "./presets": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./presets/*": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/presets/index.d.ts",
+      "import": "./dist/presets/index.js",
+      "require": "./dist/presets/index.cjs"
     },
     "./colors": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/colors/index.d.ts",
+      "import": "./dist/colors/index.js",
+      "require": "./dist/colors/index.cjs"
     },
     "./registry": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/registry/index.d.ts",
+      "import": "./dist/registry/index.js",
+      "require": "./dist/registry/index.cjs"
     }
   },
   "author": {
-    "name": "heysakaElemnts"
+    "name": "heysakamoto"
   },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "directory": "packages/preset-base",
-    "url": "https://github.com/heysakaElemnts/Elemnts-ui.git"
+    "directory": "packages/core",
+    "url": "https://github.com/heysakamoto/elemnts-ui"
   },
   "files": [
     "dist",
