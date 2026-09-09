@@ -1,0 +1,136 @@
+---
+status: new
+title: Hotkeys
+description: Create and manage keyboard shortcuts, sequences, and scopes to quickly access commands via a customizable command palette.
+links:
+  ark: https://ark-ui.com/docs/utilities/hotkeys
+  source: https://github.com/heysakamoto/elemnts-ui/blob/main/packages/react/src/components/hotkeys/index.ts
+---
+
+<Example name="hotkeys:preview" />
+
+## Examples
+
+### Basic
+
+A simple like/dislike button toggled via keyboard shortcuts.
+
+<Example name="hotkeys:basic" />
+
+### Multiple Shortcuts
+
+In `useHotkeys`, pass an array to handle multiple shortcuts. Each entry in the array must include a keyboard shortcut and the corresponding action to execute.
+
+<Example name="hotkeys:multiple-shortcuts" />
+
+## API Reference
+
+### createHotkeyStore
+
+| Prop                | Type                                        | Default Value |
+| :------------------ | :------------------------------------------ | :------------ |
+| `activeScopes`      | `string \| string[]`                        | `['*']`       |
+| `conflictBehavior`  | `'warn' \| 'error' \| 'replace' \| 'allow'` | `'warn'`      |
+| `defaultOptions`    | `HotkeyOptions`                             | `undefined`   |
+| `sequenceTimeoutMs` | `number`                                    | `1000`        |
+| `returns`           | `HotkeyStore`                               | `undefined`   |
+
+### useHotkey
+
+| Prop    | Type             | Default Value |
+| :------ | :--------------- | :------------ |
+| `props` | `UseHotkeyProps` | `undefined`   |
+
+### useHotkeys
+
+| Prop       | Type                  | Default Value |
+| :--------- | :-------------------- | :------------ |
+| `commands` | `UseHotkeysCommand[]` | `undefined`   |
+| `store`    | `HotkeyStore`         | `undefined`   |
+| `id`       | `string`              | `undefined`   |
+
+### UseHotkeysCommand
+
+| Prop          | Type                             | Default Value |
+| :------------ | :------------------------------- | :------------ |
+| `id`          | `string`                         | `undefined`   |
+| `hotkey`      | `string`                         | `undefined`   |
+| `action`      | `(event: KeyboardEvent) => void` | `undefined`   |
+| `label`       | `string`                         | `undefined`   |
+| `description` | `string`                         | `undefined`   |
+| `category`    | `string`                         | `undefined`   |
+| `keywords`    | `string[]`                       | `undefined`   |
+| `scopes`      | `string \| string[]`             | `'*'`         |
+| `enabled`     | `boolean \| (() => boolean)`     | `true`        |
+| `options`     | `HotkeyOptions`                  | `undefined`   |
+
+### HotkeyOptions
+
+| Prop                      | Type                                               | Default Value |
+| :------------------------ | :------------------------------------------------- | :------------ |
+| `preventDefault`          | `boolean`                                          | `undefined`   |
+| `stopPropagation`         | `boolean`                                          | `undefined`   |
+| `enableOnFormTags`        | `boolean \| ('input' \| 'textarea' \| 'select')[]` | `false`       |
+| `enableOnContentEditable` | `boolean`                                          | `false`       |
+| `capture`                 | `boolean`                                          | `true`        |
+| `requireReset`            | `boolean`                                          | `false`       |
+| `eventType`               | `'keydown' \| 'keyup'`                             | `'keydown'`   |
+| `target`                  | `Element \| (() => Element \| null)`               | `undefined`   |
+
+### useHotkeyRegistrations
+
+| Prop      | Type              | Default Value |
+| :-------- | :---------------- | :------------ |
+| `store`   | `HotkeyStore`     | `undefined`   |
+| `returns` | `HotkeyCommand[]` | `undefined`   |
+
+### useHotkeyStore
+
+| Prop      | Type          | Default Value |
+| :-------- | :------------ | :------------ |
+| `returns` | `HotkeyStore` | `undefined`   |
+
+### usePressedKeys
+
+| Prop      | Type          | Default Value |
+| :-------- | :------------ | :------------ |
+| `store`   | `HotkeyStore` | `undefined`   |
+| `returns` | `string[]`    | `undefined`   |
+
+### useIsKeyPressed
+
+| Prop      | Type          | Default Value |
+| :-------- | :------------ | :------------ |
+| `hotkey`  | `string`      | `undefined`   |
+| `store`   | `HotkeyStore` | `undefined`   |
+| `returns` | `boolean`     | `undefined`   |
+
+### usePlatform
+
+| Prop      | Type       | Default Value |
+| :-------- | :--------- | :------------ |
+| `returns` | `Platform` | `undefined`   |
+
+### useFormatHotkey
+
+| Prop      | Type                                                        | Default Value |
+| :-------- | :---------------------------------------------------------- | :------------ |
+| `returns` | `(hotkey: string, options?: HotkeyFormatOptions) => string` | `undefined`   |
+
+### useHotkeyRecorder
+
+| Prop      | Type                      | Default Value |
+| :-------- | :------------------------ | :------------ |
+| `props`   | `UseHotkeyRecorderProps`  | `undefined`   |
+| `returns` | `UseHotkeyRecorderReturn` | `undefined`   |
+
+### UseHotkeyRecorderReturn
+
+| Prop        | Type                     | Default Value |
+| :---------- | :----------------------- | :------------ |
+| `recording` | `boolean`                | `undefined`   |
+| `value`     | `RecordedHotkey \| null` | `undefined`   |
+| `start`     | `() => void`             | `undefined`   |
+| `stop`      | `() => void`             | `undefined`   |
+| `cancel`    | `() => void`             | `undefined`   |
+| `clear`     | `() => void`             | `undefined`   |
