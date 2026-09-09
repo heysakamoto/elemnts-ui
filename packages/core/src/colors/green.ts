@@ -1,4 +1,4 @@
-import type { ColorScale } from "../types";
+import type { ColorScale } from "./types";
 
 export const green = {
 	50: "oklch(98.2% 0.018 155.826)",

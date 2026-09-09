@@ -1,4 +1,4 @@
-import type { ColorScale } from "../types";
+import type { ColorScale } from "./types";
 
 export const lime = {
 	50: "oklch(98.6% 0.031 120.757)",

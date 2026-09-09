@@ -1,4 +1,4 @@
-import type { ColorScale } from "../types";
+import type { ColorScale } from "./types";
 
 export const fuchsia = {
 	50: "oklch(97.7% 0.017 320.058)",
