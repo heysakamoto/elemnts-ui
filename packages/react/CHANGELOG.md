@@ -1,5 +1,18 @@
 # @elemnts-ui/react
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @elemnts-ui/core@0.0.4
+
+## 0.0.4
+
+### Patch Changes
+
+- Added hotkeys utilities
+
 ## 0.0.22
 
 ### Patch Changes

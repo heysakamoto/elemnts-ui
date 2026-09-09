@@ -1,9 +1,25 @@
 ---
-status: new
 title: Changelog
 description: All previous and current changes can be found here
 ---
 
+## 0.0.4
+<Timeline>
+  <TimelineItem index={1} title="What's New">
+    **Added Hotkeys utility**
+      
+    Easily create and customize keyboard shortcuts, sequences, and scopes to access commands instantly. This allows you to personalize your app workflow by defining shortcuts for frequently used actions.
+      
+    <Example name="hotkeys:preview" hideCode />
+
+    To learn more, check out the [Hotkeys documentation](/docs/components/hotkeys).
+  </TimelineItem>
+  <TimelineItem index={2} title="Improvements">
+    **Updated sizes**
+    
+    The size and border-radius of components (button, chip, code, input, textarea, etc.) has been updated to improve consistency and usability across the library.
+  </TimelineItem>
+</Timeline>
 
 ## 0.0.3
 <Timeline>
@@ -88,11 +104,11 @@ description: All previous and current changes can be found here
 
   **New packages**
 
-  We have launched `@elemnts-ui/core`, a standalone package designed to replace several legacy internal dependencies, including `@elemnts-ui/colors` and `@elemnts-ui/preset-base`.
+  We have launched `@elemnts-ui/core`, a standalone package designed to replace several legacy internal dependencies.
 
   **Key Reason for the Update**
   
-  We removed **@moto-ui/styled-system** because its fixed `jsxFramework` setting could conflict with other frameworks packages. We combined **@moto-ui/colors** and **@moto-ui/preset-base** into **@elemnts-ui/core**, making updates easier and ensuring compatibility with the latest Panda CSS versions.
+  We removed **styled-system** package because its fixed `jsxFramework` setting could conflict with other frameworks packages. We combined **@moto-ui/colors** and **@moto-ui/preset-base** into **@elemnts-ui/core**, making updates easier and ensuring compatibility with the latest Panda CSS versions.
   
   ---
   
