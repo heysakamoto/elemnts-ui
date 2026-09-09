@@ -1,6 +1,6 @@
 {
   "name": "@elemnts-ui/core",
-  "version": "0.0.3",
+  "version": "0.0.31",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
