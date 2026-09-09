@@ -1,4 +1,4 @@
-import type { ColorScale } from "../types";
+import type { ColorScale } from "./types";
 
 export const blackAlpha = {
 	50: "oklch(0 0 0 / 5%)",

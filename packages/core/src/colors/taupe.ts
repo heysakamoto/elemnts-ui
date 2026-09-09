@@ -1,4 +1,4 @@
-import type { ColorScale } from "../types";
+import type { ColorScale } from "./types";
 
 export const taupe = {
 	50: "oklch(98.6% 0.002 67.8)",

@@ -1,4 +1,4 @@
-import type { ColorScale } from "../types";
+import type { ColorScale } from "./types";
 
 export const mauve = {
 	50: "oklch(98.5% 0 0)",
